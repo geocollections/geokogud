@@ -27,22 +27,56 @@ angular.module('search.news', []).config(function($stateProvider, $urlRouterProv
 
 });
 
-angular.module('search').controller('SearchInfoController', function(SearchService, $scope, $http){
+angular.module('search').controller('SearchInfoController', function(SearchService, $scope, $uibModal){
+    $scope.searchService = SearchService;
+
     $scope.seachTaxonomy = function(val) {
-        SearchService.taxonomySearch(val).then(function(result) {
+        $scope.hideFullList = false;
+        SearchService.taxonListSearch(val).then(function(result) {
             $scope.taxonResult = result;
         });
     };
     $scope.seachTaxonomy();
 
+    $scope.taxonSelected = function(item) {
+        $scope.hideFullList = true;
+        $scope.currenResult = item;
+    }
+
+    $scope.openTaxonModal = function(taxon) {
+        $uibModal.open({
+            templateUrl:'/app/search/dialogs/taxon_modal.html',
+            controller: function ($scope, $uibModalInstance, entity) {
+                $scope.entity = entity
+
+                $scope.cancel = function () {
+                    $uibModalInstance.dismiss();
+                };
+            },
+            resolve: {
+                entity: function () {
+                    return angular.copy(taxon);
+                }
+            }
+        });
+    }
 }).controller('SearchNewsController', function(){
     console.log("SearchNewsController");
-}).factory("SearchService", function($http) {
+}).factory("SearchService", function($http, $q) {
     var apiUrl = '/search';
+    var deferred = $q.defer();
     return {
-        taxonomySearch: function () {
-            return $http.get(apiUrl + '/taxon').then(function(response) {
+        taxonListSearch: function () {
+            return $http.get(apiUrl + '/taxonList').then(function(response) {
                     return response.data;
+            });
+        },
+
+        taxonSearch: function (val) {
+            return $http.get(apiUrl + '/taxon', {
+                params: {term: val}
+            }).then(function (response) {
+                return response.data.results;
             });
         }
     };

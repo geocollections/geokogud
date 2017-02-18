@@ -23,18 +23,34 @@ public class SearchApiService {
     @Value("${geo-api.url}")
     private String apiUrl;
 
-    public TaxonApiResponse searchTaxon() {
-        SearchApiRequest request = new SearchApiRequest();
-        request.setFormat("json");
-        return searchTaxon(request);
+    public TaxonApiResponse searchTaxonList() {
+        return searchTaxonList(new SearchApiRequest());
     }
-    public TaxonApiResponse searchTaxon(SearchApiRequest request) {
-/*        String url = apiUrl + "/taxon?format=" + request.getFormat();
-        ResponseEntity<TaxonApiResponse> response = restTemplate.getForEntity(url, TaxonApiResponse.class);*/
+    public TaxonApiResponse searchTaxonList(SearchApiRequest request) {
+        String url = apiUrl + "/taxon?format=" + request.getOutputFormat();
+        ResponseEntity<TaxonApiResponse> response = restTemplate.getForEntity(url, TaxonApiResponse.class);
+
+        /* This syntax is also working
 
         RestTemplate restTemplate = new RestTemplate();
         UriComponentsBuilder urlBuilder = UriComponentsBuilder.fromHttpUrl(apiUrl + "/taxon");
         urlBuilder.queryParam("format", "json");
         return restTemplate.getForObject(urlBuilder.build(false).toUriString(), TaxonApiResponse.class);
+
+        */
+
+        return  response.getBody();
+    }
+
+    public TaxonApiResponse searchTaxon(String q) {
+        SearchApiRequest request = new SearchApiRequest();
+        request.setField("taxon");
+        request.setSearchCriteria("istartswith");
+        return searchTaxon(q,request);
+    }
+    public TaxonApiResponse searchTaxon(String q, SearchApiRequest request) {
+        String url = apiUrl + "/taxon?format=" + request.getOutputFormat()+"&"+request.getField()+"__"+request.getSearchCriteria()+"="+q;
+        ResponseEntity<TaxonApiResponse> response = restTemplate.getForEntity(url, TaxonApiResponse.class);
+        return  response.getBody();
     }
 }
