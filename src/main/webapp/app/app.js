@@ -36,11 +36,15 @@ angular.module('geoApp').config(function($stateProvider, $urlRouterProvider, $ht
         params: {toState: {name: 'main'}, id: null, readOnly: true, serviceAreaId: null},
         controller: function($http, $rootScope, $state, $stateParams) {
 
-                        $rootScope.currentUser.authenticated = true;
-                        if ($stateParams.toState.name != 'index')
-                            $state.go($stateParams.toState.name, $stateParams);
-                        else
-                            $state.go('main');
+            $rootScope.currentUser.authenticated = true;
+            if ($stateParams.toState.name != 'index')
+                $state.go($stateParams.toState.name, $stateParams);
+            else
+                $state.go('main');
+
+            $http.get('/config/').then(function(response) {
+                $rootScope.config = response.data;
+            });
 
 
         },

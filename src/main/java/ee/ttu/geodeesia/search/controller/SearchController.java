@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -21,10 +22,15 @@ public class SearchController {
     @Autowired
     private SearchApiService searchApiService;
 
-    @RequestMapping(value = "/taxon", method= RequestMethod.GET)
+    @RequestMapping(value = "/taxonList", method= RequestMethod.GET)
     @ResponseBody
     public TaxonApiResponse list(){
-        return searchApiService.searchTaxon();
+        return searchApiService.searchTaxonList();
     }
 
+    @RequestMapping(value = "/taxon", method= RequestMethod.GET)
+    @ResponseBody
+    public TaxonApiResponse list(@RequestParam("term") String q){
+        return searchApiService.searchTaxon(q);
+    }
 }
