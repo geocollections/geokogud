@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="geoApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eesti geokogud</title>
+    <!--<link rel="stylesheet" href="css/bootstrap.css">-->
+    <link rel="stylesheet" href="css/bootstrap.custom.css">
+    <link rel="stylesheet" href="lib/notify/angular-notify.css">
+    <link rel="stylesheet" href="lib/ui-select/select.min.css">
+    <link rel="stylesheet" href="lib/angular-ui-bootstrap-datetimepicker/datetimepicker.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <style type="text/css">
+        [ng\:cloak], [data-ng-cloak], [ng-cloak], .ng-cloak {
+            display: none !important;
+        }
+    </style>
+</head>
+<body data-ng-cloak class="ng-cloak" role="document">
+<!-- Fixed navbar -->
+<div class="navbar navbar-inverse navbar-static-top"
+     style="background-repeat: repeat-x; border-bottom: 1px solid #999999; margin-bottom: 0 !important;"> <!--background-image: url(img/picture.png); -->
+    <div class="container">
+        <div class="navbar-header">
+            <h1 style="margin-top: auto">
+                <a class="navbar-brand" data-ui-sref="main">Eesti geokogud</a>
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="navbar navbar-inverse navbar-static-top geo-header" role="navigation" style="background-color: #000;">
+    <div class="container">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li data-ui-sref-active="active">
+                    <a data-ui-sref="main">ÜLDINFO</a>
+                </li>
+                <li href data-ui-sref-active="active">
+                    <a data-ui-sref="search">OTSING</a>
+                </li>
+                <li data-ui-sref-active="active">
+                    <a data-ui-sref="fossiilid">FOSSIILID</a>
+                </li>
+                <li data-ui-sref-active="active">
+                    <a data-ui-sref="data">ANDMED</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a style="cursor: pointer" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Abi <i class="margin-top-offset-5 tooltip-icon glyphicon glyphicon-question-sign"></i>
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li style="font-size: 14px;"><a href="#">Kasutusjuhend</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li style="text-align: center;  padding-bottom: 2%"><b>Materjalid:</b></li>
+                        <li style="font-size: 12px"><a href="#">Materjal #1</a></li>
+                        <li style="font-size: 12px"><a href="#">Materjal #2</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
+<div class="container" role="main">
+    <loading></loading>
+    <div data-ui-view></div>
+</div>
+
+
+<!-- include: "type": "js", "files": "libs.min.js" -->
+<script src="/lib/libs.min.js"></script>
+<!-- /include -->
+<script src="app/config.js"></script>
+<script src="app/app.js"></script>
+<script src="app/core/services.js"></script>
+<script src="app/core/controllers.js"></script>
+<script src="app/core/filters.js"></script>
+<script src="app/core/directives.js"></script>
+<script src="app/showErrors.js"></script>
+<script src="app/main/module.js"></script>
+<script src="app/search/module.js"></script>
+
+
+</body>
+</html>
