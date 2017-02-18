@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36}%X{audit} - %msg%n</Pattern>
+        </layout>
+    </appender>
+
+    <logger name="ee.ttu" level="INFO"/>
+<!--    <logger name="org.hibernate.persister.entity" level="DEBUG"></logger>-->
+    <root level="WARN">
+        <appender-ref ref="STDOUT" />
+    </root>
+    <logger name="org.springframework.boot.context.web.ErrorPageFilter">
+        <level value="OFF" />
+    </logger>
+</configuration>

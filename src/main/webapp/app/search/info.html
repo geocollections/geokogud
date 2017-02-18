@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="col-lg-4">
+            <div class="row geo-list-info ">
+                <div class="col-md-6 text-right">
+                    <!-- Tulemused {{ filter.pageNum * filter.pageSize - filter.pageSize + 1}} - {{ filter.pageNum * filter.pageSize}}, kokku {{filter.totalItems}} -->
+                    <p class="amount">Kokku: {{taxonResult.count}}</p>
+                </div>
+            </div>
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TAXON</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr style="cursor: pointer; " data-ng-repeat="entity in taxonResult.results">
+                    <td>{{entity.id}}</td>
+                    <td>{{entity.taxon}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="text-right">
+                <uib-pagination boundary-links="true" ng-change="searchByPage()" items-per-page="pageSize" max-size="maxSize" rotate="false" total-items="totalItems" ng-model="pageNum" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+            </div>
+        </div>
+    </div>
+</div>
