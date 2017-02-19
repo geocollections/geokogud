@@ -1,7 +1,7 @@
 package ee.ttu.geodeesia.search.controller;
 
 import ee.ttu.geodeesia.interop.api.Response.TaxonApiResponse;
-import ee.ttu.geodeesia.interop.api.SearchApiService;
+import ee.ttu.geodeesia.interop.api.ApiService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,17 +20,17 @@ public class SearchController {
     private static final Logger logger = LoggerFactory.getLogger(SearchController.class);
 
     @Autowired
-    private SearchApiService searchApiService;
+    private ApiService apiService;
 
     @RequestMapping(value = "/taxonList", method= RequestMethod.GET)
     @ResponseBody
     public TaxonApiResponse list(){
-        return searchApiService.searchTaxonList();
+        return apiService.searchTaxonList();
     }
 
     @RequestMapping(value = "/taxon", method= RequestMethod.GET)
     @ResponseBody
     public TaxonApiResponse list(@RequestParam("term") String q){
-        return searchApiService.searchTaxon(q);
+        return apiService.searchTaxon(q);
     }
 }

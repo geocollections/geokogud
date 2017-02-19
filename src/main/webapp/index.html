@@ -11,11 +11,99 @@
     <link rel="stylesheet" href="lib/ui-select/select.min.css">
     <link rel="stylesheet" href="lib/angular-ui-bootstrap-datetimepicker/datetimepicker.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel='stylesheet' href='lib/openlayers3/ol.css'>
+    <script src="lib/openlayers3/ol.js" type="text/javascript"></script>
+    <script src="lib/openlayers3/ol3-layerswitcher.js"></script>
+    <link rel="stylesheet" href="lib/openlayers3/ol3-layerswitcher.css" />
 
     <style type="text/css">
         [ng\:cloak], [data-ng-cloak], [ng-cloak], .ng-cloak {
             display: none !important;
         }
+        /* overrides of some OL styles */
+        .ol-scale-line{
+            background:#95b9e6;
+            background:rgba(0,60,136,.3);
+            border-radius:4px;
+            top:8px;
+            left:45px;
+            bottom: initial;
+            padding:2px;
+            position:absolute
+        }
+
+        .ol-attribution{
+            text-align:right;
+            top:7px;
+            right:45px;
+            bottom: initial;
+            max-width:calc(100% - 1.3em)
+        }
+
+
+        body {
+            margin: 0 0 20px 0;
+            padding: 0;
+            font-family: "segoe ui", arial, sans-serif;
+            font-size: 10pt;
+        }
+        #mapcontainer {
+            text-align: center;
+            /*margin-left: auto;
+            margin-right: auto;*/
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            left:0px;
+            z-index:-1;
+            margin: 0 0 25px 0;
+        }
+        #map {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-width: 2000px;
+            margin: 0 0 25px 0;
+            padding: 0;
+        }
+        #info {
+            position: absolute;
+            height: 1px;
+            width: 1px;
+            z-index: 100;
+        }
+        .tooltip.in {
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+        .tooltip.top .tooltip-arrow {
+            border-top-color: white;
+        }
+        .tooltip-inner {
+            border: 2px solid white;
+        }
+        #footer  {
+            width: 100%;
+            min-height: 28px;
+            max-height: 100px;
+            opacity: 0.9;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            bottom: 0px;
+            font-size: 9pt;
+            z-index: 100;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0;
+            text-align: center;
+        }
+
+        #formcontainer {
+            padding: 5px;
+        }
+
     </style>
 </head>
 <body data-ng-cloak class="ng-cloak" role="document">
@@ -73,7 +161,10 @@
 <div class="container" role="main">
     <loading></loading>
     <div data-ui-view></div>
+
 </div>
+
+
 
 
 <!-- include: "type": "js", "files": "libs.min.js" -->
