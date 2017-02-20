@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <h1 class="modal-title">Muutmine</h1>
+</div>
+<form name="documentNotesForm" autocomplete="off" novalidate>
+    <div class="modal-body">
+        <div class="row geo-section-row">
+            <label for="notes" class="col-md-2 control-label">Märkus:</label>
+            <div class="col-md-10">
+                <textarea rows="3" ng-model="notes" class="form-control" id="notes"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" ng-click="cancel()">Katkesta</button>
+        <button class="btn btn-success" ng-click="ok()">Salvesta</button>
+    </div>
+</form>

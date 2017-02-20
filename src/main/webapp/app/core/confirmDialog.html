@@ -1,0 +1,8 @@
+<div class="modal-header">
+    <h1 class="modal-title">{{data.title}}</h1>
+</div>
+<div class="modal-body">{{data.text}}</div>
+<div class="modal-footer">
+    <button class="btn btn-default" ng-click="cancel()" data-ng-hide="data.cancelBtnHidden">{{data.cancel}}</button>
+    <button class="btn btn-success" ng-click="ok()">{{data.ok}}</button>
+</div>
