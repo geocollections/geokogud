@@ -36,7 +36,6 @@ public class App extends SpringBootServletInitializer {
 
     public static void main(String[] args) throws Exception {
         SpringApplication app = new SpringApplication(App.class);
-        app.setShowBanner(false);
         app.addListeners(new ApplicationListener<ContextRefreshedEvent>() {
             @Override
             public void onApplicationEvent(ContextRefreshedEvent event) {

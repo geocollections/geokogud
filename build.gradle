@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '1.3.1.RELEASE'
+        springBootVersion = '1.4.2.RELEASE'
     }
     repositories {
         //maven { url '' }
@@ -17,7 +17,7 @@ buildscript {
 
 apply plugin: 'application'
 apply plugin: 'java'
-apply plugin: 'spring-boot'
+apply plugin: 'org.springframework.boot'
 apply plugin: 'war'
 apply plugin: 'idea'
 apply plugin: 'io.spring.dependency-management'
@@ -154,3 +154,8 @@ flyway {
 bootRun {
     jvmArgs = ["-Duser.timezone=Europe/Tallinn"]
 }
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.4.0'
+}
+
