@@ -1,0 +1,228 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="text-center">
+                <h1>Päring: Proovid</h1>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <label class="col-md-2">ID:</label>
+                <div class="col-md-5">
+                    <select class="col-md-4 form-control"
+                            data-ng-model="samleSearch.id.lookUpType"
+                            data-ng-options="cls.code as cls.label for cls in searchOptions">
+                        <option value="">-- Vali --</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" ng-model="samleSearch.id.name" class="form-control"/>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2">Number:</label>
+                <div class="col-md-5">
+                    <select class="col-md-4 form-control"
+                            data-ng-model="samleSearch.sampleNumber.lookUpType"
+                            data-ng-options="cls.code as cls.label for cls in searchOptions">
+                        <option value="">-- Vali --</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" ng-model="samleSearch.sampleNumber.name" class="form-control"/>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2">Leiukoht:</label>
+                <div class="col-md-5">
+                    <select class="col-md-4 form-control"
+                            data-ng-model="samleSearch.locality.lookUpType"
+                            data-ng-options="cls.code as cls.label for cls in searchOptions">
+                        <option value="">-- Vali --</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" ng-model="samleSearch.locality.name" class="form-control"/>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2">Admin. yksus:</label>
+                <div class="col-md-5">
+                    <select class="col-md-4 form-control"
+                            data-ng-model="samleSearch.country.lookUpType"
+                            data-ng-options="cls.code as cls.label for cls in searchOptions">
+                        <option value="">-- Vali --</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" ng-model="samleSearch.country.name" class="form-control"/>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2">sügavus:</label>
+                <div class="col-md-5">
+                    <select class="col-md-4 form-control"
+                            data-ng-model="samleSearch.depth.lookUpType"
+                            data-ng-options="cls.code as cls.label for cls in searchOptions">
+                        <option value="">-- Vali --</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" ng-model="samleSearch.depth.name" class="form-control"/>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2">stratigraafia:</label>
+                <div class="col-md-5">
+                    <select class="col-md-4 form-control"
+                            data-ng-model="samleSearch.stratigraphy.lookUpType"
+                            data-ng-options="cls.code as cls.label for cls in searchOptions">
+                        <option value="">-- Vali --</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" ng-model="samleSearch.stratigraphy.name" class="form-control"/>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2">bed name / index:</label>
+                <div class="col-md-5">
+                    <select class="col-md-4 form-control"
+                            data-ng-model="samleSearch.stratigraphyBed.lookUpType"
+                            data-ng-options="cls.code as cls.label for cls in searchOptions">
+                        <option value="">-- Vali --</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" ng-model="samleSearch.stratigraphyBed.name" class="form-control"/>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2">koguja:</label>
+                <div class="col-md-5">
+                    <select class="col-md-4 form-control"
+                            data-ng-model="samleSearch.agent.lookUpType"
+                            data-ng-options="cls.code as cls.label for cls in searchOptions">
+                        <option value="">-- Vali --</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" ng-model="samleSearch.agent.name" class="form-control"/>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2">Kaal:</label>
+                <div class="col-md-5">
+                    <select class="col-md-4 form-control"
+                            data-ng-model="samleSearch.mass.lookUpType"
+                            data-ng-options="cls.code as cls.label for cls in searchOptions">
+                        <option value="">-- Vali --</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" ng-model="samleSearch.mass.name" class="form-control"/>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2">hoiukoht:</label>
+                <div class="col-md-5">
+                    <select class="col-md-4 form-control"
+                            data-ng-model="samleSearch.location.lookUpType"
+                            data-ng-options="cls.code as cls.label for cls in searchOptions">
+                        <option value="">-- Vali --</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" ng-model="samleSearch.location.name" class="form-control"/>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2">Taksoni nimi:</label>
+                <div class="col-md-5">
+                    <select class="col-md-4 form-control"
+                            data-ng-model="samleSearch.taxon.lookUpType"
+                            data-ng-options="cls.code as cls.label for cls in searchOptions">
+                        <option value="">-- Vali --</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" ng-model="samleSearch.taxon.name" class="form-control"/>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2">Taksoni arvukus:</label>
+                <div class="col-md-5">
+                    <select class="col-md-4 form-control"
+                            data-ng-model="samleSearch.frequency.lookUpType"
+                            data-ng-options="cls.code as cls.label for cls in searchOptions">
+                        <option value="">-- Vali --</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" ng-model="samleSearch.frequency.name" class="form-control"/>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2">Analüüsi tüüp:</label>
+                <div class="col-md-5">
+                    <select class="col-md-4 form-control"
+                            data-ng-model="samleSearch.analysis.lookUpType"
+                            data-ng-options="cls.code as cls.label for cls in searchOptions">
+                        <option value="">-- Vali --</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" ng-model="samleSearch.analysis.name" class="form-control"/>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2">Analyysitud komponent:</label>
+                <div class="col-md-5">
+                    <select class="col-md-4 form-control"
+                            data-ng-model="samleSearch.component.lookUpType"
+                            data-ng-options="cls.code as cls.label for cls in searchOptions">
+                        <option value="">-- Vali --</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" ng-model="samleSearch.component.name" class="form-control"/>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2">Komponendi sisaldus:</label>
+                <div class="col-md-5">
+                    <select class="col-md-4 form-control"
+                            data-ng-model="samleSearch.content.lookUpType"
+                            data-ng-options="cls.code as cls.label for cls in searchOptions">
+                        <option value="">-- Vali --</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" ng-model="samleSearch.content.name" class="form-control"/>
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-md-2">Asutused:</label>
+                <label data-ng-repeat="state in departments">
+                    <input style="margin: 10px;"
+                           type="checkbox"
+                           value="{{state.code}}"
+                           data-ng-checked="sampleSearch.dbs.indexOf(state.code) > -1"
+                           data-ng-click="toggle(state.code)"> {{state.label}}
+                </label>
+            </div>
+            <div class="row geo-section-row no-border">
+                <button class="btn btn-default pull-right" data-ng-click="search()">
+                    <i class="glyphicon glyphicon-search"></i> Saada päring</button>
+            </div>
+        </div>
+        <div class="col-md-6">ABIKS PÄRINGU KOOSTAMISEL:
+            <ul>
+                <li>Valige põhitabel (eksemplarid, proovid, lokaliteedid, kirjandus jne);</li>
+                <li>Sisestage üks või mitu otsingukriteeriumit; NB! suur- ja väiketähti ei eristata; tekstiväljade puhul otsitakse vaikimisi vasteid, kus sisaldub otsingusõna (st. otsing 'asap' leiab üles nii 'Asaphus sp.' kui ka 'Asaphus expansus'); klassifikatsiooni ja stratigraafia puhul toimib vaikimisi hierarhiline otsing, numbrite puhul otsitakse täpset vastet, kui kasutaja ei määra teisiti;</li>
+                <li>Kaardi kuvamiseks märkige vastav linnuke;</li>
+                <li>Detailsema infoni jõudmiseks kasutage otsingutulemuste tabelis esinevaid linke.</li>
+            </ul>
+        </div>
+    </div>
+</div>
