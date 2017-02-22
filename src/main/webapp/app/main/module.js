@@ -1,8 +1,7 @@
 'use strict';
 
 //routes
-angular.module('main', ['main.info','main.news','main.map','main.geocollection',
-'main.usingCollection', 'main.database','main.git','main.map']).config(function($stateProvider, $urlRouterProvider) {
+angular.module('main', ['main.info','main.news','main.map','main.geocollection']).config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.when('/main', '/main/info');
     $stateProvider.state('main', {
         url: "/main",
@@ -52,41 +51,26 @@ angular.module('main.geocollection', []).config(function($stateProvider, $urlRou
 });
 
 //routes
-angular.module('main.usingCollection', []).config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.when('/main/usingCollection', '/main/usingCollectionv/list');
-    $stateProvider.state('main.usingCollection', {
+angular.module('usingCollection', []).config(function($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.when('/usingCollection', '/usingCollection/list');
+    $stateProvider.state('usingCollection', {
         url: "/usingCollection",
         template: '<data-ui-view/>',
-    }).state('main.usingCollection.list', {
+    }).state('usingCollection.list', {
         url: "/list",
         templateUrl: "app/main/usingCollection.html",
-        controller: "MainInfoController"
     });
 });
 
 //routes
-angular.module('main.git', []).config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.when('/main/git', '/main/git/list');
-    $stateProvider.state('main.git', {
-        url: "/git",
-        template: '<data-ui-view/>',
-    }).state('main.git.list', {
-        url: "/list",
-        templateUrl: "app/main/git.html",
-        controller: "MainInfoController"
-    });
-});
-
-//routes
-angular.module('main.database', []).config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.when('/main/database', '/main/database/list');
-    $stateProvider.state('main.database', {
+angular.module('database', []).config(function($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.when('/database', '/database/list');
+    $stateProvider.state('database', {
         url: "/database",
         template: '<data-ui-view/>',
-    }).state('main.database.list', {
+    }).state('database.list', {
         url: "/list",
         templateUrl: "app/main/database.html",
-        controller: "MainInfoController"
     });
 });
 

@@ -5,6 +5,8 @@ angular.module('geoApp', [
     'ui.bootstrap.datetimepicker',
     'ui.router',
     'main',
+    'database',
+    'usingCollection',
     'locality',
     'cgNotify',
     'ui.select',
