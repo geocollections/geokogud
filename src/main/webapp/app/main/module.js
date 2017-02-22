@@ -11,12 +11,8 @@ angular.module('main', ['main.info','main.news','main.map','main.geocollection']
 
 //routes
 angular.module('main.info', []).config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.when('/main/info', '/main/info/list');
     $stateProvider.state('main.info', {
         url: "/info",
-        template: '<data-ui-view/>',
-    }).state('main.info.list', {
-        url: "/list",
         templateUrl: "app/main/info.html",
         controller: "MainInfoController"
     });
@@ -24,27 +20,17 @@ angular.module('main.info', []).config(function($stateProvider, $urlRouterProvid
 
 //routes
 angular.module('main.news', []).config(function($stateProvider, $urlRouterProvider) {
-
-    $urlRouterProvider.when('/main/news', '/main/news/list');
     $stateProvider.state('main.news', {
         url: "/news",
-        template: '<data-ui-view/>',
-    }).state('main.news.list', {
-        url: "/list",
         templateUrl: "app/main/news.html",
         controller: "MainNewsController"
     });
-
 });
 
 //routes
 angular.module('main.geocollection', []).config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.when('/main/geocollection', '/main/geocollection/list');
     $stateProvider.state('main.geocollection', {
         url: "/geocollection",
-        template: '<data-ui-view/>',
-    }).state('main.geocollection.list', {
-        url: "/list",
         templateUrl: "app/main/geocollection.html",
         controller: "MainInfoController"
     });
@@ -52,37 +38,24 @@ angular.module('main.geocollection', []).config(function($stateProvider, $urlRou
 
 //routes
 angular.module('usingCollection', []).config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.when('/usingCollection', '/usingCollection/list');
     $stateProvider.state('usingCollection', {
         url: "/usingCollection",
-        template: '<data-ui-view/>',
-    }).state('usingCollection.list', {
-        url: "/list",
-        templateUrl: "app/main/usingCollection.html",
+        templateUrl: "app/main/using_collection.html"
     });
 });
 
 //routes
 angular.module('database', []).config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.when('/database', '/database/list');
     $stateProvider.state('database', {
         url: "/database",
-        template: '<data-ui-view/>',
-    }).state('database.list', {
-        url: "/list",
-        templateUrl: "app/main/database.html",
+        templateUrl: "app/main/database.html"
     });
 });
 
 //routes
 angular.module('main.map', []).config(function($stateProvider, $urlRouterProvider) {
-
-    $urlRouterProvider.when('/main/map', '/main/map/list');
     $stateProvider.state('main.map', {
         url: "/map",
-        template: '<data-ui-view/>',
-    }).state('main.map.list', {
-        url: "/list",
         templateUrl: "app/main/map.html",
         controller: "MainMapController"
     });
