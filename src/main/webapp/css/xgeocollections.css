@@ -1,0 +1,31 @@
+html {
+	overflow-y: scroll;
+}
+
+#navbar a {
+	text-transform: uppercase;
+}
+
+hr.featurette-divider {
+	border: 0;
+	height: 1px;
+	background-image: -webkit-linear-gradient(left, #f0f0f0, #b2b1b1, #f0f0f0);
+	background-image: -moz-linear-gradient(left, #f0f0f0, #b2b1b1, #f0f0f0);
+	background-image: -ms-linear-gradient(left, #f0f0f0, #b2b1b1, #f0f0f0);
+	background-image: -o-linear-gradient(left, #f0f0f0, #b2b1b1, #f0f0f0);
+}
+
+.lead {
+	font-size: 18px;
+	font-weight: normal;
+}
+
+@media ( max-width : 768px) {
+	.lead {
+		font-size: 13px;
+	}
+}
+
+#links {
+	border-left: 1px solid #999999 !important;
+}

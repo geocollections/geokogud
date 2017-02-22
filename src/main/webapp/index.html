@@ -1,184 +1,224 @@
 <!DOCTYPE html>
 <html lang="en" data-ng-app="geoApp">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Eesti geokogud</title>
-    <!--<link rel="stylesheet" href="css/bootstrap.css">-->
-    <link rel="stylesheet" href="css/bootstrap.custom.css">
-    <link rel="stylesheet" href="lib/notify/angular-notify.css">
-    <link rel="stylesheet" href="lib/ui-select/select.min.css">
-    <link rel="stylesheet" href="lib/angular-ui-bootstrap-datetimepicker/datetimepicker.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel='stylesheet' href='lib/openlayers3/ol.css'>
-    <script src="lib/openlayers3/ol.js" type="text/javascript"></script>
-    <script src="lib/openlayers3/ol3-layerswitcher.js"></script>
-    <link rel="stylesheet" href="lib/openlayers3/ol3-layerswitcher.css" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eesti geokogud</title>
+<!--<link rel="stylesheet" href="css/bootstrap.css">-->
+<link rel="stylesheet" href="css/bootstrap.custom.css">
+<link rel="stylesheet" href="lib/notify/angular-notify.css">
+<link rel="stylesheet" href="lib/ui-select/select.min.css">
+<link rel="stylesheet"
+	href="lib/angular-ui-bootstrap-datetimepicker/datetimepicker.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel='stylesheet' href='lib/openlayers3/ol.css'>
+<link rel="stylesheet" href="css/xgeocollections.css">
+<link rel="stylesheet" href="css/carousel.css">
+<link rel="stylesheet" href="css/tabs.css">
+<link rel="stylesheet" href="css/tabs.sideways.css">
+<script src="lib/openlayers3/ol.js" type="text/javascript"></script>
+<script src="lib/openlayers3/ol3-layerswitcher.js"></script>
+<link rel="stylesheet" href="lib/openlayers3/ol3-layerswitcher.css" />
 
-    <style type="text/css">
-        [ng\:cloak], [data-ng-cloak], [ng-cloak], .ng-cloak {
-            display: none !important;
-        }
-        /* overrides of some OL styles */
-        .ol-scale-line{
-            background:#95b9e6;
-            background:rgba(0,60,136,.3);
-            border-radius:4px;
-            top:8px;
-            left:45px;
-            bottom: initial;
-            padding:2px;
-            position:absolute
-        }
+<style type="text/css">
+[ng\:cloak],[data-ng-cloak],[ng-cloak],.ng-cloak {
+	display: none !important;
+}
+/* overrides of some OL styles */
+.ol-scale-line {
+	background: #95b9e6;
+	background: rgba(0, 60, 136, .3);
+	border-radius: 4px;
+	top: 8px;
+	left: 45px;
+	bottom: initial;
+	padding: 2px;
+	position: absolute
+}
 
-        .ol-attribution{
-            text-align:right;
-            top:7px;
-            right:45px;
-            bottom: initial;
-            max-width:calc(100% - 1.3em)
-        }
+.ol-attribution {
+	text-align: right;
+	top: 7px;
+	right: 45px;
+	bottom: initial;
+	max-width: calc(100% - 1.3em)
+}
 
+body {
+	margin: 0 0 20px 0;
+	padding: 0;
+	font-family: "segoe ui", arial, sans-serif;
+	font-size: 10pt;
+}
 
-        body {
-            margin: 0 0 20px 0;
-            padding: 0;
-            font-family: "segoe ui", arial, sans-serif;
-            font-size: 10pt;
-        }
-        #mapcontainer {
-            text-align: center;
-            /*margin-left: auto;
+#mapcontainer {
+	text-align: center;
+	/*margin-left: auto;
             margin-right: auto;*/
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            top: 0px;
-            left:0px;
-            z-index:-1;
-            margin: 0 0 25px 0;
-        }
-        #map {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            max-width: 2000px;
-            margin: 0 0 25px 0;
-            padding: 0;
-        }
-        #info {
-            position: absolute;
-            height: 1px;
-            width: 1px;
-            z-index: 100;
-        }
-        .tooltip.in {
-            opacity: 1;
-            filter: alpha(opacity=100);
-        }
-        .tooltip.top .tooltip-arrow {
-            border-top-color: white;
-        }
-        .tooltip-inner {
-            border: 2px solid white;
-        }
-        #footer  {
-            width: 100%;
-            min-height: 28px;
-            max-height: 100px;
-            opacity: 0.9;
-            background-color: #333;
-            color: #fff;
-            position: fixed;
-            bottom: 0px;
-            font-size: 9pt;
-            z-index: 100;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0;
-            text-align: center;
-        }
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: -1;
+	margin: 0 0 25px 0;
+}
 
-        #formcontainer {
-            padding: 5px;
-        }
+#map {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	max-width: 2000px;
+	margin: 0 0 25px 0;
+	padding: 0;
+}
 
-    </style>
+#info {
+	position: absolute;
+	height: 1px;
+	width: 1px;
+	z-index: 100;
+}
+
+.tooltip.in {
+	opacity: 1;
+	filter: alpha(opacity = 100);
+}
+
+.tooltip.top .tooltip-arrow {
+	border-top-color: white;
+}
+
+.tooltip-inner {
+	border: 2px solid white;
+}
+
+#footer {
+	width: 100%;
+	min-height: 28px;
+	max-height: 100px;
+	opacity: 0.9;
+	background-color: #333;
+	color: #fff;
+	position: fixed;
+	bottom: 0px;
+	font-size: 9pt;
+	z-index: 100;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+	text-align: center;
+}
+
+#formcontainer {
+	padding: 5px;
+}
+</style>
 </head>
 <body data-ng-cloak class="ng-cloak" role="document">
-<!-- Fixed navbar -->
-<div class="navbar navbar-inverse navbar-static-top"
-     style="background-repeat: repeat-x; border-bottom: 1px solid #999999; margin-bottom: 0 !important;"> <!--background-image: url(img/picture.png); -->
-    <div class="container">
-        <div class="navbar-header">
-            <h1 style="margin-top: auto">
-                <a class="navbar-brand" data-ui-sref="main">Eesti geokogud</a>
-            </h1>
-        </div>
-    </div>
-</div>
-<div class="navbar navbar-inverse navbar-static-top geo-header" role="navigation" style="background-color: #000;">
-    <div class="container">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-inverse navbar-static-top"
+		style="background-repeat: repeat-x; border-bottom: 1px solid #999999; margin-bottom: 0 !important;">
+		<!--background-image: url(img/picture.png); -->
+		<div class="container">
+			<div class="navbar-header">
+				<h1 style="margin-top: auto">
+					<a class="navbar-brand" data-ui-sref="main">Eesti geokogud</a>
+				</h1>
+			</div>
+		</div>
+	</div>
+	<div class="navbar navbar-inverse navbar-static-top geo-header"
+		role="navigation" style="background-color: #000;">
+		<div class="container">
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+				aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
 
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li data-ui-sref-active="active">
-                    <a data-ui-sref="main">ÜLDINFO</a>
-                </li>
-                <li href data-ui-sref-active="active">
-                    <a data-ui-sref="search">OTSING</a>
-                </li>
-                <li data-ui-sref-active="active">
-                    <a href="{{config.fossilsUrl}}" target="_blank">FOSSIILID</a>
-                </li>
-                <li data-ui-sref-active="active">
-                    <a href="{{config.ermasUrl}}" target="_blank">ANDMED</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a style="cursor: pointer" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Abi <i class="margin-top-offset-5 tooltip-icon glyphicon glyphicon-question-sign"></i>
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li style="font-size: 14px;"><a href="#">Kasutusjuhend</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li style="text-align: center;  padding-bottom: 2%"><b>Materjalid:</b></li>
-                        <li style="font-size: 12px"><a href="#">Materjal #1</a></li>
-                        <li style="font-size: 12px"><a href="#">Materjal #2</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div>
-</div>
-<div class="container" role="main">
-    <loading></loading>
-    <div data-ui-view></div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li data-ui-sref-active="active"><a data-ui-sref="main">About</a>
+					</li>
+					<li href data-ui-sref-active="active"><a data-ui-sref="search">Search</a>
+					</li>
+					<li href data-ui-sref-active="active"><a href="#">Database</a>
+					</li>
+					<li href data-ui-sref-active="active"><a href="#">Using
+							collections</a></li>
+					<li data-ui-sref-active="active"><a href="{{config.apiUrl}}"
+						target="_blank">Public API</a></li>
+					<li data-ui-sref-active="active"><a
+						href="{{config.githubUrl}}" target="_blank">GitHub</a></li>
+				</ul>
 
-</div>
+				<ul class="nav navbar-nav">
+					<li class="dropdown" id="links"><a style="cursor: pointer"
+						class="dropdown-toggle" data-toggle="dropdown" role="button"
+						aria-expanded="false">Links <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li style="font-size: 12px"><a href="{{config.fossilsUrl}}"
+								target="_blank">Fossils</a></li>
+							<li style="font-size: 12px"><a href="{{config.ermasUrl}}"
+								target="_blank">ERMAS</a></li>
+							<li style="font-size: 12px"><a href="{{config.tugUrl}}"
+								target="_blank">TUG</a></li>
+							<li style="font-size: 12px"><a href="{{config.elmUrl}}"
+								target="_blank">ELM</a></li>
+							<li style="font-size: 12px"><a href="{{config.geocaseUrl}}"
+								target="_blank">GeoCASe</a></li>
+						</ul></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown"><a style="cursor: pointer"
+						class="dropdown-toggle" data-toggle="dropdown" role="button"
+						aria-expanded="false">Abi <i
+							class="margin-top-offset-5 tooltip-icon glyphicon glyphicon-question-sign"></i>
+							<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li style="font-size: 14px;"><a href="#">Kasutusjuhend</a></li>
+							<li role="separator" class="divider"></li>
+							<li style="text-align: center; padding-bottom: 2%"><b>Materjalid:</b></li>
+							<li style="font-size: 12px"><a href="#">Materjal #1</a></li>
+							<li style="font-size: 12px"><a href="#">Materjal #2</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</div>
+	<div class="container" role="main">
+		<loading></loading>
+		<div data-ui-view></div>
 
+		<!-- FOOTER -->
+		<footer>
+			<p class="pull-right">
+				<a href="#">Back to top</a>
+			</p>
+			<p>
+				&copy; 2008-2017. SARV: Geoscience collections and data repository
+				&middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
+			</p>
+		</footer>
+	</div>
 
-
-
-<!-- include: "type": "js", "files": "libs.min.js" -->
-<script src="/lib/libs.min.js"></script>
-<!-- /include -->
-<script src="app/config.js"></script>
-<script src="app/app.js"></script>
-<script src="app/core/services.js"></script>
-<script src="app/core/controllers.js"></script>
-<script src="app/core/filters.js"></script>
-<script src="app/core/directives.js"></script>
-<script src="app/showErrors.js"></script>
-<script src="app/main/module.js"></script>
-<script src="app/search/module.js"></script>
+	<!-- include: "type": "js", "files": "libs.min.js" -->
+	<script src="/lib/libs.min.js"></script>
+	<!-- /include -->
+	<script src="app/config.js"></script>
+	<script src="app/app.js"></script>
+	<script src="app/core/services.js"></script>
+	<script src="app/core/controllers.js"></script>
+	<script src="app/core/filters.js"></script>
+	<script src="app/core/directives.js"></script>
+	<script src="app/showErrors.js"></script>
+	<script src="app/main/module.js"></script>
+	<script src="app/search/module.js"></script>
 
 
 </body>
