@@ -15,4 +15,16 @@ public class AppConfig {
     @Value("${fossils.url}")
     public String fossilsUrl;
 
+    @Value("${publicApi.url}")
+    public String publicApiUrl;
+
+    @Value("${tud.url}")
+    public String tudUrl;
+
+    @Value("${elm.url}")
+    public String elmUrl;
+
+    @Value("${geoCase.url}")
+    public String geoCaseUrl;
+
 }
