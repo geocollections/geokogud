@@ -11,11 +11,7 @@
                 <div class="row" data-ng-if="showAdditionalCriteria">
                     <label class="control-label col-md-2">ID</label>
                 <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.id.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                                <option value="">-- Choose --</option>
-                        </select>
+                        <selectexact></selectexact>
                 </div>
                 <div class="col-md-5">
                     <input type="text" ng-model="sampleSearch.id.name" class="form-control"/>
@@ -24,11 +20,7 @@
                 <div class="row">
                     <label class="control-label col-md-2">Locality</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.locality.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Choose --</option>
-                        </select>
+                        <selectdefault></selectdefault>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="localitySearch.locality.name" class="form-control"/>
@@ -37,11 +29,7 @@
                 <div class="row">
                     <label class="control-label col-md-2">Number</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.number.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Choose --</option>
-                        </select>
+                        <selectdefault></selectdefault>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="localitySearch.number.name" class="form-control"/>
@@ -50,11 +38,7 @@
                 <div class="row">
                     <label class="control-label col-md-2">Country</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.country.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Choose --</option>
-                        </select>
+                        <selectdefault></selectdefault>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="localitySearch.country.name" class="form-control"/>
@@ -63,11 +47,7 @@
                 <div class="row">
                     <label class="control-label col-md-2">Admin. unit</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.adminUnit.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Choose --</option>
-                        </select>
+                        <selectdefault></selectdefault>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="localitySearch.adminUnit.name" class="form-control"/>
@@ -76,11 +56,7 @@
                 <div class="row" data-ng-if="showAdditionalCriteria">
                     <label class="control-label col-md-2">Latitude (deg. deg.)</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.latitude.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Choose --</option>
-                        </select>
+                        <selectexact></selectexact>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="localitySearch.latitude.name" class="form-control"/>
@@ -89,11 +65,7 @@
                 <div class="row" data-ng-if="showAdditionalCriteria">
                     <label class="control-label col-md-2">Longitude  (deg. deg.)</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.longitude.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Choose --</option>
-                        </select>
+                        <selectexact></selectexact>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="localitySearch.longitude.name" class="form-control"/>
@@ -102,11 +74,7 @@
                 <div class="row" data-ng-if="showAdditionalCriteria">
                     <label class="control-label col-md-2">Vertical extent (m)</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.verticalExtent.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Choose --</option>
-                        </select>
+                        <selectexact></selectexact>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="localitySearch.verticalExtent.name" class="form-control"/>
@@ -115,11 +83,7 @@
                 <div class="row">
                     <label class="control-label col-md-2">Stratigraphy</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.stratigraphy.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Choose --</option>
-                        </select>
+                        <selecthierarchy></selecthierarchy>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="localitySearch.stratigraphy.name" class="form-control"/>
@@ -128,11 +92,7 @@
                 <div class="row">
                 <label class="control-label col-md-2">Reference</label>
                 <div class="col-md-5">
-                    <select class="col-md-4 form-control"
-                            data-ng-model="sampleSearch.reference.lookUpType"
-                            data-ng-options="cls.code as cls.label for cls in searchOptions">
-                        <option value="">-- Choose --</option>
-                    </select>
+                    <selectdefault></selectdefault>
                 </div>
                 <div class="col-md-5">
                     <input type="text" ng-model="localitySearch.reference.name" class="form-control"/>
@@ -141,11 +101,7 @@
                 <div class="row">
                     <label class="control-label col-md-2">MA ID</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.maId.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Choose --</option>
-                        </select>
+                        <selectexact></selectexact>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="localitySearch.maId.name" class="form-control"/>
@@ -160,18 +116,12 @@
                     <div class="col-md-5">
                         <select class="col-md-4 form-control"
                                 data-ng-model="sampleSearch.content.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
+                                data-ng-options="option.name for option in sortbyOptions track by option.value">
                             <option value="">-- Choose --</option>
                         </select>
                     </div>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.content.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Choose --</option>
-                            <option value="asc">ASC</option>
-                            <option value="desc">DESC</option>
-                        </select>
+                        <ascdesc></ascdesc>
                     </div>
                     <div class="row">
                         <div class="col-md-5">
