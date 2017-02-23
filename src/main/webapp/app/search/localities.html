@@ -1,0 +1,240 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="text-center">
+                <h1>Search: Localities</h1>
+            </div>
+        </div>
+        <div class="row">
+            <form class="form-horizontal">
+            <div class="col-md-6">
+                <div class="row" data-ng-if="showAdditionalCriteria">
+                    <label class="control-label col-md-2">ID</label>
+                <div class="col-md-5">
+                        <select class="col-md-4 form-control"
+                                data-ng-model="sampleSearch.id.lookUpType"
+                                data-ng-options="cls.code as cls.label for cls in searchOptions">
+                                <option value="">-- Choose --</option>
+                        </select>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" ng-model="sampleSearch.id.name" class="form-control"/>
+                </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Locality</label>
+                    <div class="col-md-5">
+                        <select class="col-md-4 form-control"
+                                data-ng-model="sampleSearch.locality.lookUpType"
+                                data-ng-options="cls.code as cls.label for cls in searchOptions">
+                            <option value="">-- Choose --</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" ng-model="localitySearch.locality.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Number</label>
+                    <div class="col-md-5">
+                        <select class="col-md-4 form-control"
+                                data-ng-model="sampleSearch.number.lookUpType"
+                                data-ng-options="cls.code as cls.label for cls in searchOptions">
+                            <option value="">-- Choose --</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" ng-model="localitySearch.number.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Country</label>
+                    <div class="col-md-5">
+                        <select class="col-md-4 form-control"
+                                data-ng-model="sampleSearch.country.lookUpType"
+                                data-ng-options="cls.code as cls.label for cls in searchOptions">
+                            <option value="">-- Choose --</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" ng-model="localitySearch.country.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Admin. unit</label>
+                    <div class="col-md-5">
+                        <select class="col-md-4 form-control"
+                                data-ng-model="sampleSearch.adminUnit.lookUpType"
+                                data-ng-options="cls.code as cls.label for cls in searchOptions">
+                            <option value="">-- Choose --</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" ng-model="localitySearch.adminUnit.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row" data-ng-if="showAdditionalCriteria">
+                    <label class="control-label col-md-2">Latitude (deg. deg.)</label>
+                    <div class="col-md-5">
+                        <select class="col-md-4 form-control"
+                                data-ng-model="sampleSearch.latitude.lookUpType"
+                                data-ng-options="cls.code as cls.label for cls in searchOptions">
+                            <option value="">-- Choose --</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" ng-model="localitySearch.latitude.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row" data-ng-if="showAdditionalCriteria">
+                    <label class="control-label col-md-2">Longitude  (deg. deg.)</label>
+                    <div class="col-md-5">
+                        <select class="col-md-4 form-control"
+                                data-ng-model="sampleSearch.longitude.lookUpType"
+                                data-ng-options="cls.code as cls.label for cls in searchOptions">
+                            <option value="">-- Choose --</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" ng-model="localitySearch.longitude.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row" data-ng-if="showAdditionalCriteria">
+                    <label class="control-label col-md-2">Vertical extent (m)</label>
+                    <div class="col-md-5">
+                        <select class="col-md-4 form-control"
+                                data-ng-model="sampleSearch.verticalExtent.lookUpType"
+                                data-ng-options="cls.code as cls.label for cls in searchOptions">
+                            <option value="">-- Choose --</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" ng-model="localitySearch.verticalExtent.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Stratigraphy</label>
+                    <div class="col-md-5">
+                        <select class="col-md-4 form-control"
+                                data-ng-model="sampleSearch.stratigraphy.lookUpType"
+                                data-ng-options="cls.code as cls.label for cls in searchOptions">
+                            <option value="">-- Choose --</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" ng-model="localitySearch.stratigraphy.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                <label class="control-label col-md-2">Reference</label>
+                <div class="col-md-5">
+                    <select class="col-md-4 form-control"
+                            data-ng-model="sampleSearch.reference.lookUpType"
+                            data-ng-options="cls.code as cls.label for cls in searchOptions">
+                        <option value="">-- Choose --</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" ng-model="localitySearch.reference.name" class="form-control"/>
+                </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">MA ID</label>
+                    <div class="col-md-5">
+                        <select class="col-md-4 form-control"
+                                data-ng-model="sampleSearch.maId.lookUpType"
+                                data-ng-options="cls.code as cls.label for cls in searchOptions">
+                            <option value="">-- Choose --</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" ng-model="localitySearch.maId.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">Show additional criteria</a>
+                    <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">Hide additional criteria</a>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Sort by:</label>
+                    <div class="col-md-5">
+                        <select class="col-md-4 form-control"
+                                data-ng-model="sampleSearch.content.lookUpType"
+                                data-ng-options="cls.code as cls.label for cls in searchOptions">
+                            <option value="">-- Choose --</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <select class="col-md-4 form-control"
+                                data-ng-model="sampleSearch.content.lookUpType"
+                                data-ng-options="cls.code as cls.label for cls in searchOptions">
+                            <option value="">-- Choose --</option>
+                            <option value="asc">ASC</option>
+                            <option value="desc">DESC</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label>
+                                Show map: <input type="checkbox" ng-model="showMap"/>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row geo-section-row no-border">
+                        <button class="btn btn-default pull-right" data-ng-click="defaultSearch()"><i class="glyphicon glyphicon-erase"></i> Reset form</button>
+                        <button class="btn btn-default pull-right" data-ng-click="imageSearch()"><i class="glyphicon glyphicon-picture"></i> Search images</button>
+                        <button class="btn btn-default pull-right" data-ng-click="search()">
+                            <i class="glyphicon glyphicon-search"></i> Send query</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="row geo-list-info ">
+                        <div class="col-md-6 text-right">
+                            <p class="amount">Kokku: {{result.count}}</p>
+                        </div>
+                    </div>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Locality</th>
+                            <th>Country</th>
+                            <th>Latitude (dec. deg.)</th>
+                            <th>Longitude (dec. deg.)</th>
+                            <th>Vertical extent (m)</th>
+                            <th>Stratigraphy base</th>
+                            <th>Stratigraphy top</th>
+                            <th>Drillcore</th>
+                            <th>Images</th>
+                            <th>Map</th>
+                            <th>MA ID</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr style="cursor: pointer; " data-ng-repeat="entity in result.results">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-right">
+                        <uib-pagination boundary-links="true" ng-change="searchByPage()" items-per-page="pageSize" max-size="maxSize" rotate="false" total-items="totalItems" ng-model="pageNum" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

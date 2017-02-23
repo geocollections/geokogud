@@ -1,7 +1,7 @@
 'use strict';
 
 //routes
-angular.module('main', ['main.info','main.news','main.map']).config(function($stateProvider, $urlRouterProvider) {
+angular.module('main', ['main.info','main.news','main.map','main.geocollection']).config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.when('/main', '/main/info');
     $stateProvider.state('main', {
         url: "/main",
@@ -11,12 +11,8 @@ angular.module('main', ['main.info','main.news','main.map']).config(function($st
 
 //routes
 angular.module('main.info', []).config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.when('/main/info', '/main/info/list');
     $stateProvider.state('main.info', {
         url: "/info",
-        template: '<data-ui-view/>',
-    }).state('main.info.list', {
-        url: "/list",
         templateUrl: "app/main/info.html",
         controller: "MainInfoController"
     });
@@ -24,28 +20,42 @@ angular.module('main.info', []).config(function($stateProvider, $urlRouterProvid
 
 //routes
 angular.module('main.news', []).config(function($stateProvider, $urlRouterProvider) {
-
-    $urlRouterProvider.when('/main/news', '/main/news/list');
     $stateProvider.state('main.news', {
         url: "/news",
-        template: '<data-ui-view/>',
-    }).state('main.news.list', {
-        url: "/list",
         templateUrl: "app/main/news.html",
         controller: "MainNewsController"
     });
+});
 
+//routes
+angular.module('main.geocollection', []).config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider.state('main.geocollection', {
+        url: "/geocollection",
+        templateUrl: "app/main/geocollection.html",
+        controller: "MainInfoController"
+    });
+});
+
+//routes
+angular.module('usingCollection', []).config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider.state('usingCollection', {
+        url: "/usingCollection",
+        templateUrl: "app/main/using_collection.html"
+    });
+});
+
+//routes
+angular.module('database', []).config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider.state('database', {
+        url: "/database",
+        templateUrl: "app/main/database.html"
+    });
 });
 
 //routes
 angular.module('main.map', []).config(function($stateProvider, $urlRouterProvider) {
-
-    $urlRouterProvider.when('/main/map', '/main/map/list');
     $stateProvider.state('main.map', {
         url: "/map",
-        template: '<data-ui-view/>',
-    }).state('main.map.list', {
-        url: "/list",
         templateUrl: "app/main/map.html",
         controller: "MainMapController"
     });
