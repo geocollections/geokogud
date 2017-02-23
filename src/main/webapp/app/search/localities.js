@@ -1,10 +1,8 @@
 angular.module('search').controller('SearchLocalitiesController', function($scope, $uibModal){
-    $scope.optionsID = [
-        {name: 'equals'},
-        {name: 'does not equal'},
-        {name: 'greater than'},
-        {name: 'smaller than'},
-        {name: 'is in list'},
-        {name: 'is between'},
-    ]
+    $scope.sortbyOptions = [
+        {  name: 'ID', value: 'id' },
+        {  name: 'Locality', value: 'Locality' },
+        {  name: 'Box count', value: 'Box count' }
+    ];
+
 });

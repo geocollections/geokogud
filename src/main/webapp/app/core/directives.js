@@ -159,5 +159,95 @@ angular.module('geoApp').directive('loading', function () {
             });
         }
     }
-
-}]);
+}])
+.directive('selectexact', function(){
+    return {
+      template: '<select class="col-md-4 form-control" data-ng-model="sampleSearch.selectexact" ng-options="option.name for option in idOptions track by option.value"><option value="">-- Choose --</option></select>',
+        restrict: 'E',
+        scope: {
+          selectedValue: '='
+        },
+        link: function (scope) {
+          scope.idOptions = [{
+              name: 'equals', value: 'equals'
+          }, {
+              name: 'does not equal', value: 'does not equal'
+          },{
+              name: 'greater than', value: 'greater than'
+          },{
+              name: 'smaller than', value: 'smaller than'
+          },{
+              name: 'is in list', value: 'is in list'
+          },{
+              name: 'is between', value: 'is between'
+          }
+          ];
+        }
+    };
+}).directive('selectdefault', function(){
+    return {
+      template: '<select class="col-md-4 form-control" data-ng-model="sampleSearch.selectdefault" ng-options="option.name for option in defaultOptions track by option.value"><option value="">-- Choose --</option></select>',
+        restrict: 'E',
+        scope: {
+          selectedValue: '='
+        },
+        link: function (scope) {
+          scope.defaultOptions = [{
+              name: 'contains', value: 'contains'
+          }, {
+              name: 'equals', value: 'equals'
+          },{
+              name: 'start with', value: 'start with'
+          },{
+              name: 'ends with', value: 'ends with'
+          },{
+              name: 'does not contain', value: 'does not contain'
+          },{
+              name: 'is in list', value: 'is in list'
+          },
+          ];
+        }
+    };
+}).directive('selecthierarchy', function(){
+    return {
+      template: '<select class="col-md-4 form-control" data-ng-model="sampleSearch.selecthierarchy" ng-options="option.name for option in defaultOptions track by option.value"><option value="">-- Choose --</option></select>',
+        restrict: 'E',
+        scope: {
+          selectedValue: '='
+        },
+        link: function (scope) {
+          scope.defaultOptions = [{
+              name: 'hierarchy', value: 'hierarchy'
+          },{
+              name: 'contains', value: 'contains'
+          }, {
+              name: 'equals', value: 'equals'
+          },{
+              name: 'start with', value: 'start with'
+          },{
+              name: 'ends with', value: 'ends with'
+          },{
+              name: 'does not contain', value: 'does not contain'
+          },{
+              name: 'is in list', value: 'is in list'
+          },
+          ];
+        }
+    };
+}).directive('ascdesc', function(){
+    return {
+      template: '<select class="col-md-4 form-control" data-ng-model="sortby.asc.desc" ng-options="option.name for option in defaultOptions track by option.value"><option value="">-- Choose --</option></select>',
+        restrict: 'E',
+        scope: {
+          selectedValue: '='
+        },
+        link: function (scope) {
+          scope.defaultOptions = [{
+              name: 'ASC', value: 'asc'
+          },{
+              name: 'DESC', value: 'desc'
+          }
+          ];
+        }
+    };
+});
