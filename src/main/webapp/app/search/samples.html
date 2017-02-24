@@ -10,11 +10,7 @@
                 <div class="row" data-ng-if="showAdditionalCriteria">
                     <label class="col-md-2">ID:</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.id.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Vali --</option>
-                        </select>
+                        <selectdefault ng-model = "sampleSearch.id.lookUpType"></selectdefault>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="sampleSearch.id.name" class="form-control"/>
@@ -23,11 +19,7 @@
                 <div class="row">
                     <label class="col-md-2">Number:</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.sampleNumber.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Vali --</option>
-                        </select>
+                        <selectexact  ng-init="sampleSearch.sampleNumber.lookUpType = 'contains'" ng-model = "sampleSearch.sampleNumber.lookUpType"></selectexact>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="sampleSearch.sampleNumber.name" class="form-control"/>
@@ -36,11 +28,7 @@
                 <div class="row">
                     <label class="col-md-2">Locality:</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.locality.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Vali --</option>
-                        </select>
+                        <selectexact ng-model = "sampleSearch.locality.lookUpType"></selectexact>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="sampleSearch.locality.name" class="form-control"/>
@@ -49,11 +37,7 @@
                 <div class="row" data-ng-if="showAdditionalCriteria">
                     <label class="col-md-2">Admin. unit:</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.country.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Vali --</option>
-                        </select>
+                        <selectexact ng-model = "sampleSearch.country.lookUpType"></selectexact>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="sampleSearch.country.name" class="form-control"/>
@@ -62,11 +46,7 @@
                 <div class="row">
                     <label class="col-md-2">Depth (m):</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.depth.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Vali --</option>
-                        </select>
+                        <selectdefault ng-model = "sampleSearch.depth.lookUpType"></selectdefault>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="sampleSearch.depth.name" class="form-control"/>
@@ -75,11 +55,7 @@
                 <div class="row">
                     <label class="col-md-2">Stratigraphy:</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.stratigraphy.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Vali --</option>
-                        </select>
+                        <selecthierarchy ng-model = "sampleSearch.stratigraphy.lookUpType"></selecthierarchy>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="sampleSearch.stratigraphy.name" class="form-control"/>
@@ -88,11 +64,7 @@
                 <div class="row">
                     <label class="col-md-2">bed name / index:</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.stratigraphyBed.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Vali --</option>
-                        </select>
+                        <selectexact ng-model = "sampleSearch.stratigraphyBed.lookUpType"></selectexact>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="sampleSearch.stratigraphyBed.name" class="form-control"/>
@@ -101,11 +73,7 @@
                 <div class="row">
                     <label class="col-md-2">Collector:</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.agent.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Vali --</option>
-                        </select>
+                        <selectexact ng-model = "sampleSearch.agent.lookUpType"></selectexact>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="sampleSearch.agent.name" class="form-control"/>
@@ -114,11 +82,7 @@
                 <div class="row">
                     <label class="col-md-2">Weight (remaining, g):</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.mass.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Vali --</option>
-                        </select>
+                        <selectdefault ng-model = "sampleSearch.mass.lookUpType"></selectdefault>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="sampleSearch.mass.name" class="form-control"/>
@@ -127,11 +91,7 @@
                 <div class="row" data-ng-if="showAdditionalCriteria">
                     <label class="col-md-2">Storage:</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.location.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Vali --</option>
-                        </select>
+                        <selectexact ng-model = "sampleSearch.location.lookUpType"></selectexact>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="sampleSearch.location.name" class="form-control"/>
@@ -140,11 +100,7 @@
                 <div class="row" data-ng-if="showAdditionalCriteria">
                     <label class="col-md-2">Species recovered:</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.taxon.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Vali --</option>
-                        </select>
+                        <selectexact ng-model = "sampleSearch.taxon.lookUpType"></selectexact>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="sampleSearch.taxon.name" class="form-control"/>
@@ -153,11 +109,7 @@
                 <div class="row" data-ng-if="showAdditionalCriteria">
                     <label class="col-md-2">Species frequency:</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.frequency.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Vali --</option>
-                        </select>
+                        <selectdefault ng-model = "sampleSearch.frequency.lookUpType"></selectdefault>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="sampleSearch.frequency.name" class="form-control"/>
@@ -166,11 +118,7 @@
                 <div class="row" data-ng-if="showAdditionalCriteria">
                     <label class="col-md-2">Type of analysis:</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.analysis.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Vali --</option>
-                        </select>
+                        <selectexact ng-model = "sampleSearch.analysis.lookUpType"></selectexact>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="sampleSearch.analysis.name" class="form-control"/>
@@ -179,11 +127,7 @@
                 <div class="row" data-ng-if="showAdditionalCriteria">
                     <label class="col-md-2">Component analysed:</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.component.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Vali --</option>
-                        </select>
+                        <selectexact ng-model = "sampleSearch.component.lookUpType"></selectexact>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="sampleSearch.component.name" class="form-control"/>
@@ -192,11 +136,7 @@
                 <div class="row" data-ng-show="showAdditionalCriteria">
                     <label class="col-md-2">Content:</label>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.content.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Vali --</option>
-                        </select>
+                        <selectdefault ng-model = "sampleSearch.content.lookUpType"></selectdefault>
                     </div>
                     <div class="col-md-5">
                         <input type="text" ng-model="sampleSearch.content.name" class="form-control"/>
@@ -208,29 +148,19 @@
                 </div>
                 <div class="row">
                     <label class="col-md-2">Institutions:</label>
-                    <label data-ng-repeat="state in departments">
-                        <input style="margin: 10px;"
-                               type="checkbox"
-                               value="{{state.code}}"
-                               data-ng-checked="sampleSearch.dbs.indexOf(state.code) > -1"
-                               data-ng-click="toggle(state.code)"> {{state.label}}
-                    </label>
+                    <label data-ng-repeat="state in departments"><input style="margin: 10px;" type="checkbox" value="{{state.code}}" data-ng-checked="sampleSearch.dbs.indexOf(state.code) > -1" data-ng-click="toggle(state.code)"> {{state.label}} </label>
                 </div>
                 <div class="row">
                     <label class="col-md-2">Sort by:</label>
                     <div class="col-md-5">
                         <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.content.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Vali --</option>
+                                data-ng-model="sampleSearch.sort.lookUpType"
+                                data-ng-options="option.value as option.name for option in sortbyOptions track by option.value">
+                            <option value="">-- Choose --</option>
                         </select>
                     </div>
                     <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.content.lookUpType"
-                                data-ng-options="cls.code as cls.label for cls in searchOptions">
-                            <option value="">-- Vali --</option>
-                        </select>
+                        <ascdesc ng-model = "sampleSearch.sortDir.lookUpType"></ascdesc>
                     </div>
                 </div>
                 <div class="row">
@@ -256,7 +186,7 @@
             <div class="col-lg-4">
                 <div class="row geo-list-info ">
                     <div class="col-md-6 text-right">
-                        <p class="amount">Kokku: {{result.count}}</p>
+                        <p class="amount">Kokku: {{response.count}}</p>
                     </div>
                 </div>
                 <table class="table table-bordered table-hover">
@@ -270,24 +200,24 @@
                         <th>Depth(m)</th>
                         <th></th>
                         <th>Stratigraphy <em>Lithostratigraphy</em></th>
-                        <th>Coll</th>
+                        <th>Coll.</th>
                         <th>Anal.</th>
                         <th>Weight(g)</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr style="cursor: pointer; " data-ng-repeat="entity in result.results">
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in response.result">
+                        <td>{{entity.id}}</td>
+                        <td>{{entity.git}}</td>
+                        <td>{{entity.number == null ? entity.id : entity.number}}</td>
+                        <td>{{entity.numberAdditional}}</td>
+                        <td>{{entity.localityEng}}</td>
+                        <td>{{entity.depth}}</td>
                         <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{entity.stratigraphyEng}}</td>
+                        <td>{{entity.agent}}</td>
+                        <td>???</td>
+                        <td>{{entity.mass}}</td>
                     </tr>
                     </tbody>
                 </table>

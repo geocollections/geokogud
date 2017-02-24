@@ -1,4 +1,4 @@
-package ee.ttu.geodeesia.interop.api.Request;
+package ee.ttu.geodeesia.search.domain;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,8 +14,6 @@ public class SearchField {
 
     @Enumerated(EnumType.STRING)
     private LookUpType lookUpType;
-
-
 
     public enum LookUpType {
         exact,      //vxrdub

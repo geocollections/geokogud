@@ -1,8 +1,5 @@
 package ee.ttu.geodeesia.interop.api.Request;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-
 /**
  * Created by 48707222248 on 18.02.2017.
  */
@@ -12,6 +9,15 @@ public class SearchApiRequest {
     private int numberOfRecordsPerPage;
     private String searchCriteria;
     private String field;
+    private String fieldsParams;
+
+    public String getFieldsParams() {
+        return fieldsParams;
+    }
+
+    public void setFieldsParams(String fieldsParams) {
+        this.fieldsParams = fieldsParams;
+    }
 
     public String getField() {
         return field;

@@ -1,6 +1,4 @@
-package ee.ttu.geodeesia.interop.api.Request;
-
-import ee.ttu.geodeesia.interop.api.Response.Sample;
+package ee.ttu.geodeesia.search.domain;
 
 import java.util.ArrayList;
 import java.util.List;

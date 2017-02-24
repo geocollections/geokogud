@@ -1,4 +1,4 @@
-package ee.ttu.geodeesia.interop.api.Request;
+package ee.ttu.geodeesia.search.domain;
 
 /**
  * Created by 48707222248 on 21.02.2017.

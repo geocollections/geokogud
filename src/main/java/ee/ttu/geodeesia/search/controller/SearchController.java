@@ -1,8 +1,9 @@
 package ee.ttu.geodeesia.search.controller;
 
-import ee.ttu.geodeesia.interop.api.Request.AbstractSearch;
-import ee.ttu.geodeesia.interop.api.Request.SampleSearch;
-import ee.ttu.geodeesia.interop.api.Request.SearchFactory;
+import ee.ttu.geodeesia.interop.api.Response.Response;
+import ee.ttu.geodeesia.search.domain.AbstractSearch;
+import ee.ttu.geodeesia.search.domain.SampleSearch;
+import ee.ttu.geodeesia.search.domain.SearchFactory;
 import ee.ttu.geodeesia.interop.api.Response.SampleApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.TaxonApiResponse;
 import ee.ttu.geodeesia.interop.api.ApiService;
@@ -31,8 +32,8 @@ public class SearchController {
 
     @RequestMapping(value = "/sample-list", method= RequestMethod.POST)
     @ResponseBody
-    public SampleApiResponse sampleRequest(@RequestBody final SampleSearch search){
-        return null;
+    public Response sampleRequest(@RequestBody final SampleSearch search){
+        return apiService.searchSampleList(search);
     }
 
     @RequestMapping(value = "/taxon-list", method= RequestMethod.GET)

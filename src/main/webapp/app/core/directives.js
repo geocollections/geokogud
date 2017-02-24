@@ -162,58 +162,61 @@ angular.module('geoApp').directive('loading', function () {
 }])
 .directive('selectexact', function(){
     return {
-      template: '<select class="col-md-4 form-control" data-ng-model="sampleSearch.selectexact" ng-options="option.name for option in idOptions track by option.value"><option value="">-- Choose --</option></select>',
+      template: '<select class="col-md-4 form-control" data-ng-model="field" ' +
+      'ng-options="option.value as option.name for option in idOptions track by option.value"><option value="">-- Choose --</option></select>',
         restrict: 'E',
         scope: {
-          selectedValue: '='
+          field: '=ngModel'
         },
         link: function (scope) {
-          scope.idOptions = [{
-              name: 'equals', value: 'equals'
-          }, {
-              name: 'does not equal', value: 'does not equal'
-          },{
-              name: 'greater than', value: 'greater than'
-          },{
-              name: 'smaller than', value: 'smaller than'
-          },{
-              name: 'is in list', value: 'is in list'
-          },{
-              name: 'is between', value: 'is between'
-          }
-          ];
+            scope.idOptions = [{
+                name: 'equals', value: 'exact'
+            }, {
+                name: 'does not equal', value: 'iexact'
+            },{
+                name: 'greater than', value: 'gt'
+            },{
+                name: 'smaller than', value: 'lt'
+            },{
+                name: 'is in list', value: 'in'
+            },{
+                name: 'is between', value: 'range'
+            }
+            ];
         }
     };
 }).directive('selectdefault', function(){
     return {
-      template: '<select class="col-md-4 form-control" data-ng-model="sampleSearch.selectdefault" ng-options="option.name for option in defaultOptions track by option.value"><option value="">-- Choose --</option></select>',
+      template: '<select class="col-md-4 form-control" data-ng-model="field" ' +
+      'ng-options="option.value as option.name for option in defaultOptions track by option.value"><option value="">-- Choose --</option></select>',
         restrict: 'E',
         scope: {
-          selectedValue: '='
+            field: '=ngModel'
         },
-        link: function (scope) {
-          scope.defaultOptions = [{
-              name: 'contains', value: 'contains'
-          }, {
-              name: 'equals', value: 'equals'
-          },{
-              name: 'start with', value: 'start with'
-          },{
-              name: 'ends with', value: 'ends with'
-          },{
-              name: 'does not contain', value: 'does not contain'
-          },{
-              name: 'is in list', value: 'is in list'
-          },
-          ];
+        link: function (scope, $watch) {
+            scope.defaultOptions = [{
+                name: 'contains', value: 'contains'
+            }, {
+                name: 'equals', value: 'exact'
+            },{
+                name: 'start with', value: 'startswith'
+            },{
+                name: 'ends with', value: 'startswith'
+            },{
+                name: 'does not contain', value: 'icontains'
+            },{
+                name: 'is in list', value: 'in'
+            }
+            ];
         }
     };
 }).directive('selecthierarchy', function(){
     return {
-      template: '<select class="col-md-4 form-control" data-ng-model="sampleSearch.selecthierarchy" ng-options="option.name for option in defaultOptions track by option.value"><option value="">-- Choose --</option></select>',
+      template: '<select class="col-md-4 form-control" data-ng-model="field" ' +
+      'ng-options="option.value as option.name for option in defaultOptions track by option.value"><option value="">-- Choose --</option></select>',
         restrict: 'E',
         scope: {
-          selectedValue: '='
+            field: '=ngModel'
         },
         link: function (scope) {
           scope.defaultOptions = [{
@@ -221,25 +224,26 @@ angular.module('geoApp').directive('loading', function () {
           },{
               name: 'contains', value: 'contains'
           }, {
-              name: 'equals', value: 'equals'
+              name: 'equals', value: 'exact'
           },{
-              name: 'start with', value: 'start with'
+              name: 'start with', value: 'startswith'
           },{
-              name: 'ends with', value: 'ends with'
+              name: 'ends with', value: 'startswith'
           },{
-              name: 'does not contain', value: 'does not contain'
+              name: 'does not contain', value: 'icontains'
           },{
-              name: 'is in list', value: 'is in list'
+              name: 'is in list', value: 'in'
           },
           ];
         }
     };
 }).directive('ascdesc', function(){
     return {
-      template: '<select class="col-md-4 form-control" data-ng-model="sortby.asc.desc" ng-options="option.name for option in defaultOptions track by option.value"><option value="">-- Choose --</option></select>',
+      template: '<select class="col-md-4 form-control" data-ng-model="field" ' +
+      'ng-options="option.value as option.name for option in defaultOptions track by option.value"><option value="">-- Choose --</option></select>',
         restrict: 'E',
         scope: {
-          selectedValue: '='
+            field: '=ngModel'
         },
         link: function (scope) {
           scope.defaultOptions = [{
