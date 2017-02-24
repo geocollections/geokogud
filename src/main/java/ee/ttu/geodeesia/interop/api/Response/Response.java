@@ -8,6 +8,24 @@ import java.util.List;
 public class Response {
     private int count;
     private List<ResponseEntities> result;
+    private int numberOfPages;
+    private int currentPage;
+
+    public int getNumberOfPages() {
+        return numberOfPages;
+    }
+
+    public void setNumberOfPages(int numberOfPages) {
+        this.numberOfPages = numberOfPages;
+    }
+
+    public int getCurrentPage() {
+        return currentPage;
+    }
+
+    public void setCurrentPage(int currentPage) {
+        this.currentPage = currentPage;
+    }
 
     public int getCount() {
         return count;

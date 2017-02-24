@@ -9,8 +9,8 @@ angular.module('search').controller('SearchSampleController', function($scope, S
     ];
 
     $scope.searchDefault = function() {
-        SearchService.getSearch("sample").then(function(response) {
-            $scope.sampleSearch = response;
+        SearchService.getSearch("sample").then(function(search) {
+            $scope.sampleSearch = search;
             $scope.search();
         });
     };
@@ -19,6 +19,8 @@ angular.module('search').controller('SearchSampleController', function($scope, S
 
     $scope.search = function() {
         SearchService.sampleListSearch($scope.sampleSearch).then(function(result) {
+            $scope.totalItems = result.count;
+            $scope.pageSize = 100;
             $scope.response = result;
         });
     };

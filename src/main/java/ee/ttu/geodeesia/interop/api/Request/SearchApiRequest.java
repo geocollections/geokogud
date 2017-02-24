@@ -6,8 +6,10 @@ package ee.ttu.geodeesia.interop.api.Request;
 public class SearchApiRequest {
     private String outputFormat = "json";
     private int page;
-    private int numberOfRecordsPerPage;
+    private int numberOfRecordsPerPage = 30;
+    //TODO:remove
     private String searchCriteria;
+    //TODO:remove
     private String field;
     private String fieldsParams;
 

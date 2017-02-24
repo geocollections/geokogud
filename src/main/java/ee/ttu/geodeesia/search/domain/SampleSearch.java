@@ -7,6 +7,11 @@ import java.util.List;
  * Created by 48707222248 on 21.02.2017.
  */
 public class SampleSearch extends AbstractSearch{
+
+    private int page = 1; //set default 1 page
+    private String sortDir = "ASC"; //set default sortDir
+    private int maxSize = 5;
+
     private SearchField id;
     private SearchField sampleNumber;
     //Leiukoht
@@ -40,6 +45,30 @@ public class SampleSearch extends AbstractSearch{
 
     public SampleSearch(){}
     public SampleSearch(String name) {super(name);}
+
+    public String getSortDir() {
+        return sortDir;
+    }
+
+    public void setSortDir(String sortDir) {
+        this.sortDir = sortDir;
+    }
+
+    public int getMaxSize() {
+        return maxSize;
+    }
+
+    public void setMaxSize(int maxSize) {
+        this.maxSize = maxSize;
+    }
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
 
     public SearchField getId() {
         return id;
