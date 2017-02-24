@@ -1,5 +1,119 @@
 <div class="panel panel-default">
     <div class="panel-body">
+        <div class="row">
+            <div class="text-center">
+                <h1>Search: Drill cores</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row" data-ng-if="showAdditionalCriteria">
+                    <label class="col-md-2">ID:</label>
+                    <div class="col-md-5">
+                        <selectdefault></selectdefault>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-2">Drillcore:</label>
+                    <div class="col-md-5">
+                        <selectdefault></selectdefault>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-2">Country:</label>
+                    <div class="col-md-5">
+                        <selectdefault></selectdefault>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text"class="form-control"/>
+                    </div>
+                </div>
+                <div class="row" data-ng-if="showAdditionalCriteria">
+                    <label class="col-md-2">Admin. unit:</label>
+                    <div class="col-md-5">
+                        <selectdefault></selectdefault>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-2">Stratigraphy:</label>
+                    <div class="col-md-5">
+                        <selectdefault></selectdefault>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-2">Storage:</label>
+                    <div class="col-md-5">
+                        <selectdefault></selectdefault>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-2">Box count:</label>
+                    <div class="col-md-5">
+                        <selectdefault></selectdefault>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">Show additional criteria</a>
+                    <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">Hide additional criteria</a>
+                </div>
 
+                <div class="row">
+                    <label class="col-md-2">Institutions:</label>
+                    <label data-ng-repeat="state in departments">
+                        <input style="margin: 10px;"
+                               type="checkbox"
+                               value="{{state.code}}"> {{state.label}}
+                    </label>
+                </div>
+                <div class="row">
+                    <label class="col-md-2">Sort by:</label>
+                    <div class="col-md-5">
+                        <select class="col-md-4 form-control"
+                                data-ng-model="drillCoresSearch.content.lookUpType"
+                                data-ng-options="option.name for option in sortbyOptions track by option.value">
+                            <option value="">-- Choose --</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <ascdesc></ascdesc>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <label>
+                            Show map: <input type="checkbox"/>
+                        </label>
+                    </div>
+                </div>
+                <div class="row geo-section-row no-border">
+                    <button class="btn btn-default pull-right">
+                        <i class="glyphicon glyphicon-erase"></i> Reset form</button>
+                    <button class="btn btn-default pull-right">
+                        <i class="glyphicon glyphicon-search"></i> Send query</button>
+                </div>
+            </div>
+            <div class="col-md-6">SEARCHING DRILL CORES
+                Drill cores constitute a very important source of geological information and they are used regularly in scientific as well as applied research in Estonia.
+                To search drill cores, specify the criteria and tick the map checkbox to show the locations. For detailed information click on the various links in the results table. A large number of cores are provided with images of core boxes.
+            </div>
+        </div>
     </div>
 </div>
