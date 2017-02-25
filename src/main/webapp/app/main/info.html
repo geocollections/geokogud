@@ -62,11 +62,14 @@
 		<!-- /.row -->
 		<div class="text-center">
 			<p>
-				<a class="btn btn-default btn-lg btn-success" href="#" role="button" id="mainSearchButton">Read
+				<a class="btn btn-default btn-lg btn-success" href="" role="button" id="mainSearchButton" data-ng-click="showFull = true">Read
 					more</a>
 
 			</p>
 		</div>
+
+		<div ng-if="showFull" ng-include="'/app/main/full_news.html'"></div>
+
 		<hr class="featurette-divider">
 		<div class="text-center">
 			<h1>Heading X</h1>
