@@ -12,7 +12,9 @@ angular.module('geoApp', [
     'ui.select',
     'angular-confirm',
     'ngFileUpload',
-    'search'
+    'search',
+    'database',
+    'usingCollection'
 ]);
 
 var configuration = CONFIG;
