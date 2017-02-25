@@ -57,13 +57,13 @@ public class ApiService {
     private String convertTable(String table) {
         String returnValue = null;
         switch (table) {
-            case "SPECIMENS" : returnValue = "specimens"; break;
+            case "SPECIMENS" : returnValue = "specimen"; break;
             case "SAMPLES" : returnValue = "sample"; break;
             case "DRILL CORES" : returnValue = "drillcore"; break;
             case "LOCALITIES" : returnValue = "locality"; break;
             case "REFERENCES" : returnValue = "reference"; break;
             case "STRATIGRAPHIES" : returnValue = "stratigraphy"; break;
-
+            //TODO: IMPLEMENT MORE SEARCHES or even be do REFACTOR for client side... classifier ex sample can be immidiatly offered
             default: break;
         }
         return returnValue;
