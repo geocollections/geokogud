@@ -29,3 +29,41 @@ hr.featurette-divider {
 #links {
 	border-left: 1px solid #999999 !important;
 }
+
+#mainSearchInput {
+	border-radius: 0;
+}
+
+#mainSearchButton {
+	background-color: #3EC9A7;
+	border-radius: 0;
+}
+
+#topNav {
+	height: 150px;
+	background-color: #FDFDFD;
+	background: linear-gradient(rgba(20, 20, 20, .5), rgba(20, 20, 20, .5)),
+		url("/img/sarv_banner.jpg");
+	background-position: top center;
+	background-repeat: no-repeat !important;
+}
+
+#bottomNav {
+	background-color: #3e4142;
+}
+
+.navbar-header {
+	float: left;
+	padding: 15px;
+	text-align: center;
+	width: 100%;
+}
+
+.navbar-brand {
+	float: none;
+	font-size: 34px;
+}
+
+.links img {
+	margin: 10px;
+}
