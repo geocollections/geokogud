@@ -25,6 +25,9 @@ angular.module('search').controller('SearchSampleController', function($scope, S
         });
     };
 
+    $scope.$watch('field', function() {
+        $scope.field = $scope.departments[0]
+    });
 
     // MUST be as CLASSIFIER but not hard coded
     $scope.departments = [

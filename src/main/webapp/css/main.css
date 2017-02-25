@@ -513,7 +513,7 @@ OL LI A.active {
 }*/
 .table-container {
     /*height: 40em;*/
-    max-height: 600px
+    max-height: 600px;
 }
 table.scroll {
     display: flex;
