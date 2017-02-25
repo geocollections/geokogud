@@ -1,12 +1,35 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div> <!--id="mapcontainer"-->
 
-<div id="mapcontainer">
+            <div id='hoverbox' class='coupontooltip'>
+                <div id='hoversystem' style='position: relative; top: 0; left: 0;'></div>
+                <div id='hoverstat' style='position: relative; top: 0; left: 0;'></div>
+            </div>
 
-    <div id='hoverbox' class='coupontooltip'>
-        <div id='hoversystem' style='position: relative; top: 0; left: 0;'></div>
-        <div id='hoverstat' style='position: relative; top: 0; left: 0;'></div>
+            <div id="map" class="map"></div>
+        </div>
+        <div id='footer'>
+            <div><!-- id='formcontainer'-->
+            <form method='get' name='filter'>
+
+
+
+                Found <b>9280</b> georeferenced localities. Show only those with:
+                <input onchange="window.document.filter.submit();" type="checkbox" name="specimens" value="1"  />collection specimens |
+                <input onchange="window.document.filter.submit();" type="checkbox" name="samples" value="1"  />samples |
+                <input onchange="window.document.filter.submit();" type="checkbox" name="drillcores" value="1"  />drillcores |
+                <input onchange="window.document.filter.submit();" type="checkbox" name="references" value="1"  />citing references |
+                <input onchange="window.document.filter.submit();" type="checkbox" name="analyses" value="1"  />analyses |
+                <input onchange="window.document.filter.submit();" type="checkbox" name="stratotypes" value="1"  />stratotypes |
+                <input onchange="window.document.filter.submit();" type="checkbox" name="images" value="1"  />photos |
+                <input onchange="window.document.filter.submit();" type="checkbox" name="taxa" value="1"  />taxon occurrences |
+                name: <input type="text" style="width: 100px;" name="loc" value="" />
+
+                <input type="submit" value="refresh map"> <a href='/'>Back to SARV. </a>
+            </form>
+        </div></div>
     </div>
-
-    <div id="map" class="map"></div>
 </div>
 
 
@@ -445,27 +468,6 @@
     /**/
 
 </script>
-
-<div id='footer'><div id='formcontainer'>
-    <form method='get' name='filter'>
-
-
-
-        Found <b>9280</b> georeferenced localities. Show only those with:
-        <input onchange="window.document.filter.submit();" type="checkbox" name="specimens" value="1"  />collection specimens |
-        <input onchange="window.document.filter.submit();" type="checkbox" name="samples" value="1"  />samples |
-        <input onchange="window.document.filter.submit();" type="checkbox" name="drillcores" value="1"  />drillcores |
-        <input onchange="window.document.filter.submit();" type="checkbox" name="references" value="1"  />citing references |
-        <input onchange="window.document.filter.submit();" type="checkbox" name="analyses" value="1"  />analyses |
-        <input onchange="window.document.filter.submit();" type="checkbox" name="stratotypes" value="1"  />stratotypes |
-        <input onchange="window.document.filter.submit();" type="checkbox" name="images" value="1"  />photos |
-        <input onchange="window.document.filter.submit();" type="checkbox" name="taxa" value="1"  />taxon occurrences |
-        name: <input type="text" style="width: 100px;" name="loc" value="" />
-
-        <input type="submit" value="refresh map"> <a href='/'>Back to SARV. </a>
-    </form>
-</div></div>
-
 
 <script>
     var tooltip = document.querySelectorAll('.coupontooltip');
