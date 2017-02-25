@@ -1,13 +1,23 @@
 'use strict';
 //routes
-angular.module('search', ['search.specimens','search.samples','search.drillCores','search.localities','search.references',
+angular.module('search', ['search.fullsearch','search.specimens','search.samples','search.drillCores','search.localities','search.references',
     'search.stratigraphy','search.analyses','search.preparations','search.photoArchive','search.soil','search.doi']).config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.when('/search', '/search/specimens');
+    $urlRouterProvider.when('/search', '/search/samples');
     $stateProvider.state('search', {
         url: "/search",
         templateUrl: "app/search/index.html"
     });
 });
+
+//routes
+angular.module('search.fullsearch', []).config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider.state('search.fullsearch', {
+        url: "/fullsearch",
+        templateUrl: "app/search/search.html",
+        controller: "SearchSampleController"
+    });
+});
+
 
 //routes
 angular.module('search.specimens', []).config(function($stateProvider, $urlRouterProvider) {

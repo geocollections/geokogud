@@ -25,9 +25,21 @@ angular.module('search').controller('SearchSampleController', function($scope, S
         });
     };
 
-    $scope.$watch('field', function() {
-        $scope.field = $scope.departments[0]
-    });
+    $scope.defaultSearchOptions = [
+        {value:"SPECIMENTS",name:"Speciments"},
+        {value:"SAMPLES",name:"Samples"},
+        {value:"DRILL CORES",name:"Drill cores"},
+        {value:"LOCALITIES",name:"Localities"},
+        {value:"REFERENCES",name:"References"},
+        {value:"STRATIGRAPHY",name:"Stratigraphy"},
+        {value:"ANALYSES",name:"Analyses"},
+        {value:"PREPARATION",name:"Preparation"},
+        {value:"ARCHIVE",name:"Photo archive"},
+        {value:"SOIL",name:"SOIL"},
+        {value:"DOI",name:"DOI"}];
+
+    //$scope.defaultSearchOption = $scope.defaultSearchOptions[1].value;
+
 
     // MUST be as CLASSIFIER but not hard coded
     $scope.departments = [

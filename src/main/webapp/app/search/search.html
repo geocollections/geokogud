@@ -1,0 +1,83 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+
+
+        <div class="row text-center">
+            <div class="col-lg-8">
+                <H1 class="col-lg-4">Looking for</H1>
+                <div class="col-lg-8">
+                    <select id="mainSearchInput" class="col-lg form-control" data-ng-model="defaultSearchOption"
+                            ng-options="option.value as option.name for option in defaultSearchOptions track by option.value" data-ng-init="defaultSearchOption = defaultSearchOptions[1].value"
+                            ></select>
+                </div>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4 pull-left">
+                <div class="input-group-btn">
+                    <a class="btn btn-default btn-lg btn-success" href="#" role="button" id="mainSearchButton">Search</a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+        <!--ng -switch-->
+        <div ng-switch on="defaultSearchOption">
+            <div ng-switch-when="SAMPLES">
+                <div ng-include="'/app/search/searches_htmls/samples_search.html'"></div>
+            </div>
+            <div ng-switch-when="LOCALITIES">
+                <div ng-include="'/app/search/searches_htmls/localities_search.html'"></div>
+            </div>
+            <div ng-switch-default></div>
+        </div>
+        <div class="row">
+            <loading></loading>
+            <div class="col-lg-4">
+                <div class="row geo-list-info ">
+                    <div class="col-md-6 text-right">
+                        <p class="amount">Kokku: {{response.count}}</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize" max-size="sampleSearch.maxSize" rotate="false" total-items="totalItems" ng-model="sampleSearch.page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+                </div>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Inst.</th>
+                        <th>Number</th>
+                        <th></th>
+                        <th>Locality</th>
+                        <th>Depth(m)</th>
+                        <th></th>
+                        <th>Stratigraphy <em>Lithostratigraphy</em></th>
+                        <th>Coll.</th>
+                        <th>Anal.</th>
+                        <th>Weight(g)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in response.result">
+                        <td>{{entity.id}}</td>
+                        <td>{{entity.git}}</td>
+                        <td>{{entity.number == null ? entity.id : entity.number}}</td>
+                        <td>{{entity.numberAdditional}}</td>
+                        <td>{{entity.localityEng}}</td>
+                        <td>{{entity.depth}}</td>
+                        <td></td>
+                        <td>{{entity.stratigraphyEng}}</td>
+                        <td>{{entity.agent}}</td>
+                        <td>???</td>
+                        <td>{{entity.mass}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="text-right">
+                    <uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize" max-size="sampleSearch.maxSize" rotate="false" total-items="totalItems" ng-model="sampleSearch.page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

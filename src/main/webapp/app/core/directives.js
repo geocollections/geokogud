@@ -163,7 +163,7 @@ angular.module('geoApp').directive('loading', function () {
 .directive('selectexact', function(){
     return {
       template: '<select class="col-md-4 form-control" data-ng-model="field" ' +
-      'ng-options="option.value as option.name for option in idOptions track by option.value"><option value="">-- Choose --</option></select>',
+      'ng-options="option.value as option.name for option in idOptions track by option.value"></select>',
         restrict: 'E',
         scope: {
           field: '=ngModel'
@@ -183,12 +183,17 @@ angular.module('geoApp').directive('loading', function () {
                 name: 'is between', value: 'range'
             }
             ];
+
+            scope.$watch('field', function(data) {
+                if(data) return;
+                scope.field = scope.idOptions[0]
+            });
         }
     };
 }).directive('selectdefault', function(){
     return {
       template: '<select class="col-md-4 form-control" data-ng-model="field" ' +
-      'ng-options="option.value as option.name for option in defaultOptions track by option.value"><option value="">-- Choose --</option></select>',
+      'ng-options="option.value as option.name for option in defaultOptions track by option.value"></select>',
         restrict: 'E',
         scope: {
             field: '=ngModel'
@@ -208,12 +213,17 @@ angular.module('geoApp').directive('loading', function () {
                 name: 'is in list', value: 'in'
             }
             ];
+
+            scope.$watch('field', function(data) {
+                if(data) return;
+                scope.field = scope.defaultOptions[0]
+            });
         }
     };
 }).directive('selecthierarchy', function(){
     return {
       template: '<select class="col-md-4 form-control" data-ng-model="field" ' +
-      'ng-options="option.value as option.name for option in defaultOptions track by option.value"><option value="">-- Choose --</option></select>',
+      'ng-options="option.value as option.name for option in defaultOptions track by option.value"></select>',
         restrict: 'E',
         scope: {
             field: '=ngModel'
@@ -235,6 +245,11 @@ angular.module('geoApp').directive('loading', function () {
               name: 'is in list', value: 'in'
           },
           ];
+
+            scope.$watch('field', function(data) {
+                if(data) return;
+                scope.field = scope.defaultOptions[0]
+            });
         }
     };
 }).directive('ascdesc', function(){
@@ -252,6 +267,7 @@ angular.module('geoApp').directive('loading', function () {
               name: 'DESC', value: 'desc'
           }
           ];
+
         }
     };
 });
