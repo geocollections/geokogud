@@ -7,10 +7,10 @@ public class SearchFactory {
     public static AbstractSearch create(String searchName) {
         AbstractSearch search = null;
         switch (searchName) {
-            case "speciment":
-                search = new SpecimentSearch(searchName);
+            case "SPECIMENTS":
+                search = new SampleSearch(searchName);
                 break;
-            case "sample":
+            case "SAMPLES":
                 search = new SampleSearch(searchName);
                 break;
             default: break;

@@ -40,7 +40,6 @@ angular.module('search').controller('SearchSampleController', function($scope, S
 
     //$scope.defaultSearchOption = $scope.defaultSearchOptions[1].value;
 
-
     // MUST be as CLASSIFIER but not hard coded
     $scope.departments = [
         {code:"GIT",label:"GIT"},

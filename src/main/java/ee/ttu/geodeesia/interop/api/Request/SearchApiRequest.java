@@ -12,6 +12,15 @@ public class SearchApiRequest {
     //TODO:remove
     private String field;
     private String fieldsParams;
+    private String table;
+
+    public String getTable() {
+        return table;
+    }
+
+    public void setTable(String table) {
+        this.table = table;
+    }
 
     public String getFieldsParams() {
         return fieldsParams;

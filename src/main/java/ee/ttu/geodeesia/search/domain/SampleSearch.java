@@ -11,6 +11,7 @@ public class SampleSearch extends AbstractSearch{
     private int page = 1; //set default 1 page
     private String sortDir = "ASC"; //set default sortDir
     private int maxSize = 5;
+    private String table = "SAMPLES";
 
     private SearchField id;
     private SearchField sampleNumber;
@@ -44,7 +45,18 @@ public class SampleSearch extends AbstractSearch{
     private List<String> dbs = new ArrayList<>(); // database__acronym?
 
     public SampleSearch(){}
-    public SampleSearch(String name) {super(name);}
+    public SampleSearch(String name) {
+        super(name);
+        this.table = name;
+    }
+
+    public String getTable() {
+        return table;
+    }
+
+    public void setTable(String table) {
+        this.table = table;
+    }
 
     public String getSortDir() {
         return sortDir;

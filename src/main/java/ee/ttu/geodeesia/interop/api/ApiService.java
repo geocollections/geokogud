@@ -48,16 +48,34 @@ public class ApiService {
 
     public Response searchSampleList(SampleSearch search) {
         SearchApiRequest request = new SearchApiRequest();
+        request.setTable(convertTable(search.getTable()));
         request.setPage(search.getPage());
         request.setFieldsParams(composeFieldQuery(search));
         return searchSampleList(request);
     }
+
+    private String convertTable(String table) {
+        String returnValue = null;
+        switch (table) {
+            case "SPECIMENS" : returnValue = "specimens"; break;
+            case "SAMPLES" : returnValue = "sample"; break;
+            case "DRILL CORES" : returnValue = "drillcore"; break;
+            case "LOCALITIES" : returnValue = "locality"; break;
+            case "REFERENCES" : returnValue = "reference"; break;
+            case "STRATIGRAPHIES" : returnValue = "stratigraphy"; break;
+
+            default: break;
+        }
+        return returnValue;
+    }
     public Response searchSampleList(SearchApiRequest request) {
-        String url = apiUrl + "/sample?paginate_by="+request.getNumberOfRecordsPerPage()+"&page="+request.getPage()
+        Response response_ = new Response();
+        if(request.getTable() == null) return response_;
+        String url = apiUrl + "/"+request.getTable()+"?paginate_by="+request.getNumberOfRecordsPerPage()+"&page="+request.getPage()
                 +"&format=" + request.getOutputFormat() + request.getFieldsParams();
         logger.info(url);
         ResponseEntity<SampleApiResponse> response = restTemplate.getForEntity(url, SampleApiResponse.class);
-        Response response_ = new Response();
+
         response_.setResult(response.getBody().toResponseEntities());
         response_.setCount(response.getBody().getCount());
         System.err.println(response.getBody().getPageInfo());

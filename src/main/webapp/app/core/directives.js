@@ -163,7 +163,7 @@ angular.module('geoApp').directive('loading', function () {
 .directive('selectexact', function(){
     return {
       template: '<select class="col-md-4 form-control" data-ng-model="field" ' +
-      'ng-options="option.value as option.name for option in idOptions track by option.value"></select>',
+      'ng-options="option.value as option.name for option in idOptions"></select>',
         restrict: 'E',
         scope: {
           field: '=ngModel'
@@ -186,14 +186,14 @@ angular.module('geoApp').directive('loading', function () {
 
             scope.$watch('field', function(data) {
                 if(data) return;
-                scope.field = scope.idOptions[0]
+                scope.field = scope.idOptions[0].value;
             });
         }
     };
 }).directive('selectdefault', function(){
     return {
       template: '<select class="col-md-4 form-control" data-ng-model="field" ' +
-      'ng-options="option.value as option.name for option in defaultOptions track by option.value"></select>',
+      'ng-options="option.value as option.name for option in defaultOptions"></select>',
         restrict: 'E',
         scope: {
             field: '=ngModel'
@@ -216,14 +216,14 @@ angular.module('geoApp').directive('loading', function () {
 
             scope.$watch('field', function(data) {
                 if(data) return;
-                scope.field = scope.defaultOptions[0]
+                scope.field = scope.defaultOptions[0].value;
             });
         }
     };
 }).directive('selecthierarchy', function(){
     return {
       template: '<select class="col-md-4 form-control" data-ng-model="field" ' +
-      'ng-options="option.value as option.name for option in defaultOptions track by option.value"></select>',
+      'ng-options="option.value as option.name for option in defaultOptions"></select>',
         restrict: 'E',
         scope: {
             field: '=ngModel'
@@ -248,7 +248,7 @@ angular.module('geoApp').directive('loading', function () {
 
             scope.$watch('field', function(data) {
                 if(data) return;
-                scope.field = scope.defaultOptions[0]
+                scope.field = scope.defaultOptions[0].value;
             });
         }
     };

@@ -27,7 +27,7 @@ public class SearchController {
     @RequestMapping(value = "/get-search", method= RequestMethod.GET)
     @ResponseBody
     public AbstractSearch getSearch(@RequestParam("name") String search){
-        return SearchFactory.create(search);
+        return new SampleSearch(search);
     }
 
     @RequestMapping(value = "/sample-list", method= RequestMethod.POST)

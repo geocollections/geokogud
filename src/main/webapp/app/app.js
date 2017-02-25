@@ -14,7 +14,8 @@ angular.module('geoApp', [
     'ngFileUpload',
     'search',
     'database',
-    'usingCollection'
+    'usingCollection',
+    'fullsearch'
 ]);
 
 var configuration = CONFIG;
