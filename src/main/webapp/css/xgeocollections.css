@@ -47,18 +47,15 @@ hr.featurette-divider {
 	background-position: top center;
 	background-repeat: no-repeat !important;
 }
-/*#topNav {
-	height: 150px;
-	background:  linear-gradient(rgba(62, 201, 167, 0.45), rgba(62, 201, 167, 0.45)), url("/img/sarv_banner_grey.jpg");
-	-webkit-background-size:cover;
-	background-size:cover;
-	text-align: center;
-	background-position: top center;
-	background-repeat: no-repeat !important;
-}*/
 
 #bottomNav {
 	background-color: #3e4142;
+}
+
+@media ( max-width : 767px) {
+	.nav li, #links {
+		border: 0 !important;
+	}
 }
 
 .navbar-header {
