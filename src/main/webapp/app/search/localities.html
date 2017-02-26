@@ -6,7 +6,6 @@
             </div>
         </div>
         <div class="row">
-            <form class="form-horizontal">
             <div class="col-md-6">
                 <div class="row" data-ng-if="showAdditionalCriteria">
                     <label class="control-label col-md-2">ID</label>
@@ -115,7 +114,7 @@
                     <label class="control-label col-md-2">Sort by:</label>
                     <div class="col-md-5">
                         <select class="col-md-4 form-control"
-                                data-ng-model="sampleSearch.content.lookUpType"
+                                data-ng-model="localitySearch.content.lookUpType"
                                 data-ng-options="option.name for option in sortbyOptions track by option.value">
                             <option value="">-- Choose --</option>
                         </select>
@@ -138,7 +137,14 @@
                     </div>
                 </div>
             </div>
-            </form>
+                <div class="col-md-5">
+                    SEARCH TIPS:
+
+                    First select the base table (specimens, samples, localities, references etc);
+                    Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search 'asap' in specimen name field will find 'Asaphus sp.' as well as 'Asaphus expansus'); for stratigraphy and classification the search is hierarchical by default, for number fields exact maches will be searched if user does not specify otherwise;
+                    To show a map where available, tick the appropriate checkbox;
+                    To show detailed information follow the links in the results table.
+                </div>
         </div>
             <div class="row">
                 <div class="col-lg-4">

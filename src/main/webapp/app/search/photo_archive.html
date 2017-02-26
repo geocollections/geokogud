@@ -1,5 +1,157 @@
 <div class="panel panel-default">
     <div class="panel-body">
-
+        <div class="row">
+            <div class="text-center">
+                <h1>Search: Photo archive</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <label class="control-label col-md-2">Locality</label>
+                    <div class="col-md-3">
+                        <selectdefault ng-model = "photoArchiveSearch.locality.lookUpType"></selectdefault>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" ng-model="photoArchiveSearch.locality.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">People</label>
+                    <div class="col-md-3">
+                        <selectdefault ng-model = "photoArchiveSearch.people.lookUpType"></selectdefault>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" ng-model="photoArchiveSearch.people.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Key words</label>
+                    <div class="col-md-3">
+                        <selectdefault ng-model = "photoArchiveSearch.keyWords.lookUpType"></selectdefault>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" ng-model="photoArchiveSearch.keyWords.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Admin. unit</label>
+                    <div class="col-md-3">
+                        <selectdefault ng-model = "photoArchiveSearch.adminunit.lookUpType"></selectdefault>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" ng-model="photoArchiveSearch.adminunit.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Date</label>
+                    <div class="col-md-3">
+                        <selectexact ng-model = "photoArchiveSearch.date.lookUpType"></selectexact>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" ng-model="photoArchiveSearch.date.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Number</label>
+                    <div class="col-md-3">
+                        <selectdefault ng-model = "photoArchiveSearch.number.lookUpType"></selectdefault>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" ng-model="photoArchiveSearch.number.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Author</label>
+                    <div class="col-md-3">
+                        <selectdefault ng-model = "photoArchiveSearch.author.lookUpType"></selectdefault>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" ng-model="photoArchiveSearch.author.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Image size</label>
+                    <div class="col-md-3">
+                        <selectexact ng-model = "photoArchiveSearch.imageSize.lookUpType"></selectexact>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" ng-model="photoArchiveSearch.imageSize.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">Show additional criteria</a>
+                    <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">Hide additional criteria</a>
+                </div>
+                <div class="row">
+                    <label class="col-md-2">Institutions:</label>
+                    <label data-ng-repeat="state in departments"><input style="margin: 10px;" type="checkbox" value="{{state.code}}" data-ng-checked="specimensSearch.dbs.indexOf(state.code) > -1" data-ng-click="toggle(state.code)"> {{state.label}} </label>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Sort by:</label>
+                    <div class="col-md-5">
+                        <select class="col-md-4 form-control"
+                                data-ng-model="photoArchiveSearch.content.lookUpType"
+                                data-ng-options="option.name for option in sortbyOptions track by option.value">
+                            <option value="">-- Choose --</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <ascdesc></ascdesc>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label>
+                                Show map: <input type="checkbox" ng-model="showMap"/>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row geo-section-row no-border">
+                        <button class="btn btn-default pull-right" data-ng-click="defaultSearch()"><i class="glyphicon glyphicon-erase"></i> Reset form</button>
+                        <button class="btn btn-default pull-right" data-ng-click="imageSearch()"><i class="glyphicon glyphicon-picture"></i> Search images</button>
+                        <button class="btn btn-default pull-right" data-ng-click="search()">
+                            <i class="glyphicon glyphicon-search"></i> Send query</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                Archive of geological photos dates back to early 1900s and is expanding by the ongoing digitization and new photos.
+                When using the photos please follow licence conditions and consult curators if necessary.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="row geo-list-info ">
+                    <div class="col-md-6 text-right">
+                        <p class="amount">Kokku: {{response.count}}</p>
+                    </div>
+                </div>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Author</th>
+                        <th>Date</th>
+                        <th>Locality</th>
+                        <th>Category</th>
+                        <th>Key words</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in response.results">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="text-right">
+                    <uib-pagination boundary-links="true" ng-change="searchByPage()" items-per-page="pageSize" max-size="maxSize" rotate="false" total-items="totalItems" ng-model="pageNum" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

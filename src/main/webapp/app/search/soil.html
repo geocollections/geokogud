@@ -1,5 +1,155 @@
 <div class="panel panel-default">
     <div class="panel-body">
+        <div class="row">
+            <div class="text-center">
+                <h1>Search: Soil sites</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row" data-ng-if="showAdditionalCriteria">
+                    <label class="control-label col-md-2">ID</label>
+                    <div class="col-md-3">
+                        <selectexact ng-model = "soilSearch.id.lookUpType"></selectexact>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" ng-model="soilSearch.id.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Locality</label>
+                    <div class="col-md-3">
+                        <selectdefault ng-model = "soilSearch.locality.lookUpType"></selectdefault>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" ng-model="soilSearch.locality.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">The study area</label>
+                    <div class="col-md-3">
+                        <selectdefault ng-model = "soilSearch.studyarea.lookUpType"></selectdefault>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" ng-model="soilSearch.studyarea.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Transect</label>
+                    <div class="col-md-3">
+                        <selectdefault ng-model = "soilSearch.transect.lookUpType"></selectdefault>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" ng-model="soilSearch.transect.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Soil name</label>
+                    <div class="col-md-3">
+                        <selectdefault ng-model = "soilSearch.soilName.lookUpType"></selectdefault>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" ng-model="soilSearch.soilName.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Soil tenure</label>
+                    <div class="col-md-3">
+                        <selectdefault ng-model = "soilSearch.soilTenure.lookUpType"></selectdefault>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" ng-model="soilSearch.soilTenure.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Is there well?</label>
+                    <div class="col-md-3">
+                        <selectexact ng-model = "soilSearch.well.lookUpType"></selectexact>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" ng-model="soilSearch.well.name" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">Show additional criteria</a>
+                    <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">Hide additional criteria</a>
+                </div>
+                <div class="row">
+                    <label class="control-label col-md-2">Sort by:</label>
+                    <div class="col-md-5">
+                        <select class="col-md-4 form-control"
+                                data-ng-model="soilSearch.content.lookUpType"
+                                data-ng-options="option.name for option in sortbyOptions track by option.value">
+                            <option value="">-- Choose --</option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <ascdesc></ascdesc>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label>
+                                Show map: <input type="checkbox" ng-model="showMap"/>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row geo-section-row no-border">
+                        <button class="btn btn-default pull-right" data-ng-click="defaultSearch()"><i class="glyphicon glyphicon-erase"></i> Reset form</button>
+                        <button class="btn btn-default pull-right" data-ng-click="search()">
+                            <i class="glyphicon glyphicon-search"></i> Send query</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                SEARCH TIPS:
 
+                First select the base table (specimens, samples, localities, references etc);
+                Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search 'asap' in specimen name field will find 'Asaphus sp.' as well as 'Asaphus expansus'); for stratigraphy and classification the search is hierarchical by default, for number fields exact maches will be searched if user does not specify otherwise;
+                To show a map where available, tick the appropriate checkbox;
+                To show detailed information follow the links in the results table.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="row geo-list-info ">
+                    <div class="col-md-6 text-right">
+                        <p class="amount">Kokku: {{response.count}}</p>
+                    </div>
+                </div>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Locality</th>
+                        <th>The study area</th>
+                        <th>Transect</th>
+                        <th>Point on the transect</th>
+                        <th>Soil name</th>
+                        <th>Soil tenure</th>
+                        <th>Lat.</th>
+                        <th>Lon.</th>
+                        <th>Well</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in response.results">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="text-right">
+                    <uib-pagination boundary-links="true" ng-change="searchByPage()" items-per-page="pageSize" max-size="maxSize" rotate="false" total-items="totalItems" ng-model="pageNum" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
