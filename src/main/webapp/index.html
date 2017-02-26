@@ -129,15 +129,14 @@ body {
 		<div class="container">
 			<div class="navbar-header col-lg-12">
 				<h1 style="margin-top: auto">
-					<a class="navbar-brand" id="navbarid" data-ui-sref="main">Geoscience
-						collections of Estonia</a>
+					<a class="navbar-brand" id="navbarid" data-ui-sref="main">Geoscience collections of Estonia</a>
 				</h1>
 			</div>
 			<div class="row text-center">
 				<div class="col-lg-4"></div>
 				<div class="col-lg-4">
 					<form class="navbar-form" role="search">
-						<div class="input-group">
+						<div class="input-group input-group-lg">
 							<input type="text" class="form-control input-lg"
 								id="mainSearchInput" placeholder="Search" name="q">
 							<div class="input-group-btn">
@@ -173,6 +172,8 @@ body {
 					</li>
 					<li href data-ui-sref-active="active"><a data-ui-sref="map">Map</a>
 					</li>
+					<li href><a data-ui-sref="usingCollection">Using collections</a>
+					</li>
 				</ul>
 
 				<ul class="nav navbar-nav">
@@ -181,8 +182,6 @@ body {
 						aria-expanded="false">For developers<span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li href><a data-ui-sref="database">Database</a></li>
-							<li href><a data-ui-sref="usingCollection">Using
-									collections</a></li>
 							<li><a href="{{config.apiUrl}}" target="_blank">Public
 									API</a></li>
 							<li><a href="{{config.githubUrl}}" target="_blank">GitHub</a></li>
@@ -207,7 +206,7 @@ body {
 				height=70>
 			<div>
 				<p>
-					(cc) 2008-2017. SARV: Geoscience collections and data repository <a
+					<img src="img/logos/cc.png" alt="cc" height="15">2008-2017. SARV: Geoscience collections and data repository <a
 						href="#">Privacy</a> &middot; <a href="#">Terms</a>
 				</p>
 				<p>If not indicated otherwise, content of the these pages may be
@@ -236,7 +235,7 @@ body {
 
 	<!--search module js files-->
 	<script src="app/search/module.js"></script>
-	<script src="app/search/speciments.js"></script>
+	<script src="app/search/specimens.js"></script>
 	<script src="app/search/samples.js"></script>
 	<script src="app/search/drill_cores.js"></script>
 	<script src="app/search/references.js"></script>

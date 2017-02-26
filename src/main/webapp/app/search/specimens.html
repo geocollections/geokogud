@@ -1,5 +1,242 @@
 <div class="panel panel-default">
     <div class="panel-body">
-
+        <div class="row">
+            <div class="text-center">
+                <h1>Search: Specimens</h1>
+            </div>
+        </div>
+        <div class="row">
+            <form class="form-horizontal">
+                <div class="col-md-6">
+                    <div class="row" data-ng-if="showAdditionalCriteria">
+                        <label class="control-label col-md-2">ID</label>
+                        <div class="col-md-3">
+                            <selectexact ng-model = "specimensSearch.id.lookUpType"></selectexact>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="specimensSearch.id.name" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="control-label col-md-2">Specimen number</label>
+                        <div class="col-md-3">
+                            <selectdefault ng-model = "specimensSearch.specimenNumber.lookUpType"></selectdefault>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="specimensSearch.specimenNumber.name" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row" data-ng-if="showAdditionalCriteria">
+                        <label class="control-label col-md-2">Collection number</label>
+                        <div class="col-md-3">
+                            <selectexact ng-model = "specimensSearch.collectionNumber.lookUpType"></selectexact>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="specimensSearch.collectionNumber.name" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="control-label col-md-2">Classification</label>
+                        <div class="col-md-3">
+                            <selecthierarchy ng-model = "specimensSearch.classification.lookUpType"></selecthierarchy>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="specimensSearch.classification.name" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row" data-ng-if="showAdditionalCriteria">
+                        <label class="control-label col-md-2">Fossil/ Mineral/ Rock</label>
+                        <div class="col-md-3">
+                            <selectdefault ng-model = "specimensSearch.fossilmineralrock.lookUpType"></selectdefault>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="specimensSearch.fossilmineralrock.name" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="control-label col-md-2">Name of fossil</label>
+                        <div class="col-md-3">
+                            <selectdefault ng-model = "specimensSearch.fossilName.lookUpType"></selectdefault>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="specimensSearch.fossilName.name" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="control-label col-md-2">Mineral/Rock</label>
+                        <div class="col-md-3">
+                            <selectdefault ng-model = "specimensSearch.mineralrock.lookUpType"></selectdefault>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="specimensSearch.mineralrock.name" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="control-label col-md-2">Admin.unit</label>
+                        <div class="col-md-3">
+                            <selectdefault ng-model = "specimensSearch.adminunit.lookUpType"></selectdefault>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="specimensSearch.adminunit.name" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="control-label col-md-2">Locality</label>
+                        <div class="col-md-3">
+                            <selectdefault ng-model = "specimensSearch.locality.lookUpType"></selectdefault>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="specimensSearch.locality.name" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row" data-ng-if="showAdditionalCriteria">
+                        <label class="control-label col-md-2">Depth (m)</label>
+                        <div class="col-md-3">
+                            <selectexact ng-model = "specimensSearch.depth.lookUpType"></selectexact>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="specimensSearch.depth.name" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="control-label col-md-2" >Stratigraphy</label>
+                        <div class="col-md-3">
+                            <selecthierarchy ng-model = "specimensSearch.stratigraphy.lookUpType"></selecthierarchy>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="specimensSearch.stratigraphy.name" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row" data-ng-if="showAdditionalCriteria">
+                        <label class="control-label col-md-2">Collector</label>
+                        <div class="col-md-3">
+                            <selectdefault ng-model = "specimensSearch.collector.lookUpType"></selectdefault>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="specimensSearch.collector.name" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row" data-ng-if="showAdditionalCriteria">
+                        <label class="control-label col-md-2">Reference</label>
+                        <div class="col-md-3">
+                            <selectdefault ng-model = "specimensSearch.reference.lookUpType"></selectdefault>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="specimensSearch.reference.name" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row" data-ng-if="showAdditionalCriteria">
+                        <label class="control-label col-md-2">Type status</label>
+                        <div class="col-md-3">
+                            <selectdefault ng-model = "specimensSearch.typeStatus.lookUpType"></selectdefault>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="specimensSearch.typeStatus.name" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row" data-ng-if="showAdditionalCriteria">
+                        <label class="control-label col-md-2">Part (of fossil)</label>
+                        <div class="col-md-3">
+                            <selectdefault ng-model = "specimensSearch.partoffossil.lookUpType"></selectdefault>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="specimensSearch.partoffossil.name" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row" data-ng-if="showAdditionalCriteria">
+                        <label class="control-label col-md-2">Key words</label>
+                        <div class="col-md-3">
+                            <selectdefault ng-model = "specimensSearch.keywords.lookUpType"></selectdefault>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="specimensSearch.keywords.name" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row" data-ng-if="showAdditionalCriteria">
+                        <label class="control-label col-md-2">Reg. date</label>
+                        <div class="col-md-3">
+                            <selectexact ng-model = "specimensSearch.regdate.lookUpType"></selectexact>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" ng-model="specimensSearch.regdate.name" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">Show additional criteria</a>
+                        <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">Hide additional criteria</a>
+                    </div>
+                <div class="row">
+                    <label class="col-md-2">Institutions:</label>
+                    <label data-ng-repeat="state in departments"><input style="margin: 10px;" type="checkbox" value="{{state.code}}" data-ng-checked="specimensSearch.dbs.indexOf(state.code) > -1" data-ng-click="toggle(state.code)"> {{state.label}} </label>
+                </div>
+                    <div class="row">
+                        <label class="control-label col-md-2">Sort by:</label>
+                        <div class="col-md-5">
+                            <select class="col-md-4 form-control"
+                                    data-ng-model="sampleSearch.content.lookUpType"
+                                    data-ng-options="option.name for option in sortbyOptions track by option.value">
+                                <option value="">-- Choose --</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5">
+                            <ascdesc></ascdesc>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <label>
+                                    Show map: <input type="checkbox" ng-model="showMap"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row geo-section-row no-border">
+                            <button class="btn btn-default pull-right" data-ng-click="defaultSearch()"><i class="glyphicon glyphicon-erase"></i> Reset form</button>
+                            <button class="btn btn-default pull-right" data-ng-click="imageSearch()"><i class="glyphicon glyphicon-picture"></i> Search images</button>
+                            <button class="btn btn-default pull-right" data-ng-click="search()">
+                                <i class="glyphicon glyphicon-search"></i> Send query</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="row geo-list-info ">
+                    <div class="col-md-6 text-right">
+                        <p class="amount">Kokku: {{response.count}}</p>
+                    </div>
+                </div>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Old specimen #</th>
+                        <th>Name Part/element</th>
+                        <th>Locality</th>
+                        <th>Depth (m)</th>
+                        <th>Stratigraphy <em>Lithostratigraphy</em></th>
+                        <th>Collector</th>
+                        <th>Status</th>
+                        <th>Images</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in response.results">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="text-right">
+                    <uib-pagination boundary-links="true" ng-change="searchByPage()" items-per-page="pageSize" max-size="maxSize" rotate="false" total-items="totalItems" ng-model="pageNum" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
