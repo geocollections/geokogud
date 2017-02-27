@@ -16,4 +16,5 @@ angular.module('search').controller('SearchSpecimensController', function(Search
         {code:"TUGO",label:"TUGO"},
         {code:"MUMU",label:"MUMU"},
         {code:"EGK",label:"EGK"}];
+
 });
