@@ -81,3 +81,95 @@ footer {
 footer img {
 	margin: 10px;
 }
+
+[ng\:cloak],[data-ng-cloak],[ng-cloak],.ng-cloak {
+	display: none !important;
+}
+/* overrides of some OL styles */
+.ol-scale-line {
+	background: #95b9e6;
+	background: rgba(0, 60, 136, .3);
+	border-radius: 4px;
+	top: 8px;
+	left: 45px;
+	bottom: initial;
+	padding: 2px;
+	position: absolute
+}
+
+.ol-attribution {
+	text-align: right;
+	top: 7px;
+	right: 45px;
+	bottom: initial;
+	max-width: calc(100% - 1.3em)
+}
+
+body {
+	margin: 0 0 20px 0;
+	padding: 0;
+	font-family: "segoe ui", arial, sans-serif;
+	font-size: 10pt;
+}
+
+#map {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	max-width: 2000px;
+	margin: 0 0 25px 0;
+	padding: 0;
+}
+
+#navbarid {
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+@media ( min-width : 768px) {
+	#navbarid {
+		font-size: 40px;
+	}
+}
+
+#info {
+	position: absolute;
+	height: 1px;
+	width: 1px;
+	z-index: 100;
+}
+
+.tooltip.in {
+	opacity: 1;
+	filter: alpha(opacity = 100);
+}
+
+.tooltip.top .tooltip-arrow {
+	border-top-color: white;
+}
+
+.tooltip-inner {
+	border: 2px solid white;
+}
+
+#footer {
+	width: 100%;
+	min-height: 28px;
+	max-height: 100px;
+	opacity: 0.9;
+	background-color: #333;
+	color: #fff;
+	/*position: fixed;*/
+	bottom: 0px;
+	font-size: 9pt;
+	z-index: 100;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+	text-align: center;
+}
+
+#formcontainer {
+	padding: 5px;
+}
