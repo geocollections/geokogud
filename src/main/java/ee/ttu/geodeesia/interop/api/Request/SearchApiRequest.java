@@ -7,6 +7,7 @@ public class SearchApiRequest {
     //TODO:remove
     private String searchCriteria;
     //TODO:remove
+    //TODO: then remove it!
     private String field;
     private String fieldsParams;
     private String table;

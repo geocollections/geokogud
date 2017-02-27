@@ -17,7 +17,7 @@ public class SampleApiResponse {
 
     public List<ResponseEntities> toResponseEntities() {
         List<ResponseEntities> list = new ArrayList<>();
-        result.stream().forEach(apiServiceSample -> {
+        result.forEach(apiServiceSample -> {
             list.add(apiServiceSample.toResponse());
         });
         return list;
