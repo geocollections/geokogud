@@ -93,7 +93,7 @@ public class ApiService {
             fieldsParams += "&id__"+search.getId().getLookUpType().value()+"="+search.getId().getName();
         }
         if(isNotNullAndEmpty(search.getSampleNumber())) {
-            fieldsParams += "&sample_number__"+search.getSampleNumber().getLookUpType().value()+"="+search.getSampleNumber().getName();
+            fieldsParams += "&number__"+search.getSampleNumber().getLookUpType().value()+"="+search.getSampleNumber().getName();
         }
         if(isNotNullAndEmpty(search.getLocality())) {
             fieldsParams += "&locality__"+search.getLocality().getLookUpType().value()+"="+search.getLocality().getName();

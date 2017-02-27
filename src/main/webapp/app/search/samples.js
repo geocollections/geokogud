@@ -8,8 +8,9 @@ angular.module('search').controller('SearchSampleController', function($scope, S
         {  name: 'Collector', value: 'collector' }
     ];
 
-    $scope.searchDefault = function() {
-        SearchService.getSearch("sample").then(function(search) {
+    $scope.searchDefault = function(search) {
+        if(!search) search = "SAMPLES";
+        SearchService.getSearch(search).then(function(search) {
             $scope.sampleSearch = search;
             $scope.search();
         });

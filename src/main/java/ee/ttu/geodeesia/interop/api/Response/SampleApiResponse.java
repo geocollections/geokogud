@@ -16,10 +16,14 @@ public class SampleApiResponse {
     @JsonProperty("page")
     private String pageInfo;
     @JsonProperty("results")
-    private List<ApiServiceSample> result;
+    private List<ApiServiceSample> result = new ArrayList<>();
+
+    public SampleApiResponse() {}
 
     public List<ResponseEntities> toResponseEntities() {
         List<ResponseEntities> list = new ArrayList<>();
+        if(result.isEmpty()) return list;
+
         result.stream().forEach(apiServiceSample -> {
             list.add(apiServiceSample.toResponse());
         });

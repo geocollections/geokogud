@@ -3,10 +3,11 @@
 
 
         <div class="row text-center">
+            <div class="col-lg-2"></div>
             <div class="col-lg-8">
-                <H1 class="col-lg-4">Looking for</H1>
-                <div class="col-lg-8">
-                    <select id="mainSearchInput" class="col-lg form-control" data-ng-model="defaultSearchOption"
+                <H1 class="col-lg-3">Looking for</H1>
+                <div class="col-lg-6  text-center">
+                    <select id="mainSearchInput" class="input-lg form-control" data-ng-model="defaultSearchOption"
                             ng-options="option.value as option.name for option in defaultSearchOptions" data-ng-change="tableChanged()"></select>
                 </div>
             </div>
