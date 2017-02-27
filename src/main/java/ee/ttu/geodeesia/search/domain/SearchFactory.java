@@ -1,8 +1,7 @@
 package ee.ttu.geodeesia.search.domain;
 
-/**
- * Created by 48707222248 on 21.02.2017.
- */
+import ee.ttu.geodeesia.interop.api.samples.pojo.SampleSearch;
+
 public class SearchFactory {
     public static AbstractSearch create(String searchName) {
         AbstractSearch search = null;

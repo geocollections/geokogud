@@ -12,7 +12,7 @@
 <link rel="stylesheet"
 	href="lib/angular-ui-bootstrap-datetimepicker/datetimepicker.css">
 <link rel="stylesheet" href="css/main.css">
-<link rel='stylesheet' href='lib/openlayers3/ol.css'>
+<!-- <link rel='stylesheet' href='lib/openlayers3/ol.css'> -->
 <link rel="stylesheet" href="css/xgeocollections.css">
 <link rel="stylesheet" href="css/carousel.css">
 <link rel="stylesheet" href="css/tabs.css">
@@ -20,106 +20,6 @@
 <script src="lib/openlayers3/ol.js" type="text/javascript"></script>
 <script src="lib/openlayers3/ol3-layerswitcher.js"></script>
 <link rel="stylesheet" href="lib/openlayers3/ol3-layerswitcher.css" />
-
-<style type="text/css">
-[ng\:cloak],[data-ng-cloak],[ng-cloak],.ng-cloak {
-	display: none !important;
-}
-/* overrides of some OL styles */
-.ol-scale-line {
-	background: #95b9e6;
-	background: rgba(0, 60, 136, .3);
-	border-radius: 4px;
-	top: 8px;
-	left: 45px;
-	bottom: initial;
-	padding: 2px;
-	position: absolute
-}
-
-.ol-attribution {
-	text-align: right;
-	top: 7px;
-	right: 45px;
-	bottom: initial;
-	max-width: calc(100% - 1.3em)
-}
-
-body {
-	margin: 0 0 20px 0;
-	padding: 0;
-	font-family: "segoe ui", arial, sans-serif;
-	font-size: 10pt;
-}
-
-/*#mapcontainer {
-	text-align: center;
-	!*margin-left: auto;
-            margin-right: auto;*!
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	z-index: -1;
-	margin: 0 0 25px 0;
-}*/
-
-#map {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	max-width: 2000px;
-	margin: 0 0 25px 0;
-	padding: 0;
-}
-
-#navbarid{
-	color: #ffffff;
-	font-weight: bold;
-	font-size:42px;
-}
-#info {
-	position: absolute;
-	height: 1px;
-	width: 1px;
-	z-index: 100;
-}
-
-.tooltip.in {
-	opacity: 1;
-	filter: alpha(opacity = 100);
-}
-
-.tooltip.top .tooltip-arrow {
-	border-top-color: white;
-}
-
-.tooltip-inner {
-	border: 2px solid white;
-}
-
-#footer {
-	width: 100%;
-	min-height: 28px;
-	max-height: 100px;
-	opacity: 0.9;
-	background-color: #333;
-	color: #fff;
-	/*position: fixed;*/
-	bottom: 0px;
-	font-size: 9pt;
-	z-index: 100;
-	margin-left: auto;
-	margin-right: auto;
-	padding: 0;
-	text-align: center;
-}
-
-#formcontainer {
-	padding: 5px;
-}
-</style>
 </head>
 <body data-ng-cloak class="ng-cloak" role="document">
 	<!-- Fixed navbar -->
@@ -128,7 +28,7 @@ body {
 		<!--background-image: url(img/picture.png); -->
 		<div class="container">
 			<div class="navbar-header col-lg-12">
-				<h1 style="margin-top: auto">
+				<h1>
 					<a class="navbar-brand" id="navbarid" data-ui-sref="main">Geoscience collections of Estonia</a>
 				</h1>
 			</div>
@@ -235,17 +135,17 @@ body {
 
 	<!--search module js files-->
 	<script src="app/search/module.js"></script>
-	<script src="app/search/specimens.js"></script>
-	<script src="app/search/samples.js"></script>
-	<script src="app/search/drill_cores.js"></script>
-	<script src="app/search/references.js"></script>
-	<script src="app/search/localities.js"></script>
+	<script src="app/modules/specimens/search/specimens.js"></script>
+	<script src="app/modules/samples/search/samples.js"></script>
+	<script src="app/modules/drillCores/search/drill_cores.js"></script>
+	<script src="app/modules/references/search/references.js"></script>
+	<script src="app/modules/localities/search/localities.js"></script>
 	<script src="app/search/stratigraphy.js"></script>
-	<script src="app/search/analyses.js"></script>
-	<script src="app/search/preparetions.js"></script>
-	<script src="app/search/photo_archive.js"></script>
-	<script src="app/search/soil.js"></script>
-	<script src="app/search/doi.js"></script>
+	<script src="app/modules/analyses/search/analyses.js"></script>
+	<script src="app/modules/preparations/search/preparations.js"></script>
+	<script src="app/modules/photoArchive/search/photo_archive.js"></script>
+	<script src="app/modules/soil/search/soil.js"></script>
+	<script src="app/modules/doi/search/doi.js"></script>
 	<script src="app/search/search_services.js"></script>
 	<script src="app/search/fullsearch.js"></script>
 	<!---->

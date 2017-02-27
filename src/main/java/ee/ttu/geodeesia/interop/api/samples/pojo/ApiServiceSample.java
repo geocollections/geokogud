@@ -1,13 +1,11 @@
-package ee.ttu.geodeesia.interop.api.Response;
+package ee.ttu.geodeesia.interop.api.samples.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ee.ttu.geodeesia.interop.api.Response.ResponseEntities;
 
 import java.io.Serializable;
 
-/**
- * Created by 48707222248 on 22.02.2017.
- */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiServiceSample implements Serializable {
     private static final long serialVersionUID = 1L;

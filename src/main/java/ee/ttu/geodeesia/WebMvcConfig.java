@@ -4,9 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.*;
 
-/**
- * Created by Olesja Senkiv.
- */
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 

@@ -1,13 +1,10 @@
-package ee.ttu.geodeesia.interop.api.Response;
+package ee.ttu.geodeesia.interop.api.taxon.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-/**
- * Created by 48707222248 on 18.02.2017.
- */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TaxonApiResponse {
     @JsonProperty("count")

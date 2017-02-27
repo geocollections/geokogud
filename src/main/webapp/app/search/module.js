@@ -23,7 +23,7 @@ angular.module('fullsearch', []).config(function($stateProvider, $urlRouterProvi
 angular.module('search.specimens', []).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('search.specimens', {
         url: "/specimens",
-        templateUrl: "app/search/specimens.html",
+        templateUrl: "app/modules/specimens/search/specimens.html",
         controller: "SearchSpecimensController"
     });
 });
@@ -32,7 +32,7 @@ angular.module('search.specimens', []).config(function($stateProvider, $urlRoute
 angular.module('search.samples', []).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('search.samples', {
         url: "/samples",
-        templateUrl: "app/search/samples.html",
+        templateUrl: "app/modules/samples/search/samples.html",
         controller: "SearchSampleController"
     });
 
@@ -42,7 +42,7 @@ angular.module('search.samples', []).config(function($stateProvider, $urlRouterP
 angular.module('search.drillCores', []).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('search.drillCores', {
         url: "/drillCores",
-        templateUrl: "app/search/drill_cores.html",
+        templateUrl: "app/modules/drillCores/search/drill_cores.html",
         controller: "SearchDrillCoresController"
     });
 
@@ -52,7 +52,7 @@ angular.module('search.drillCores', []).config(function($stateProvider, $urlRout
 angular.module('search.localities', []).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('search.localities', {
         url: "/localities",
-        templateUrl: "app/search/localities.html",
+        templateUrl: "app/modules/localities/search/localities.html",
         controller: "SearchLocalitiesController"
     });
 });
@@ -61,7 +61,7 @@ angular.module('search.localities', []).config(function($stateProvider, $urlRout
 angular.module('search.references', []).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('search.references', {
         url: "/references",
-        templateUrl: "app/search/references.html",
+        templateUrl: "app/modules/references/search/references.html",
         controller: "SearchReferencesController"
     });
 
@@ -81,7 +81,7 @@ angular.module('search.stratigraphy', []).config(function($stateProvider, $urlRo
 angular.module('search.analyses', []).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('search.analyses', {
         url: "/analyses",
-        templateUrl: "app/search/analyses.html",
+        templateUrl: "app//modules/analyses/search/analyses.html",
         controller: "SearchAnalysesController"
     });
 
@@ -91,7 +91,7 @@ angular.module('search.analyses', []).config(function($stateProvider, $urlRouter
 angular.module('search.preparations', []).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('search.preparations', {
         url: "/preparations",
-        templateUrl: "app/search/preparations.html",
+        templateUrl: "app/modules/preparations/search/preparations.html",
         controller: "SearchPreparationsController"
     });
 
@@ -101,7 +101,7 @@ angular.module('search.preparations', []).config(function($stateProvider, $urlRo
 angular.module('search.photoArchive', []).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('search.photoArchive', {
         url: "/photoArchive",
-        templateUrl: "app/search/photo_archive.html",
+        templateUrl: "app/modules/photoArchive/search/photo_archive.html",
         controller: "SearchPhotoArchiveController"
     });
 
@@ -111,7 +111,7 @@ angular.module('search.photoArchive', []).config(function($stateProvider, $urlRo
 angular.module('search.soil', []).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('search.soil', {
         url: "/soil",
-        templateUrl: "app/search/soil.html",
+        templateUrl: "app/modules/soil/search/soil.html",
         controller: "SearchSoilController"
     });
 });
@@ -120,7 +120,7 @@ angular.module('search.soil', []).config(function($stateProvider, $urlRouterProv
 angular.module('search.doi', []).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('search.doi', {
         url: "/doi",
-        templateUrl: "app/search/doi.html",
+        templateUrl: "app/modules/doi/search/doi.html",
         controller: "SearchDoiController"
     });
 });

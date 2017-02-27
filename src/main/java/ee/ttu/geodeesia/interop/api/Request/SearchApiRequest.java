@@ -1,8 +1,5 @@
 package ee.ttu.geodeesia.interop.api.Request;
 
-/**
- * Created by 48707222248 on 18.02.2017.
- */
 public class SearchApiRequest {
     private String outputFormat = "json";
     private int page;
@@ -10,6 +7,7 @@ public class SearchApiRequest {
     //TODO:remove
     private String searchCriteria;
     //TODO:remove
+    //TODO: then remove it!
     private String field;
     private String fieldsParams;
     private String table;
