@@ -1,1 +1,1 @@
-http://arendus.geokogud.info/#/fullsearch
+http://arendus.geokogud.info/
