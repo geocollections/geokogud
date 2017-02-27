@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * Created by 48707222248 on 18.02.2017.
- */
 @Controller
 @RequestMapping("/logger")
 public class LoggingController {

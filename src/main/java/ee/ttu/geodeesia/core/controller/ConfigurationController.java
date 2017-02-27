@@ -8,9 +8,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ResourceBundle;
 
-/**
- * Created by 48707222248 on 18.02.2017.
- */
 @Controller
 @RequestMapping("/config")
 public class ConfigurationController {

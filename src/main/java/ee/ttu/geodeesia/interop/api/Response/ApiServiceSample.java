@@ -5,9 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 
-/**
- * Created by 48707222248 on 22.02.2017.
- */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiServiceSample implements Serializable {
     private static final long serialVersionUID = 1L;

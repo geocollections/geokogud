@@ -6,9 +6,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by 48707222248 on 18.02.2017.
- */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SampleApiResponse {
     @JsonProperty("count")

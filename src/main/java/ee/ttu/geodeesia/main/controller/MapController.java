@@ -9,9 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * Created by 48707222248 on 19.02.2017.
- */
 @Controller
 @RequestMapping("/locality")
 public class MapController {

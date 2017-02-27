@@ -5,9 +5,6 @@ import javax.persistence.Enumerated;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by 48707222248 on 21.02.2017.
- */
 public class SearchField {
 
     private String name;

@@ -14,9 +14,6 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Created by 48707222248 on 18.02.2017.
- */
 @Service
 public class ApiService {
 
