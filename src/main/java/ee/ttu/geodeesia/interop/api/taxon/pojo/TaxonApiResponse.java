@@ -1,4 +1,4 @@
-package ee.ttu.geodeesia.interop.api.Response;
+package ee.ttu.geodeesia.interop.api.taxon.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

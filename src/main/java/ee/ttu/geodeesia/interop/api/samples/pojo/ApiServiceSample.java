@@ -1,7 +1,8 @@
-package ee.ttu.geodeesia.interop.api.Response;
+package ee.ttu.geodeesia.interop.api.samples.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ee.ttu.geodeesia.interop.api.Response.ResponseEntities;
 
 import java.io.Serializable;
 

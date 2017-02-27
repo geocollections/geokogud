@@ -58,14 +58,12 @@ public class App extends SpringBootServletInitializer {
 
     @Bean
     public EventBus eventBus() {
-        EventBus eventBus = new EventBus();
-        return eventBus;
+        return new EventBus();
     }
 
     @Bean
     public AsyncEventBus asyncEventBus() {
-        AsyncEventBus asyncEventBus = new AsyncEventBus("asyncDefault", Executors.newFixedThreadPool(2));
-        return asyncEventBus;
+        return new AsyncEventBus("asyncDefault", Executors.newFixedThreadPool(2));
     }
 
 }

@@ -1,8 +1,7 @@
 package ee.ttu.geodeesia.main.controller;
 
-import ee.ttu.geodeesia.interop.api.Response.LocalityApiResponse;
-import ee.ttu.geodeesia.interop.api.Response.TaxonApiResponse;
-import ee.ttu.geodeesia.interop.api.ApiService;
+import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityApiResponse;
+import ee.ttu.geodeesia.interop.api.localities.service.LocalitiesApiService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +15,12 @@ public class MapController {
     private static final Logger logger = LoggerFactory.getLogger(MapController.class);
 
     @Autowired
-    private ApiService apiService;
+    private LocalitiesApiService localitiesApiService;
 
     @RequestMapping(value = "/{id}", method= RequestMethod.GET)
     @ResponseBody
     public LocalityApiResponse getLocality(@PathVariable Long id){
-        return apiService.getLocality(id);
+        return localitiesApiService.getLocality(id);
     }
 }
 
