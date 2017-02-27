@@ -12,7 +12,7 @@
 <link rel="stylesheet"
 	href="lib/angular-ui-bootstrap-datetimepicker/datetimepicker.css">
 <link rel="stylesheet" href="css/main.css">
-<link rel='stylesheet' href='lib/openlayers3/ol.css'>
+<!-- <link rel='stylesheet' href='lib/openlayers3/ol.css'> -->
 <link rel="stylesheet" href="css/xgeocollections.css">
 <link rel="stylesheet" href="css/carousel.css">
 <link rel="stylesheet" href="css/tabs.css">
@@ -74,11 +74,14 @@ body {
 	padding: 0;
 }
 
-#navbarid{
+#navbarid {
 	color: #ffffff;
 	font-weight: bold;
-	font-size:42px;
+	font-size: 18px;
 }
+
+@media (min-width: 768px) { #navbarid { font-size: 40px; }}
+
 #info {
 	position: absolute;
 	height: 1px;
