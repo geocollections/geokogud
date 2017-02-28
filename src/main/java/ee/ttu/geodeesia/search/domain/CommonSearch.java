@@ -1,12 +1,9 @@
-package ee.ttu.geodeesia.interop.api.samples.pojo;
-
-import ee.ttu.geodeesia.search.domain.AbstractSearch;
-import ee.ttu.geodeesia.search.domain.SearchField;
+package ee.ttu.geodeesia.search.domain;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SampleSearch extends AbstractSearch {
+public class CommonSearch {
 
     private int page = 1; //set default 1 page
     private String sortDir = "ASC"; //set default sortDir
@@ -44,9 +41,8 @@ public class SampleSearch extends AbstractSearch {
     //Asutused.
     private List<String> dbs = new ArrayList<>(); // database__acronym?
 
-    public SampleSearch(){}
-    public SampleSearch(String name) {
-        super(name);
+    public CommonSearch(){}
+    public CommonSearch(String name) {
         this.table = name;
     }
 

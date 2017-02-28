@@ -1,18 +1,14 @@
 package ee.ttu.geodeesia.search.controller;
 
 import ee.ttu.geodeesia.interop.api.Response.Response;
-import ee.ttu.geodeesia.interop.api.samples.pojo.SampleSearch;
+import ee.ttu.geodeesia.search.domain.CommonSearch;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.interop.api.taxon.pojo.TaxonApiResponse;
 import ee.ttu.geodeesia.interop.api.taxon.service.TaxonApiService;
-import ee.ttu.geodeesia.search.domain.AbstractSearch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/search")
@@ -25,12 +21,12 @@ public class SearchController {
     private TaxonApiService taxonApiService;
 
     @RequestMapping(value = "/get-search", method = RequestMethod.GET)
-    public AbstractSearch getSearch(@RequestParam("name") String search) {
-        return new SampleSearch(search);
+    public CommonSearch getSearch(@RequestParam("name") String search) {
+        return new CommonSearch(search);
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.POST)
-    public Response sampleRequest(SampleSearch search) {
+    public Response sampleRequest(@RequestBody CommonSearch search) {
         return samplesApiService.searchSampleList(search);
     }
 

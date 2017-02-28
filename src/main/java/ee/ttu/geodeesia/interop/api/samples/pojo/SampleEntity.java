@@ -2,12 +2,12 @@ package ee.ttu.geodeesia.interop.api.samples.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ee.ttu.geodeesia.interop.api.Response.ResponseEntities;
+import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
 
 import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ApiServiceSample implements Serializable {
+public class SampleEntity implements Serializable {//Serializable
     private static final long serialVersionUID = 1L;
 
 /*
@@ -79,8 +79,8 @@ public class ApiServiceSample implements Serializable {
     private String mass;
 
 
-    public ResponseEntities toResponse() {
-        ResponseEntities response = new ResponseEntities();
+    public ResponseEntity toResponse() {
+        ResponseEntity response = new ResponseEntity();
         response.setId(this.id);
         response.setNumber(this.number);
         response.setNumberAdditional(this.numberAdditional);

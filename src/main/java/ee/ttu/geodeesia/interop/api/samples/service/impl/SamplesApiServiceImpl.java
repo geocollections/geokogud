@@ -2,8 +2,8 @@ package ee.ttu.geodeesia.interop.api.samples.service.impl;
 
 import ee.ttu.geodeesia.interop.api.Request.SearchApiRequest;
 import ee.ttu.geodeesia.interop.api.Response.Response;
-import ee.ttu.geodeesia.interop.api.samples.pojo.SampleApiResponse;
-import ee.ttu.geodeesia.interop.api.samples.pojo.SampleSearch;
+import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
+import ee.ttu.geodeesia.search.domain.CommonSearch;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.search.domain.SearchField;
 import org.slf4j.Logger;
@@ -26,7 +26,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     private RestTemplate restTemplate = new RestTemplate();
 
     @Override
-    public Response searchSampleList(SampleSearch search) {
+    public Response searchSampleList(CommonSearch search) {
         SearchApiRequest request = new SearchApiRequest();
         request.setTable(convertTable(search.getTable()));
         request.setPage(search.getPage());
@@ -41,9 +41,9 @@ public class SamplesApiServiceImpl implements SamplesApiService {
         String url = apiUrl + "/" + request.getTable() + "?paginate_by=" + request.getNumberOfRecordsPerPage() + "&page=" + request.getPage()
                 + "&format=" + request.getOutputFormat() + request.getFieldsParams();
         logger.info(url);
-        ResponseEntity<SampleApiResponse> response = restTemplate.getForEntity(url, SampleApiResponse.class);
+        ResponseEntity<ApiResponse> response = restTemplate.getForEntity(url, ApiResponse.class);
 
-        response_.setResult(response.getBody().toResponseEntities());
+        response_.setResult(response.getBody().toResponseEntities(request.getTable()));
         response_.setCount(response.getBody().getCount());
         System.err.println(response.getBody().getPageInfo());
         response_.setCurrentPage(Integer.parseInt(response.getBody().getPageInfo().split("\\s")[1])); //Page 1 of 39
@@ -79,7 +79,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
         return returnValue;
     }
 
-    private String composeFieldQuery(SampleSearch search) {
+    private String composeFieldQuery(CommonSearch search) {
         String fieldsParams = "";
         if (isNotNullAndEmpty(search.getId())) {
             fieldsParams += "&id__" + search.getId().getLookUpType().value() + "=" + search.getId().getName();

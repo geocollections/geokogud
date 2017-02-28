@@ -60,7 +60,7 @@ angular.module('search').controller('SearchSampleController', function($scope, S
     };
 
     /* EXAMPLE STUFF for TAXON SEARCH*/
-    $scope.searchService = SearchService;
+    /*$scope.searchService = SearchService;
 
     $scope.seachTaxonomy = function(val) {
         $scope.hideFullList = false;
@@ -91,5 +91,5 @@ angular.module('search').controller('SearchSampleController', function($scope, S
                 }
             }
         });
-    }
+    }*/
 });

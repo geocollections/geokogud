@@ -71,7 +71,7 @@ angular.module('search.references', []).config(function($stateProvider, $urlRout
 angular.module('search.stratigraphy', []).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('search.stratigraphy', {
         url: "/stratigraphy",
-        templateUrl: "app/search/stratigraphy.html",
+        templateUrl: "app/modules/stratigraphy/stratigraphy.html",
         controller: "SearchStratigraphyController"
     });
 
