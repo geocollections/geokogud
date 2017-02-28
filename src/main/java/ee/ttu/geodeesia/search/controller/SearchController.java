@@ -29,7 +29,7 @@ public class SearchController {
         return new SampleSearch(search);
     }
 
-    @RequestMapping(value = "/sample-list", method = RequestMethod.POST)
+    @RequestMapping(value = "/list", method = RequestMethod.POST)
     public Response sampleRequest(SampleSearch search) {
         return samplesApiService.searchSampleList(search);
     }

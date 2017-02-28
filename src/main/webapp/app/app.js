@@ -81,14 +81,15 @@ angular.module('geoApp').config(function($stateProvider, $urlRouterProvider, $ht
 
 angular.module('geoApp').run(['$http', '$rootScope', '$state', '$stateParams',
     'AddressService', 'UserService', '$sce',
-    '$window','$uibModal', 'AuthorizationService',
+    '$window','$uibModal', 'AuthorizationService', 'SearchService',
     function ($http, $rootScope, $state, $stateParams, ClassifierService, AddressService,
               UserService, $sce,
-              $window,$uibModal, AuthorizationService) {
+              $window,$uibModal, AuthorizationService, SearchService) {
     $rootScope.currentUser = {};
     $rootScope.preventionYearOption = {};
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
+    $rootScope.searchService = SearchService;
     $rootScope.classifierService = ClassifierService;
     $rootScope.addressService = AddressService;
     $rootScope.userService = UserService;

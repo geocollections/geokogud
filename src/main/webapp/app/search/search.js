@@ -1,4 +1,4 @@
-angular.module('search').controller('FullSearchController', function($scope, SearchService, $uibModal){
+angular.module('search').controller('FullSearchController', function($scope, SearchService, $uibModal, $rootScope){
     $scope.sortbyOptions = [
         {  name: 'ID', value: 'id' },
         {  name: 'Number', value: 'number' },
@@ -8,30 +8,13 @@ angular.module('search').controller('FullSearchController', function($scope, Sea
         {  name: 'Collector', value: 'collector' }
     ];
 
-    $scope.defaultSearchOptions = [
-        {value:"SPECIMENS",name:"Specimens"},
-        {value:"SAMPLES",name:"Samples"},
-        {value:"DRILL CORES",name:"Drill cores"},
-        {value:"LOCALITIES",name:"Localities"},
-        {value:"REFERENCES",name:"References"},
-        {value:"STRATIGRAPHIES",name:"Stratigraphy"},
-        {value:"ANALYSES",name:"Analyses"},
-        {value:"PREPARATION",name:"Preparation"},
-        {value:"ARCHIVE",name:"Photo archive"},
-        {value:"SOIL",name:"SOIL"},
-        {value:"DOI",name:"DOI"}];
+    $scope.defaultSearchOptions = SearchService.defaultSearchOptions();
+    // MUST be as CLASSIFIER but not hard coded
+    $scope.departments = SearchService.departments();
 
     //$scope.defaultSearchOption = $scope.defaultSearchOptions[1];
     $scope.defaultSearchOption = $scope.defaultSearchOptions[1].value;
 
-    // MUST be as CLASSIFIER but not hard coded
-    $scope.departments = [
-        {code:"GIT",label:"GIT"},
-        {code:"TUG",label:"TUG"},
-        {code:"ELM",label:"ELM"},
-        {code:"TUGO",label:"TUGO"},
-        {code:"MUMU",label:"MUMU"},
-        {code:"EGK",label:"EGK"}];
 
     $scope.searchDefault = function(search) {
         if(!search) search = "SAMPLES";
@@ -44,7 +27,7 @@ angular.module('search').controller('FullSearchController', function($scope, Sea
     $scope.searchDefault();
 
     $scope.search = function() {
-        SearchService.sampleListSearch($scope.sampleSearch).then(function(result) {
+        SearchService.listSearch($scope.sampleSearch).then(function(result) {
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
             $scope.response = result;

@@ -1,7 +1,5 @@
 <div class="panel panel-default">
     <div class="panel-body">
-
-
         <div class="row text-center">
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
@@ -17,65 +15,12 @@
         <!--ng -switch-->
         <div ng-switch on="sampleSearch.table">
             <div ng-switch-when="SAMPLES">
-                <div ng-include="'/app/search/searches_htmls/samples_search.html'"></div>
+                <div ng-include="'/app/search/searches_html/samples_search.html'"></div>
             </div>
             <div ng-switch-when="LOCALITIES">
-                <div ng-include="'/app/search/searches_htmls/localities_search.html'"></div>
+                <div ng-include="'/app/search/searches_html/localities_search.html'"></div>
             </div>
             <div ng-switch-default>SEARCH VIEW IS NOT IMPLEMENTED</div>
         </div>
-        <div class="row" data-ng-if="sampleSearch.table != 'SAMPLES'">
-            PLEASE IMPLEMENT TABLE VIEW AND OBJECT MAPPING ON SERVER SIDE
-            TOTAL NUMBER OF OBJECTS: {{response.count}}
-        </div>
-        <div class="row" data-ng-if="sampleSearch.table == 'SAMPLES'">
-            <loading></loading>
-            <div class="col-lg-4">
-                <div class="row geo-list-info ">
-                    <div class="col-md-6 text-right">
-                        <p class="amount">Kokku: {{response.count}}</p>
-                    </div>
-                </div>
-                <div class="text-right">
-                    <uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize" max-size="sampleSearch.maxSize" rotate="false" total-items="totalItems" ng-model="sampleSearch.page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
-                </div>
-                <table class="table table-bordered table-hover">
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Inst.</th>
-                        <th>Number</th>
-                        <th></th>
-                        <th>Locality</th>
-                        <th>Depth(m)</th>
-                        <th></th>
-                        <th>Stratigraphy <em>Lithostratigraphy</em></th>
-                        <th>Coll.</th>
-                        <th>Anal.</th>
-                        <th>Weight(g)</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr style="cursor: pointer; " data-ng-repeat="entity in response.result">
-                        <td>{{entity.id}}</td>
-                        <td>{{entity.git}}</td>
-                        <td>{{entity.number == null ? entity.id : entity.number}}</td>
-                        <td>{{entity.numberAdditional}}</td>
-                        <td>{{entity.localityEng}}</td>
-                        <td>{{entity.depth}}</td>
-                        <td></td>
-                        <td>{{entity.stratigraphyEng}}</td>
-                        <td>{{entity.agent}}</td>
-                        <td>???</td>
-                        <td>{{entity.mass}}</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div class="text-right">
-                    <uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize" max-size="sampleSearch.maxSize" rotate="false" total-items="totalItems" ng-model="sampleSearch.page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>

@@ -19,7 +19,7 @@ angular.module('search').controller('SearchSampleController', function($scope, S
     $scope.searchDefault();
 
     $scope.search = function() {
-        SearchService.sampleListSearch($scope.sampleSearch).then(function(result) {
+        SearchService.listSearch($scope.sampleSearch).then(function(result) {
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
             $scope.response = result;
