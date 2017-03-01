@@ -9,12 +9,18 @@ angular.module('search').controller('SearchSampleController', function($scope, S
     ];
 
     $scope.searchDefault = function(search) {
+
+        SearchService.taxonListSearch();
         if(!search) search = "SAMPLES";
         SearchService.getSearch(search).then(function(search) {
             $scope.sampleSearch = search;
             $scope.search();
         });
+
+        SearchService.taxonListSearch();
     };
+
+
 
     $scope.searchDefault();
 

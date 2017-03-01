@@ -68,6 +68,11 @@ angular.module('geoApp').factory("SearchService", ['$http', '$state', '$rootScop
                 return response.data.results;
             });
         },
+        taxonListSearch: function (val) {
+            return $http.get(apiUrl + '/taxon-list').then(function (response) {
+                return response.data.results;
+            });
+        },
 
         defaultSearchOptions : function() {
             return  [
