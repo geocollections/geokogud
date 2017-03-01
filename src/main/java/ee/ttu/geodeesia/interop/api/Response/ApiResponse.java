@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
 import ee.ttu.geodeesia.interop.api.analyses.pojo.AnalysesEntity;
 import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityEntity;
+import ee.ttu.geodeesia.interop.api.reference.pojo.ReferenceEntity;
 import ee.ttu.geodeesia.interop.api.samples.pojo.SampleEntity;
 import ee.ttu.geodeesia.interop.api.stratigraphies.pojo.StratigraphyEnitity;
 
@@ -39,6 +40,8 @@ public class ApiResponse {
                     list.add(localityEntity.toResponse());
                     break;
                 case "reference":
+                    ReferenceEntity referenceEntity = mapper.convertValue(apiEntity, ReferenceEntity.class);
+                    list.add(referenceEntity.toResponse());
                     break;
                 case "stratigraphy":
                     StratigraphyEnitity stratigraphyEnitity= mapper.convertValue(apiEntity, StratigraphyEnitity.class);

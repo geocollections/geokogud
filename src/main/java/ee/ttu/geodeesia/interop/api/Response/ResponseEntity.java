@@ -54,6 +54,22 @@ public class ResponseEntity {
     private String date;
     private String dateFree;
 
+    //specifically used by reference
+    private String reference;
+    private String author;
+    private String year;
+    private String title;
+    private String title_original;
+    private String language__value_en;
+    private String journal;
+    private String journal__journal_name;
+    private String journal_additional;
+    private String volume;
+    private String book;
+    private String pages;
+    private String doi;
+
+
     public String getAnalysisMethodAnalysisMethod() {
         return analysisMethodAnalysisMethod;
     }
@@ -389,4 +405,107 @@ public class ResponseEntity {
     public void setDepth(Double depth) {
         this.depth = depth;
     }
+
+    //specifically used by reference
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getTitle_original() {
+        return title_original;
+    }
+
+    public void setTitle_original(String title_original) {
+        this.title_original = title_original;
+    }
+
+    public String getLanguage__value_en() {
+        return language__value_en;
+    }
+
+    public void setLanguage__value_en(String language__value_en) {
+        this.language__value_en = language__value_en;
+    }
+
+    public String getJournal() {
+        return journal;
+    }
+
+    public void setJournal(String journal) {
+        this.journal = journal;
+    }
+
+    public String getJournal__journal_name() {
+        return journal__journal_name;
+    }
+
+    public void setJournal__journal_name(String journal__journal_name) {
+        this.journal__journal_name = journal__journal_name;
+    }
+
+    public String getJournal_additional() {
+        return journal_additional;
+    }
+
+    public void setJournal_additional(String journal_additional) {
+        this.journal_additional = journal_additional;
+    }
+
+    public String getVolume() {
+        return volume;
+    }
+
+    public void setVolume(String volume) {
+        this.volume = volume;
+    }
+
+    public String getBook() {
+        return book;
+    }
+
+    public void setBook(String book) {
+        this.book = book;
+    }
+
+    public String getPages() {
+        return pages;
+    }
+
+    public void setPages(String pages) {
+        this.pages = pages;
+    }
+
+    public String getDoi() {
+        return doi;
+    }
+
+    public void setDoi(String doi) { this.doi = doi; }
 }
