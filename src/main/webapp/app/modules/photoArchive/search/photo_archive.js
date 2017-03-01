@@ -14,7 +14,7 @@ angular.module('search').controller('SearchPhotoArchiveController', function($sc
         {code:"EGK",label:"EGK"}];
 
     $scope.searchDefault = function(search) {
-        if(!search) search = "ARCHIVE";
+        if(!search) search = "image";
         SearchService.getSearch(search).then(function(search) {
             $scope.sampleSearch = search;
             $scope.search();

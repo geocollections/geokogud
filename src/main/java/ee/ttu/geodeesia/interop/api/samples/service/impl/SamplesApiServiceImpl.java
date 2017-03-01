@@ -32,7 +32,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     @Override
     public Response searchSampleList(CommonSearch search) {
         SearchApiRequest request = new SearchApiRequest();
-        request.setTable(convertTable(search.getTable()));
+        request.setTable(search.getTable());
         request.setPage(search.getPage());
         request.setFieldsParams(composeFieldQuery(search));
         return searchSampleList(request);
@@ -53,39 +53,6 @@ public class SamplesApiServiceImpl implements SamplesApiService {
         response_.setCurrentPage(Integer.parseInt(response.getBody().getPageInfo().split("\\s")[1])); //Page 1 of 39
         response_.setNumberOfPages(Integer.parseInt(response.getBody().getPageInfo().split("\\s")[3]));
         return response_;
-    }
-
-    private String convertTable(String table) {
-        String returnValue = null;
-        switch (table) {
-            case "SPECIMENS":
-                returnValue = "specimen";
-                break;
-            case "SAMPLES":
-                returnValue = "sample";
-                break;
-            case "DRILL CORES":
-                returnValue = "drillcore";
-                break;
-            case "LOCALITIES":
-                returnValue = "locality";
-                break;
-            case "REFERENCES":
-                returnValue = "reference";
-                break;
-            case "STRATIGRAPHIES":
-                returnValue = "stratigraphy";
-                break;
-            case "ANALYSES":
-                returnValue = "analysis";
-                break;
-            case "ARCHIVE":
-                returnValue = "image";
-            //TODO: IMPLEMENT MORE SEARCHES or even be do REFACTOR for client side... classifier ex sample can be immidiatly offered
-            default:
-                break;
-        }
-        return returnValue;
     }
 
     private String composeFieldQuery(CommonSearch search) {

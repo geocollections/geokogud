@@ -6,7 +6,7 @@ angular.module('search').controller('SearchReferencesController', function($scop
         {  name: 'Title', value: 'title'},
     ];
     $scope.searchDefault = function(search) {
-        if(!search) search = "REFERENCES";
+        if(!search) search = "reference";
         SearchService.getSearch(search).then(function(search) {
             $scope.sampleSearch = search;
             $scope.search();

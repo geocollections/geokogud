@@ -17,7 +17,7 @@ angular.module('search').controller('FullSearchController', function($scope, Sea
 
 
     $scope.searchDefault = function(search) {
-        if(!search) search = "SAMPLES";
+        if(!search) search = "sample";
         SearchService.getSearch(search).then(function(search) {
             $scope.sampleSearch = search;
             $scope.search();

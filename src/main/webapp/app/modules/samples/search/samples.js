@@ -9,7 +9,7 @@ angular.module('search').controller('SearchSampleController', function($scope, S
     ];
 
     $scope.searchDefault = function(search) {
-        if(!search) search = "SAMPLES";
+        if(!search) search = "sample";
         SearchService.getSearch(search).then(function(search) {
             $scope.sampleSearch = search;
             $scope.search();
@@ -27,17 +27,17 @@ angular.module('search').controller('SearchSampleController', function($scope, S
     };
 
     $scope.defaultSearchOptions = [
-        {value:"SPECIMENTS",name:"Speciments"},
-        {value:"SAMPLES",name:"Samples"},
-        {value:"DRILL CORES",name:"Drill cores"},
-        {value:"LOCALITIES",name:"Localities"},
-        {value:"REFERENCES",name:"References"},
-        {value:"STRATIGRAPHY",name:"Stratigraphy"},
-        {value:"ANALYSES",name:"Analyses"},
-        {value:"PREPARATION",name:"Preparation"},
-        {value:"ARCHIVE",name:"Photo archive"},
-        {value:"SOIL",name:"SOIL"},
-        {value:"DOI",name:"DOI"}];
+        {value:"specimen",name:"Speciments"},
+        {value:"sample",name:"Samples"},
+        {value:"drillcore",name:"Drill cores"},
+        {value:"locality",name:"Localities"},
+        {value:"reference",name:"References"},
+        {value:"stratigraphy",name:"Stratigraphy"},
+        {value:"analysis",name:"Analyses"},
+        {value:"preparation",name:"Preparation"},
+        {value:"image",name:"Photo archive"},
+        {value:"soil",name:"SOIL"},
+        {value:"doi",name:"DOI"}];
 
     //$scope.defaultSearchOption = $scope.defaultSearchOptions[1].value;
 
