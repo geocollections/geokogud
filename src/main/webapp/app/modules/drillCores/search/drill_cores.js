@@ -27,7 +27,6 @@ angular.module('search').controller('SearchDrillCoresController', function ($sco
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
             $scope.response = result;
-            console.log(result);
         });
     };
 });

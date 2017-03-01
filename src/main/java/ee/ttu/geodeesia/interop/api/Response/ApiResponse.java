@@ -7,6 +7,7 @@ import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
 import ee.ttu.geodeesia.interop.api.analyses.pojo.AnalysesEntity;
 import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoresEntity;
 import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityEntity;
+import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveEntity;
 import ee.ttu.geodeesia.interop.api.reference.pojo.ReferenceEntity;
 import ee.ttu.geodeesia.interop.api.samples.pojo.SampleEntity;
 import ee.ttu.geodeesia.interop.api.stratigraphies.pojo.StratigraphyEnitity;
@@ -53,6 +54,10 @@ public class ApiResponse {
                 case "analysis":
                     AnalysesEntity analysesEntity= mapper.convertValue(apiEntity, AnalysesEntity.class);
                     list.add(analysesEntity.toResponse());
+                    break;
+                case "image":
+                    PhotoArchiveEntity photoArchiveEntity = mapper.convertValue(apiEntity, PhotoArchiveEntity.class);
+                    list.add(photoArchiveEntity.toResponse());
                     break;
                 default:
                     break;
