@@ -42,23 +42,23 @@ public class LocalityEntity implements Serializable, ConvertableToResponseEntity
     private Long id;
     @JsonProperty("locality")
     private String locality;
-    @JsonProperty("locality_en")
+
     private String localityEn;
     @JsonProperty("number")
     private String number;
-    @JsonProperty("country__value")
+
     private String countryValue;
-    @JsonProperty("country__value_en")
+
     private String countryValueEn;
-    @JsonProperty("maakond__maakond")
+
     private String county;
-    @JsonProperty("maakond__maakond_en")
+
     private String countyEn;
-    @JsonProperty("vald__vald")
+
     private String area;
-    @JsonProperty("vald__vald_en")
+
     private String areaEn;
-    @JsonProperty("remarks_location")
+
     private String remarks;
     @JsonProperty("latitude")
     private Double latitude;
@@ -69,18 +69,131 @@ public class LocalityEntity implements Serializable, ConvertableToResponseEntity
     @JsonProperty("depth")
     private Double depth;
 
-    @JsonProperty("stratigraphy_base_id")
     private Long stratigraphyBaseId;
-    @JsonProperty("stratigraphy_base__stratigraphy")
+
     private String stratigraphyBaseStratigraphy;
-    @JsonProperty("stratigraphy_base__stratigraphy_en")
     private String stratigraphyBaseStratigraphyEn;
-    @JsonProperty("stratigraphy_top_id")
+
     private Long stratigraphyTopId;
-    @JsonProperty("stratigraphy_top__stratigraphy")
+
     private String stratigraphyTopStratigraphy;
-    @JsonProperty("stratigraphy_top__stratigraphy_en")
+
     private String stratigraphyTopStratigraphyEn;
+
+    @JsonProperty("localityEn")
+    public String getLocalityEn() {
+        return localityEn;
+    }
+    @JsonProperty("locality_en")
+    public void setLocalityEn(String localityEn) {
+        this.localityEn = localityEn;
+    }
+    @JsonProperty("countryValue")
+    public String getCountryValue() {
+        return countryValue;
+    }
+    @JsonProperty("country__value")
+    public void setCountryValue(String countryValue) {
+        this.countryValue = countryValue;
+    }
+    @JsonProperty("countryValueEn")
+    public String getCountryValueEn() {
+        return countryValueEn;
+    }
+    @JsonProperty("country__value_en")
+    public void setCountryValueEn(String countryValueEn) {
+        this.countryValueEn = countryValueEn;
+    }
+    @JsonProperty("county")
+    public String getCounty() {
+        return county;
+    }
+    @JsonProperty("maakond__maakond")
+    public void setCounty(String county) {
+        this.county = county;
+    }
+    @JsonProperty("countyEn")
+    public String getCountyEn() {
+        return countyEn;
+    }
+    @JsonProperty("maakond__maakond_en")
+    public void setCountyEn(String countyEn) {
+        this.countyEn = countyEn;
+    }
+    @JsonProperty("area")
+    public String getArea() {
+        return area;
+    }
+    @JsonProperty("vald__vald")
+    public void setArea(String area) {
+        this.area = area;
+    }
+    @JsonProperty("areaEn")
+    public String getAreaEn() {
+        return areaEn;
+    }
+    @JsonProperty("vald__vald_en")
+    public void setAreaEn(String areaEn) {
+        this.areaEn = areaEn;
+    }
+    @JsonProperty("remarks")
+    public String getRemarks() {
+        return remarks;
+    }
+    @JsonProperty("remarks_location")
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+    @JsonProperty("stratigraphyBaseId")
+    public Long getStratigraphyBaseId() {
+        return stratigraphyBaseId;
+    }
+    @JsonProperty("stratigraphy_base_id")
+    public void setStratigraphyBaseId(Long stratigraphyBaseId) {
+        this.stratigraphyBaseId = stratigraphyBaseId;
+    }
+    @JsonProperty("stratigraphyBaseStratigraphy")
+    public String getStratigraphyBaseStratigraphy() {
+        return stratigraphyBaseStratigraphy;
+    }
+    @JsonProperty("stratigraphy_base__stratigraphy")
+    public void setStratigraphyBaseStratigraphy(String stratigraphyBaseStratigraphy) {
+        this.stratigraphyBaseStratigraphy = stratigraphyBaseStratigraphy;
+    }
+
+    @JsonProperty("stratigraphyBaseStratigraphyEn")
+    public String getStratigraphyBaseStratigraphyEn() {
+        return stratigraphyBaseStratigraphyEn;
+    }
+
+    @JsonProperty("stratigraphy_base__stratigraphy_en")
+    public void setStratigraphyBaseStratigraphyEn(String stratigraphyBaseStratigraphyEn) {
+        this.stratigraphyBaseStratigraphyEn = stratigraphyBaseStratigraphyEn;
+    }
+    @JsonProperty("stratigraphyTopId")
+    public Long getStratigraphyTopId() {
+        return stratigraphyTopId;
+    }
+    @JsonProperty("stratigraphy_top_id")
+    public void setStratigraphyTopId(Long stratigraphyTopId) {
+        this.stratigraphyTopId = stratigraphyTopId;
+    }
+    @JsonProperty("stratigraphyTopStratigraphy")
+    public String getStratigraphyTopStratigraphy() {
+        return stratigraphyTopStratigraphy;
+    }
+    @JsonProperty("stratigraphy_top__stratigraphy")
+    public void setStratigraphyTopStratigraphy(String stratigraphyTopStratigraphy) {
+        this.stratigraphyTopStratigraphy = stratigraphyTopStratigraphy;
+    }
+    @JsonProperty("stratigraphyTopStratigraphyEn")
+    public String getStratigraphyTopStratigraphyEn() {
+        return stratigraphyTopStratigraphyEn;
+    }
+    @JsonProperty("stratigraphy_top__stratigraphy_en")
+    public void setStratigraphyTopStratigraphyEn(String stratigraphyTopStratigraphyEn) {
+        this.stratigraphyTopStratigraphyEn = stratigraphyTopStratigraphyEn;
+    }
 
     @Override
     public ResponseEntity toResponse() {

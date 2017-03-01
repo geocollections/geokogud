@@ -24,24 +24,65 @@ public class AnalysesEntity implements Serializable, ConvertableToResponseEntity
     }*/
     @JsonProperty("id")
     private Long id;
-    @JsonProperty("analysis_method__analysis_method")
+
     private String analysisMethodAnalysisMethod;
-    @JsonProperty("analysis_method__method_en")
+
     private String analysisMethodMethodEn;
-    @JsonProperty("method_details")
+
     private String methodDetails;
     @JsonProperty("lab")
     private String lab;
     @JsonProperty("instrument")
     private String instrument;
-    @JsonProperty("instrument_txt")
+
     private String instrumentTxt;
     @JsonProperty("sample")
     private String sample;
     @JsonProperty("date")
     private String date;
-    @JsonProperty("date_free")
+
     private String dateFree;
+
+    @JsonProperty("analysisMethodAnalysisMethod")
+    public String getAnalysisMethodAnalysisMethod() {
+        return analysisMethodAnalysisMethod;
+    }
+    @JsonProperty("analysis_method__analysis_method")
+    public void setAnalysisMethodAnalysisMethod(String analysisMethodAnalysisMethod) {
+        this.analysisMethodAnalysisMethod = analysisMethodAnalysisMethod;
+    }
+    @JsonProperty("analysisMethodMethodEn")
+    public String getAnalysisMethodMethodEn() {
+        return analysisMethodMethodEn;
+    }
+    @JsonProperty("analysis_method__method_en")
+    public void setAnalysisMethodMethodEn(String analysisMethodMethodEn) {
+        this.analysisMethodMethodEn = analysisMethodMethodEn;
+    }
+    @JsonProperty("methodDetails")
+    public String getMethodDetails() {
+        return methodDetails;
+    }
+    @JsonProperty("method_details")
+    public void setMethodDetails(String methodDetails) {
+        this.methodDetails = methodDetails;
+    }
+    @JsonProperty("instrumentTxt")
+    public String getInstrumentTxt() {
+        return instrumentTxt;
+    }
+    @JsonProperty("instrument_txt")
+    public void setInstrumentTxt(String instrumentTxt) {
+        this.instrumentTxt = instrumentTxt;
+    }
+    @JsonProperty("dateFree")
+    public String getDateFree() {
+        return dateFree;
+    }
+    @JsonProperty("date_free")
+    public void setDateFree(String dateFree) {
+        this.dateFree = dateFree;
+    }
 
     @Override
     public ResponseEntity toResponse() {
