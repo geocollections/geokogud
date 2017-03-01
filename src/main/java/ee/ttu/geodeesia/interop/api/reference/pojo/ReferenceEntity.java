@@ -4,8 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
 
+import java.io.Serializable;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ReferenceEntity {
+public class ReferenceEntity{
     private static final long serialVersionUID = 1L;
     /*
                 "id": 6304,
