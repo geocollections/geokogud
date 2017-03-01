@@ -2,10 +2,13 @@ package ee.ttu.geodeesia.interop.api.specimen.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ee.ttu.geodeesia.interop.api.Response.ConvertableToResponseEntity;
 import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
 
+import java.io.Serializable;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SpecimenEntity {
+public class SpecimenEntity implements Serializable, ConvertableToResponseEntity {
     /*
             "id": 282444,
             "specimen_nr": "152-747",
@@ -60,6 +63,7 @@ public class SpecimenEntity {
     @JsonProperty("sample_id")
     private Long sample_id;
 
+    @Override
     public ResponseEntity toResponse() {
         ResponseEntity response = new ResponseEntity();
         response.setId(this.id);
