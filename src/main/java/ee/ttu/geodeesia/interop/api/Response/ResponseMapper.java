@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableMap;
 import ee.ttu.geodeesia.interop.api.analyses.pojo.AnalysesEntity;
 import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoresEntity;
 import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityEntity;
+import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveEntity;
 import ee.ttu.geodeesia.interop.api.reference.pojo.ReferenceEntity;
 import ee.ttu.geodeesia.interop.api.samples.pojo.SampleEntity;
 import ee.ttu.geodeesia.interop.api.stratigraphies.pojo.StratigraphyEnitity;
@@ -24,6 +25,7 @@ public class ResponseMapper {
                     .put("stratigraphy", StratigraphyEnitity.class)
                     .put("analysis", AnalysesEntity.class)
                     .put("drillcore",DrillCoresEntity.class)
+                    .put("image", PhotoArchiveEntity.class)
                     .build();
 
     public List<ResponseEntity> toResponseEntities(String objectType, List<?> result) {
