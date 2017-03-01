@@ -76,17 +76,17 @@ angular.module('geoApp').factory("SearchService", ['$http', '$state', '$rootScop
 
         defaultSearchOptions : function() {
             return  [
-                {value:"SPECIMENS",name:"Specimens"},
-                {value:"SAMPLES",name:"Samples"},
-                {value:"DRILL CORES",name:"Drill cores"},
-                {value:"LOCALITIES",name:"Localities"},
-                {value:"REFERENCES",name:"References"},
-                {value:"STRATIGRAPHIES",name:"Stratigraphy"},
-                {value:"ANALYSES",name:"Analyses"},
-                {value:"PREPARATION",name:"Preparation"},
-                {value:"ARCHIVE",name:"Photo archive"},
-                {value:"SOIL",name:"SOIL"},
-                {value:"DOI",name:"DOI"}]
+                {value:"specimen",name:"Specimens"},
+                {value:"sample",name:"Samples"},
+                {value:"drillcore",name:"Drill cores"},
+                {value:"locality",name:"Localities"},
+                {value:"reference",name:"References"},
+                {value:"stratigraphy",name:"Stratigraphy"},
+                {value:"analysis",name:"Analyses"},
+                {value:"preparation",name:"Preparation"},
+                {value:"image",name:"Photo archive"},
+                {value:"soil",name:"SOIL"},
+                {value:"doi",name:"DOI"}]
         },
 
         // MUST be as CLASSIFIER but not hard coded

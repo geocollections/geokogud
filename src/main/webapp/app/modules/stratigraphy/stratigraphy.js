@@ -5,7 +5,7 @@ angular.module('search').controller('SearchStratigraphyController', function($sc
     ];
 
     $scope.searchDefault = function(search) {
-        if(!search) search = "STRATIGRAPHIES";
+        if(!search) search = "stratigraphy";
         SearchService.getSearch(search).then(function(search) {
             $scope.sampleSearch = search;
             $scope.search();

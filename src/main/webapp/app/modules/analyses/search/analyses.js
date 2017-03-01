@@ -16,7 +16,7 @@ angular.module('search').controller('SearchAnalysesController', function($scope,
         {code:"EGK",label:"EGK"}];
 
     $scope.searchDefault = function(search) {
-        if(!search) search = "ANALYSES";
+        if(!search) search = "analysis";
         SearchService.getSearch(search).then(function(search) {
             $scope.sampleSearch = search;
             $scope.search();

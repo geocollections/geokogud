@@ -214,6 +214,7 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Number</th>
                         <th>Old specimen #</th>
                         <th>Name Part/element</th>
@@ -226,13 +227,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr style="cursor: pointer; " data-ng-repeat="entity in response.results">
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in response.result">
+                        <td>{{entity.id}}</td>
                         <td></td>
+                        <td>{{entity.specimen_nr}}</td>
+                        <td>{{entity.specimenidentification__name}}</td>
+                        <td>{{entity.locality__locality}}</td>
                         <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{entity.stratigraphy__stratigraphy_en}}</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -240,7 +242,10 @@
                     </tbody>
                 </table>
                 <div class="text-right">
-                    <uib-pagination boundary-links="true" ng-change="searchByPage()" items-per-page="pageSize" max-size="maxSize" rotate="false" total-items="totalItems" ng-model="pageNum" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+                    <uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize"
+                                    max-size="sampleSearch.maxSize" rotate="false" total-items="totalItems"
+                                    ng-model="sampleSearch.page" class="pagination-sm" previous-text="&lsaquo;"
+                                    next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
                 </div>
             </div>
         </div>

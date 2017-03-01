@@ -14,7 +14,7 @@ angular.module('search').controller('SearchDrillCoresController', function ($sco
         {name: 'Box count', value: 'Box count'}
     ];
     $scope.searchDefault = function(search) {
-        if(!search) search = "DRILL CORES";
+        if(!search) search = "drillcore";
         SearchService.getSearch(search).then(function(search) {
             $scope.sampleSearch = search;
             $scope.search();

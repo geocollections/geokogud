@@ -3,12 +3,13 @@ package ee.ttu.geodeesia.interop.api.Response;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
 import ee.ttu.geodeesia.interop.api.analyses.pojo.AnalysesEntity;
 import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoresEntity;
 import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityEntity;
+import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveEntity;
 import ee.ttu.geodeesia.interop.api.reference.pojo.ReferenceEntity;
 import ee.ttu.geodeesia.interop.api.samples.pojo.SampleEntity;
+import ee.ttu.geodeesia.interop.api.specimen.pojo.SpecimenEntity;
 import ee.ttu.geodeesia.interop.api.stratigraphies.pojo.StratigraphyEnitity;
 
 import java.util.ArrayList;
@@ -22,6 +23,51 @@ public class ApiResponse {
     private String pageInfo;
     @JsonProperty("results")
     private List<?> result;
+
+    public List<ResponseEntity> toResponseEntities(String objectType) {
+        List<ResponseEntity> list = new ArrayList<>();
+        ObjectMapper mapper = new ObjectMapper();
+        result.forEach(apiEntity -> {
+            switch (objectType) {
+                case "specimen":
+                    SpecimenEntity specimenentity = mapper.convertValue(apiEntity, SpecimenEntity.class);
+                    list.add(specimenentity.toResponse());
+                    break;
+                case "sample":
+                    SampleEntity entity = mapper.convertValue(apiEntity, SampleEntity.class);
+                    list.add(entity.toResponse());
+                    break;
+                case "drillcore":
+                    DrillCoresEntity drillCoresEntity = mapper.convertValue(apiEntity, DrillCoresEntity.class);
+                    list.add(drillCoresEntity.toResponse());
+                    break;
+                case "locality":
+                    LocalityEntity localityEntity = mapper.convertValue(apiEntity, LocalityEntity.class);
+                    list.add(localityEntity.toResponse());
+                    break;
+                case "reference":
+                    ReferenceEntity referenceEntity = mapper.convertValue(apiEntity, ReferenceEntity.class);
+                    list.add(referenceEntity.toResponse());
+                    break;
+                case "stratigraphy":
+                    StratigraphyEnitity stratigraphyEnitity= mapper.convertValue(apiEntity, StratigraphyEnitity.class);
+                    list.add(stratigraphyEnitity.toResponse());
+                    break;
+                case "analysis":
+                    AnalysesEntity analysesEntity= mapper.convertValue(apiEntity, AnalysesEntity.class);
+                    list.add(analysesEntity.toResponse());
+                    break;
+                case "image":
+                    PhotoArchiveEntity photoArchiveEntity = mapper.convertValue(apiEntity, PhotoArchiveEntity.class);
+                    list.add(photoArchiveEntity.toResponse());
+                    break;
+                default:
+                    break;
+            }
+
+        });
+        return list;
+    }
 
     public int getCount() {
         return count;
