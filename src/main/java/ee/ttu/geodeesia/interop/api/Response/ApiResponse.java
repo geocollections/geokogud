@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
 import ee.ttu.geodeesia.interop.api.analyses.pojo.AnalysesEntity;
+import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoresEntity;
 import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityEntity;
 import ee.ttu.geodeesia.interop.api.reference.pojo.ReferenceEntity;
 import ee.ttu.geodeesia.interop.api.samples.pojo.SampleEntity;
@@ -34,6 +35,8 @@ public class ApiResponse {
                     list.add(entity.toResponse());
                     break;
                 case "drillcore":
+                    DrillCoresEntity drillCoresEntity = mapper.convertValue(apiEntity, DrillCoresEntity.class);
+                    list.add(drillCoresEntity.toResponse());
                     break;
                 case "locality":
                     LocalityEntity localityEntity = mapper.convertValue(apiEntity, LocalityEntity.class);

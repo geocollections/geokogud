@@ -31,7 +31,7 @@
                         <selectdefault></selectdefault>
                     </div>
                     <div class="col-md-5">
-                        <input type="text"class="form-control"/>
+                        <input type="text" class="form-control"/>
                     </div>
                 </div>
                 <div class="row" data-ng-if="showAdditionalCriteria">
@@ -71,8 +71,10 @@
                     </div>
                 </div>
                 <div class="row">
-                    <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">Show additional criteria</a>
-                    <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">Hide additional criteria</a>
+                    <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">Show
+                        additional criteria</a>
+                    <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">Hide
+                        additional criteria</a>
                 </div>
 
                 <div class="row">
@@ -105,21 +107,26 @@
                 </div>
                 <div class="row geo-section-row no-border">
                     <button class="btn btn-default pull-right">
-                        <i class="glyphicon glyphicon-erase"></i> Reset form</button>
+                        <i class="glyphicon glyphicon-erase"></i> Reset form
+                    </button>
                     <button class="btn btn-default pull-right">
-                        <i class="glyphicon glyphicon-search"></i> Send query</button>
+                        <i class="glyphicon glyphicon-search"></i> Send query
+                    </button>
                 </div>
             </div>
             <div class="col-md-6">SEARCHING DRILL CORES
-                Drill cores constitute a very important source of geological information and they are used regularly in scientific as well as applied research in Estonia.
-                To search drill cores, specify the criteria and tick the map checkbox to show the locations. For detailed information click on the various links in the results table. A large number of cores are provided with images of core boxes.
+                Drill cores constitute a very important source of geological information and they are used regularly in
+                scientific as well as applied research in Estonia.
+                To search drill cores, specify the criteria and tick the map checkbox to show the locations. For
+                detailed information click on the various links in the results table. A large number of cores are
+                provided with images of core boxes.
             </div>
         </div>
         <div class="row">
             <div class="col-lg-4">
                 <div class="row geo-list-info ">
                     <div class="col-md-6 text-right">
-                        <p class="amount">Kokku: {{result.count}}</p>
+                        <p class="amount">Kokku: {{response.count}}</p>
                     </div>
                 </div>
                 <table class="table table-bordered table-hover">
@@ -138,8 +145,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr style="cursor: pointer; " data-ng-repeat="entity in result.results">
-                        <td></td>
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in response.result">
+                        <td>{{entity.id}}</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -153,7 +160,10 @@
                     </tbody>
                 </table>
                 <div class="text-right">
-                    <uib-pagination boundary-links="true" ng-change="searchByPage()" items-per-page="pageSize" max-size="maxSize" rotate="false" total-items="totalItems" ng-model="pageNum" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+                    <uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize"
+                                    max-size="sampleSearch.maxSize" rotate="false" total-items="totalItems"
+                                    ng-model="sampleSearch.page" class="pagination-sm" previous-text="&lsaquo;"
+                                    next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
                 </div>
             </div>
         </div>
