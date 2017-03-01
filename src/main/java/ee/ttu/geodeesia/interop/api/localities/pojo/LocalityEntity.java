@@ -2,12 +2,13 @@ package ee.ttu.geodeesia.interop.api.localities.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ee.ttu.geodeesia.interop.api.Response.ConvertableToResponseEntity;
 import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
 
 import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LocalityEntity implements Serializable {
+public class LocalityEntity implements Serializable, ConvertableToResponseEntity {
     private static final long serialVersionUID = 1L;
     /*    "id": 21104,
             "locality": "Lagedi puurauk",
@@ -81,6 +82,7 @@ public class LocalityEntity implements Serializable {
     @JsonProperty("stratigraphy_top__stratigraphy_en")
     private String stratigraphyTopStratigraphyEn;
 
+    @Override
     public ResponseEntity toResponse() {
         ResponseEntity response = new ResponseEntity();
         response.setId(this.id);

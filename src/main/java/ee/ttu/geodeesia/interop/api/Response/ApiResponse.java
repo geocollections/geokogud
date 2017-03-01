@@ -22,42 +22,7 @@ public class ApiResponse {
     @JsonProperty("results")
     private List<?> result;
 
-    public List<ResponseEntity> toResponseEntities(String objectType) {
-        List<ResponseEntity> list = new ArrayList<>();
-        ObjectMapper mapper = new ObjectMapper();
-        result.forEach(apiEntity -> {
-            switch (objectType) {
-                case "specimen":
-                    break;
-                case "sample":
-                    SampleEntity entity = mapper.convertValue(apiEntity, SampleEntity.class);
-                    list.add(entity.toResponse());
-                    break;
-                case "drillcore":
-                    break;
-                case "locality":
-                    LocalityEntity localityEntity = mapper.convertValue(apiEntity, LocalityEntity.class);
-                    list.add(localityEntity.toResponse());
-                    break;
-                case "reference":
-                    ReferenceEntity referenceEntity = mapper.convertValue(apiEntity, ReferenceEntity.class);
-                    list.add(referenceEntity.toResponse());
-                    break;
-                case "stratigraphy":
-                    StratigraphyEnitity stratigraphyEnitity= mapper.convertValue(apiEntity, StratigraphyEnitity.class);
-                    list.add(stratigraphyEnitity.toResponse());
-                    break;
-                case "analysis":
-                    AnalysesEntity analysesEntity= mapper.convertValue(apiEntity, AnalysesEntity.class);
-                    list.add(analysesEntity.toResponse());
-                    break;
-                default:
-                    break;
-            }
 
-        });
-        return list;
-    }
 
 
     public int getCount() {

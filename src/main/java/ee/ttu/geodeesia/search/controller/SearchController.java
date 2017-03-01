@@ -1,6 +1,7 @@
 package ee.ttu.geodeesia.search.controller;
 
 import ee.ttu.geodeesia.interop.api.Response.Response;
+import ee.ttu.geodeesia.interop.api.soil.pojo.SoilApiResponse;
 import ee.ttu.geodeesia.search.domain.CommonSearch;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.interop.api.taxon.pojo.TaxonApiResponse;
@@ -39,4 +40,5 @@ public class SearchController {
     public TaxonApiResponse list(@RequestParam("term") String q) {
         return taxonApiService.searchTaxon(q);
     }
+
 }
