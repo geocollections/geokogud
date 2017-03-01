@@ -3,11 +3,13 @@ package ee.ttu.geodeesia.interop.api.samples.service.impl;
 import ee.ttu.geodeesia.interop.api.Request.SearchApiRequest;
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
+import ee.ttu.geodeesia.interop.api.Response.ResponseMapper;
 import ee.ttu.geodeesia.search.domain.CommonSearch;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.search.domain.SearchField;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,8 @@ public class SamplesApiServiceImpl implements SamplesApiService {
 
     @Value("${geo-api.url}")
     private String apiUrl;
+    @Autowired
+    private ResponseMapper responseMapper;
 
     private static final Logger logger = LoggerFactory.getLogger(SamplesApiServiceImpl.class);
 
@@ -43,7 +47,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
         logger.info(url);
         ResponseEntity<ApiResponse> response = restTemplate.getForEntity(url, ApiResponse.class);
 
-        response_.setResult(response.getBody().toResponseEntities(request.getTable()));
+        response_.setResult(responseMapper.toResponseEntities(request.getTable(), response.getBody().getResult()));
         response_.setCount(response.getBody().getCount());
         System.err.println(response.getBody().getPageInfo());
         response_.setCurrentPage(Integer.parseInt(response.getBody().getPageInfo().split("\\s")[1])); //Page 1 of 39

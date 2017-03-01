@@ -69,7 +69,6 @@ public class ApiResponse {
         return list;
     }
 
-
     public int getCount() {
         return count;
     }

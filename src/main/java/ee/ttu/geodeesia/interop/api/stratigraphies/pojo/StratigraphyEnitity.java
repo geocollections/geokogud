@@ -2,16 +2,13 @@ package ee.ttu.geodeesia.interop.api.stratigraphies.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ee.ttu.geodeesia.interop.api.Response.ConvertableToResponseEntity;
 import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
 
 import java.io.Serializable;
 
-/**
- * Created by Olesja Senkiv on 28.02.2017.
- */
-
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class StratigraphyEnitity implements Serializable {
+public class StratigraphyEnitity implements Serializable, ConvertableToResponseEntity {
     private static final long serialVersionUID = 1L;
    /* "id":2,
    "stratigraphy":"Eelkambrium",
@@ -56,6 +53,7 @@ public class StratigraphyEnitity implements Serializable {
     @JsonProperty("parent__stratigraphy_en")
     private String parentStratigraphyEn;
 
+    @Override
     public ResponseEntity toResponse() {
         ResponseEntity response = new ResponseEntity();
         response.setId(this.id);

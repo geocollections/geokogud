@@ -1,15 +1,16 @@
 package ee.ttu.geodeesia.interop.api.photoArchive.pojo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ee.ttu.geodeesia.interop.api.Response.ConvertableToResponseEntity;
 import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
 
-public class PhotoArchiveEntity {
-/*
-            "id": 28794,
-            "filename": "MI16-3-23.jpg",
-            "date_taken": "2016-10-06",
-            "author__agent": "Isakar"
- */
+public class PhotoArchiveEntity implements ConvertableToResponseEntity {
+    /*
+                "id": 28794,
+                "filename": "MI16-3-23.jpg",
+                "date_taken": "2016-10-06",
+                "author__agent": "Isakar"
+     */
     @JsonProperty("id")
     private Long id;
     @JsonProperty("filename")
@@ -18,6 +19,8 @@ public class PhotoArchiveEntity {
     private String date_taken;
     @JsonProperty("author__agent")
     private String author__agent;
+
+    @Override
     public ResponseEntity toResponse() {
         ResponseEntity response = new ResponseEntity();
         response.setId(this.id);

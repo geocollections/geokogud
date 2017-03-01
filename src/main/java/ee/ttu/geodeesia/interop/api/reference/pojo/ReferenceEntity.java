@@ -2,12 +2,13 @@ package ee.ttu.geodeesia.interop.api.reference.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ee.ttu.geodeesia.interop.api.Response.ConvertableToResponseEntity;
 import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
 
 import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ReferenceEntity{
+public class ReferenceEntity implements ConvertableToResponseEntity {
     private static final long serialVersionUID = 1L;
     /*
                 "id": 6304,
@@ -57,6 +58,7 @@ public class ReferenceEntity{
     @JsonProperty("remarks")
     private String remarks;
 
+    @Override
     public ResponseEntity toResponse() {
         ResponseEntity response = new ResponseEntity();
         response.setId(this.id);
