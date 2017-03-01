@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Response {
     private int count;
-    private List<ResponseEntity> result;
+    private List<?> result;
     private int numberOfPages;
     private int currentPage;
 
@@ -32,11 +32,11 @@ public class Response {
         this.count = count;
     }
 
-    public List<ResponseEntity> getResult() {
+    public List<?> getResult() {
         return result;
     }
 
-    public void setResult(List<ResponseEntity> result) {
+    public void setResult(List<?> result) {
         this.result = result;
     }
 }

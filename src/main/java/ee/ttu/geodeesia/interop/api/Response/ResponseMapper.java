@@ -30,12 +30,12 @@ public class ResponseMapper {
                     .put("image", PhotoArchiveEntity.class)
                     .build();
 
-    public List<ResponseEntity> toResponseEntities(String objectType, List<?> result) {
+    public List<?> toResponseEntities(String objectType, List<?> result) {
         ObjectMapper mapper = new ObjectMapper();
         Class<? extends ConvertableToResponseEntity> responseClass = responseClasses.get(objectType);
         return result.stream()
                 .map(rawJson -> mapper.convertValue(rawJson, responseClass))
-                .map(ConvertableToResponseEntity::toResponse)
+//                .map(ConvertableToResponseEntity::toResponse)
                 .collect(toList());
     }
 }

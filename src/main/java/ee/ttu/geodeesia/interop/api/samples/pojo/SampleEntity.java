@@ -49,29 +49,27 @@ public class SampleEntity implements Serializable, ConvertableToResponseEntity {
     private Long id;
     @JsonProperty("number")
     private String number;
-    @JsonProperty("number_additional")
+
     private String numberAdditional;
-    @JsonProperty("locality_id")
+
     private String localityId;
-    @JsonProperty("locality__locality")
+
     private String locality;
-    @JsonProperty("locality__locality_en")
+
     private String localityEn;
-    @JsonProperty("locality__latitude")
+
     private Double localityLatitude;
-    @JsonProperty("locality__longitude")
+
     private Double localityLongitude;
 
-    @JsonProperty("stratigraphy__stratigraphy")
     private String stratigraphy;
-    @JsonProperty("stratigraphy__stratigraphy_en")
+
     private String stratigraphyEng;
 
-    @JsonProperty("agent_collected__agent")
     private String agent;
-    @JsonProperty("database__acronym")
+
     private String git;
-    @JsonProperty("remarks_location")
+
     private String remarks;
     @JsonProperty("depth")
     private Double depth;
@@ -79,6 +77,94 @@ public class SampleEntity implements Serializable, ConvertableToResponseEntity {
     @JsonProperty("mass")
     private String mass;
 
+    @JsonProperty("numberAdditional")
+    public String getNumberAdditional() {
+        return numberAdditional;
+    }
+    @JsonProperty("number_additional")
+    public void setNumberAdditional(String numberAdditional) {
+        this.numberAdditional = numberAdditional;
+    }
+    @JsonProperty("localityId")
+    public String getLocalityId() {
+        return localityId;
+    }
+    @JsonProperty("locality_id")
+    public void setLocalityId(String localityId) {
+        this.localityId = localityId;
+    }
+    @JsonProperty("localityEn")
+    public String getLocalityEn() {
+        return localityEn;
+    }
+    @JsonProperty("locality__locality_en")
+    public void setLocalityEn(String localityEn) {
+        this.localityEn = localityEn;
+    }
+    @JsonProperty("localityLatitude")
+    public Double getLocalityLatitude() {
+        return localityLatitude;
+    }
+    @JsonProperty("locality__latitude")
+    public void setLocalityLatitude(Double localityLatitude) {
+        this.localityLatitude = localityLatitude;
+    }
+    @JsonProperty("localityLongitude")
+    public Double getLocalityLongitude() {
+        return localityLongitude;
+    }
+    @JsonProperty("locality__longitude")
+    public void setLocalityLongitude(Double localityLongitude) {
+        this.localityLongitude = localityLongitude;
+    }
+    @JsonProperty("stratigraphyEng")
+    public String getStratigraphyEng() {
+        return stratigraphyEng;
+    }
+    @JsonProperty("stratigraphy__stratigraphy_en")
+    public void setStratigraphyEng(String stratigraphyEng) {
+        this.stratigraphyEng = stratigraphyEng;
+    }
+    @JsonProperty("locality")
+    public String getLocality() {
+        return locality;
+    }
+    @JsonProperty("locality__locality")
+    public void setLocality(String locality) {
+        this.locality = locality;
+    }
+    @JsonProperty("stratigraphy")
+    public String getStratigraphy() {
+        return stratigraphy;
+    }
+    @JsonProperty("stratigraphy__stratigraphy")
+    public void setStratigraphy(String stratigraphy) {
+        this.stratigraphy = stratigraphy;
+    }
+    @JsonProperty("agent")
+    public String getAgent() {
+        return agent;
+    }
+    @JsonProperty("agent_collected__agent")
+    public void setAgent(String agent) {
+        this.agent = agent;
+    }
+    @JsonProperty("remarks")
+    public String getRemarks() {
+        return remarks;
+    }
+    @JsonProperty("remarks_location")
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+    @JsonProperty("git")
+    public String getGit() {
+        return git;
+    }
+    @JsonProperty("database__acronym")
+    public void setGit(String git) {
+        this.git = git;
+    }
 
     @Override
     public ResponseEntity toResponse() {
