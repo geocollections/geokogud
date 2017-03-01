@@ -79,6 +79,8 @@ public class SamplesApiServiceImpl implements SamplesApiService {
             case "ANALYSES":
                 returnValue = "analysis";
                 break;
+            case "ARCHIVE":
+                returnValue = "image";
             //TODO: IMPLEMENT MORE SEARCHES or even be do REFACTOR for client side... classifier ex sample can be immidiatly offered
             default:
                 break;

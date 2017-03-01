@@ -69,6 +69,10 @@ public class ResponseEntity {
     private String pages;
     private String doi;
 
+    //specifically used by images
+    private String filename;
+    private String date_taken;
+    private String author__agent;
 
     public String getAnalysisMethodAnalysisMethod() {
         return analysisMethodAnalysisMethod;
@@ -225,16 +229,9 @@ public class ResponseEntity {
     public Long getStratigraphyBaseId() {
         return stratigraphyBaseId;
     }
+
     public void setStratigraphyBaseId(Long stratigraphyBaseId) {
         this.stratigraphyBaseId = stratigraphyBaseId;
-    }
-
-    public void setStratigraphyTopId(Long stratigraphyTopId) {
-        this.stratigraphyTopId = stratigraphyTopId;
-    }
-
-    public void setStratigraphyId(Long stratigraphyId) {
-        this.stratigraphyId = stratigraphyId;
     }
 
     public String getStratigraphyBase() {
@@ -257,6 +254,10 @@ public class ResponseEntity {
         return stratigraphyTopId;
     }
 
+    public void setStratigraphyTopId(Long stratigraphyTopId) {
+        this.stratigraphyTopId = stratigraphyTopId;
+    }
+
     public String getStratigraphyTop() {
         return stratigraphyTop;
     }
@@ -275,6 +276,10 @@ public class ResponseEntity {
 
     public Long getStratigraphyId() {
         return stratigraphyId;
+    }
+
+    public void setStratigraphyId(Long stratigraphyId) {
+        this.stratigraphyId = stratigraphyId;
     }
 
     public String getCountry() {
@@ -305,8 +310,16 @@ public class ResponseEntity {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getNumber() {
         return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public String getNumberAdditional() {
@@ -321,85 +334,76 @@ public class ResponseEntity {
         return locality;
     }
 
-    public String getLocalityEn() {
-        return localityEn;
-    }
-
-    public Double getLatitude() {
-        return latitude;
-    }
-
-    public Double getLongitude() {
-        return longitude;
-    }
-
-    public String getStratigraphy() {
-        return stratigraphy;
-    }
-
-    public String getStratigraphyEng() {
-        return stratigraphyEng;
-    }
-
-    public String getAgent() {
-        return agent;
-    }
-
-    public String getGIT() {
-        return GIT;
-    }
-
-    public String getRemarks() {
-        return remarks;
-    }
-
-    public Double getDepth() {
-        return depth;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-
     public void setLocality(String locality) {
         this.locality = locality;
+    }
+
+    public String getLocalityEn() {
+        return localityEn;
     }
 
     public void setLocalityEn(String localityEn) {
         this.localityEn = localityEn;
     }
 
+    public Double getLatitude() {
+        return latitude;
+    }
+
     public void setLatitude(Double latitude) {
         this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
     }
 
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 
+    public String getStratigraphy() {
+        return stratigraphy;
+    }
+
     public void setStratigraphy(String stratigraphy) {
         this.stratigraphy = stratigraphy;
+    }
+
+    public String getStratigraphyEng() {
+        return stratigraphyEng;
     }
 
     public void setStratigraphyEng(String stratigraphyEng) {
         this.stratigraphyEng = stratigraphyEng;
     }
 
+    public String getAgent() {
+        return agent;
+    }
+
     public void setAgent(String agent) {
         this.agent = agent;
+    }
+
+    public String getGIT() {
+        return GIT;
     }
 
     public void setGIT(String GIT) {
         this.GIT = GIT;
     }
 
+    public String getRemarks() {
+        return remarks;
+    }
+
     public void setRemarks(String remarks) {
         this.remarks = remarks;
+    }
+
+    public Double getDepth() {
+        return depth;
     }
 
     public void setDepth(Double depth) {
@@ -507,5 +511,32 @@ public class ResponseEntity {
         return doi;
     }
 
-    public void setDoi(String doi) { this.doi = doi; }
+    public void setDoi(String doi) {
+        this.doi = doi;
+    }
+
+    //specifically used by images
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    public String getDate_taken() {
+        return date_taken;
+    }
+
+    public void setDate_taken(String date_taken) {
+        this.date_taken = date_taken;
+    }
+
+    public String getAuthor__agent() {
+        return author__agent;
+    }
+
+    public void setAuthor__agent(String author__agent) {
+        this.author__agent = author__agent;
+    }
 }
