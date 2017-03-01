@@ -74,6 +74,24 @@ public class ResponseEntity {
     private String date_taken;
     private String author__agent;
 
+    //specifically used by specimen
+    private String specimen_nr;
+    private Long locality_id;
+    private String locality__locality;
+    private String locality__locality_en;
+    private String specimenidentification__name;
+    private String specimenidentification__taxon__taxon;
+    private String specimenidentification__taxon__author_year;
+    private String specimenidentification__taxon__parent__taxon;
+    private String specimenidentification__taxon__fossil_group__taxon;
+    private Long stratigraphy_id;
+    private String stratigraphy__stratigraphy;
+    private String stratigraphy__stratigraphy_en;
+    private Long lithostratigraphy_id;
+    private String lithostratigraphy__stratigraphy;
+    private String lithostratigraphy__stratigraphy_en;
+    private Long sample_id;
+
     public String getAnalysisMethodAnalysisMethod() {
         return analysisMethodAnalysisMethod;
     }
@@ -538,5 +556,134 @@ public class ResponseEntity {
 
     public void setAuthor__agent(String author__agent) {
         this.author__agent = author__agent;
+    }
+
+    //specifically used by specimen
+    public String getSpecimen_nr() {
+        return specimen_nr;
+    }
+
+    public void setSpecimen_nr(String specimen_nr) {
+        this.specimen_nr = specimen_nr;
+    }
+
+    public Long getLocality_id() {
+        return locality_id;
+    }
+
+    public void setLocality_id(Long locality_id) {
+        this.locality_id = locality_id;
+    }
+
+    public String getLocality__locality() {
+        return locality__locality;
+    }
+
+    public void setLocality__locality(String locality__locality) {
+        this.locality__locality = locality__locality;
+    }
+
+    public String getLocality__locality_en() {
+        return locality__locality_en;
+    }
+
+    public void setLocality__locality_en(String locality__locality_en) {
+        this.locality__locality_en = locality__locality_en;
+    }
+
+    public String getSpecimenidentification__name() {
+        return specimenidentification__name;
+    }
+
+    public void setSpecimenidentification__name(String specimenidentification__name) {
+        this.specimenidentification__name = specimenidentification__name;
+    }
+
+    public String getSpecimenidentification__taxon__taxon() {
+        return specimenidentification__taxon__taxon;
+    }
+
+    public void setSpecimenidentification__taxon__taxon(String specimenidentification__taxon__taxon) {
+        this.specimenidentification__taxon__taxon = specimenidentification__taxon__taxon;
+    }
+
+    public String getSpecimenidentification__taxon__author_year() {
+        return specimenidentification__taxon__author_year;
+    }
+
+    public void setSpecimenidentification__taxon__author_year(String specimenidentification__taxon__author_year) {
+        this.specimenidentification__taxon__author_year = specimenidentification__taxon__author_year;
+    }
+
+    public String getSpecimenidentification__taxon__parent__taxon() {
+        return specimenidentification__taxon__parent__taxon;
+    }
+
+    public void setSpecimenidentification__taxon__parent__taxon(String specimenidentification__taxon__parent__taxon) {
+        this.specimenidentification__taxon__parent__taxon = specimenidentification__taxon__parent__taxon;
+    }
+
+    public String getSpecimenidentification__taxon__fossil_group__taxon() {
+        return specimenidentification__taxon__fossil_group__taxon;
+    }
+
+    public void setSpecimenidentification__taxon__fossil_group__taxon(String specimenidentification__taxon__fossil_group__taxon) {
+        this.specimenidentification__taxon__fossil_group__taxon = specimenidentification__taxon__fossil_group__taxon;
+    }
+
+    public Long getStratigraphy_id() {
+        return stratigraphy_id;
+    }
+
+    public void setStratigraphy_id(Long stratigraphy_id) {
+        this.stratigraphy_id = stratigraphy_id;
+    }
+
+    public String getStratigraphy__stratigraphy() {
+        return stratigraphy__stratigraphy;
+    }
+
+    public void setStratigraphy__stratigraphy(String stratigraphy__stratigraphy) {
+        this.stratigraphy__stratigraphy = stratigraphy__stratigraphy;
+    }
+
+    public String getStratigraphy__stratigraphy_en() {
+        return stratigraphy__stratigraphy_en;
+    }
+
+    public void setStratigraphy__stratigraphy_en(String stratigraphy__stratigraphy_en) {
+        this.stratigraphy__stratigraphy_en = stratigraphy__stratigraphy_en;
+    }
+
+    public Long getLithostratigraphy_id() {
+        return lithostratigraphy_id;
+    }
+
+    public void setLithostratigraphy_id(Long lithostratigraphy_id) {
+        this.lithostratigraphy_id = lithostratigraphy_id;
+    }
+
+    public String getLithostratigraphy__stratigraphy() {
+        return lithostratigraphy__stratigraphy;
+    }
+
+    public void setLithostratigraphy__stratigraphy(String lithostratigraphy__stratigraphy) {
+        this.lithostratigraphy__stratigraphy = lithostratigraphy__stratigraphy;
+    }
+
+    public String getLithostratigraphy__stratigraphy_en() {
+        return lithostratigraphy__stratigraphy_en;
+    }
+
+    public void setLithostratigraphy__stratigraphy_en(String lithostratigraphy__stratigraphy_en) {
+        this.lithostratigraphy__stratigraphy_en = lithostratigraphy__stratigraphy_en;
+    }
+
+    public Long getSample_id() {
+        return sample_id;
+    }
+
+    public void setSample_id(Long sample_id) {
+        this.sample_id = sample_id;
     }
 }

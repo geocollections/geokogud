@@ -16,5 +16,22 @@ angular.module('search').controller('SearchSpecimensController', function(Search
         {code:"TUGO",label:"TUGO"},
         {code:"MUMU",label:"MUMU"},
         {code:"EGK",label:"EGK"}];
+    $scope.searchDefault = function(search) {
+        if(!search) search = "SPECIMENS";
+        SearchService.getSearch(search).then(function(search) {
+            $scope.sampleSearch = search;
+            $scope.search();
+        });
+    };
 
+    $scope.searchDefault();
+
+    $scope.search = function() {
+        SearchService.listSearch($scope.sampleSearch).then(function(result) {
+            $scope.totalItems = result.count;
+            $scope.pageSize = 100;
+            $scope.response = result;
+            console.log(result);
+        });
+    };
 });

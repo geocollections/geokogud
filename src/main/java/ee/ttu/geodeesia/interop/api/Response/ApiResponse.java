@@ -3,13 +3,13 @@ package ee.ttu.geodeesia.interop.api.Response;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
 import ee.ttu.geodeesia.interop.api.analyses.pojo.AnalysesEntity;
 import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoresEntity;
 import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityEntity;
 import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveEntity;
 import ee.ttu.geodeesia.interop.api.reference.pojo.ReferenceEntity;
 import ee.ttu.geodeesia.interop.api.samples.pojo.SampleEntity;
+import ee.ttu.geodeesia.interop.api.specimen.pojo.SpecimenEntity;
 import ee.ttu.geodeesia.interop.api.stratigraphies.pojo.StratigraphyEnitity;
 
 import java.util.ArrayList;
@@ -30,6 +30,8 @@ public class ApiResponse {
         result.forEach(apiEntity -> {
             switch (objectType) {
                 case "specimen":
+                    SpecimenEntity specimenentity = mapper.convertValue(apiEntity, SpecimenEntity.class);
+                    list.add(specimenentity.toResponse());
                     break;
                 case "sample":
                     SampleEntity entity = mapper.convertValue(apiEntity, SampleEntity.class);
