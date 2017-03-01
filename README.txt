@@ -1,1 +1,1 @@
-http://arendus.geokogud.info/
+http://geocollections.arendus.geokogud.info/
