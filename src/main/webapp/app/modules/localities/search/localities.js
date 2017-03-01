@@ -5,10 +5,10 @@ angular.module('search').controller('SearchLocalitiesController', function($scop
         {  name: 'Box count', value: 'Box count' }
     ];
     $scope.searchDefault = function(search) {
-        if(!search) search = "LOCALITIES";
+        if(!search) search = "locality";
         SearchService.getSearch(search).then(function(search) {
             $scope.sampleSearch = search;
-            $scope.sampleSearch.table = "LOCALITIES";
+            $scope.sampleSearch.table = "locality";
             $scope.search();
         });
     };
