@@ -19,7 +19,6 @@ angular.module('search').controller('SearchReferencesController', function($scop
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
             $scope.response = result;
-            console.log(result);
         });
     };
 });

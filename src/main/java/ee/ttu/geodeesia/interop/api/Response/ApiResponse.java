@@ -22,9 +22,6 @@ public class ApiResponse {
     @JsonProperty("results")
     private List<?> result;
 
-
-
-
     public int getCount() {
         return count;
     }
