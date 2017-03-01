@@ -43,6 +43,89 @@ public class ResponseEntity {
     private String parentStratigraphy;
     private String parentStratigraphyEn;
 
+    //specificaly used by stratigraphy //TODO:MAYBE realy must be separatly
+    private String analysisMethodAnalysisMethod;
+    private String analysisMethodMethodEn;
+    private String methodDetails;
+    private String lab;
+    private String instrument;
+    private String instrumentTxt;
+    private String sample;
+    private String date;
+    private String dateFree;
+
+    public String getAnalysisMethodAnalysisMethod() {
+        return analysisMethodAnalysisMethod;
+    }
+
+    public void setAnalysisMethodAnalysisMethod(String analysisMethodAnalysisMethod) {
+        this.analysisMethodAnalysisMethod = analysisMethodAnalysisMethod;
+    }
+
+    public String getAnalysisMethodMethodEn() {
+        return analysisMethodMethodEn;
+    }
+
+    public void setAnalysisMethodMethodEn(String analysisMethodMethodEn) {
+        this.analysisMethodMethodEn = analysisMethodMethodEn;
+    }
+
+    public String getMethodDetails() {
+        return methodDetails;
+    }
+
+    public void setMethodDetails(String methodDetails) {
+        this.methodDetails = methodDetails;
+    }
+
+    public String getLab() {
+        return lab;
+    }
+
+    public void setLab(String lab) {
+        this.lab = lab;
+    }
+
+    public String getInstrument() {
+        return instrument;
+    }
+
+    public void setInstrument(String instrument) {
+        this.instrument = instrument;
+    }
+
+    public String getInstrumentTxt() {
+        return instrumentTxt;
+    }
+
+    public void setInstrumentTxt(String instrumentTxt) {
+        this.instrumentTxt = instrumentTxt;
+    }
+
+    public String getSample() {
+        return sample;
+    }
+
+    public void setSample(String sample) {
+        this.sample = sample;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDateFree() {
+        return dateFree;
+    }
+
+    public void setDateFree(String dateFree) {
+        this.dateFree = dateFree;
+    }
+
     public String getRankValue() {
         return rankValue;
     }

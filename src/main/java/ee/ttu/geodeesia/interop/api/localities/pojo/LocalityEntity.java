@@ -7,7 +7,7 @@ import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
 import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LocalityEntity implements Serializable {//Serializable
+public class LocalityEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     /*    "id": 21104,
             "locality": "Lagedi puurauk",

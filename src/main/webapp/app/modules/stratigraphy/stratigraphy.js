@@ -8,7 +8,6 @@ angular.module('search').controller('SearchStratigraphyController', function($sc
         if(!search) search = "STRATIGRAPHIES";
         SearchService.getSearch(search).then(function(search) {
             $scope.sampleSearch = search;
-            $scope.sampleSearch.table = "STRATIGRAPHIES";
             $scope.search();
         });
     };

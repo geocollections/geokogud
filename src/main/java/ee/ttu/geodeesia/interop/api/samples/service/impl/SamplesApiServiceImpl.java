@@ -72,6 +72,9 @@ public class SamplesApiServiceImpl implements SamplesApiService {
             case "STRATIGRAPHIES":
                 returnValue = "stratigraphy";
                 break;
+            case "ANALYSES":
+                returnValue = "analysis";
+                break;
             //TODO: IMPLEMENT MORE SEARCHES or even be do REFACTOR for client side... classifier ex sample can be immidiatly offered
             default:
                 break;
