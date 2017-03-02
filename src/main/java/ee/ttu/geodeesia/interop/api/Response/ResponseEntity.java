@@ -5,7 +5,7 @@ public class ResponseEntity {
     private String number;
     private String numberAdditional;
     private String locality;
-    private String localityEn;
+    private String localityEng;
     private Double latitude;
     private Double longitude;
 
@@ -33,19 +33,19 @@ public class ResponseEntity {
 
     //specificaly used by stratigraphy //TODO:MAYBE realy must be separatly
     private String rankValue;
-    private String rankValueEn;
+    private String rankValueEng;
     private String scopeValue;
-    private String statusValueEn;
+    private String statusValueEng;
     private String indexMain;
     private String indexAdditional;
     private String indexMainHtml;
     private String indexAdditionalHtml;
     private String parentStratigraphy;
-    private String parentStratigraphyEn;
+    private String parentStratigraphyEng;
 
     //specificaly used by stratigraphy //TODO:MAYBE realy must be separatly
     private String analysisMethodAnalysisMethod;
-    private String analysisMethodMethodEn;
+    private String analysisMethodMethodEng;
     private String methodDetails;
     private String lab;
     private String instrument;
@@ -59,11 +59,11 @@ public class ResponseEntity {
     private String author;
     private String year;
     private String title;
-    private String title_original;
-    private String language__value_en;
+    private String titleOriginal;
+    private String languageValueEng;
     private String journal;
-    private String journal__journal_name;
-    private String journal_additional;
+    private String journalName;
+    private String journalAdditional;
     private String volume;
     private String book;
     private String pages;
@@ -71,26 +71,21 @@ public class ResponseEntity {
 
     //specifically used by images
     private String filename;
-    private String date_taken;
-    private String author__agent;
+    private String dateTaken;
+    private String authorAgent;
 
     //specifically used by specimen
-    private String specimen_nr;
-    private Long locality_id;
-    private String locality__locality;
-    private String locality__locality_en;
-    private String specimenidentification__name;
-    private String specimenidentification__taxon__taxon;
-    private String specimenidentification__taxon__author_year;
-    private String specimenidentification__taxon__parent__taxon;
-    private String specimenidentification__taxon__fossil_group__taxon;
-    private Long stratigraphy_id;
-    private String stratigraphy__stratigraphy;
-    private String stratigraphy__stratigraphy_en;
-    private Long lithostratigraphy_id;
-    private String lithostratigraphy__stratigraphy;
-    private String lithostratigraphy__stratigraphy_en;
-    private Long sample_id;
+    private String specimenNr;
+    private Long localityId;
+    private String specimenidentificationName;
+    private String specimenidentificationTaxon;
+    private String specimenidentificationTaxonAuthorYear;
+    private String specimenidentificationTaxonParentTaxon;
+    private String specimenidentificationTaxonFossilGroupTaxon;
+    private Long lithostratigraphyId;
+    private String lithostratigraphyStratigraphy;
+    private String lithostratigraphyStratigraphyEng;
+    private Long sampleId;
 
     public String getAnalysisMethodAnalysisMethod() {
         return analysisMethodAnalysisMethod;
@@ -100,12 +95,12 @@ public class ResponseEntity {
         this.analysisMethodAnalysisMethod = analysisMethodAnalysisMethod;
     }
 
-    public String getAnalysisMethodMethodEn() {
-        return analysisMethodMethodEn;
+    public String getAnalysisMethodMethodEng() {
+        return analysisMethodMethodEng;
     }
 
-    public void setAnalysisMethodMethodEn(String analysisMethodMethodEn) {
-        this.analysisMethodMethodEn = analysisMethodMethodEn;
+    public void setAnalysisMethodMethodEng(String analysisMethodMethodEng) {
+        this.analysisMethodMethodEng = analysisMethodMethodEng;
     }
 
     public String getMethodDetails() {
@@ -172,12 +167,12 @@ public class ResponseEntity {
         this.rankValue = rankValue;
     }
 
-    public String getRankValueEn() {
-        return rankValueEn;
+    public String getRankValueEng() {
+        return rankValueEng;
     }
 
-    public void setRankValueEn(String rankValueEn) {
-        this.rankValueEn = rankValueEn;
+    public void setRankValueEng(String rankValueEng) {
+        this.rankValueEng = rankValueEng;
     }
 
     public String getScopeValue() {
@@ -188,12 +183,12 @@ public class ResponseEntity {
         this.scopeValue = scopeValue;
     }
 
-    public String getStatusValueEn() {
-        return statusValueEn;
+    public String getStatusValueEng() {
+        return statusValueEng;
     }
 
-    public void setStatusValueEn(String statusValueEn) {
-        this.statusValueEn = statusValueEn;
+    public void setStatusValueEng(String statusValueEng) {
+        this.statusValueEng = statusValueEng;
     }
 
     public String getIndexMain() {
@@ -236,12 +231,12 @@ public class ResponseEntity {
         this.parentStratigraphy = parentStratigraphy;
     }
 
-    public String getParentStratigraphyEn() {
-        return parentStratigraphyEn;
+    public String getParentStratigraphyEng() {
+        return parentStratigraphyEng;
     }
 
-    public void setParentStratigraphyEn(String parentStratigraphyEn) {
-        this.parentStratigraphyEn = parentStratigraphyEn;
+    public void setParentStratigraphyEng(String parentStratigraphyEng) {
+        this.parentStratigraphyEng = parentStratigraphyEng;
     }
 
     public Long getStratigraphyBaseId() {
@@ -356,12 +351,12 @@ public class ResponseEntity {
         this.locality = locality;
     }
 
-    public String getLocalityEn() {
-        return localityEn;
+    public String getLocalityEng() {
+        return localityEng;
     }
 
-    public void setLocalityEn(String localityEn) {
-        this.localityEn = localityEn;
+    public void setLocalityEng(String localityEng) {
+        this.localityEng = localityEng;
     }
 
     public Double getLatitude() {
@@ -461,20 +456,20 @@ public class ResponseEntity {
         this.title = title;
     }
 
-    public String getTitle_original() {
-        return title_original;
+    public String getTitleOriginal() {
+        return titleOriginal;
     }
 
-    public void setTitle_original(String title_original) {
-        this.title_original = title_original;
+    public void setTitleOriginal(String titleOriginal) {
+        this.titleOriginal = titleOriginal;
     }
 
-    public String getLanguage__value_en() {
-        return language__value_en;
+    public String getLanguageValueEng() {
+        return languageValueEng;
     }
 
-    public void setLanguage__value_en(String language__value_en) {
-        this.language__value_en = language__value_en;
+    public void setLanguageValueEng(String languageValueEng) {
+        this.languageValueEng = languageValueEng;
     }
 
     public String getJournal() {
@@ -485,20 +480,20 @@ public class ResponseEntity {
         this.journal = journal;
     }
 
-    public String getJournal__journal_name() {
-        return journal__journal_name;
+    public String getJournalName() {
+        return journalName;
     }
 
-    public void setJournal__journal_name(String journal__journal_name) {
-        this.journal__journal_name = journal__journal_name;
+    public void setJournalName(String journalName) {
+        this.journalName = journalName;
     }
 
-    public String getJournal_additional() {
-        return journal_additional;
+    public String getJournalAdditional() {
+        return journalAdditional;
     }
 
-    public void setJournal_additional(String journal_additional) {
-        this.journal_additional = journal_additional;
+    public void setJournalAdditional(String journalAdditional) {
+        this.journalAdditional = journalAdditional;
     }
 
     public String getVolume() {
@@ -542,148 +537,108 @@ public class ResponseEntity {
         this.filename = filename;
     }
 
-    public String getDate_taken() {
-        return date_taken;
+    public String getDateTaken() {
+        return dateTaken;
     }
 
-    public void setDate_taken(String date_taken) {
-        this.date_taken = date_taken;
+    public void setDateTaken(String dateTaken) {
+        this.dateTaken = dateTaken;
     }
 
-    public String getAuthor__agent() {
-        return author__agent;
+    public String getAuthorAgent() {
+        return authorAgent;
     }
 
-    public void setAuthor__agent(String author__agent) {
-        this.author__agent = author__agent;
+    public void setAuthorAgent(String authorAgent) {
+        this.authorAgent = authorAgent;
     }
 
     //specifically used by specimen
-    public String getSpecimen_nr() {
-        return specimen_nr;
+    public String getSpecimenNr() {
+        return specimenNr;
     }
 
-    public void setSpecimen_nr(String specimen_nr) {
-        this.specimen_nr = specimen_nr;
+    public void setSpecimenNr(String specimenNr) {
+        this.specimenNr = specimenNr;
     }
 
-    public Long getLocality_id() {
-        return locality_id;
+    public Long getLocalityId() {
+        return localityId;
     }
 
-    public void setLocality_id(Long locality_id) {
-        this.locality_id = locality_id;
+    public void setLocalityId(Long localityId) {
+        this.localityId = localityId;
     }
 
-    public String getLocality__locality() {
-        return locality__locality;
+    public String getSpecimenidentificationName() {
+        return specimenidentificationName;
     }
 
-    public void setLocality__locality(String locality__locality) {
-        this.locality__locality = locality__locality;
+    public void setSpecimenidentificationName(String specimenidentificationName) {
+        this.specimenidentificationName = specimenidentificationName;
     }
 
-    public String getLocality__locality_en() {
-        return locality__locality_en;
+    public String getSpecimenidentificationTaxon() {
+        return specimenidentificationTaxon;
     }
 
-    public void setLocality__locality_en(String locality__locality_en) {
-        this.locality__locality_en = locality__locality_en;
+    public void setSpecimenidentificationTaxon(String specimenidentificationTaxon) {
+        this.specimenidentificationTaxon = specimenidentificationTaxon;
     }
 
-    public String getSpecimenidentification__name() {
-        return specimenidentification__name;
+    public String getSpecimenidentificationTaxonAuthorYear() {
+        return specimenidentificationTaxonAuthorYear;
     }
 
-    public void setSpecimenidentification__name(String specimenidentification__name) {
-        this.specimenidentification__name = specimenidentification__name;
+    public void setSpecimenidentificationTaxonAuthorYear(String specimenidentificationTaxonAuthorYear) {
+        this.specimenidentificationTaxonAuthorYear = specimenidentificationTaxonAuthorYear;
     }
 
-    public String getSpecimenidentification__taxon__taxon() {
-        return specimenidentification__taxon__taxon;
+    public String getSpecimenidentificationTaxonParentTaxon() {
+        return specimenidentificationTaxonParentTaxon;
     }
 
-    public void setSpecimenidentification__taxon__taxon(String specimenidentification__taxon__taxon) {
-        this.specimenidentification__taxon__taxon = specimenidentification__taxon__taxon;
+    public void setSpecimenidentificationTaxonParentTaxon(String specimenidentificationTaxonParentTaxon) {
+        this.specimenidentificationTaxonParentTaxon = specimenidentificationTaxonParentTaxon;
     }
 
-    public String getSpecimenidentification__taxon__author_year() {
-        return specimenidentification__taxon__author_year;
+    public String getSpecimenidentificationTaxonFossilGroupTaxon() {
+        return specimenidentificationTaxonFossilGroupTaxon;
     }
 
-    public void setSpecimenidentification__taxon__author_year(String specimenidentification__taxon__author_year) {
-        this.specimenidentification__taxon__author_year = specimenidentification__taxon__author_year;
+    public void setSpecimenidentificationTaxonFossilGroupTaxon(String specimenidentificationTaxonFossilGroupTaxon) {
+        this.specimenidentificationTaxonFossilGroupTaxon = specimenidentificationTaxonFossilGroupTaxon;
     }
 
-    public String getSpecimenidentification__taxon__parent__taxon() {
-        return specimenidentification__taxon__parent__taxon;
+    public Long getLithostratigraphyId() {
+        return lithostratigraphyId;
     }
 
-    public void setSpecimenidentification__taxon__parent__taxon(String specimenidentification__taxon__parent__taxon) {
-        this.specimenidentification__taxon__parent__taxon = specimenidentification__taxon__parent__taxon;
+    public void setLithostratigraphyId(Long lithostratigraphyId) {
+        this.lithostratigraphyId = lithostratigraphyId;
     }
 
-    public String getSpecimenidentification__taxon__fossil_group__taxon() {
-        return specimenidentification__taxon__fossil_group__taxon;
+    public String getLithostratigraphyStratigraphy() {
+        return lithostratigraphyStratigraphy;
     }
 
-    public void setSpecimenidentification__taxon__fossil_group__taxon(String specimenidentification__taxon__fossil_group__taxon) {
-        this.specimenidentification__taxon__fossil_group__taxon = specimenidentification__taxon__fossil_group__taxon;
+    public void setLithostratigraphyStratigraphy(String lithostratigraphyStratigraphy) {
+        this.lithostratigraphyStratigraphy = lithostratigraphyStratigraphy;
     }
 
-    public Long getStratigraphy_id() {
-        return stratigraphy_id;
+    public String getLithostratigraphyStratigraphyEng() {
+        return lithostratigraphyStratigraphyEng;
     }
 
-    public void setStratigraphy_id(Long stratigraphy_id) {
-        this.stratigraphy_id = stratigraphy_id;
+    public void setLithostratigraphyStratigraphyEng(String lithostratigraphyStratigraphyEng) {
+        this.lithostratigraphyStratigraphyEng = lithostratigraphyStratigraphyEng;
     }
 
-    public String getStratigraphy__stratigraphy() {
-        return stratigraphy__stratigraphy;
+    public Long getSampleId() {
+        return sampleId;
     }
 
-    public void setStratigraphy__stratigraphy(String stratigraphy__stratigraphy) {
-        this.stratigraphy__stratigraphy = stratigraphy__stratigraphy;
-    }
-
-    public String getStratigraphy__stratigraphy_en() {
-        return stratigraphy__stratigraphy_en;
-    }
-
-    public void setStratigraphy__stratigraphy_en(String stratigraphy__stratigraphy_en) {
-        this.stratigraphy__stratigraphy_en = stratigraphy__stratigraphy_en;
-    }
-
-    public Long getLithostratigraphy_id() {
-        return lithostratigraphy_id;
-    }
-
-    public void setLithostratigraphy_id(Long lithostratigraphy_id) {
-        this.lithostratigraphy_id = lithostratigraphy_id;
-    }
-
-    public String getLithostratigraphy__stratigraphy() {
-        return lithostratigraphy__stratigraphy;
-    }
-
-    public void setLithostratigraphy__stratigraphy(String lithostratigraphy__stratigraphy) {
-        this.lithostratigraphy__stratigraphy = lithostratigraphy__stratigraphy;
-    }
-
-    public String getLithostratigraphy__stratigraphy_en() {
-        return lithostratigraphy__stratigraphy_en;
-    }
-
-    public void setLithostratigraphy__stratigraphy_en(String lithostratigraphy__stratigraphy_en) {
-        this.lithostratigraphy__stratigraphy_en = lithostratigraphy__stratigraphy_en;
-    }
-
-    public Long getSample_id() {
-        return sample_id;
-    }
-
-    public void setSample_id(Long sample_id) {
-        this.sample_id = sample_id;
+    public void setSampleId(Long sampleId) {
+        this.sampleId = sampleId;
     }
 }

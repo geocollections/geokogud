@@ -35,11 +35,11 @@ public class StratigraphyEnitity implements Serializable, ConvertableToResponseE
     @JsonProperty("rank__value")
     private String rankValue;
     @JsonProperty("rank__value_en")
-    private String rankValueEn;
+    private String rankValueEng;
     @JsonProperty("scope__value")
     private String scopeValue;
     @JsonProperty("scope__value_en")
-    private String scoreValueEn;
+    private String scoreValueEng;
     @JsonProperty("index_main")
     private String indexMain;
     @JsonProperty("index_additional")
@@ -60,9 +60,9 @@ public class StratigraphyEnitity implements Serializable, ConvertableToResponseE
         response.setStratigraphy(this.stratigraphy);
         response.setStratigraphyEng(this.stratigraphyEn);
         response.setRankValue(this.rankValue);
-        response.setRankValueEn(this.rankValueEn);
+        response.setRankValueEng(this.rankValueEng);
         response.setScopeValue(this.scopeValue);
-        response.setScopeValue(this.scoreValueEn);
+        response.setScopeValue(this.scoreValueEng);
         response.setIndexMain(this.indexMain);
         response.setIndexMainHtml(this.indexMainHtml);
         response.setIndexAdditional(this.indexAdditional);
