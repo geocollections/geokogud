@@ -5,8 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import ee.ttu.geodeesia.interop.api.Response.ConvertableToResponseEntity;
 import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
 
-import java.io.Serializable;
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ReferenceEntity implements ConvertableToResponseEntity {
     private static final long serialVersionUID = 1L;
@@ -38,15 +36,15 @@ public class ReferenceEntity implements ConvertableToResponseEntity {
     @JsonProperty("title")
     private String title;
     @JsonProperty("title_original")
-    private String title_original;
+    private String titleOriginal;
     @JsonProperty("language__value_en")
-    private String language__value_en;
+    private String languageValueEng;
     @JsonProperty("journal")
     private String journal;
     @JsonProperty("journal__journal_name")
-    private String journal__journal_name;
+    private String journalName;
     @JsonProperty("journal_additional")
-    private String journal_additional;
+    private String journalAdditional;
     @JsonProperty("volume")
     private String volume;
     @JsonProperty("book")
@@ -66,11 +64,11 @@ public class ReferenceEntity implements ConvertableToResponseEntity {
         response.setAuthor(this.author);
         response.setYear(this.year);
         response.setTitle(this.title);
-        response.setTitle_original(this.title_original);
-        response.setLanguage__value_en(this.language__value_en);
+        response.setTitleOriginal(this.titleOriginal);
+        response.setLanguageValueEng(this.languageValueEng);
         response.setJournal(this.journal);
-        response.setJournal__journal_name(this.journal__journal_name);
-        response.setJournal_additional(this.journal_additional);
+        response.setJournalName(this.journalName);
+        response.setJournalAdditional(this.journalAdditional);
         response.setVolume(this.volume);
         response.setBook(this.book);
         response.setPages(this.pages);

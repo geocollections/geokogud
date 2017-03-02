@@ -33,56 +33,56 @@ public class SpecimenEntity implements Serializable, ConvertableToResponseEntity
     @JsonProperty("specimen_nr")
     private String specimen_nr;
     @JsonProperty("locality_id")
-    private Long locality_id;
+    private Long localityId;
     @JsonProperty("locality__locality")
-    private String locality__locality;
+    private String locality;
     @JsonProperty("locality__locality_en")
-    private String locality__locality_en;
+    private String localityEng;
     @JsonProperty("specimenidentification__name")
-    private String specimenidentification__name;
+    private String specimenidentificationName;
     @JsonProperty("specimenidentification__taxon__taxon")
-    private String specimenidentification__taxon__taxon;
+    private String specimenidentificationTaxon;
     @JsonProperty("specimenidentification__taxon__author_year")
-    private String specimenidentification__taxon__author_year;
+    private String specimenidentificationTaxonAuthorYear;
     @JsonProperty("specimenidentification__taxon__parent__taxon")
-    private String specimenidentification__taxon__parent__taxon;
+    private String specimenidentificationTaxonParentTaxon;
     @JsonProperty("specimenidentification__taxon__fossil_group__taxon")
-    private String specimenidentification__taxon__fossil_group__taxon;
+    private String specimenidentificationTaxonFossilGroupTaxon;
     @JsonProperty("stratigraphy_id")
-    private Long stratigraphy_id;
+    private Long stratigraphyId;
     @JsonProperty("stratigraphy__stratigraphy")
-    private String stratigraphy__stratigraphy;
+    private String stratigraphy;
     @JsonProperty("stratigraphy__stratigraphy_en")
-    private String stratigraphy__stratigraphy_en;
+    private String stratigraphyEng;
     @JsonProperty("lithostratigraphy_id")
-    private Long lithostratigraphy_id;
+    private Long lithostratigraphyId;
     @JsonProperty("lithostratigraphy__stratigraphy")
-    private String lithostratigraphy__stratigraphy;
+    private String lithostratigraphyStratigraphy;
     @JsonProperty("lithostratigraphy__stratigraphy_en")
-    private String lithostratigraphy__stratigraphy_en;
+    private String lithostratigraphyStratigraphyEng;
     @JsonProperty("sample_id")
-    private Long sample_id;
+    private Long sampleId;
 
     @Override
     public ResponseEntity toResponse() {
         ResponseEntity response = new ResponseEntity();
         response.setId(this.id);
-        response.setSpecimen_nr(this.specimen_nr);
-        response.setLocality_id(this.locality_id);
-        response.setLocality__locality(this.locality__locality);
-        response.setLocality__locality_en(this.locality__locality_en);
-        response.setSpecimenidentification__name(this.specimenidentification__name);
-        response.setSpecimenidentification__taxon__taxon(this.specimenidentification__taxon__taxon);
-        response.setSpecimenidentification__taxon__author_year(this.specimenidentification__taxon__author_year);
-        response.setSpecimenidentification__taxon__parent__taxon(this.specimenidentification__taxon__parent__taxon);
-        response.setSpecimenidentification__taxon__fossil_group__taxon(this.specimenidentification__taxon__fossil_group__taxon);
-        response.setStratigraphy_id(this.stratigraphy_id);
-        response.setStratigraphy__stratigraphy(this.stratigraphy__stratigraphy);
-        response.setStratigraphy__stratigraphy_en(this.stratigraphy__stratigraphy_en);
-        response.setLithostratigraphy_id(this.lithostratigraphy_id);
-        response.setLithostratigraphy__stratigraphy(this.lithostratigraphy__stratigraphy);
-        response.setLithostratigraphy__stratigraphy_en(this.lithostratigraphy__stratigraphy_en);
-        response.setSample_id(this.sample_id);
+        response.setSpecimenNr(this.specimen_nr);
+        response.setLocalityId(this.localityId);
+        response.setLocality(this.locality);
+        response.setLocalityEng(this.localityEng);
+        response.setSpecimenidentificationName(this.specimenidentificationName);
+        response.setSpecimenidentificationTaxon(this.specimenidentificationTaxon);
+        response.setSpecimenidentificationTaxonAuthorYear(this.specimenidentificationTaxonAuthorYear);
+        response.setSpecimenidentificationTaxonParentTaxon(this.specimenidentificationTaxonParentTaxon);
+        response.setSpecimenidentificationTaxonFossilGroupTaxon(this.specimenidentificationTaxonFossilGroupTaxon);
+        response.setStratigraphyId(this.stratigraphyId);
+        response.setStratigraphy(this.stratigraphy);
+        response.setStratigraphyEng(this.stratigraphyEng);
+        response.setLithostratigraphyId(this.lithostratigraphyId);
+        response.setLithostratigraphyStratigraphy(this.lithostratigraphyStratigraphy);
+        response.setLithostratigraphyStratigraphyEng(this.lithostratigraphyStratigraphyEng);
+        response.setSampleId(this.sampleId);
         return response;
     }
 }

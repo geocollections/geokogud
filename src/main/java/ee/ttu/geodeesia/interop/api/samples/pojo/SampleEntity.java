@@ -173,7 +173,7 @@ public class SampleEntity implements Serializable, ConvertableToResponseEntity {
         response.setNumber(this.number);
         response.setNumberAdditional(this.numberAdditional);
         response.setLocality(this.locality);
-        response.setLocalityEn(this.localityEn);
+        response.setLocalityEng(this.localityEn);
         response.setLatitude(this.localityLatitude);
         response.setLongitude(this.localityLongitude);
         response.setStratigraphy(this.stratigraphy);

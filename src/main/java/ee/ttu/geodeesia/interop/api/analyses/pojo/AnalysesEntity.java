@@ -89,7 +89,7 @@ public class AnalysesEntity implements Serializable, ConvertableToResponseEntity
         ResponseEntity response = new ResponseEntity();
         response.setId(this.id);
         response.setAnalysisMethodAnalysisMethod(this.analysisMethodAnalysisMethod);
-        response.setAnalysisMethodMethodEn(this.analysisMethodMethodEn);
+        response.setAnalysisMethodMethodEng(this.analysisMethodMethodEn);
         response.setMethodDetails(this.methodDetails);
         response.setLab(this.lab);
         response.setInstrument(this.instrument);

@@ -201,7 +201,7 @@ public class LocalityEntity implements Serializable, ConvertableToResponseEntity
         response.setId(this.id);
         response.setNumber(this.number);
         response.setLocality(this.locality);
-        response.setLocalityEn(this.localityEn);
+        response.setLocalityEng(this.localityEn);
         response.setLatitude(this.latitude);
         response.setLongitude(this.longitude);
         response.setRemarks(this.remarks);

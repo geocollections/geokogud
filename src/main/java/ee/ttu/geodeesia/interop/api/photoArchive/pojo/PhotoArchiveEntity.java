@@ -16,17 +16,17 @@ public class PhotoArchiveEntity implements ConvertableToResponseEntity {
     @JsonProperty("filename")
     private String filename;
     @JsonProperty("date_taken")
-    private String date_taken;
+    private String dateTaken;
     @JsonProperty("author__agent")
-    private String author__agent;
+    private String authorAgent;
 
     @Override
     public ResponseEntity toResponse() {
         ResponseEntity response = new ResponseEntity();
         response.setId(this.id);
         response.setFilename(this.filename);
-        response.setDate_taken(this.date_taken);
-        response.setAuthor__agent(this.author__agent);
+        response.setDateTaken(this.dateTaken);
+        response.setAuthorAgent(this.authorAgent);
         return response;
     }
 }
