@@ -10,64 +10,61 @@
                 <div class="row" data-ng-if="showAdditionalCriteria">
                     <label class="control-label col-md-2">ID</label>
                     <div class="col-md-3">
-                        <selectexact ng-model = "soilSearch.id.lookUpType"></selectexact>
+                        <selectexact ng-model = "searchParameters.id.lookUpType"></selectexact>
                     </div>
                     <div class="col-md-7">
-                        <input type="text" ng-model="soilSearch.id.name" class="form-control"/>
+                        <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
                     </div>
                 </div>
                 <div class="row">
                     <label class="control-label col-md-2">Locality</label>
                     <div class="col-md-3">
-                        <selectdefault ng-model = "soilSearch.locality.lookUpType"></selectdefault>
+                        <selectdefault ng-model = "searchParameters.locality.lookUpType"></selectdefault>
                     </div>
                     <div class="col-md-7">
-                        <input type="text" ng-model="soilSearch.locality.name" class="form-control"/>
+                        <input type="text" ng-model="searchParameters.locality.name" class="form-control"/>
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">The study area</label>
+                    <label class="control-label col-md-2">Area of study</label>
                     <div class="col-md-3">
-                        <selectdefault ng-model = "soilSearch.studyarea.lookUpType"></selectdefault>
+                        <selectdefault ng-model = "searchParameters.areaOfStudy.lookUpType"></selectdefault>
                     </div>
                     <div class="col-md-7">
-                        <input type="text" ng-model="soilSearch.studyarea.name" class="form-control"/>
+                        <input type="text" ng-model="searchParameters.areaOfStudy.name" class="form-control"/>
                     </div>
                 </div>
                 <div class="row">
                     <label class="control-label col-md-2">Transect</label>
                     <div class="col-md-3">
-                        <selectdefault ng-model = "soilSearch.transect.lookUpType"></selectdefault>
+                        <selectdefault ng-model = "searchParameters.transect.lookUpType"></selectdefault>
                     </div>
                     <div class="col-md-7">
-                        <input type="text" ng-model="soilSearch.transect.name" class="form-control"/>
+                        <input type="text" ng-model="searchParameters.transect.name" class="form-control"/>
                     </div>
                 </div>
                 <div class="row">
                     <label class="control-label col-md-2">Soil name</label>
                     <div class="col-md-3">
-                        <selectdefault ng-model = "soilSearch.soilName.lookUpType"></selectdefault>
+                        <selectdefault ng-model = "searchParameters.soilName.lookUpType"></selectdefault>
                     </div>
                     <div class="col-md-7">
-                        <input type="text" ng-model="soilSearch.soilName.name" class="form-control"/>
+                        <input type="text" ng-model="searchParameters.soilName.name" class="form-control"/>
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Soil tenure</label>
+                    <label class="control-label col-md-2">Land use</label>
                     <div class="col-md-3">
-                        <selectdefault ng-model = "soilSearch.soilTenure.lookUpType"></selectdefault>
+                        <selectdefault ng-model = "searchParameters.landUse.lookUpType"></selectdefault>
                     </div>
                     <div class="col-md-7">
-                        <input type="text" ng-model="soilSearch.soilTenure.name" class="form-control"/>
+                        <input type="text" ng-model="searchParameters.landUse.name" class="form-control"/>
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Is there well?</label>
-                    <div class="col-md-3">
-                        <selectexact ng-model = "soilSearch.well.lookUpType"></selectexact>
-                    </div>
+                    <label class="control-label col-md-2">Deep mining</label>
                     <div class="col-md-7">
-                        <input type="text" ng-model="soilSearch.well.name" class="form-control"/>
+                        <input type="checkbox" ng-model="searchParameters.deepMining"/>
                     </div>
                 </div>
                 <div class="row">
@@ -78,7 +75,7 @@
                     <label class="control-label col-md-2">Sort by:</label>
                     <div class="col-md-5">
                         <select class="col-md-4 form-control"
-                                data-ng-model="soilSearch.content.lookUpType"
+                                data-ng-model="searchParameters.sortField.sortBy"
                                 data-ng-options="option.name for option in sortbyOptions track by option.value">
                             <option value="">-- Choose --</option>
                         </select>
