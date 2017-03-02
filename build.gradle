@@ -117,6 +117,8 @@ dependencies {
 
     compile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'org.assertj', name: 'assertj-core', version: '3.6.2'
+
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
 }
 
 task generateQueryDSL(type: JavaCompile, group: 'build', description: 'Generates the QueryDSL query types') {

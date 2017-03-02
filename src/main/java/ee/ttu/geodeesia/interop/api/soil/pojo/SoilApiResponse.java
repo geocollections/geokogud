@@ -1,13 +1,20 @@
 package ee.ttu.geodeesia.interop.api.soil.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import ee.ttu.geodeesia.search.domain.Coordinates;
 
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SoilApiResponse {
+    @JsonProperty("id")
     private Long id;
     private String locality;
     private String areaOfStudy;
     private String pointOnTransect;
+    @JsonProperty("soil")
     private String soilName;
+    @JsonProperty("land_use")
     private String landUse;
     private Coordinates coordinates;
     private boolean deepMining;

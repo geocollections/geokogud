@@ -26,7 +26,7 @@ public class ResponseMapper {
                     .put("reference", ReferenceEntity.class)
                     .put("stratigraphy", StratigraphyEnitity.class)
                     .put("analysis", AnalysesEntity.class)
-                    .put("drillcore",DrillCoresEntity.class)
+                    .put("drillcore", DrillCoresEntity.class)
                     .put("image", PhotoArchiveEntity.class)
                     .build();
 
@@ -35,7 +35,7 @@ public class ResponseMapper {
         Class<? extends ConvertableToResponseEntity> responseClass = responseClasses.get(objectType);
         return result.stream()
                 .map(rawJson -> mapper.convertValue(rawJson, responseClass))
-//                .map(ConvertableToResponseEntity::toResponse)
+                .map(ConvertableToResponseEntity::toResponse)
                 .collect(toList());
     }
 }

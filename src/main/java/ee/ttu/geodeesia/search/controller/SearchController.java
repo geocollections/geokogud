@@ -46,7 +46,7 @@ public class SearchController {
     }
 
     @RequestMapping(value = "/soil", method = RequestMethod.POST)
-    public SoilApiResponse searchSoil(@RequestBody SoilSearchCriteria searchCriteria) {
+    public Response searchSoil(@RequestBody SoilSearchCriteria searchCriteria) {
         return soilApiService.findSoil(searchCriteria);
     }
 }
