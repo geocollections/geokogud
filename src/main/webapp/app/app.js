@@ -15,7 +15,9 @@ angular.module('geoApp', [
     'search',
     'database',
     'usingCollection',
-    'fullsearch'
+    'fullsearch',
+    'ngCookies',
+    'pascalprecht.translate'
 ]);
 
 var configuration = CONFIG;
@@ -78,6 +80,23 @@ angular.module('geoApp').config(function($stateProvider, $urlRouterProvider, $ht
     uibDatepickerPopupConfig.clearText = 'Puhasta';
     uibDatepickerPopupConfig.closeText = 'Sulge';
 });
+
+
+angular.module('geoApp').config(['$translateProvider', function ($translateProvider) {
+    // add translation tables
+    $translateProvider.translations('en', translations_en);
+    $translateProvider.translations('et', translations_et);
+    $translateProvider.preferredLanguage('et');
+    $translateProvider.fallbackLanguage('en');
+    $translateProvider.useLocalStorage();
+  }]);
+
+  angular.module('geoApp').controller('Ctrl', ['$translate', '$scope', function ($translate, $scope) {
+
+    $scope.changeLanguage = function (langKey) {
+      $translate.use(langKey);
+    };
+  }]);
 
 angular.module('geoApp').run(['$http', '$rootScope', '$state', '$stateParams',
     'AddressService', 'UserService', '$sce',
