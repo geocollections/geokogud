@@ -25,9 +25,7 @@ public class FluentGeoApiBuilder {
     }
 
     public String build() {
-        String result = query;
-        query = StringUtils.EMPTY;
-        return result;
+        return query;
     }
 
     private String buildFieldParameters(String fieldName, SearchField searchField) {

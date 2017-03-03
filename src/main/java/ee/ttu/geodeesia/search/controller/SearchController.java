@@ -5,6 +5,8 @@ import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilApiResponse;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilSearchCriteria;
 import ee.ttu.geodeesia.interop.api.soil.service.SoilApiService;
+import ee.ttu.geodeesia.interop.api.specimen.pojo.SpecimenSearchCriteria;
+import ee.ttu.geodeesia.interop.api.specimen.service.SpecimenApiService;
 import ee.ttu.geodeesia.interop.api.taxon.pojo.TaxonApiResponse;
 import ee.ttu.geodeesia.interop.api.taxon.service.TaxonApiService;
 import ee.ttu.geodeesia.search.domain.CommonSearch;
@@ -24,6 +26,8 @@ public class SearchController {
     private TaxonApiService taxonApiService;
     @Autowired
     private SoilApiService soilApiService;
+    @Autowired
+    private SpecimenApiService specimenApiService;
 
     @RequestMapping(value = "/get-search", method = RequestMethod.GET)
     public CommonSearch getSearch(@RequestParam("name") String search) {
@@ -48,5 +52,10 @@ public class SearchController {
     @RequestMapping(value = "/soil", method = RequestMethod.POST)
     public Response searchSoil(@RequestBody SoilSearchCriteria searchCriteria) {
         return soilApiService.findSoil(searchCriteria);
+    }
+
+    @RequestMapping(value = "/specimen", method = RequestMethod.POST)
+    public Response searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) {
+        return specimenApiService.findSpecimen(specimenSearchCriteria);
     }
 }

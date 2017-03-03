@@ -23,7 +23,7 @@ angular.module('fullsearch', []).config(function($stateProvider, $urlRouterProvi
 angular.module('search.specimens', []).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('search.specimens', {
         url: "/specimens",
-        templateUrl: "app/modules/specimens/search/specimens.html",
+        templateUrl: "app/modules/specimens/search/specimen.html",
         controller: "SearchSpecimensController"
     });
 });
