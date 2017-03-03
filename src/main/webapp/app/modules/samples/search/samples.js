@@ -92,4 +92,11 @@ angular.module('search').controller('SearchSampleController', function($scope, S
             }
         });
     }*/
+}).controller('SampleController', function($scope, SearchService, $uibModal, $http,$stateParams){
+    $scope.loadInfo = function() {
+        $http.get('/search/sample/' + $stateParams.id).success(function (response) {
+            $scope.sample = response.result[0];
+        });
+    };
+    $scope.loadInfo();
 });

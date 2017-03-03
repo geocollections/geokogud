@@ -40,7 +40,7 @@ angular.module('database', []).config(function($stateProvider, $urlRouterProvide
 //routes
 angular.module('locality', []).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('locality', {
-        url: "/localityid",
+        url: "/locality",
         template: '<data-ui-view/>',
     }).state('locality.edit', {
         url: "/:id",
@@ -56,14 +56,4 @@ angular.module('main').controller('MainInfoController', function(){
     console.log("MainNewsController");
 }).controller('MainMapController', function(){
     console.log("MainMapController");
-}).controller('LocalityController', function( $stateParams, $http, $scope){
-    console.log("LocalityController");
-
-    $scope.loadLocalityInfo = function() {
-        $http.get('/locality/' + $stateParams.id).success(function (loc) {
-            $scope.locality = loc.results[0];
-        });
-    };
-    $scope.loadLocalityInfo();
-
 });

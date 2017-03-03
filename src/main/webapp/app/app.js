@@ -15,7 +15,6 @@ angular.module('geoApp', [
     'search',
     'database',
     'usingCollection',
-    'fullsearch',
     'ngCookies',
     'pascalprecht.translate'
 ]);
@@ -104,6 +103,22 @@ angular.module('geoApp').run(['$http', '$rootScope', '$state', '$stateParams',
     function ($http, $rootScope, $state, $stateParams, ClassifierService, AddressService,
               UserService, $sce,
               $window,$uibModal, AuthorizationService, SearchService) {
+
+/*    $rootScope.openInNewTab = function(to, params) {
+        window.open($state.href(to, params, {absolute: true}), '_blank');
+    };*/
+
+    $rootScope.openInNewTab = function(to, params) {
+        window.open($state.href(to, params, {absolute: true}), 'width=750,height=750,scrollbars, resizable');
+    };
+
+    $rootScope.openInNewWindow = function(params) {
+        window.open('/#/'+params.object+'/' + params.id, '', 'width=750,height=750,scrollbars, resizable');
+    };
+
+
+
+
     $rootScope.currentUser = {};
     $rootScope.preventionYearOption = {};
     $rootScope.$state = $state;

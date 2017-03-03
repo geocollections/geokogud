@@ -215,12 +215,12 @@
                     <tr style="cursor: pointer; " data-ng-repeat="entity in response.result">
                         <td>{{entity.id}}</td>
                         <td>{{entity.git}}</td>
-                        <td>{{entity.number == null ? entity.id : entity.number}}</td>
+                        <td><a href data-ng-click="openInNewWindow({object:'sample',id:entity.id})" >{{entity.number == null ? entity.id : entity.number}}</a></td>
                         <td>{{entity.numberAdditional}}</td>
-                        <td>{{entity.localityEng}}</td>
+                        <td><a href data-ng-click="openInNewWindow({object:'locality',id:entity.localityId})" >{{entity.localityEng}}</a></td>
                         <td>{{entity.depth}}</td>
                         <td></td>
-                        <td>{{entity.stratigraphyEng}}</td>
+                        <td><a href data-ng-click="openInNewWindow({object:'stratigraphy',id:entity.stratigraphyId})" >{{entity.stratigraphyEng}}</a></td>
                         <td>{{entity.agent}}</td>
                         <td>???</td>
                         <td>{{entity.mass}}</td>

@@ -21,4 +21,11 @@ angular.module('search').controller('SearchStratigraphyController', function($sc
             $scope.response = result;
         });
     };
+}).controller('StratigraphyController', function($scope, SearchService, $uibModal, $http,$stateParams){
+    $scope.loadInfo = function() {
+        $http.get('/search/stratigraphy/' + $stateParams.id).success(function (response) {
+            $scope.stratigraphy = response.result[0];
+        });
+    };
+    $scope.loadInfo();
 });

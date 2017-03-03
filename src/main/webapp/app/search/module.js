@@ -10,16 +10,6 @@ angular.module('search', ['search.specimens','search.samples','search.drillCores
 });
 
 //routes
-angular.module('fullsearch', []).config(function($stateProvider, $urlRouterProvider) {
-    $stateProvider.state('fullsearch', {
-        url: "/fullsearch",
-        templateUrl: "app/search/search.html",
-        controller: "FullSearchController"
-    });
-});
-
-
-//routes
 angular.module('search.specimens', []).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('search.specimens', {
         url: "/specimens",
@@ -34,6 +24,12 @@ angular.module('search.samples', []).config(function($stateProvider, $urlRouterP
         url: "/samples",
         templateUrl: "app/modules/samples/search/samples.html",
         controller: "SearchSampleController"
+    }).state('sample', {
+        template: '<data-ui-view/>',
+    }).state('sample.view', {
+        url: "/sample/:id",
+        templateUrl: "app/modules/samples/modal/sample.html",
+        controller: "SampleController"
     });
 
 });
@@ -73,6 +69,12 @@ angular.module('search.stratigraphy', []).config(function($stateProvider, $urlRo
         url: "/stratigraphy",
         templateUrl: "app/modules/stratigraphy/stratigraphy.html",
         controller: "SearchStratigraphyController"
+    }).state('stratigraphy', {
+        template: '<data-ui-view/>',
+    }).state('stratigraphy.view', {
+        url: "/stratigraphy/:id",
+        templateUrl: "app/modules/stratigraphy/modal/stratigraphy.html",
+        controller: "SampleController"
     });
 
 });
@@ -81,7 +83,7 @@ angular.module('search.stratigraphy', []).config(function($stateProvider, $urlRo
 angular.module('search.analyses', []).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('search.analyses', {
         url: "/analyses",
-        templateUrl: "app//modules/analyses/search/analyses.html",
+        templateUrl: "app/modules/analyses/search/analyses.html",
         controller: "SearchAnalysesController"
     });
 

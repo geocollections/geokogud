@@ -1,8 +1,8 @@
 package ee.ttu.geodeesia.search.controller;
 
+import ee.ttu.geodeesia.interop.api.Response.NewVersionOfApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
-import ee.ttu.geodeesia.interop.api.soil.pojo.SoilApiResponse;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilSearchCriteria;
 import ee.ttu.geodeesia.interop.api.soil.service.SoilApiService;
 import ee.ttu.geodeesia.interop.api.taxon.pojo.TaxonApiResponse;
@@ -32,7 +32,13 @@ public class SearchController {
 
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     public Response sampleRequest(@RequestBody CommonSearch search) {
-        return samplesApiService.searchSampleList(search);
+        return samplesApiService.searchList(search);
+    }
+
+    @RequestMapping(value = "/{entity}/{id}", method= RequestMethod.GET)
+    @ResponseBody
+    public NewVersionOfApiResponse getEntity(@PathVariable String entity, @PathVariable Long id){
+        return samplesApiService.getEntityInfo(entity, id);
     }
 
     @RequestMapping(value = "/taxon-list", method = RequestMethod.GET)

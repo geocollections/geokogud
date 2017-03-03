@@ -1,6 +1,7 @@
 package ee.ttu.geodeesia.interop.api.samples.service.impl;
 
 import ee.ttu.geodeesia.interop.api.Request.SearchApiRequest;
+import ee.ttu.geodeesia.interop.api.Response.NewVersionOfApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.ResponseMapper;
@@ -30,16 +31,16 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     private RestTemplate restTemplate = new RestTemplate();
 
     @Override
-    public Response searchSampleList(CommonSearch search) {
+    public Response searchList(CommonSearch search) {
         SearchApiRequest request = new SearchApiRequest();
         request.setTable(search.getTable());
         request.setPage(search.getPage());
         request.setFieldsParams(composeFieldQuery(search));
-        return searchSampleList(request);
+        return searchList(request);
     }
 
     @Override
-    public Response searchSampleList(SearchApiRequest request) {
+    public Response searchList(SearchApiRequest request) {
         Response response_ = new Response();
         if (request.getTable() == null) return response_;
         String url = apiUrl + "/" + request.getTable() + "?paginate_by=" + request.getNumberOfRecordsPerPage() + "&page=" + request.getPage()
@@ -50,10 +51,33 @@ public class SamplesApiServiceImpl implements SamplesApiService {
         response_.setResult(responseMapper.toResponseEntities(request.getTable(), response.getBody().getResult()));
         response_.setCount(response.getBody().getCount());
         System.err.println(response.getBody().getPageInfo());
-        response_.setCurrentPage(Integer.parseInt(response.getBody().getPageInfo().split("\\s")[1])); //Page 1 of 39
-        response_.setNumberOfPages(Integer.parseInt(response.getBody().getPageInfo().split("\\s")[3]));
+        if(response.getBody().getPageInfo() != null) {
+            response_.setCurrentPage(Integer.parseInt(response.getBody().getPageInfo().split("\\s")[1])); //Page 1 of 39
+            response_.setNumberOfPages(Integer.parseInt(response.getBody().getPageInfo().split("\\s")[3]));
+        }
         return response_;
     }
+
+
+    @Override
+    public NewVersionOfApiResponse getEntityInfo(String entity,Long id) {
+        SearchApiRequest request = new SearchApiRequest();
+        request.setTable(entity);
+        return getEntityInfo(id,request);
+    }
+
+    @Override
+    public NewVersionOfApiResponse getEntityInfo(Long id, SearchApiRequest request) {
+        if (request.getTable() == null) return new NewVersionOfApiResponse();
+        String url = apiUrl + "/" + request.getTable() + "/"+id+"?format=" + request.getOutputFormat();
+        logger.info(url);
+        ResponseEntity<NewVersionOfApiResponse> response = restTemplate.getForEntity(url, NewVersionOfApiResponse.class);
+        NewVersionOfApiResponse apiResponse = response.getBody();
+        //TODO:Analyze is it dangerous
+        apiResponse.setResults(responseMapper.toResponseEntities(request.getTable(), apiResponse.getResults()));
+        return apiResponse;
+    }
+
 
     private String composeFieldQuery(CommonSearch search) {
         String fieldsParams = "";

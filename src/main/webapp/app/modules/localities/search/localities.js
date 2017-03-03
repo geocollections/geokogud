@@ -23,4 +23,11 @@ angular.module('search').controller('SearchLocalitiesController', function($scop
         });
     };
 
+}).controller('LocalityController', function($scope, SearchService, $uibModal, $http,$stateParams){
+    $scope.loadInfo = function() {
+        $http.get('/search/locality/' + $stateParams.id).success(function (response) {
+            $scope.locality = response.result[0];
+        });
+    };
+    $scope.loadInfo();
 });
