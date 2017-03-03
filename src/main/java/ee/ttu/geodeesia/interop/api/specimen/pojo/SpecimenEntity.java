@@ -85,4 +85,140 @@ public class SpecimenEntity implements Serializable, ConvertableToResponseEntity
         response.setSampleId(this.sampleId);
         return response;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getSpecimen_nr() {
+        return specimen_nr;
+    }
+
+    public void setSpecimen_nr(String specimen_nr) {
+        this.specimen_nr = specimen_nr;
+    }
+
+    public Long getLocalityId() {
+        return localityId;
+    }
+
+    public void setLocalityId(Long localityId) {
+        this.localityId = localityId;
+    }
+
+    public String getLocality() {
+        return locality;
+    }
+
+    public void setLocality(String locality) {
+        this.locality = locality;
+    }
+
+    public String getLocalityEng() {
+        return localityEng;
+    }
+
+    public void setLocalityEng(String localityEng) {
+        this.localityEng = localityEng;
+    }
+
+    public String getSpecimenidentificationName() {
+        return specimenidentificationName;
+    }
+
+    public void setSpecimenidentificationName(String specimenidentificationName) {
+        this.specimenidentificationName = specimenidentificationName;
+    }
+
+    public String getSpecimenidentificationTaxon() {
+        return specimenidentificationTaxon;
+    }
+
+    public void setSpecimenidentificationTaxon(String specimenidentificationTaxon) {
+        this.specimenidentificationTaxon = specimenidentificationTaxon;
+    }
+
+    public String getSpecimenidentificationTaxonAuthorYear() {
+        return specimenidentificationTaxonAuthorYear;
+    }
+
+    public void setSpecimenidentificationTaxonAuthorYear(String specimenidentificationTaxonAuthorYear) {
+        this.specimenidentificationTaxonAuthorYear = specimenidentificationTaxonAuthorYear;
+    }
+
+    public String getSpecimenidentificationTaxonParentTaxon() {
+        return specimenidentificationTaxonParentTaxon;
+    }
+
+    public void setSpecimenidentificationTaxonParentTaxon(String specimenidentificationTaxonParentTaxon) {
+        this.specimenidentificationTaxonParentTaxon = specimenidentificationTaxonParentTaxon;
+    }
+
+    public String getSpecimenidentificationTaxonFossilGroupTaxon() {
+        return specimenidentificationTaxonFossilGroupTaxon;
+    }
+
+    public void setSpecimenidentificationTaxonFossilGroupTaxon(String specimenidentificationTaxonFossilGroupTaxon) {
+        this.specimenidentificationTaxonFossilGroupTaxon = specimenidentificationTaxonFossilGroupTaxon;
+    }
+
+    public Long getStratigraphyId() {
+        return stratigraphyId;
+    }
+
+    public void setStratigraphyId(Long stratigraphyId) {
+        this.stratigraphyId = stratigraphyId;
+    }
+
+    public String getStratigraphy() {
+        return stratigraphy;
+    }
+
+    public void setStratigraphy(String stratigraphy) {
+        this.stratigraphy = stratigraphy;
+    }
+
+    public String getStratigraphyEng() {
+        return stratigraphyEng;
+    }
+
+    public void setStratigraphyEng(String stratigraphyEng) {
+        this.stratigraphyEng = stratigraphyEng;
+    }
+
+    public Long getLithostratigraphyId() {
+        return lithostratigraphyId;
+    }
+
+    public void setLithostratigraphyId(Long lithostratigraphyId) {
+        this.lithostratigraphyId = lithostratigraphyId;
+    }
+
+    public String getLithostratigraphyStratigraphy() {
+        return lithostratigraphyStratigraphy;
+    }
+
+    public void setLithostratigraphyStratigraphy(String lithostratigraphyStratigraphy) {
+        this.lithostratigraphyStratigraphy = lithostratigraphyStratigraphy;
+    }
+
+    public String getLithostratigraphyStratigraphyEng() {
+        return lithostratigraphyStratigraphyEng;
+    }
+
+    public void setLithostratigraphyStratigraphyEng(String lithostratigraphyStratigraphyEng) {
+        this.lithostratigraphyStratigraphyEng = lithostratigraphyStratigraphyEng;
+    }
+
+    public Long getSampleId() {
+        return sampleId;
+    }
+
+    public void setSampleId(Long sampleId) {
+        this.sampleId = sampleId;
+    }
 }

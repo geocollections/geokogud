@@ -8,6 +8,7 @@ import ee.ttu.geodeesia.interop.api.Response.ResponseMapper;
 import ee.ttu.geodeesia.search.domain.CommonSearch;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.search.domain.SearchField;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -133,6 +134,6 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     }
 
     private boolean isNotNullAndEmpty(SearchField field) {
-        return field != null && field.getName() != null && !field.getName().equals("");
+        return field != null && StringUtils.isNotBlank(field.getName());
     }
 }
