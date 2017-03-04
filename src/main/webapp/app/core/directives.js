@@ -1,7 +1,7 @@
 angular.module('geoApp').directive('loading', function () {
     return {
         restrict: 'E',
-        replace:true,
+        replace: true,
         template: '<div class="loading"><img src="img/loader.gif" width="20" height="20" />Laaditakse...</div>',
         link: function (scope, element, attr) {
             scope.$watch('loading', function (val) {
@@ -15,7 +15,7 @@ angular.module('geoApp').directive('loading', function () {
 }).directive('saving', function () {
     return {
         restrict: 'E',
-        replace:true,
+        replace: true,
         template: '<div class="saving"><img src="img/loader.gif" width="20" height="20" />Salvestatakse...</div>',
         link: function (scope, element, attr) {
             scope.$watch('saving', function (val) {
@@ -26,7 +26,7 @@ angular.module('geoApp').directive('loading', function () {
             });
         }
     }
-}).directive('compile', function($compile) {
+}).directive('compile', function ($compile) {
     return function (scope, element, attrs) {
         scope.$watch(
             function (scope) {
@@ -38,16 +38,16 @@ angular.module('geoApp').directive('loading', function () {
             }
         );
     };
-}).directive('validate', function() {
+}).directive('validate', function () {
     /**
      * Custom directive for additional validation of input field
      */
     return {
         require: 'ngModel',
         restrict: 'A',
-        link: function(scope, elem, attrs, ngModel) {
+        link: function (scope, elem, attrs, ngModel) {
             if (!ngModel) return;
-            scope.$watch(attrs['validate'], function(v) {
+            scope.$watch(attrs['validate'], function (v) {
                 /**
                  * Maybe shouldn't override $invalid value, but use $error.invalid instead?
                  */
@@ -55,7 +55,7 @@ angular.module('geoApp').directive('loading', function () {
             });
         }
     }
-}).directive('myTooltip', function() {
+}).directive('myTooltip', function () {
     return {
         restrict: 'E',
         templateUrl: 'app/core/views/my-tooltip.html',
@@ -63,22 +63,22 @@ angular.module('geoApp').directive('loading', function () {
             construction: '='
         }
     }
-}).directive('bsTooltip', function(){
+}).directive('bsTooltip', function () {
 
     return {
         restrict: 'A',
-        link: function(scope, element, attrs){
-            $(element).hover(function(){
+        link: function (scope, element, attrs) {
+            $(element).hover(function () {
                 // on mouseenter
                 $(element).tooltip('show');
-            }, function(){
+            }, function () {
                 // on mouseleave
                 $(element).tooltip('hide');
             });
         }
     };
 
-}).directive('ngClick', function($timeout) {
+}).directive('ngClick', function ($timeout) {
 
     /**
      * Overriding angular ng-click due to double click issue:
@@ -99,36 +99,40 @@ angular.module('geoApp').directive('loading', function () {
                     evt.stopImmediatePropagation();
                 } else {
                     disabled = true;
-                    $timeout(function () { disabled = false; }, delay, false);
+                    $timeout(function () {
+                        disabled = false;
+                    }, delay, false);
                 }
             }
 
-            scope.$on('$destroy', function () { elem.off('click', onClick); });
+            scope.$on('$destroy', function () {
+                elem.off('click', onClick);
+            });
             elem.on('click', onClick);
         }
     }
 
-}).directive('focusMe', function($timeout) {
+}).directive('focusMe', function ($timeout) {
     return {
-        scope: { trigger: '@focusMe' },
-        link: function(scope, element) {
-            scope.$watch('trigger', function(value) {
-                if(value === "true") {
-                    $timeout(function() {
+        scope: {trigger: '@focusMe'},
+        link: function (scope, element) {
+            scope.$watch('trigger', function (value) {
+                if (value === "true") {
+                    $timeout(function () {
                         element[0].focus();
                     });
                 }
             });
         }
     };
-}).directive('stringToNumber', function() {
+}).directive('stringToNumber', function () {
     return {
         require: 'ngModel',
-        link: function(scope, element, attrs, ngModel) {
-            ngModel.$parsers.push(function(value) {
+        link: function (scope, element, attrs, ngModel) {
+            ngModel.$parsers.push(function (value) {
                 return '' + value;
             });
-            ngModel.$formatters.push(function(value) {
+            ngModel.$formatters.push(function (value) {
                 return parseFloat(value, 10);
             });
         }
@@ -141,8 +145,8 @@ angular.module('geoApp').directive('loading', function () {
             isActive: '='
         },
         link: function (scope, el, attr) {
-            function eventHandler(e){
-                if(!scope.isActive){
+            function eventHandler(e) {
+                if (!scope.isActive) {
                     return;
                 }
                 if (el !== e.target && !el[0].contains(e.target)) {
@@ -154,120 +158,136 @@ angular.module('geoApp').directive('loading', function () {
 
             $document.on('click', eventHandler);
 
-            scope.$on('$destroy', function() {
+            scope.$on('$destroy', function () {
                 $document.off('click', eventHandler);
             });
         }
     }
 }])
-.directive('selectexact', function(){
-    return {
-      template: '<select class="col-md-4 form-control" data-ng-model="field" ' +
-      'ng-options="option.value as option.name for option in idOptions"></select>',
-        restrict: 'E',
-        scope: {
-          field: '=ngModel'
-        },
-        link: function (scope) {
-            scope.idOptions = [{
-                name: 'equals', value: 'exact'
-            }, {
-                name: 'does not equal', value: 'iexact'
-            },{
-                name: 'greater than', value: 'gt'
-            },{
-                name: 'smaller than', value: 'lt'
-            },{
-                name: 'is in list', value: 'in'
-            },{
-                name: 'is between', value: 'range'
-            }
-            ];
+    .directive('selectexact', function () {
+        return {
+            template: '<select class="{{selectCss}}" data-ng-model="field" ' +
+            'ng-options="option.value as option.name for option in idOptions"></select>',
+            restrict: 'E',
+            scope: {
+                field: '=ngModel',
+                customCss: '@'
+            },
+            link: function (scope) {
+                scope.selectCss = angular.isUndefined(scope.customCss) ? 'col-md-4 form-control' : scope.customCss;
+                scope.idOptions = [{
+                    name: 'equals', value: 'exact'
+                }, {
+                    name: 'does not equal', value: 'iexact'
+                }, {
+                    name: 'greater than', value: 'gt'
+                }, {
+                    name: 'smaller than', value: 'lt'
+                }, {
+                    name: 'is in list', value: 'in'
+                }, {
+                    name: 'is between', value: 'range'
+                }
+                ];
 
-            scope.$watch('field', function(data) {
-                if(data) return;
-                scope.field = scope.idOptions[0].value;
-            });
-        }
-    };
-}).directive('selectdefault', function(){
+                scope.$watch('field', function (data) {
+                    if (data) return;
+                    scope.field = scope.idOptions[0].value;
+                });
+            }
+        };
+    }).directive('selectdefault', function () {
     return {
-      template: '<select class="col-md-4 form-control" data-ng-model="field" ' +
-      'ng-options="option.value as option.name for option in defaultOptions"></select>',
+        template: '<select class="{{selectCss}}" data-ng-model="field" ' +
+        'ng-options="option.value as option.name for option in defaultOptions"></select>',
         restrict: 'E',
         scope: {
-            field: '=ngModel'
+            field: '=ngModel',
+            customCss: '@'
         },
         link: function (scope, $watch) {
+            scope.selectCss = angular.isUndefined(scope.customCss) ? 'col-md-4 form-control' : scope.customCss;
             scope.defaultOptions = [{
                 name: 'contains', value: 'contains'
             }, {
                 name: 'equals', value: 'exact'
-            },{
+            }, {
                 name: 'start with', value: 'startswith'
-            },{
+            }, {
                 name: 'ends with', value: 'startswith'
-            },{
+            }, {
                 name: 'does not contain', value: 'icontains'
-            },{
+            }, {
                 name: 'is in list', value: 'in'
             }
             ];
 
-            scope.$watch('field', function(data) {
-                if(data) return;
+            scope.$watch('field', function (data) {
+                if (data) return;
                 scope.field = scope.defaultOptions[0].value;
             });
         }
     };
-}).directive('selecthierarchy', function(){
+}).directive('selecthierarchy', function () {
     return {
-      template: '<select class="col-md-4 form-control" data-ng-model="field" ' +
-      'ng-options="option.value as option.name for option in defaultOptions"></select>',
+        template: '<select class="{{selectCss}}" data-ng-model="field" ' +
+        'ng-options="option.value as option.name for option in defaultOptions"></select>',
+        restrict: 'E',
+        scope: {
+            field: '=ngModel',
+            customCss: '@'
+        },
+        link: function (scope) {
+            scope.selectCss = angular.isUndefined(scope.customCss) ? 'col-md-4 form-control' : scope.customCss;
+            scope.defaultOptions = [{
+                name: 'hierarchy', value: 'hierarchy'
+            }, {
+                name: 'contains', value: 'contains'
+            }, {
+                name: 'equals', value: 'exact'
+            }, {
+                name: 'start with', value: 'startswith'
+            }, {
+                name: 'ends with', value: 'startswith'
+            }, {
+                name: 'does not contain', value: 'icontains'
+            }, {
+                name: 'is in list', value: 'in'
+            },
+            ];
+
+            scope.$watch('field', function (data) {
+                if (data) return;
+                scope.field = scope.defaultOptions[0].value;
+            });
+        }
+    };
+}).directive('ascdesc', function () {
+    return {
+        template: '<select class="col-md-4 form-control" data-ng-model="field" ' +
+        'ng-options="option.value as option.name for option in defaultOptions track by option.value"><option value="">-- Choose --</option></select>',
         restrict: 'E',
         scope: {
             field: '=ngModel'
         },
         link: function (scope) {
-          scope.defaultOptions = [{
-              name: 'hierarchy', value: 'hierarchy'
-          },{
-              name: 'contains', value: 'contains'
-          }, {
-              name: 'equals', value: 'exact'
-          },{
-              name: 'start with', value: 'startswith'
-          },{
-              name: 'ends with', value: 'startswith'
-          },{
-              name: 'does not contain', value: 'icontains'
-          },{
-              name: 'is in list', value: 'in'
-          },
-          ];
+            scope.defaultOptions = [{
+                name: 'ASC', value: 'asc'
+            }, {
+                name: 'DESC', value: 'desc'
+            }
+            ];
 
-            scope.$watch('field', function(data) {
-                if(data) return;
-                scope.field = scope.defaultOptions[0].value;
-            });
         }
     };
-}).directive('ascdesc', function(){
+}).directive('sectionOpened', function(){
     return {
-      template: '<select class="col-md-4 form-control" data-ng-model="field" ' +
-      'ng-options="option.value as option.name for option in defaultOptions track by option.value"><option value="">-- Choose --</option></select>',
+        template: '<i class="pull-right glyphicon" ng-class="{\'glyphicon-chevron-down\': isOpened, \'glyphicon-chevron-right\': !isOpened}"></i>',
         restrict: 'E',
+        transclude: true,
+        replace: true,
         scope: {
-            field: '=ngModel'
-        },
-        link: function (scope) {
-          scope.defaultOptions = [{
-              name: 'ASC', value: 'asc'
-          },{
-              name: 'DESC', value: 'desc'
-          }
-          ];
-
+            isOpened : '='
         }
     };
 });
