@@ -1,1 +1,0 @@
-http://geocollections.arendus.geokogud.info/
