@@ -62,14 +62,21 @@ angular.module('geoApp').factory("SearchService", ['$http', '$state', '$rootScop
             });
         },
 
-        // not used
         taxonSearch: function (val) {
             return $http.get(apiUrl + '/taxon', {params: {term: val}}).then(function (response) {
                 return response.data.results;
             });
         },
-        taxonListSearch: function (val) {
-            return $http.get(apiUrl + '/taxon-list').then(function (response) {
+
+        localitySearch: function (val, table) {
+            return $http.get(apiUrl + '/'+table, {params: {term: val}}).then(function (response) {
+                return response.data.results;
+            });
+        },
+
+
+        searchByParam: function (val, name) {
+            return $http.get(apiUrl + '/taxon/search-by-param/', {params: {term: val}}).then(function (response) {
                 return response.data.results;
             });
         },

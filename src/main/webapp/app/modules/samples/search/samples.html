@@ -31,7 +31,13 @@
                         <selectexact ng-model = "sampleSearch.locality.lookUpType"></selectexact>
                     </div>
                     <div class="col-md-7">
-                        <input type="text" ng-model="sampleSearch.locality.name" class="form-control"/>
+                        <input type="text" class="form-control input-sm"
+                               data-ng-model="sampleSearch.locality.name"
+                               placeholder="input search parameter..."
+                               data-uib-typeahead="e as entity.locality for entity in searchService.localitySearch($viewValue, 'locality')"
+                               data-typeahead-min-length="2"
+                               data-typeahead-on-select="entitySelected($item, $model)"/>
+                        <!--<input type="text" ng-model="sampleSearch.locality.name" class="form-control"/>-->
                     </div>
                 </div>
                 <div class="row" data-ng-if="showAdditionalCriteria">
@@ -58,7 +64,13 @@
                         <selecthierarchy ng-model = "sampleSearch.stratigraphy.lookUpType"></selecthierarchy>
                     </div>
                     <div class="col-md-7">
-                        <input type="text" ng-model="sampleSearch.stratigraphy.name" class="form-control"/>
+                        <input type="text" class="form-control input-sm"
+                               data-ng-model="sampleSearch.stratigraphy.name"
+                               placeholder="input search parameter..."
+                               data-uib-typeahead="e as entity.stratigraphy for entity in searchService.localitySearch($viewValue, 'stratigraphy')"
+                               data-typeahead-min-length="2"
+                               data-typeahead-on-select="entitySelected($item, $model)"/>
+                       <!-- <input type="text" ng-model="sampleSearch.stratigraphy.name" class="form-control"/>-->
                     </div>
                 </div>
                 <div class="row">
@@ -138,7 +150,7 @@
                     <div class="col-md-3">
                         <selectdefault ng-model = "sampleSearch.content.lookUpType"></selectdefault>
                     </div>
-                    <div class="col-md-7W">
+                    <div class="col-md-7">
                         <input type="text" ng-model="sampleSearch.content.name" class="form-control"/>
                     </div>
                 </div>
@@ -173,7 +185,7 @@
                     </div>
                 </div>
                 <div class="row geo-section-row no-border">
-                    <button class="btn btn-default pull-right" data-ng-click="defaultSearch()">Reset form</button>
+                    <button class="btn btn-default pull-right" data-ng-click="searchDefault()">Reset form</button>
                     <button class="btn btn-default pull-right" data-ng-click="search()">
                         <i class="glyphicon glyphicon-search"></i> Send query</button>
                 </div>

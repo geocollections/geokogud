@@ -59,39 +59,12 @@ angular.module('search').controller('SearchSampleController', function($scope, S
         }
     };
 
-    /* EXAMPLE STUFF for TAXON SEARCH*/
-    /*$scope.searchService = SearchService;
-
-    $scope.seachTaxonomy = function(val) {
-        $scope.hideFullList = false;
-        SearchService.taxonListSearch(val).then(function(result) {
-            $scope.taxonResult = result;
-        });
-    };
-    $scope.seachTaxonomy();
-
-    $scope.taxonSelected = function(item) {
-        $scope.hideFullList = true;
-        $scope.currenResult = item;
+    $scope.searchService = SearchService;
+    $scope.entitySelected = function(item) {
+        $scope.sampleSearch.locality.name = item.locality;
     };
 
-    $scope.openTaxonModal = function(taxon) {
-        $uibModal.open({
-            templateUrl:'/app/search/dialogs/taxon_modal.html',
-            controller: function ($scope, $uibModalInstance, entity) {
-                $scope.entity = entity;
 
-                $scope.cancel = function () {
-                    $uibModalInstance.dismiss();
-                };
-            },
-            resolve: {
-                entity: function () {
-                    return angular.copy(taxon);
-                }
-            }
-        });
-    }*/
 }).controller('SampleController', function($scope, SearchService, $uibModal, $http,$stateParams){
     $scope.loadInfo = function() {
         $http.get('/search/sample/' + $stateParams.id).success(function (response) {

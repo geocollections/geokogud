@@ -31,6 +31,15 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     private RestTemplate restTemplate = new RestTemplate();
 
     @Override
+    public Response searchByParam(String q, String table) {
+        SearchApiRequest request = new SearchApiRequest();
+        request.setField(table);
+        request.setSearchCriteria("istartswith");//?Start with or contains?
+        return searchList(request);
+    }
+
+
+    @Override
     public Response searchList(CommonSearch search) {
         SearchApiRequest request = new SearchApiRequest();
         request.setTable(search.getTable());
@@ -41,6 +50,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
 
     @Override
     public Response searchList(SearchApiRequest request) {
+        System.err.print(request.getTable());
         Response response_ = new Response();
         if (request.getTable() == null) return response_;
         String url = apiUrl + "/" + request.getTable() + "?paginate_by=" + request.getNumberOfRecordsPerPage() + "&page=" + request.getPage()
@@ -88,19 +98,31 @@ public class SamplesApiServiceImpl implements SamplesApiService {
             fieldsParams += "&number__" + search.getSampleNumber().getLookUpType().value() + "=" + search.getSampleNumber().getName();
         }
         if (isNotNullAndEmpty(search.getLocality())) {
-            fieldsParams += "&locality__" + search.getLocality().getLookUpType().value() + "=" + search.getLocality().getName();
+            if(search.getTable().equals("sample")) {
+                fieldsParams += "&locality__locality__" + search.getLocality().getLookUpType().value() + "=" + search.getLocality().getName();
+            } else {
+                fieldsParams += "&locality__" + search.getLocality().getLookUpType().value() + "=" + search.getLocality().getName();
+            }
         }
         if (isNotNullAndEmpty(search.getCountry())) {
-            fieldsParams += "&country__" + search.getCountry().getLookUpType().value() + "=" + search.getCountry().getName();
+            if(search.getTable().equals("sample")) {
+                fieldsParams += "&locality__country__value__" + search.getLocality().getLookUpType().value() + "=" + search.getLocality().getName();
+            } else {
+                fieldsParams += "&country__" + search.getCountry().getLookUpType().value() + "=" + search.getCountry().getName();
+            }
         }
         if (isNotNullAndEmpty(search.getDepth())) {
             fieldsParams += "&depth__" + search.getDepth().getLookUpType().value() + "=" + search.getDepth().getName();
         }
         if (isNotNullAndEmpty(search.getStratigraphy())) {
-            fieldsParams += "&stratigraphy__" + search.getStratigraphy().getLookUpType().value() + "=" + search.getStratigraphy().getName();
+            if(search.getTable().equals("sample")) {
+                fieldsParams += "&stratigraphy__stratigraphy__" + search.getStratigraphy().getLookUpType().value() + "=" + search.getStratigraphy().getName();
+            } else {
+                fieldsParams += "&stratigraphy__" + search.getStratigraphy().getLookUpType().value() + "=" + search.getStratigraphy().getName();
+            }
         }
         if (isNotNullAndEmpty(search.getStratigraphyBed())) {
-            fieldsParams += "&stratigraphyBed__" + search.getStratigraphyBed().getLookUpType().value() + "=" + search.getStratigraphyBed().getName();
+            fieldsParams += "&stratigraphy_bed__" + search.getStratigraphyBed().getLookUpType().value() + "=" + search.getStratigraphyBed().getName();
         }
         if (isNotNullAndEmpty(search.getAgent())) {
             fieldsParams += "&agent__" + search.getAgent().getLookUpType().value() + "=" + search.getAgent().getName();
@@ -127,7 +149,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
             fieldsParams += "&content__" + search.getContent().getLookUpType().value() + "=" + search.getContent().getName();
         }
         if (!search.getDbs().isEmpty()) {
-            fieldsParams += "&database__acronym=" + search.getDbs().stream().collect(Collectors.joining(","));
+            fieldsParams += "&database__acronym=" + search.getDbs().stream().collect(Collectors.joining("&database__acronym="));
         }
         return fieldsParams;
     }

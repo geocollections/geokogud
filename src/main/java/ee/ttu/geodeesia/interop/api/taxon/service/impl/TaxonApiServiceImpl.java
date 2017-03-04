@@ -1,6 +1,7 @@
 package ee.ttu.geodeesia.interop.api.taxon.service.impl;
 
 import ee.ttu.geodeesia.interop.api.Request.SearchApiRequest;
+import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
 import ee.ttu.geodeesia.interop.api.taxon.pojo.TaxonApiResponse;
 import ee.ttu.geodeesia.interop.api.taxon.service.TaxonApiService;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,6 +29,22 @@ public class TaxonApiServiceImpl implements TaxonApiService {
     public TaxonApiResponse searchTaxon(String q, SearchApiRequest request) {
         String url = apiUrl + "/taxon?format=" + request.getOutputFormat() + "&" + request.getField() + "__" + request.getSearchCriteria() + "=" + q;
         ResponseEntity<TaxonApiResponse> response = restTemplate.getForEntity(url, TaxonApiResponse.class);
+        return response.getBody();
+    }
+
+    @Override
+    public ApiResponse searchLocality(String q, String table) {
+        SearchApiRequest request = new SearchApiRequest();
+        request.setTable(table);
+        request.setField(table);
+        request.setSearchCriteria("istartswith");
+        return searchLocality(q, request);
+    }
+
+    @Override
+    public ApiResponse searchLocality(String q, SearchApiRequest request) {
+        String url = apiUrl + "/"+request.getTable()+"?format=" + request.getOutputFormat() + "&" + request.getField() + "__" + request.getSearchCriteria() + "=" + q;
+        ResponseEntity<ApiResponse> response = restTemplate.getForEntity(url, ApiResponse.class);
         return response.getBody();
     }
 
