@@ -6,7 +6,6 @@ import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.ResponseMapper;
 import ee.ttu.geodeesia.search.domain.CommonSearch;
-import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.search.domain.SearchField;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -16,7 +15,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
+import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import java.util.stream.Collectors;
 
 @Service
