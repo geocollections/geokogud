@@ -40,7 +40,8 @@
     "angular-ui-select3": "ui-select#*",
     "select2": "^4.0.3",
     "angular-notify": "^2.5.1",
-    "ol3-layerswitcher": "^1.1.0"
+    "ol3-layerswitcher": "^1.1.0",
+    "angular-route": "1.6.2"
   },
   "resolutions": {
     "jquery": "3.1.0",
