@@ -170,7 +170,7 @@ angular.module('geoApp').directive('loading', function () {
             'ng-options="option.value as option.name for option in idOptions"></select>',
             restrict: 'E',
             scope: {
-                field: '=ngModel',
+                field: '=?ngModel',
                 customCss: '@'
             },
             link: function (scope) {
@@ -202,7 +202,7 @@ angular.module('geoApp').directive('loading', function () {
         'ng-options="option.value as option.name for option in defaultOptions"></select>',
         restrict: 'E',
         scope: {
-            field: '=ngModel',
+            field: '=?ngModel',
             customCss: '@'
         },
         link: function (scope, $watch) {
@@ -234,7 +234,7 @@ angular.module('geoApp').directive('loading', function () {
         'ng-options="option.value as option.name for option in defaultOptions"></select>',
         restrict: 'E',
         scope: {
-            field: '=ngModel',
+            field: '=?ngModel',
             customCss: '@'
         },
         link: function (scope) {
@@ -268,7 +268,7 @@ angular.module('geoApp').directive('loading', function () {
         'ng-options="option.value as option.name for option in defaultOptions track by option.value"><option value="">-- Choose --</option></select>',
         restrict: 'E',
         scope: {
-            field: '=ngModel'
+            field: '=?ngModel'
         },
         link: function (scope) {
             scope.defaultOptions = [{
