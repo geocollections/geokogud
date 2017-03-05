@@ -1,0 +1,32 @@
+{
+  "name": "notify",
+  "main": "notification.js",
+  "version": "0.0.1",
+  "homepage": "http://adodson.com/notification.js",
+  "authors": [
+    "Andrew Dodson <sonofdod@gmail.com>"
+  ],
+  "description": "A shim for desktop Notifications API. Employing a varying techniques to draw a user back to a tab",
+  "keywords": [
+    "Notification"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.1",
+    "commit": "7b530e5b38fdd0e523298207a5ab80445ced0da2"
+  },
+  "_source": "https://github.com/MrSwitch/notification.js.git",
+  "_target": "^0.0.1",
+  "_originalSource": "notify"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "openlayers3",
+  "homepage": "https://github.com/dummas/ol3",
+  "version": "3.0.0",
+  "_release": "3.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.0.0",
+    "commit": "cbc78ab9d44f1caaf59bc99ede83fbe89f28a015"
+  },
+  "_source": "https://github.com/dummas/ol3.git",
+  "_target": "^3.0.0",
+  "_originalSource": "openlayers3"
+}
