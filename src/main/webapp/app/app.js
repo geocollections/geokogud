@@ -116,9 +116,6 @@ angular.module('geoApp').run(['$http', '$rootScope', '$state', '$stateParams',
         window.open('/#/'+params.object+'/' + params.id, '', 'width=750,height=750,scrollbars, resizable');
     };
 
-
-
-
     $rootScope.currentUser = {};
     $rootScope.preventionYearOption = {};
     $rootScope.$state = $state;

@@ -75,18 +75,20 @@
 							'USING_COLLECTIONS_LINK' | translate }}</a></li>
 				</ul>
 
+
 				<ul class="nav navbar-nav">
-					<li class="dropdown" id="links"><a style="cursor: pointer"
-						class="dropdown-toggle" data-toggle="dropdown" role="button"
-						aria-expanded="false">{{ 'FOR_DEVELOPERS_LINK' | translate }}<span
-							class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
+					<li class="dropdown" id="links" uib-dropdown>
+						<a style="cursor: pointer"
+						   class="dropdown-toggle" uib-dropdown-toggle>
+							{{ 'FOR_DEVELOPERS_LINK' | translate }}<span class="caret"></span></a>
+						<ul uib-dropdown-menu class="dropdown-menu" role="menu">
 							<li href><a data-ui-sref="database">{{ 'DATABASE_LINK' |
-									translate }}</a></li>
+								translate }}</a></li>
 							<li><a href="{{config.apiUrl}}" target="_blank">{{
-									'PUBLIC_API_LINK' | translate }}</a></li>
+								'PUBLIC_API_LINK' | translate }}</a></li>
 							<li><a href="{{config.githubUrl}}" target="_blank">GitHub</a></li>
-						</ul></li>
+						</ul>
+					</li>
 				</ul>
 				<div class="nav navbar-nav navbar-right margin-top-10">
 					<div ng-controller="Ctrl">
