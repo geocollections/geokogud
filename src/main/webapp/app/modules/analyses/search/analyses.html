@@ -300,8 +300,18 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Sample #</th>
+                        <th>
+                            <a href style="cursor: pointer" data-ng-click="order('id')">ID
+                                <span data-ng-show="sampleSearch.orderBy == 'id' && sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-bottom"></span>
+                                <span data-ng-show="sampleSearch.orderBy == 'id' && !sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-top"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href style="cursor: pointer" data-ng-click="order('sample')">Sample #
+                                <span data-ng-show="sampleSearch.orderBy == 'sample' && sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-bottom"></span>
+                                <span data-ng-show="sampleSearch.orderBy == 'sample' && !sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-top"></span>
+                            </a>
+                        </th>
                         <th>Locality</th>
                         <th>Depth (m)</th>
                         <th>Stratigraphy <em>Lithostratigraphy</em></th>

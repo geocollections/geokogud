@@ -40,7 +40,6 @@ angular.module('search').controller('SearchAnalysesController', function($scope,
     };
 
     $scope.order = function(predicate) {
-        console.log($scope.sampleSearch)
         $scope.sampleSearch.sortAsc = ($scope.sampleSearch.orderBy === predicate) ? !$scope.sampleSearch.sortAsc : true;
         $scope.sampleSearch.orderBy = predicate;
         $scope.search();
