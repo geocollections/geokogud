@@ -1,5 +1,6 @@
 'use strict';
 angular.module('geoApp', [
+    'ngAnimate',
     'ui.bootstrap',
     'ui.bootstrap.showErrors',
     'ui.bootstrap.datetimepicker',

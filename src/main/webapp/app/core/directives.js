@@ -280,9 +280,9 @@ angular.module('geoApp').directive('loading', function () {
 
         }
     };
-}).directive('sectionOpened', function(){
+}).directive('sectionOpenedIcon', function(){
     return {
-        template: '<i class="pull-right glyphicon" ng-class="{\'glyphicon-chevron-down\': isOpened, \'glyphicon-chevron-right\': !isOpened}"></i>',
+        template: '<i class="pull-right glyphicon" ng-class="{\'glyphicon-chevron-down\': !isOpened, \'glyphicon-chevron-right\': isOpened}"></i>',
         restrict: 'E',
         transclude: true,
         replace: true,
