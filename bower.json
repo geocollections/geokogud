@@ -19,7 +19,7 @@
     "angular": ">=1.6.*",
     "angular-bootstrap": "2.5.0",
     "angular-resource": ">=1.4.*",
-    "angular-ui-router": "~0.2.15",
+    "angular-ui-router": "^0.4.2",
     "bootstrap": "3.3.7",
     "jquery": "3.1.0",
     "moment": "~2.10.6",
@@ -38,7 +38,9 @@
     "openlayers3": "^3.0.0",
     "select-multiple": "*",
     "angular-ui-select3": "ui-select#*",
-    "select2": "^4.0.3"
+    "select2": "^4.0.3",
+    "angular-notify": "^2.5.1",
+    "ol3-layerswitcher": "^1.1.0"
   },
   "resolutions": {
     "jquery": "3.1.0",

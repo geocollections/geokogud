@@ -9,7 +9,7 @@ angular.module('geoApp', [
     'news',
     'locality',
     'cgNotify',
-    'ui.select',
+    'ui.select2',
     'angular-confirm',
     'ngFileUpload',
     'search',
