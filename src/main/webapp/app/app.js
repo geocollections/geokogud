@@ -114,7 +114,7 @@ angular.module('geoApp').run(['$http', '$rootScope', '$state', '$stateParams',
     };
 
     $rootScope.openInNewWindow = function(params) {
-        window.open('/#/'+params.object+'/' + params.id, '', 'width=750,height=750,scrollbars, resizable');
+        window.open('/#!/'+params.object+'/' + params.id, '', 'width=750,height=750,scrollbars, resizable');
     };
 
     $rootScope.currentUser = {};

@@ -66,8 +66,9 @@ angular.module('search').controller('SearchSampleController', function($scope, S
 
 
 }).controller('SampleController', function($scope, SearchService, $uibModal, $http,$stateParams){
+    console.log("test");
     $scope.loadInfo = function() {
-        $http.get('/search/sample/' + $stateParams.id).success(function (response) {
+        $http.get('/search/sample/' + $stateParams.id).then(function (response) {
             $scope.sample = response.result[0];
         });
     };
