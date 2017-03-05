@@ -1,7 +1,14 @@
 <style>
-    .resetButton {
-        margin-top: 20px;
+    #resetSearchBtn {
+        border-radius: 0;
     }
+
+    #secondarySearchBtn{
+        background-color: #3EC9A7;
+        border-radius: 0;
+    }
+
+
     .searchCriterion {
         margin-bottom: 5px;
     }
@@ -99,17 +106,16 @@
         <div class="row">
             <loading></loading>
             <div class="col-lg-3">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <button class="btn btn-info btn-lg" data-ng-click="search()">
-                            <i class="glyphicon glyphicon-search"></i> Send query
-                        </button>
-                        <button class="btn btn-default btn-secondary pull-right resetButton" data-ng-click="defaultSearch()">
-                            <i class="glyphicon glyphicon-erase"></i> Reset form
-                        </button>
-                    </div>
+                <div class="row margin-top-10 margin-left-10">
+                    <button class="btn btn-info btn-secondary secondary-search-btn" id="secondarySearchBtn" data-ng-click="search()">
+                        <i class="glyphicon glyphicon-search"></i> Send query
+                    </button>
+                    <button class="btn btn-default btn-secondary reset-search-btn" id="resetSearchBtn" data-ng-click="defaultSearch()">
+                        <i class="glyphicon glyphicon-erase"></i> Reset form
+                    </button>
                 </div>
-                <div class="row">
+
+                <div class="row margin-top-10">
                     <div class="panel-heading searchGroupHeading" ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
                         <h4 class="panel-title">
                             Identifiers

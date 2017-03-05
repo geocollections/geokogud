@@ -89,11 +89,11 @@
 							<li><a href="{{config.githubUrl}}" target="_blank">GitHub</a></li>
 						</ul></li>
 				</ul>
-				<div class="nav navbar-nav navbar-right">
+				<div class="nav navbar-nav navbar-right margin-top-10">
 					<div ng-controller="Ctrl">
-						<button class="btn btn-default" ng-click="changeLanguage('et')">{{
+						<button class="btn btn-default" id="resetSearchBtn" ng-click="changeLanguage('et')">{{
 							'BUTTON_LANG_ET' | translate }}</button>
-						<button class="btn btn-default" ng-click="changeLanguage('en')">{{
+						<button class="btn btn-default" id="resetSearchBtn" ng-click="changeLanguage('en')">{{
 							'BUTTON_LANG_EN' | translate }}</button>
 					</div>
 				</div>
