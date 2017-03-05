@@ -1,4 +1,8 @@
 angular.module('search').controller('SearchAnalysesController', function($scope, SearchService){
+    $scope.isIdentifierFieldsCollapsed = false;
+    $scope.isLocationFieldsCollapsed = false;
+    $scope.isAnalysesFieldsCollapsed = false;
+    $scope.isInstitutionsCollapsed = false;
     $scope.sortbyOptions = [
         {  name: 'ID', value: 'id' },
         {  name: 'Number', value: 'number' },
