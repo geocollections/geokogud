@@ -1,5 +1,15 @@
 <style>
-    #resetSearchBtn {
+    .popover {
+        color: blue;
+        font-size: 15px;
+        min-width: 500px;
+        max-width: 500px;
+    }
+    .search-help-popup {
+        width: 480px;
+    }
+
+    .noBorderRadiusBtn {
         border-radius: 0;
     }
 
@@ -84,23 +94,24 @@
         opacity: .5;
     }
 </style>
+<script type="text/ng-template" id="analysesSearchHelp">
+    <div class="search-help-popup">
+        <p>SEARCH TIPS:</p>
+        <p>
+        <p>First select the base table (specimens, samples, localities, references etc);</p>
+        <p>Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search
+            'asap' in specimen name field will find 'Asaphus sp.' as well as 'Asaphus expansus'); for stratigraphy and classification the search is
+            hierarchical by default, for number fields exact maches will be searched if user does not specify otherwise;</p>
+        <p>To show a map where available, tick the appropriate checkbox;</p>
+        <p>To show detailed information follow the links in the results table.</p>
+        </p>
+    </div>
+</script>
 <div class="panel panel-default">
     <div class="panel-body">
         <div class="row">
             <div class="text-center">
                 <h1>Search: Analyses</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-5">
-                SEARCH TIPS:
-
-                First select the base table (specimens, samples, localities, references etc);
-                Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search
-                'asap' in specimen name field will find 'Asaphus sp.' as well as 'Asaphus expansus'); for stratigraphy and classification the search is
-                hierarchical by default, for number fields exact maches will be searched if user does not specify otherwise;
-                To show a map where available, tick the appropriate checkbox;
-                To show detailed information follow the links in the results table.
             </div>
         </div>
         <div class="row">
@@ -110,8 +121,15 @@
                     <button class="btn btn-info btn-secondary secondary-search-btn" id="secondarySearchBtn" data-ng-click="search()">
                         <i class="glyphicon glyphicon-search"></i> Send query
                     </button>
-                    <button class="btn btn-default btn-secondary reset-search-btn" id="resetSearchBtn" data-ng-click="defaultSearch()">
+                    <button class="btn btn-default btn-secondary reset-search-btn noBorderRadiusBtn" data-ng-click="defaultSearch()">
                         <i class="glyphicon glyphicon-erase"></i> Reset form
+                    </button>
+                    <button uib-popover-template="'analysesSearchHelp'"
+                            popover-trigger="'focus'"
+                            popover-placement="'right-bottom'"
+                            type="button"
+                            class="btn btn-default noBorderRadiusBtn">
+                        <i class="glyphicon glyphicon-question-sign"></i>
                     </button>
                 </div>
 
