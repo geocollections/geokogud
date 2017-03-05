@@ -1,7 +1,5 @@
 <style>
     .popover {
-        color: blue;
-        font-size: 15px;
         min-width: 500px;
         max-width: 500px;
     }
@@ -96,8 +94,6 @@
 </style>
 <script type="text/ng-template" id="analysesSearchHelp">
     <div class="search-help-popup">
-        <p>SEARCH TIPS:</p>
-        <p>
         <p>First select the base table (specimens, samples, localities, references etc);</p>
         <p>Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search
             'asap' in specimen name field will find 'Asaphus sp.' as well as 'Asaphus expansus'); for stratigraphy and classification the search is
@@ -127,6 +123,7 @@
                     <button uib-popover-template="'analysesSearchHelp'"
                             popover-trigger="'focus'"
                             popover-placement="'right-bottom'"
+                            popover-title="Search tips"
                             type="button"
                             class="btn btn-default noBorderRadiusBtn">
                         <i class="glyphicon glyphicon-question-sign"></i>
@@ -137,7 +134,7 @@
                     <div class="panel-heading searchGroupHeading" ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
                         <h4 class="panel-title">
                             Identifiers
-                            <section-opened is-opened="isIdentifierFieldsCollapsed"/>
+                            <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
                         </h4>
                     </div>
                     <div uib-collapse="isIdentifierFieldsCollapsed">
@@ -177,7 +174,7 @@
                     <div class="panel-heading searchGroupHeading" ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
                         <h4 class="panel-title">
                             Location
-                            <section-opened is-opened="isLocationFieldsCollapsed"/>
+                            <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
                         </h4>
                     </div>
                     <div uib-collapse="isLocationFieldsCollapsed">
@@ -226,7 +223,7 @@
                     <div class="panel-heading searchGroupHeading" ng-click="isAnalysesFieldsCollapsed = !isAnalysesFieldsCollapsed">
                         <h4 class="panel-title">
                             Analysis
-                            <section-opened is-opened="isAnalysesFieldsCollapsed"/>
+                            <section-opened-icon is-opened="isAnalysesFieldsCollapsed"/>
                         </h4>
                     </div>
                     <div uib-collapse="isAnalysesFieldsCollapsed">
@@ -266,7 +263,7 @@
                     <div class="panel-heading searchGroupHeading" ng-click="isInstitutionsCollapsed = !isInstitutionsCollapsed">
                         <h4 class="panel-title">
                             Institutions
-                            <section-opened is-opened="isInstitutionsCollapsed"/>
+                            <section-opened-icon is-opened="isInstitutionsCollapsed"/>
                         </h4>
                     </div>
                     <div uib-collapse="isInstitutionsCollapsed">
