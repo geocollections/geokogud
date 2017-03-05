@@ -1,5 +1,15 @@
 <style>
-    #resetSearchBtn {
+    .popover {
+        color: blue;
+        font-size: 15px;
+        min-width: 500px;
+        max-width: 500px;
+    }
+    .search-help-popup {
+        width: 480px;
+    }
+
+    .noBorderRadiusBtn {
         border-radius: 0;
     }
 
@@ -84,24 +94,24 @@
         opacity: .5;
     }
 </style>
+<script type="text/ng-template" id="analysesSearchHelp">
+    <div class="search-help-popup">
+        <p>SEARCH TIPS:</p>
+        <p>
+        <p>First select the base table (specimens, samples, localities, references etc);</p>
+        <p>Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search
+            'asap' in specimen name field will find 'Asaphus sp.' as well as 'Asaphus expansus'); for stratigraphy and classification the search is
+            hierarchical by default, for number fields exact maches will be searched if user does not specify otherwise;</p>
+        <p>To show a map where available, tick the appropriate checkbox;</p>
+        <p>To show detailed information follow the links in the results table.</p>
+        </p>
+    </div>
+</script>
 <div class="panel panel-default">
     <div class="panel-body">
         <div class="row">
             <div class="text-center">
                 <h1>Search: Analyses</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-5">
-                SEARCH TIPS:
-                <i class="tooltip-icon glyphicon glyphicon-info-sign" id="popoverData" data-toggle="popover" data-html="true" data-content="
-                <i class='glyphicon glyphicon-remove popover-hide-button'></i>
-                First select the base table (specimens, samples, localities, references etc);</br>
-                Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search
-                'asap' in specimen name field will find 'Asaphus sp.' as well as 'Asaphus expansus'); for stratigraphy and classification the search is
-                hierarchical by default, for number fields exact maches will be searched if user does not specify otherwise;</br>
-                To show a map where available, tick the appropriate checkbox;
-                To show detailed information follow the links in the results table." rel="popover" data-placement="bottom" data-trigger="click"></i>
             </div>
         </div>
         <div class="row">
@@ -111,8 +121,15 @@
                     <button class="btn btn-info btn-secondary secondary-search-btn" id="secondarySearchBtn" data-ng-click="search()">
                         <i class="glyphicon glyphicon-search"></i> Send query
                     </button>
-                    <button class="btn btn-default btn-secondary reset-search-btn" id="resetSearchBtn" data-ng-click="defaultSearch()">
+                    <button class="btn btn-default btn-secondary reset-search-btn noBorderRadiusBtn" data-ng-click="defaultSearch()">
                         <i class="glyphicon glyphicon-erase"></i> Reset form
+                    </button>
+                    <button uib-popover-template="'analysesSearchHelp'"
+                            popover-trigger="'focus'"
+                            popover-placement="'right-bottom'"
+                            type="button"
+                            class="btn btn-default noBorderRadiusBtn">
+                        <i class="glyphicon glyphicon-question-sign"></i>
                     </button>
                 </div>
 
@@ -280,17 +297,8 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>
-                            <a href style="cursor: pointer" data-ng-click="order('id')">ID
-                                <span data-ng-show="sampleSearch.orderBy == 'id' && sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-bottom"></span>
-                                <span data-ng-show="sampleSearch.orderBy == 'id' && !sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-top"></span>
-                            </a>
-                        </th>
-                        <th>
-                            <a href style="cursor: pointer" data-ng-click="order('sample')">Sample #
-                                <span data-ng-show="sampleSearch.orderBy == 'sample' && sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-bottom"></span>
-                                <span data-ng-show="sampleSearch.orderBy == 'sample' && !sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-top"></span>
-                            </a></th>
+                        <th>ID</th>
+                        <th>Sample #</th>
                         <th>Locality</th>
                         <th>Depth (m)</th>
                         <th>Stratigraphy <em>Lithostratigraphy</em></th>
