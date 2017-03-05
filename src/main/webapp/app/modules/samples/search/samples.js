@@ -67,9 +67,14 @@ angular.module('search').controller('SearchSampleController', function($scope, S
 
 }).controller('SampleController', function($scope, SearchService, $uibModal, $http,$stateParams){
     $scope.loadInfo = function() {
-        $http.get('/search/sample/' + $stateParams.id).success(function (response) {
-            $scope.sample = response.result[0];
-        });
+        $http.get('/search/sample/' + $stateParams.id).then(successCallback, errorCallback);
+        function successCallback(response){
+            console.log(response);
+            $scope.sample = response.data.result[0];
+        } function errorCallback(response){
+            $scope.sample = "ehm, an error..";
+        }
     };
+
     $scope.loadInfo();
 });

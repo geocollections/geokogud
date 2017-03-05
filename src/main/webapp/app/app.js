@@ -32,6 +32,9 @@ if (configuration.API_URL === undefined) {
 angular.module('geoApp').constant('configuration', configuration);
 
 angular.module('geoApp').value('isActivityLogging', true);
+angular.module('geoApp').config(['$locationProvider', function($locationProvider) {
+    $locationProvider.hashPrefix('');
+}]);
 
 angular.module('geoApp').config(function($stateProvider, $urlRouterProvider, $httpProvider, $provide, uibDatepickerConfig, uibDatepickerPopupConfig) {
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
