@@ -121,7 +121,7 @@
                     <button class="btn btn-info btn-secondary secondary-search-btn" id="secondarySearchBtn" data-ng-click="search()">
                         <i class="glyphicon glyphicon-search"></i> Send query
                     </button>
-                    <button class="btn btn-default btn-secondary reset-search-btn noBorderRadiusBtn" data-ng-click="defaultSearch()">
+                    <button class="btn btn-default btn-secondary reset-search-btn noBorderRadiusBtn" data-ng-click="searchDefault()">
                         <i class="glyphicon glyphicon-erase"></i> Reset form
                     </button>
                     <button uib-popover-template="'analysesSearchHelp'"
@@ -146,28 +146,28 @@
                             <div class="row searchCriterion">
                                 <div class="col-md-12 searchCriterionTitle medium-padding">
                                     <b>Sample ID</b>
-                                    <selectexact custom-css="searchCriterionType" ng-model="analysesSearch.sampleid.lookUpType"/>
+                                    <selectexact custom-css="searchCriterionType" ng-model="analysesSearch.id.type"/>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.sampleid.name" class="form-control"/>
+                                    <input type="text" ng-model="analysesSearch.id.value" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>Number</b>
-                                    <selectdefault custom-css="searchCriterionType" ng-model="analysesSearch.number.lookUpType"></selectdefault>
+                                    <selectdefault custom-css="searchCriterionType" ng-model="analysesSearch.number.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.number.name" class="form-control"/>
+                                    <input type="text" ng-model="analysesSearch.number.value" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>Bed name / index</b>
-                                    <selectdefault custom-css="searchCriterionType" ng-model="analysesSearch.bedIndex.lookUpType"></selectdefault>
+                                    <selectdefault custom-css="searchCriterionType" ng-model="analysesSearch.bedIndex.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.bedIndex.name" class="form-control"/>
+                                    <input type="text" ng-model="analysesSearch.bedIndex.value" class="form-control"/>
                                 </div>
                             </div>
                         </div>
@@ -186,37 +186,37 @@
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>Locality</b>
-                                    <selectdefault custom-css="searchCriterionType" ng-model="analysesSearch.locality.lookUpType"></selectdefault>
+                                    <selectdefault custom-css="searchCriterionType" ng-model="analysesSearch.locality.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.locality.name" class="form-control"/>
+                                    <input type="text" ng-model="analysesSearch.locality.value" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>Admin. unit</b>
-                                    <selectdefault custom-css="searchCriterionType" ng-model="analysesSearch.adminunit.lookUpType"></selectdefault>
+                                    <selectdefault custom-css="searchCriterionType" ng-model="analysesSearch.adminunit.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.adminunit.name" class="form-control"/>
+                                    <input type="text" ng-model="analysesSearch.adminunit.value" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>Depth (m)</b>
-                                    <selectexact custom-css="searchCriterionType" ng-model="analysesSearch.depth.lookUpType"></selectexact>
+                                    <selectexact custom-css="searchCriterionType" ng-model="analysesSearch.depth.type"></selectexact>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.depth.name" class="form-control"/>
+                                    <input type="text" ng-model="analysesSearch.depth.value" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>Stratigraphy</b>
-                                    <selecthierarchy custom-css="searchCriterionType" ng-model="analysesSearch.stratigraphy.lookUpType"></selecthierarchy>
+                                    <selecthierarchy custom-css="searchCriterionType" ng-model="analysesSearch.stratigraphy.type"></selecthierarchy>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.stratigraphy.name" class="form-control"/>
+                                    <input type="text" ng-model="analysesSearch.stratigraphy.value" class="form-control"/>
                                 </div>
                             </div>
                         </div>
@@ -235,28 +235,28 @@
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>Type of analysis</b>
-                                    <selectdefault custom-css="searchCriterionType" ng-model="analysesSearch.analysisType.lookUpType"></selectdefault>
+                                    <selectdefault custom-css="searchCriterionType" ng-model="analysesSearch.analysisType.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.analysisType.name" class="form-control"/>
+                                    <input type="text" ng-model="analysesSearch.analysisType.value" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>Component analysed</b>
-                                    <selectdefault custom-css="searchCriterionType" ng-model="analysesSearch.componentAnalysed.lookUpType"></selectdefault>
+                                    <selectdefault custom-css="searchCriterionType" ng-model="analysesSearch.componentAnalysed.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.componentAnalysed.name" class="form-control"/>
+                                    <input type="text" ng-model="analysesSearch.componentAnalysed.value" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>Content</b>
-                                    <selectexact custom-css="searchCriterionType" ng-model="analysesSearch.content.lookUpType"></selectexact>
+                                    <selectexact custom-css="searchCriterionType" ng-model="analysesSearch.content.type"></selectexact>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.content.name" class="form-control"/>
+                                    <input type="text" ng-model="analysesSearch.content.value" class="form-control"/>
                                 </div>
                             </div>
                         </div>
