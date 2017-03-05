@@ -4,6 +4,9 @@ public class SearchApiRequest {
     private String outputFormat = "json";
     private int page;
     private int numberOfRecordsPerPage = 30;
+    private String orderBy  = "id";
+    private Boolean sortAsc = true;
+
     //TODO:remove
     private String searchCriteria;
     //TODO:remove
@@ -11,6 +14,22 @@ public class SearchApiRequest {
     private String field;
     private String fieldsParams;
     private String table;
+
+    public String getOrderBy() {
+        return orderBy;
+    }
+
+    public void setOrderBy(String orderBy) {
+        this.orderBy = orderBy;
+    }
+
+    public Boolean getSortAsc() {
+        return sortAsc;
+    }
+
+    public void setSortAsc(Boolean sortAsc) {
+        this.sortAsc = sortAsc;
+    }
 
     public String getTable() {
         return table;

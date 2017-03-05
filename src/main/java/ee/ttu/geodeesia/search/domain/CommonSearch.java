@@ -6,9 +6,10 @@ import java.util.List;
 public class CommonSearch {
 
     private int page = 1; //set default 1 page
-    private String sortDir = "ASC"; //set default sortDir
+    private Boolean sortAsc = true; //set default sortDir
     private int maxSize = 5;
     private String table = "SAMPLES";
+    private String orderBy = "id";
 
     private SearchField id;
     private SearchField sampleNumber;
@@ -46,6 +47,14 @@ public class CommonSearch {
         this.table = name;
     }
 
+    public String getOrderBy() {
+        return orderBy;
+    }
+
+    public void setOrderBy(String orderBy) {
+        this.orderBy = orderBy;
+    }
+
     public String getTable() {
         return table;
     }
@@ -54,12 +63,12 @@ public class CommonSearch {
         this.table = table;
     }
 
-    public String getSortDir() {
-        return sortDir;
+    public Boolean getSortAsc() {
+        return sortAsc;
     }
 
-    public void setSortDir(String sortDir) {
-        this.sortDir = sortDir;
+    public void setSortAsc(Boolean sortAsc) {
+        this.sortAsc = sortAsc;
     }
 
     public int getMaxSize() {

@@ -44,6 +44,8 @@ public class SamplesApiServiceImpl implements SamplesApiService {
         SearchApiRequest request = new SearchApiRequest();
         request.setTable(search.getTable());
         request.setPage(search.getPage());
+        request.setOrderBy(search.getOrderBy());
+        request.setSortAsc(search.getSortAsc());
         request.setFieldsParams(composeFieldQuery(search));
         return searchList(request);
     }
@@ -53,7 +55,8 @@ public class SamplesApiServiceImpl implements SamplesApiService {
         System.err.print(request.getTable());
         Response response_ = new Response();
         if (request.getTable() == null) return response_;
-        String url = apiUrl + "/" + request.getTable() + "?paginate_by=" + request.getNumberOfRecordsPerPage() + "&page=" + request.getPage()
+        String url = apiUrl + "/" + request.getTable() + "?paginate_by=" + request.getNumberOfRecordsPerPage() + "&order_by="+request.getOrderBy()
+                +"&page=" + request.getPage()
                 + "&format=" + request.getOutputFormat() + request.getFieldsParams();
         logger.info(url);
         ResponseEntity<ApiResponse> response = restTemplate.getForEntity(url, ApiResponse.class);

@@ -23,6 +23,8 @@ angular.module('search').controller('SearchAnalysesController', function($scope,
         if(!search) search = "analysis";
         SearchService.getSearch(search).then(function(search) {
             $scope.sampleSearch = search;
+            $scope.sampleSearch.sortAsc = true;
+            $scope.sampleSearch.orderBy = "id";
             $scope.search();
         });
     };
@@ -35,5 +37,13 @@ angular.module('search').controller('SearchAnalysesController', function($scope,
             $scope.pageSize = 100;
             $scope.response = result;
         });
+    };
+
+    $scope.order = function(predicate) {
+        console.log(predicate);
+        console.log($scope.sampleSearch)
+        $scope.sampleSearch.sortAsc = ($scope.sampleSearch.orderBy === predicate) ? !$scope.sampleSearch.sortAsc : true;
+        $scope.sampleSearch.orderBy = predicate;
+        $scope.search();
     };
 });
