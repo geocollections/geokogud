@@ -69,5 +69,11 @@ var translations_en = {
 				}
 			}
 		}
+	},
+	LOCALITY : {
+		LOCALITY : 'Locality',
+		COUNTRY : 'Country',
+		LATITUDE : 'Latitude',
+		LONGITUDE : 'Longitude',
 	}
 };

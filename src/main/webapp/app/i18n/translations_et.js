@@ -69,5 +69,11 @@ var translations_et = {
 				}
 			}
 		}
+	},
+	LOCALITY : {
+		LOCALITY : 'Nimi',
+		COUNTRY : 'Riik',
+		LATITUDE : 'Laiuskraad',
+		LONGITUDE : 'Pikkuskraad',
 	}
 };
