@@ -1,7 +1,7 @@
 var translations_en = {
-	"INDEX" : {
-		// BUTTON_LANG_ET: 'EST',
-		// BUTTON_LANG_EN: 'ENG',
+	INDEX : {
+		BUTTON_LANG_ET : 'EST',
+		BUTTON_LANG_EN : 'ENG',
 		WEBSITE_TITLE : 'Geocollections of Estonia',
 		GEOCOLLECTIONS_TITLE : 'Geoscience collections of Estonia',
 		SEARCH_FIELD_TEXT : 'Start searching…',
@@ -19,4 +19,54 @@ var translations_en = {
 		FOOTER_MESSAGE : 'If not indicated otherwise, content of the these pages may be used, reused and distributed for non-commercial purposes taken that original author and source are properly cited. Questions and comments about the database and website: Olle Hints, Institute of Geology at Tallinn University of Technology',
 		BACK_TO_TOP : 'Back to top',
 	},
+	USING_COLLECTIONS : {
+		HEADING_USING_COLLECTIONS : 'Using the collections',
+		PARAGRAPH_ONE : 'The geological collections held by different institutions in Estonia are generally open for researchers. Specific regulations on using the collections in individual institutions can be found below:',
+		TUT : 'Institute of Geology at Tallinn University of Technology',
+		IN_ESTONIAN : '{{extension}}, in Estonian',
+		IN_ENGLISH : '{{extension}}, in English',
+		UT_AND_MUSEUM_OF_GEO : 'University of Tartu, Museum of Geology',
+		INQUERIES : {
+			HEADING : 'Inqueries, loans and visits',
+			PARAGRAPH : 'In brief, inqueries and research visits are welcome, and loans of most specimens for scientific purposes can be accepted, generally for one-year period. For visiting researchers the collection holders will be able to provide necessary office and lab facilities, but no financial support for guests is currently available. For details contact the curators of individual institutions few weeks in advance to arrange a visit and/or check the availability of the material of interest.',
+		},
+		DATABASE : {
+			HEADING : 'Database',
+			PARAGRAPH_ONE : 'The multi-institutional geocollections database SARV aims to make specimen-level records and oher digitised geological data available and searchable in Estonian geocollections portal as well as international data networks (GeoCASe, BioCASe, GBIF). Automatic queries can make use of the public API. Some data may be restricted to institutional usage and require direct collaboration with researcher(s) of the institute in order to get access to. Also, when searching the on-line database, please remember that not all unit-level data are currently digitised.',
+			PARAGRAPH_TWO : 'The publicly available data are copyrighted by the individual collection holding institutions and distributed under the Creative Commons BY-NC licence, if not indicated otherwise.',
+			CC_EXPLANATION : 'This means that you are free to download, use and distribute the data for any non-commercial purposes, given that you cite the author and source.',
+			LI_ONE : 'Please use the following form of citation: Estonian geocollections database, [photo/figure/data/..] by [author name, e.g. Enn Pirrus], [institution name, e.g., Institute of Geology at TUT], [year].',
+			LI_TWO : 'In publications it is requested that you use unique indentifiers (such as specimen number) when available, together with institutional abbreviation [GIT/TUG/ELM], for instance specimen GIT 160-7.',
+			LI_THREE : 'If appropriate, add a full link to the resource used, for instance http://geokogud.info/specimen/66130.',
+			LI_FOUR : 'We would appreciate that you let us know when using our data in publications or on websites.',
+			LI_FIVE : 'For any commercial use of the data or images a permission in needed; please contact the curators for details.',
+		},
+		CONTACT : {
+			HEADING : 'Contact',
+			TUT : {
+				ORGANIZATION : 'Institute of Geology at Tallinn University of Technology, Depertment of Collections',
+				ADDRESS : 'Ehitajate tee 5, 19086 Tallinn, Estonia',
+				CONTACT : {
+					PERSON : 'Ursula Toom, Chief Curator',
+					PHONE_EMAIL : 'phone +372 620 3009, ursula.toom@ttu.ee',
+				}
+			},
+			UT : {
+				ORGANIZATION : 'University of Tartu Natural History Museum, Geology',
+				ADDRESS : 'Vanemuise 46, Tartu, Estonia',
+				CONTACT : {
+					PERSON : 'Mare Isakar, Chief Curator',
+					PHONE_EMAIL : 'phone +372 737 5839, mare.isakar@ut.ee',
+				}
+			},
+			EMNH : {
+				ORGANIZATION : 'Estonian Museum of Natural History, Department of Geology',
+				ADDRESS : 'Lai 29A, 10133 Tallinn, Estonia',
+				CONTACT : {
+					PERSON : 'Sander Olo, Head of Department',
+					PHONE_EMAIL : 'phone +372 641 1057, Sander.Olo@loodusmuuseum.ee',
+				}
+			}
+		}
+	}
 };
