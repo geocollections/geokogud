@@ -43,7 +43,7 @@ angular.module('geoApp').config(function($stateProvider, $urlRouterProvider, $ht
 
     $stateProvider.state('index', {
         url: "/",
-        template: "<div>Palun oota. Rakendust laaditakse.</div>",
+        template: "<div>{{ 'PAGE_LOADING' | translate }}</div>",
         params: {toState: {name: 'main'}, id: null, readOnly: true, serviceAreaId: null},
         controller: function($http, $rootScope, $state, $stateParams) {
 

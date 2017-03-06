@@ -1,4 +1,5 @@
 var translations_en = {
+	PAGE_LOADING : 'Please wait. The page is loading.',
 	INDEX : {
 		BUTTON_LANG_ET : 'EST',
 		BUTTON_LANG_EN : 'ENG',

@@ -1,4 +1,5 @@
 var translations_et = {
+	PAGE_LOADING : 'Palun oota. Rakendust laaditakse.',
 	INDEX : {
 		BUTTON_LANG_ET : 'EST',
 		BUTTON_LANG_EN : 'ENG',
