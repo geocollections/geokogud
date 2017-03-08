@@ -13,6 +13,7 @@ public class ResponseEntity {
     private String GIT;
     private String remarks;
     private Double depth;
+    private Double depthInterval;
     private String mass;
 
     private String country;
@@ -101,6 +102,14 @@ public class ResponseEntity {
 
     public void setAnalysisMethodMethodEng(String analysisMethodMethodEng) {
         this.analysisMethodMethodEng = analysisMethodMethodEng;
+    }
+
+    public Double getDepthInterval() {
+        return depthInterval;
+    }
+
+    public void setDepthInterval(Double depthInterval) {
+        this.depthInterval = depthInterval;
     }
 
     public String getMethodDetails() {

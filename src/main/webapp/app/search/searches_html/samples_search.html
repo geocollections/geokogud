@@ -199,7 +199,7 @@
         <div class="text-right">
             <uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize" max-size="sampleSearch.maxSize" rotate="false" total-items="totalItems" ng-model="sampleSearch.page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
         </div>
-        <table class="table table-bordered table-hover">
+        <table class="table table-bordered table-hover table-responsive">
             <thead>
             <tr>
                 <th>ID</th>
@@ -223,7 +223,7 @@
                 <td>{{entity.numberAdditional}}</td>
                 <td>{{entity.localityEng}}</td>
                 <td>{{entity.depth}}</td>
-                <td></td>
+                <td>{{entity.depthInterval}}</td>
                 <td>{{entity.stratigraphyEng}}</td>
                 <td>{{entity.agent}}</td>
                 <td>???</td>

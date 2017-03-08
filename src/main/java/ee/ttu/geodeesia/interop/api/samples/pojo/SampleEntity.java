@@ -52,7 +52,7 @@ public class SampleEntity implements Serializable, ConvertableToResponseEntity {
 
     private String numberAdditional;
 
-    private String localityId;
+    private Long localityId;
 
     private String locality;
 
@@ -61,6 +61,8 @@ public class SampleEntity implements Serializable, ConvertableToResponseEntity {
     private Double localityLatitude;
 
     private Double localityLongitude;
+
+    private Long stratigraphyId;
 
     private String stratigraphy;
 
@@ -74,8 +76,51 @@ public class SampleEntity implements Serializable, ConvertableToResponseEntity {
     @JsonProperty("depth")
     private Double depth;
 
+    private Double depthInterval;
+
     @JsonProperty("mass")
     private String mass;
+
+    @JsonProperty("rock")
+    private String rock;
+    private String classificationRockName;
+    private String classificationRockNameEn;
+
+    private String dateCollectedFree;
+    @JsonProperty("classificationRockName")
+    public String getClassificationRockName() {
+        return classificationRockName;
+    }
+    @JsonProperty("classification_rock__name")
+    public void setClassificationRockName(String classificationRockName) {
+        this.classificationRockName = classificationRockName;
+    }
+    @JsonProperty("classificationRockNameEn")
+    public String getClassificationRockNameEn() {
+        return classificationRockNameEn;
+    }
+    @JsonProperty("classification_rock__name_en")
+    public void setClassificationRockNameEn(String classificationRockNameEn) {
+        this.classificationRockNameEn = classificationRockNameEn;
+    }
+
+    @JsonProperty("dateCollectedFree")
+    public String getDateCollectedFree() {
+        return dateCollectedFree;
+    }
+    @JsonProperty("date_collected_free")
+    public void setDateCollectedFree(String dateCollectedFree) {
+        this.dateCollectedFree = dateCollectedFree;
+    }
+
+    @JsonProperty("depthInterval")
+    public Double getDepthInterval() {
+        return depthInterval;
+    }
+    @JsonProperty("depth_interval")
+    public void setDepthInterval(Double depthInterval) {
+        this.depthInterval = depthInterval;
+    }
 
     @JsonProperty("numberAdditional")
     public String getNumberAdditional() {
@@ -86,11 +131,11 @@ public class SampleEntity implements Serializable, ConvertableToResponseEntity {
         this.numberAdditional = numberAdditional;
     }
     @JsonProperty("localityId")
-    public String getLocalityId() {
+    public Long getLocalityId() {
         return localityId;
     }
     @JsonProperty("locality_id")
-    public void setLocalityId(String localityId) {
+    public void setLocalityId(Long localityId) {
         this.localityId = localityId;
     }
     @JsonProperty("localityEn")
@@ -133,6 +178,15 @@ public class SampleEntity implements Serializable, ConvertableToResponseEntity {
     public void setLocality(String locality) {
         this.locality = locality;
     }
+    @JsonProperty("stratigraphyId")
+    public Long getStratigraphyId() {
+        return stratigraphyId;
+    }
+    @JsonProperty("stratigraphy_id")
+    public void setStratigraphyId(Long stratigraphyId) {
+        this.stratigraphyId = stratigraphyId;
+    }
+
     @JsonProperty("stratigraphy")
     public String getStratigraphy() {
         return stratigraphy;
@@ -172,16 +226,19 @@ public class SampleEntity implements Serializable, ConvertableToResponseEntity {
         response.setId(this.id);
         response.setNumber(this.number);
         response.setNumberAdditional(this.numberAdditional);
+        response.setLocalityId(this.localityId);
         response.setLocality(this.locality);
         response.setLocalityEng(this.localityEn);
         response.setLatitude(this.localityLatitude);
         response.setLongitude(this.localityLongitude);
+        response.setStratigraphyId(this.stratigraphyId);
         response.setStratigraphy(this.stratigraphy);
         response.setStratigraphyEng(this.stratigraphyEng);
         response.setAgent(this.agent);
         response.setGIT(this.git);
         response.setRemarks(this.remarks);
         response.setDepth(this.depth);
+        response.setDepthInterval(this.depthInterval);
         response.setMass(this.mass);
         return response;
     }
