@@ -5,6 +5,9 @@ var translations_et = {
 	CLOSE : 'Sulge',
 	CANCEL: 'Tühista',
 	DELETE : 'Kustuta',
+	EDITING : 'Muutmine',
+	NOTE : 'Märkus',
+	SAVE : 'Salvesta',
 	INDEX : {
 		BUTTON_LANG_ET : 'EST',
 		BUTTON_LANG_EN : 'ENG',

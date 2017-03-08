@@ -5,6 +5,9 @@ var translations_en = {
 	CLOSE : 'Close',
 	CANCEL : 'Cancel',
 	DELETE : 'Delete',
+	EDITING: 'Editing',
+	NOTE : 'Note',
+	SAVE : 'Save',
 	INDEX : {
 		BUTTON_LANG_ET : 'EST',
 		BUTTON_LANG_EN : 'ENG',
