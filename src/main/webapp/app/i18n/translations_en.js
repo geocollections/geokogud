@@ -1,5 +1,6 @@
 var translations_en = {
 	PAGE_LOADING : 'Please wait. The page is loading.',
+	READ_MORE : 'Read more',
 	INDEX : {
 		BUTTON_LANG_ET : 'EST',
 		BUTTON_LANG_EN : 'ENG',
@@ -75,5 +76,28 @@ var translations_en = {
 		COUNTRY : 'Country',
 		LATITUDE : 'Latitude',
 		LONGITUDE : 'Longitude',
+	},
+	INFO : {
+		COLLECTIONS_IN_GEOLOGY : {
+			HEADING : 'Collections in geology',
+			PARAGRAPH_ONE : 'Information about the 4.6 billion year history of the planet Earth is stored in rocks, minerals and fossils, which together form the essence of geological collections, or geocollections. A large part of geological research is based on collections and often discoveries arise from specimens once collected and stored in museums.',
+			PARAGRAPH_TWO : 'On the other hand, geocollections are created during geological research and need to be kept and made available as referece material.',
+		},
+		COLLECTIONS_IN_ESTONIA : {
+			HEADING : 'Geocollections in Estonia',
+			PARAGRAPH_ONE : 'In Estonia, the main geocollections are owned by the following institutions that together make up a virtual national geological collection:',
+			LI_ONE : 'Institute of Geology at Tallinn University of Technology',
+			LI_TWO : 'Geological Museum, University of Tartu',
+			LI_THREE : 'Estonian Museum of Natural History',
+			LI_FOUR : 'Department of Geology, University of Tartu, and',
+			LI_FIVE : 'Estonian University of Life Sciences, Soil Museum',
+			PARAGRAPH_TWO : 'Large numbers of rock samples and drill cores are also held by the Geological Survey of Estonia',
+		},
+		COMMON_DATABASE : {
+			HEADING : 'Common database',
+			PARAGRAPH_ONE : 'The geocollections database SARV is used in four academic institutions. This public portal enables to search various geological data including collection specimens, rock and sediment samples, drill cores, localities, references, photo archive etc.',
+			PARAGRAPH_TWO : 'In addition, specific interfaces can be used to access data on Baltoscandian fossils and analytical data.',
+			PARAGRAPH_THREE : 'Currently the database holds records of {{noOfSamples}} collection specimens and rock samples, and {{noOfFiles}} digital images and other media files. The data were last updated on {{databaseUpdated}}.',
+		}
 	}
 };

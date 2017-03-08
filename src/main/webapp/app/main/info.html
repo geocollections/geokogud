@@ -11,34 +11,25 @@
 				<img class="img-thumbnail"
 					src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
 					alt="Generic placeholder image" width="300" height="100">
-				<h2>Collections in geology</h2>
-				<p>Information about the 4.6 billion year history of the planet
-					Earth is stored in rocks, minerals and fossils, which together form
-					the essence of geological collections, or geocollections. A large
-					part of geological research is based on collections and often
-					discoveries arise from specimens once collected and stored in
-					museums.</p>
-				<p>On the other hand, geocollections are created during
-					geological research and need to be kept and made available as
-					referece material.</p>
+				<h2>{{ 'INFO.COLLECTIONS_IN_GEOLOGY.HEADING' | translate }}</h2>
+				<p>{{ 'INFO.COLLECTIONS_IN_GEOLOGY.PARAGRAPH_ONE' | translate }}</p>
+				<p>{{ 'INFO.COLLECTIONS_IN_GEOLOGY.PARAGRAPH_TWO' | translate }}</p>
 			</div>
 			<!-- /.col-lg-4 -->
 			<div class="col-lg-4">
 				<img class="img-thumbnail"
 					src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
 					alt="Generic placeholder image" width="300" height="100">
-				<h2>Geocollections in Estonia</h2>
-				<p>In Estonia, the main geocollections are owned by the
-					following institutions that together make up a virtual national
-					geological collection:</p>
+				<h2>{{ 'INFO.COLLECTIONS_IN_ESTONIA.HEADING' | translate }}</h2>
+				<p>{{ 'INFO.COLLECTIONS_IN_ESTONIA.PARAGRAPH_ONE' | translate }}</p>
 				<ul>
-					<li>Institute of Geology at Tallinn University of Technology</li>
-					<li>Geological Museum, University of Tartu</li>
-					<li>Estonian Museum of Natural History</li>
-					<li>Department of Geology, University of Tartu, and</li>
-					<li>Estonian University of Life Sciences, Soil Museum</li>
-					<p>Large numbers of rock samples and drill cores are also held
-						by the Geological Survey of Estonia.</p>
+					<li>{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_ONE' | translate }}</li>
+					<li>{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_TWO' | translate }}</li>
+					<li>{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_THREE' | translate }}</li>
+					<li>{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_FOUR' | translate }}</li>
+					<li>{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_FIVE' | translate }}</li>
+					<p>{{ 'INFO.COLLECTIONS_IN_ESTONIA.PARAGRAPH_TWO' | translate
+						}}</p>
 				</ul>
 			</div>
 			<!-- /.col-lg-4 -->
@@ -46,39 +37,36 @@
 				<img class="img-thumbnail"
 					src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
 					alt="Generic placeholder image" width="300" height="100">
-				<h2>Common database</h2>
-				<p>The geocollections database SARV is used in four academic
-					institutions. This public portal enables to search various
-					geological data including collection specimens, rock and sediment
-					samples, drill cores, localities, references, photo archive etc.</p>
-				<p>In addition, specific interfaces can be used to access data
-					on Baltoscandian fossils and analytical data.</p>
-				<p>Currently the database holds records of 333143 collection
-					specimens and rock samples, and 95224 digital images and other
-					media files. The data were last updated on 2017-02-21 15:42:48.</p>
+				<h2>{{ 'INFO.COMMON_DATABASE.HEADING' | translate }}</h2>
+				<p>{{ 'INFO.COMMON_DATABASE.PARAGRAPH_ONE' | translate }}</p>
+				<p>{{ 'INFO.COMMON_DATABASE.PARAGRAPH_TWO' | translate }}</p>
+				<p>{{ 'INFO.COMMON_DATABASE.PARAGRAPH_THREE' | translate:'{
+					noOfSamples: "334354", noOfFiles: " 95388", databaseUpdated:
+					"2017-03-07 17:26:25" }' }}</p>
 			</div>
 			<!-- /.col-lg-4 -->
 		</div>
 		<!-- /.row -->
 		<div class="text-center">
 			<p>
-				<a class="btn btn-default btn-lg btn-success" href="" role="button" id="mainSearchButton" data-ng-click="showFull = true">Read
-					more</a>
+				<a class="btn btn-default btn-lg btn-success" href="" role="button"
+					id="mainSearchButton" data-ng-click="showFull = true">{{
+					'READ_MORE' | translate }}</a>
 
 			</p>
 		</div>
 
 		<div ng-if="showFull" ng-include="'/app/main/full_news.html'"></div>
 
-		<hr class="featurette-divider">
-		<div class="text-center">
-			<h1>Heading X</h1>
-		</div>
+<!-- 		<hr class="featurette-divider"> -->
+<!-- 		<div class="text-center"> -->
+<!-- 			<h1>Heading X</h1> -->
+<!-- 		</div> -->
 
-		<hr class="featurette-divider">
-		<div class="text-center links">
-			<h1>Links</h1>
-		</div>
+<!-- 		<hr class="featurette-divider"> -->
+<!-- 		<div class="text-center links"> -->
+<!-- 			<h1>Links</h1> -->
+<!-- 		</div> -->
 
 		<div>{{list}}</div>
 	</div>

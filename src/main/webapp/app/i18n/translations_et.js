@@ -1,5 +1,6 @@
 var translations_et = {
 	PAGE_LOADING : 'Palun oota. Rakendust laaditakse.',
+	READ_MORE : 'Loe rohkem',
 	INDEX : {
 		BUTTON_LANG_ET : 'EST',
 		BUTTON_LANG_EN : 'ENG',
@@ -75,5 +76,28 @@ var translations_et = {
 		COUNTRY : 'Riik',
 		LATITUDE : 'Laiuskraad',
 		LONGITUDE : 'Pikkuskraad',
+	},
+	INFO : {
+		COLLECTIONS_IN_GEOLOGY : {
+			HEADING : 'Kollektsioonid geoloogias',
+			PARAGRAPH_ONE : 'Informatsiooni meie planeedi 4,6 miljardi aastase arenguloo kohta on talletunud maakoore kivimites, mineraalides ning fossiilides, mis moodustavad geoloogiliste kollektsioonide, lühendatult geokogude, peamise osa.',
+			PARAGRAPH_TWO : 'Kollektsioonidel baseerub märkimisväärne osa geoloogia-alasest teadustööst – palju uusi avastusi on tehtud varem kogutud ja alles hoitud materjale uurides. Ning teistpidi, kollektsioonid moodustuvad sageli just teadustöö või rakendusuuringute käigus, kus on vajalik tõendusmaterjali säilitamine ning kättesaadavaks tegemine. ',
+		},
+		COLLECTIONS_IN_ESTONIA : {
+			HEADING : 'Geoloogia rahvuskollektsioon',
+			PARAGRAPH_ONE : ' Eesti geoloogiline rahvuskollektsioon on eri asutuste kogude virtuaalne ühendus, mis moodustati riikliku programmi "Humanitaar- ja loodusteaduslikud kollektsioonid (2004-2008)" raames. Geoloogilisse rahvuskollektsiooni kuuluvad: ',
+			LI_ONE : 'Tallinna Tehnikaülikooli Geoloogia Instituudi,',
+			LI_TWO : 'Tartu Ülikooli geoloogiamuuseumi,',
+			LI_THREE : 'Tartu Ülikooli geoloogia osakonna,',
+			LI_FOUR : 'Eesti Loodusmuuseumi ja ',
+			LI_FIVE : 'Eesti Maaülikooli Mullamuuseumi kollektsioonid',
+			PARAGRAPH_TWO : 'Suured kivimiproovide ning puursüdamike kollektsioonid on ka Eesti Geoloogiakeskuse / Maa-ameti valduses.',
+		},
+		COMMON_DATABASE : {
+			HEADING : 'Geokogude andmebaas',
+			PARAGRAPH_ONE : 'Akadeemilistes asutustes on geokogude ja seonduva andmestiku haldamiseks kasutusele võetud infosüsteem SARV.',
+			PARAGRAPH_TWO : 'Siinne veebipõhine kasutajaliides võimaldab otsida ja sirvida peamisi andmeobjekte nagu eksemplarid, proovid, puursüdamikud, lokaliteedid, kirjandus, fotoarhiiv jt. Lisaks on loodud eraldi portaalid Baltoskandia kivististele ning analüütilisele teadusandmestikule. ',
+			PARAGRAPH_THREE : 'Geokogude infosüsteemis on praeguseks talletatud andmed {{noOfSamples}} eksemplari ja kivimiproovi kohta ning {{noOfFiles}} pilti jm meediafaili. Andmeid on viimati täiendatud {{noOfFiles}} digital images and other media files. The data were last updated on {{databaseUpdated}}',
+		}
 	}
 };
