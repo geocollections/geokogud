@@ -1,6 +1,10 @@
 var translations_en = {
 	PAGE_LOADING : 'Please wait. The page is loading.',
 	READ_MORE : 'Read more',
+	CONFIRM_DELETE_MODAL : 'Are you sure you want to close the modal?',
+	CLOSE : 'Close',
+	CANCEL : 'Cancel',
+	DELETE : 'Delete',
 	INDEX : {
 		BUTTON_LANG_ET : 'EST',
 		BUTTON_LANG_EN : 'ENG',

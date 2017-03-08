@@ -1,6 +1,10 @@
 var translations_et = {
 	PAGE_LOADING : 'Palun oota. Rakendust laaditakse.',
 	READ_MORE : 'Loe rohkem',
+	CONFIRM_DELETE_MODAL : 'Kinnita, et kustutad need andmed?',
+	CLOSE : 'Sulge',
+	CANCEL: 'Tühista',
+	DELETE : 'Kustuta',
 	INDEX : {
 		BUTTON_LANG_ET : 'EST',
 		BUTTON_LANG_EN : 'ENG',
