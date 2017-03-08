@@ -1,6 +1,7 @@
 var translations_et = {
 	PAGE_LOADING : 'Palun oota. Rakendust laaditakse.',
 	READ_MORE : 'Loe rohkem',
+	SHOW_MORE : 'Näita rohkem',
 	CONFIRM_DELETE_MODAL : 'Kinnita, et kustutad need andmed?',
 	CLOSE : 'Sulge',
 	CANCEL: 'Tühista',
