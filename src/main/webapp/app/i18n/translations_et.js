@@ -4,7 +4,7 @@ var translations_et = {
 	SHOW_MORE : 'Näita rohkem',
 	CONFIRM_DELETE_MODAL : 'Kinnita, et kustutad need andmed?',
 	CLOSE : 'Sulge',
-	CANCEL: 'Tühista',
+	CANCEL : 'Tühista',
 	DELETE : 'Kustuta',
 	EDITING : 'Muutmine',
 	NOTE : 'Märkus',
@@ -106,6 +106,51 @@ var translations_et = {
 			PARAGRAPH_ONE : 'Akadeemilistes asutustes on geokogude ja seonduva andmestiku haldamiseks kasutusele võetud infosüsteem SARV.',
 			PARAGRAPH_TWO : 'Siinne veebipõhine kasutajaliides võimaldab otsida ja sirvida peamisi andmeobjekte nagu eksemplarid, proovid, puursüdamikud, lokaliteedid, kirjandus, fotoarhiiv jt. Lisaks on loodud eraldi portaalid Baltoskandia kivististele ning analüütilisele teadusandmestikule. ',
 			PARAGRAPH_THREE : 'Geokogude infosüsteemis on praeguseks talletatud andmed {{noOfSamples}} eksemplari ja kivimiproovi kohta ning {{noOfFiles}} pilti jm meediafaili. Andmeid on viimati täiendatud {{noOfFiles}} digital images and other media files. The data were last updated on {{databaseUpdated}}',
+		}
+	},
+	SEARCH : {
+		NO_OF_RESULTS : 'Kokku',
+		SEND_QUERY : 'Saada päring',
+		RESET_FORM : 'Тühista',
+		ANALYSES : {
+			HEADING : 'Päring: Analüüsid',
+			HELP_POPUP : {
+				PARAGRAPH_ONE : 'Valige põhitabel (eksemplarid, proovid, lokaliteedid, kirjandus jne);',
+				PARAGRAPH_TWO : 'Sisestage üks või mitu otsingukriteeriumit; NB! suur- ja väiketähti ei eristata; tekstiväljade puhul otsitakse vaikimisi vasteid, kus sisaldub otsingusõna (st. otsing \'asap\' leiab üles nii \'Asaphus sp.\' kui ka \'Asaphus expansus\'); klassifikatsiooni ja stratigraafia puhul toimib vaikimisi hierarhiline otsing, numbrite puhoul otsitakse täpset vastet, kui kasutaja ei määra teisiti;',
+				PARAGRAPH_THREE : 'Kaardi kuvamiseks märkige vastav linnuke;',
+				PARAGRAPH_FOUR : 'Detailsema infoni jõudmiseks kasutage otsingutulemuste tabelis esinevaid linke.'
+			}
+		},
+		IDENTIFIERS : {
+			IDENTIFIERS : 'Identifikaator',
+			SAMPLE_ID : 'Number',
+			NUMBER : 'Proov #',
+		// BED_NAME_INDEX : '',
+		},
+		LOCATION : {
+			LOCATION : 'Leiukoht',
+			LOCALITY : 'Leiukoht',
+			DEPTH_M : 'Sügavus (m)',
+			ADMIN_UNIT : 'Admin. üksus',
+			STRATIGRAPHY : 'Stratigraafia',
+		},
+		ANALYSIS : {
+			PANEL_TITLE : 'Analüüs',
+			TYPE : 'Analüüsi tüüp',
+			COMPONENT_ANALYZED : 'Analüüsitud komponent',
+			CONTENT : 'Komponendi sisaldus',
+		},
+		INSTITUTIONS : 'Asutused',
+		TABLE : {
+			ID : 'ID',
+			SAMPLE_ID : 'ID',
+			LOCALITY : '@:SEARCH.LOCATION.LOCALITY',
+			DEPTH_M : '@:SEARCH.LOCATION.DEPTH_M',
+			STRATIGRAPHY : 'Stratigraafia',
+			LITHOSTRATIGRAPHY : 'Litostratigraafia',
+//			BED_ID : '',
+			METHOD : 'Metoodika',
+//			LAB : '',
 		}
 	}
 };

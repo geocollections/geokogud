@@ -6,7 +6,7 @@ var translations_en = {
 	CLOSE : 'Close',
 	CANCEL : 'Cancel',
 	DELETE : 'Delete',
-	EDITING: 'Editing',
+	EDITING : 'Editing',
 	NOTE : 'Note',
 	SAVE : 'Save',
 	INDEX : {
@@ -106,6 +106,51 @@ var translations_en = {
 			PARAGRAPH_ONE : 'The geocollections database SARV is used in four academic institutions. This public portal enables to search various geological data including collection specimens, rock and sediment samples, drill cores, localities, references, photo archive etc.',
 			PARAGRAPH_TWO : 'In addition, specific interfaces can be used to access data on Baltoscandian fossils and analytical data.',
 			PARAGRAPH_THREE : 'Currently the database holds records of {{noOfSamples}} collection specimens and rock samples, and {{noOfFiles}} digital images and other media files. The data were last updated on {{databaseUpdated}}.',
+		}
+	},
+	SEARCH : {
+		NO_OF_RESULTS : 'Number of results',
+		SEND_QUERY : 'Send query',
+		RESET_FORM : 'Reset form',
+		ANALYSES : {
+			HEADING : 'Search: Analyses',
+			HELP_POPUP : {
+				PARAGRAPH_ONE : 'First select the base table (specimens, samples, localities, references etc);',
+				PARAGRAPH_TWO : 'Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search \'asap\' in specimen name field will find \'Asaphus sp.\' as well as \'Asaphus expansus\'); for stratigraphy and classification the search is hierarchical by default, for number fields exact maches will be searched if user does not specify otherwise;',
+				PARAGRAPH_THREE : 'To show a map where available, tick the appropriate checkbox;',
+				PARAGRAPH_FOUR : 'To show detailed information follow the links in the results table.',
+			}
+		},
+		IDENTIFIERS : {
+			IDENTIFIERS : 'Identifiers',
+			SAMPLE_ID : 'Sample ID',
+			NUMBER : 'Number',
+			BED_NAME_INDEX : 'Bed name / index',
+		},
+		LOCATION : {
+			LOCATION : 'Location',
+			LOCALITY : 'Locality',
+			DEPTH_M : 'Depth (m)',
+			ADMIN_UNIT : 'Admin. unit',
+			STRATIGRAPHY : 'Stratigraphy',
+		},
+		ANALYSIS : {
+			PANEL_TITLE : 'Analysis',
+			TYPE : 'Type of analysis',
+			COMPONENT_ANALYZED : 'Component analysed',
+			CONTENT : 'Content',
+		},
+		INSTITUTIONS : 'Institutions',
+		TABLE : {
+			ID : 'ID',
+			SAMPLE_ID : 'Sample #',
+			LOCALITY : '@:SEARCH.LOCATION.LOCALITY',
+			DEPTH_M : '@:SEARCH.LOCATION.DEPTH_M',
+			STRATIGRAPHY : 'Stratigraphy',
+			LITHOSTRATIGRAPHY : 'Lithostratigraphy',
+			BED_ID : 'bed ID',
+			METHOD : 'Method',
+			LAB : 'Lab.',
 		}
 	}
 };
