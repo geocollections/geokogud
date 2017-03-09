@@ -290,4 +290,166 @@ angular.module('geoApp').directive('loading', function () {
             isOpened : '='
         }
     };
+}).directive('localityMap',
+    function () {
+        return {
+            scope: {
+                x: '=',
+                y: '=',
+                name: '=',
+                fid: '='
+            },
+            restrict: 'AE',
+            replace: true,
+            templateUrl: 'app/core/localityMap.html',
+            controller: ['$scope', function ($scope) {
+                var watcher = $scope.$watch('x', function() {
+                    if($scope.x === undefined) return;
+                    // at this point it is defined, map can be initialized
+                    init();
+                    // delete watcher if appropriate
+                    watcher();
+                });
+
+                var olMap;
+
+                function init()
+                {
+                    olMap = new ol.Map ({
+                        target: "map",
+                        layers: [
+                            /*
+                             new ol.layer.Tile({
+                             //source: new ol.source.Stamen({
+                             //layer: 'toner',
+                             //})
+                             source: new ol.source.OSM()
+                             }),*/
+
+                            new ol.layer.Tile({
+                                source: new ol.source.XYZ({
+                                    url: 'https://api.tiles.mapbox.com/v4/mapbox.light/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoia3V1dG9iaW5lIiwiYSI6ImNpZWlxdXAzcjAwM2Nzd204enJvN2NieXYifQ.tp6-mmPsr95hfIWu3ASz2w'
+                                })
+                            })
+                        ],
+                        controls: ol.control.defaults({
+                            attributionOptions: ({
+                                collapsible: true
+                            })
+                        }).extend([
+                            new ol.control.ScaleLine({units: "metric"}),
+                            new ol.control.FullScreen()
+                        ]),
+                        interactions: ol.interaction.defaults({mouseWheelZoom:false}),
+                        view: new ol.View({
+                            projection: "EPSG:3857",
+                            center: ol.proj.transform([$scope.y, $scope.x], 'EPSG:4326', 'EPSG:3857'),
+                            zoom: 6,
+                            maxZoom: 16,
+                            minZoom: 4,
+                            restrictedExtent: ol.proj.transformExtent([-10, 52, 2, 62], 'EPSG:4326', 'EPSG:3857')
+                        })
+                    });
+
+
+
+                    function defaultStyle(feature, resolution)
+                    {
+                        return [
+                            new ol.style.Style({
+                                image: new ol.style.Circle({
+                                    radius: feature.radius,
+                                    fill: new ol.style.Fill({ color: feature.fillColor, opacity: 0.8 }),
+                                    stroke: new ol.style.Stroke({color: feature.outlineColor, width: 1})
+                                }),
+                                text: (resolution > 5000 ? null : new ol.style.Text({
+                                    font: feature.fontSize + 'pt Arial, Helvetica, Helvetica Neue, Arial, sans-serif',
+                                    text: feature.label,
+                                    fill: new ol.style.Fill({ color: feature.textColor }),
+                                    stroke: new ol.style.Stroke({color: feature.textoutlineColor, width: 3}),
+                                    textAlign: 'left',
+                                    textBaseline: 'bottom',
+                                    offsetX: 5,
+                                    offsetY: -5,
+                                }))
+                            })
+                        ]
+                    };
+                    var vectorSource = new ol.source.Vector({
+                        //attributions: [new ol.Attribution({
+                        //	html: "Data from PA/Credit Suisse."})]
+                    });
+
+
+
+                    var centroidLL = ol.proj.transform([$scope.y, $scope.x], 'EPSG:4326', 'EPSG:3857');
+                    var centroidPoint = new ol.geom.Point(centroidLL);
+                    var feature = new ol.Feature({ geometry: centroidPoint });
+
+                    feature.name = $scope.name;
+                    feature.fid = $scope.fid;
+                    feature.numsamples = '0';
+                    feature.dec_time_str = '';
+                    feature.dec_time_num = 0.5;
+                    feature.elect_pc = 0.5;
+                    feature.yes_rating = 10;
+                    feature.radius = 7;
+                    feature.label = $scope.name;
+
+                    feature.fontSize = parseInt(feature.radius*0.7);
+                    if (feature.fontSize < 8)
+                    {
+                        feature.fontSize = 10;
+                    }
+
+                    //var r = 1-(feature.yes_rating/10.0);
+                    //var g = 0;
+                    //var b = 1-r;
+                    feature.fillColor = 'rgba(238,59,13,0.8)';
+                    feature.outlineColor = 'rgba(255,255,255,0.9)';
+                    feature.textColor  = 'rgba(238,59,13,1)';
+                    feature.textoutlineColor  = '#fff';
+                    vectorSource.addFeature(feature);
+
+                    var layerData = new ol.layer.Vector({
+                        title: "Localities",
+                        source: vectorSource,
+                        style: function(feature, resolution) { return defaultStyle(feature, resolution); }
+                    })
+
+                    olMap.addLayer(layerData);
+
+                    /*olMap.getViewport().addEventListener('mousemove', function(evt)
+                     {
+                     var pixel = olMap.getEventPixel(evt);
+                     displayFeatureInfo(pixel);
+                     });
+
+                     //olMap.on('click', function(evt) { displayFeatureInfo(evt.pixel); }); //Useful for touch-based viewing, e.g. on iPhone.
+                     olMap.on('click', function(evt) { openLoc(evt.pixel); });
+                     */
+                }
+
+
+
+                var openLoc = function(pixel) {
+
+                    var feature = olMap.forEachFeatureAtPixel(pixel, function(feature, layer) {
+                        return feature;
+                    });
+
+                    if (feature)
+                    {
+                        //window.location = '/locality/' + feature.fid;
+                        window.open('/locality/' + feature.fid, '', 'width=750,height=750,scrollbars, resizable');
+                    }
+                    else
+                    {
+                        document.getElementById('hoverbox').style.display = 'none';
+                    }
+                };
+
+            }]
+        }
 });
+
