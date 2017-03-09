@@ -1,6 +1,6 @@
 <div ng-controller="TooltipController" ng-show="!isMoreShown(construction.id)">{{getLess($index, construction.comment)}}
     <i id="popoverData" data-toggle="popover" data-html="true" data-content="
                 <i class='glyphicon glyphicon-remove popover-hide-button'></i>{{formatText(construction.comment)}}" rel="popover" data-placement="bottom" data-trigger="click">
-        <a href ng-show="isShowMore(construction.comment)">Näita rohkem</a></i>
+        <a href ng-show="isShowMore(construction.comment)">{{ 'SHOW_MORE' | translate }}</a></i>
 </div>
 <div ng-if="isMoreShown(construction.id)" style="word-break: break-all;">{{construction.comment}}</div>

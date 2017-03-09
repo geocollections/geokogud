@@ -82,7 +82,7 @@ footer img {
 	margin: 10px;
 }
 
-[ng\:cloak],[data-ng-cloak],[ng-cloak],.ng-cloak {
+[ng\:cloak], [data-ng-cloak], [ng-cloak], .ng-cloak {
 	display: none !important;
 }
 /* overrides of some OL styles */
@@ -172,4 +172,12 @@ body {
 
 #formcontainer {
 	padding: 5px;
+}
+
+.usingCollectionsContact {
+	margin-top: 10px;
+}
+
+.orgName {
+	font-weight: bold;
 }

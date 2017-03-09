@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ 'WEBSITE_TITLE' | translate }}</title>
+<title>Geocollections of Estonia</title>
 <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="css/bootstrap.custom.css">
 <link rel="stylesheet" href="lib/angular-notify/dist/angular-notify.css">
@@ -27,7 +27,7 @@
 			<div class="navbar-header col-lg-12">
 				<h1>
 					<a class="navbar-brand" id="navbarid" data-ui-sref="main"> {{
-						'GEOCOLLECTIONS_TITLE' | translate }}</a>
+						'INDEX.GEOCOLLECTIONS_TITLE' | translate }}</a>
 				</h1>
 			</div>
 			<div class="row text-center">
@@ -37,10 +37,10 @@
 						<div class="input-group input-group-lg">
 							<input type="text" class="form-control input-lg"
 								id="mainSearchInput"
-								placeholder="{{ 'SEARCH_FIELD_TEXT' | translate }}" name="q">
+								placeholder="{{ 'INDEX.SEARCH_FIELD_TEXT' | translate }}" name="q">
 							<div class="input-group-btn">
 								<a class="btn btn-default btn-lg btn-success" href="#"
-									role="button" id="mainSearchButton">{{ 'SEARCH_BUTTON_TEXT'
+									role="button" id="mainSearchButton">{{ 'INDEX.SEARCH_BUTTON_TEXT'
 									| translate }}</a>
 							</div>
 						</div>
@@ -64,15 +64,15 @@
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li data-ui-sref-active="active"><a data-ui-sref="main">{{
-							'ABOUT_LINK' | translate }}</a></li>
+							'INDEX.ABOUT_LINK' | translate }}</a></li>
 					<li href data-ui-sref-active="active"><a data-ui-sref="news">{{
-							'NEWS_LINK' | translate }}</a></li>
+							'INDEX.NEWS_LINK' | translate }}</a></li>
 					<li href data-ui-sref-active="active"><a data-ui-sref="search">{{
-							'SEARCH_LINK' | translate }}</a></li>
+							'INDEX.SEARCH_LINK' | translate }}</a></li>
 					<li href data-ui-sref-active="active"><a data-ui-sref="map">{{
-							'MAP_LINK' | translate }}</a></li>
+							'INDEX.MAP_LINK' | translate }}</a></li>
 					<li href><a data-ui-sref="usingCollection">{{
-							'USING_COLLECTIONS_LINK' | translate }}</a></li>
+							'INDEX.USING_COLLECTIONS_LINK' | translate }}</a></li>
 				</ul>
 
 
@@ -80,12 +80,12 @@
 					<li class="dropdown" id="links" uib-dropdown>
 						<a style="cursor: pointer"
 						   class="dropdown-toggle" uib-dropdown-toggle>
-							{{ 'FOR_DEVELOPERS_LINK' | translate }}<span class="caret"></span></a>
+							{{ 'INDEX.FOR_DEVELOPERS_LINK' | translate }}<span class="caret"></span></a>
 						<ul uib-dropdown-menu class="dropdown-menu" role="menu">
-							<li href><a data-ui-sref="database">{{ 'DATABASE_LINK' |
+							<li href><a data-ui-sref="database">{{ 'INDEX.DATABASE_LINK' |
 								translate }}</a></li>
 							<li><a href="{{config.apiUrl}}" target="_blank">{{
-								'PUBLIC_API_LINK' | translate }}</a></li>
+								'INDEX.PUBLIC_API_LINK' | translate }}</a></li>
 							<li><a href="{{config.githubUrl}}" target="_blank">GitHub</a></li>
 						</ul>
 					</li>
@@ -93,9 +93,9 @@
 				<div class="nav navbar-nav navbar-right margin-top-10">
 					<div ng-controller="Ctrl">
 						<button class="btn btn-default" id="resetSearchBtn" ng-click="changeLanguage('et')">{{
-							'BUTTON_LANG_ET' | translate }}</button>
+							'INDEX.BUTTON_LANG_ET' | translate }}</button>
 						<button class="btn btn-default" id="resetSearchBtn" ng-click="changeLanguage('en')">{{
-							'BUTTON_LANG_EN' | translate }}</button>
+							'INDEX.BUTTON_LANG_EN' | translate }}</button>
 					</div>
 				</div>
 			</div>
@@ -117,13 +117,13 @@
 			<div>
 				<p>
 					<img src="img/logos/cc.png" alt="cc" height="15">2008-2017.<span>
-						{{ 'SARV_CC' | translate }}</span>
+						{{ 'INDEX.SARV_CC' | translate }}</span>
 				</p>
 				<p>
-					<span>{{ 'FOOTER_MESSAGE' | translate }}</span>, olle.hints@ttu.ee
+					<span>{{ 'INDEX.FOOTER_MESSAGE' | translate }}</span>, olle.hints@ttu.ee
 				</p>
 				<p class="pull-right">
-					<a href="#">{{ 'BACK_TO_TOP' | translate }}</a>
+					<a href="#">{{ 'INDEX.BACK_TO_TOP' | translate }}</a>
 				</p>
 			</div>
 		</footer>
