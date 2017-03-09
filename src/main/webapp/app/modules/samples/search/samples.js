@@ -23,6 +23,7 @@ angular.module('search').controller('SearchSampleController', function($scope, S
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
             $scope.response = result;
+            $scope.getLocalities($scope.response.result);
         });
     };
 
@@ -64,6 +65,17 @@ angular.module('search').controller('SearchSampleController', function($scope, S
         $scope.sampleSearch.locality.name = item.locality;
     };
 
+    $scope.getLocalities = function(list) {
+        $scope.localities = [];
+        if(list){
+          angular.forEach(list, function (el) {
+              if(el.latitude != null && el.longitude != null  && el.localityEng != null  && el.locality != null  && el.localityId != null)
+                $scope.localities.push({latitude:el.latitude, longitude:el.longitude, localityEng : el.localityEng, localityEt:el.locality, fid:el.localityId})
+          })
+        }
+        return $scope.localities;
+    }
+
 
 }).controller('SampleController', function($scope, SearchService, $uibModal, $http,$stateParams){
     $scope.loadInfo = function() {
@@ -75,6 +87,5 @@ angular.module('search').controller('SearchSampleController', function($scope, S
             $scope.sample = "ehm, an error..";
         }
     };
-
     $scope.loadInfo();
 });

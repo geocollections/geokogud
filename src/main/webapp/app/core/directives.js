@@ -451,5 +451,173 @@ angular.module('geoApp').directive('loading', function () {
 
             }]
         }
-});
+}).directive('localitiesMap',
+    function () {
+        return {
+            scope: {
+                localities: '='
+            },
+            restrict: 'AE',
+            replace: true,
+            templateUrl: 'app/core/localitiesMap.html',
+            controller: ['$scope', function ($scope) {
+                console.log($scope)
+                var watcher = $scope.$watch('localities', function() {
+                    if($scope.localities === undefined) return;
 
+                    // at this point it is defined, map can be initialized
+                    init();
+                    // delete watcher if appropriate
+                    watcher();
+                });
+                //======================================================================
+                var olMap;
+
+                function init()
+                {
+                    olMap = new ol.Map ({
+                        target: "map",
+                        layers: [
+                            /*
+                             new ol.layer.Tile({
+                             //source: new ol.source.Stamen({
+                             //layer: 'toner',
+                             //})
+                             source: new ol.source.OSM()
+                             }),*/
+
+                            new ol.layer.Tile({
+                                source: new ol.source.XYZ({
+                                    url: 'https://api.tiles.mapbox.com/v4/mapbox.light/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoia3V1dG9iaW5lIiwiYSI6ImNpZWlxdXAzcjAwM2Nzd204enJvN2NieXYifQ.tp6-mmPsr95hfIWu3ASz2w'
+                                })
+                            })
+                        ],
+                        controls: ol.control.defaults({
+                            attributionOptions: ({
+                                collapsible: true
+                            })
+                        }).extend([
+                            new ol.control.ScaleLine({units: "metric"}),
+                            new ol.control.FullScreen()
+                        ]),
+                        view: new ol.View({
+                            projection: "EPSG:3857",
+                            center: ol.proj.transform([25.0, 58.4], 'EPSG:4326', 'EPSG:3857'),
+                            zoom: 6,
+                            maxZoom: 16,
+                            minZoom: 1,
+                            restrictedExtent: ol.proj.transformExtent([-10, 52, 2, 62], 'EPSG:4326', 'EPSG:3857')
+                        })
+                    });
+
+                    function defaultStyle(feature, resolution)
+                    {
+                        return [
+                            new ol.style.Style({
+                                image: new ol.style.Circle({
+                                    radius: 7,
+                                    fill: new ol.style.Fill({ color: 'rgba(236, 102, 37,0.7)', opacity: 0.8 }),
+                                    //stroke: new ol.style.Stroke({color: 'rgba(255,255,255,0)', width: 0})
+                                }),
+                                text: (resolution > 500 ? null : new ol.style.Text({
+                                    font: '10pt Arial, Helvetica, Helvetica Neue, Arial, sans-serif',
+                                    text: feature.name,
+                                    fill: new ol.style.Fill({ color: 'rgba(238,59,13,1)' }),
+                                    stroke: new ol.style.Stroke({color: '#fff', width: 3}),
+                                    textAlign: 'left',
+                                    textBaseline: 'bottom',
+                                    offsetX: 5,
+                                    offsetY: -5,
+                                }))
+                            })
+                        ]
+                    };
+
+                    var vectorSource = new ol.source.Vector({
+                        attributions: [new ol.Attribution({
+                            html: "Data from PA/Credit Suisse."})]
+                    });
+
+                    angular.forEach($scope.localities, function (locality) {
+                        var centroidLL = ol.proj.transform([locality.longitude, locality.latitude], 'EPSG:4326', 'EPSG:3857');
+                        var centroidPoint = new ol.geom.Point(centroidLL);
+                        var feature = new ol.Feature({ geometry: centroidPoint });
+                        feature.name = locality.localityEng;
+                        feature.fid = locality.fid;
+                        vectorSource.addFeature(feature);
+                    });
+                    var layerData = new ol.layer.Vector({
+                        title: "Localities",
+                        source: vectorSource,
+                        style: function(feature, resolution) { return defaultStyle(feature, resolution); }
+                    })
+
+                    olMap.addLayer(layerData);
+                    olMap.getViewport().addEventListener('mousemove', function(evt)
+                    {
+                        var pixel = olMap.getEventPixel(evt);
+                        //displayFeatureInfo(pixel); OLESJA
+                    });
+
+
+                    var extent = layerData.getSource().getExtent();
+                    olMap.getView().fit(extent, olMap.getSize());
+                    var zz = olMap.getView().getZoom();
+                    if(zz>9)
+                    {
+                        olMap.getView().setZoom(9);
+                    }
+
+                    //olMap.on('click', function(evt) { //displayFeatureInfo(evt.pixel); }); //Useful for touch-based viewing, e.g. on iPhone.
+                    olMap.on('click', function(evt) { openLoc(evt.pixel); });
+                }
+
+
+                /*
+                 var featureOverlay = new ol.FeatureOverlay({
+                 map: olMap,
+                 style: function(feature, resolution) { return defaultStyle(feature, resolution); }
+                 });
+                 */
+                var openLoc = function(pixel) {
+
+                    var feature = olMap.forEachFeatureAtPixel(pixel, function(feature, layer) {
+                        return feature;
+                    });
+
+                    if (feature)
+                    {
+                        //window.location = '/locality/' + feature.fid;
+                        window.open('/locality/' + feature.fid, '', 'width=750,height=750,scrollbars, resizable');
+                    }
+                    else
+                    {
+                        document.getElementById('hoverbox').style.display = 'none';
+                    }
+                };
+
+                //var highlight;
+                //COMMENTED by OLESJA IT is not working right now
+                var displayFeatureInfo = function(pixel) {
+
+                    var feature = olMap.forEachFeatureAtPixel(pixel, function(feature, layer) {
+                        return feature;
+                    });
+
+                    if (feature)
+
+                    {
+                        //
+                        document.getElementById('hoverbox').style.display = 'block';
+                        //console.log(feature.name);
+                        document.getElementById('hoversystem').innerHTML = feature.name;
+                        document.getElementById('hoverstat').innerHTML = "";
+                    } else {
+                        document.getElementById('hoverbox').style.display = 'none';
+                    }
+                };
+                //======================================================================
+
+            }]
+        }
+});
