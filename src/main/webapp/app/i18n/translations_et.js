@@ -112,6 +112,7 @@ var translations_et = {
 		NO_OF_RESULTS : 'Kokku',
 		SEND_QUERY : 'Saada päring',
 		RESET_FORM : 'Тühista',
+		INSTITUTIONS : 'Asutused',
 		ANALYSES : {
 			HEADING : 'Päring: Analüüsid',
 			HELP_POPUP : {
@@ -119,38 +120,37 @@ var translations_et = {
 				PARAGRAPH_TWO : 'Sisestage üks või mitu otsingukriteeriumit; NB! suur- ja väiketähti ei eristata; tekstiväljade puhul otsitakse vaikimisi vasteid, kus sisaldub otsingusõna (st. otsing \'asap\' leiab üles nii \'Asaphus sp.\' kui ka \'Asaphus expansus\'); klassifikatsiooni ja stratigraafia puhul toimib vaikimisi hierarhiline otsing, numbrite puhoul otsitakse täpset vastet, kui kasutaja ei määra teisiti;',
 				PARAGRAPH_THREE : 'Kaardi kuvamiseks märkige vastav linnuke;',
 				PARAGRAPH_FOUR : 'Detailsema infoni jõudmiseks kasutage otsingutulemuste tabelis esinevaid linke.'
+			},
+			IDENTIFIERS : {
+				IDENTIFIERS : 'Identifikaator',
+				SAMPLE_ID : 'Number',
+				NUMBER : 'Proov #',
+			// BED_NAME_INDEX : '',
+			},
+			LOCATION : {
+				LOCATION : 'Leiukoht',
+				LOCALITY : 'Leiukoht',
+				DEPTH_M : 'Sügavus (m)',
+				ADMIN_UNIT : 'Admin. üksus',
+				STRATIGRAPHY : 'Stratigraafia',
+			},
+			ANALYSIS : {
+				PANEL_TITLE : 'Analüüs',
+				TYPE : 'Analüüsi tüüp',
+				COMPONENT_ANALYZED : 'Analüüsitud komponent',
+				CONTENT : 'Komponendi sisaldus',
+			},
+			TABLE : {
+				ID : 'ID',
+				SAMPLE_ID : '@:SEARCH.ANALYSES.IDENTIFIERS.SAMPLE_ID',
+				LOCALITY : '@:SEARCH.ANALYSES.LOCATION.LOCALITY',
+				DEPTH_M : '@:SEARCH.ANALYSES.LOCATION.DEPTH_M',
+				STRATIGRAPHY : '@:SEARCH.ANALYSES.LOCATION.STRATIGRAPHY',
+				LITHOSTRATIGRAPHY : 'Litostratigraafia',
+				// BED_ID : '',
+				METHOD : 'Metoodika',
+			// LAB : '',
 			}
-		},
-		IDENTIFIERS : {
-			IDENTIFIERS : 'Identifikaator',
-			SAMPLE_ID : 'Number',
-			NUMBER : 'Proov #',
-		// BED_NAME_INDEX : '',
-		},
-		LOCATION : {
-			LOCATION : 'Leiukoht',
-			LOCALITY : 'Leiukoht',
-			DEPTH_M : 'Sügavus (m)',
-			ADMIN_UNIT : 'Admin. üksus',
-			STRATIGRAPHY : 'Stratigraafia',
-		},
-		ANALYSIS : {
-			PANEL_TITLE : 'Analüüs',
-			TYPE : 'Analüüsi tüüp',
-			COMPONENT_ANALYZED : 'Analüüsitud komponent',
-			CONTENT : 'Komponendi sisaldus',
-		},
-		INSTITUTIONS : 'Asutused',
-		TABLE : {
-			ID : 'ID',
-			SAMPLE_ID : 'ID',
-			LOCALITY : '@:SEARCH.LOCATION.LOCALITY',
-			DEPTH_M : '@:SEARCH.LOCATION.DEPTH_M',
-			STRATIGRAPHY : 'Stratigraafia',
-			LITHOSTRATIGRAPHY : 'Litostratigraafia',
-//			BED_ID : '',
-			METHOD : 'Metoodika',
-//			LAB : '',
 		}
 	}
 };

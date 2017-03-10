@@ -112,6 +112,7 @@ var translations_en = {
 		NO_OF_RESULTS : 'Number of results',
 		SEND_QUERY : 'Send query',
 		RESET_FORM : 'Reset form',
+		INSTITUTIONS : 'Institutions',
 		ANALYSES : {
 			HEADING : 'Search: Analyses',
 			HELP_POPUP : {
@@ -119,38 +120,37 @@ var translations_en = {
 				PARAGRAPH_TWO : 'Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search \'asap\' in specimen name field will find \'Asaphus sp.\' as well as \'Asaphus expansus\'); for stratigraphy and classification the search is hierarchical by default, for number fields exact maches will be searched if user does not specify otherwise;',
 				PARAGRAPH_THREE : 'To show a map where available, tick the appropriate checkbox;',
 				PARAGRAPH_FOUR : 'To show detailed information follow the links in the results table.',
-			}
-		},
-		IDENTIFIERS : {
-			IDENTIFIERS : 'Identifiers',
-			SAMPLE_ID : 'Sample ID',
-			NUMBER : 'Number',
-			BED_NAME_INDEX : 'Bed name / index',
-		},
-		LOCATION : {
-			LOCATION : 'Location',
-			LOCALITY : 'Locality',
-			DEPTH_M : 'Depth (m)',
-			ADMIN_UNIT : 'Admin. unit',
-			STRATIGRAPHY : 'Stratigraphy',
-		},
-		ANALYSIS : {
-			PANEL_TITLE : 'Analysis',
-			TYPE : 'Type of analysis',
-			COMPONENT_ANALYZED : 'Component analysed',
-			CONTENT : 'Content',
-		},
-		INSTITUTIONS : 'Institutions',
-		TABLE : {
-			ID : 'ID',
-			SAMPLE_ID : 'Sample #',
-			LOCALITY : '@:SEARCH.LOCATION.LOCALITY',
-			DEPTH_M : '@:SEARCH.LOCATION.DEPTH_M',
-			STRATIGRAPHY : 'Stratigraphy',
-			LITHOSTRATIGRAPHY : 'Lithostratigraphy',
-			BED_ID : 'bed ID',
-			METHOD : 'Method',
-			LAB : 'Lab.',
+			},
+			IDENTIFIERS : {
+				IDENTIFIERS : 'Identifiers',
+				SAMPLE_ID : 'Sample ID',
+				NUMBER : 'Number',
+				BED_NAME_INDEX : 'Bed name / index',
+			},
+			LOCATION : {
+				LOCATION : 'Location',
+				LOCALITY : 'Locality',
+				DEPTH_M : 'Depth (m)',
+				ADMIN_UNIT : 'Admin. unit',
+				STRATIGRAPHY : 'Stratigraphy',
+			},
+			ANALYSIS : {
+				PANEL_TITLE : 'Analysis',
+				TYPE : 'Type of analysis',
+				COMPONENT_ANALYZED : 'Component analysed',
+				CONTENT : 'Content',
+			},
+			TABLE : {
+				ID : 'ID',
+				SAMPLE_ID : 'Sample #',
+				LOCALITY : '@:SEARCH.ANALYSES.LOCATION.LOCALITY',
+				DEPTH_M : '@:SEARCH.ANALYSES.LOCATION.DEPTH_M',
+				STRATIGRAPHY : '@:SEARCH.ANALYSES.LOCATION.STRATIGRAPHY',
+				LITHOSTRATIGRAPHY : 'Lithostratigraphy',
+				BED_ID : 'bed ID',
+				METHOD : 'Method',
+				LAB : 'Lab.',
+			},
 		}
 	}
 };
