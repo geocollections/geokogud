@@ -16,11 +16,11 @@
     "tests"
   ],
   "dependencies": {
-    "angular": ">=1.6.*",
+    "angular": "1.6.3",
     "angular-bootstrap": "2.5.0",
-    "angular-resource": ">=1.4.*",
-    "angular-ui-router": "^0.4.2",
-    "angular-animate":">=1.6.*",
+    "angular-resource": "1.6.3",
+    "angular-ui-router": "0.4.2",
+    "angular-animate":"1.6.3",
     "bootstrap": "3.3.7",
     "jquery": "3.1.0",
     "moment": "~2.10.6",
@@ -29,11 +29,11 @@
     "angular-translate": "^2.15.0",
     "angular-translate-storage-cookie": "^2.15.0",
     "angular-translate-storage-local": "^2.15.0",
-    "angular-cookies": "^1.6.2",
+    "angular-cookies": "1.6.1",
     "angular-bootstrap-multiselect": "^0.4.0",
     "ng-confirm": "angular-confirm#^1.1.0",
     "angular-confirm-modal": "^1.2.6",
-    "angular-i18n": "^1.6.2",
+    "angular-i18n": "1.6.3",
     "bootstrap-file-input": "^1.0.0",
     "notify": "^0.0.1",
     "openlayers3": "^3.0.0",
@@ -42,11 +42,11 @@
     "select2": "^4.0.3",
     "angular-notify": "^2.5.1",
     "ol3-layerswitcher": "^1.1.0",
-    "angular-route": "1.6.2"
+    "angular-route": "1.6.3"
   },
   "resolutions": {
     "jquery": "3.1.0",
-    "angular": ">=1.6.*",
+    "angular": "1.6.3",
     "select2": "^4.0.3"
   }
 }
