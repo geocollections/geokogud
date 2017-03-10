@@ -10,6 +10,7 @@ angular.module('search').controller('SearchSoilController', function($scope, Soi
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
             $scope.response = result;
+            console.log($scope.response);
         });
     };
 });

@@ -8,12 +8,12 @@ public class SoilSearchCriteria {
     private SortField sortField;
 
     private SearchField id;
-    private SearchField locality;
+    private SearchField site;
     private SearchField areaOfStudy;
     private SearchField transect;
     private SearchField soilName;
     private SearchField landUse;
-    private boolean deepMining;
+    private Boolean deepMining;
 
     public SearchField getId() {
         return id;
@@ -23,12 +23,12 @@ public class SoilSearchCriteria {
         this.id = id;
     }
 
-    public SearchField getLocality() {
-        return locality;
+    public SearchField getSite() {
+        return site;
     }
 
-    public void setLocality(SearchField locality) {
-        this.locality = locality;
+    public void setSite(SearchField site) {
+        this.site = site;
     }
 
     public SearchField getAreaOfStudy() {
@@ -63,11 +63,11 @@ public class SoilSearchCriteria {
         this.landUse = landUse;
     }
 
-    public boolean isDeepMining() {
+    public Boolean getDeepMining() {
         return deepMining;
     }
 
-    public void setDeepMining(boolean deepMining) {
+    public void setDeepMining(Boolean deepMining) {
         this.deepMining = deepMining;
     }
 

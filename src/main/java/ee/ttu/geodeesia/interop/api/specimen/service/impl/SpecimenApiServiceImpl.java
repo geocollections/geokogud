@@ -28,8 +28,8 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
     @Override
     public Response findSpecimen(SpecimenSearchCriteria searchCriteria) {
         String requestParams = FluentGeoApiBuilder.aRequest()
-                .withId(searchCriteria.getId())
-                .withSpecimenNumber(searchCriteria.getSpecimenNumber())
+                .queryId(searchCriteria.getId())
+                .querySpecimenNumber(searchCriteria.getSpecimenNumber())
                 .build();
         String url = apiUrl + "/" + "specimen/" + "?paginate_by=" + 30 + "&page=" + searchCriteria.getPage()
                 + "&format=" + "json" + requestParams;

@@ -4,20 +4,29 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ee.ttu.geodeesia.search.domain.Coordinates;
 
+import java.math.BigDecimal;
+
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SoilApiResponse {
-    @JsonProperty("id")
     private Long id;
-    private String locality;
+    private String site;
     private String areaOfStudy;
-    private String pointOnTransect;
-    @JsonProperty("soil")
-    private String soilName;
-    @JsonProperty("land_use")
+    private String transect;
+    private String transectPoint;
+    private String soil;
     private String landUse;
-    private Coordinates coordinates;
-    private boolean deepMining;
+    private BigDecimal latitude;
+    private BigDecimal longitude;
+    private boolean deep;
+
+    public String getTransect() {
+        return transect;
+    }
+
+    public void setTransect(String transect) {
+        this.transect = transect;
+    }
 
     public Long getId() {
         return id;
@@ -27,59 +36,75 @@ public class SoilApiResponse {
         this.id = id;
     }
 
-    public String getLocality() {
-        return locality;
+    public String getSite() {
+        return site;
     }
 
-    public void setLocality(String locality) {
-        this.locality = locality;
+    public void setSite(String site) {
+        this.site = site;
     }
 
+    @JsonProperty("areaOfStudy")
     public String getAreaOfStudy() {
         return areaOfStudy;
     }
 
+    @JsonProperty("area_name")
     public void setAreaOfStudy(String areaOfStudy) {
         this.areaOfStudy = areaOfStudy;
     }
 
-    public String getPointOnTransect() {
-        return pointOnTransect;
+    @JsonProperty("transectPoint")
+    public String getTransectPoint() {
+        return transectPoint;
     }
 
-    public void setPointOnTransect(String pointOnTransect) {
-        this.pointOnTransect = pointOnTransect;
+    @JsonProperty("transect_point")
+    public void setTransectPoint(String transectPoint) {
+        this.transectPoint = transectPoint;
     }
 
-    public String getSoilName() {
-        return soilName;
+    public String getSoil() {
+        return soil;
     }
 
-    public void setSoilName(String soilName) {
-        this.soilName = soilName;
+    public void setSoil(String soil) {
+        this.soil = soil;
     }
 
+    @JsonProperty("landUse")
     public String getLandUse() {
         return landUse;
     }
 
+    @JsonProperty("land_use")
     public void setLandUse(String landUse) {
         this.landUse = landUse;
     }
 
-    public Coordinates getCoordinates() {
-        return coordinates;
+    public BigDecimal getLatitude() {
+        return latitude;
     }
 
-    public void setCoordinates(Coordinates coordinates) {
-        this.coordinates = coordinates;
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
     }
 
-    public boolean isDeepMining() {
-        return deepMining;
+    public BigDecimal getLongitude() {
+        return longitude;
     }
 
-    public void setDeepMining(boolean deepMining) {
-        this.deepMining = deepMining;
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
+    }
+
+    @JsonProperty("isDeep")
+    public boolean isDeep() {
+        return deep;
+    }
+
+    @JsonProperty("is_deep")
+    public void setDeep(boolean deep) {
+        this.deep = deep;
     }
 }

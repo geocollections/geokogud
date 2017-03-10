@@ -17,12 +17,12 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Locality</label>
+                    <label class="control-label col-md-2">Site</label>
                     <div class="col-md-3">
-                        <selectdefault ng-model = "searchParameters.locality.lookUpType"></selectdefault>
+                        <selectdefault ng-model = "searchParameters.site.lookUpType"></selectdefault>
                     </div>
                     <div class="col-md-7">
-                        <input type="text" ng-model="searchParameters.locality.name" class="form-control"/>
+                        <input type="text" ng-model="searchParameters.site.name" class="form-control"/>
                     </div>
                 </div>
                 <div class="row">
@@ -117,34 +117,34 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Locality</th>
-                        <th>The study area</th>
+                        <th>Site</th>
+                        <th>Area of study</th>
                         <th>Transect</th>
                         <th>Point on the transect</th>
                         <th>Soil name</th>
-                        <th>Soil tenure</th>
+                        <th>Land use</th>
                         <th>Lat.</th>
                         <th>Lon.</th>
-                        <th>Well</th>
+                        <th>Is deep mining</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr style="cursor: pointer; " data-ng-repeat="entity in response.result">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{entity.id}}</td>
+                        <td>{{entity.site}}</td>
+                        <td>{{entity.areaOfStudy}}</td>
+                        <td>{{entity.transect}}</td>
+                        <td>{{entity.transectPoint}}</td>
+                        <td>{{entity.soil}}</td>
+                        <td>{{entity.landUse}}</td>
+                        <td>{{entity.latitude}}</td>
+                        <td>{{entity.longitude}}</td>
+                        <td>{{entity.isDeep}}</td>
                     </tr>
                     </tbody>
                 </table>
                 <div class="text-right">
-                    <ul uib-pagination boundary-links="true" ng-change="searchByPage()" items-per-page="pageSize" max-size="maxSize" rotate="false" total-items="totalItems" ng-model="pageNum" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize" max-size="maxSize" rotate="false" total-items="totalItems" ng-model="searchParameters.page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
                 </div>
             </div>
         </div>
