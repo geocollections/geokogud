@@ -6,12 +6,14 @@ http://geocollections.arendus.geokogud.info/
 
 ### Installing
 
-To install
+Install all libraries:
 
 ```
 bower install
 ```
-then run
+Run:
 ```
-http://localhost:8081
+gradle bootRun
 ```
+
+Go to http://localhost:8081 to see the result.
