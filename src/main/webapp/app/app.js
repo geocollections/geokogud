@@ -120,6 +120,14 @@ angular.module('geoApp').run(['$http', '$rootScope', '$state', '$stateParams',
         window.open('/#/'+params.object+'/' + params.id, '', 'width=750,height=750,scrollbars, resizable');
     };
 
+    $rootScope.showGoogleMap = function(lat, lon, localityName) {
+        window.open('http://maps.google.com/?q='+lat+','+lon+' ('+localityName+')', '', 'width=750,height=540,scrollbars, resizable');
+    };
+
+    $rootScope.showEstonianLandBoardMap = function(lat,lon) {
+        window.open('http://geoportaal.maaamet.ee/url/xgis-latlon.php?lat='+lat+'&amp;lon='+lon+'&amp;out=xgis&amp;app_id=UU82', '', 'width=900,height=600,scrollbars, resizable');
+    }
+
     $rootScope.currentUser = {};
     $rootScope.preventionYearOption = {};
     $rootScope.$state = $state;
@@ -171,6 +179,8 @@ angular.module('geoApp').run(['$http', '$rootScope', '$state', '$stateParams',
     $rootScope.renderHtml = function(text) {
         return $sce.trustAsHtml(text);
     };
+
+
 
     $rootScope.loadTextModal = function (respond,callback) {
         $uibModal.open({
