@@ -29,7 +29,7 @@
     "angular-translate": "^2.15.0",
     "angular-translate-storage-cookie": "^2.15.0",
     "angular-translate-storage-local": "^2.15.0",
-    "angular-cookies": "1.6.1",
+    "angular-cookies": "1.6.3",
     "angular-bootstrap-multiselect": "^0.4.0",
     "ng-confirm": "angular-confirm#^1.1.0",
     "angular-confirm-modal": "^1.2.6",
