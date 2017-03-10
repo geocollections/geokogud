@@ -134,7 +134,7 @@
                 <div class="row margin-top-10">
                     <div class="panel-heading searchGroupHeading" ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
                         <h4 class="panel-title">
-                            {{ 'SEARCH.IDENTIFIERS'| translate }}
+                            {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
                             <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
                         </h4>
                     </div>
@@ -142,7 +142,7 @@
                         <div class="well well-lg">
                             <div class="row searchCriterion">
                                 <div class="col-md-12 searchCriterionTitle medium-padding">
-                                    <b>{{ 'SEARCH.IDENTIFIERS.SAMPLE_ID'| translate }}</b>
+                                    <b>{{ 'SEARCH.ANALYSES.IDENTIFIERS.SAMPLE_ID'| translate }}</b>
                                     <selectexact custom-css="searchCriterionType" ng-model="analysesSearch.id.type"/>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -151,7 +151,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.IDENTIFIERS.NUMBER'| translate }}</b>
+                                    <b>{{ 'SEARCH.ANALYSES.IDENTIFIERS.NUMBER'| translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model="analysesSearch.number.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -160,7 +160,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.IDENTIFIERS.BED_NAME_INDEX'| translate }}</b>
+                                    <b>{{ 'SEARCH.ANALYSES.IDENTIFIERS.BED_NAME_INDEX'| translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model="analysesSearch.bedIndex.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -174,7 +174,7 @@
                 <div class="row">
                     <div class="panel-heading searchGroupHeading" ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
                         <h4 class="panel-title">
-                            {{ 'SEARCH.LOCATION.LOCATION'| translate }}
+                            {{ 'SEARCH.ANALYSES.LOCATION.LOCATION'| translate }}
                             <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
                         </h4>
                     </div>
@@ -182,7 +182,7 @@
                         <div class="well well-lg">
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.LOCATION.LOCALITY'| translate }}</b>
+                                    <b>{{ 'SEARCH.ANALYSES.LOCATION.LOCALITY'| translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model="analysesSearch.locality.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -191,7 +191,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.LOCATION.ADMIN_UNIT'| translate }}</b>
+                                    <b>{{ 'SEARCH.ANALYSES.LOCATION.ADMIN_UNIT'| translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model="analysesSearch.adminunit.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -200,7 +200,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.LOCATION.DEPTH_M'| translate }}</b>
+                                    <b>{{ 'SEARCH.ANALYSES.LOCATION.DEPTH_M'| translate }}</b>
                                     <selectexact custom-css="searchCriterionType" ng-model="analysesSearch.depth.type"></selectexact>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -209,7 +209,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.LOCATION.STRATIGRAPHY'| translate }}</b>
+                                    <b>{{ 'SEARCH.ANALYSES.LOCATION.STRATIGRAPHY'| translate }}</b>
                                     <selecthierarchy custom-css="searchCriterionType" ng-model="analysesSearch.stratigraphy.type"></selecthierarchy>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -223,7 +223,7 @@
                 <div class="row">
                     <div class="panel-heading searchGroupHeading" ng-click="isAnalysesFieldsCollapsed = !isAnalysesFieldsCollapsed">
                         <h4 class="panel-title">
-                            {{ 'SEARCH.ANALYSIS.PANEL_TITLE'| translate }}
+                            {{ 'SEARCH.ANALYSES.ANALYSIS.PANEL_TITLE'| translate }}
                             <section-opened-icon is-opened="isAnalysesFieldsCollapsed"/>
                         </h4>
                     </div>
@@ -231,7 +231,7 @@
                         <div class="well well-lg">
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.ANALYSIS.TYPE'| translate }}</b>
+                                    <b>{{ 'SEARCH.ANALYSES.ANALYSIS.TYPE'| translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model="analysesSearch.analysisType.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -240,7 +240,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.ANALYSIS.COMPONENT_ANALYZED'| translate }}</b>
+                                    <b>{{ 'SEARCH.ANALYSES.ANALYSIS.COMPONENT_ANALYZED'| translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model="analysesSearch.componentAnalysed.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -249,7 +249,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.ANALYSIS.CONTENT'| translate }}</b>
+                                    <b>{{ 'SEARCH.ANALYSES.ANALYSIS.CONTENT'| translate }}</b>
                                     <selectexact custom-css="searchCriterionType" ng-model="analysesSearch.content.type"></selectexact>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -298,23 +298,23 @@
                     <thead>
                     <tr>
                         <th>
-                            <a href style="cursor: pointer" data-ng-click="order('id')"><span>{{ 'SEARCH.TABLE.ID'| translate }}</span>
+                            <a href style="cursor: pointer" data-ng-click="order('id')"><span>{{ 'SEARCH.ANALYSES.TABLE.ID'| translate }}</span>
                                 <span data-ng-show="sampleSearch.orderBy == 'id' && sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-bottom"></span>
                                 <span data-ng-show="sampleSearch.orderBy == 'id' && !sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-top"></span>
                             </a>
                         </th>
                         <th>
-                            <a href style="cursor: pointer" data-ng-click="order('sample')">{{ 'SEARCH.TABLE.SAMPLE_ID'| translate }}
+                            <a href style="cursor: pointer" data-ng-click="order('sample')">{{ 'SEARCH.ANALYSES.TABLE.SAMPLE_ID'| translate }}
                                 <span data-ng-show="sampleSearch.orderBy == 'sample' && sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-bottom"></span>
                                 <span data-ng-show="sampleSearch.orderBy == 'sample' && !sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-top"></span>
                             </a>
                         </th>
-                        <th>{{ 'SEARCH.TABLE.LOCALITY'| translate }}</th>
-                        <th>{{ 'SEARCH.TABLE.DEPTH_M'| translate }}</th>
-                        <th><span>{{ 'SEARCH.TABLE.STRATIGRAPHY' | translate }}</span> | <span>{{ 'SEARCH.TABLE.LITHOSTRATIGRAPHY' | translate }}</span></th>
-                        <th>{{ 'SEARCH.TABLE.BED_ID'| translate }}</th>
-                        <th>{{ 'SEARCH.TABLE.METHOD'| translate }}</th>
-                        <th>{{ 'SEARCH.TABLE.LAB'| translate }}</th>
+                        <th>{{ 'SEARCH.ANALYSES.TABLE.LOCALITY'| translate }}</th>
+                        <th>{{ 'SEARCH.ANALYSES.TABLE.DEPTH_M'| translate }}</th>
+                        <th><span>{{ 'SEARCH.ANALYSES.TABLE.STRATIGRAPHY' | translate }}</span> | <span>{{ 'SEARCH.ANALYSES.TABLE.LITHOSTRATIGRAPHY' | translate }}</span></th>
+                        <th>{{ 'SEARCH.ANALYSES.TABLE.BED_ID'| translate }}</th>
+                        <th>{{ 'SEARCH.ANALYSES.TABLE.METHOD'| translate }}</th>
+                        <th>{{ 'SEARCH.ANALYSES.TABLE.LAB'| translate }}</th>
                     </tr>
                     </thead>
                     <tbody>
