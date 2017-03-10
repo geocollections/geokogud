@@ -1,3 +1,8 @@
+<script type="text/ng-template" id="doiSearchHelp">
+    <div class="search-help-popup">
+        <p>DOI IDENTIFIERS DOI identifiers are used to create permanent links to various digital objects, such as research datasets or publications. For more information about DOIs and research data see DataCite portal. As of 2014 the Estonian geocollections information system SARV is part of DataCite Estonia consortium (datacite.utlib.ee) and acts as data depository for Earth Science research data in Estonia. To find particular digital object registered in SARV, and download datasets, specify one or more criteria and then click on DOI number for full details. For global DOI resolving use doi.org. Küsimuste korral võta ühendust: Olle Hints, TTÜ Geoloogia Instituut (olle.hints@ttu.ee)</p>
+    </div>
+</script>
 <div class="panel panel-default">
     <div class="panel-body">
         <div class="row">
@@ -6,116 +11,147 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <div class="row">
-                    <label class="control-label col-md-2">DOI</label>
-                    <div class="col-md-3">
-                        <selectdefault ng-model = "doiSearch.doi.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="doiSearch.doi.name" class="form-control"/>
-                    </div>
+            <div class="col-lg-3">
+                <div class="row margin-top-10 margin-left-0">
+                    <button class="btn btn-info btn-secondary secondary-search-btn" id="secondarySearchBtn" data-ng-click="search()">
+                        <i class="glyphicon glyphicon-search"></i> {{ 'SEARCH.SEND_QUERY'| translate }}
+                    </button>
+                    <button class="btn btn-default btn-secondary reset-search-btn noBorderRadiusBtn" data-ng-click="searchDefault()">
+                        <i class="glyphicon glyphicon-erase"></i>{{ 'SEARCH.RESET_FORM'| translate }}
+                    </button>
+                    <button uib-popover-template="'doiSearchHelp'"
+                            popover-trigger="'focus'"
+                            popover-placement="'right-bottom'"
+                            popover-title="Search tips"
+                            type="button"
+                            class="btn btn-default noBorderRadiusBtn">
+                        <i class="glyphicon glyphicon-question-sign"></i>
+                    </button>
                 </div>
-                <div class="row">
-                    <label class="control-label col-md-2">Title</label>
-                    <div class="col-md-3">
-                        <selectdefault ng-model = "doiSearch.title.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="doiSearch.title.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="control-label col-md-2">Published by</label>
-                    <div class="col-md-3">
-                        <selectdefault ng-model = "doiSearch.publishedby.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="doiSearch.publishedby.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="control-label col-md-2">Year</label>
-                    <div class="col-md-3">
-                        <selectdefault ng-model = "doiSearch.year.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="doiSearch.year.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="control-label col-md-2">Author</label>
-                    <div class="col-md-3">
-                        <selectdefault ng-model = "doiSearch.author.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="doiSearch.author.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row" data-ng-if="showAdditionalCriteria">
-                    <label class="control-label col-md-2">Abstract</label>
-                    <div class="col-md-3">
-                        <selectdefault ng-model = "doiSearch.abstract.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="doiSearch.abstract.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">Show additional criteria</a>
-                    <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">Hide additional criteria</a>
-                </div>
-                <div class="row">
-                    <label class="col-md-2">Institutions:</label>
-                    <label data-ng-repeat="state in departments"><input style="margin: 10px;" type="checkbox" value="{{state.code}}" data-ng-checked="specimensSearch.dbs.indexOf(state.code) > -1" data-ng-click="toggle(state.code)"> {{state.label}} </label>
-                </div>
-                <div class="row">
-                    <label class="control-label col-md-2">Sort by:</label>
-                    <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="doiSearch.content.lookUpType"
-                                data-ng-options="option.name for option in sortbyOptions track by option.value">
-                            <option value="">-- Choose --</option>
-                        </select>
-                    </div>
-                    <div class="col-md-5">
-                        <ascdesc></ascdesc>
-                    </div>
+                <div class="row margin-top-10" >
                     <div class="row">
-                        <div class="col-md-5">
+                        <div class="checkbox">
                             <label>
-                                Show map: <input type="checkbox" ng-model="showMap"/>
+                                <input type="checkbox"
+                                       value="showMap"
+                                       data-ng-click="showMap()">
+                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                Show map
                             </label>
                         </div>
                     </div>
-                    <div class="row geo-section-row no-border">
-                        <button class="btn btn-default pull-right" data-ng-click="defaultSearch()"><i class="glyphicon glyphicon-erase"></i> Reset form</button>
-                        <button class="btn btn-default pull-right" data-ng-click="imageSearch()"><i class="glyphicon glyphicon-picture"></i> Search images</button>
-                        <button class="btn btn-default pull-right" data-ng-click="search()">
-                            <i class="glyphicon glyphicon-search"></i> Send query</button>
+                </div>
+
+                <div class="row" >
+                    <div class="panel-heading searchGroupHeading" ng-click="isInstitutionsCollapsed = !isInstitutionsCollapsed">
+                        <h4 class="panel-title">
+                            {{ 'SEARCH.INSTITUTIONS'| translate }}
+                            <section-opened-icon is-opened="isInstitutionsCollapsed"/>
+                        </h4>
+                    </div>
+                    <div uib-collapse="isInstitutionsCollapsed" class="well well-lg">
+                        <div class="row searchCriterion">
+                            <div class="checkbox" data-ng-repeat="state in departments">
+                                <label>
+                                    <input type="checkbox"
+                                           value="{{state.code}}"
+                                           data-ng-checked="searchParameters.dbs.indexOf(state.code) > -1"
+                                           data-ng-click="toggle(state.code)">
+                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                    {{state.label}}
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-5">
-                DOI IDENTIFIERS
-
-                DOI identifiers are used to create permanent links to various digital objects, such as research datasets or publications. For more information about DOIs and research data see DataCite portal.
-                As of 2014 the Estonian geocollections information system SARV is part of DataCite Estonia consortium (datacite.utlib.ee) and acts as data depository for Earth Science research data in Estonia.
-                To find particular digital object registered in SARV, and download datasets, specify one or more criteria and then click on DOI number for full details. For global DOI resolving use doi.org.
-                Küsimuste korral võta ühendust: Olle Hints, TTÜ Geoloogia Instituut (olle.hints@ttu.ee)
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="row geo-list-info ">
-                    <div class="col-md-6 text-right">
-                        <p class="amount">Kokku: {{response.count}}</p>
+                <div class="row" >
+                    <div class="panel-heading searchGroupHeading" ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
+                        <h4 class="panel-title">
+                            Fields
+                            <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
+                        </h4>
                     </div>
+                    <div uib-collapse="isIdentifierFieldsCollapsed">
+                        <div class="well well-lg">
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 searchCriterionTitle medium-padding">
+                                    <b>DOI</b>
+                                    <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.doi.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.doi.name" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>Title</b>
+                                    <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.title.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.title.name" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>Published by</b>
+                                    <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.publishedBy.type"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.publishedBy.value" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>Year</b>
+                                    <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.year.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.year.name" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>Author</b>
+                                    <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.author.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.author.name" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>Abstract</b>
+                                    <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.abstract.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.abstract.name" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-9">
+                <div class="row geo-list-info ">
+                    <div class="text-center">
+                        <p class="amount"><span>{{ 'SEARCH.NO_OF_RESULTS'| translate }}</span>: {{response.count}}</p>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize" max-size="searchParameters.maxSize" rotate="false"
+                        total-items="totalItems" ng-model="searchParameters.page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;"
+                        first-text="&laquo;" last-text="&raquo;"></ul>
                 </div>
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>DOI</th>
+                        <th>
+                            <a href style="cursor: pointer" data-ng-click="order('id')"><span>DOI</span>
+                                <span data-ng-show="searchParameters.orderBy == 'id' && searchParameters.sortField.sortBy" class="glyphicon glyphicon-triangle-bottom"></span>
+                                <span data-ng-show="searchParameters.orderBy == 'id' && !searchParameters.sortField.sortBy" class="glyphicon glyphicon-triangle-top"></span>
+                            </a>
+                        </th>
                         <th>Author</th>
                         <th>Year</th>
                         <th>Title</th>
@@ -125,19 +161,23 @@
                     </thead>
                     <tbody>
                     <tr style="cursor: pointer; " data-ng-repeat="entity in response.results">
+                        <td>{{entity.fileName}}</td>
+                        <td>{{entity.authorAgent}}</td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{entity.dateTaken}}</td>
                     </tr>
                     </tbody>
                 </table>
-                <div class="text-right">
-                    <ul uib-pagination boundary-links="true" ng-change="searchByPage()" items-per-page="pageSize" max-size="maxSize" rotate="false" total-items="totalItems" ng-model="pageNum" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+                <div class="text-center">
+                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize" max-size="searchParameters.maxSize" rotate="false"
+                        total-items="totalItems" ng-model="searchParameters.page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;"
+                        first-text="&laquo;" last-text="&raquo;"></ul>
                 </div>
             </div>
+        </div>
+
         </div>
     </div>
 </div>

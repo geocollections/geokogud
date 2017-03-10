@@ -16,6 +16,11 @@ public class FluentGeoApiBuilder {
     private static final String LATITUDE = "latitude";
     private static final String LONGITUDE = "longitude";
 
+    private static final String DOI = "doi";
+    private static final String FILE_NAME = "filename";
+    private static final String DATE_TAKEN = "date_taken";
+    private static final String AUTHOR_AGENT = "author__agent";
+
     private String query = StringUtils.EMPTY;
     private String returnFields = StringUtils.EMPTY;
     private String lastQueryField = StringUtils.EMPTY;
@@ -68,6 +73,25 @@ public class FluentGeoApiBuilder {
             query += "&" + IS_DEEP + "=" + isDeep;
             lastQueryField = IS_DEEP;
         }
+        return this;
+    }
+
+    public FluentGeoApiBuilder queryDoi(SearchField id) {
+        query += buildFieldParameters(DOI, id);
+        return this;
+    }
+    public FluentGeoApiBuilder queryFileName(SearchField id) {
+        query += buildFieldParameters(FILE_NAME, id);
+        return this;
+    }
+
+    public FluentGeoApiBuilder queryDateTaken(SearchField id) {
+        query += buildFieldParameters(DATE_TAKEN, id);
+        return this;
+    }
+
+    public FluentGeoApiBuilder queryAuthorAgent(SearchField id) {
+        query += buildFieldParameters(AUTHOR_AGENT, id);
         return this;
     }
 

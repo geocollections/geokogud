@@ -13,4 +13,5 @@ angular.module('search').controller('SearchSoilController', function($scope, Soi
             console.log($scope.response);
         });
     };
+    $scope.search();
 });

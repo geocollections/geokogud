@@ -3,6 +3,8 @@ package ee.ttu.geodeesia.search.controller;
 import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.NewVersionOfApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.Response;
+import ee.ttu.geodeesia.interop.api.doi.pojo.DoiSearchCriteria;
+import ee.ttu.geodeesia.interop.api.doi.service.DoiApiService;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilSearchCriteria;
 import ee.ttu.geodeesia.interop.api.soil.service.SoilApiService;
@@ -27,6 +29,8 @@ public class SearchController {
     private TaxonApiService taxonApiService;
     @Autowired
     private SoilApiService soilApiService;
+    @Autowired
+    private DoiApiService doiApiService;
     @Autowired
     private SpecimenApiService specimenApiService;
 
@@ -59,6 +63,11 @@ public class SearchController {
     @RequestMapping(value = "/soil", method = RequestMethod.POST)
     public Response searchSoil(@RequestBody SoilSearchCriteria searchCriteria) {
         return soilApiService.findSoil(searchCriteria);
+    }
+
+    @RequestMapping(value = "/doi", method = RequestMethod.POST)
+    public Response searchDoi(@RequestBody DoiSearchCriteria searchCriteria) {
+        return doiApiService.findDoi(searchCriteria);
     }
 
     @RequestMapping(value = "/specimen", method = RequestMethod.POST)
