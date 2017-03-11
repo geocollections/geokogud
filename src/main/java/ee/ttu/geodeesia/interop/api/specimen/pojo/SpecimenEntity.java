@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class SpecimenEntity implements Serializable, ConvertableToResponseEntity {
     /*
             "id": 282444,
-            "specimen_nr": "152-747",
+            "specimenNr": "152-747",
             "locality_id": 10267,
             "locality__locality": "Kiviõli kraav",
             "locality__locality_en": "Kiviõli trench",
@@ -30,15 +30,12 @@ public class SpecimenEntity implements Serializable, ConvertableToResponseEntity
      */
     @JsonProperty("id")
     private Long id;
-    @JsonProperty("specimen_nr")
-    private String specimen_nr;
+    private String specimenNr;
     @JsonProperty("locality_id")
     private Long localityId;
-    @JsonProperty("locality__locality")
     private String locality;
     @JsonProperty("locality__locality_en")
     private String localityEng;
-    @JsonProperty("specimenidentification__name")
     private String specimenidentificationName;
     @JsonProperty("specimenidentification__taxon__taxon")
     private String specimenidentificationTaxon;
@@ -50,7 +47,6 @@ public class SpecimenEntity implements Serializable, ConvertableToResponseEntity
     private String specimenidentificationTaxonFossilGroupTaxon;
     @JsonProperty("stratigraphy_id")
     private Long stratigraphyId;
-    @JsonProperty("stratigraphy__stratigraphy")
     private String stratigraphy;
     @JsonProperty("stratigraphy__stratigraphy_en")
     private String stratigraphyEng;
@@ -62,12 +58,14 @@ public class SpecimenEntity implements Serializable, ConvertableToResponseEntity
     private String lithostratigraphyStratigraphyEng;
     @JsonProperty("sample_id")
     private Long sampleId;
+    private String classification;
+    private String depth;
 
     @Override
     public ResponseEntity toResponse() {
         ResponseEntity response = new ResponseEntity();
         response.setId(this.id);
-        response.setSpecimenNr(this.specimen_nr);
+        response.setSpecimenNr(this.specimenNr);
         response.setLocalityId(this.localityId);
         response.setLocality(this.locality);
         response.setLocalityEng(this.localityEng);
@@ -86,6 +84,24 @@ public class SpecimenEntity implements Serializable, ConvertableToResponseEntity
         return response;
     }
 
+    @JsonProperty("classification")
+    public String getClassification() {
+        return classification;
+    }
+
+    @JsonProperty("classification__class_field")
+    public void setClassification(String classification) {
+        this.classification = classification;
+    }
+
+    public String getDepth() {
+        return depth;
+    }
+
+    public void setDepth(String depth) {
+        this.depth = depth;
+    }
+
     public Long getId() {
         return id;
     }
@@ -94,12 +110,14 @@ public class SpecimenEntity implements Serializable, ConvertableToResponseEntity
         this.id = id;
     }
 
-    public String getSpecimen_nr() {
-        return specimen_nr;
+    @JsonProperty("specimenNr")
+    public String getSpecimenNr() {
+        return specimenNr;
     }
 
-    public void setSpecimen_nr(String specimen_nr) {
-        this.specimen_nr = specimen_nr;
+    @JsonProperty("specimen_nr")
+    public void setSpecimenNr(String specimenNr) {
+        this.specimenNr = specimenNr;
     }
 
     public Long getLocalityId() {
@@ -110,10 +128,12 @@ public class SpecimenEntity implements Serializable, ConvertableToResponseEntity
         this.localityId = localityId;
     }
 
+    @JsonProperty("locality")
     public String getLocality() {
         return locality;
     }
 
+    @JsonProperty("locality__locality")
     public void setLocality(String locality) {
         this.locality = locality;
     }
@@ -126,10 +146,12 @@ public class SpecimenEntity implements Serializable, ConvertableToResponseEntity
         this.localityEng = localityEng;
     }
 
+    @JsonProperty("specimenIdentificationName")
     public String getSpecimenidentificationName() {
         return specimenidentificationName;
     }
 
+    @JsonProperty("specimenidentification__name")
     public void setSpecimenidentificationName(String specimenidentificationName) {
         this.specimenidentificationName = specimenidentificationName;
     }
@@ -174,10 +196,12 @@ public class SpecimenEntity implements Serializable, ConvertableToResponseEntity
         this.stratigraphyId = stratigraphyId;
     }
 
+    @JsonProperty("stratigraphy")
     public String getStratigraphy() {
         return stratigraphy;
     }
 
+    @JsonProperty("stratigraphy__stratigraphy")
     public void setStratigraphy(String stratigraphy) {
         this.stratigraphy = stratigraphy;
     }

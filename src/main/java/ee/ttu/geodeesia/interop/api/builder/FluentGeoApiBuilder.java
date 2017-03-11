@@ -119,6 +119,31 @@ public class FluentGeoApiBuilder {
         return this;
     }
 
+    public FluentGeoApiBuilder queryClassification(SearchField classification) {
+        query += buildFieldParameters("classification__class_field", classification);
+        return this;
+    }
+
+    public FluentGeoApiBuilder queryLocality(SearchField locality) {
+        query += buildFieldParameters("locality__locality", locality);
+        return this;
+    }
+
+    public FluentGeoApiBuilder queryDepth(SearchField depth) {
+        query += buildFieldParameters("depth", depth);
+        return this;
+    }
+
+    public FluentGeoApiBuilder queryStratigraphy(SearchField stratigraphy) {
+        query += buildFieldParameters("stratigraphy__stratigraphy", stratigraphy);
+        return this;
+    }
+
+    public FluentGeoApiBuilder queryMineralRock(SearchField mineralRock) {
+        query += buildFieldParameters("specimenidentification__name", mineralRock);
+        return this;
+    }
+
     public String build() {
         return query + "&fields=" + returnFields;
     }

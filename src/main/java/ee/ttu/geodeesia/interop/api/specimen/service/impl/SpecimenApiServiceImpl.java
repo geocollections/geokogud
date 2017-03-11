@@ -5,6 +5,7 @@ import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.Response.ResponseMapper;
 import ee.ttu.geodeesia.interop.api.builder.FluentGeoApiBuilder;
+import ee.ttu.geodeesia.interop.api.service.ApiService;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilApiResponse;
 import ee.ttu.geodeesia.interop.api.specimen.pojo.SpecimenEntity;
 import ee.ttu.geodeesia.interop.api.specimen.pojo.SpecimenSearchCriteria;
@@ -19,36 +20,20 @@ import java.util.List;
 
 @Service
 public class SpecimenApiServiceImpl implements SpecimenApiService {
-    @Value("${geo-api.url}")
-    private String apiUrl;
     @Autowired
-    private ResponseMapper responseMapper;
+    private ApiService apiService;
 
-    private RestTemplate restTemplate = new RestTemplate();
     @Override
     public Response findSpecimen(SpecimenSearchCriteria searchCriteria) {
         String requestParams = FluentGeoApiBuilder.aRequest()
-                .queryId(searchCriteria.getId())
-                .querySpecimenNumber(searchCriteria.getSpecimenNumber())
+                .queryId(searchCriteria.getId()).andReturn()
+                .querySpecimenNumber(searchCriteria.getSpecimenNumber()).andReturn()
+                .queryClassification(searchCriteria.getClassification()).andReturn()
+                .queryMineralRock(searchCriteria.getMineralRock()).andReturn()
+                .queryLocality(searchCriteria.getLocality()).andReturn()
+                .queryDepth(searchCriteria.getDepth()).andReturn()
+                .queryStratigraphy(searchCriteria.getStratigraphy()).andReturn()
                 .build();
-        String url = apiUrl + "/" + "specimen/" + "?paginate_by=" + 30 + "&page=" + searchCriteria.getPage()
-                + "&format=" + "json" + requestParams;
-        ResponseEntity<ApiResponse> rawResponse = restTemplate.getForEntity(url, ApiResponse.class);
-
-        Response response = new Response();
-
-        ObjectMapper mapper = new ObjectMapper();
-        response.setResult(
-                mapper.convertValue(
-                        rawResponse.getBody().getResult(),
-                        mapper.getTypeFactory().constructCollectionType(List.class, SpecimenEntity.class)));
-
-        response.setCount(rawResponse.getBody().getCount());
-        response.setCurrentPage(Integer.parseInt(rawResponse.getBody().getPageInfo().split("\\s")[1])); //Page 1 of 39
-        response.setNumberOfPages(Integer.parseInt(rawResponse.getBody().getPageInfo().split("\\s")[3]));
-
-        System.err.println(rawResponse.getBody().getPageInfo());
-
-        return response;
+        return apiService.findEntity("specimen", searchCriteria.getPage(), requestParams, SpecimenEntity.class);
     }
 }
