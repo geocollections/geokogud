@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="geoApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Geocollections of Estonia</title>
+
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/angular-notify/dist/angular-notify.css">
+    <link rel="stylesheet" href="lib/select2/dist/css/select2.css">
+    <link href="lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href="css/creative.css" rel="stylesheet">
+    <link href="css/mainpage.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/ol3-layerswitcher/src/ol3-layerswitcher.css">
+</head>
+<body id="page-top" data-ng-cloak class="ng-cloak" role="document">
+
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top">{{ 'INDEX.GEOCOLLECTIONS_TITLE' | translate }}</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="page-scroll" href="#searches">{{ 'INDEX.SEARCH_LINK' | translate }}</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#searches">{{ 'INDEX.MAP_LINK' | translate }}</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#about">{{ 'INDEX.ABOUT_LINK' | translate }}</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#resources">{{ 'INDEX.RESOURCES_LINK' | translate }}</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#contact">{{ 'INDEX.CONTACT_LINK' | translate }}</a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'INDEX.INVESTIGATORS_LINK' | translate }}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li data-toggle="collapse" data-target=".in"><a href="database">{{ 'INDEX.DATABASE_LINK' | translate }}</a></li>
+                        <li data-toggle="collapse" data-target=".in"><a href="{{config.apiUrl}}" target="_blank">{{ 'INDEX.PUBLIC_API_LINK' | translate }}</a></li>
+                        <li data-toggle="collapse" data-target=".in"><a href="{{config.githubUrl}}">GitHub</a></li>
+                    </ul>
+                </li>
+                <li ng-controller="Ctrl" >
+                    <a href="" ng-click="changeLanguage('et')">{{ 'INDEX.BUTTON_LANG_ET' | translate }}</a>
+                </li>
+                <li ng-controller="Ctrl" >
+                    <a href="" ng-click="changeLanguage('en')">{{ 'INDEX.BUTTON_LANG_EN' | translate }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h1 id="homeHeading">{{ 'INDEX.GEOCOLLECTIONS_HEADER' | translate }}</h1>
+            <hr>
+            <form class="navbar-form" role="search">
+                <div class="input-group input-group-lg">
+                    <input type="text" class="form-control input-lg" id="mainSearchInput"
+                           placeholder="{{ 'INDEX.SEARCH_FIELD_TEXT' | translate }}">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default btn-lg btn-success">
+                            <i class="fa fa-search sr-icons" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+           <a href="#searches" class="btn btn-primary btn-xl page-scroll">{{ 'INDEX.EXTENDED_SEARCH_LINK' | translate }}</a>
+        </div>
+    </div>
+</header>
+
+<section class="bg-primary" id="searches">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">We'll have what you need!</h2>
+                <hr class="light">
+                <p class="text-faded">
+                    Search engine in development
+                </p>
+               <!-- <a href="#searches" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">{{ 'INFO.HEADING' | translate }}</h2>
+                <hr class="primary">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-globe text-primary sr-icons"></i>
+                    <h3>{{ 'INFO.COLLECTIONS_IN_GEOLOGY.HEADING' | translate }}</h3>
+                    <p>
+                        {{ 'INFO.COLLECTIONS_IN_GEOLOGY.PARAGRAPH_ONE' | translate }}
+                    </p>
+                    <p>
+                        {{ 'INFO.COLLECTIONS_IN_GEOLOGY.PARAGRAPH_TWO' | translate }}
+                    </p>
+                    <p><a class="btn btn-secondary" href="#" role="button">{{ 'READ_MORE' | translate }} &raquo;</a></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-map-marker text-primary sr-icons"></i>
+                    <h3>{{ 'INFO.COLLECTIONS_IN_ESTONIA.HEADING' | translate }}</h3>
+                    <p>
+                        {{ 'INFO.COLLECTIONS_IN_ESTONIA.PARAGRAPH_ONE' | translate }}
+                    <ul class="fa-ul">
+                        <li><i class="fa-li fa fa-square"></i><a href="http://www.gi.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_ONE' | translate }}</a></li>
+                        <li><i class="fa-li fa fa-square"></i><a href="http://natmuseum.ut.ee/388858">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_TWO' | translate }}</a></li>
+                        <li><i class="fa-li fa fa-square"></i><a href="http://www.loodusmuuseum.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_THREE' | translate }}</a></li>
+                        <li><i class="fa-li fa fa-square"></i><a href="http://www.geoloogia.ut.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_FOUR' | translate }}</a></li>
+                        <li><i class="fa-li fa fa-square"></i><a href="http://kogud.emu.ee/mullamuuseum/">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_FIVE' | translate }}</a></li>
+                    </ul>
+                    {{ 'INFO.COLLECTIONS_IN_ESTONIA.PARAGRAPH_TWO' | translate }} <a href="http://www.egk.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.PARAGRAPH_TWO_A_LINK' | translate }}</a>.
+                    </p>
+                    <p><a class="btn btn-secondary" href="#" role="button">{{ 'READ_MORE' | translate }} &raquo;</a></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-database text-primary sr-icons"></i>
+                    <h3>{{ 'INFO.COMMON_DATABASE.HEADING' | translate }}</h3>
+                    <p>
+                        {{ 'INFO.COMMON_DATABASE.LINE_ONE' | translate }} <a href="?page=21">{{ 'INFO.COMMON_DATABASE.LINE_TWO' | translate }}</a>
+                        {{ 'INFO.COMMON_DATABASE.LINE_THREE' | translate }}<a href="search.php">{{ 'INFO.COMMON_DATABASE.LINE_FOUR' | translate }}</a>
+                        {{ 'INFO.COMMON_DATABASE.LINE_FIVE' | translate }}
+                        <a href="search.php?currentTable=specimen_union">{{ 'INFO.COMMON_DATABASE.LINE_SPECIMENS' | translate }}</a>,
+                        <a href="search.php?currentTable=sample">{{ 'INFO.COMMON_DATABASE.LINE_ROCK' | translate }}</a>,
+                        <a href="search.php?currentTable=drillcore">{{ 'INFO.COMMON_DATABASE.LINE_DRILL_CORE' | translate }}</a>,
+                        <a href="search.php?currentTable=locality">{{ 'INFO.COMMON_DATABASE.LINE_LOCALITIES' | translate }}</a>,
+                        <a href="search.php?currentTable=reference">{{ 'INFO.COMMON_DATABASE.LINE_REFERENCES' | translate }}</a>,
+                        <a href="search.php?currentTable=image">{{ 'INFO.COMMON_DATABASE.LINE_PHOTO_ARCHIVE' | translate }}</a> {{ 'INFO.COMMON_DATABASE.LINE_ETC' | translate }}
+                    </p>
+                    <p>
+                        {{ 'INFO.COMMON_DATABASE.PARAGRAPH_TWO_LINE_ONE' | translate }}
+                        <a href="http://fossiilid.info">{{ 'INFO.COMMON_DATABASE.PARAGRAPH_TWO_LINE_TWO' | translate }} </a>
+                        {{ 'INFO.COMMON_DATABASE.PARAGRAPH_TWO_LINE_THREE' | translate }}
+                        <a href="http://ermas.geokogud.info">{{ 'INFO.COMMON_DATABASE.PARAGRAPH_TWO_LINE_FOUR' | translate }}</a>.
+                    </p>
+                    <p>
+                        {{ 'INFO.COMMON_DATABASE.PARAGRAPH_THREE_LINE_ONE' | translate }} <strong>334658</strong>
+                        {{ 'INFO.COMMON_DATABASE.PARAGRAPH_THREE_LINE_TWO' | translate }} <b>95424</b>
+                        {{ 'INFO.COMMON_DATABASE.PARAGRAPH_THREE_LINE_THREE' | translate }} <b>2017-03-09 16:43:58.</b>
+                    </p>
+                    <p><a class="btn btn-secondary" href="#" role="button">{{ 'READ_MORE' | translate }} &raquo;</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<aside class="bg-dark" id="resources">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="text-muted">{{ 'INDEX.USEFUL_INFO' | translate }}</h2>
+                <p><a href="http://geokogud.info/news">{{'INDEX.NEWS_LINK' | translate }}</a></p>
+                <p><a href="http://fossiilid.info/" data-toggle="tooltip" data-placement="bottom" title="A web portal on Baltoscandian fossils">Fossils</a></p>
+                <p><a href="http://ermas.geokogud.info/" data-toggle="tooltip" data-placement="bottom" title="Analytical database of rocks and sediments of Estonia">ERMAS</a></p>
+                <p><a href="http://geokogud.info/index.php?page=32">{{ 'INDEX.USING_COLLECTIONS_LINK' | translate }}</a></p>
+                <p><a href="http://geokogud.info/git.php">{{ 'INDEX.GIT_TUT' | translate }}</a></p>
+                <p><a href="http://api.geokogud.info/">{{ 'INDEX.PUBLIC_API_LINK' | translate }}</a></p>
+
+            </div>
+            <div class="col-md-6">
+                <h2 class="text-muted">{{ 'PARTNERS.HEADING' | translate }}</h2>
+                <p><a href="http://www.natmuseum.ut.ee/en/content/geological-collections">{{ 'PARTNERS.UNIVERSITY_TARTU' | translate }}</a></p>
+                <p><a href="http://www.loodusmuuseum.ee/en">{{ 'PARTNERS.ELM' | translate }}</a></p>
+                <p><a href="http://www.geocase.eu/">{{ 'PARTNERS.GEOCASE' | translate }}</a></p>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">{{ 'INDEX.FOOTER_TITLE' | translate }}</h2>
+                <hr class="primary">
+            </div>
+            <div class="col-lg-4 col-lg-offset-2 text-center">
+                <i class="fa fa-phone fa-3x sr-contact"></i>
+                <p>+372 5130157</p>
+            </div>
+            <div class="col-lg-4 text-center">
+                <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+                <p><a href="mailto:olle.hints@ttu.ee">olle.hints@ttu.ee</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div id="footer-logos">
+        <a href="http://geokogud.info">
+           <img data-toggle="tooltip" data-placement="bottom" title="SARV: database for geocollections of Estonia" src="img/logos/sarv_logo_valge1.png" alt="Sarv">
+        </a>
+        <a href="http://natarc.ut.ee">
+            <img data-toggle="tooltip" data-placement="bottom" title="Natural History Archives and Information Network (NATARC)" src="img/logos/NATARC_transparent.png" alt="Natural History Archives and Information Network (NATARC)">
+        </a>
+        <a href="http://datacite.ut.ee">
+            <img data-toggle="tooltip" data-placement="bottom" title="DataCite" src="img/logos/logo_datacite_bw.png" alt="DataCite">
+        </a>
+        <a href="http://struktuurifondid.ee">
+            <img data-toggle="tooltip" data-placement="bottom" title="European Union" src="img/logos/EL_mv.png" alt="EU">
+        </a>
+        <a href="http://kik.ee">
+            <img data-toggle="tooltip" data-placement="bottom" title="EIC" src="img/logos/kik_bw.png" alt="Environmental Investment Centre" height=70>
+        </a>
+    </div>
+    <small>
+        <div>
+            <img src="img/logos/cc.png" alt="cc" height="15"> 2008-2017.<span> {{ 'INDEX.SARV_CC' | translate }}</span>
+        </div>
+        <div>
+            <span>
+                {{ 'INDEX.FOOTER_MESSAGE' | translate }}
+            </span>
+        </div>
+    </small>
+    <a href="" class="back-to-top">{{ 'INDEX.BACK_TO_TOP' | translate }}</a>
+</footer>
+
+<script src="lib/jquery/dist/jquery.min.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular-animate/angular-animate.js"></script>
+<script src="lib/angular-route/angular-route.js"></script>
+<script src="lib/angular-resource/angular-resource.js"></script>
+<script src="lib/angular-ui-bootstrap-datetimepicker/datetimepicker.js"></script>
+<script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="lib/angular-notify/angular-notify.js"></script>
+<script src="lib/ng-file-upload/ng-file-upload-all.js"></script>
+<script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="lib/angular-ui-select3/src/select3.js"></script>
+<script src="lib/angular-confirm-modal/angular-confirm.js"></script>
+<script src="lib/moment/moment.js"></script>
+
+<!-- scripts for map -->
+<script src="lib/openlayers3/build/ol.js" type="text/javascript"></script>
+<script src="lib/ol3-layerswitcher/src/ol3-layerswitcher.js"></script>
+
+<!-- angular-translate -->
+<script src="app/i18n/translations_en.js"></script>
+<script src="app/i18n/translations_et.js"></script>
+
+<script src="lib/angular-translate/angular-translate.min.js"></script>
+<script src="lib/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js"></script>
+<script src="lib/angular-translate-storage-local/angular-translate-storage-local.min.js"></script>
+<script src="lib/angular-cookies/angular-cookies.min.js"></script>
+
+<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="lib/jquery.easing/js/jquery.easing.min.js"></script>
+<script src="lib/scrollreveal/dist/scrollreveal.min.js"></script>
+<script src="app/mainpage.js"></script>
+
+<script src="app/config.js"></script>
+<script src="app/app.js"></script>
+<script src="app/core/services.js"></script>
+<script src="app/core/controllers.js"></script>
+<script src="app/core/filters.js"></script>
+<script src="app/core/directives.js"></script>
+<script src="app/showErrors.js"></script>
+<script src="app/main/module.js"></script>
+
+<!--search module js files-->
+<script src="app/search/module.js"></script>
+<script src="app/modules/specimens/search/specimen.js"></script>
+<script src="app/modules/specimens/search/specimenService.js"></script>
+<script src="app/modules/samples/search/samples.js"></script>
+<script src="app/modules/drillCores/search/drill_cores.js"></script>
+<script src="app/modules/references/search/references.js"></script>
+<script src="app/modules/localities/search/localities.js"></script>
+<script src="app/modules/stratigraphy/stratigraphy.js"></script>
+<script src="app/modules/analyses/search/analyses.js"></script>
+<script src="app/modules/preparations/search/preparations.js"></script>
+<script src="app/modules/photoArchive/search/photo_archive.js"></script>
+<script src="app/modules/soil/search/soil.js"></script>
+<script src="app/modules/soil/search/soilService.js"></script>
+<script src="app/modules/doi/search/doi.js"></script>
+
+</body>
+</html>
