@@ -5,6 +5,8 @@ import ee.ttu.geodeesia.interop.api.Response.NewVersionOfApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.doi.pojo.DoiSearchCriteria;
 import ee.ttu.geodeesia.interop.api.doi.service.DoiApiService;
+import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveSearchCriteria;
+import ee.ttu.geodeesia.interop.api.photoArchive.service.PhotoArchiveApiService;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilSearchCriteria;
 import ee.ttu.geodeesia.interop.api.soil.service.SoilApiService;
@@ -33,6 +35,8 @@ public class SearchController {
     private DoiApiService doiApiService;
     @Autowired
     private SpecimenApiService specimenApiService;
+    @Autowired
+    private PhotoArchiveApiService photoArchiveApiService;
 
     @RequestMapping(value = "/get-search", method = RequestMethod.GET)
     public CommonSearch getSearch(@RequestParam("name") String search) {
@@ -60,6 +64,17 @@ public class SearchController {
         return taxonApiService.searchLocality(q, table);
     }
 
+
+    @RequestMapping(value = "/specimen", method = RequestMethod.POST)
+    public Response searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) {
+        return specimenApiService.findSpecimen(specimenSearchCriteria);
+    }
+
+    @RequestMapping(value = "/photo-archive", method = RequestMethod.POST)
+    public Response searchSpecimen(@RequestBody PhotoArchiveSearchCriteria photoArchiveSearchCriteria) {
+        return photoArchiveApiService.findPhoto(photoArchiveSearchCriteria);
+    }
+
     @RequestMapping(value = "/soil", method = RequestMethod.POST)
     public Response searchSoil(@RequestBody SoilSearchCriteria searchCriteria) {
         return soilApiService.findSoil(searchCriteria);
@@ -71,8 +86,4 @@ public class SearchController {
         return doiApiService.findDoi(searchCriteria);
     }
 
-    @RequestMapping(value = "/specimen", method = RequestMethod.POST)
-    public Response searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) {
-        return specimenApiService.findSpecimen(specimenSearchCriteria);
-    }
 }

@@ -1,4 +1,4 @@
-angular.module('search').controller('SearchPhotoArchiveController', function($scope, SearchService){
+angular.module('search').controller('SearchPhotoArchiveController', function($scope, SearchService,PhotoService){
     $scope.sortbyOptions = [
         {  name: 'ID', value: 'id' },
         {  name: 'Date', value: 'date' },
@@ -13,22 +13,30 @@ angular.module('search').controller('SearchPhotoArchiveController', function($sc
         {code:"MUMU",label:"MUMU"},
         {code:"EGK",label:"EGK"}];
 
-    $scope.searchDefault = function(search) {
-        if(!search) search = "image";
-        SearchService.getSearch(search).then(function(search) {
-            $scope.sampleSearch = search;
-            $scope.search();
-        });
-    };
-
-    $scope.searchDefault();
 
     $scope.search = function() {
-        SearchService.listSearch($scope.sampleSearch).then(function(result) {
+        PhotoService.search($scope.searchParameters).then(function(result) {
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
             $scope.response = result;
             console.log(result);
         });
     };
-});
+
+    $scope.searchDefault = function() {
+        $scope.searchParameters = {};
+        $scope.search();
+    };
+
+    $scope.searchDefault();
+
+}).factory("PhotoService", ['$http', function ($http) {
+    return {
+        search: function (searchParameters) {
+            return $http.post('/search/photo-archive', searchParameters)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+    };
+}]);

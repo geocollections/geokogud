@@ -14,7 +14,6 @@ angular.module('search').controller('SearchDoiController', function($scope, DoiS
     $scope.isInstitutionsCollapsed = true;
     $scope.isIdentifierFieldsCollapsed = false;
 
-    $scope.searchParameters = {};
 
     $scope.search = function() {
         DoiService.search($scope.searchParameters).then(function(result) {
@@ -24,6 +23,15 @@ angular.module('search').controller('SearchDoiController', function($scope, DoiS
             $scope.response = result;
         });
     };
+
+    $scope.searchDefault = function(search) {
+        $scope.searchParameters = {};
+        $scope.search();
+    };
+
+    $scope.searchDefault();
+
+
 
     $scope.search();
 /*    $scope.searchDefault = function(search) {

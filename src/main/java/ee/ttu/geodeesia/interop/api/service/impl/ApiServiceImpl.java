@@ -58,6 +58,6 @@ public class ApiServiceImpl implements ApiService {
     }
 
     private String getSortingDirection(SortingOrder order){
-        return order.equals(SortDirection.Ascending) ? "" : "-";
+        return order.equals(SortingOrder.ASCENDING) ? "" : "-";
     }
 }
