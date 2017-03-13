@@ -125,7 +125,7 @@ angular.module('geoApp').run(['$http', '$rootScope', '$state', '$stateParams',
     };
 
     $rootScope.showEstonianLandBoardMap = function(lat,lon) {
-        window.open('http://geoportaal.maaamet.ee/url/xgis-latlon.php?lat='+lat+'&amp;lon='+lon+'&amp;out=xgis&amp;app_id=UU82', '', 'width=900,height=600,scrollbars, resizable');
+        window.open('http://geoportaal.maaamet.ee/url/xgis-latlon.php?lat='+lat+'&lon='+lon+'&out=xgis&app_id=UU82', '', 'width=900,height=600,scrollbars, resizable');
     }
 
     $rootScope.currentUser = {};

@@ -1,8 +1,8 @@
 package ee.ttu.geodeesia.search.domain;
 
 public class SortField {
-    private String sortyBy;
-    private SortingOrder order;
+    private String sortyBy = "id";
+    private SortingOrder order = SortingOrder.ASCENDING;
 
     public String getSortyBy() {
         return sortyBy;

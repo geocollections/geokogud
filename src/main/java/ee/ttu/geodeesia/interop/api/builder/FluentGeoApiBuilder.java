@@ -16,7 +16,14 @@ public class FluentGeoApiBuilder {
     private static final String LATITUDE = "latitude";
     private static final String LONGITUDE = "longitude";
 
+    //DOI search
+    private static final String REFERENCE = "reference";
+    private static final String AUTHOR = "author";
+    private static final String TITLE = "title";
+    private static final String YEAR = "year";
     private static final String DOI = "doi";
+
+    // Photo archive search
     private static final String FILE_NAME = "filename";
     private static final String DATE_TAKEN = "date_taken";
     private static final String AUTHOR_AGENT = "author__agent";
@@ -30,6 +37,11 @@ public class FluentGeoApiBuilder {
 
     public static FluentGeoApiBuilder aRequest() {
         return new FluentGeoApiBuilder();
+    }
+
+    public FluentGeoApiBuilder fieldIsNotNull(String field) {
+        query += "&" + field + "__isnull=false";
+        return this;
     }
 
     public FluentGeoApiBuilder andReturn() {
@@ -76,10 +88,6 @@ public class FluentGeoApiBuilder {
         return this;
     }
 
-    public FluentGeoApiBuilder queryDoi(SearchField id) {
-        query += buildFieldParameters(DOI, id);
-        return this;
-    }
     public FluentGeoApiBuilder queryFileName(SearchField id) {
         query += buildFieldParameters(FILE_NAME, id);
         return this;
@@ -141,6 +149,26 @@ public class FluentGeoApiBuilder {
 
     public FluentGeoApiBuilder queryMineralRock(SearchField mineralRock) {
         query += buildFieldParameters("specimenidentification__name", mineralRock);
+        return this;
+    }
+
+    public FluentGeoApiBuilder queryTitle(SearchField title) {
+        query += buildFieldParameters(TITLE, title);
+        return this;
+    }
+
+    public FluentGeoApiBuilder queryDoi(SearchField doi) {
+        query += buildFieldParameters(DOI, doi);
+        return this;
+    }
+
+    public FluentGeoApiBuilder queryAuthor(SearchField author) {
+        query += buildFieldParameters(AUTHOR, author);
+        return this;
+    }
+
+    public FluentGeoApiBuilder queryYear(SearchField year) {
+        query += buildFieldParameters(YEAR, year);
         return this;
     }
 

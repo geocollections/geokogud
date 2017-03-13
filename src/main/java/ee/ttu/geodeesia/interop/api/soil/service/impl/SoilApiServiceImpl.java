@@ -30,6 +30,6 @@ public class SoilApiServiceImpl implements SoilApiService {
                 .returnLongitude()
                 .returnTransectPoint()
                 .build();
-        return apiService.findEntity("soil_site", searchCriteria.getPage(), requestParams, SoilApiResponse.class);
+        return apiService.findEntity("soil_site", searchCriteria.getPage(),searchCriteria.getSortField(), requestParams, SoilApiResponse.class);
     }
 }

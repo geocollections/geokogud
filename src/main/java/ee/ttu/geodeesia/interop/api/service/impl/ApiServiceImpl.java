@@ -5,6 +5,9 @@ import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.service.ApiService;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilApiResponse;
+import ee.ttu.geodeesia.search.domain.SortField;
+import ee.ttu.geodeesia.search.domain.SortingOrder;
+import microsoft.exchange.webservices.data.core.enumeration.search.SortDirection;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -21,10 +24,15 @@ public class ApiServiceImpl implements ApiService {
     private RestTemplate restTemplate = new RestTemplate();
 
     @Override
-    public Response findEntity(String tableName, int page, String requestParams, Class<?> responseClass) {
+    public Response findEntity(String tableName, int page, SortField sortField, String requestParams, Class<?> responseClass) {
+        if(sortField == null) {
+            sortField = new SortField();
+        }
 
         String url = apiUrl + "/" + tableName +"/" + "?paginate_by=" + 30 + "&page=" + page
+                + "&order_by="+getSortingDirection(sortField.getOrder())+sortField.getSortyBy()
                 + "&format=json" + requestParams;
+        System.err.println(url);
         ResponseEntity<ApiResponse> rawResponse = restTemplate.getForEntity(url, ApiResponse.class);
 
         Response response = new Response();
@@ -47,5 +55,9 @@ public class ApiServiceImpl implements ApiService {
         System.err.println(rawResponse.getBody().getPageInfo());
 
         return response;
+    }
+
+    private String getSortingDirection(SortingOrder order){
+        return order.equals(SortDirection.Ascending) ? "" : "-";
     }
 }

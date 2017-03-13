@@ -27,7 +27,7 @@ public class ResponseMapper {
                     .put("stratigraphy", StratigraphyEnitity.class)
                     .put("analysis", AnalysesEntity.class)
                     .put("drillcore", DrillCoresEntity.class)
-                    .put("image", PhotoArchiveEntity.class)
+                    //.put("image", PhotoArchiveEntity.class)
                     .build();
 
     public List<?> toResponseEntities(String objectType, List<?> result) {

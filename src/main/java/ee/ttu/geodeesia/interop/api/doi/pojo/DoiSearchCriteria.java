@@ -8,11 +8,18 @@ public class DoiSearchCriteria {
     private SortField sortField;
 
     private SearchField id;
-    private SearchField doi;
-    private SearchField title;
-    private SearchField publishedBy;
-    private SearchField year;
     private SearchField author;
+    private SearchField title;
+    private SearchField year;
+    private SearchField doi;
+
+    public SearchField getId() {
+        return id;
+    }
+
+    public void setId(SearchField id) {
+        this.id = id;
+    }
 
     public int getPage() {
         return page;
@@ -30,20 +37,12 @@ public class DoiSearchCriteria {
         this.sortField = sortField;
     }
 
-    public SearchField getId() {
-        return id;
+    public SearchField getAuthor() {
+        return author;
     }
 
-    public void setId(SearchField id) {
-        this.id = id;
-    }
-
-    public SearchField getDoi() {
-        return doi;
-    }
-
-    public void setDoi(SearchField doi) {
-        this.doi = doi;
+    public void setAuthor(SearchField author) {
+        this.author = author;
     }
 
     public SearchField getTitle() {
@@ -54,14 +53,6 @@ public class DoiSearchCriteria {
         this.title = title;
     }
 
-    public SearchField getPublishedBy() {
-        return publishedBy;
-    }
-
-    public void setPublishedBy(SearchField publishedBy) {
-        this.publishedBy = publishedBy;
-    }
-
     public SearchField getYear() {
         return year;
     }
@@ -70,11 +61,11 @@ public class DoiSearchCriteria {
         this.year = year;
     }
 
-    public SearchField getAuthor() {
-        return author;
+    public SearchField getDoi() {
+        return doi;
     }
 
-    public void setAuthor(SearchField author) {
-        this.author = author;
+    public void setDoi(SearchField doi) {
+        this.doi = doi;
     }
 }

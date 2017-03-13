@@ -20,6 +20,7 @@ angular.module('search').controller('SearchDoiController', function($scope, DoiS
         DoiService.search($scope.searchParameters).then(function(result) {
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
+            console.log(result);
             $scope.response = result;
         });
     };

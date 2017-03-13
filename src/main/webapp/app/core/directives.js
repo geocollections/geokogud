@@ -471,44 +471,46 @@ angular.module('geoApp').directive('loading', function () {
                     watcher();
                 });
                 //======================================================================
-                var olMap;
+                $scope.olMap;
 
                 function init()
                 {
-                    olMap = new ol.Map ({
-                        target: "map",
-                        layers: [
-                            /*
-                             new ol.layer.Tile({
-                             //source: new ol.source.Stamen({
-                             //layer: 'toner',
-                             //})
-                             source: new ol.source.OSM()
-                             }),*/
+                    if(!$scope.olMap) {
+                        $scope.olMap = new ol.Map ({
+                            target: "map",
+                            layers: [
+                                /*
+                                 new ol.layer.Tile({
+                                 //source: new ol.source.Stamen({
+                                 //layer: 'toner',
+                                 //})
+                                 source: new ol.source.OSM()
+                                 }),*/
 
-                            new ol.layer.Tile({
-                                source: new ol.source.XYZ({
-                                    url: 'https://api.tiles.mapbox.com/v4/mapbox.light/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoia3V1dG9iaW5lIiwiYSI6ImNpZWlxdXAzcjAwM2Nzd204enJvN2NieXYifQ.tp6-mmPsr95hfIWu3ASz2w'
+                                new ol.layer.Tile({
+                                    source: new ol.source.XYZ({
+                                        url: 'https://api.tiles.mapbox.com/v4/mapbox.light/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoia3V1dG9iaW5lIiwiYSI6ImNpZWlxdXAzcjAwM2Nzd204enJvN2NieXYifQ.tp6-mmPsr95hfIWu3ASz2w'
+                                    })
                                 })
+                            ],
+                            controls: ol.control.defaults({
+                                attributionOptions: ({
+                                    collapsible: true
+                                })
+                            }).extend([
+                                new ol.control.ScaleLine({units: "metric"}),
+                                new ol.control.FullScreen()
+                            ]),
+                            view: new ol.View({
+                                projection: "EPSG:3857",
+                                center: ol.proj.transform([25.0, 58.4], 'EPSG:4326', 'EPSG:3857'),
+                                zoom: 6,
+                                maxZoom: 16,
+                                minZoom: 1,
+                                restrictedExtent: ol.proj.transformExtent([-10, 52, 2, 62], 'EPSG:4326', 'EPSG:3857')
                             })
-                        ],
-                        controls: ol.control.defaults({
-                            attributionOptions: ({
-                                collapsible: true
-                            })
-                        }).extend([
-                            new ol.control.ScaleLine({units: "metric"}),
-                            new ol.control.FullScreen()
-                        ]),
-                        view: new ol.View({
-                            projection: "EPSG:3857",
-                            center: ol.proj.transform([25.0, 58.4], 'EPSG:4326', 'EPSG:3857'),
-                            zoom: 6,
-                            maxZoom: 16,
-                            minZoom: 1,
-                            restrictedExtent: ol.proj.transformExtent([-10, 52, 2, 62], 'EPSG:4326', 'EPSG:3857')
-                        })
-                    });
+                        });
+                    }
 
                     function defaultStyle(feature, resolution)
                     {
@@ -533,10 +535,14 @@ angular.module('geoApp').directive('loading', function () {
                         ]
                     };
 
-                    var vectorSource = new ol.source.Vector({
-                        attributions: [new ol.Attribution({
-                            html: "Data from PA/Credit Suisse."})]
-                    });
+                    if(!$scope.vectorSource) {
+                        $scope.vectorSource = new ol.source.Vector({
+                            attributions: [new ol.Attribution({
+                                html: "Data from PA/Credit Suisse."})]
+                        });
+                    } else {
+                        $scope.layerData.getSource().clear();
+                    }
 
                     angular.forEach($scope.localities, function (locality) {
                         var centroidLL = ol.proj.transform([locality.longitude, locality.latitude], 'EPSG:4326', 'EPSG:3857');
@@ -544,32 +550,36 @@ angular.module('geoApp').directive('loading', function () {
                         var feature = new ol.Feature({ geometry: centroidPoint });
                         feature.name = locality.localityEng;
                         feature.fid = locality.fid;
-                        vectorSource.addFeature(feature);
+                        $scope.vectorSource.addFeature(feature);
                     });
-                    var layerData = new ol.layer.Vector({
+                    console.log($scope.localities)
+                    $scope.layerData = new ol.layer.Vector({
                         title: "Localities",
-                        source: vectorSource,
+                        source: $scope.vectorSource,
                         style: function(feature, resolution) { return defaultStyle(feature, resolution); }
-                    })
+                    });
 
-                    olMap.addLayer(layerData);
-                    olMap.getViewport().addEventListener('mousemove', function(evt)
+                    $scope.olMap.addLayer($scope.layerData);
+                    $scope.olMap.getViewport().addEventListener('mousemove', function(evt)
                     {
-                        var pixel = olMap.getEventPixel(evt);
+                        var pixel = $scope.olMap.getEventPixel(evt);
                         //displayFeatureInfo(pixel); OLESJA
                     });
 
 
-                    var extent = layerData.getSource().getExtent();
-                    olMap.getView().fit(extent, olMap.getSize());
-                    var zz = olMap.getView().getZoom();
+          /*         commented by Olesja use fitExtend function */
+
+                    var extent = $scope.layerData.getSource().getExtent();
+                    $scope.olMap.getView().fit(extent, $scope.olMap.getSize());
+
+                    var zz = $scope.olMap.getView().getZoom();
                     if(zz>9)
                     {
-                        olMap.getView().setZoom(9);
+                        $scope.olMap.getView().setZoom(9);
                     }
 
-                    //olMap.on('click', function(evt) { //displayFeatureInfo(evt.pixel); }); //Useful for touch-based viewing, e.g. on iPhone.
-                    olMap.on('click', function(evt) { openLoc(evt.pixel); });
+                    //$scope.olMap.on('click', function(evt) { //displayFeatureInfo(evt.pixel); }); //Useful for touch-based viewing, e.g. on iPhone.
+                    $scope.olMap.on('click', function(evt) { openLoc(evt.pixel); });
                 }
 
 
@@ -581,7 +591,7 @@ angular.module('geoApp').directive('loading', function () {
                  */
                 var openLoc = function(pixel) {
 
-                    var feature = olMap.forEachFeatureAtPixel(pixel, function(feature, layer) {
+                    var feature = $scope.olMap.forEachFeatureAtPixel(pixel, function(feature, layer) {
                         return feature;
                     });
 
@@ -600,7 +610,7 @@ angular.module('geoApp').directive('loading', function () {
                 //COMMENTED by OLESJA IT is not working right now
                 var displayFeatureInfo = function(pixel) {
 
-                    var feature = olMap.forEachFeatureAtPixel(pixel, function(feature, layer) {
+                    var feature = $scope.olMap.forEachFeatureAtPixel(pixel, function(feature, layer) {
                         return feature;
                     });
 
@@ -1047,7 +1057,7 @@ angular.module('geoApp').directive('loading', function () {
 
 
                 var extent = vector1.getSource().getExtent();
-                map.getView().fit(extent, map.getSize());
+                map.getView().fitExtent(extent, map.getSize());
                 var zz = map.getView().getZoom();
                 if(zz>10)
                 {

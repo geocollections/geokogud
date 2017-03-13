@@ -67,6 +67,7 @@ public class SearchController {
 
     @RequestMapping(value = "/doi", method = RequestMethod.POST)
     public Response searchDoi(@RequestBody DoiSearchCriteria searchCriteria) {
+        System.err.println("searching");
         return doiApiService.findDoi(searchCriteria);
     }
 

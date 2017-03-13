@@ -160,13 +160,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr style="cursor: pointer; " data-ng-repeat="entity in response.results">
-                        <td>{{entity.fileName}}</td>
-                        <td>{{entity.authorAgent}}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>{{entity.dateTaken}}</td>
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in response.result">
+                        <td>{{entity.doi}}</td>
+                        <td>{{entity.author}}</td>
+                        <td>{{entity.year}}</td>
+                        <td>{{entity.title}}</td>
+                        <td>???</td>
+                        <td>???</td>
                     </tr>
                     </tbody>
                 </table>

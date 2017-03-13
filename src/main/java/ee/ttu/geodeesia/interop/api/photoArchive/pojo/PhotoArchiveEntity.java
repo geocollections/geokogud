@@ -4,29 +4,56 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import ee.ttu.geodeesia.interop.api.Response.ConvertableToResponseEntity;
 import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
 
-public class PhotoArchiveEntity implements ConvertableToResponseEntity {
+public class PhotoArchiveEntity {
     /*
                 "id": 28794,
                 "filename": "MI16-3-23.jpg",
                 "date_taken": "2016-10-06",
                 "author__agent": "Isakar"
      */
-    @JsonProperty("id")
     private Long id;
-    @JsonProperty("filename")
-    private String filename;
-    @JsonProperty("date_taken")
+    private String fileName;
     private String dateTaken;
-    @JsonProperty("author__agent")
     private String authorAgent;
+    private String localityId;
 
-    @Override
-    public ResponseEntity toResponse() {
-        ResponseEntity response = new ResponseEntity();
-        response.setId(this.id);
-        response.setFilename(this.filename);
-        response.setDateTaken(this.dateTaken);
-        response.setAuthorAgent(this.authorAgent);
-        return response;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    @JsonProperty("fileName")
+    public String getFileName() {
+        return fileName;
+    }
+    @JsonProperty("filename")
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+    @JsonProperty("dateTaken")
+    public String getDateTaken() {
+        return dateTaken;
+    }
+    @JsonProperty("date_taken")
+    public void setDateTaken(String dateTaken) {
+        this.dateTaken = dateTaken;
+    }
+    @JsonProperty("authorAgent")
+    public String getAuthorAgent() {
+        return authorAgent;
+    }
+    @JsonProperty("author__agent")
+    public void setAuthorAgent(String authorAgent) {
+        this.authorAgent = authorAgent;
+    }
+    @JsonProperty("localityId")
+    public String getLocalityId() {
+        return localityId;
+    }
+    @JsonProperty("locality_id")
+    public void setLocalityId(String localityId) {
+        this.localityId = localityId;
     }
 }
