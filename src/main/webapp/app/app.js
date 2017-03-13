@@ -90,6 +90,7 @@ angular.module('geoApp').config(['$translateProvider', function ($translateProvi
     $translateProvider.preferredLanguage('et');
     $translateProvider.fallbackLanguage('en');
     $translateProvider.useLocalStorage();
+    $translateProvider.useSanitizeValueStrategy('escape');
 
     $translateProvider.useStaticFilesLoader({
         prefix: '/app/i18n/translations_',
