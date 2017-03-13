@@ -2,9 +2,6 @@ package ee.ttu.geodeesia.interop.api.photoArchive.service.impl;
 
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.builder.FluentGeoApiBuilder;
-import ee.ttu.geodeesia.interop.api.doi.pojo.DoiApiResponse;
-import ee.ttu.geodeesia.interop.api.doi.pojo.DoiSearchCriteria;
-import ee.ttu.geodeesia.interop.api.doi.service.DoiApiService;
 import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveEntity;
 import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveSearchCriteria;
 import ee.ttu.geodeesia.interop.api.photoArchive.service.PhotoArchiveApiService;

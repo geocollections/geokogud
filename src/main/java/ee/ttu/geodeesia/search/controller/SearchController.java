@@ -3,10 +3,10 @@ package ee.ttu.geodeesia.search.controller;
 import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.NewVersionOfApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.Response;
-import ee.ttu.geodeesia.interop.api.doi.pojo.DoiSearchCriteria;
-import ee.ttu.geodeesia.interop.api.doi.service.DoiApiService;
 import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveSearchCriteria;
 import ee.ttu.geodeesia.interop.api.photoArchive.service.PhotoArchiveApiService;
+import ee.ttu.geodeesia.interop.api.reference.pojo.ReferenceSearchCriteria;
+import ee.ttu.geodeesia.interop.api.reference.service.ReferenceApiService;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilSearchCriteria;
 import ee.ttu.geodeesia.interop.api.soil.service.SoilApiService;
@@ -32,7 +32,7 @@ public class SearchController {
     @Autowired
     private SoilApiService soilApiService;
     @Autowired
-    private DoiApiService doiApiService;
+    private ReferenceApiService referenceApiService;
     @Autowired
     private SpecimenApiService specimenApiService;
     @Autowired
@@ -81,9 +81,12 @@ public class SearchController {
     }
 
     @RequestMapping(value = "/doi", method = RequestMethod.POST)
-    public Response searchDoi(@RequestBody DoiSearchCriteria searchCriteria) {
-        System.err.println("searching");
-        return doiApiService.findDoi(searchCriteria);
+    public Response searchDoi(@RequestBody ReferenceSearchCriteria searchCriteria) {
+        return referenceApiService.findDoi(searchCriteria);
     }
 
+    @RequestMapping(value = "/reference", method = RequestMethod.POST)
+    public Response searchReference(@RequestBody ReferenceSearchCriteria searchCriteria) {
+        return referenceApiService.findReference(searchCriteria);
+    }
 }

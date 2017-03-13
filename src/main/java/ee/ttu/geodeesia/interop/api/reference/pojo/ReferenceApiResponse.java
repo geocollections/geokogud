@@ -1,13 +1,11 @@
-package ee.ttu.geodeesia.interop.api.doi.pojo;
+package ee.ttu.geodeesia.interop.api.reference.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.math.BigDecimal;
-
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DoiApiResponse {
+public class ReferenceApiResponse {
     /*
     {"id":1,
     "reference":"Bekker, 1921",

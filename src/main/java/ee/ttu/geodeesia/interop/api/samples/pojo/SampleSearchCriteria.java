@@ -1,9 +1,9 @@
-package ee.ttu.geodeesia.interop.api.doi.pojo;
+package ee.ttu.geodeesia.interop.api.samples.pojo;
 
 import ee.ttu.geodeesia.search.domain.SearchField;
 import ee.ttu.geodeesia.search.domain.SortField;
 
-public class DoiSearchCriteria {
+public class SampleSearchCriteria {
     private int page = 1;
     private SortField sortField;
 

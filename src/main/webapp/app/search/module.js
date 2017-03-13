@@ -58,7 +58,8 @@ angular.module('search.references', []).config(function($stateProvider, $urlRout
     $stateProvider.state('search.references', {
         url: "/references",
         templateUrl: "app/modules/references/search/references.html",
-        controller: "SearchReferencesController"
+        controller: "SearchReferenceController",
+        params: {doi: false}
     });
 
 });
@@ -123,7 +124,8 @@ angular.module('search.doi', []).config(function($stateProvider, $urlRouterProvi
     $stateProvider.state('search.doi', {
         url: "/doi",
         templateUrl: "app/modules/doi/search/doi.html",
-        controller: "SearchDoiController"
+        controller: "SearchReferenceController",
+        params: {doi: true}
     });
 });
 
