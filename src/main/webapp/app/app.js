@@ -86,12 +86,15 @@ angular.module('geoApp').config(function($stateProvider, $urlRouterProvider, $ht
 
 
 angular.module('geoApp').config(['$translateProvider', function ($translateProvider) {
-    // add translation tables
-    $translateProvider.translations('en', translations_en);
-    $translateProvider.translations('et', translations_et);
+
     $translateProvider.preferredLanguage('et');
     $translateProvider.fallbackLanguage('en');
     $translateProvider.useLocalStorage();
+
+    $translateProvider.useStaticFilesLoader({
+        prefix: '/app/i18n/translations_',
+        suffix: '.json'
+});
   }]);
 
   angular.module('geoApp').controller('Ctrl', ['$translate', '$scope', function ($translate, $scope) {
