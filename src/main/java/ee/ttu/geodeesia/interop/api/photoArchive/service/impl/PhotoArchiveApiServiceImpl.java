@@ -23,7 +23,7 @@ public class PhotoArchiveApiServiceImpl implements PhotoArchiveApiService{
                 .queryAuthorAgent(searchCriteria.getAuthorAgent()).andReturn()
                 .queryDateTaken(searchCriteria.getDateTaken()).andReturn()
                 .build();
-        return apiService.findEntity("image", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, PhotoArchiveEntity.class);
+        return apiService.searchEntities("image", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, PhotoArchiveEntity.class);
 
     }
 }

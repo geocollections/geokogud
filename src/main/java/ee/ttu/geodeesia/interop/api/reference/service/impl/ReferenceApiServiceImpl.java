@@ -23,7 +23,7 @@ public class ReferenceApiServiceImpl implements ReferenceApiService {
                 .queryYear(searchCriteria.getYear()).andReturn()
                 .queryDoi(searchCriteria.getDoi()).andReturn()
                 .build();
-        return apiService.findEntity("reference", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, ReferenceApiResponse.class);
+        return apiService.searchEntities("reference", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, ReferenceApiResponse.class);
     }
 
     @Override
@@ -36,6 +36,6 @@ public class ReferenceApiServiceImpl implements ReferenceApiService {
                 .queryDoi(searchCriteria.getDoi()).andReturn()
                 .fieldIsNotNull("doi")
                 .build();
-        return apiService.findEntity("reference", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, ReferenceApiResponse.class);
+        return apiService.searchEntities("reference", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, ReferenceApiResponse.class);
     }
 }

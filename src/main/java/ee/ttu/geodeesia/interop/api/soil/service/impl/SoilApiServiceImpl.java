@@ -1,5 +1,6 @@
 package ee.ttu.geodeesia.interop.api.soil.service.impl;
 
+import ee.ttu.geodeesia.interop.api.builder.FluentGeoApiDetailsBuilder;
 import ee.ttu.geodeesia.interop.api.service.ApiService;
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.builder.FluentGeoApiSearchBuilder;
@@ -28,12 +29,24 @@ public class SoilApiServiceImpl implements SoilApiService {
                 .returnLongitude()
                 .returnTransectPoint()
                 .build();
-        return apiService.findEntity("soil_site", searchCriteria.getPage(),searchCriteria.getSortField(), requestParams, SoilApiResponse.class);
+        return apiService.searchEntities("soil_site", searchCriteria.getPage(),searchCriteria.getSortField(), requestParams, SoilApiResponse.class);
     }
 
     @Override
     public Response findById(Long id) {
-        return null;
-
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
+                .id(id)
+                .returnId()
+                .returnSite()
+                .returnAreaName()
+                .returnLandUse()
+                .returnSoil()
+                .returnTransect()
+                .returnDeepMining()
+                .returnLatitude()
+                .returnLongitude()
+                .returnTransectPoint()
+                .build();
+        return apiService.findEntity("soil_site", requestParams, SoilApiResponse.class);
     }
 }

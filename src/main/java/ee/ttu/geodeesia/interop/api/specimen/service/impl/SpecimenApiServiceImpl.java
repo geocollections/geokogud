@@ -25,6 +25,6 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
                 .queryDepth(searchCriteria.getDepth()).andReturn()
                 .queryStratigraphy(searchCriteria.getStratigraphy()).andReturn()
                 .build();
-        return apiService.findEntity("specimen", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, SpecimenEntity.class);
+        return apiService.searchEntities("specimen", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, SpecimenEntity.class);
     }
 }
