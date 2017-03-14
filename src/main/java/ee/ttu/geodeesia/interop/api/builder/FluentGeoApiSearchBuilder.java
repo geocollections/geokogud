@@ -3,31 +3,9 @@ package ee.ttu.geodeesia.interop.api.builder;
 import ee.ttu.geodeesia.search.domain.SearchField;
 import org.apache.commons.lang3.StringUtils;
 
+import static ee.ttu.geodeesia.interop.api.builder.ApiFields.*;
+
 public class FluentGeoApiSearchBuilder {
-
-    private static final String ID = "id";
-    private static final String SITE = "site";
-    private static final String AREA_NAME = "area_name";
-    private static final String SOIL = "soil";
-    private static final String LAND_USE = "land_use";
-    private static final String IS_DEEP = "is_deep";
-    private static final String TRANSECT = "transect";
-    private static final String TRANSECT_POINT = "transect_point";
-    private static final String LATITUDE = "latitude";
-    private static final String LONGITUDE = "longitude";
-
-    //DOI search
-    private static final String REFERENCE = "reference";
-    private static final String AUTHOR = "author";
-    private static final String TITLE = "title";
-    private static final String YEAR = "year";
-    private static final String DOI = "doi";
-
-    // Photo archive search
-    private static final String FILE_NAME = "filename";
-    private static final String DATE_TAKEN = "date_taken";
-    private static final String AUTHOR_AGENT = "author__agent";
-
     private String query = StringUtils.EMPTY;
     private String returnFields = StringUtils.EMPTY;
     private String lastQueryField = StringUtils.EMPTY;
