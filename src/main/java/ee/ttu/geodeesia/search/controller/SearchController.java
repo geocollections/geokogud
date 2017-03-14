@@ -5,6 +5,8 @@ import ee.ttu.geodeesia.interop.api.Response.NewVersionOfApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveSearchCriteria;
 import ee.ttu.geodeesia.interop.api.photoArchive.service.PhotoArchiveApiService;
+import ee.ttu.geodeesia.interop.api.preparations.PreparationsApiService;
+import ee.ttu.geodeesia.interop.api.preparations.pojo.PreparationsSearchCriteria;
 import ee.ttu.geodeesia.interop.api.reference.pojo.ReferenceSearchCriteria;
 import ee.ttu.geodeesia.interop.api.reference.service.ReferenceApiService;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
@@ -32,11 +34,13 @@ public class SearchController {
     @Autowired
     private SoilApiService soilApiService;
     @Autowired
-    private ReferenceApiService referenceApiService;
-    @Autowired
     private SpecimenApiService specimenApiService;
     @Autowired
+    private ReferenceApiService referenceApiService;
+    @Autowired
     private PhotoArchiveApiService photoArchiveApiService;
+    @Autowired
+    private PreparationsApiService preparationsApiService;
 
     @RequestMapping(value = "/get-search", method = RequestMethod.GET)
     public CommonSearch getSearch(@RequestParam("name") String search) {
@@ -64,7 +68,6 @@ public class SearchController {
         return taxonApiService.searchLocality(q, table);
     }
 
-
     @RequestMapping(value = "/specimen", method = RequestMethod.POST)
     public Response searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) {
         return specimenApiService.findSpecimen(specimenSearchCriteria);
@@ -88,5 +91,10 @@ public class SearchController {
     @RequestMapping(value = "/reference", method = RequestMethod.POST)
     public Response searchReference(@RequestBody ReferenceSearchCriteria searchCriteria) {
         return referenceApiService.findReference(searchCriteria);
+    }
+
+    @RequestMapping(value = "/preparations", method = RequestMethod.POST)
+    public Response searchPreparations(@RequestBody PreparationsSearchCriteria preparationsSearchCriteria) {
+        return preparationsApiService.findPreparations(preparationsSearchCriteria);
     }
 }
