@@ -3,7 +3,7 @@ package ee.ttu.geodeesia.interop.api.builder;
 import ee.ttu.geodeesia.search.domain.SearchField;
 import org.apache.commons.lang3.StringUtils;
 
-public class FluentGeoApiBuilder {
+public class FluentGeoApiSearchBuilder {
 
     private static final String ID = "id";
     private static final String SITE = "site";
@@ -32,54 +32,54 @@ public class FluentGeoApiBuilder {
     private String returnFields = StringUtils.EMPTY;
     private String lastQueryField = StringUtils.EMPTY;
 
-    private FluentGeoApiBuilder() {
+    private FluentGeoApiSearchBuilder() {
     }
 
-    public static FluentGeoApiBuilder aRequest() {
-        return new FluentGeoApiBuilder();
+    public static FluentGeoApiSearchBuilder aRequest() {
+        return new FluentGeoApiSearchBuilder();
     }
 
-    public FluentGeoApiBuilder fieldIsNotNull(String field) {
+    public FluentGeoApiSearchBuilder fieldIsNotNull(String field) {
         query += "&" + field + "__isnull=false";
         return this;
     }
 
-    public FluentGeoApiBuilder andReturn() {
+    public FluentGeoApiSearchBuilder andReturn() {
         addReturningField(lastQueryField);
         return this;
     }
 
-    public FluentGeoApiBuilder queryId(SearchField id) {
+    public FluentGeoApiSearchBuilder queryId(SearchField id) {
         query += buildFieldParameters(ID, id);
         return this;
     }
 
-    public FluentGeoApiBuilder querySite(SearchField site) {
+    public FluentGeoApiSearchBuilder querySite(SearchField site) {
         query += buildFieldParameters(SITE, site);
         return this;
     }
 
-    public FluentGeoApiBuilder queryAreaName(SearchField areaName) {
+    public FluentGeoApiSearchBuilder queryAreaName(SearchField areaName) {
         query += buildFieldParameters(AREA_NAME, areaName);
         return this;
     }
 
-    public FluentGeoApiBuilder querySoil(SearchField soil) {
+    public FluentGeoApiSearchBuilder querySoil(SearchField soil) {
         query += buildFieldParameters(SOIL, soil);
         return this;
     }
 
-    public FluentGeoApiBuilder queryLandUse(SearchField landUse) {
+    public FluentGeoApiSearchBuilder queryLandUse(SearchField landUse) {
         query += buildFieldParameters(LAND_USE, landUse);
         return this;
     }
 
-    public FluentGeoApiBuilder queryTransect(SearchField transect) {
+    public FluentGeoApiSearchBuilder queryTransect(SearchField transect) {
         query += buildFieldParameters(TRANSECT, transect);
         return this;
     }
 
-    public FluentGeoApiBuilder queryDeepMining(Boolean deep) {
+    public FluentGeoApiSearchBuilder queryDeepMining(Boolean deep) {
         if (deep != null) {
             String isDeep = booleanToString(deep);
             query += "&" + IS_DEEP + "=" + isDeep;
@@ -88,32 +88,32 @@ public class FluentGeoApiBuilder {
         return this;
     }
 
-    public FluentGeoApiBuilder queryFileName(SearchField id) {
+    public FluentGeoApiSearchBuilder queryFileName(SearchField id) {
         query += buildFieldParameters(FILE_NAME, id);
         return this;
     }
 
-    public FluentGeoApiBuilder queryDateTaken(SearchField id) {
+    public FluentGeoApiSearchBuilder queryDateTaken(SearchField id) {
         query += buildFieldParameters(DATE_TAKEN, id);
         return this;
     }
 
-    public FluentGeoApiBuilder queryAuthorAgent(SearchField id) {
+    public FluentGeoApiSearchBuilder queryAuthorAgent(SearchField id) {
         query += buildFieldParameters(AUTHOR_AGENT, id);
         return this;
     }
 
-    public FluentGeoApiBuilder returnTransectPoint() {
+    public FluentGeoApiSearchBuilder returnTransectPoint() {
         addReturningField(TRANSECT_POINT);
         return this;
     }
 
-    public FluentGeoApiBuilder returnLatitude() {
+    public FluentGeoApiSearchBuilder returnLatitude() {
         addReturningField(LATITUDE);
         return this;
     }
 
-    public FluentGeoApiBuilder returnLongitude() {
+    public FluentGeoApiSearchBuilder returnLongitude() {
         addReturningField(LONGITUDE);
         return this;
     }
@@ -122,52 +122,52 @@ public class FluentGeoApiBuilder {
         returnFields += returnFields.isEmpty() ? field : "," + field;
     }
 
-    public FluentGeoApiBuilder querySpecimenNumber(SearchField specimenNumber) {
+    public FluentGeoApiSearchBuilder querySpecimenNumber(SearchField specimenNumber) {
         query += buildFieldParameters("specimen_nr", specimenNumber);
         return this;
     }
 
-    public FluentGeoApiBuilder queryClassification(SearchField classification) {
+    public FluentGeoApiSearchBuilder queryClassification(SearchField classification) {
         query += buildFieldParameters("classification__class_field", classification);
         return this;
     }
 
-    public FluentGeoApiBuilder queryLocality(SearchField locality) {
+    public FluentGeoApiSearchBuilder queryLocality(SearchField locality) {
         query += buildFieldParameters("locality__locality", locality);
         return this;
     }
 
-    public FluentGeoApiBuilder queryDepth(SearchField depth) {
+    public FluentGeoApiSearchBuilder queryDepth(SearchField depth) {
         query += buildFieldParameters("depth", depth);
         return this;
     }
 
-    public FluentGeoApiBuilder queryStratigraphy(SearchField stratigraphy) {
+    public FluentGeoApiSearchBuilder queryStratigraphy(SearchField stratigraphy) {
         query += buildFieldParameters("stratigraphy__stratigraphy", stratigraphy);
         return this;
     }
 
-    public FluentGeoApiBuilder queryMineralRock(SearchField mineralRock) {
+    public FluentGeoApiSearchBuilder queryMineralRock(SearchField mineralRock) {
         query += buildFieldParameters("specimenidentification__name", mineralRock);
         return this;
     }
 
-    public FluentGeoApiBuilder queryTitle(SearchField title) {
+    public FluentGeoApiSearchBuilder queryTitle(SearchField title) {
         query += buildFieldParameters(TITLE, title);
         return this;
     }
 
-    public FluentGeoApiBuilder queryDoi(SearchField doi) {
+    public FluentGeoApiSearchBuilder queryDoi(SearchField doi) {
         query += buildFieldParameters(DOI, doi);
         return this;
     }
 
-    public FluentGeoApiBuilder queryAuthor(SearchField author) {
+    public FluentGeoApiSearchBuilder queryAuthor(SearchField author) {
         query += buildFieldParameters(AUTHOR, author);
         return this;
     }
 
-    public FluentGeoApiBuilder queryYear(SearchField year) {
+    public FluentGeoApiSearchBuilder queryYear(SearchField year) {
         query += buildFieldParameters(YEAR, year);
         return this;
     }

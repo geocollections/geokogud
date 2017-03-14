@@ -1,7 +1,7 @@
 package ee.ttu.geodeesia.interop.api.photoArchive.service.impl;
 
 import ee.ttu.geodeesia.interop.api.Response.Response;
-import ee.ttu.geodeesia.interop.api.builder.FluentGeoApiBuilder;
+import ee.ttu.geodeesia.interop.api.builder.FluentGeoApiSearchBuilder;
 import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveEntity;
 import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveSearchCriteria;
 import ee.ttu.geodeesia.interop.api.photoArchive.service.PhotoArchiveApiService;
@@ -17,7 +17,7 @@ public class PhotoArchiveApiServiceImpl implements PhotoArchiveApiService{
     //https://api.arendus.geokogud.info/image/?paginate_by=30&order_by=id&page=1&format=json&filename__isnull=false
     @Override
     public Response findPhoto(PhotoArchiveSearchCriteria searchCriteria) {
-        String requestParams = FluentGeoApiBuilder.aRequest()
+        String requestParams = FluentGeoApiSearchBuilder.aRequest()
                 .queryId(searchCriteria.getId()).andReturn()
                 .queryFileName(searchCriteria.getFileName()).andReturn()
                 .queryAuthorAgent(searchCriteria.getAuthorAgent()).andReturn()

@@ -1,10 +1,8 @@
 package ee.ttu.geodeesia.interop.api.soil.service.impl;
 
 import ee.ttu.geodeesia.interop.api.service.ApiService;
-import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.Response;
-import ee.ttu.geodeesia.interop.api.Response.ResponseMapper;
-import ee.ttu.geodeesia.interop.api.builder.FluentGeoApiBuilder;
+import ee.ttu.geodeesia.interop.api.builder.FluentGeoApiSearchBuilder;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilApiResponse;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilSearchCriteria;
 import ee.ttu.geodeesia.interop.api.soil.service.SoilApiService;
@@ -18,7 +16,7 @@ public class SoilApiServiceImpl implements SoilApiService {
 
     @Override
     public Response findSoil(SoilSearchCriteria searchCriteria) {
-        String requestParams = FluentGeoApiBuilder.aRequest()
+        String requestParams = FluentGeoApiSearchBuilder.aRequest()
                 .queryId(searchCriteria.getId()).andReturn()
                 .querySite(searchCriteria.getSite()).andReturn()
                 .queryAreaName(searchCriteria.getAreaOfStudy()).andReturn()
@@ -31,5 +29,11 @@ public class SoilApiServiceImpl implements SoilApiService {
                 .returnTransectPoint()
                 .build();
         return apiService.findEntity("soil_site", searchCriteria.getPage(),searchCriteria.getSortField(), requestParams, SoilApiResponse.class);
+    }
+
+    @Override
+    public Response findById(Long id) {
+        return null;
+
     }
 }

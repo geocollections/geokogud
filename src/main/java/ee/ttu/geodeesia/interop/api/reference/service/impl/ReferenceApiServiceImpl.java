@@ -1,7 +1,7 @@
 package ee.ttu.geodeesia.interop.api.reference.service.impl;
 
 import ee.ttu.geodeesia.interop.api.Response.Response;
-import ee.ttu.geodeesia.interop.api.builder.FluentGeoApiBuilder;
+import ee.ttu.geodeesia.interop.api.builder.FluentGeoApiSearchBuilder;
 import ee.ttu.geodeesia.interop.api.reference.pojo.ReferenceApiResponse;
 import ee.ttu.geodeesia.interop.api.reference.pojo.ReferenceSearchCriteria;
 import ee.ttu.geodeesia.interop.api.reference.service.ReferenceApiService;
@@ -16,7 +16,7 @@ public class ReferenceApiServiceImpl implements ReferenceApiService {
 
     @Override
     public Response findReference(ReferenceSearchCriteria searchCriteria) {
-        String requestParams = FluentGeoApiBuilder.aRequest()
+        String requestParams = FluentGeoApiSearchBuilder.aRequest()
                 .queryId(searchCriteria.getId()).andReturn()
                 .queryAuthor(searchCriteria.getAuthor()).andReturn()
                 .queryTitle(searchCriteria.getTitle()).andReturn()
@@ -28,7 +28,7 @@ public class ReferenceApiServiceImpl implements ReferenceApiService {
 
     @Override
     public Response findDoi(ReferenceSearchCriteria searchCriteria) {
-        String requestParams = FluentGeoApiBuilder.aRequest()
+        String requestParams = FluentGeoApiSearchBuilder.aRequest()
                 .queryId(searchCriteria.getId()).andReturn()
                 .queryAuthor(searchCriteria.getAuthor()).andReturn()
                 .queryTitle(searchCriteria.getTitle()).andReturn()

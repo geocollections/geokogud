@@ -83,6 +83,11 @@ public class SearchController {
         return soilApiService.findSoil(searchCriteria);
     }
 
+    @RequestMapping(value = "/soil/{id}")
+    public Response findSoilById(@PathVariable Long id) {
+        return soilApiService.findById(id);
+    }
+
     @RequestMapping(value = "/doi", method = RequestMethod.POST)
     public Response searchDoi(@RequestBody ReferenceSearchCriteria searchCriteria) {
         return referenceApiService.findDoi(searchCriteria);

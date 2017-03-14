@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface SoilApiService {
     Response findSoil(SoilSearchCriteria searchCriteria);
+
+    Response findById(Long id);
 }
