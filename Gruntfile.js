@@ -9,7 +9,7 @@ module.exports = function(grunt) {
                 lang: ['et', 'en'],
                 namespace: true,
                 safeMode: true,
-                dest: 'src//main/webapp/app/i18n'
+                dest: 'src/main/webapp/app/i18n'
             }
         }
     });
