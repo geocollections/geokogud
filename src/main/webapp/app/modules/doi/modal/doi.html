@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-3">
+                <label>{{doi}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    </thead>
+                    <tbody>
+                    <tr><td>leiukoht</td><td><a href data-ng-click="openInNewWindow({object:'locality',id:sample.localityId})" >{{sample.localityEng}}</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-6">
+                <locality-map x = "doi.latitude" y = "doi.longitude" name = "doi.localityEng" fid = "doi.localityId"></locality-map>
+                <a href data-ng-click="showGoogleMap(doi.latitude, doi.longitude, doi.locality, doi.localityEng)">Google Maps</a>            </span>
+                <a href data-ng-click="showEstonianLandBoardMap(doi.latitude, doi.longitude)">Maa-amet / Estonian Land Board</a>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+
+        </div>
+    </div>
+</div>

@@ -39,4 +39,15 @@ angular.module('search').controller('SearchPhotoArchiveController', function($sc
                 });
         }
     };
-}]);
+}]).controller('PhotoArchiveController', function($scope, SearchService, $uibModal, $http,$stateParams){
+    $scope.loadInfo = function() {
+        $http.get('/search/photo-archive/' + $stateParams.id).then(successCallback, errorCallback);
+        function successCallback(response){
+            console.log(response);
+            $scope.image = response.data.result[0];
+        } function errorCallback(response){
+            $scope.image = "ehm, an error..";
+        }
+    };
+    $scope.loadInfo();
+});

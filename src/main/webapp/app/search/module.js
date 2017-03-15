@@ -112,6 +112,12 @@ angular.module('search.photoArchive', []).config(function($stateProvider, $urlRo
         url: "/photoArchive",
         templateUrl: "app/modules/photoArchive/search/photo_archive.html",
         controller: "SearchPhotoArchiveController"
+    }).state('photoArchive', {
+        template: '<data-ui-view/>',
+    }).state('photoArchive.view', {
+        url: "/image/:id",
+        templateUrl: "app/modules/photoArchive/modal/photo_archive.html",
+        controller: "PhotoArchiveController"
     });
 
 });

@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-3">
+                <label>{{image}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    </thead>
+                    <tbody>
+                    <tr><td>leiukoht</td><td><a href data-ng-click="openInNewWindow({object:'locality',id:photo.localityId})" >{{sample.localityEng}}</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-6">
+                <locality-map x = "image.latitude" y = "image.longitude" name = "image.localityEng" fid = "image.localityId"></locality-map>
+                <a href data-ng-click="showGoogleMap(image.latitude, image.longitude, image.locality, image.localityEng)">Google Maps</a>            </span>
+                <a href data-ng-click="showEstonianLandBoardMap(image.latitude, image.longitude)">Maa-amet / Estonian Land Board</a>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+
+        </div>
+    </div>
+</div>
