@@ -137,6 +137,30 @@
         "RESET_FORM": "Тühista",
         "INSTITUTIONS": "Asutused",
         "NO_OF_RESULTS": "Kokku",
+        "SAMPLES": {
+            "ID": "ID",
+            "NUMBER": "number",
+            "LOCALITY": "leiukoht",
+            "ADMIN_UNIT": "admin. üksus",
+            "DEPTH_M": "sügavus (m)",
+            "STRATIGRAPHY": "stratigraafia",
+            "BED_NAME_INDEX": "bed name / index",
+            "COLLECTOR": "koguja",
+            "WEIGHT": "kaal (alles, g)",
+            "STORAGE": "hoiukoht",
+            "SPECIES_RECOVERED": "Taksoni nimi",
+            "SPECIES_FREQUENCY": "Taksoni arvukus",
+            "TYPE_OF_ANALYSIS": "Analüüsi tüüp",
+            "COMPONENT_ANALYSED": "Analüüsitud komponent",
+            "CONTENT": "Komponendi sisaldus",
+            "INSTITUTE": "Inst.",
+            "LITHOSTRATIGRAPHY": "litostratigraafia",
+            "ANAL": "anal."
+        },
+        "SHOW_ADDITIONAL_CRITERIA": "Kuva täiendavad otsinguväljad",
+        "HIDE_ADDITIONAL_CRITERIA": "Peida lisaväljad",
+        "SORT_BY": "järjesta kirjed:",
+        "CHOOSE": "-- Vali --",
         "SPECIMENS": {
             "HEADING": "Päring: Eksemplarid",
             "ID": "ID",
@@ -162,10 +186,6 @@
             "STATUS": "status",
             "IMAGES": "pildid"
         },
-        "SHOW_ADDITIONAL_CRITERIA": "Kuva täiendavad otsinguväljad",
-        "HIDE_ADDITIONAL_CRITERIA": "Peida lisaväljad",
-        "SORT_BY": "järjesta kirjed:",
-        "CHOOSE": "-- Vali --",
         "SEARCH_IMAGES": "otsi pilte"
     },
     "INDEX": {

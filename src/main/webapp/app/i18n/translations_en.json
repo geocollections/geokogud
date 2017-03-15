@@ -137,6 +137,30 @@
         "RESET_FORM": "Reset form",
         "INSTITUTIONS": "Institutions",
         "NO_OF_RESULTS": "Number of results",
+        "SAMPLES": {
+            "ID": "",
+            "NUMBER": "Number",
+            "LOCALITY": "Locality",
+            "ADMIN_UNIT": "Admin. unit",
+            "DEPTH_M": "Depth (m)",
+            "STRATIGRAPHY": "Stratigraphy",
+            "BED_NAME_INDEX": "bed name / index",
+            "COLLECTOR": "Collector",
+            "WEIGHT": "Weight (remaining, g)",
+            "STORAGE": "Storage",
+            "SPECIES_RECOVERED": "Species recovered",
+            "SPECIES_FREQUENCY": "Species frequency",
+            "TYPE_OF_ANALYSIS": "Type of analysis",
+            "COMPONENT_ANALYSED": "Component analysed",
+            "CONTENT": "Content",
+            "INSTITUTE": "Inst.",
+            "LITHOSTRATIGRAPHY": "Lithostratigraphy",
+            "ANAL": "Anal."
+        },
+        "SHOW_ADDITIONAL_CRITERIA": "Show additional criteria",
+        "HIDE_ADDITIONAL_CRITERIA": "Hide additional criteria",
+        "SORT_BY": "Sort by:",
+        "CHOOSE": "-- Choose --",
         "SPECIMENS": {
             "HEADING": "Search: Specimens",
             "ID": "ID",
@@ -162,10 +186,6 @@
             "STATUS": "Status",
             "IMAGES": "Images"
         },
-        "SHOW_ADDITIONAL_CRITERIA": "Show additional criteria",
-        "HIDE_ADDITIONAL_CRITERIA": "Hide additional criteria",
-        "SORT_BY": "Sort by:",
-        "CHOOSE": "-- Choose --",
         "SEARCH_IMAGES": "Search images"
     },
     "INDEX": {

@@ -2,13 +2,13 @@
     <div class="panel-body">
         <div class="row">
             <div class="text-center">
-                <h1>Search: Samples</h1>
+                <h1>{{ SEARCH.SAMPLES.HEADING' | translate }}</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-md-7">
                 <div class="row" data-ng-if="showAdditionalCriteria">
-                    <label class="col-md-2">ID:</label>
+                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.ID' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "sampleSearch.id.lookUpType"></selectdefault>
                     </div>
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="col-md-2">Number:</label>
+                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.NUMBER' | translate }}</label>
                     <div class="col-md-3">
                         <selectexact ng-model = "sampleSearch.sampleNumber.lookUpType"></selectexact>
                     </div>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="col-md-2">Locality:</label>
+                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.LOCALITY' | translate }}</label>
                     <div class="col-md-3">
                         <selectexact ng-model = "sampleSearch.locality.lookUpType"></selectexact>
                     </div>
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="row" data-ng-if="showAdditionalCriteria">
-                    <label class="col-md-2">Admin. unit:</label>
+                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.ADMIN_UNIT' | translate }}</label>
                     <div class="col-md-3">
                         <selectexact ng-model = "sampleSearch.country.lookUpType"></selectexact>
                     </div>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="col-md-2">Depth (m):</label>
+                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.DEPTH_M' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "sampleSearch.depth.lookUpType"></selectdefault>
                     </div>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="col-md-2">Stratigraphy:</label>
+                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.STRATIGRAPHY' | translate }}</label>
                     <div class="col-md-3">
                         <selecthierarchy ng-model = "sampleSearch.stratigraphy.lookUpType"></selecthierarchy>
                     </div>
@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="col-md-2">bed name / index:</label>
+                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.BED_NAME_INDEX' | translate }}</label>
                     <div class="col-md-3">
                         <selectexact ng-model = "sampleSearch.stratigraphyBed.lookUpType"></selectexact>
                     </div>
@@ -83,7 +83,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="col-md-2">Collector:</label>
+                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.COLLECTOR' | translate }}</label>
                     <div class="col-md-3">
                         <selectexact ng-model = "sampleSearch.agent.lookUpType"></selectexact>
                     </div>
@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="col-md-2">Weight (remaining, g):</label>
+                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.WEIGHT' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "sampleSearch.mass.lookUpType"></selectdefault>
                     </div>
@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="row" data-ng-if="showAdditionalCriteria">
-                    <label class="col-md-2">Storage:</label>
+                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.STORAGE' | translate }}</label>
                     <div class="col-md-3">
                         <selectexact ng-model = "sampleSearch.location.lookUpType"></selectexact>
                     </div>
@@ -110,7 +110,7 @@
                     </div>
                 </div>
                 <div class="row" data-ng-if="showAdditionalCriteria">
-                    <label class="col-md-2">Species recovered:</label>
+                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.SPECIES_RECOVERED' | translate }}</label>
                     <div class="col-md-3">
                         <selectexact ng-model = "sampleSearch.taxon.lookUpType"></selectexact>
                     </div>
@@ -119,7 +119,7 @@
                     </div>
                 </div>
                 <div class="row" data-ng-if="showAdditionalCriteria">
-                    <label class="col-md-2">Species frequency:</label>
+                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.SPECIES_FREQUENCY' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "sampleSearch.frequency.lookUpType"></selectdefault>
                     </div>
@@ -128,7 +128,7 @@
                     </div>
                 </div>
                 <div class="row" data-ng-if="showAdditionalCriteria">
-                    <label class="col-md-2">Type of analysis:</label>
+                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.TYPE_OF_ANALYSIS' | translate }}</label>
                     <div class="col-md-3">
                         <selectexact ng-model = "sampleSearch.analysis.lookUpType"></selectexact>
                     </div>
@@ -137,7 +137,7 @@
                     </div>
                 </div>
                 <div class="row" data-ng-if="showAdditionalCriteria">
-                    <label class="col-md-2">Component analysed:</label>
+                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.COMPONENT_ANALYSED' | translate }}</label>
                     <div class="col-md-3">
                         <selectexact ng-model = "sampleSearch.component.lookUpType"></selectexact>
                     </div>
@@ -146,7 +146,7 @@
                     </div>
                 </div>
                 <div class="row" data-ng-show="showAdditionalCriteria">
-                    <label class="col-md-2">Content:</label>
+                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.CONTENT' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "sampleSearch.content.lookUpType"></selectdefault>
                     </div>
@@ -156,21 +156,21 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">Show additional criteria</a>
-                        <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">Hide additional criteria</a>
+                        <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">{{ 'SEARCH.SHOW_ADDITIONAL_CRITERIA' | translate }}</a>
+                        <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">{{ 'SEARCH.HIDE_ADDITIONAL_CRITERIA' | translate }}</a>
                     </div>
                 </div>
                 <div class="row">
-                    <label class="col-md-2">Institutions:</label>
+                    <label class="col-md-2">{{ 'SEARCH.INSTITUTIONS' | translate }}</label>
                     <label data-ng-repeat="state in departments"><input style="margin: 10px;" type="checkbox" value="{{state.code}}" data-ng-checked="sampleSearch.dbs.indexOf(state.code) > -1" data-ng-click="toggle(state.code)"> {{state.label}} </label>
                 </div>
                 <div class="row">
-                    <label class="col-md-2">Sort by:</label>
+                    <label class="col-md-2">{{ 'SEARCH.SORT_BY' | translate }}</label>
                     <div class="col-md-3">
                         <select class="col-md-7 form-control"
                                 data-ng-model="sampleSearch.sort"
                                 data-ng-options="option.value as option.name for option in sortbyOptions track by option.value">
-                            <option value="">-- Choose --</option>
+                            <option value="">{{ 'SEARCH.CHOOSE' | translate }}</option>
                         </select>
                     </div>
                     <div class="col-md-5">
@@ -180,7 +180,7 @@
                 <div class="row">
                     <div class="col-md-5">
                         <label>
-                            Show map: <input type="checkbox" ng-model="showMap"/>
+                            <span>{{ 'SEARCH.SHOW_MAP' | translate }}</span>: <input type="checkbox" ng-model="showMap"/>
                         </label>
                     </div>
                 </div>
@@ -207,7 +207,7 @@
             <div class="col-lg-4">
                 <div class="row geo-list-info ">
                     <div class="col-md-6 text-right">
-                        <p class="amount">Kokku: {{response.count}}</p>
+                        <p class="amount"><span>{{ 'SEARCH.NO_OF_RESULTS' | translate }}</span>: {{response.count}}</p>
                     </div>
                 </div>
                 <div class="text-right">
@@ -216,17 +216,17 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Inst.</th>
-                        <th>Number</th>
+                        <th>{{ 'SEARCH.SAMPLES.ID' | translate }}</th>
+                        <th>{{ 'SEARCH.SAMPLES.INSTITUTE' | translate }}</th>
+                        <th>{{ 'SEARCH.SAMPLES.NUMBER' | translate }}</th>
                         <th></th>
-                        <th>Locality</th>
-                        <th>Depth(m)</th>
+                        <th>{{ 'SEARCH.SAMPLES.LOCALITY' | translate }}</th>
+                        <th>{{ 'SEARCH.SAMPLES.DEPTH_M' | translate }}</th>
                         <th></th>
-                        <th>Stratigraphy <em>Lithostratigraphy</em></th>
-                        <th>Coll.</th>
-                        <th>Anal.</th>
-                        <th>Weight(g)</th>
+                        <th><span>{{ 'SEARCH.SAMPLES.STRATIGRAPHY' | translate }}</span> <em>{{ 'SEARCH.SAMPLES.LITHOSTRATIGRAPHY' | translate }}</em></th>
+                        <th>{{ 'SEARCH.SAMPLES.COLLECTOR' | translate }}</th>
+                        <th>{{ 'SEARCH.SAMPLES.ANAL' | translate }}</th>
+                        <th>{{ 'SEARCH.SAMPLES.WEIGHT' | translate }}</th>
                     </tr>
                     </thead>
                     <tbody>
