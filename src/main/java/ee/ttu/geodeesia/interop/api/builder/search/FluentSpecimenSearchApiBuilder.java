@@ -27,11 +27,6 @@ public class FluentSpecimenSearchApiBuilder extends FluentSearchApiBuilder<Fluen
         return this;
     }
 
-    public FluentSpecimenSearchApiBuilder queryDepth(SearchField depth) {
-        query += buildFieldParameters("depth", depth);
-        return this;
-    }
-
     public FluentSpecimenSearchApiBuilder queryStratigraphy(SearchField stratigraphy) {
         query += buildFieldParameters("stratigraphy__stratigraphy", stratigraphy);
         return this;

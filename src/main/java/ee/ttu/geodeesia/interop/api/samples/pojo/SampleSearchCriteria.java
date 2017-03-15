@@ -12,6 +12,24 @@ public class SampleSearchCriteria {
     private SearchField title;
     private SearchField year;
     private SearchField doi;
+    private SearchField soilSiteId;
+    private SearchField depth;
+
+    public SearchField getDepth() {
+        return depth;
+    }
+
+    public void setDepth(SearchField depth) {
+        this.depth = depth;
+    }
+
+    public SearchField getSoilSiteId() {
+        return soilSiteId;
+    }
+
+    public void setSoilSiteId(SearchField soilSiteId) {
+        this.soilSiteId = soilSiteId;
+    }
 
     public SearchField getId() {
         return id;

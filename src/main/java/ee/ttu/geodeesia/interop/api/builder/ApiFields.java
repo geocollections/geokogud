@@ -16,6 +16,9 @@ public class ApiFields {
 
     // Sample search
     public static final String SOIL_SITE_ID = "soil_site_id";
+    public static final String NUMBER_ADDITIONAL = "number_additional";
+    public static final String DEPTH_INTERVAL = "depth_interval";
+    public static final String REMARKS = "remarks";
 
     // DOI search
     public static final String REFERENCE = "reference";

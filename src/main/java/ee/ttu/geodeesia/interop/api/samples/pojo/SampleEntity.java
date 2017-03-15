@@ -87,6 +87,19 @@ public class SampleEntity implements Serializable, ConvertableToResponseEntity {
     private String classificationRockNameEn;
 
     private String dateCollectedFree;
+
+    private String soilSiteId;
+
+    @JsonProperty("soilSiteId")
+    public String getSoilSiteId() {
+        return soilSiteId;
+    }
+
+    @JsonProperty("soil_site_id")
+    public void setSoilSiteId(String soilSiteId) {
+        this.soilSiteId = soilSiteId;
+    }
+
     @JsonProperty("classificationRockName")
     public String getClassificationRockName() {
         return classificationRockName;

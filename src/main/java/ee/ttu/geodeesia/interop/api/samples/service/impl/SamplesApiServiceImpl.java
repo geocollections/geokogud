@@ -1,10 +1,17 @@
 package ee.ttu.geodeesia.interop.api.samples.service.impl;
 
 import ee.ttu.geodeesia.interop.api.Request.SearchApiRequest;
+import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.NewVersionOfApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.Response;
-import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.ResponseMapper;
+import ee.ttu.geodeesia.interop.api.builder.search.FluentSampleSearchApiBuilder;
+import ee.ttu.geodeesia.interop.api.builder.search.FluentSoilSearchApiApiBuilder;
+import ee.ttu.geodeesia.interop.api.samples.pojo.SampleEntity;
+import ee.ttu.geodeesia.interop.api.samples.pojo.SampleSearchCriteria;
+import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
+import ee.ttu.geodeesia.interop.api.service.ApiService;
+import ee.ttu.geodeesia.interop.api.soil.pojo.SoilApiResponse;
 import ee.ttu.geodeesia.search.domain.CommonSearch;
 import ee.ttu.geodeesia.search.domain.SearchField;
 import org.apache.commons.lang3.StringUtils;
@@ -15,7 +22,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
+
 import java.util.stream.Collectors;
 
 @Service
@@ -25,6 +32,8 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     private String apiUrl;
     @Autowired
     private ResponseMapper responseMapper;
+    @Autowired
+    private ApiService apiService;
 
     private static final Logger logger = LoggerFactory.getLogger(SamplesApiServiceImpl.class);
 
@@ -57,7 +66,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
         if (request.getTable() == null) return response_;
         String url = apiUrl + "/" + request.getTable()
                 + "?paginate_by=" + request.getNumberOfRecordsPerPage()
-                + "&order_by="+getSortDir(request.getSortAsc())+request.getOrderBy()
+                + "&order_by=" + getSortDir(request.getSortAsc()) + request.getOrderBy()
                 + "&page=" + request.getPage()
                 + "&format=" + request.getOutputFormat() + request.getFieldsParams();
         logger.info(url);
@@ -66,28 +75,28 @@ public class SamplesApiServiceImpl implements SamplesApiService {
         response_.setResult(responseMapper.toResponseEntities(request.getTable(), response.getBody().getResult()));
         response_.setCount(response.getBody().getCount());
         System.err.println(response.getBody().getPageInfo());
-        if(response.getBody().getPageInfo() != null) {
+        if (response.getBody().getPageInfo() != null) {
             response_.setCurrentPage(Integer.parseInt(response.getBody().getPageInfo().split("\\s")[1])); //Page 1 of 39
             response_.setNumberOfPages(Integer.parseInt(response.getBody().getPageInfo().split("\\s")[3]));
         }
         return response_;
     }
 
-    private String getSortDir(boolean sortAsc){
-        return sortAsc ?"":"-";
+    private String getSortDir(boolean sortAsc) {
+        return sortAsc ? "" : "-";
     }
 
     @Override
-    public NewVersionOfApiResponse getEntityInfo(String entity,Long id) {
+    public NewVersionOfApiResponse getEntityInfo(String entity, Long id) {
         SearchApiRequest request = new SearchApiRequest();
         request.setTable(entity);
-        return getEntityInfo(id,request);
+        return getEntityInfo(id, request);
     }
 
     @Override
     public NewVersionOfApiResponse getEntityInfo(Long id, SearchApiRequest request) {
         if (request.getTable() == null) return new NewVersionOfApiResponse();
-        String url = apiUrl + "/" + request.getTable() + "/"+id+"?format=" + request.getOutputFormat();
+        String url = apiUrl + "/" + request.getTable() + "/" + id + "?format=" + request.getOutputFormat();
         logger.info(url);
         ResponseEntity<NewVersionOfApiResponse> response = restTemplate.getForEntity(url, NewVersionOfApiResponse.class);
         NewVersionOfApiResponse apiResponse = response.getBody();
@@ -96,6 +105,18 @@ public class SamplesApiServiceImpl implements SamplesApiService {
         return apiResponse;
     }
 
+    @Override
+    public Response searchSamples(SampleSearchCriteria criteria) {
+        String requestParams = FluentSampleSearchApiBuilder.aRequest()
+                .queryId(criteria.getId()).andReturn()
+                .queryDepth(criteria.getDepth()).andReturn()
+                .querySoilSiteId(criteria.getSoilSiteId())
+                .returnNumberAdditional()
+                .returnDepthInterval()
+                .returnRemarks()
+                .build();
+        return apiService.searchEntities("sample", criteria.getPage(), criteria.getSortField(), requestParams, SampleEntity.class);
+    }
 
     private String composeFieldQuery(CommonSearch search) {
         String fieldsParams = "";
@@ -106,14 +127,14 @@ public class SamplesApiServiceImpl implements SamplesApiService {
             fieldsParams += "&number__" + search.getSampleNumber().getLookUpType().value() + "=" + search.getSampleNumber().getName();
         }
         if (isNotNullAndEmpty(search.getLocality())) {
-            if(search.getTable().equals("sample")) {
+            if (search.getTable().equals("sample")) {
                 fieldsParams += "&locality__locality__" + search.getLocality().getLookUpType().value() + "=" + search.getLocality().getName();
             } else {
                 fieldsParams += "&locality__" + search.getLocality().getLookUpType().value() + "=" + search.getLocality().getName();
             }
         }
         if (isNotNullAndEmpty(search.getCountry())) {
-            if(search.getTable().equals("sample")) {
+            if (search.getTable().equals("sample")) {
                 fieldsParams += "&locality__country__value__" + search.getLocality().getLookUpType().value() + "=" + search.getLocality().getName();
             } else {
                 fieldsParams += "&country__" + search.getCountry().getLookUpType().value() + "=" + search.getCountry().getName();
@@ -123,7 +144,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
             fieldsParams += "&depth__" + search.getDepth().getLookUpType().value() + "=" + search.getDepth().getName();
         }
         if (isNotNullAndEmpty(search.getStratigraphy())) {
-            if(search.getTable().equals("sample")) {
+            if (search.getTable().equals("sample")) {
                 fieldsParams += "&stratigraphy__stratigraphy__" + search.getStratigraphy().getLookUpType().value() + "=" + search.getStratigraphy().getName();
             } else {
                 fieldsParams += "&stratigraphy__" + search.getStratigraphy().getLookUpType().value() + "=" + search.getStratigraphy().getName();
