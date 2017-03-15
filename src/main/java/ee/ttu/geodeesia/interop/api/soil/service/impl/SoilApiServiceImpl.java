@@ -1,9 +1,9 @@
 package ee.ttu.geodeesia.interop.api.soil.service.impl;
 
-import ee.ttu.geodeesia.interop.api.builder.FluentGeoApiDetailsBuilder;
+import ee.ttu.geodeesia.interop.api.builder.details.FluentGeoApiDetailsBuilder;
+import ee.ttu.geodeesia.interop.api.builder.search.FluentSoilSearchApiApiBuilder;
 import ee.ttu.geodeesia.interop.api.service.ApiService;
 import ee.ttu.geodeesia.interop.api.Response.Response;
-import ee.ttu.geodeesia.interop.api.builder.FluentGeoApiSearchBuilder;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilApiResponse;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilSearchCriteria;
 import ee.ttu.geodeesia.interop.api.soil.service.SoilApiService;
@@ -17,7 +17,7 @@ public class SoilApiServiceImpl implements SoilApiService {
 
     @Override
     public Response findSoil(SoilSearchCriteria searchCriteria) {
-        String requestParams = FluentGeoApiSearchBuilder.aRequest()
+        String requestParams = FluentSoilSearchApiApiBuilder.aRequest()
                 .queryId(searchCriteria.getId()).andReturn()
                 .querySite(searchCriteria.getSite()).andReturn()
                 .queryAreaName(searchCriteria.getAreaOfStudy()).andReturn()

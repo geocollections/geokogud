@@ -1,4 +1,4 @@
-package ee.ttu.geodeesia.interop.api.builder;
+package ee.ttu.geodeesia.interop.api.builder.details;
 
 import org.apache.commons.lang3.StringUtils;
 

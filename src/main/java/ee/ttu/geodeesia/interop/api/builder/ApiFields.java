@@ -14,7 +14,10 @@ public class ApiFields {
     public static final String LATITUDE = "latitude";
     public static final String LONGITUDE = "longitude";
 
-    //DOI search
+    // Sample search
+    public static final String SOIL_SITE_ID = "soil_site_id";
+
+    // DOI search
     public static final String REFERENCE = "reference";
     public static final String AUTHOR = "author";
     public static final String TITLE = "title";

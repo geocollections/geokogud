@@ -16,6 +16,7 @@ public class DetailsController {
 
     @RequestMapping(value = "/soil/{id}")
     public Response findSoilById(@PathVariable Long id) {
+
         return soilApiService.findById(id);
     }
 
