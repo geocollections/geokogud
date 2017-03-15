@@ -4,12 +4,12 @@ module.exports = function(grunt) {
 
         i18nextract: {
             default_options: {
-                src: [ 'src/**/*.js', 'src/**/*.html' ],
+                src: [ 'src/main/app/**/*.js', 'src/**/*.html' ],
                 prefix : 'translations_',
                 lang: ['et', 'en'],
                 namespace: true,
                 safeMode: true,
-                dest: 'src/**/i18n'
+                dest: 'src//main/webapp/app/i18n'
             }
         }
     });
