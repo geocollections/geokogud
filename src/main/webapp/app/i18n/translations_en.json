@@ -137,6 +137,35 @@
         "RESET_FORM": "Reset form",
         "INSTITUTIONS": "Institutions",
         "NO_OF_RESULTS": "Number of results",
+        "DRILL_CORES": {
+            "HEADING": "Search: Drill cores",
+            "ID": "ID",
+            "DRILLCORE": "Drillcore",
+            "COUNTRY": "Country",
+            "ADMIN_UNIT": "Admin. unit",
+            "STRATIGRAPHY": "Stratigraphy",
+            "STORAGE": "Storage",
+            "BOX_COUNT": "Box count",
+            "SEARCHING_DRILL_CORES_HEADING": "SEARCHING DRILL CORES",
+            "SEARCHING_DRILL_CORES_TEXT": "Drill cores constitute a very important source of geological information and they are used regularly in scientific as well as applied research in Estonia. To search drill cores, specify the criteria and tick the map checkbox to show the locations. For detailed information click on the various links in the results table. A large number of cores are provided with images of core boxes. ",
+            "TABLE": {
+                "ID": "ID",
+                "DRILLCORE": "Drillcore",
+                "LATITUDE": "Latitude (deg. deg.)",
+                "LONGITUDE": "Longitude (deg. deg.)",
+                "DEPTH_M": "Depth (m)",
+                "BOX_COUNT": "Box count",
+                "BOX_NUMBERS": "Box count",
+                "INSTITUTE": "insts.",
+                "STORAGE": "Storage",
+                "IMAGES": "Images"
+            }
+        },
+        "SHOW_ADDITIONAL_CRITERIA": "Show additional criteria",
+        "HIDE_ADDITIONAL_CRITERIA": "Hide additional criteria",
+        "SORT_BY": "Sort by:",
+        "CHOOSE": "-- Choose --",
+        "SHOW_MAP": "",
         "SAMPLES": {
             "ID": "",
             "NUMBER": "Number",
@@ -157,10 +186,6 @@
             "LITHOSTRATIGRAPHY": "Lithostratigraphy",
             "ANAL": "Anal."
         },
-        "SHOW_ADDITIONAL_CRITERIA": "Show additional criteria",
-        "HIDE_ADDITIONAL_CRITERIA": "Hide additional criteria",
-        "SORT_BY": "Sort by:",
-        "CHOOSE": "-- Choose --",
         "SPECIMENS": {
             "HEADING": "Search: Specimens",
             "ID": "ID",
