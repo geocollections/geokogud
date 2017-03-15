@@ -2,13 +2,13 @@
     <div class="panel-body">
         <div class="row">
             <div class="text-center">
-                <h1>Search: Specimens</h1>
+                <h1>{{ 'SEARCH.SPECIMENS.HEADING' | translate }}</h1>
             </div>
         </div>
         <div class="row">
                 <div class="col-md-6">
                     <div class="row" data-ng-if="showAdditionalCriteria">
-                        <label class="control-label col-md-2">ID</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.SPECIMENS.ID' | translate }}</label>
                         <div class="col-md-3">
                             <selectexact ng-model = "specimensSearch.id.lookUpType"></selectexact>
                         </div>
@@ -17,7 +17,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label class="control-label col-md-2">Specimen number</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.SPECIMENS.NUMBER' | translate }}</label>
                         <div class="col-md-3">
                             <selectdefault ng-model = "specimensSearch.specimenNumber.lookUpType"></selectdefault>
                         </div>
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="row" data-ng-if="showAdditionalCriteria">
-                        <label class="control-label col-md-2">Collection number</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.SPECIMENS.COLLECTION_NUMBER' | translate }}</label>
                         <div class="col-md-3">
                             <selectexact ng-model = "specimensSearch.collectionNumber.lookUpType"></selectexact>
                         </div>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label class="control-label col-md-2">Classification</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.SPECIMENS.CLASSIFICATION_NUMBER' | translate }}</label>
                         <div class="col-md-3">
                             <selecthierarchy ng-model = "specimensSearch.classification.lookUpType"></selecthierarchy>
                         </div>
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="row" data-ng-if="showAdditionalCriteria">
-                        <label class="control-label col-md-2">Fossil/ Mineral/ Rock</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.SPECIMENS.FOSSIL_MINERAL_ROCK' | translate }}</label>
                         <div class="col-md-3">
                             <selectdefault ng-model = "specimensSearch.fossilmineralrock.lookUpType"></selectdefault>
                         </div>
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label class="control-label col-md-2">Name of fossil</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.SPECIMENS.NAME_OF_ROCK' | translate }}</label>
                         <div class="col-md-3">
                             <selectdefault ng-model = "specimensSearch.fossilName.lookUpType"></selectdefault>
                         </div>
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label class="control-label col-md-2">Mineral/Rock</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.SPECIMENS.MINERAL_ROCK' | translate }}</label>
                         <div class="col-md-3">
                             <selectdefault ng-model = "specimensSearch.mineralrock.lookUpType"></selectdefault>
                         </div>
@@ -71,7 +71,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label class="control-label col-md-2">Admin.unit</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.SPECIMENS.ADMIN_UNIT' | translate }}</label>
                         <div class="col-md-3">
                             <selectdefault ng-model = "specimensSearch.adminunit.lookUpType"></selectdefault>
                         </div>
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label class="control-label col-md-2">Locality</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.SPECIMENS.LOCALITY' | translate }}</label>
                         <div class="col-md-3">
                             <selectdefault ng-model = "specimensSearch.locality.lookUpType"></selectdefault>
                         </div>
@@ -89,7 +89,7 @@
                         </div>
                     </div>
                     <div class="row" data-ng-if="showAdditionalCriteria">
-                        <label class="control-label col-md-2">Depth (m)</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.SPECIMENS.DEPHT_M' | translate }}</label>
                         <div class="col-md-3">
                             <selectexact ng-model = "specimensSearch.depth.lookUpType"></selectexact>
                         </div>
@@ -98,7 +98,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label class="control-label col-md-2" >Stratigraphy</label>
+                        <label class="control-label col-md-2" >{{ 'SEARCH.SPECIMENS.STRATIGRAPHY' | translate }}</label>
                         <div class="col-md-3">
                             <selecthierarchy ng-model = "specimensSearch.stratigraphy.lookUpType"></selecthierarchy>
                         </div>
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                     <div class="row" data-ng-if="showAdditionalCriteria">
-                        <label class="control-label col-md-2">Collector</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.SPECIMENS.COLLECTOR' | translate }}</label>
                         <div class="col-md-3">
                             <selectdefault ng-model = "specimensSearch.collector.lookUpType"></selectdefault>
                         </div>
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                     <div class="row" data-ng-if="showAdditionalCriteria">
-                        <label class="control-label col-md-2">Reference</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.SPECIMENS.REFERENCE' | translate }}</label>
                         <div class="col-md-3">
                             <selectdefault ng-model = "specimensSearch.reference.lookUpType"></selectdefault>
                         </div>
@@ -125,7 +125,7 @@
                         </div>
                     </div>
                     <div class="row" data-ng-if="showAdditionalCriteria">
-                        <label class="control-label col-md-2">Type status</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.SPECIMENS.TYPE_STATUS' | translate }}</label>
                         <div class="col-md-3">
                             <selectdefault ng-model = "specimensSearch.typeStatus.lookUpType"></selectdefault>
                         </div>
@@ -134,7 +134,7 @@
                         </div>
                     </div>
                     <div class="row" data-ng-if="showAdditionalCriteria">
-                        <label class="control-label col-md-2">Part (of fossil)</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.SPECIMENS.PART_OF_FOSSIL' | translate }}</label>
                         <div class="col-md-3">
                             <selectdefault ng-model = "specimensSearch.partoffossil.lookUpType"></selectdefault>
                         </div>
@@ -143,7 +143,7 @@
                         </div>
                     </div>
                     <div class="row" data-ng-if="showAdditionalCriteria">
-                        <label class="control-label col-md-2">Key words</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.SPECIMENS.KEYWORDS' | translate }}</label>
                         <div class="col-md-3">
                             <selectdefault ng-model = "specimensSearch.keywords.lookUpType"></selectdefault>
                         </div>
@@ -152,7 +152,7 @@
                         </div>
                     </div>
                     <div class="row" data-ng-if="showAdditionalCriteria">
-                        <label class="control-label col-md-2">Reg. date</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.SPECIMENS.REG_DATE' | translate }}</label>
                         <div class="col-md-3">
                             <selectexact ng-model = "specimensSearch.regdate.lookUpType"></selectexact>
                         </div>
@@ -161,20 +161,20 @@
                         </div>
                     </div>
                     <div class="row">
-                        <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">Show additional criteria</a>
-                        <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">Hide additional criteria</a>
+                        <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">{{ 'SEARCH.SHOW_ADDITIONAL_CRITERIA' | translate }}</a>
+                        <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">{{ 'SEARCH.HIDE_ADDITIONAL_CRITERIA' | translate }}</a>
                     </div>
                 <div class="row">
-                    <label class="col-md-2">Institutions:</label>
+                    <label class="col-md-2">{{ 'SEARCH.INSTITUTIONS' | translate }}</label>
                     <label data-ng-repeat="state in departments"><input style="margin: 10px;" type="checkbox" value="{{state.code}}" data-ng-checked="specimensSearch.dbs.indexOf(state.code) > -1" data-ng-click="toggle(state.code)"> {{state.label}} </label>
                 </div>
                     <div class="row">
-                        <label class="control-label col-md-2">Sort by:</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.SORT_BY' | translate }}</label>
                         <div class="col-md-5">
                             <select class="col-md-4 form-control"
                                     data-ng-model="specimensSearch.content.lookUpType"
                                     data-ng-options="option.name for option in sortbyOptions track by option.value">
-                                <option value="">-- Choose --</option>
+                                <option value="">{{ 'SEARCH.CHOOSE' | translate }}</option>
                             </select>
                         </div>
                         <div class="col-md-5">
@@ -188,10 +188,10 @@
                             </div>
                         </div>
                         <div class="row geo-section-row no-border">
-                            <button class="btn btn-default pull-right" data-ng-click="defaultSearch()"><i class="glyphicon glyphicon-erase"></i> Reset form</button>
-                            <button class="btn btn-default pull-right" data-ng-click="imageSearch()"><i class="glyphicon glyphicon-picture"></i> Search images</button>
+                            <button class="btn btn-default pull-right" data-ng-click="defaultSearch()"><i class="glyphicon glyphicon-erase"></i>{{ 'SEARCH.RESET_FORM' | translate }}</button>
+                            <button class="btn btn-default pull-right" data-ng-click="imageSearch()"><i class="glyphicon glyphicon-picture"></i> {{ 'SEARCH.SEARCH_IMAGES' | translate }}</button>
                             <button class="btn btn-default pull-right" data-ng-click="search()">
-                                <i class="glyphicon glyphicon-search"></i> Send query</button>
+                                <i class="glyphicon glyphicon-search"></i>{{ 'SEARCH.SEND_QUERY' | translate }}</button>
                         </div>
                     </div>
                 </div>
@@ -208,22 +208,22 @@
             <div class="col-lg-4">
                 <div class="row geo-list-info ">
                     <div class="col-md-6 text-right">
-                        <p class="amount">Kokku: {{response.count}}</p>
+                        <p class="amount"><span>{{ 'SEARCH.NO_OF_RESULTS' | translate }}</span>: {{response.count}}</p>
                     </div>
                 </div>
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Number</th>
-                        <th>Old specimen #</th>
-                        <th>Name Part/element</th>
-                        <th>Locality</th>
-                        <th>Depth (m)</th>
-                        <th>Stratigraphy <em>Lithostratigraphy</em></th>
-                        <th>Collector</th>
-                        <th>Status</th>
-                        <th>Images</th>
+                        <th>{{ 'SEARCH.SPECIMENS.ID' | translate }}</th>
+                        <th>{{ 'SEARCH.SPECIMENS.NUMBER' | translate }}</th>
+                        <th>{{ 'SEARCH.SPECIMENS.OLD_SPECIMEN_NUMBER' | translate }}</th>
+                        <th>{{ 'SEARCH.SPECIMENS.NAME_PART_ELEMENT' | translate }}</th>
+                        <th>{{ 'SEARCH.SPECIMENS.LOCALITY' | translate }}</th>
+                        <th>{{ 'SEARCH.SPECIMENS.DEPHT_M' | translate }}</th>
+                        <th><span>{{ 'SEARCH.SPECIMENS.STRATIGRAPHY' | translate }}</span><em>{{ 'SEARCH.SPECIMENS.LITHOSTRATIGRAPHY' | translate }}</em></th>
+                        <th>{{ 'SEARCH.SPECIMENS.COLLECTOR' | translate }}</th>
+                        <th>{{ 'SEARCH.SPECIMENS.STATUS' | translate }}</th>
+                        <th>{{ 'SEARCH.SPECIMENS.IMAGES' | translate }}</th>
                     </tr>
                     </thead>
                     <tbody>
