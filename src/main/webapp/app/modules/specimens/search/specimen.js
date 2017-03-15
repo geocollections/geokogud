@@ -31,8 +31,19 @@ angular.module('search').controller('SearchSpecimensController', function (Speci
         SpecimenService.search($scope.specimensSearch).then(function (result) {
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
+            $scope.specimensSearch.maxSize = 5;
             $scope.response = result;
             console.log(result);
         });
     };
+}).controller('SpecimenController', function($scope, SearchService, $uibModal, $http,$stateParams){
+    $scope.loadInfo = function() {
+        $http.get('/search/specimen/' + $stateParams.id).then(successCallback, errorCallback);
+        function successCallback(response){
+            $scope.specimen = response.data.result[0];
+        } function errorCallback(response){
+            $scope.specimen = "ehm, an error..";
+        }
+    };
+    $scope.loadInfo();
 });

@@ -15,6 +15,12 @@ angular.module('search.specimens', []).config(function($stateProvider, $urlRoute
         url: "/specimens",
         templateUrl: "app/modules/specimens/search/specimen.html",
         controller: "SearchSpecimensController"
+    }).state('specimen', {
+        template: '<data-ui-view/>',
+    }).state('specimen.view', {
+        url: "/specimen/:id",
+        templateUrl: "app/modules/specimens/modal/specimen.html",
+        controller: "SpecimenController"
     });
 });
 
