@@ -25,9 +25,9 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
         return getThis();
     }
 
-    public FluentSearchApiBuilder fieldIsNotNull(String field) {
+    public B fieldIsNotNull(String field) {
         query += "&" + field + "__isnull=false";
-        return this;
+        return getThis();
     }
 
     void addReturningField(String field) {
