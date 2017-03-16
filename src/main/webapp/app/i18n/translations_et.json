@@ -167,6 +167,7 @@
         "CHOOSE": "-- Vali --",
         "SHOW_MAP": "",
         "SAMPLES": {
+            "HEADING": "Päring: Proovid",
             "ID": "ID",
             "NUMBER": "number",
             "LOCALITY": "leiukoht",

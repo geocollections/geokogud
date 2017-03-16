@@ -167,7 +167,8 @@
         "CHOOSE": "-- Choose --",
         "SHOW_MAP": "",
         "SAMPLES": {
-            "ID": "",
+            "HEADING": "Search: Samples",
+            "ID": "ID",
             "NUMBER": "Number",
             "LOCALITY": "Locality",
             "ADMIN_UNIT": "Admin. unit",
