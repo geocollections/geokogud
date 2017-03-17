@@ -2,6 +2,7 @@ package ee.ttu.geodeesia.search.domain;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class SearchField {
     public SearchField() {
     }
 
-    public SearchField(String name, LookUpType lookUpType) {
+    public SearchField(String name,LookUpType lookUpType) {
         this.name = name;
         this.lookUpType = lookUpType;
     }

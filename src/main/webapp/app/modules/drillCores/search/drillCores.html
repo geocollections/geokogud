@@ -155,6 +155,11 @@
                 </div>
             </div>
         </div>
+        <div class="row" data-ng-if="isMapHidden">
+            <div class="col-lg-8">
+                <localities-map localities="localities"></localities-map>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-lg-4">
@@ -165,8 +170,8 @@
                 </div>
                 <div class="text-right">
                     <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize"
-                        max-size="sampleSearch.maxSize" rotate="false" total-items="totalItems"
-                        ng-model="sampleSearch.page" class="pagination-sm" previous-text="&lsaquo;"
+                        max-size="searchParameters.maxSize" rotate="false" total-items="totalItems"
+                        ng-model="searchParameters.page" class="pagination-sm" previous-text="&lsaquo;"
                         next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
                 </div>
                 <table class="table table-bordered table-hover">
@@ -196,7 +201,7 @@
                     <tbody>
                     <tr style="cursor: pointer; " data-ng-repeat="entity in response.result">
                         <td><a href data-ng-click="openInNewWindow({object:'drillCores',id:entity.id})">{{entity.id}}</a></td>
-                        <td>{{entity.drillcore}}</td>
+                        <td><a href data-ng-click="openInNewWindow({object:'drillCores',id:entity.id})">{{entity.drillcore}}</a></td>
                         <td>{{entity.latitude}}</td>
                         <td>{{entity.longitude}}</td>
                         <td>{{entity.depth}}</td>
@@ -210,11 +215,12 @@
                 </table>
                 <div class="text-right">
                     <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize"
-                                    max-size="sampleSearch.maxSize" rotate="false" total-items="totalItems"
-                                    ng-model="sampleSearch.page" class="pagination-sm" previous-text="&lsaquo;"
+                                    max-size="searchParameters.maxSize" rotate="false" total-items="totalItems"
+                                    ng-model="searchParameters.page" class="pagination-sm" previous-text="&lsaquo;"
                                     next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
                 </div>
             </div>
         </div>
+
     </div>
 </div>

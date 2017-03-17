@@ -23,7 +23,6 @@ angular.module('search').controller('SearchSampleController', function($scope, S
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
             $scope.response = result;
-            $scope.getLocalities($scope.response.result);
         });
     };
 

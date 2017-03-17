@@ -15,6 +15,16 @@ angular.module('search').controller('SearchDrillCoresController', function ($sco
         {name: 'Locality', value: 'Locality'},
         {name: 'Box count', value: 'Box count'}
     ];
+
+    $scope.toggle = function(state) {
+        var i = $scope.searchParameters.dbs.indexOf(state);
+        if (i > -1) {
+            $scope.searchParameters.dbs.splice(i, 1);
+        } else {
+            $scope.searchParameters.dbs.push(state);
+        }
+    };
+
     $scope.search = function() {
         DrillCoreService.search($scope.searchParameters).then(function(result) {
             $scope.totalItems = result.count;
@@ -24,7 +34,7 @@ angular.module('search').controller('SearchDrillCoresController', function ($sco
     };
 
     $scope.searchDefault = function() {
-        $scope.searchParameters = {sortField : {}};
+        $scope.searchParameters = {sortField : {}, dbs : []};
         $scope.searchParameters.sortField.sortBy = "id";
         $scope.sortByAsc = true;
         $scope.search();
@@ -38,6 +48,22 @@ angular.module('search').controller('SearchDrillCoresController', function ($sco
         !$scope.sortByAsc ? $scope.searchParameters.sortField.order = "ASCENDING" :  $scope.searchParameters.sortField.order = "DESCENDING";
         $scope.search();
     };
+
+    $scope.showMap = function(){
+        $scope.isMapHidden = !$scope.isMapHidden;
+        $scope.getLocalities($scope.response.result);
+    };
+
+    $scope.getLocalities = function(list) {
+        $scope.localities = [];
+        if(list){
+            angular.forEach(list, function (el) {
+                if(el.latitude != null && el.longitude != null )
+                    $scope.localities.push({latitude:el.latitude, longitude:el.longitude})
+            })
+        }
+        return $scope.localities;
+    }
 }).controller('DrillCoreDetailsController', function($scope,$stateParams, DrillCoreService){
     $scope.drillCore = {};
     DrillCoreService.details($stateParams.id).then(function(result) {

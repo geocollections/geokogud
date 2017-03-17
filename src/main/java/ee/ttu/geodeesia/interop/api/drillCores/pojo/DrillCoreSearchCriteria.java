@@ -3,6 +3,9 @@ package ee.ttu.geodeesia.interop.api.drillCores.pojo;
 import ee.ttu.geodeesia.search.domain.SearchField;
 import ee.ttu.geodeesia.search.domain.SortField;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Olesja Senkiv on 17.03.2017.
  */
@@ -19,6 +22,7 @@ public class DrillCoreSearchCriteria {
     private SearchField longitude;
     private SearchField depth;
     private SearchField boxes;
+    private List<String> dbs;
 
     //    Country, Admin. unit, Stratigraphy
 
@@ -118,5 +122,13 @@ public class DrillCoreSearchCriteria {
 
     public void setBoxes(SearchField boxes) {
         this.boxes = boxes;
+    }
+
+    public List<String> getDbs() {
+        return dbs;
+    }
+
+    public void setDbs(List<String> dbs) {
+        this.dbs = dbs;
     }
 }

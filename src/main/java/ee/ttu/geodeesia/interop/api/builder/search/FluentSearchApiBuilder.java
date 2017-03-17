@@ -3,6 +3,9 @@ package ee.ttu.geodeesia.interop.api.builder.search;
 import ee.ttu.geodeesia.search.domain.SearchField;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static ee.ttu.geodeesia.interop.api.builder.ApiFields.*;
 
 public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>> {
@@ -22,6 +25,14 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
 
     public B queryId(SearchField id) {
         query += buildFieldParameters(ID, id);
+        return getThis();
+    }
+
+
+    public B queryInstitution(List<String> dbs) {
+        if(dbs == null) return getThis();
+        query += dbs.size() > 0 ?"&database__acronym=" +
+                dbs.stream().collect(Collectors.joining("&database__acronym=")) : StringUtils.EMPTY;
         return getThis();
     }
 

@@ -34,6 +34,7 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService{
                 .queryLocalityLongitude(searchCriteria.getLongitude()).andReturn()
                 .queryBoxes(searchCriteria.getBoxes()).andReturn()
                 .queryDepth(searchCriteria.getDepth()).andReturn()
+                .queryInstitution(searchCriteria.getDbs()).andReturn()
                 .build();
         return apiService.searchEntities("drillcore",
                 searchCriteria.getPage(),
