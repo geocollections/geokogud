@@ -66,6 +66,46 @@ public class FluentGeoApiDetailsBuilder {
         return this;
     }
 
+    /* DRILL CORE */
+    public FluentGeoApiDetailsBuilder returnDrillCore() {
+        query += addReturningField(DRILL_CORE);
+        return this;
+    }
+    public FluentGeoApiDetailsBuilder returnBoxNumbers() {
+        query += addReturningField(BOX_NUMBERS);
+        return this;
+    }
+    public FluentGeoApiDetailsBuilder returnStorageLocation() {
+        query += addReturningField(STORAGE_LOCATION);
+        return this;
+    }
+    public FluentGeoApiDetailsBuilder returnLocalityCountry() {
+        query += addReturningField(LOCALITY_COUNTRY);
+        return this;
+    }
+    public FluentGeoApiDetailsBuilder returnLocalityCountryEng() {
+        query += addReturningField(LOCALITY_COUNTRY_ENG);
+        return this;
+    }
+    public FluentGeoApiDetailsBuilder returnLocalityLatitude() {
+        query += addReturningField(LOCALITY_LATITUDE);
+        return this;
+    }
+    public FluentGeoApiDetailsBuilder returnLocalityLongitude() {
+        query += addReturningField(LOCALITY_LONGITUDE);
+        return this;
+    }
+    public FluentGeoApiDetailsBuilder returnDepth() {
+        query += addReturningField(DEPTH);
+        return this;
+    }
+    public FluentGeoApiDetailsBuilder returnBoxes() {
+        query += addReturningField(BOXES);
+        return this;
+    }
+
+
+
     private String addReturningField(String field) {
         return isFirstField() ? field : "," + field;
     }

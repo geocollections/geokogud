@@ -8,9 +8,9 @@ angular.module('search.analyses', []).config(function ($stateProvider, $urlRoute
 });
 angular.module('search').controller('SearchAnalysesController', function ($scope, $stateParams, $location, $state, SearchService) {
     $scope.isIdentifierFieldsCollapsed = false;
-    $scope.isLocationFieldsCollapsed = false;
-    $scope.isAnalysesFieldsCollapsed = false;
-    $scope.isInstitutionsCollapsed = false;
+    $scope.isLocationFieldsCollapsed = true;
+    $scope.isAnalysesFieldsCollapsed = true;
+    $scope.isInstitutionsCollapsed = true;
     $scope.sortbyOptions = [
         {name: 'ID', value: 'id'},
         {name: 'Number', value: 'number'},

@@ -44,8 +44,14 @@ angular.module('search.samples', []).config(function($stateProvider) {
 angular.module('search.drillCores', []).config(function($stateProvider) {
     $stateProvider.state('search.drillCores', {
         url: "/drillCores",
-        templateUrl: "app/modules/drillCores/search/drill_cores.html",
+        templateUrl: "app/modules/drillCores/search/drillCores.html",
         controller: "SearchDrillCoresController"
+    }).state('drillCores', {
+        template: '<data-ui-view/>',
+    }).state('drillCores.view', {
+        url: "/drillCores/:id",
+        templateUrl: "app/modules/drillCores/details/drillCoreDetails.html",
+        controller: "DrillCoreDetailsController"
     });
 
 });

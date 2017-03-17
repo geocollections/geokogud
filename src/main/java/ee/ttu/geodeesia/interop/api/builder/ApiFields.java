@@ -36,4 +36,10 @@ public class ApiFields {
     public static final String DRILL_CORE = "drillcore";
     public static final String BOX_NUMBERS = "box_numbers";
     public static final String STORAGE_LOCATION = "storage__location";
+    public static final String LOCALITY_COUNTRY = "locality__country__value";
+    public static final String LOCALITY_COUNTRY_ENG = "locality__country__value_en";
+    public static final String LOCALITY_LATITUDE = "locality__latitude";
+    public static final String LOCALITY_LONGITUDE = "locality__longitude";
+    public static final String DEPTH = "depth";
+    public static final String BOXES = "boxes";
 }

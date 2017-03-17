@@ -13,6 +13,13 @@ public class DrillCoreSearchCriteria {
     private SearchField drillcore;
     private SearchField storage;
     private SearchField boxNumber;
+    private SearchField localityCountry;
+    private SearchField localityCountryEng;
+    private SearchField latitude;
+    private SearchField longitude;
+    private SearchField depth;
+    private SearchField boxes;
+
     //    Country, Admin. unit, Stratigraphy
 
 
@@ -63,5 +70,53 @@ public class DrillCoreSearchCriteria {
 
     public void setBoxNumber(SearchField boxNumber) {
         this.boxNumber = boxNumber;
+    }
+
+    public SearchField getLocalityCountry() {
+        return localityCountry;
+    }
+
+    public void setLocalityCountry(SearchField localityCountry) {
+        this.localityCountry = localityCountry;
+    }
+
+    public SearchField getLocalityCountryEng() {
+        return localityCountryEng;
+    }
+
+    public void setLocalityCountryEng(SearchField localityCountryEng) {
+        this.localityCountryEng = localityCountryEng;
+    }
+
+    public SearchField getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(SearchField latitude) {
+        this.latitude = latitude;
+    }
+
+    public SearchField getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(SearchField longitude) {
+        this.longitude = longitude;
+    }
+
+    public SearchField getDepth() {
+        return depth;
+    }
+
+    public void setDepth(SearchField depth) {
+        this.depth = depth;
+    }
+
+    public SearchField getBoxes() {
+        return boxes;
+    }
+
+    public void setBoxes(SearchField boxes) {
+        this.boxes = boxes;
     }
 }

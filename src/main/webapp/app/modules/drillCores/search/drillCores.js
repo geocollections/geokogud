@@ -1,5 +1,7 @@
 angular.module('search').controller('SearchDrillCoresController', function ($scope, DrillCoreService) {
-
+    $scope.isIdentifierFieldsCollapsed = false;
+    $scope.isLocationFieldsCollapsed = true;
+    $scope.isInstitutionsCollapsed = true;
     $scope.departments = [
         {code: "GIT", label: "GIT"},
         {code: "TUG", label: "TUG"},
@@ -22,16 +24,37 @@ angular.module('search').controller('SearchDrillCoresController', function ($sco
     };
 
     $scope.searchDefault = function() {
-        $scope.searchParameters = {};
+        $scope.searchParameters = {sortField : {}};
+        $scope.searchParameters.sortField.sortBy = "id";
+        $scope.sortByAsc = true;
         $scope.search();
     };
 
     $scope.searchDefault();
+
+    $scope.order = function(predicate) {
+        $scope.sortByAsc = ($scope.searchParameters.sortField.sortBy === predicate ? !$scope.sortByAsc : true);
+        $scope.searchParameters.sortField.sortBy =  predicate;
+        !$scope.sortByAsc ? $scope.searchParameters.sortField.order = "ASCENDING" :  $scope.searchParameters.sortField.order = "DESCENDING";
+        $scope.search();
+    };
+}).controller('DrillCoreDetailsController', function($scope,$stateParams, DrillCoreService){
+    $scope.drillCore = {};
+    DrillCoreService.details($stateParams.id).then(function(result) {
+        $scope.drillCore = result.drillCore.result[0];
+        console.log(result);
+    });
 }).factory("DrillCoreService", ['$http', function ($http) {
     return {
         search: function (searchParameters) {
             return $http.post('/search/drillcore', searchParameters)
                 .then(function (response) {
+                    return response.data;
+                });
+        },
+        details: function(id) {
+            return $http.get('/details/drillcore/'+id)
+                .then(function(response){
                     return response.data;
                 });
         }

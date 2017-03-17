@@ -6,4 +6,6 @@ import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveSearchCriteria
 
 public interface DrillCoreApiService {
     Response findDrillCore(DrillCoreSearchCriteria searchCriteria);
+
+    Response findById(Long id);
 }

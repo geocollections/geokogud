@@ -1,0 +1,220 @@
+<script type="text/ng-template" id="drillcoreSearchHelp">
+    <div class="search-help-popup">
+        <p>{{ 'SEARCH.DRILL_CORES.SEARCHING_DRILL_CORES_HEADING' | translate }}</p>
+        <p>{{ 'SEARCH.DRILL_CORES.SEARCHING_DRILL_CORES_TEXT' | translate }}</p>
+    </div>
+</script>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="text-center">
+                <h1>{{ 'SEARCH.DRILL_CORES.HEADING' | translate }}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="row margin-top-10 margin-left-0">
+                    <button class="btn btn-info btn-secondary secondary-search-btn" id="secondarySearchBtn" data-ng-click="search()">
+                        <i class="glyphicon glyphicon-search"></i> {{ 'SEARCH.SEND_QUERY'| translate }}
+                    </button>
+                    <button class="btn btn-default btn-secondary reset-search-btn noBorderRadiusBtn" data-ng-click="searchDefault()">
+                        <i class="glyphicon glyphicon-erase"></i>{{ 'SEARCH.RESET_FORM'| translate }}
+                    </button>
+                    <button uib-popover-template="'drillcoreSearchHelp'"
+                            popover-trigger="'focus'"
+                            popover-placement="'right-bottom'"
+                            popover-title="Search tips"
+                            type="button"
+                            class="btn btn-default noBorderRadiusBtn">
+                        <i class="glyphicon glyphicon-question-sign"></i>
+                    </button>
+                </div>
+                <div class="row margin-top-10" >
+                    <div class="row">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"
+                                       value="showMap"
+                                       data-ng-click="showMap()">
+                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                {{ 'SEARCH.SHOW_MAP' | translate }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" >
+                    <div class="panel-heading searchGroupHeading" ng-click="isInstitutionsCollapsed = !isInstitutionsCollapsed">
+                        <h4 class="panel-title">
+                            {{ 'SEARCH.INSTITUTIONS'| translate }}
+                            <section-opened-icon is-opened="isInstitutionsCollapsed"/>
+                        </h4>
+                    </div>
+                    <div uib-collapse="isInstitutionsCollapsed" class="well well-lg">
+                        <div class="row searchCriterion">
+                            <div class="checkbox" data-ng-repeat="state in departments">
+                                <label>
+                                    <input type="checkbox"
+                                           value="{{state.code}}"
+                                           data-ng-checked="searchParameters.dbs.indexOf(state.code) > -1"
+                                           data-ng-click="toggle(state.code)">
+                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                    {{state.label}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="panel-heading searchGroupHeading" ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
+                        <h4 class="panel-title">
+                            {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
+                            <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
+                        </h4>
+                    </div>
+                    <div uib-collapse="isIdentifierFieldsCollapsed">
+                        <div class="well well-lg">
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 searchCriterionTitle medium-padding">
+                                    <b>{{ 'SEARCH.DRILL_CORES.ID' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType" ng-model = "searchParameters.id.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.DRILL_CORES.DRILLCORE' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.drillcore.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.drillcore.name" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.DRILL_CORES.STRATIGRAPHY' | translate }}</b>
+                                    <selecthierarchy custom-css="searchCriterionType" ng-model = "searchParameters.xxx.lookUpType"  ng-disabled="true"></selecthierarchy>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.xxx.name" class="form-control"  ng-disabled="true"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.DRILL_CORES.STORAGE' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.storageLocation.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.storageLocation.name" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.DRILL_CORES.BOX_COUNT' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType" ng-model = "searchParameters.boxes.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.boxes.name" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            <div class="row">
+                <div class="panel-heading searchGroupHeading" ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
+                    <h4 class="panel-title">
+                        {{ 'SEARCH.ANALYSES.LOCATION.LOCATION'| translate }}
+                        <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
+                    </h4>
+                </div>
+                <div uib-collapse="isLocationFieldsCollapsed">
+                    <div class="well well-lg">
+                        <div class="row searchCriterion">
+                            <div class="col-md-12 medium-padding">
+                                <b>{{ 'SEARCH.DRILL_CORES.COUNTRY' | translate }}</b>
+                                <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.xxx.type" ng-disabled="true"></selectdefault>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.xxx.value" class="form-control"  ng-disabled="true"/>
+                            </div>
+                        </div>
+                        <div class="row searchCriterion">
+                            <div class="col-md-12 medium-padding">
+                                <b>{{ 'SEARCH.DRILL_CORES.ADMIN_UNIT' | translate }}</b>
+                                <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.id.lookUpType"></selectdefault>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.xxx.name" class="form-control" ng-disabled="true"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="row geo-list-info ">
+                    <div class="col-md-6 text-right">
+                        <p class="amount"><span>{{ 'SEARCH.NO_OF_RESULTS' | translate }}</span>: {{response.count}}</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize"
+                        max-size="sampleSearch.maxSize" rotate="false" total-items="totalItems"
+                        ng-model="sampleSearch.page" class="pagination-sm" previous-text="&lsaquo;"
+                        next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+                </div>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>
+                            <a href style="cursor: pointer" data-ng-click="order('id')"><span>{{ 'SEARCH.DRILL_CORES.TABLE.ID' | translate }}</span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'id' && sortByAsc" class="glyphicon glyphicon-triangle-bottom"></span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'id' && !sortByAsc" class="glyphicon glyphicon-triangle-top"></span>
+                            </a>
+                        </th>
+                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.DRILLCORE' | translate }}</th>
+                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.LATITUDE' | translate }}</th>
+                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.LONGITUDE' | translate }}</th>
+                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.DEPTH_M' | translate }}</th>
+                        <th>
+                            <a href style="cursor: pointer"><span>{{ 'SEARCH.DRILL_CORES.TABLE.BOX_COUNT' | translate }}</span>
+       <!--                         <span data-ng-show="sampleSearch.orderBy == 'id' && sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-bottom"></span>
+                                <span data-ng-show="sampleSearch.orderBy == 'id' && !sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-top"></span>-->
+                            </a></th>
+                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.BOX_NUMBERS' | translate }}</th>
+                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.INSTITUTE' | translate }}</th>
+                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.STORAGE' | translate }}</th>
+                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.IMAGES' | translate }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in response.result">
+                        <td><a href data-ng-click="openInNewWindow({object:'drillCores',id:entity.id})">{{entity.id}}</a></td>
+                        <td>{{entity.drillcore}}</td>
+                        <td>{{entity.latitude}}</td>
+                        <td>{{entity.longitude}}</td>
+                        <td>{{entity.depth}}</td>
+                        <td>{{entity.boxes}}</td>
+                        <td>{{entity.boxNumbers}}</td>
+                        <td>???</td>
+                        <td>{{entity.storageLocation}}</td>
+                        <td>???</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="text-right">
+                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize"
+                                    max-size="sampleSearch.maxSize" rotate="false" total-items="totalItems"
+                                    ng-model="sampleSearch.page" class="pagination-sm" previous-text="&lsaquo;"
+                                    next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

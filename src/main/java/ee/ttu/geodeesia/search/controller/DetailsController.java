@@ -2,6 +2,8 @@ package ee.ttu.geodeesia.search.controller;
 
 
 import ee.ttu.geodeesia.interop.api.Response.Response;
+import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreDetailsDialogDto;
+import ee.ttu.geodeesia.interop.api.drillCores.service.DrillCoreApiService;
 import ee.ttu.geodeesia.interop.api.samples.pojo.SampleSearchCriteria;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilDetailsDialogDto;
@@ -17,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/details")
 public class DetailsController {
     @Autowired
+    private DrillCoreApiService drillCoreApiService;
+    @Autowired
     private SoilApiService soilApiService;
     @Autowired
     private SamplesApiService samplesApiService;
@@ -30,6 +34,14 @@ public class DetailsController {
         Response samples = samplesApiService.searchSamples(criteria);
 
         return new SoilDetailsDialogDto(soil, samples);
+    }
+
+    @RequestMapping(value = "/drillcore/{id}")
+    public DrillCoreDetailsDialogDto findDrillCoreById(@PathVariable Long id) {
+        SampleSearchCriteria criteria = new SampleSearchCriteria();
+        criteria.setSoilSiteId(new SearchField(id.toString(), LookUpType.exact));
+        Response drillCore = drillCoreApiService.findById(id);
+        return new DrillCoreDetailsDialogDto(drillCore);
     }
 
 }

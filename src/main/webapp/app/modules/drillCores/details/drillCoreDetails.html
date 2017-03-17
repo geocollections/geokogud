@@ -1,0 +1,36 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-3">
+                <label>{{drillCore.drillcore}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <table class="table table-bordered table-hover">
+                    <tr><td>ID</td><td>{{drillCore.id}}</td></tr>
+                    <tr><td>Name</td><td>{{drillCore.drillcore}}</td></tr>
+                    <tr><td>Locality</td><td>{{drillCore.localityCountryValue}}</td></tr>
+                    <tr><td>Box count</td><td>{{drillCore.boxes}}</td></tr>
+                    <tr><td>Box numbers</td><td>{{drillCore.boxNumbers}}</td></tr>
+                    <tr><td>Storage</td><td>???</td></tr>
+                    <tr><td>Storage</td><td>{{drillCore.storageLocation}}</td></tr>
+                    <tr><td>m in boxes</td><td>???</td></tr>
+                    <tr><td>Remarks</td><td>???</td></tr>
+                </table>
+            </div>
+            <div class="col-lg-6" data-ng-if="drillCore.latitude != null && drillCore.longitude != null">
+                <locality-map x = "drillCore.latitude" y = "drillCore.longitude" name = "drillCore.localityEng" fid = "drillCore.localityId"></locality-map>
+                <a href data-ng-click="showGoogleMap(drillCore.latitude, drillCore.longitude, drillCore.locality, drillCore.localityEng)">Google Maps</a>
+                <span><a href data-ng-click="showEstonianLandBoardMap(drillCore.latitude, drillCore.longitude)">Maa-amet / Estonian Land Board</a></span>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <label>Horizons</label>
+        </div>
+        <div class="row">
+        </div>
+    </div>
+</div>
