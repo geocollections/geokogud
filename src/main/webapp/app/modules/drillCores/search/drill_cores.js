@@ -1,4 +1,4 @@
-angular.module('search').controller('SearchDrillCoresController', function ($scope, SearchService) {
+angular.module('search').controller('SearchDrillCoresController', function ($scope, DrillCoreService) {
 
     $scope.departments = [
         {code: "GIT", label: "GIT"},
@@ -13,20 +13,27 @@ angular.module('search').controller('SearchDrillCoresController', function ($sco
         {name: 'Locality', value: 'Locality'},
         {name: 'Box count', value: 'Box count'}
     ];
-    $scope.searchDefault = function(search) {
-        if(!search) search = "drillcore";
-        SearchService.getSearch(search).then(function(search) {
-            $scope.sampleSearch = search;
-            $scope.search();
-        });
-    };
-    $scope.searchDefault();
-
     $scope.search = function() {
-        SearchService.listSearch($scope.sampleSearch).then(function(result) {
+        DrillCoreService.search($scope.searchParameters).then(function(result) {
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
             $scope.response = result;
         });
     };
-});
+
+    $scope.searchDefault = function() {
+        $scope.searchParameters = {};
+        $scope.search();
+    };
+
+    $scope.searchDefault();
+}).factory("DrillCoreService", ['$http', function ($http) {
+    return {
+        search: function (searchParameters) {
+            return $http.post('/search/drillcore', searchParameters)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+    };
+}])

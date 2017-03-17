@@ -56,4 +56,4 @@ angular.module('main').controller('MainInfoController', function(){
     console.log("MainNewsController");
 }).controller('MainMapController', function(){
     console.log("MainMapController");
-});
+})

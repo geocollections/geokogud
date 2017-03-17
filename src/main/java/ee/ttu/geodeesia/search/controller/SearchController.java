@@ -3,6 +3,8 @@ package ee.ttu.geodeesia.search.controller;
 import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.NewVersionOfApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.Response;
+import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreSearchCriteria;
+import ee.ttu.geodeesia.interop.api.drillCores.service.DrillCoreApiService;
 import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveSearchCriteria;
 import ee.ttu.geodeesia.interop.api.photoArchive.service.PhotoArchiveApiService;
 import ee.ttu.geodeesia.interop.api.preparations.PreparationsApiService;
@@ -35,6 +37,8 @@ public class SearchController {
     private SoilApiService soilApiService;
     @Autowired
     private SpecimenApiService specimenApiService;
+    @Autowired
+    private DrillCoreApiService drillCoreApiService;
     @Autowired
     private ReferenceApiService referenceApiService;
     @Autowired
@@ -73,6 +77,11 @@ public class SearchController {
         return specimenApiService.findSpecimen(specimenSearchCriteria);
     }
 
+    @RequestMapping(value = "/drillcore", method = RequestMethod.POST)
+    public Response searchDrillcore(@RequestBody DrillCoreSearchCriteria searchCriteria) {
+        return drillCoreApiService.findDrillCore(searchCriteria);
+    }
+
     @RequestMapping(value = "/photo-archive", method = RequestMethod.POST)
     public Response searchSpecimen(@RequestBody PhotoArchiveSearchCriteria photoArchiveSearchCriteria) {
         return photoArchiveApiService.findPhoto(photoArchiveSearchCriteria);
@@ -97,4 +106,6 @@ public class SearchController {
     public Response searchPreparations(@RequestBody PreparationsSearchCriteria preparationsSearchCriteria) {
         return preparationsApiService.findPreparations(preparationsSearchCriteria);
     }
+
+
 }
