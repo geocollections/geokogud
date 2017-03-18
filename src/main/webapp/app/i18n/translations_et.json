@@ -198,6 +198,29 @@
                 "MA_ID": "MA ID"
             }
         },
+        "REFERENCES": {
+            "HEADING": "Päring: Kirjandus",
+            "ID": "ID",
+            "AUTHOR": "Autor",
+            "YEAR": "Aasta",
+            "TITLE": "Pealkiri",
+            "BOOK": "Raamat, kogumik",
+            "TABLE": {
+                "ID": "ID",
+                "REFERENCE": "Viide",
+                "AUTHOR": "Autor",
+                "YEAR": "Aasta",
+                "TITLE": "Pealkiri",
+                "JOURNAL_BOOK": "Ajakiri / kogumik",
+                "PP": "pp.",
+                "DOI": "DOI",
+                "REMARKS": "file(s)"
+            }
+        },
+        "SHOW_ADDITIONAL_CRITERIA": "Kuva täiendavad otsinguväljad",
+        "HIDE_ADDITIONAL_CRITERIA": "Peida lisaväljad",
+        "SORT_BY": "järjesta kirjed:",
+        "CHOOSE": "-- Vali --",
         "SAMPLES": {
             "HEADING": "Päring: Proovid",
             "ID": "ID",
@@ -244,10 +267,6 @@
             "STATUS": "status",
             "IMAGES": "pildid"
         },
-        "SHOW_ADDITIONAL_CRITERIA": "Kuva täiendavad otsinguväljad",
-        "HIDE_ADDITIONAL_CRITERIA": "Peida lisaväljad",
-        "SORT_BY": "järjesta kirjed:",
-        "CHOOSE": "-- Vali --",
         "SEARCH_IMAGES": "otsi pilte"
     },
     "INDEX": {

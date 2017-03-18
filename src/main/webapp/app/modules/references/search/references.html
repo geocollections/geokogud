@@ -2,13 +2,13 @@
     <div class="panel-body">
         <div class="row">
             <div class="text-center">
-                <h1>Search: References</h1>
+                <h1>{{ 'SEARCH.REFERENCES.HEADING' | translate }}</h1>
             </div>
         </div>
         <div class="row">
                 <div class="col-md-6">
                     <div class="row" data-ng-if="showAdditionalCriteria">
-                        <label class="control-label col-md-2">ID</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.REFERENCES.ID' | translate }}</label>
                         <div class="col-md-5">
                             <selectexact ng-model="referenceSearch.id.lookUpType"></selectexact>
                         </div>
@@ -17,7 +17,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label class="control-label col-md-2">Author</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.REFERENCES.AUTHOR' | translate }}</label>
                         <div class="col-md-5">
                             <selectdefault ng-model="referenceSearch.author.lookUpType"></selectdefault>
                         </div>
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label class="control-label col-md-2">Year</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.REFERENCES.YEAR' | translate }}</label>
                         <div class="col-md-5">
                             <selectexact ng-model="referenceSearch.year.lookUpType"></selectexact>
                         </div>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label class="control-label col-md-2">Title</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.REFERENCES.TITLE' | translate }}</label>
                         <div class="col-md-5">
                             <selectdefault ng-model="referenceSearch.title.lookUpType"></selectdefault>
                         </div>
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label class="control-label col-md-2">Journal</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.REFERENCES.AUTHOR' | translate }}</label>
                         <div class="col-md-5">
                             <selectdefault ng-model="referenceSearch.journal.lookUpType"></selectdefault>
                         </div>
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label class="control-label col-md-2">Book</label>
+                        <label class="control-label col-md-2">{{ 'SEARCH.REFERENCES.BOOK' | translate }}</label>
                         <div class="col-md-5">
                             <selectdefault ng-model="referenceSearch.book.lookUpType"></selectdefault>
                         </div>
@@ -63,16 +63,16 @@
                     </div>
 
                     <div class="row">
-                        <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">Show additional criteria</a>
-                        <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">Hide additional criteria</a>
+                        <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">{{ 'SEARCH.SHOW_ADDITIONAL_CRITERIA' | translate }}</a>
+                        <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">{{ 'SEARCH.HIDE_ADDITIONAL_CRITERIA' | translate }}</a>
                     </div>
                     <div class="row">
-                        <label class="control-label col-md-2">Sort by:</label>
+                        <label class="control-label col-md-2"><span>{{ 'SEARCH.SORT_BY' | translate }}</span>:</label>
                         <div class="col-md-5">
                             <select class="col-md-4 form-control"
                                     data-ng-model="referenceSearch.content.lookUpType"
                                     data-ng-options="option.name for option in sortbyOptions track by option.value">
-                                <option value="">-- Choose --</option>
+                                <option value="">{{ 'SEARCH.CHOOSE' | translate }}</option>
                             </select>
                         </div>
                         <div class="col-md-5">
@@ -81,14 +81,14 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <label>
-                                    Show map: <input type="checkbox" ng-model="showMap"/>
+                                    <span>{{ 'SEARCH.SHOW_MAP' | translate }}</span>: <input type="checkbox" ng-model="showMap"/>
                                 </label>
                             </div>
                         </div>
                         <div class="row geo-section-row no-border">
-                            <button class="btn btn-default pull-right" data-ng-click="defaultSearch()"><i class="glyphicon glyphicon-erase"></i> Reset form</button>
+                            <button class="btn btn-default pull-right" data-ng-click="defaultSearch()"><i class="glyphicon glyphicon-erase"></i>{{ 'SEARCH.RESET_FORM' | translate }}</button>
                             <button class="btn btn-default pull-right" data-ng-click="search()">
-                                <i class="glyphicon glyphicon-search"></i> Send query</button>
+                                <i class="glyphicon glyphicon-search"></i>{{ 'SEARCH.SEND_QUERY' | translate }}</button>
                         </div>
                     </div>
                 </div>
@@ -105,21 +105,21 @@
             <div class="col-lg-4">
                 <div class="row geo-list-info ">
                     <div class="col-md-6 text-right">
-                        <p class="amount">Kokku: {{response.count}}</p>
+                        <p class="amount"><span>{{ 'SEARCH.NO_OF_RESULTS' | translate }}</span>: {{response.count}}</p>
                     </div>
                 </div>
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Reference</th>
-                        <th>Author</th>
-                        <th>Year</th>
-                        <th>Title</th>
-                        <th>Journal/Book</th>
-                        <th>pp.</th>
-                        <th>DOI</th>
-                        <th>Remarks</th>
+                        <th>{{ 'SEARCH.REFERENCES.TABLE.ID' | translate }}</th>
+                        <th>{{ 'SEARCH.REFERENCES.TABLE.REFERENCE' | translate }}</th>
+                        <th>{{ 'SEARCH.REFERENCES.TABLE.AUTHOR' | translate }}</th>
+                        <th>{{ 'SEARCH.REFERENCES.TABLE.YEAR' | translate }}</th>
+                        <th>{{ 'SEARCH.REFERENCES.TABLE.TITLE' | translate }}</th>
+                        <th>{{ 'SEARCH.REFERENCES.TABLE.JOURNAL_BOOK' | translate }}</th>
+                        <th>{{ 'SEARCH.REFERENCES.TABLE.PP' | translate }}</th>
+                        <th>{{ 'SEARCH.REFERENCES.TABLE.DOI' | translate }}</th>
+                        <th>{{ 'SEARCH.REFERENCES.TABLE.REMARKS' | translate }}</th>
                     </tr>
                     </thead>
                     <tbody>

@@ -198,6 +198,29 @@
                 "MA_ID": "MA ID"
             }
         },
+        "REFERENCES": {
+            "HEADING": "Search: References",
+            "ID": "ID",
+            "AUTHOR": "Author",
+            "YEAR": "Year",
+            "TITLE": "Title",
+            "BOOK": "Book",
+            "TABLE": {
+                "ID": "ID",
+                "REFERENCE": "Reference",
+                "AUTHOR": "Author",
+                "YEAR": "Year",
+                "TITLE": "Title",
+                "JOURNAL_BOOK": "Journal / Book",
+                "PP": "pp.",
+                "DOI": "DOI",
+                "REMARKS": "file(s)"
+            }
+        },
+        "SHOW_ADDITIONAL_CRITERIA": "Show additional criteria",
+        "HIDE_ADDITIONAL_CRITERIA": "Hide additional criteria",
+        "SORT_BY": "Sort by:",
+        "CHOOSE": "-- Choose --",
         "SAMPLES": {
             "HEADING": "Search: Samples",
             "ID": "ID",
@@ -244,10 +267,6 @@
             "STATUS": "Status",
             "IMAGES": "Images"
         },
-        "SHOW_ADDITIONAL_CRITERIA": "Show additional criteria",
-        "HIDE_ADDITIONAL_CRITERIA": "Hide additional criteria",
-        "SORT_BY": "Sort by:",
-        "CHOOSE": "-- Choose --",
         "SEARCH_IMAGES": "Search images"
     },
     "INDEX": {
