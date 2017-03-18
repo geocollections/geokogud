@@ -138,16 +138,16 @@
         "INSTITUTIONS": "Institutions",
         "NO_OF_RESULTS": "Number of results",
         "DRILL_CORES": {
+            "SEARCHING_DRILL_CORES_HEADING": "SEARCHING DRILL CORES",
+            "SEARCHING_DRILL_CORES_TEXT": "Drill cores constitute a very important source of geological information and they are used regularly in scientific as well as applied research in Estonia. To search drill cores, specify the criteria and tick the map checkbox to show the locations. For detailed information click on the various links in the results table. A large number of cores are provided with images of core boxes. ",
             "HEADING": "Search: Drill cores",
             "ID": "ID",
             "DRILLCORE": "Drillcore",
-            "COUNTRY": "Country",
-            "ADMIN_UNIT": "Admin. unit",
             "STRATIGRAPHY": "Stratigraphy",
             "STORAGE": "Storage",
             "BOX_COUNT": "Box count",
-            "SEARCHING_DRILL_CORES_HEADING": "SEARCHING DRILL CORES",
-            "SEARCHING_DRILL_CORES_TEXT": "Drill cores constitute a very important source of geological information and they are used regularly in scientific as well as applied research in Estonia. To search drill cores, specify the criteria and tick the map checkbox to show the locations. For detailed information click on the various links in the results table. A large number of cores are provided with images of core boxes. ",
+            "COUNTRY": "Country",
+            "ADMIN_UNIT": "Admin. unit",
             "TABLE": {
                 "ID": "ID",
                 "DRILLCORE": "Drillcore",
@@ -161,17 +161,47 @@
                 "IMAGES": "Images"
             }
         },
-        "SHOW_ADDITIONAL_CRITERIA": "Show additional criteria",
-        "HIDE_ADDITIONAL_CRITERIA": "Hide additional criteria",
-        "SORT_BY": "Sort by:",
-        "CHOOSE": "-- Choose --",
         "SHOW_MAP": "Show map",
+        "LOCATILIES": {
+            "HEADING": "Search: Localities"
+        },
+        "LOCALITIES": {
+            "IDENTIFIERS": {
+                "IDENTIFIERS": "Identifiers",
+                "ID": "ID",
+                "NUMBER": "Number",
+                "STRATIGRAPHY": "Stratigraphy",
+                "REFERENCE": "Reference",
+                "MA_ID": "MA ID"
+            },
+            "LOCATION": {
+                "LOCATION": "Location",
+                "LOCALITY": "Locality",
+                "COUNTRY": "Country",
+                "ADMIN_UNIT": "Admin. unit",
+                "LATITUDE": "Latitude (dec. deg.)",
+                "LONGITUDE": "Longitude (dec. deg.)",
+                "VERTICAL_EXTENT": "Vertical extent (m)"
+            },
+            "TABLE": {
+                "ID": "ID",
+                "LOCALITY": "Locality",
+                "COUNTRY": "Country",
+                "LATITUDE": "Latitude (dec. deg.)",
+                "LONGITUDE": "Longitude (dec. deg.)",
+                "VERTICAL_EXTENT": "Vertical extent (m)",
+                "STRATIGRAPHY_BASE": "Stratigraphy base",
+                "STRATIGRAPHY_TOP": "Stratigraphy top",
+                "DRILLCORE": "Drillcore",
+                "IMAGES": "Images",
+                "MAP": "Map",
+                "MA_ID": "MA ID"
+            }
+        },
         "SAMPLES": {
             "HEADING": "Search: Samples",
             "ID": "ID",
             "NUMBER": "Number",
-            "LOCALITY": "Locality",
-            "ADMIN_UNIT": "Admin. unit",
             "DEPTH_M": "Depth (m)",
             "STRATIGRAPHY": "Stratigraphy",
             "BED_NAME_INDEX": "bed name / index",
@@ -183,6 +213,8 @@
             "TYPE_OF_ANALYSIS": "Type of analysis",
             "COMPONENT_ANALYSED": "Component analysed",
             "CONTENT": "Content",
+            "LOCALITY": "Locality",
+            "ADMIN_UNIT": "Admin. unit",
             "INSTITUTE": "Inst.",
             "LITHOSTRATIGRAPHY": "Lithostratigraphy",
             "ANAL": "Anal."
@@ -212,6 +244,10 @@
             "STATUS": "Status",
             "IMAGES": "Images"
         },
+        "SHOW_ADDITIONAL_CRITERIA": "Show additional criteria",
+        "HIDE_ADDITIONAL_CRITERIA": "Hide additional criteria",
+        "SORT_BY": "Sort by:",
+        "CHOOSE": "-- Choose --",
         "SEARCH_IMAGES": "Search images"
     },
     "INDEX": {
