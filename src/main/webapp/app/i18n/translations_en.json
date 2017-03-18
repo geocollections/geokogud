@@ -267,7 +267,28 @@
             "STATUS": "Status",
             "IMAGES": "Images"
         },
-        "SEARCH_IMAGES": "Search images"
+        "SEARCH_IMAGES": "Search images",
+        "STRATIGRAPHY": {
+            "HEADING": "Search: Stratigraphic units",
+            "ID": "ID",
+            "STRATIGRAPHY": "Stratigraphy",
+            "INDEX": "Index",
+            "AGE_MIN_Y": "Age mln y",
+            "MAIN_LITHOLOGY": "Main lithology",
+            "AUTHOR": "Author",
+            "TABLE": {
+                "ID": "ID",
+                "STRATIGRAPHY_ET": "Stratigraphy (et)",
+                "STRATIGRAPHY_EN": "Stratigraphy (en)",
+                "INDEX": "Index",
+                "TYPE": "Type",
+                "RANK": "Rank",
+                "SCOPE": "Scope",
+                "AGE": "Age",
+                "AGE_MA": "Age (Ma)",
+                "BELONGS_TO": "Belongs to"
+            }
+        }
     },
     "INDEX": {
         "GEOCOLLECTIONS_TITLE": "Geoscience collections of Estonia",

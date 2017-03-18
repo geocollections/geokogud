@@ -267,7 +267,28 @@
             "STATUS": "status",
             "IMAGES": "pildid"
         },
-        "SEARCH_IMAGES": "otsi pilte"
+        "SEARCH_IMAGES": "otsi pilte",
+        "STRATIGRAPHY": {
+            "HEADING": "Päring: Stratigraafilised üksused",
+            "ID": "ID",
+            "STRATIGRAPHY": "stratigraafia",
+            "INDEX": "indeks",
+            "AGE_MIN_Y": "vanus, mln a",
+            "MAIN_LITHOLOGY": "litoloogia",
+            "AUTHOR": "autor",
+            "TABLE": {
+                "ID": "ID",
+                "STRATIGRAPHY_ET": "stratigraafia (et)",
+                "STRATIGRAPHY_EN": "stratigraafia (en)",
+                "INDEX": "indeks",
+                "TYPE": "tüüp",
+                "RANK": "tase",
+                "SCOPE": "skoop",
+                "AGE": "vanus",
+                "AGE_MA": "vanus (Ma)",
+                "BELONGS_TO": "kuulub"
+            }
+        }
     },
     "INDEX": {
         "GEOCOLLECTIONS_TITLE": "Eesti geokogude infosüsteem",
