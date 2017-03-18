@@ -198,6 +198,32 @@
                 "MA_ID": "MA ID"
             }
         },
+        "PREPARATIONS": {
+            "HEADING": "Search: Preparation",
+            "NUMBER": "Number",
+            "LOCALITY": "Locality",
+            "DEPTH_M": "Depth (m)",
+            "STRATIGRAPHY": "Stratigraphy",
+            "COLLECTOR": "Collector",
+            "DESCRIPTION": "Description",
+            "SPECIES_RECOVERED": "Species recovered",
+            "SPECIES_FREQUENCY": "Species frequency",
+            "TABLE": {
+                "ID": "ID",
+                "NUMBER": "Number",
+                "LOCALITY": "Locality",
+                "DEPTH_M": "Depth (m)",
+                "STRATIGRAPHY": "Stratigraphy",
+                "LITHOSTRATIGRAPHY": "Lithostratigraphy",
+                "COLLECTOR": "coll.",
+                "WEIGHT": "Weight",
+                "MORE_INFO": ""
+            }
+        },
+        "SHOW_ADDITIONAL_CRITERIA": "Show additional criteria",
+        "HIDE_ADDITIONAL_CRITERIA": "Hide additional criteria",
+        "SORT_BY": "Sort by",
+        "CHOOSE": "-- Choose --",
         "REFERENCES": {
             "HEADING": "Search: References",
             "ID": "ID",
@@ -217,10 +243,6 @@
                 "REMARKS": "file(s)"
             }
         },
-        "SHOW_ADDITIONAL_CRITERIA": "Show additional criteria",
-        "HIDE_ADDITIONAL_CRITERIA": "Hide additional criteria",
-        "SORT_BY": "Sort by:",
-        "CHOOSE": "-- Choose --",
         "SAMPLES": {
             "HEADING": "Search: Samples",
             "ID": "ID",

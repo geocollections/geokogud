@@ -198,6 +198,32 @@
                 "MA_ID": "MA ID"
             }
         },
+        "PREPARATIONS": {
+            "HEADING": "Päring: Preparaadid",
+            "NUMBER": "number",
+            "LOCALITY": "leiukoht",
+            "DEPTH_M": "sügavus (m)",
+            "STRATIGRAPHY": "stratigraafia",
+            "COLLECTOR": "koguja",
+            "DESCRIPTION": "kirjeldus",
+            "SPECIES_RECOVERED": "Taksoni nimi",
+            "SPECIES_FREQUENCY": "Taksoni arvukus",
+            "TABLE": {
+                "ID": "ID",
+                "NUMBER": "number",
+                "LOCALITY": "leiukoht",
+                "DEPTH_M": "sügavus (m)",
+                "STRATIGRAPHY": "stratigraafia",
+                "LITHOSTRATIGRAPHY": "litostratigraafia",
+                "COLLECTOR": "coll.",
+                "WEIGHT": "kaal",
+                "MORE_INFO": ""
+            }
+        },
+        "SHOW_ADDITIONAL_CRITERIA": "Kuva täiendavad otsinguväljad",
+        "HIDE_ADDITIONAL_CRITERIA": "Peida lisaväljad",
+        "SORT_BY": "järjesta kirjed",
+        "CHOOSE": "-- Vali --",
         "REFERENCES": {
             "HEADING": "Päring: Kirjandus",
             "ID": "ID",
@@ -217,10 +243,6 @@
                 "REMARKS": "file(s)"
             }
         },
-        "SHOW_ADDITIONAL_CRITERIA": "Kuva täiendavad otsinguväljad",
-        "HIDE_ADDITIONAL_CRITERIA": "Peida lisaväljad",
-        "SORT_BY": "järjesta kirjed:",
-        "CHOOSE": "-- Vali --",
         "SAMPLES": {
             "HEADING": "Päring: Proovid",
             "ID": "ID",
