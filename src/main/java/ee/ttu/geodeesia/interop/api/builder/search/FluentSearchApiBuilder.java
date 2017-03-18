@@ -59,6 +59,12 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
     public String build() {
         return query + "&fields=" + returnFields;
     }
+    /*
+        Accept search query but do not return certain fields but all by default
+     */
+    public String buildWithoutReturningCertainFields() {
+        return query;
+    }
 
     String buildFieldParameters(String fieldName, SearchField searchField) {
         this.lastQueryField = fieldName;

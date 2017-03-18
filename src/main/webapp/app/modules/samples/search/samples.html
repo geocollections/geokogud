@@ -1,3 +1,11 @@
+<script type="text/ng-template" id="sampleSearchHelp">
+    <div class="search-help-popup">
+        <p> SEARCHING SAMPLES</p>
+        <p>Various rock, sediment and soil  samples have been collected from drill cores, outcrops and soil sampling points. Such samples may have been analysed for physical and chemical properties, or fossil content, and the corresponding data may have been digitized or are available in old paper archives. The physical samples themselves may or may not have been stored and available for further analysis and research.
+            To search samples, specify the criteria of interest. The owner institution of individual samples should be contacted for getting access to the material. Note that some preserved samples may be available only under special conditions and under collaborative research.
+        </p>
+    </div>
+</script>
 <div class="panel panel-default">
     <div class="panel-body">
         <div class="row">
@@ -5,203 +13,240 @@
                 <h1>{{ 'SEARCH.SAMPLES.HEADING' | translate }}</h1>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-md-7">
-                <div class="row" data-ng-if="showAdditionalCriteria">
-                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.ID' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectdefault ng-model = "sampleSearch.id.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="sampleSearch.id.name" class="form-control"/>
+            <div class="col-lg-3">
+                <div class="row margin-top-10 margin-left-0">
+                    <button class="btn btn-info btn-secondary secondary-search-btn" id="secondarySearchBtn" data-ng-click="search()">
+                        <i class="glyphicon glyphicon-search"></i> {{ 'SEARCH.SEND_QUERY'| translate }}
+                    </button>
+                    <button class="btn btn-default btn-secondary reset-search-btn noBorderRadiusBtn" data-ng-click="searchDefault()">
+                        <i class="glyphicon glyphicon-erase"></i>{{ 'SEARCH.RESET_FORM'| translate }}
+                    </button>
+                    <button uib-popover-template="'sampleSearchHelp'"
+                            popover-trigger="'focus'"
+                            popover-placement="'right-bottom'"
+                            popover-title="Search tips"
+                            type="button"
+                            class="btn btn-default noBorderRadiusBtn">
+                        <i class="glyphicon glyphicon-question-sign"></i>
+                    </button>
+                </div>
+                <div class="row margin-top-10" >
+                    <div class="row">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"
+                                       value="showMap"
+                                       data-ng-click="showMap()">
+                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                {{ 'SEARCH.SHOW_MAP' | translate }}
+                            </label>
+                        </div>
                     </div>
                 </div>
+
+                <div class="row" >
+                    <div class="panel-heading searchGroupHeading" ng-click="isInstitutionsCollapsed = !isInstitutionsCollapsed">
+                        <h4 class="panel-title">
+                            {{ 'SEARCH.INSTITUTIONS'| translate }}
+                            <section-opened-icon is-opened="isInstitutionsCollapsed"/>
+                        </h4>
+                    </div>
+                    <div uib-collapse="isInstitutionsCollapsed" class="well well-lg">
+                        <div class="row searchCriterion">
+                            <div class="checkbox" data-ng-repeat="state in departments">
+                                <label>
+                                    <input type="checkbox"
+                                           value="{{state.code}}"
+                                           data-ng-checked="searchParameters.dbs.indexOf(state.code) > -1"
+                                           data-ng-click="toggle(state.code)">
+                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                    {{state.label}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="panel-heading searchGroupHeading" ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
+                        <h4 class="panel-title">
+                            {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
+                            <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
+                        </h4>
+                    </div>
+                    <div uib-collapse="isIdentifierFieldsCollapsed">
+                        <div class="well well-lg">
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 searchCriterionTitle medium-padding">
+                                    <b>{{ 'SEARCH.SAMPLES.ID' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType" ng-model = "searchParameters.id.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.SAMPLES.NUMBER' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.sampleNumber.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.sampleNumber.name" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.SAMPLES.DEPTH_M' | translate }}</b>
+                                    <selecthierarchy custom-css="searchCriterionType" ng-model = "searchParameters.depth.lookUpType"></selecthierarchy>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.depth.name" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.SAMPLES.STRATIGRAPHY' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.stratigraphy.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" class="form-control input-sm"
+                                           data-ng-model="searchParameters.stratigraphy.name"
+                                           placeholder="input search parameter..."
+                                           data-uib-typeahead="e as entity.stratigraphy for entity in searchService.localitySearch($viewValue, 'stratigraphy')"
+                                           data-typeahead-min-length="2"
+                                           data-typeahead-on-select="entitySelected($item, $model)"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.SAMPLES.BED_NAME_INDEX' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType" ng-model = "searchParameters.stratigraphyBed.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.stratigraphyBed.name" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.SAMPLES.COLLECTOR' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType" ng-model = "searchParameters.agent.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.agent.name" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.SAMPLES.WEIGHT' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType" ng-model = "searchParameters.mass.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.mass.name" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.SAMPLES.STORAGE' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType" ng-model = "searchParameters.location.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.location.name" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.SAMPLES.SPECIES_RECOVERED' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType" ng-model = "searchParameters.taxon.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.taxon.name" class="form-control" ng-disabled = "true"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.SAMPLES.SPECIES_FREQUENCY' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType" ng-model = "searchParameters.frequency.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.frequency.name" class="form-control" data-ng-disabled="true">
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.SAMPLES.TYPE_OF_ANALYSIS' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType" ng-model = "searchParameters.analysis.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.analysis.name" class="form-control"  data-ng-disabled="true"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.SAMPLES.COMPONENT_ANALYSED' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType" ng-model = "searchParameters.component.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.component.name" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.SAMPLES.CONTENT' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType" ng-model = "searchParameters.content.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.content.name" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="row">
-                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.NUMBER' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectexact ng-model = "sampleSearch.sampleNumber.lookUpType"></selectexact>
+                    <div class="panel-heading searchGroupHeading" ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
+                        <h4 class="panel-title">
+                            {{ 'SEARCH.ANALYSES.LOCATION.LOCATION'| translate }}
+                            <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
+                        </h4>
                     </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="sampleSearch.sampleNumber.name" class="form-control"/>
+                    <div uib-collapse="isLocationFieldsCollapsed">
+                        <div class="well well-lg">
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.SAMPLES.LOCALITY' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.locality.type"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" class="form-control input-sm"
+                                           data-ng-model="searchParameters.locality.name"
+                                           placeholder="input search parameter..."
+                                           data-uib-typeahead="e as entity.locality for entity in searchService.localitySearch($viewValue, 'locality')"
+                                           data-typeahead-min-length="2"
+                                           data-typeahead-on-select="entitySelected($item, $model)"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.SAMPLES.ADMIN_UNIT' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.country.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.country.name" class="form-control" ng-disabled="true"/>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.LOCALITY' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectexact ng-model = "sampleSearch.locality.lookUpType"></selectexact>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" class="form-control input-sm"
-                               data-ng-model="sampleSearch.locality.name"
-                               placeholder="input search parameter..."
-                               data-uib-typeahead="e as entity.locality for entity in searchService.localitySearch($viewValue, 'locality')"
-                               data-typeahead-min-length="2"
-                               data-typeahead-on-select="entitySelected($item, $model)"/>
-                        <!--<input type="text" ng-model="sampleSearch.locality.name" class="form-control"/>-->
-                    </div>
-                </div>
-                <div class="row" data-ng-if="showAdditionalCriteria">
-                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.ADMIN_UNIT' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectexact ng-model = "sampleSearch.country.lookUpType"></selectexact>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="sampleSearch.country.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.DEPTH_M' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectdefault ng-model = "sampleSearch.depth.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="sampleSearch.depth.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.STRATIGRAPHY' | translate }}</label>
-                    <div class="col-md-3">
-                        <selecthierarchy ng-model = "sampleSearch.stratigraphy.lookUpType"></selecthierarchy>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" class="form-control input-sm"
-                               data-ng-model="sampleSearch.stratigraphy.name"
-                               placeholder="input search parameter..."
-                               data-uib-typeahead="e as entity.stratigraphy for entity in searchService.localitySearch($viewValue, 'stratigraphy')"
-                               data-typeahead-min-length="2"
-                               data-typeahead-on-select="entitySelected($item, $model)"/>
-                       <!-- <input type="text" ng-model="sampleSearch.stratigraphy.name" class="form-control"/>-->
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.BED_NAME_INDEX' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectexact ng-model = "sampleSearch.stratigraphyBed.lookUpType"></selectexact>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="sampleSearch.stratigraphyBed.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.COLLECTOR' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectexact ng-model = "sampleSearch.agent.lookUpType"></selectexact>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="sampleSearch.agent.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.WEIGHT' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectdefault ng-model = "sampleSearch.mass.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="sampleSearch.mass.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row" data-ng-if="showAdditionalCriteria">
-                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.STORAGE' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectexact ng-model = "sampleSearch.location.lookUpType"></selectexact>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="sampleSearch.location.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row" data-ng-if="showAdditionalCriteria">
-                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.SPECIES_RECOVERED' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectexact ng-model = "sampleSearch.taxon.lookUpType"></selectexact>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="sampleSearch.taxon.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row" data-ng-if="showAdditionalCriteria">
-                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.SPECIES_FREQUENCY' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectdefault ng-model = "sampleSearch.frequency.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="sampleSearch.frequency.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row" data-ng-if="showAdditionalCriteria">
-                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.TYPE_OF_ANALYSIS' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectexact ng-model = "sampleSearch.analysis.lookUpType"></selectexact>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="sampleSearch.analysis.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row" data-ng-if="showAdditionalCriteria">
-                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.COMPONENT_ANALYSED' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectexact ng-model = "sampleSearch.component.lookUpType"></selectexact>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="sampleSearch.component.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row" data-ng-show="showAdditionalCriteria">
-                    <label class="col-md-2">{{ 'SEARCH.SAMPLES.CONTENT' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectdefault ng-model = "sampleSearch.content.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="sampleSearch.content.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">{{ 'SEARCH.SHOW_ADDITIONAL_CRITERIA' | translate }}</a>
-                        <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">{{ 'SEARCH.HIDE_ADDITIONAL_CRITERIA' | translate }}</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="col-md-2">{{ 'SEARCH.INSTITUTIONS' | translate }}</label>
-                    <label data-ng-repeat="state in departments"><input style="margin: 10px;" type="checkbox" value="{{state.code}}" data-ng-checked="sampleSearch.dbs.indexOf(state.code) > -1" data-ng-click="toggle(state.code)"> {{state.label}} </label>
-                </div>
-                <div class="row">
-                    <label class="col-md-2">{{ 'SEARCH.SORT_BY' | translate }}</label>
-                    <div class="col-md-3">
-                        <select class="col-md-7 form-control"
-                                data-ng-model="sampleSearch.sort"
-                                data-ng-options="option.value as option.name for option in sortbyOptions track by option.value">
-                            <option value="">{{ 'SEARCH.CHOOSE' | translate }}</option>
-                        </select>
-                    </div>
-                    <div class="col-md-5">
-                        <ascdesc ng-model = "sampleSearch.sortDir"></ascdesc>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-5">
-                        <label>
-                            <span>{{ 'SEARCH.SHOW_MAP' | translate }}</span>: <input type="checkbox" ng-model="showMap"/>
-                        </label>
-                    </div>
-                </div>
-                <div class="row geo-section-row no-border">
-                    <button class="btn btn-default pull-right" data-ng-click="searchDefault()">{{ 'SEARCH.RESET_FORM' | translate }}</button>
-                    <button class="btn btn-default pull-right" data-ng-click="search()">
-                        <i class="glyphicon glyphicon-search"></i>{{ 'SEARCH.SEND_QUERY' | translate }}</button>
                 </div>
             </div>
-            <div class="col-md-5">
-                SEARCHING SAMPLES
-                Various rock, sediment and soil samples have been collected from drill cores, outcrops and soil sampling points. Such samples may have been analysed for physical and chemical properties, or fossil content, and the corresponding data may have been digitized or are available in old paper archives. The physical samples themselves may or may not have been stored and available for further analysis and research.
-                To search samples, specify the criteria of interest. The owner institution of individual samples should be contacted for getting access to the material. Note that some preserved samples may be available only under special conditions and under collaborative research.<ul>
-                </ul>
+            <div class="row" data-ng-if="isMapHidden">
+                <div class="col-lg-8">
+                    <localities-map localities="localities"></localities-map>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <localities-map localities="localities"></localities-map>
-            </div>
-        </div>
+
+
         <div class="row">
             <loading></loading>
             <div class="col-lg-4">
@@ -211,19 +256,44 @@
                     </div>
                 </div>
                 <div class="text-right">
-                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize" max-size="sampleSearch.maxSize" rotate="false" total-items="totalItems" ng-model="sampleSearch.page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize" max-size="searchParameters.maxSize" rotate="false" total-items="totalItems" ng-model="searchParameters.page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
                 </div>
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>{{ 'SEARCH.SAMPLES.ID' | translate }}</th>
+                        <th>
+                            <a href style="cursor: pointer" data-ng-click="order('id')"><span>{{ 'SEARCH.SAMPLES.ID' | translate }}</span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'id' && sortByAsc" class="glyphicon glyphicon-triangle-bottom"></span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'id' && !sortByAsc" class="glyphicon glyphicon-triangle-top"></span>
+                            </a>
+                        </th>
                         <th>{{ 'SEARCH.SAMPLES.INSTITUTE' | translate }}</th>
-                        <th>{{ 'SEARCH.SAMPLES.NUMBER' | translate }}</th>
+                        <th>
+                            <a href style="cursor: pointer" data-ng-click="order('number')"><span>{{ 'SEARCH.SAMPLES.NUMBER' | translate }}</span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'number' && sortByAsc" class="glyphicon glyphicon-triangle-bottom"></span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'number' && !sortByAsc" class="glyphicon glyphicon-triangle-top"></span>
+                            </a>
+                        </th>
                         <th></th>
-                        <th>{{ 'SEARCH.SAMPLES.LOCALITY' | translate }}</th>
-                        <th>{{ 'SEARCH.SAMPLES.DEPTH_M' | translate }}</th>
+                        <th>
+                            <a href style="cursor: pointer" data-ng-click="order('localityEng')"><span>{{ 'SEARCH.SAMPLES.LOCALITY' | translate }}</span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'localityEng' && sortByAsc" class="glyphicon glyphicon-triangle-bottom"></span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'localityEng' && !sortByAsc" class="glyphicon glyphicon-triangle-top"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href style="cursor: pointer" data-ng-click="order('depth')"><span>{{ 'SEARCH.SAMPLES.DEPTH_M' | translate }}</span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'depth' && sortByAsc" class="glyphicon glyphicon-triangle-bottom"></span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'depth' && !sortByAsc" class="glyphicon glyphicon-triangle-top"></span>
+                            </a>
+                            </th>
                         <th></th>
-                        <th><span>{{ 'SEARCH.SAMPLES.STRATIGRAPHY' | translate }}</span> <em>{{ 'SEARCH.SAMPLES.LITHOSTRATIGRAPHY' | translate }}</em></th>
+                        <th>
+                            <a href style="cursor: pointer" data-ng-click="order('stratigraphyEng')"><span>{{ 'SEARCH.SAMPLES.STRATIGRAPHY' | translate }}</span> <em>{{ 'SEARCH.SAMPLES.LITHOSTRATIGRAPHY' | translate }}</em>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'stratigraphyEng' && sortByAsc" class="glyphicon glyphicon-triangle-bottom"></span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'stratigraphyEng' && !sortByAsc" class="glyphicon glyphicon-triangle-top"></span>
+                            </a>
+                        </th>
                         <th>{{ 'SEARCH.SAMPLES.COLLECTOR' | translate }}</th>
                         <th>{{ 'SEARCH.SAMPLES.ANAL' | translate }}</th>
                         <th>{{ 'SEARCH.SAMPLES.WEIGHT' | translate }}</th>

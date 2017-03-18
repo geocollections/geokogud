@@ -11,6 +11,7 @@ import ee.ttu.geodeesia.interop.api.preparations.PreparationsApiService;
 import ee.ttu.geodeesia.interop.api.preparations.pojo.PreparationsSearchCriteria;
 import ee.ttu.geodeesia.interop.api.reference.pojo.ReferenceSearchCriteria;
 import ee.ttu.geodeesia.interop.api.reference.service.ReferenceApiService;
+import ee.ttu.geodeesia.interop.api.samples.pojo.SampleSearchCriteria;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilSearchCriteria;
 import ee.ttu.geodeesia.interop.api.soil.service.SoilApiService;
@@ -75,6 +76,11 @@ public class SearchController {
     @RequestMapping(value = "/specimen", method = RequestMethod.POST)
     public Response searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) {
         return specimenApiService.findSpecimen(specimenSearchCriteria);
+    }
+
+    @RequestMapping(value = "/sample", method = RequestMethod.POST)
+    public Response searchSample(@RequestBody SampleSearchCriteria sampleSearchCriteria) {
+        return samplesApiService.findSample(sampleSearchCriteria);
     }
 
     @RequestMapping(value = "/drillcore", method = RequestMethod.POST)

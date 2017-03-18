@@ -1,5 +1,7 @@
-angular.module('search').controller('SearchSampleController', function($scope, SearchService, $uibModal){
-    $scope.sortbyOptions = [
+angular.module('search').controller('SearchSampleController', function($scope, SampleService, SearchService, $uibModal){
+    $scope.isIdentifierFieldsCollapsed = false;
+    $scope.isLocationFieldsCollapsed = true;
+    $scope.isInstitutionsCollapsed = true;$scope.sortbyOptions = [
         {  name: 'ID', value: 'id' },
         {  name: 'Number', value: 'number' },
         {  name: 'Locality', value: 'locality' },
@@ -8,23 +10,23 @@ angular.module('search').controller('SearchSampleController', function($scope, S
         {  name: 'Collector', value: 'collector' }
     ];
 
-    $scope.searchDefault = function(search) {
-        if(!search) search = "sample";
-        SearchService.getSearch(search).then(function(search) {
-            $scope.sampleSearch = search;
-            $scope.search();
-        });
-    };
-
-    $scope.searchDefault();
 
     $scope.search = function() {
-        SearchService.listSearch($scope.sampleSearch).then(function(result) {
+        SampleService.search($scope.searchParameters).then(function(result) {
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
             $scope.response = result;
         });
     };
+
+    $scope.searchDefault = function() {
+        $scope.searchParameters = {sortField : {}, dbs : []};
+        $scope.searchParameters.sortField.sortBy = "id";
+        $scope.sortByAsc = true;
+        $scope.search();
+    };
+
+    $scope.searchDefault();
 
     $scope.defaultSearchOptions = [
         {value:"specimen",name:"Speciments"},
@@ -63,7 +65,10 @@ angular.module('search').controller('SearchSampleController', function($scope, S
     $scope.entitySelected = function(item) {
         $scope.sampleSearch.locality.name = item.locality;
     };
-
+    $scope.showMap = function(){
+        $scope.isMapHidden = !$scope.isMapHidden;
+        $scope.getLocalities($scope.response.result);
+    };
     $scope.getLocalities = function(list) {
         $scope.localities = [];
         if(list){
@@ -87,4 +92,19 @@ angular.module('search').controller('SearchSampleController', function($scope, S
         }
     };
     $scope.loadInfo();
-});
+}).factory("SampleService", ['$http', function ($http) {
+    return {
+        search: function (searchParameters) {
+            return $http.post('/search/sample', searchParameters)
+                .then(function (response) {
+                    return response.data;
+                });
+        },
+        details: function(id) {
+            return $http.get('/details/sample/'+id)
+                .then(function(response){
+                    return response.data;
+                });
+        }
+    };
+}])

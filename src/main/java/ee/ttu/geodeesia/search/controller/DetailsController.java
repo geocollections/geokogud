@@ -4,7 +4,8 @@ package ee.ttu.geodeesia.search.controller;
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.drillCores.service.DrillCoreApiService;
-import ee.ttu.geodeesia.interop.api.samples.pojo.SampleSearchCriteria;
+import ee.ttu.geodeesia.interop.api.Request.SampleSearchCriteria;
+import ee.ttu.geodeesia.interop.api.samples.pojo.SampleDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.soil.service.SoilApiService;
@@ -42,6 +43,14 @@ public class DetailsController {
         criteria.setSoilSiteId(new SearchField(id.toString(), LookUpType.exact));
         Response drillCore = drillCoreApiService.findById(id);
         return new DrillCoreDetailsDialogDto(drillCore);
+    }
+
+    @RequestMapping(value = "/sample/{id}")
+    public SampleDetailsDialogDto findSampleById(@PathVariable Long id) {
+        SampleSearchCriteria criteria = new SampleSearchCriteria();
+        criteria.setSoilSiteId(new SearchField(id.toString(), LookUpType.exact));
+        Response samples = samplesApiService.findById(id);
+        return new SampleDetailsDialogDto(samples);
     }
 
 }

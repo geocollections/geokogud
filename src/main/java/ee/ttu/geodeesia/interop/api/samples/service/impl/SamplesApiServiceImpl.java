@@ -5,13 +5,12 @@ import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.NewVersionOfApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.Response.ResponseMapper;
+import ee.ttu.geodeesia.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geodeesia.interop.api.builder.search.FluentSampleSearchApiBuilder;
-import ee.ttu.geodeesia.interop.api.builder.search.FluentSoilSearchApiApiBuilder;
 import ee.ttu.geodeesia.interop.api.samples.pojo.SampleEntity;
-import ee.ttu.geodeesia.interop.api.samples.pojo.SampleSearchCriteria;
+import ee.ttu.geodeesia.interop.api.Request.SampleSearchCriteria;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.interop.api.service.ApiService;
-import ee.ttu.geodeesia.interop.api.soil.pojo.SoilApiResponse;
 import ee.ttu.geodeesia.search.domain.CommonSearch;
 import ee.ttu.geodeesia.search.domain.SearchField;
 import org.apache.commons.lang3.StringUtils;
@@ -38,6 +37,46 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     private static final Logger logger = LoggerFactory.getLogger(SamplesApiServiceImpl.class);
 
     private RestTemplate restTemplate = new RestTemplate();
+
+
+    @Override
+    public Response findSample(ee.ttu.geodeesia.interop.api.samples.pojo.SampleSearchCriteria searchCriteria) {
+        String requestParams = FluentSampleSearchApiBuilder.aRequest()
+                .queryId(searchCriteria.getId()).andReturn()
+                .queryNumber(searchCriteria.getSampleNumber()).andReturn()
+                .queryStratigraphy(searchCriteria.getStratigraphy()).andReturn()
+                .queryStratigraphyBed(searchCriteria.getStratigraphyBed()).andReturn()
+                .queryLocation(searchCriteria.getLocation()).andReturn()
+                .queryMass(searchCriteria.getMass()).andReturn()
+                .queryAgent(searchCriteria.getAgent()).andReturn()
+             /*   .queryTaxon(searchCriteria.getTaxon()).andReturn()
+                .queryAnalysis(searchCriteria.getAnalysis()).andReturn()
+                .queryFrequency(searchCriteria.getFrequency()).andReturn()
+                .queryComponet(searchCriteria.getComponent()).andReturn()
+                .queryContent(searchCriteria.getContent()).andReturn()*/
+                .queryInstitution(searchCriteria.getDbs()).andReturn()
+                .buildWithoutReturningCertainFields();
+        return apiService.searchEntities("sample",
+                searchCriteria.getPage(),
+                searchCriteria.getSortField(),
+                requestParams,
+                SampleEntity.class);
+    }
+
+    @Override
+    public Response findById(Long id) {
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
+                .id(id)
+                .returnId()
+                .returnLocalityCountry()
+                .returnLocalityCountryEng()
+                .returnLocalityLatitude()
+                .returnLocalityLongitude()
+                .returnDepth()
+                .build();
+        return apiService.findEntity("sample", requestParams, SampleEntity.class);
+    }
+
 
     @Override
     public Response searchByParam(String q, String table) {

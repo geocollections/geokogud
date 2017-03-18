@@ -15,10 +15,24 @@ public class ApiFields {
     public static final String LONGITUDE = "longitude";
 
     // Sample search
+    public static final String NUMBER = "number";
+    public static final String STRATIGRAPHY = "stratigraphy__stratigraphy";
+    public static final String STRATIGRAPHY_ENG = "stratigraphy__stratigraphy_en";
+    public static final String STRATIGRAPHY_BED = "stratigraphy_bed";
+    public static final String LOCATION = "location";
+    public static final String MASS = "mass";
     public static final String SOIL_SITE_ID = "soil_site_id";
     public static final String NUMBER_ADDITIONAL = "number_additional";
     public static final String DEPTH_INTERVAL = "depth_interval";
     public static final String REMARKS = "remarks";
+
+    public static final String AGENT_COLLECTED = "agent_collected__agent";
+
+    public static final String TAXON = "taxon";
+    public static final String ANALYSIS = "analysis";
+    public static final String FREQUENCY = "frequency";
+    public static final String COMPONENT = "component";
+    public static final String CONTENT = "content";
 
     // DOI search
     public static final String REFERENCE = "reference";
@@ -42,4 +56,6 @@ public class ApiFields {
     public static final String LOCALITY_LONGITUDE = "locality__longitude";
     public static final String DEPTH = "depth";
     public static final String BOXES = "boxes";
+
+
 }
