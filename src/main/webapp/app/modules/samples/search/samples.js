@@ -15,6 +15,7 @@ angular.module('search').controller('SearchSampleController', function($scope, S
         SampleService.search($scope.searchParameters).then(function(result) {
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
+            $scope.searchParameters.maxSize = 5;
             $scope.response = result;
         });
     };

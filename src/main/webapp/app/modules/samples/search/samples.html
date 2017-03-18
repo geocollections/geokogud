@@ -187,16 +187,16 @@
                                     <selectexact custom-css="searchCriterionType" ng-model = "searchParameters.component.lookUpType"></selectexact>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.component.name" class="form-control"/>
+                                    <input type="text" ng-model="searchParameters.component.name" class="form-control" data-ng-disabled="true"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.SAMPLES.CONTENT' | translate }}</b>
-                                    <selectexact custom-css="searchCriterionType" ng-model = "searchParameters.content.lookUpType"></selectexact>
+                                    <selectexact custom-css="searchCriterionType" ng-model = "searchParameters.content.lookUpType" data-ng-disabled="true"></selectexact>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.content.name" class="form-control"/>
+                                    <input type="text" ng-model="searchParameters.content.name" class="form-control" data-ng-disabled="true"/>
                                 </div>
                             </div>
                         </div>
@@ -256,7 +256,11 @@
                     </div>
                 </div>
                 <div class="text-right">
-                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize" max-size="searchParameters.maxSize" rotate="false" total-items="totalItems" ng-model="searchParameters.page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+
+                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize"
+                        max-size="searchParameters.maxSize" rotate="false" total-items="totalItems"
+                        ng-model="searchParameters.page" class="pagination-sm" previous-text="&lsaquo;"
+                        next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
                 </div>
                 <table class="table table-bordered table-hover">
                     <thead>
@@ -316,8 +320,10 @@
                     </tbody>
                 </table>
                 <div class="text-right">
-                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize" max-size="sampleSearch.maxSize" rotate="false" total-items="totalItems" ng-model="sampleSearch.page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
-                </div>
+                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize"
+                        max-size="searchParameters.maxSize" rotate="false" total-items="totalItems"
+                        ng-model="searchParameters.page" class="pagination-sm" previous-text="&lsaquo;"
+                        next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul></div>
             </div>
         </div>
     </div>
