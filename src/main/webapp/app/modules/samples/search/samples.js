@@ -50,6 +50,9 @@ angular.module('search').controller('SearchSampleController', function($scope, S
             $scope.pageSize = 100;
             $scope.searchParameters.maxSize = 5;
             $scope.response = result;
+            if($scope.isMapHidden) {
+                $scope.getLocalities($scope.response.result);
+            }
         });
     };
 

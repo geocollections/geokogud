@@ -30,6 +30,9 @@ angular.module('search').controller('SearchDrillCoresController', function ($sco
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
             $scope.response = result;
+            if($scope.isMapHidden) {
+                $scope.getLocalities($scope.response.result);
+            }
         });
     };
 
@@ -62,6 +65,7 @@ angular.module('search').controller('SearchDrillCoresController', function ($sco
                     $scope.localities.push({latitude:el.latitude, longitude:el.longitude})
             })
         }
+        console.log($scope.localities);
         return $scope.localities;
     }
 }).controller('DrillCoreDetailsController', function($scope,$stateParams, DrillCoreService){

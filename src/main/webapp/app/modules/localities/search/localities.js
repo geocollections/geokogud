@@ -24,6 +24,9 @@ angular.module('search').controller('SearchLocalitiesController', function($scop
             $scope.pageSize = 100;
             $scope.searchParameters.maxSize = 5;
             $scope.response = result;
+            if($scope.isMapHidden) {
+                $scope.getLocalities($scope.response.result);
+            }
         });
     };
 
