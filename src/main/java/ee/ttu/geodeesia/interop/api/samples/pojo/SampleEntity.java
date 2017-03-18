@@ -8,7 +8,7 @@ import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
 import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SampleEntity implements Serializable, ConvertableToResponseEntity {//Serializable
+public class SampleEntity implements Serializable, ConvertableToResponseEntity {
     private static final long serialVersionUID = 1L;
 
 /*

@@ -1,7 +1,9 @@
 angular.module('search').controller('SearchSampleController', function($scope, SampleService, SearchService, $uibModal){
-    $scope.isIdentifierFieldsCollapsed = false;
+    $scope.isIdentifierFieldsCollapsed = true;
     $scope.isLocationFieldsCollapsed = true;
-    $scope.isInstitutionsCollapsed = true;$scope.sortbyOptions = [
+    $scope.isInstitutionsCollapsed = false;
+
+    $scope.sortbyOptions = [
         {  name: 'ID', value: 'id' },
         {  name: 'Number', value: 'number' },
         {  name: 'Locality', value: 'locality' },
@@ -9,26 +11,6 @@ angular.module('search').controller('SearchSampleController', function($scope, S
         {  name: 'Stratigraphy', value: 'stratigraphy' },
         {  name: 'Collector', value: 'collector' }
     ];
-
-
-    $scope.search = function() {
-        SampleService.search($scope.searchParameters).then(function(result) {
-            $scope.totalItems = result.count;
-            $scope.pageSize = 100;
-            $scope.searchParameters.maxSize = 5;
-            $scope.response = result;
-        });
-    };
-
-    $scope.searchDefault = function() {
-        $scope.searchParameters = {sortField : {}, dbs : []};
-        $scope.searchParameters.sortField.sortBy = "id";
-        $scope.sortByAsc = true;
-        $scope.search();
-    };
-
-    $scope.searchDefault();
-
     $scope.defaultSearchOptions = [
         {value:"specimen",name:"Speciments"},
         {value:"sample",name:"Samples"},
@@ -54,18 +36,44 @@ angular.module('search').controller('SearchSampleController', function($scope, S
         {code:"EGK",label:"EGK"}];
 
     $scope.toggle = function(state) {
-        var i = $scope.sampleSearch.dbs.indexOf(state);
+        var i = $scope.searchParameters.dbs.indexOf(state);
         if (i > -1) {
-            $scope.sampleSearch.dbs.splice(i, 1);
+            $scope.searchParameters.dbs.splice(i, 1);
         } else {
-            $scope.sampleSearch.dbs.push(state);
+            $scope.searchParameters.dbs.push(state);
         }
     };
+
+    $scope.search = function() {
+        SampleService.search($scope.searchParameters).then(function(result) {
+            $scope.totalItems = result.count;
+            $scope.pageSize = 100;
+            $scope.searchParameters.maxSize = 5;
+            $scope.response = result;
+        });
+    };
+
+    $scope.searchDefault = function() {
+        $scope.searchParameters = {sortField : {}, dbs : []};
+        $scope.searchParameters.sortField.sortBy = "id";
+        $scope.sortByAsc = true;
+        $scope.toggle("GIT");
+        $scope.search();
+    };
+
+    $scope.searchDefault();
 
     $scope.searchService = SearchService;
     $scope.entitySelected = function(item) {
         $scope.sampleSearch.locality.name = item.locality;
     };
+    $scope.order = function(predicate) {
+        $scope.sortByAsc = ($scope.searchParameters.sortField.sortBy === predicate ? !$scope.sortByAsc : true);
+        $scope.searchParameters.sortField.sortBy =  predicate;
+        !$scope.sortByAsc ? $scope.searchParameters.sortField.order = "ASCENDING" :  $scope.searchParameters.sortField.order = "DESCENDING";
+        $scope.search();
+    };
+
     $scope.showMap = function(){
         $scope.isMapHidden = !$scope.isMapHidden;
         $scope.getLocalities($scope.response.result);
@@ -74,8 +82,8 @@ angular.module('search').controller('SearchSampleController', function($scope, S
         $scope.localities = [];
         if(list){
           angular.forEach(list, function (el) {
-              if(el.latitude != null && el.longitude != null  && el.localityEng != null  && el.locality != null  && el.localityId != null)
-                $scope.localities.push({latitude:el.latitude, longitude:el.longitude, localityEng : el.localityEng, localityEt:el.locality, fid:el.localityId})
+              if(el.localityLatitude != null && el.localityLongitude != null  && el.localityEn != null  && el.locality != null  && el.localityId != null)
+                $scope.localities.push({latitude:el.localityLatitude, longitude:el.localityLongitude, localityEng : el.localityEn, localityEt:el.locality, fid:el.localityId})
           })
         }
         return $scope.localities;

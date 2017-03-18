@@ -57,5 +57,15 @@ public class ApiFields {
     public static final String DEPTH = "depth";
     public static final String BOXES = "boxes";
 
+    // Locality search
+    public static final String LOCALITY_STRATIGRAPHY = "localitystratigraphy__stratigraphy__stratigraphy_en";
+    public static final String MA_ID = "maaamet_pa_id";
+    public static final String LOCALITY = "locality";
+    public static final String LOCALITY_ENG = "locality_en";
+    public static final String COUNTRY = "country__value";
+    public static final String COUNTRY_ENG = "country__value_en";
+    public static final String ADMIN_UNIT = "maakond__maakond";
+    public static final String ADMIN_UNIT_ENG = "maakond__maakond_en";
+
 
 }

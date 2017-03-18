@@ -5,6 +5,8 @@ import ee.ttu.geodeesia.interop.api.Response.NewVersionOfApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreSearchCriteria;
 import ee.ttu.geodeesia.interop.api.drillCores.service.DrillCoreApiService;
+import ee.ttu.geodeesia.interop.api.localities.pojo.LocalitySearchCriteria;
+import ee.ttu.geodeesia.interop.api.localities.service.LocalitiesApiService;
 import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveSearchCriteria;
 import ee.ttu.geodeesia.interop.api.photoArchive.service.PhotoArchiveApiService;
 import ee.ttu.geodeesia.interop.api.preparations.PreparationsApiService;
@@ -46,6 +48,8 @@ public class SearchController {
     private PhotoArchiveApiService photoArchiveApiService;
     @Autowired
     private PreparationsApiService preparationsApiService;
+    @Autowired
+    private LocalitiesApiService localitiesApiService;
 
     @RequestMapping(value = "/get-search", method = RequestMethod.GET)
     public CommonSearch getSearch(@RequestParam("name") String search) {
@@ -86,6 +90,10 @@ public class SearchController {
     @RequestMapping(value = "/drillcore", method = RequestMethod.POST)
     public Response searchDrillcore(@RequestBody DrillCoreSearchCriteria searchCriteria) {
         return drillCoreApiService.findDrillCore(searchCriteria);
+    }
+    @RequestMapping(value = "/locality", method = RequestMethod.POST)
+    public Response searchDrillcore(@RequestBody LocalitySearchCriteria searchCriteria) {
+        return localitiesApiService.findLocality(searchCriteria);
     }
 
     @RequestMapping(value = "/photo-archive", method = RequestMethod.POST)

@@ -1,8 +1,14 @@
 package ee.ttu.geodeesia.interop.api.localities.service.impl;
 
 import ee.ttu.geodeesia.interop.api.Request.SearchApiRequest;
+import ee.ttu.geodeesia.interop.api.Response.Response;
+import ee.ttu.geodeesia.interop.api.builder.search.FluentLocalitySearchApiBuilder;
 import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityApiResponse;
+import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityEntity;
+import ee.ttu.geodeesia.interop.api.localities.pojo.LocalitySearchCriteria;
 import ee.ttu.geodeesia.interop.api.localities.service.LocalitiesApiService;
+import ee.ttu.geodeesia.interop.api.service.ApiService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -15,6 +21,36 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
     private String apiUrl;
 
     private RestTemplate restTemplate = new RestTemplate();
+
+    @Autowired
+    private ApiService apiService;
+
+    @Override
+    public Response findLocality(LocalitySearchCriteria searchCriteria) {
+        String requestParams = FluentLocalitySearchApiBuilder.aRequest()
+                .queryId(searchCriteria.getId()).andReturn()
+                .queryNumber(searchCriteria.getNumber()).andReturn()
+                .queryStratigraphy(searchCriteria.getStratigraphy()).andReturn()
+//                .queryReference(searchCriteria.getReference()).andReturn()
+                .queryMaId(searchCriteria.getMaId()).andReturn()
+                .queryLocality(searchCriteria.getLocality()).andReturn()
+                .queryCountry(searchCriteria.getCountry()).andReturn()
+                .queryAdminUnit(searchCriteria.getAdminUnit()).andReturn()
+                .queryLongitude(searchCriteria.getLatitude()).andReturn()
+                .queryLongitude(searchCriteria.getLongitude()).andReturn()
+                .queryInstitution(searchCriteria.getDbs()).andReturn()
+                .buildWithoutReturningCertainFields();
+        return apiService.searchEntities("locality",
+                searchCriteria.getPage(),
+                searchCriteria.getSortField(),
+                requestParams,
+                LocalityEntity.class);
+    }
+
+    @Override
+    public Response findById(Long id) {
+        return null;
+    }
 
     @Override
     public LocalityApiResponse getLocality(Long id) {
