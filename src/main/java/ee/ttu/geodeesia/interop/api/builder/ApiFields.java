@@ -40,6 +40,8 @@ public class ApiFields {
     public static final String TITLE = "title";
     public static final String YEAR = "year";
     public static final String DOI = "doi";
+    public static final String BOOK = "book";
+    public static final String JOURNAL = "journal";
 
     // Photo archive search
     public static final String FILE_NAME = "filename";

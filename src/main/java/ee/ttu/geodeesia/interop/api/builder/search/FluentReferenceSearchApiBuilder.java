@@ -33,4 +33,13 @@ public class FluentReferenceSearchApiBuilder extends FluentSearchApiBuilder<Flue
         query += buildFieldParameters(YEAR, year);
         return this;
     }
+
+    public FluentReferenceSearchApiBuilder queryBook(SearchField year) {
+        query += buildFieldParameters(BOOK, year);
+        return this;
+    }
+    public FluentReferenceSearchApiBuilder queryJournal(SearchField year) {
+        query += buildFieldParameters(JOURNAL, year);
+        return this;
+    }
 }

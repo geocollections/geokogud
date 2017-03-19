@@ -12,6 +12,24 @@ public class ReferenceSearchCriteria {
     private SearchField title;
     private SearchField year;
     private SearchField doi;
+    private SearchField book;
+    private SearchField journal;
+
+    public SearchField getBook() {
+        return book;
+    }
+
+    public void setBook(SearchField book) {
+        this.book = book;
+    }
+
+    public SearchField getJournal() {
+        return journal;
+    }
+
+    public void setJournal(SearchField journal) {
+        this.journal = journal;
+    }
 
     public SearchField getId() {
         return id;

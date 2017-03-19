@@ -22,7 +22,9 @@ public class ReferenceApiServiceImpl implements ReferenceApiService {
                 .queryTitle(searchCriteria.getTitle()).andReturn()
                 .queryYear(searchCriteria.getYear()).andReturn()
                 .queryDoi(searchCriteria.getDoi()).andReturn()
-                .build();
+                .queryBook(searchCriteria.getBook()).andReturn()
+                .queryJournal(searchCriteria.getJournal()).andReturn()
+                .buildWithoutReturningCertainFields();
         return apiService.searchEntities("reference", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, ReferenceApiResponse.class);
     }
 
