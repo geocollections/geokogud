@@ -11,13 +11,48 @@ public class PhotoArchiveSearchCriteria {
     private SearchField fileName;
     private SearchField dateTaken;
     private SearchField authorAgent;
-    private SearchField localityId;
+    private SearchField locality;
+    private SearchField keywords;
+    private SearchField imageNumber;
+    private SearchField people;
 
 /*    private SearchField doi;
     private SearchField title;
     private SearchField publishedBy;
     private SearchField year;
     private SearchField author;*/
+
+    public SearchField getLocality() {
+        return locality;
+    }
+
+    public void setLocality(SearchField locality) {
+        this.locality = locality;
+    }
+
+    public SearchField getPeople() {
+        return people;
+    }
+
+    public void setPeople(SearchField people) {
+        this.people = people;
+    }
+
+    public SearchField getImageNumber() {
+        return imageNumber;
+    }
+
+    public void setImageNumber(SearchField imageNumber) {
+        this.imageNumber = imageNumber;
+    }
+
+    public SearchField getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(SearchField keywords) {
+        this.keywords = keywords;
+    }
 
     public int getPage() {
         return page;
@@ -67,13 +102,6 @@ public class PhotoArchiveSearchCriteria {
         this.authorAgent = authorAgent;
     }
 
-    public SearchField getLocalityId() {
-        return localityId;
-    }
-
-    public void setLocalityId(SearchField localityId) {
-        this.localityId = localityId;
-    }
 
     /* public SearchField getDoi() {
         return doi;

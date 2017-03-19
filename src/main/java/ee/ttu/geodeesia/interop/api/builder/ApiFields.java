@@ -47,6 +47,12 @@ public class ApiFields {
     public static final String FILE_NAME = "filename";
     public static final String DATE_TAKEN = "date_taken";
     public static final String AUTHOR_AGENT = "author__agent";
+    public static final String KEYWORDS = "keywords";
+    public static final String IMAGE_NUMBER = "image_number";
+    public static final String AUTHOR_FREE = "author_free";
+    public static final String PEOPLE = "people";
+    public static final String LOCALITY_LOCALITY = "locality__locality";
+    public static final String OBJECT = "object";
 
     // Drill core search
     public static final String DRILL_CORE = "drillcore";

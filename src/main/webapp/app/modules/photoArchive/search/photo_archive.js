@@ -17,7 +17,7 @@ angular.module('search').controller('SearchPhotoArchiveController', function($sc
     $scope.search = function() {
         PhotoService.search($scope.searchParameters).then(function(result) {
             $scope.totalItems = result.count;
-            $scope.pageSize = 100;
+            $scope.pageSize = 30;
             $scope.response = result;
             console.log(result);
         });

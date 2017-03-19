@@ -19,9 +19,14 @@ public class PhotoArchiveApiServiceImpl implements PhotoArchiveApiService{
     public Response findPhoto(PhotoArchiveSearchCriteria searchCriteria) {
         String requestParams = FluentPhotoArchiveSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId()).andReturn()
-                .queryFileName(searchCriteria.getFileName()).andReturn()
+                .queryFileName(searchCriteria.getFileName())
                 .queryAuthorAgent(searchCriteria.getAuthorAgent()).andReturn()
                 .queryDateTaken(searchCriteria.getDateTaken()).andReturn()
+                .queryKeywords(searchCriteria.getKeywords()).andReturn()
+                .queryNumber(searchCriteria.getImageNumber()).andReturn()
+                .queryPeople(searchCriteria.getPeople())
+                .queryLocality(searchCriteria.getLocality()).andReturn()
+                .returnObject()
                 .build();
         return apiService.searchEntities("image", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, PhotoArchiveEntity.class);
 

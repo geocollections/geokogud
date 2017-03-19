@@ -12,10 +12,38 @@ public class PhotoArchiveEntity {
                 "author__agent": "Isakar"
      */
     private Long id;
-    private String fileName;
     private String dateTaken;
     private String authorAgent;
-    private String localityId;
+    private String locality;
+    private String imageNumber;
+    private String keywords;
+    private String object;
+
+    public String getObject() {
+        return object;
+    }
+
+    public void setObject(String object) {
+        this.object = object;
+    }
+
+    public String getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
+    }
+
+    @JsonProperty("imageNumber")
+    public String getImageNumber() {
+        return imageNumber;
+    }
+
+    @JsonProperty("image_number")
+    public void setImageNumber(String imageNumber) {
+        this.imageNumber = imageNumber;
+    }
 
     public Long getId() {
         return id;
@@ -23,14 +51,6 @@ public class PhotoArchiveEntity {
 
     public void setId(Long id) {
         this.id = id;
-    }
-    @JsonProperty("fileName")
-    public String getFileName() {
-        return fileName;
-    }
-    @JsonProperty("filename")
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
     }
     @JsonProperty("dateTaken")
     public String getDateTaken() {
@@ -48,12 +68,12 @@ public class PhotoArchiveEntity {
     public void setAuthorAgent(String authorAgent) {
         this.authorAgent = authorAgent;
     }
-    @JsonProperty("localityId")
-    public String getLocalityId() {
-        return localityId;
+    @JsonProperty("locality")
+    public String getLocality() {
+        return locality;
     }
-    @JsonProperty("locality_id")
-    public void setLocalityId(String localityId) {
-        this.localityId = localityId;
+    @JsonProperty("locality__locality")
+    public void setLocality(String locality) {
+        this.locality = locality;
     }
 }
