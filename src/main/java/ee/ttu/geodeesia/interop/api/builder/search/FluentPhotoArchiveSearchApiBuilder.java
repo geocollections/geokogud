@@ -50,6 +50,21 @@ public class FluentPhotoArchiveSearchApiBuilder extends FluentSearchApiBuilder<F
         return this;
     }
 
+    public FluentPhotoArchiveSearchApiBuilder queryCountry(SearchField adminUnit) {
+        query += buildFieldParameters(LOCALITY_COUNTRY, adminUnit);
+        return this;
+    }
+
+    public FluentPhotoArchiveSearchApiBuilder querySizeX(SearchField sizeX) {
+        query += buildFieldParameters(SIZE_X, sizeX);
+        return this;
+    }
+
+    public FluentPhotoArchiveSearchApiBuilder querySizeY(SearchField sizeY) {
+        query += buildFieldParameters(SIZE_Y, sizeY);
+        return this;
+    }
+
     public FluentPhotoArchiveSearchApiBuilder returnObject() {
         addReturningField(OBJECT);
         return this;

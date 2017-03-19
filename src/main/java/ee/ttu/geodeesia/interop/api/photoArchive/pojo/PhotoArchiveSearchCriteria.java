@@ -15,12 +15,33 @@ public class PhotoArchiveSearchCriteria {
     private SearchField keywords;
     private SearchField imageNumber;
     private SearchField people;
+    private SearchField adminUnit;
+    private SearchField sizeX;
+    private SearchField sizeY;
 
-/*    private SearchField doi;
-    private SearchField title;
-    private SearchField publishedBy;
-    private SearchField year;
-    private SearchField author;*/
+    public SearchField getSizeX() {
+        return sizeX;
+    }
+
+    public void setSizeX(SearchField sizeX) {
+        this.sizeX = sizeX;
+    }
+
+    public SearchField getSizeY() {
+        return sizeY;
+    }
+
+    public void setSizeY(SearchField sizeY) {
+        this.sizeY = sizeY;
+    }
+
+    public SearchField getAdminUnit() {
+        return adminUnit;
+    }
+
+    public void setAdminUnit(SearchField adminUnit) {
+        this.adminUnit = adminUnit;
+    }
 
     public SearchField getLocality() {
         return locality;
@@ -101,45 +122,4 @@ public class PhotoArchiveSearchCriteria {
     public void setAuthorAgent(SearchField authorAgent) {
         this.authorAgent = authorAgent;
     }
-
-
-    /* public SearchField getDoi() {
-        return doi;
-    }
-
-    public void setDoi(SearchField doi) {
-        this.doi = doi;
-    }
-
-    public SearchField getTitle() {
-        return title;
-    }
-
-    public void setTitle(SearchField title) {
-        this.title = title;
-    }
-
-    public SearchField getPublishedBy() {
-        return publishedBy;
-    }
-
-    public void setPublishedBy(SearchField publishedBy) {
-        this.publishedBy = publishedBy;
-    }
-
-    public SearchField getYear() {
-        return year;
-    }
-
-    public void setYear(SearchField year) {
-        this.year = year;
-    }
-
-    public SearchField getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(SearchField author) {
-        this.author = author;
-    }*/
 }

@@ -5,6 +5,8 @@ import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.drillCores.service.DrillCoreApiService;
 import ee.ttu.geodeesia.interop.api.Request.SampleSearchCriteria;
+import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveDetailsDialogDto;
+import ee.ttu.geodeesia.interop.api.photoArchive.service.PhotoArchiveApiService;
 import ee.ttu.geodeesia.interop.api.samples.pojo.SampleDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilDetailsDialogDto;
@@ -25,6 +27,8 @@ public class DetailsController {
     private SoilApiService soilApiService;
     @Autowired
     private SamplesApiService samplesApiService;
+    @Autowired
+    private PhotoArchiveApiService photoArchiveApiService;
 
     @RequestMapping(value = "/soil/{id}")
     public SoilDetailsDialogDto findSoilById(@PathVariable Long id) {
@@ -39,18 +43,19 @@ public class DetailsController {
 
     @RequestMapping(value = "/drillcore/{id}")
     public DrillCoreDetailsDialogDto findDrillCoreById(@PathVariable Long id) {
-        SampleSearchCriteria criteria = new SampleSearchCriteria();
-        criteria.setSoilSiteId(new SearchField(id.toString(), LookUpType.exact));
         Response drillCore = drillCoreApiService.findById(id);
         return new DrillCoreDetailsDialogDto(drillCore);
     }
 
     @RequestMapping(value = "/sample/{id}")
     public SampleDetailsDialogDto findSampleById(@PathVariable Long id) {
-        SampleSearchCriteria criteria = new SampleSearchCriteria();
-        criteria.setSoilSiteId(new SearchField(id.toString(), LookUpType.exact));
         Response samples = samplesApiService.findById(id);
         return new SampleDetailsDialogDto(samples);
     }
 
+    @RequestMapping(value = "/photo-archive/{id}")
+    public PhotoArchiveDetailsDialogDto findPhotoArchiveById(@PathVariable Long id) {
+        Response photo = photoArchiveApiService.findById(id);
+        return new PhotoArchiveDetailsDialogDto(photo);
+    }
 }

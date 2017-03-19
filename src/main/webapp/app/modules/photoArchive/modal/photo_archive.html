@@ -11,14 +11,23 @@
                     <thead>
                     </thead>
                     <tbody>
-                    <tr><td>leiukoht</td><td><a href data-ng-click="openInNewWindow({object:'locality',id:photo.localityId})" >{{sample.localityEng}}</a></td></tr>
+                    <tr><td>ID</td><td>{{image.id}}</td></tr>
+                    <tr><td>Number</td><td>{{image.imageNumber}}</td></tr>
+                    <tr><td>Author</td><td>{{image.authorAgent}}</td></tr>
+                    <tr><td>Date taken</td><td>{{image.dateTaken}}</td></tr>
+                    <tr><td>Object</td><td>{{image.object}}</td></tr>
+                    <tr><td>Category</td><td>????</td></tr>
+                    <tr><td>Keywords</td><td>{{image.keywords}}</td></tr>
+                    <tr><td>Description</td><td>{{image.description}}</td></tr>
+                    <tr><td>Image type</td><td>{{image.typeValue}}</td></tr>
+                    <tr><td>File name</td><td>{{image.fileName}}</td></tr>
+                    <tr><td>Device name</td><td>{{image.deviceName}}</td></tr>
+                    <tr><td>Record created</td><td>{{image.dataAdded}}</td></tr>
+                    <tr><td>Record changed</td><td>{{image.dataChanged}}</td></tr>
                     </tbody>
                 </table>
             </div>
             <div class="col-lg-6">
-                <locality-map x = "image.latitude" y = "image.longitude" name = "image.localityEng" fid = "image.localityId"></locality-map>
-                <a href data-ng-click="showGoogleMap(image.latitude, image.longitude, image.locality, image.localityEng)">Google Maps</a>            </span>
-                <a href data-ng-click="showEstonianLandBoardMap(image.latitude, image.longitude)">Maa-amet / Estonian Land Board</a>
             </div>
         </div>
     </div>
