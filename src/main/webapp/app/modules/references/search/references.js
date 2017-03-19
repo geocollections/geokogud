@@ -10,11 +10,20 @@ angular.module('search').controller('SearchReferenceController', function($scope
 
     $scope.isInstitutionsCollapsed = true;
     $scope.isIdentifierFieldsCollapsed = false;
-
+    
+    $scope.toggle = function(state) {
+        var i = $scope.searchParameters.dbs.indexOf(state);
+        if (i > -1) {
+            $scope.searchParameters.dbs.splice(i, 1);
+        } else {
+            $scope.searchParameters.dbs.push(state);
+        }
+    };
     $scope.search = function() {
         ReferenceService.search($scope.searchParameters, $stateParams).then(function(result) {
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
+            $scope.searchParameters.maxSize = 5;
             $scope.response = result;
         });
     };
@@ -23,6 +32,7 @@ angular.module('search').controller('SearchReferenceController', function($scope
         $scope.searchParameters = {sortField : {}, dbs : []};
         $scope.searchParameters.sortField.sortBy = "id";
         $scope.sortByAsc = true;
+        $scope.toggle("GIT");
         $scope.search();
     };
     $scope.searchDefault();
