@@ -138,16 +138,16 @@
         "INSTITUTIONS": "Asutused",
         "NO_OF_RESULTS": "Kokku",
         "DRILL_CORES": {
+            "SEARCHING_DRILL_CORES_HEADING": "PUURSÜDAMIKE OTSING",
+            "SEARCHING_DRILL_CORES_TEXT": "Puursüdamikud on olulised geoloogilise informatsiooni kandjad ning leiavad pidevat kasutamist nii teadustöös kui rakendusuuringutes. Südamike otsimiseks sisesta sobivad kriteeriumid, puuraukude kuvamiseks kaardil tee vastav märge. Detailse info nägemiseks kasutage linke tulemuste tabelis. Suur osa südamikukaste on varustatud fotodega.  Kui otsitav jäi leidmata siis vt. puursüdamike andmebaasi Maa-ameti geoportaalis.",
             "HEADING": "Päring: Puursüdamikud",
             "ID": "ID",
             "DRILLCORE": "puursüdamik",
-            "COUNTRY": "riik",
-            "ADMIN_UNIT": "admin. üksus",
             "STRATIGRAPHY": "stratigraafia",
             "STORAGE": "hoiukoht",
             "BOX_COUNT": "südamikukaste",
-            "SEARCHING_DRILL_CORES_HEADING": "PUURSÜDAMIKE OTSING",
-            "SEARCHING_DRILL_CORES_TEXT": "Puursüdamikud on olulised geoloogilise informatsiooni kandjad ning leiavad pidevat kasutamist nii teadustöös kui rakendusuuringutes. Südamike otsimiseks sisesta sobivad kriteeriumid, puuraukude kuvamiseks kaardil tee vastav märge. Detailse info nägemiseks kasutage linke tulemuste tabelis. Suur osa südamikukaste on varustatud fotodega.  Kui otsitav jäi leidmata siis vt. puursüdamike andmebaasi Maa-ameti geoportaalis.",
+            "COUNTRY": "riik",
+            "ADMIN_UNIT": "admin. üksus",
             "TABLE": {
                 "ID": "ID",
                 "DRILLCORE": "puursüdamik",
@@ -161,17 +161,92 @@
                 "IMAGES": "pildid"
             }
         },
+        "SHOW_MAP": "Näita kaardil",
+        "LOCATILIES": {
+            "HEADING": "Päring: Lokaliteedid"
+        },
+        "LOCALITIES": {
+            "IDENTIFIERS": {
+                "IDENTIFIERS": "Identifikaator",
+                "ID": "ID",
+                "NUMBER": "number",
+                "STRATIGRAPHY": "stratigraafia",
+                "REFERENCE": "viide",
+                "MA_ID": "MA ID"
+            },
+            "LOCATION": {
+                "LOCATION": "Leiukoht",
+                "LOCALITY": "leiukoht",
+                "COUNTRY": "riik",
+                "ADMIN_UNIT": "admin. üksus",
+                "LATITUDE": "laiuskraad",
+                "LONGITUDE": "pikkuskraad",
+                "VERTICAL_EXTENT": "läbilõike ulatus, m"
+            },
+            "TABLE": {
+                "ID": "ID",
+                "LOCALITY": "leiukoht",
+                "COUNTRY": "riik",
+                "LATITUDE": "laiuskraad",
+                "LONGITUDE": "pikkuskraad",
+                "VERTICAL_EXTENT": "läbilõike ulatus, m",
+                "STRATIGRAPHY_BASE": "stratigraphy alum.",
+                "STRATIGRAPHY_TOP": "stratigraafia ülem.",
+                "DRILLCORE": "puursüdamik",
+                "IMAGES": "pildid",
+                "MAP": "kaart",
+                "MA_ID": "MA ID"
+            }
+        },
+        "PREPARATIONS": {
+            "HEADING": "Päring: Preparaadid",
+            "NUMBER": "number",
+            "LOCALITY": "leiukoht",
+            "DEPTH_M": "sügavus (m)",
+            "STRATIGRAPHY": "stratigraafia",
+            "COLLECTOR": "koguja",
+            "DESCRIPTION": "kirjeldus",
+            "SPECIES_RECOVERED": "Taksoni nimi",
+            "SPECIES_FREQUENCY": "Taksoni arvukus",
+            "TABLE": {
+                "ID": "ID",
+                "NUMBER": "number",
+                "LOCALITY": "leiukoht",
+                "DEPTH_M": "sügavus (m)",
+                "STRATIGRAPHY": "stratigraafia",
+                "LITHOSTRATIGRAPHY": "litostratigraafia",
+                "COLLECTOR": "coll.",
+                "WEIGHT": "kaal",
+                "MORE_INFO": ""
+            }
+        },
         "SHOW_ADDITIONAL_CRITERIA": "Kuva täiendavad otsinguväljad",
         "HIDE_ADDITIONAL_CRITERIA": "Peida lisaväljad",
-        "SORT_BY": "järjesta kirjed:",
+        "SORT_BY": "järjesta kirjed",
         "CHOOSE": "-- Vali --",
-        "SHOW_MAP": "Näita kaardil",
+        "REFERENCES": {
+            "HEADING": "Päring: Kirjandus",
+            "ID": "ID",
+            "AUTHOR": "Autor",
+            "YEAR": "Aasta",
+            "TITLE": "Pealkiri",
+            "BOOK": "Raamat, kogumik",
+            "TABLE": {
+                "ID": "ID",
+                "REFERENCE": "Viide",
+                "AUTHOR": "Autor",
+                "YEAR": "Aasta",
+                "TITLE": "Pealkiri",
+                "JOURNAL_BOOK": "Ajakiri / kogumik",
+                "PP": "pp.",
+                "DOI": "DOI",
+                "REMARKS": "file(s)"
+            }
+        },
         "SAMPLES": {
             "HEADING": "Päring: Proovid",
             "ID": "ID",
             "NUMBER": "number",
-            "LOCALITY": "leiukoht",
-            "ADMIN_UNIT": "admin. üksus",
             "DEPTH_M": "sügavus (m)",
             "STRATIGRAPHY": "stratigraafia",
             "BED_NAME_INDEX": "bed name / index",
@@ -183,6 +258,8 @@
             "TYPE_OF_ANALYSIS": "Analüüsi tüüp",
             "COMPONENT_ANALYSED": "Analüüsitud komponent",
             "CONTENT": "Komponendi sisaldus",
+            "LOCALITY": "leiukoht",
+            "ADMIN_UNIT": "admin. üksus",
             "INSTITUTE": "Inst.",
             "LITHOSTRATIGRAPHY": "litostratigraafia",
             "ANAL": "anal."
@@ -212,7 +289,28 @@
             "STATUS": "status",
             "IMAGES": "pildid"
         },
-        "SEARCH_IMAGES": "otsi pilte"
+        "SEARCH_IMAGES": "otsi pilte",
+        "STRATIGRAPHY": {
+            "HEADING": "Päring: Stratigraafilised üksused",
+            "ID": "ID",
+            "STRATIGRAPHY": "stratigraafia",
+            "INDEX": "indeks",
+            "AGE_MIN_Y": "vanus, mln a",
+            "MAIN_LITHOLOGY": "litoloogia",
+            "AUTHOR": "autor",
+            "TABLE": {
+                "ID": "ID",
+                "STRATIGRAPHY_ET": "stratigraafia (et)",
+                "STRATIGRAPHY_EN": "stratigraafia (en)",
+                "INDEX": "indeks",
+                "TYPE": "tüüp",
+                "RANK": "tase",
+                "SCOPE": "skoop",
+                "AGE": "vanus",
+                "AGE_MA": "vanus (Ma)",
+                "BELONGS_TO": "kuulub"
+            }
+        }
     },
     "INDEX": {
         "GEOCOLLECTIONS_TITLE": "Eesti geokogude infosüsteem",

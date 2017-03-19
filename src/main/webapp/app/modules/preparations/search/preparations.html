@@ -2,13 +2,13 @@
     <div class="panel-body">
         <div class="row">
             <div class="text-center">
-                <h1>Search: Preparation</h1>
+                <h1>{{ 'SEARCH.PREPARATIONS.HEADING' | translate }}</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="row">
-                    <label class="control-label col-md-2">Number</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.PREPARATIONS.NUMBER' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "preparationSearch.number.lookUpType"></selectdefault>
                     </div>
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Locality</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.PREPARATIONS.LOCALITY' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "preparationSearch.locality.lookUpType"></selectdefault>
                     </div>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Depth (m)</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.PREPARATIONS.DEPTH_M' | translate }}</label>
                     <div class="col-md-3">
                         <selectexact ng-model = "preparationSearch.depth.lookUpType"></selectexact>
                     </div>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Stratigraphy</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.PREPARATIONS.STRATIGRAPHY' | translate }}</label>
                     <div class="col-md-3">
                         <selecthierarchy ng-model = "preparationSearch.stratigraphy.lookUpType"></selecthierarchy>
                     </div>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Collector</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.PREPARATIONS.COLLECTOR' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "preparationSearch.collector.lookUpType"></selectdefault>
                     </div>
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Description</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.PREPARATIONS.DESCRIPTION' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "preparationSearch.description.lookUpType"></selectdefault>
                     </div>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Species recovered</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.PREPARATIONS.SPECIES_RECOVERED' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "preparationSearch.speciesRecovered.lookUpType"></selectdefault>
                     </div>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Species frequency</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.PREPARATIONS.SPECIES_FREQUENCY' | translate }}</label>
                     <div class="col-md-3">
                         <selectexact ng-model = "preparationSearch.speciesFrequency.lookUpType"></selectexact>
                     </div>
@@ -80,16 +80,16 @@
                     </div>
                 </div>
                 <div class="row">
-                    <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">Show additional criteria</a>
-                    <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">Hide additional criteria</a>
+                    <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">{{ 'SEARCH.SHOW_ADDITIONAL_CRITERIA' | translate }}</a>
+                    <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">{{ 'SEARCH.HIDE_ADDITIONAL_CRITERIA' | translate }}</a>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Sort by:</label>
+                    <label class="control-label col-md-2"><span>{{ 'SEARCH.SORT_BY' | translate }}</span>:</label>
                     <div class="col-md-5">
                         <select class="col-md-4 form-control"
-                                data-ng-model="preparationSearch.content.lookUpType"
+                                data-ng-model="stratigraphicSearch.content.lookUpType"
                                 data-ng-options="option.name for option in sortbyOptions track by option.value">
-                            <option value="">-- Choose --</option>
+                            <option value="">{{ 'SEARCH.CHOOSE' | translate }}</option>
                         </select>
                     </div>
                     <div class="col-md-5">
@@ -98,14 +98,14 @@
                     <div class="row">
                         <div class="col-md-5">
                             <label>
-                                Show map: <input type="checkbox" ng-model="showMap"/>
+                                <span>{{ 'SEARCH.SHOW_MAP' | translate }}</span>: <input type="checkbox" ng-model="showMap"/>
                             </label>
                         </div>
                     </div>
                     <div class="row geo-section-row no-border">
-                        <button class="btn btn-default pull-right" data-ng-click="defaultSearch()"><i class="glyphicon glyphicon-erase"></i> Reset form</button>
+                        <button class="btn btn-default pull-right" data-ng-click="defaultSearch()"><i class="glyphicon glyphicon-erase"></i>{{ 'SEARCH.RESET_FORM' | translate }}</button>
                         <button class="btn btn-default pull-right" data-ng-click="search()">
-                            <i class="glyphicon glyphicon-search"></i> Send query</button>
+                            <i class="glyphicon glyphicon-search"></i>{{ 'SEARCH.SEND_QUERY' | translate }}</button>
                     </div>
                 </div>
             </div>
@@ -123,20 +123,20 @@
             <div class="col-lg-4">
                 <div class="row geo-list-info ">
                     <div class="col-md-6 text-right">
-                        <p class="amount">Kokku: {{response.count}}</p>
+                      <p class="amount"><span>{{ 'SEARCH.NO_OF_RESULTS' | translate }}</span>: {{response.count}}</p>
                     </div>
                 </div>
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Number</th>
-                        <th>Locality</th>
-                        <th>Depth (m)</th>
-                        <th>Stratigraphy <em>Lithostratigraphy</em></th>
-                        <th>call.</th>
-                        <th>Weight</th>
-                        <th>More info</th>
+                        <th>{{ 'SEARCH.PREPARATIONS.TABLE.ID' | translate }}</th>
+                        <th>{{ 'SEARCH.PREPARATIONS.TABLE.NUMBER' | translate }}</th>
+                        <th>{{ 'SEARCH.PREPARATIONS.TABLE.LOCALITY' | translate }}</th>
+                        <th>{{ 'SEARCH.PREPARATIONS.TABLE.DEPTH_M' | translate }}</th>
+                        <th><span>{{ 'SEARCH.PREPARATIONS.TABLE.STRATIGRAPHY' | translate }}</span> | <em>{{ 'SEARCH.PREPARATIONS.TABLE.LITHOSTRATIGRAPHY' | translate }}</em></th>
+                        <th>{{ 'SEARCH.PREPARATIONS.TABLE.COLLECTOR' | translate }}</th>
+                        <th>{{ 'SEARCH.PREPARATIONS.TABLE.WEIGHT' | translate }}</th>
+                        <th>{{ 'SEARCH.PREPARATIONS.TABLE.MORE_INFO' | translate }}</th>
                     </tr>
                     </thead>
                     <tbody>

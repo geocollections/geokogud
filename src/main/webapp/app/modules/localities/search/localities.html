@@ -10,7 +10,7 @@
     <div class="panel-body">
         <div class="row">
             <div class="text-center">
-                <h1>Search: Localities</h1>
+                <h1>{{ 'SEARCH.LOCATILIES.HEADING' | translate }}</h1>
             </div>
         </div>
         <div class="row">
@@ -70,7 +70,7 @@
                 <div class="row" >
                     <div class="panel-heading searchGroupHeading" ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
                         <h4 class="panel-title">
-                            {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
+                            {{ 'SEARCH.LOCALITIES.IDENTIFIERS.IDENTIFIERS'| translate }}
                             <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
                         </h4>
                     </div>
@@ -78,7 +78,7 @@
                         <div class="well well-lg">
                             <div class="row searchCriterion">
                                 <div class="col-md-12 searchCriterionTitle medium-padding">
-                                    <b>ID</b>
+                                    <b>{{ 'SEARCH.LOCALITIES.IDENTIFIERS.ID' | translate }}</b>
                                     <selectexact custom-css="searchCriterionType" ng-model = "searchParameters.id.lookUpType"></selectexact>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -87,7 +87,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>Number</b>
+                                    <b>{{ 'SEARCH.LOCALITIES.IDENTIFIERS.NUMBER'| translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.number.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -96,7 +96,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>Stratigraphy</b>
+                                    <b>{{ 'SEARCH.LOCALITIES.IDENTIFIERS.STRATIGRAPHY'| translate }}</b>
                                     <selecthierarchy custom-css="searchCriterionType" ng-model = "searchParameters.stratigraphy.lookUpType"  ng-disabled="true"></selecthierarchy>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -105,7 +105,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>Reference</b>
+                                    <b>{{ 'SEARCH.LOCALITIES.IDENTIFIERS.REFERENCE' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.reference.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -114,7 +114,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>MA ID</b>
+                                    <b>{{ 'SEARCH.LOCALITIES.IDENTIFIERS.MA_ID' | translate }}</b>
                                     <selectexact custom-css="searchCriterionType" ng-model = "searchParameters.maid.lookUpType"></selectexact>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -129,7 +129,7 @@
                 <div class="row">
                     <div class="panel-heading searchGroupHeading" ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
                         <h4 class="panel-title">
-                            {{ 'SEARCH.ANALYSES.LOCATION.LOCATION'| translate }}
+                            {{ 'SEARCH.LOCALITIES.LOCATION.LOCATION'| translate }}
                             <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
                         </h4>
                     </div>
@@ -137,7 +137,7 @@
                         <div class="well well-lg">
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>Locality</b>
+                                    <b>{{ 'SEARCH.LOCALITIES.LOCATION.LOCALITY' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.locality.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -146,7 +146,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>Country</b>
+                                    <b>{{ 'SEARCH.LOCALITIES.LOCATION.COUNTRY' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.country.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -155,7 +155,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>Admin. unit</b>
+                                    <b>{{ 'SEARCH.LOCALITIES.LOCATION.ADMIN_UNIT' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.adminUnit.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -164,7 +164,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>Latitude (dec. deg.)</b>
+                                    <b>{{ 'SEARCH.LOCALITIES.LOCATION.LATITUDE' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.latitude.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -173,7 +173,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>Longitude (dec. deg.) </b>
+                                    <b>{{ 'SEARCH.LOCALITIES.LOCATION.LONGITUDE' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.longitude.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -182,7 +182,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>Vertical extent (m) </b>
+                                    <b>{{ 'SEARCH.LOCALITIES.LOCATION.VERTICAL_EXTENT' | translate }} </b>
                                     <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.verticalExtent.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -205,7 +205,7 @@
 
                 <div class="row geo-list-info ">
                     <div class="col-md-6 text-right">
-                        <p class="amount">Kokku: {{response.count}}</p>
+                        <p class="amount"><span>{{ 'SEARCH.NO_OF_RESULTS' | translate }}</span>: {{response.count}}</p>
                     </div>
                 </div>
                 <div class="text-right">
@@ -216,27 +216,27 @@
                     <tr>
                     <tr>
                         <th>
-                            <a href style="cursor: pointer" data-ng-click="order('id')"><span>ID</span>
+                            <a href style="cursor: pointer" data-ng-click="order('id')"><span>{{ 'SEARCH.LOCALITIES.TABLE.ID' | translate }}</span>
                                 <span data-ng-show="searchParameters.sortField.sortBy == 'id' && sortByAsc" class="glyphicon glyphicon-triangle-bottom"></span>
                                 <span data-ng-show="searchParameters.sortField.sortBy == 'id' && !sortByAsc" class="glyphicon glyphicon-triangle-top"></span>
                             </a>
                         </th>
                         <th>
-                            <a href style="cursor: pointer" data-ng-click="order('locality')"><span>Locality</span>
+                            <a href style="cursor: pointer" data-ng-click="order('locality')"><span>{{ 'SEARCH.LOCALITIES.TABLE.LOCALITY' | translate }}</span>
                                 <span data-ng-show="searchParameters.sortField.sortBy == 'locality' && sortByAsc" class="glyphicon glyphicon-triangle-bottom"></span>
                                 <span data-ng-show="searchParameters.sortField.sortBy == 'locality' && !sortByAsc" class="glyphicon glyphicon-triangle-top"></span>
                             </a>
                         </th>
-                        <th>Country</th>
-                        <th>Latitude (dec. deg.)</th>
-                        <th>Longitude (dec. deg.)</th>
-                        <th>Vertical extent (m)</th>
-                        <th>Stratigraphy base</th>
-                        <th>Stratigraphy top</th>
-                        <th>Drillcore</th>
-                        <th>Images</th>
-                        <th>Map</th>
-                        <th>MA ID</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.COUNTRY' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.LATITUDE' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.LONGITUDE' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.VERTICAL_EXTENT' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.STRATIGRAPHY_BASE' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.STRATIGRAPHY_TOP' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.DRILLCORE' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.IMAGES' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.MAP' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.MA_ID' | translate }}</th>
                     </tr>
                     </tr>
                     </thead>
