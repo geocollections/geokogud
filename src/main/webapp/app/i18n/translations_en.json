@@ -137,6 +137,31 @@
         "RESET_FORM": "Reset form",
         "INSTITUTIONS": "Institutions",
         "NO_OF_RESULTS": "Number of results",
+        "DOI": {
+            "SEARCH_TIPS": {
+                "ONE": "DOI identifiers are used to create permanent links to various digital objects, such as research datasets or publications. For more information about DOIs and research data see DataCite portal.",
+                "TWO": "As of 2014 the Estonian geocollections information system SARV is part of DataCite Estonia consortium (datacite.utlib.ee) and acts as data depository for Earth Science research data in Estonia.",
+                "THREE": "To find particular digital object registered in SARV, and download datasets, specify one or more criteria and then click on DOI number for full details. For global DOI resolving use doi.org.",
+                "FOUR": "Küsimuste korral võta ühendust: Olle Hints, TTÜ Geoloogia Instituut (olle.hints@ttu.ee)"
+            },
+            "HEADING": "Search: Digital Object Identifiers (DOIs)",
+            "FIELDS": "Fields",
+            "DOI": "DOI",
+            "TITLE": "Title",
+            "PUBLISHED_BY": "Published by",
+            "YEAR": "Year",
+            "AUTHOR": "Author",
+            "ABSTRACT": "Abstract",
+            "TABLE": {
+                "ID": "ID",
+                "DOI": "DOI",
+                "AUTHOR": "Author",
+                "YEAR": "Year",
+                "TITLE": "Title",
+                "TYPE": "Type",
+                "DATACITE_REGISTRATION": "DataCite registration"
+            }
+        },
         "DRILL_CORES": {
             "SEARCHING_DRILL_CORES_HEADING": "SEARCHING DRILL CORES",
             "SEARCHING_DRILL_CORES_TEXT": "Drill cores constitute a very important source of geological information and they are used regularly in scientific as well as applied research in Estonia. To search drill cores, specify the criteria and tick the map checkbox to show the locations. For detailed information click on the various links in the results table. A large number of cores are provided with images of core boxes. ",
@@ -198,6 +223,30 @@
                 "MA_ID": "MA ID"
             }
         },
+        "PHOTO_ARCHIVE": {
+            "HEADING": "Search: Photo archive",
+            "LOCALITY": "Locality",
+            "PEOPLE": "People",
+            "KEY_WORDS": "Key words",
+            "ADMIN_UNIT": "Admin. unit",
+            "DATE": "Date",
+            "NUMBER": "Number",
+            "AUTHOR": "Author",
+            "IMAGE_SIZE": "Image size",
+            "SEARCH_TIPS": {
+                "ONE": "Archive of geological photos dates back to early 1900s and is expanding by the ongoing digitization and new photos.",
+                "TWO": "When using the photos please follow licence conditions and consult curators if necessary."
+            },
+            "TABLE": {
+                "ID": "ID",
+                "NUMBER": "Number",
+                "AUTHOR": "Author",
+                "DATE": "Date",
+                "LOCALITY": "Locality",
+                "CATEGORY": "Category",
+                "KEY_WORDS": "Key words"
+            }
+        },
         "PREPARATIONS": {
             "HEADING": "Search: Preparation",
             "NUMBER": "Number",
@@ -230,6 +279,7 @@
             "AUTHOR": "Author",
             "YEAR": "Year",
             "TITLE": "Title",
+            "JOURNAL": "",
             "BOOK": "Book",
             "TABLE": {
                 "ID": "ID",
@@ -263,6 +313,28 @@
             "INSTITUTE": "Inst.",
             "LITHOSTRATIGRAPHY": "Lithostratigraphy",
             "ANAL": "Anal."
+        },
+        "SOIL_SITES": {
+            "HEADING": "Search: Soil sites",
+            "ID": "ID",
+            "SITE": "Site",
+            "AREA_OF_STUDY": "Area of study",
+            "TRANSECT": "Transect",
+            "SOIL_NAME": "Soil name",
+            "LAND_USE": "Land use",
+            "DEEP_MINING": "Deep mining",
+            "TABLE": {
+                "ID": "ID",
+                "SITE": "Site",
+                "AREA_OF_STUDY": "Area of study",
+                "TRANSECT": "Transect",
+                "POINT_OF_THE_TRANSECT": "Point on the transect",
+                "SOIL_NAME": "Soil name",
+                "LAND_USE": "Land use",
+                "LATITUDE": "Lat.",
+                "LONGITUDE": "Lon.",
+                "IS_DEEP_MINING": "Is deep mining"
+            }
         },
         "SPECIMENS": {
             "HEADING": "Search: Specimens",

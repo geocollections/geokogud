@@ -71,40 +71,126 @@ public class FluentGeoApiDetailsBuilder {
         query += addReturningField(DRILL_CORE);
         return this;
     }
+
     public FluentGeoApiDetailsBuilder returnBoxNumbers() {
         query += addReturningField(BOX_NUMBERS);
         return this;
     }
+
     public FluentGeoApiDetailsBuilder returnStorageLocation() {
         query += addReturningField(STORAGE_LOCATION);
         return this;
     }
+
     public FluentGeoApiDetailsBuilder returnLocalityCountry() {
         query += addReturningField(LOCALITY_COUNTRY);
         return this;
     }
+
     public FluentGeoApiDetailsBuilder returnLocalityCountryEng() {
         query += addReturningField(LOCALITY_COUNTRY_ENG);
         return this;
     }
+
     public FluentGeoApiDetailsBuilder returnLocalityLatitude() {
         query += addReturningField(LOCALITY_LATITUDE);
         return this;
     }
+
     public FluentGeoApiDetailsBuilder returnLocalityLongitude() {
         query += addReturningField(LOCALITY_LONGITUDE);
         return this;
     }
+
     public FluentGeoApiDetailsBuilder returnDepth() {
         query += addReturningField(DEPTH);
         return this;
     }
+
     public FluentGeoApiDetailsBuilder returnBoxes() {
         query += addReturningField(BOXES);
         return this;
     }
 
+    public FluentGeoApiDetailsBuilder returnImageNumber() {
+        query += addReturningField(IMAGE_NUMBER);
+        return this;
+    }
 
+    public FluentGeoApiDetailsBuilder returnAuthorAgent() {
+        query += addReturningField(AUTHOR_AGENT);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnAuthorForename() {
+        query += addReturningField(AUTHOR_FORENAME);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnAuthorSurename() {
+        query += addReturningField(AUTHOR_SURENAME);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnLocalityLocality() {
+        query += addReturningField(LOCALITY_LOCALITY);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnLocalityLocalityEn() {
+        query += addReturningField(LOCALITY_LOCALITY_EN);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnDateTaken() {
+        query += addReturningField(DATE_TAKEN);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnObject() {
+        query += addReturningField(OBJECT);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnKeywords() {
+        query += addReturningField(KEYWORDS);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnDescription() {
+        query += addReturningField(DESCRIPTION);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnFilename() {
+        query += addReturningField(FILE_NAME);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnDataAdded() {
+        query += addReturningField(DATA_ADDED);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnDataChanged() {
+        query += addReturningField(DATA_CHANGED);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnTypeValue() {
+        query += addReturningField(TYPE_VALUE);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnTypeValueEn() {
+        query += addReturningField(TYPE_VALUE_EN);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnDeviceName() {
+        query += addReturningField(DEVICE_NAME);
+        return this;
+    }
 
     private String addReturningField(String field) {
         return isFirstField() ? field : "," + field;
@@ -117,4 +203,5 @@ public class FluentGeoApiDetailsBuilder {
     public String build() {
         return query;
     }
+
 }

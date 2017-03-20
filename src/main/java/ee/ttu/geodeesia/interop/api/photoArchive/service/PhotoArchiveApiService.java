@@ -5,4 +5,6 @@ import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveSearchCriteria
 
 public interface PhotoArchiveApiService {
     Response findPhoto(PhotoArchiveSearchCriteria searchCriteria);
+
+    Response findById(Long id);
 }

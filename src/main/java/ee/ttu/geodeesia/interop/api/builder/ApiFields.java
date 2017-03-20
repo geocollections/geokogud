@@ -47,6 +47,23 @@ public class ApiFields {
     public static final String FILE_NAME = "filename";
     public static final String DATE_TAKEN = "date_taken";
     public static final String AUTHOR_AGENT = "author__agent";
+    public static final String KEYWORDS = "keywords";
+    public static final String IMAGE_NUMBER = "image_number";
+    public static final String PEOPLE = "people";
+    public static final String LOCALITY_LOCALITY = "locality__locality";
+    public static final String OBJECT = "object";
+    public static final String SIZE_X = "size_x";
+    public static final String SIZE_Y = "size_y";
+
+    public static final String AUTHOR_FORENAME = "author__forename";
+    public static final String AUTHOR_SURENAME = "author__surename";
+    public static final String LOCALITY_LOCALITY_EN = "locality__locality_en";
+    public static final String DESCRIPTION = "description";
+    public static final String DATA_ADDED = "date_added";
+    public static final String DATA_CHANGED = "date_changed";
+    public static final String TYPE_VALUE = "type__value";
+    public static final String TYPE_VALUE_EN = "type__value_en";
+    public static final String DEVICE_NAME = "device__name";
 
     // Drill core search
     public static final String DRILL_CORE = "drillcore";
