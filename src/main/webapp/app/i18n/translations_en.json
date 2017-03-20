@@ -289,6 +289,28 @@
             "LITHOSTRATIGRAPHY": "Lithostratigraphy",
             "ANAL": "Anal."
         },
+        "SOIL_SITES": {
+            "HEADING": "Search: Soil sites",
+            "ID": "ID",
+            "SITE": "Site",
+            "AREA_OF_STUDY": "Area of study",
+            "TRANSECT": "Transect",
+            "SOIL_NAME": "Soil name",
+            "LAND_USE": "Land use",
+            "DEEP_MINING": "Deep mining",
+            "TABLE": {
+                "ID": "ID",
+                "SITE": "Site",
+                "AREA_OF_STUDY": "Area of study",
+                "TRANSECT": "Transect",
+                "POINT_OF_THE_TRANSECT": "Point on the transect",
+                "SOIL_NAME": "Soil name",
+                "LAND_USE": "Land use",
+                "LATITUDE": "Lat.",
+                "LONGITUDE": "Lon.",
+                "IS_DEEP_MINING": "Is deep mining"
+            }
+        },
         "SPECIMENS": {
             "HEADING": "Search: Specimens",
             "ID": "ID",

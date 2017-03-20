@@ -289,6 +289,28 @@
             "LITHOSTRATIGRAPHY": "litostratigraafia",
             "ANAL": "anal."
         },
+        "SOIL_SITES": {
+            "HEADING": "Päring: Mullakaeved ja transektid",
+            "ID": "ID",
+            "SITE": "Koht",
+            "AREA_OF_STUDY": "Uuringuala",
+            "TRANSECT": "Transekt",
+            "SOIL_NAME": "Mulla nimetus",
+            "LAND_USE": "Maakasutus",
+            "DEEP_MINING": "Kas on sügavkaeve?",
+            "TABLE": {
+                "ID": "ID",
+                "SITE": "Mullakoht",
+                "AREA_OF_STUDY": "Uuringuala",
+                "TRANSECT": "Transekt",
+                "POINT_OF_THE_TRANSECT": "Punkt transektil",
+                "SOIL_NAME": "Mulla nimetus",
+                "LAND_USE": "Maakasutus",
+                "LATITUDE": "Lat.",
+                "LONGITUDE": "Lon.",
+                "IS_DEEP_MINING": "Sügavkaeve"
+            }
+        },
         "SPECIMENS": {
             "HEADING": "Päring: Eksemplarid",
             "ID": "ID",

@@ -2,13 +2,13 @@
     <div class="panel-body">
         <div class="row">
             <div class="text-center">
-                <h1>Search: Soil sites</h1>
+                <h1>{{ 'SEARCH.SOIL_SITES.HEADING' | translate }}</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="row" data-ng-if="showAdditionalCriteria">
-                    <label class="control-label col-md-2">ID</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.SOIL_SITES.ID' | translate }}</label>
                     <div class="col-md-3">
                         <selectexact ng-model = "searchParameters.id.lookUpType"></selectexact>
                     </div>
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Site</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.SOIL_SITES.SITE' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "searchParameters.site.lookUpType"></selectdefault>
                     </div>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Area of study</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.SOIL_SITES.AREA_OF_STUDY' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "searchParameters.areaOfStudy.lookUpType"></selectdefault>
                     </div>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Transect</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.SOIL_SITES.TRANSECT' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "searchParameters.transect.lookUpType"></selectdefault>
                     </div>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Soil name</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.SOIL_SITES.SOIL_NAME' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "searchParameters.soilName.lookUpType"></selectdefault>
                     </div>
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Land use</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.SOIL_SITES.LAND_USE' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "searchParameters.landUse.lookUpType"></selectdefault>
                     </div>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Deep mining</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.SOIL_SITES.DEEP_MINING' | translate }}</label>
                     <div class="col-md-7">
                         <input type="checkbox" ng-model="searchParameters.deepMining"/>
                     </div>
@@ -116,16 +116,16 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Site</th>
-                        <th>Area of study</th>
-                        <th>Transect</th>
-                        <th>Point on the transect</th>
-                        <th>Soil name</th>
-                        <th>Land use</th>
-                        <th>Lat.</th>
-                        <th>Lon.</th>
-                        <th>Is deep mining</th>
+                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.ID' | translate }}</th>
+                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.SITE' | translate }}</th>
+                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.AREA_OF_STUDY' | translate }}</th>
+                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.TRANSECT' | translate }}</th>
+                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.POINT_OF_THE_TRANSECT' | translate }}</th>
+                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.SOIL_NAME' | translate }}</th>
+                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.LAND_USE' | translate }}</th>
+                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.LATITUDE' | translate }}</th>
+                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.LONGITUDE' | translate }}</th>
+                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.IS_DEEP_MINING' | translate }}</th>
                     </tr>
                     </thead>
                     <tbody>
