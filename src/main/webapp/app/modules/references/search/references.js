@@ -10,7 +10,7 @@ angular.module('search').controller('SearchReferenceController', function($scope
 
     $scope.isInstitutionsCollapsed = true;
     $scope.isIdentifierFieldsCollapsed = false;
-    
+
     $scope.toggle = function(state) {
         var i = $scope.searchParameters.dbs.indexOf(state);
         if (i > -1) {
