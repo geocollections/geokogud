@@ -1,13 +1,18 @@
 <script type="text/ng-template" id="doiSearchHelp">
     <div class="search-help-popup">
-        <p>DOI IDENTIFIERS DOI identifiers are used to create permanent links to various digital objects, such as research datasets or publications. For more information about DOIs and research data see DataCite portal. As of 2014 the Estonian geocollections information system SARV is part of DataCite Estonia consortium (datacite.utlib.ee) and acts as data depository for Earth Science research data in Estonia. To find particular digital object registered in SARV, and download datasets, specify one or more criteria and then click on DOI number for full details. For global DOI resolving use doi.org. Küsimuste korral võta ühendust: Olle Hints, TTÜ Geoloogia Instituut (olle.hints@ttu.ee)</p>
+      <ul>
+        <li>{{ 'SEARCH.DOI.SEARCH_TIPS.ONE' | translate }}</li>
+        <li>{{ 'SEARCH.DOI.SEARCH_TIPS.TWO' | translate }}</li>
+        <li>{{ 'SEARCH.DOI.SEARCH_TIPS.THREE' | translate }}</li>
+        <li>{{ 'SEARCH.DOI.SEARCH_TIPS.FOUR' | translate }}</li>
+      </ul>
     </div>
 </script>
 <div class="panel panel-default">
     <div class="panel-body">
         <div class="row">
             <div class="text-center">
-                <h1>Search: Digital Object Identifiers (DOIs)</h1>
+                <h1>{{ 'SEARCH.DOI.HEADING' | translate }}</h1>
             </div>
         </div>
         <div class="row">
@@ -53,7 +58,7 @@
                 <div class="row" >
                     <div class="panel-heading searchGroupHeading" ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
                         <h4 class="panel-title">
-                            Fields
+                            {{ 'SEARCH.DOI.FIELDS' | translate }}
                             <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
                         </h4>
                     </div>
@@ -61,7 +66,7 @@
                         <div class="well well-lg">
                             <div class="row searchCriterion">
                                 <div class="col-md-12 searchCriterionTitle medium-padding">
-                                    <b>DOI</b>
+                                    <b>{{ 'SEARCH.DOI.DOI' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.doi.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -70,7 +75,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>Title</b>
+                                    <b>{{ 'SEARCH.DOI.TITLE' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.title.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -79,7 +84,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>Published by</b>
+                                    <b>{{ 'SEARCH.DOI.PUBLISHED_BY' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.publishedBy.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -88,7 +93,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>Year</b>
+                                    <b>{{ 'SEARCH.DOI.YEAR' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.year.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -97,7 +102,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>Author</b>
+                                    <b>{{ 'SEARCH.DOI.AUTHOR' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.author.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -106,7 +111,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>Abstract</b>
+                                    <b>{{ 'SEARCH.DOI.ABSTRACT' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.abstract.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
@@ -133,22 +138,22 @@
                     <thead>
                     <tr>
                         <th>
-                            <a href style="cursor: pointer" data-ng-click="order('id')"><span>ID</span>
+                            <a href style="cursor: pointer" data-ng-click="order('id')"><span>{{ 'SEARCH.DOI.TABLE.ID' | translate }}</span>
                                 <span data-ng-show="searchParameters.sortField.sortBy == 'id' && sortByAsc" class="glyphicon glyphicon-chevron-down"></span>
                                 <span data-ng-show="searchParameters.sortField.sortBy == 'id' && !sortByAsc" class="glyphicon glyphicon-chevron-up"></span>
                             </a>
                         </th>
                         <th>
-                            <a href style="cursor: pointer" data-ng-click="order('doi')"><span>DOI</span>
+                            <a href style="cursor: pointer" data-ng-click="order('doi')"><span>{{ 'SEARCH.DOI.TABLE.DOI' | translate }}</span>
                                 <span data-ng-show="searchParameters.sortField.sortBy == 'doi' && sortByAsc" class="glyphicon glyphicon-chevron-down"></span>
                                 <span data-ng-show="searchParameters.sortField.sortBy == 'doi' && !sortByAsc" class="glyphicon glyphicon-chevron-up"></span>
                             </a>
                         </th>
-                        <th>Author</th>
-                        <th>Year</th>
-                        <th>Title</th>
-                        <th>Type</th>
-                        <th>DataCite registration</th>
+                        <th>{{ 'SEARCH.DOI.TABLE.AUTHOR' | translate }}</th>
+                        <th>{{ 'SEARCH.DOI.TABLE.YEAR' | translate }}</th>
+                        <th>{{ 'SEARCH.DOI.TABLE.TITLE' | translate }}</th>
+                        <th>{{ 'SEARCH.DOI.TABLE.TYPE' | translate }}</th>
+                        <th>{{ 'SEARCH.DOI.TABLE.DATACITE_REGISTRATION' | translate }}</th>
                     </tr>
                     </thead>
                     <tbody>
