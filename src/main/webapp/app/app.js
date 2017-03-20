@@ -8,6 +8,8 @@ angular.module('geoApp', [
     'main',
     'map',
     'news',
+    'geocollection',
+    'git',
     'locality',
     'cgNotify',
     'ui.select2',
@@ -33,7 +35,12 @@ angular.module('geoApp').constant('configuration', configuration);
 
 angular.module('geoApp').value('isActivityLogging', true);
 angular.module('geoApp').config(['$locationProvider', function($locationProvider) {
-    $locationProvider.hashPrefix('');
+    //for fixing # in address bar
+   /* $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });*/
+   $locationProvider.hashPrefix('');
 }]);
 
 angular.module('geoApp').config(function($stateProvider, $urlRouterProvider, $httpProvider, $provide, uibDatepickerConfig, uibDatepickerPopupConfig) {

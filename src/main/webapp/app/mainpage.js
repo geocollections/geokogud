@@ -9,6 +9,12 @@ jQuery(document).ready(function ($) {
         }, 1250, 'easeInOutExpo');
         event.preventDefault();
     });
+    $(document).on('click', 'a.page-scroll-to-additional', function(event) {
+        $('html, body').stop().animate({
+            scrollTop: ($("#additional").offset().top - 50)
+        }, 1250, 'easeInOutExpo');
+        event.preventDefault();
+    });
 
     // Highlight the top nav as scrolling occurs
     $('body').scrollspy({

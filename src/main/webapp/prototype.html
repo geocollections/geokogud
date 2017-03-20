@@ -7,36 +7,38 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Geocollections of Estonia</title>
-
-    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="lib/angular-notify/dist/angular-notify.css">
     <link rel="stylesheet" href="lib/select2/dist/css/select2.css">
-    <link href="lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <link href="css/creative.css" rel="stylesheet">
-    <link href="css/mainpage.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/components-font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/creative.css">
+    <link rel="stylesheet" href="css/mainpage.css">
     <link rel="stylesheet" href="lib/ol3-layerswitcher/src/ol3-layerswitcher.css">
+    <link rel="stylesheet" href="lib/ol3/ol.css">
+
 </head>
 <body id="page-top" data-ng-cloak class="ng-cloak" role="document">
 
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#navbar-collapse">
-                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-            </button>
             <a class="navbar-brand page-scroll" href="#page-top">{{ 'INDEX.GEOCOLLECTIONS_TITLE' | translate }}</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Menu</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
         </div>
-
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a class="page-scroll" href="#searches">{{ 'INDEX.SEARCH_LINK' | translate }}</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#searches">{{ 'INDEX.MAP_LINK' | translate }}</a>
+                    <a class="page-scroll-to-additional" href="#map">{{ 'INDEX.MAP_LINK' | translate }}</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#about">{{ 'INDEX.ABOUT_LINK' | translate }}</a>
@@ -47,14 +49,14 @@
                 <li>
                     <a class="page-scroll" href="#contact">{{ 'INDEX.CONTACT_LINK' | translate }}</a>
                 </li>
-
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'INDEX.INVESTIGATORS_LINK' | translate }}<span class="caret"></span></a>
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'INDEX.INVESTIGATORS_LINK' | translate }}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li data-toggle="collapse" data-target=".in"><a href="database">{{ 'INDEX.DATABASE_LINK' | translate }}</a></li>
                         <li data-toggle="collapse" data-target=".in"><a href="{{config.apiUrl}}" target="_blank">{{ 'INDEX.PUBLIC_API_LINK' | translate }}</a></li>
                         <li data-toggle="collapse" data-target=".in"><a href="{{config.githubUrl}}">GitHub</a></li>
                     </ul>
+                <li class="nav-divider"></li>
                 </li>
                 <li ng-controller="Ctrl" >
                     <a href="" ng-click="changeLanguage('et')">{{ 'INDEX.BUTTON_LANG_ET' | translate }}</a>
@@ -74,10 +76,10 @@
             <hr>
             <form class="navbar-form" role="search">
                 <div class="input-group input-group-lg">
-                    <input type="text" class="form-control input-lg" id="mainSearchInput"
+                    <input type="text" class="form-control input-lg"
                            placeholder="{{ 'INDEX.SEARCH_FIELD_TEXT' | translate }}">
                     <div class="input-group-btn">
-                        <button type="button" class="btn btn-default btn-lg btn-success">
+                        <button type="button" class="btn btn-primary btn-lg">
                             <i class="fa fa-search sr-icons" aria-hidden="true"></i>
                         </button>
                     </div>
@@ -124,7 +126,7 @@
                     <p>
                         {{ 'INFO.COLLECTIONS_IN_GEOLOGY.PARAGRAPH_TWO' | translate }}
                     </p>
-                    <p><a class="btn btn-secondary" href="#" role="button">{{ 'READ_MORE' | translate }} &raquo;</a></p>
+                   <!-- <p><a class="btn btn-secondary" href="#" role="button">{{ 'READ_MORE' | translate }} &raquo;</a></p>-->
                 </div>
             </div>
             <div class="col-md-4">
@@ -133,16 +135,20 @@
                     <h3>{{ 'INFO.COLLECTIONS_IN_ESTONIA.HEADING' | translate }}</h3>
                     <p>
                         {{ 'INFO.COLLECTIONS_IN_ESTONIA.PARAGRAPH_ONE' | translate }}
-                    <ul class="fa-ul">
-                        <li><i class="fa-li fa fa-square"></i><a href="http://www.gi.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_ONE' | translate }}</a></li>
-                        <li><i class="fa-li fa fa-square"></i><a href="http://natmuseum.ut.ee/388858">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_TWO' | translate }}</a></li>
-                        <li><i class="fa-li fa fa-square"></i><a href="http://www.loodusmuuseum.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_THREE' | translate }}</a></li>
-                        <li><i class="fa-li fa fa-square"></i><a href="http://www.geoloogia.ut.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_FOUR' | translate }}</a></li>
-                        <li><i class="fa-li fa fa-square"></i><a href="http://kogud.emu.ee/mullamuuseum/">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_FIVE' | translate }}</a></li>
-                    </ul>
-                    {{ 'INFO.COLLECTIONS_IN_ESTONIA.PARAGRAPH_TWO' | translate }} <a href="http://www.egk.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.PARAGRAPH_TWO_A_LINK' | translate }}</a>.
                     </p>
-                    <p><a class="btn btn-secondary" href="#" role="button">{{ 'READ_MORE' | translate }} &raquo;</a></p>
+                        <ul class="fa-ul">
+                            <li><i class="fa-li fa fa-square"></i><a href="http://www.gi.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_ONE' | translate }}</a></li>
+                            <li><i class="fa-li fa fa-square"></i><a href="http://natmuseum.ut.ee/388858">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_TWO' | translate }}</a></li>
+                            <li><i class="fa-li fa fa-square"></i><a href="http://www.loodusmuuseum.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_THREE' | translate }}</a></li>
+                            <li><i class="fa-li fa fa-square"></i><a href="http://www.geoloogia.ut.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_FOUR' | translate }}</a></li>
+                            <li><i class="fa-li fa fa-square"></i><a href="http://kogud.emu.ee/mullamuuseum/">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_FIVE' | translate }}</a></li>
+                        </ul>
+                    <p>
+                        {{ 'INFO.COLLECTIONS_IN_ESTONIA.PARAGRAPH_TWO' | translate }} <a href="http://www.egk.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.PARAGRAPH_TWO_A_LINK' | translate }}</a>.
+                    </p>
+                    <p>
+                        <a class="page-scroll-to-additional btn btn-secondary" href="#geocollection" role="button">{{ 'INDEX.READ_MORE' | translate }} &raquo;</a>
+                    </p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -151,6 +157,8 @@
                     <h3>{{ 'INFO.COMMON_DATABASE.HEADING' | translate }}</h3>
                     <p>
                         {{ 'INFO.COMMON_DATABASE.LINE_ONE' | translate }} <a href="?page=21">{{ 'INFO.COMMON_DATABASE.LINE_TWO' | translate }}</a>
+                    </p>
+                    <p>
                         {{ 'INFO.COMMON_DATABASE.LINE_THREE' | translate }}<a href="search.php">{{ 'INFO.COMMON_DATABASE.LINE_FOUR' | translate }}</a>
                         {{ 'INFO.COMMON_DATABASE.LINE_FIVE' | translate }}
                         <a href="search.php?currentTable=specimen_union">{{ 'INFO.COMMON_DATABASE.LINE_SPECIMENS' | translate }}</a>,
@@ -167,11 +175,13 @@
                         <a href="http://ermas.geokogud.info">{{ 'INFO.COMMON_DATABASE.PARAGRAPH_TWO_LINE_FOUR' | translate }}</a>.
                     </p>
                     <p>
-                        {{ 'INFO.COMMON_DATABASE.PARAGRAPH_THREE_LINE_ONE' | translate }} <strong>334658</strong>
-                        {{ 'INFO.COMMON_DATABASE.PARAGRAPH_THREE_LINE_TWO' | translate }} <b>95424</b>
-                        {{ 'INFO.COMMON_DATABASE.PARAGRAPH_THREE_LINE_THREE' | translate }} <b>2017-03-09 16:43:58.</b>
+                        {{ 'INFO.COMMON_DATABASE.PARAGRAPH_THREE_LINE_ONE' | translate }} <strong>335079</strong>
+                        {{ 'INFO.COMMON_DATABASE.PARAGRAPH_THREE_LINE_TWO' | translate }} <b>95668</b>
+                        {{ 'INFO.COMMON_DATABASE.PARAGRAPH_THREE_LINE_THREE' | translate }} <b>2017-03-16 19:13:23.</b>
                     </p>
-                    <p><a class="btn btn-secondary" href="#" role="button">{{ 'READ_MORE' | translate }} &raquo;</a></p>
+                    <p>
+                        <a class="btn btn-secondary" href="http://schema.geokogud.info/" role="button">{{ 'INDEX.READ_MORE' | translate }} &raquo;</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -184,11 +194,11 @@
         <div class="row">
             <div class="col-md-6">
                 <h2 class="text-muted">{{ 'INDEX.USEFUL_INFO' | translate }}</h2>
-                <p><a href="http://geokogud.info/news">{{'INDEX.NEWS_LINK' | translate }}</a></p>
+                <p><a class="page-scroll-to-additional" href="#news" id="">{{'INDEX.NEWS_LINK' | translate }}</a></p>
                 <p><a href="http://fossiilid.info/" data-toggle="tooltip" data-placement="bottom" title="A web portal on Baltoscandian fossils">Fossils</a></p>
                 <p><a href="http://ermas.geokogud.info/" data-toggle="tooltip" data-placement="bottom" title="Analytical database of rocks and sediments of Estonia">ERMAS</a></p>
-                <p><a href="http://geokogud.info/index.php?page=32">{{ 'INDEX.USING_COLLECTIONS_LINK' | translate }}</a></p>
-                <p><a href="http://geokogud.info/git.php">{{ 'INDEX.GIT_TUT' | translate }}</a></p>
+                <p><a class="page-scroll-to-additional" href="#usingCollection">{{ 'INDEX.USING_COLLECTIONS_LINK' | translate }}</a></p>
+                <p><a class="page-scroll-to-additional" href="#git">{{ 'INDEX.GIT_TUT' | translate }}</a></p>
                 <p><a href="http://api.geokogud.info/">{{ 'INDEX.PUBLIC_API_LINK' | translate }}</a></p>
 
             </div>
@@ -201,7 +211,37 @@
         </div>
     </div>
 </aside>
+<!--
+<section>
+   <div class="container">
+       <div class="row">
+           <div class="col-lg-12  text-center">
+               <h2 class="section-heading">{{'INDEX.NEWS_LINK' | translate }}</h2>
+               <hr class="primary">
+           </div>
+           <nav >
 
+               <div class="text-center">
+               <button type="button" class="news-button" >2015</button>
+               <button type="button" class="news-button" >2014</button>
+               <button type="button" class="news-button" >2013</button>
+               <button type="button" class="news-button" >2011</button>
+               <button type="button" class="news-button" >2010</button>
+               <button type="button" class="news-button" >2008</button>
+               <button type="button" class="news-button" >2006</button>
+               <button type="button" class="news-button" >2005</button>
+               <button type="button" class="news-button" >2004</button>
+               <button type="button" class="news-button" >2003</button>
+               <button type="button" class="news-button" >2002</button>
+               </div>
+           </nav>
+       </div>
+   </div>
+</section>-->
+<section id="additional">
+    <loading></loading>
+    <div data-ui-view></div>
+</section>
 <section id="contact">
     <div class="container">
         <div class="row">
@@ -266,7 +306,7 @@
 <script src="lib/moment/moment.js"></script>
 
 <!-- scripts for map -->
-<script src="lib/openlayers3/build/ol.js" type="text/javascript"></script>
+<script src="lib/ol3/ol.js" type="text/javascript"></script>
 <script src="lib/ol3-layerswitcher/src/ol3-layerswitcher.js"></script>
 
 <!-- angular-translate -->
@@ -296,7 +336,6 @@
 <script src="app/modules/specimens/search/specimen.js"></script>
 <script src="app/modules/specimens/search/specimenService.js"></script>
 <script src="app/modules/samples/search/samples.js"></script>
-<script src="app/modules/drillCores/search/drill_cores.js"></script>
 <script src="app/modules/references/search/references.js"></script>
 <script src="app/modules/localities/search/localities.js"></script>
 <script src="app/modules/stratigraphy/stratigraphy.js"></script>

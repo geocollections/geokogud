@@ -36,7 +36,6 @@
     "angular-i18n": "1.6.3",
     "bootstrap-file-input": "^1.0.0",
     "notify": "^0.0.1",
-    "openlayers3": "^3.0.0",
     "select-multiple": "*",
     "angular-ui-select3": "ui-select#*",
     "select2": "^4.0.3",
@@ -46,7 +45,8 @@
     "jquery.easing": "^1.3.1",
     "components-font-awesome": "^4.7.0",
     "scrollreveal": "^3.3.4",
-    "angular-translate-loader-static-files": "^2.15.1"
+    "angular-translate-loader-static-files": "^2.15.1",
+    "ol3": "ol3-bower#3.9.0"
   },
   "resolutions": {
     "jquery": "3.1.0",

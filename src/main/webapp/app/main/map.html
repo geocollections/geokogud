@@ -1,30 +1,34 @@
-<div class="panel panel-default">
-    <div class="panel-body">
-        <div> <!--id="mapcontainer"-->
-
+<div class="container">
+    <div class="row">
             <div id='hoverbox' class='coupontooltip'>
                 <div id='hoversystem' style='position: relative; top: 0; left: 0;'></div>
                 <div id='hoverstat' style='position: relative; top: 0; left: 0;'></div>
             </div>
-
             <main-map></main-map>
-        </div>
-        <div id='footer'>
-            <div><!-- id='formcontainer'-->
-            <form method='get' name='filter'>
-                Found <b>9280</b> georeferenced localities. Show only those with:
-                <input onchange="window.document.filter.submit();" type="checkbox" name="specimens" value="1"  />collection specimens |
-                <input onchange="window.document.filter.submit();" type="checkbox" name="samples" value="1"  />samples |
-                <input onchange="window.document.filter.submit();" type="checkbox" name="drillcores" value="1"  />drillcores |
-                <input onchange="window.document.filter.submit();" type="checkbox" name="references" value="1"  />citing references |
-                <input onchange="window.document.filter.submit();" type="checkbox" name="analyses" value="1"  />analyses |
-                <input onchange="window.document.filter.submit();" type="checkbox" name="stratotypes" value="1"  />stratotypes |
-                <input onchange="window.document.filter.submit();" type="checkbox" name="images" value="1"  />photos |
-                <input onchange="window.document.filter.submit();" type="checkbox" name="taxa" value="1"  />taxon occurrences |
-                name: <input type="text" style="width: 100px;" name="loc" value="" />
-
-                <input type="submit" value="refresh map"> <a href='/'>Back to SARV. </a>
-            </form>
-        </div></div>
+        <form method='get' name='filter' class="form-inline">
+            <div class="row bg-dark">
+                <div style="margin-left:5px;margin-right: 5px;">
+                    Found <strong>9280</strong> georeferenced localities. Show only those with:
+                    <div class="form-group">
+                        <input onchange="window.document.filter.submit();" type="checkbox" name="specimens" value="1"/> collection specimens |
+                        <input onchange="window.document.filter.submit();" type="checkbox" name="samples" value="1"/> samples |
+                        <input onchange="window.document.filter.submit();" type="checkbox" name="drillcores" value="1"/> drillcores |
+                        <input onchange="window.document.filter.submit();" type="checkbox" name="references" value="1"/> citing references |
+                        <input onchange="window.document.filter.submit();" type="checkbox" name="analyses" value="1"/> analyses |
+                        <input onchange="window.document.filter.submit();" type="checkbox" name="stratotypes" value="1"/> stratotypes |
+                        <input onchange="window.document.filter.submit();" type="checkbox" name="images" value="1" checked/> photos |
+                        <input onchange="window.document.filter.submit();" type="checkbox" name="taxa" value="1" checked/> taxon occurrences |
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control input-sm" placeholder="Name">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <i class="fa fa-refresh sr-icons" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
