@@ -2,13 +2,13 @@
     <div class="panel-body">
         <div class="row">
             <div class="text-center">
-                <h1>Search: Photo archive</h1>
+                <h1>{{ 'SEARCH.PHOTO_ARCHIVE.HEADING' | translate }}</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="row">
-                    <label class="control-label col-md-2">Locality</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.PHOTO_ARCHIVE.LOCALITY' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "photoArchiveSearch.locality.lookUpType"></selectdefault>
                     </div>
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">People</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.PHOTO_ARCHIVE.PEOPLE' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "photoArchiveSearch.people.lookUpType"></selectdefault>
                     </div>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Key words</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.PHOTO_ARCHIVE.KEY_WORDS' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "photoArchiveSearch.keywords.lookUpType"></selectdefault>
                     </div>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Admin. unit</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.PHOTO_ARCHIVE.ADMIN_UNIT' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "photoArchiveSearch.adminunit.lookUpType"></selectdefault>
                     </div>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Date</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.PHOTO_ARCHIVE.DATE' | translate }}</label>
                     <div class="col-md-3">
                         <selectexact ng-model = "photoArchiveSearch.dateTaken.lookUpType"></selectexact>
                     </div>
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Number</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.PHOTO_ARCHIVE.NUMBER' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "photoArchiveSearch.imageNumber.lookUpType"></selectdefault>
                     </div>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Author</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.PHOTO_ARCHIVE.AUTHOR' | translate }}</label>
                     <div class="col-md-3">
                         <selectdefault ng-model = "photoArchiveSearch.authorAgent.lookUpType"></selectdefault>
                     </div>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <label class="control-label col-md-2">Image size</label>
+                    <label class="control-label col-md-2">{{ 'SEARCH.PHOTO_ARCHIVE.IMAGE_SIZE' | translate }}</label>
                     <div class="col-md-3">
                         <selectexact ng-model = "photoArchiveSearch.imageSize.lookUpType"></selectexact>
                     </div>
@@ -115,8 +115,8 @@
                 </div>
             </div>
             <div class="col-md-5">
-                Archive of geological photos dates back to early 1900s and is expanding by the ongoing digitization and new photos.
-                When using the photos please follow licence conditions and consult curators if necessary.
+                <span>{{ 'SEARCH.PHOTO_ARCHIVE.SEARCH_TIPS.ONE' | translate }}</span>
+                <span>{{ 'SEARCH.PHOTO_ARCHIVE.SEARCH_TIPS.TWO' | translate }}</span>
             </div>
         </div>
         <div class="row">
@@ -129,13 +129,13 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Number</th>
-                        <th>Author</th>
-                        <th>Date</th>
-                        <th>Locality</th>
-                        <th>Category</th>
-                        <th>Key words</th>
+                        <th>{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.ID' | translate }}</th>
+                        <th>{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.NUMBER' | translate }}</th>
+                        <th>{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.AUTHOR' | translate }}</th>
+                        <th>{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.DATE' | translate }}</th>
+                        <th>{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.LOCALITY' | translate }}</th>
+                        <th>{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.CATEGORY' | translate }}</th>
+                        <th>{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.KEY_WORDS' | translate }}</th>
                     </tr>
                     </thead>
                     <tbody>

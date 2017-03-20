@@ -198,6 +198,30 @@
                 "MA_ID": "MA ID"
             }
         },
+        "PHOTO_ARCHIVE": {
+            "HEADING": "Search: Photo archive",
+            "LOCALITY": "Locality",
+            "PEOPLE": "People",
+            "KEY_WORDS": "Key words",
+            "ADMIN_UNIT": "Admin. unit",
+            "DATE": "Date",
+            "NUMBER": "Number",
+            "AUTHOR": "Author",
+            "IMAGE_SIZE": "Image size",
+            "SEARCH_TIPS": {
+                "ONE": "Archive of geological photos dates back to early 1900s and is expanding by the ongoing digitization and new photos.",
+                "TWO": "When using the photos please follow licence conditions and consult curators if necessary."
+            },
+            "TABLE": {
+                "ID": "ID",
+                "NUMBER": "Number",
+                "AUTHOR": "Author",
+                "DATE": "Date",
+                "LOCALITY": "Locality",
+                "CATEGORY": "Category",
+                "KEY_WORDS": "Key words"
+            }
+        },
         "PREPARATIONS": {
             "HEADING": "Search: Preparation",
             "NUMBER": "Number",
@@ -230,6 +254,7 @@
             "AUTHOR": "Author",
             "YEAR": "Year",
             "TITLE": "Title",
+            "JOURNAL": "",
             "BOOK": "Book",
             "TABLE": {
                 "ID": "ID",

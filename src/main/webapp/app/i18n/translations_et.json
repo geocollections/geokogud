@@ -198,6 +198,30 @@
                 "MA_ID": "MA ID"
             }
         },
+        "PHOTO_ARCHIVE": {
+            "HEADING": "Päring: Fotoarhiiv",
+            "LOCALITY": "leiukoht",
+            "PEOPLE": "inimesed",
+            "KEY_WORDS": "märksõnad",
+            "ADMIN_UNIT": "admin. üksus ",
+            "DATE": "aeg",
+            "NUMBER": "number",
+            "AUTHOR": "autor",
+            "IMAGE_SIZE": "pildi suurus",
+            "SEARCH_TIPS": {
+                "ONE": "Geokogude fotoarhiivi vanimad kaadrid on pärit 20. saj. algusest. Arhiiv täieneb nii jätkuva digiteerimise kui uute piltide lisandumise teel. Otsinguks sisesta sobivad märksõnad.",
+                "TWO": "Piltide kasutamisel palume jälgida litsentsitingimusi ja vajadusel konsulteerida asutuse kuraatoriga."
+            },
+            "TABLE": {
+                "ID": "ID",
+                "NUMBER": "number",
+                "AUTHOR": "autor",
+                "DATE": "aeg",
+                "LOCALITY": "leiukoht",
+                "CATEGORY": "kategooria",
+                "KEY_WORDS": "märksõnad"
+            }
+        },
         "PREPARATIONS": {
             "HEADING": "Päring: Preparaadid",
             "NUMBER": "number",
@@ -230,6 +254,7 @@
             "AUTHOR": "Autor",
             "YEAR": "Aasta",
             "TITLE": "Pealkiri",
+            "JOURNAL": "",
             "BOOK": "Raamat, kogumik",
             "TABLE": {
                 "ID": "ID",
