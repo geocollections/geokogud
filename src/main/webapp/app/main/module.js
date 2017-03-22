@@ -1,14 +1,6 @@
 'use strict';
 
 //routes
-angular.module('main', []).config(function($stateProvider, $urlRouterProvider) {
-    $stateProvider.state('main', {
-        url: "/",
-       // templateUrl: "app/main/info.html"
-    });
-});
-
-//routes
 angular.module('news', []).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('news', {
         url: "/news",

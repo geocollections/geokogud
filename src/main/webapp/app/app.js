@@ -5,7 +5,6 @@ angular.module('geoApp', [
     'ui.bootstrap.showErrors',
     'ui.bootstrap.datetimepicker',
     'ui.router',
-    'main',
     'map',
     'news',
     'geocollection',
