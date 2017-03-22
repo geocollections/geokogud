@@ -1,8 +1,8 @@
 package ee.ttu.geodeesia.interop.api.photoArchive.pojo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ee.ttu.geodeesia.interop.api.Response.ConvertableToResponseEntity;
-import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
+
+import static ee.ttu.geodeesia.interop.api.builder.ApiFields.*;
 
 public class PhotoArchiveEntity {
     /*
@@ -33,7 +33,63 @@ public class PhotoArchiveEntity {
     private String deviceName;
     private String country;
     private String countryEn;
+    private String imagesetNumber;
+    private String imagesetSeries;
+    private String licence;
+    private String licenceUrl;
+    private String localityId;
 
+    @JsonProperty("localityId")
+    public String getLocalityId() {
+        return localityId;
+    }
+
+    @JsonProperty("locality_id")
+    public void setLocalityId(String localityId) {
+        this.localityId = localityId;
+    }
+
+    @JsonProperty("licence")
+    public String getLicence() {
+        return licence;
+    }
+
+    @JsonProperty(LICENCE)
+    public void setLicence(String licence) {
+        this.licence = licence;
+    }
+
+    @JsonProperty("licenceUrl")
+    public String getLicenceUrl() {
+        return licenceUrl;
+    }
+
+    @JsonProperty(LICENCE_URL)
+    public void setLicenceUrl(String licenceUrl) {
+        this.licenceUrl = licenceUrl;
+    }
+
+    @JsonProperty("imagesetSeries")
+    public String getImagesetSeries() {
+        return imagesetSeries;
+    }
+
+    @JsonProperty(IMAGESET_SERIES)
+    public void setImagesetSeries(String imagesetSeries) {
+        this.imagesetSeries = imagesetSeries;
+    }
+
+    @JsonProperty("imagesetNumber")
+    public String getImagesetNumber() {
+        return imagesetNumber;
+    }
+
+    @JsonProperty(IMAGESET_NUMBER)
+    public void setImagesetNumber(String imagesetNumber) {
+        this.imagesetNumber = imagesetNumber;
+    }
+
+    @JsonProperty("country")
     public String getCountry() {
         return country;
     }
@@ -43,6 +99,7 @@ public class PhotoArchiveEntity {
         this.country = country;
     }
 
+    @JsonProperty("countryEn")
     public String getCountryEn() {
         return countryEn;
     }
@@ -52,6 +109,7 @@ public class PhotoArchiveEntity {
         this.countryEn = countryEn;
     }
 
+    @JsonProperty("deviceName")
     public String getDeviceName() {
         return deviceName;
     }
@@ -61,6 +119,7 @@ public class PhotoArchiveEntity {
         this.deviceName = deviceName;
     }
 
+    @JsonProperty("typeValue")
     public String getTypeValue() {
         return typeValue;
     }
@@ -70,6 +129,7 @@ public class PhotoArchiveEntity {
         this.typeValue = typeValue;
     }
 
+    @JsonProperty("typeValueEn")
     public String getTypeValueEn() {
         return typeValueEn;
     }
@@ -79,6 +139,7 @@ public class PhotoArchiveEntity {
         this.typeValueEn = typeValueEn;
     }
 
+    @JsonProperty("sizeX")
     public String getSizeX() {
         return sizeX;
     }
@@ -88,6 +149,7 @@ public class PhotoArchiveEntity {
         this.sizeX = sizeX;
     }
 
+    @JsonProperty("sizeY")
     public String getSizeY() {
         return sizeY;
     }
@@ -97,6 +159,7 @@ public class PhotoArchiveEntity {
         this.sizeY = sizeY;
     }
 
+    @JsonProperty("dataAdded")
     public String getDataAdded() {
         return dataAdded;
     }
@@ -106,6 +169,7 @@ public class PhotoArchiveEntity {
         this.dataAdded = dataAdded;
     }
 
+    @JsonProperty("dataChanged")
     public String getDataChanged() {
         return dataChanged;
     }
@@ -115,6 +179,7 @@ public class PhotoArchiveEntity {
         this.dataChanged = dataChanged;
     }
 
+    @JsonProperty("fileName")
     public String getFileName() {
         return fileName;
     }
@@ -124,6 +189,7 @@ public class PhotoArchiveEntity {
         this.fileName = fileName;
     }
 
+    @JsonProperty("description")
     public String getDescription() {
         return description;
     }
@@ -133,6 +199,7 @@ public class PhotoArchiveEntity {
         this.description = description;
     }
 
+    @JsonProperty("localityEn")
     public String getLocalityEn() {
         return localityEn;
     }
@@ -142,14 +209,17 @@ public class PhotoArchiveEntity {
         this.localityEn = localityEn;
     }
 
+    @JsonProperty("authorForename")
     public String getAuthorForename() {
         return authorForename;
     }
+
     @JsonProperty("author__forename")
     public void setAuthorForename(String authorForename) {
         this.authorForename = authorForename;
     }
 
+    @JsonProperty("authorSurename")
     public String getAuthorSurename() {
         return authorSurename;
     }
@@ -192,26 +262,32 @@ public class PhotoArchiveEntity {
     public void setId(Long id) {
         this.id = id;
     }
+
     @JsonProperty("dateTaken")
     public String getDateTaken() {
         return dateTaken;
     }
+
     @JsonProperty("date_taken")
     public void setDateTaken(String dateTaken) {
         this.dateTaken = dateTaken;
     }
+
     @JsonProperty("authorAgent")
     public String getAuthorAgent() {
         return authorAgent;
     }
+
     @JsonProperty("author__agent")
     public void setAuthorAgent(String authorAgent) {
         this.authorAgent = authorAgent;
     }
+
     @JsonProperty("locality")
     public String getLocality() {
         return locality;
     }
+
     @JsonProperty("locality__locality")
     public void setLocality(String locality) {
         this.locality = locality;

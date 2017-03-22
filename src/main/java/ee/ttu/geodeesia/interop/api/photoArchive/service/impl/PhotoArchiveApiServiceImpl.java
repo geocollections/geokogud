@@ -59,6 +59,11 @@ public class PhotoArchiveApiServiceImpl implements PhotoArchiveApiService{
                 .returnTypeValue()
                 .returnTypeValueEn()
                 .returnDeviceName()
+                .returnImageSetNumber()
+                .returnImageSetSeries()
+                .returnLicence()
+                .returnLicenceUrl()
+                .returnLocalityId()
                 .build();
         return apiService.findEntity("image", requestParams, PhotoArchiveEntity.class);
     }

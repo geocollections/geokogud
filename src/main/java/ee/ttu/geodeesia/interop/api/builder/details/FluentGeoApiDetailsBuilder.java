@@ -192,6 +192,31 @@ public class FluentGeoApiDetailsBuilder {
         return this;
     }
 
+    public FluentGeoApiDetailsBuilder returnImageSetNumber() {
+        query += addReturningField(IMAGESET_NUMBER);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnImageSetSeries() {
+        query += addReturningField(IMAGESET_SERIES);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnLicence() {
+        query += addReturningField(LICENCE);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnLicenceUrl() {
+        query += addReturningField(LICENCE_URL);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnLocalityId() {
+        query += addReturningField(LOCALITY_ID);
+        return this;
+    }
+
     private String addReturningField(String field) {
         return isFirstField() ? field : "," + field;
     }

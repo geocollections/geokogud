@@ -58,7 +58,7 @@ angular.module('search').controller('SearchPhotoArchiveController', function($sc
         $http.get('/details/photo-archive/' + $stateParams.id).then(successCallback, errorCallback);
         function successCallback(response){
             console.log(response);
-            $scope.image = response.data.result[0];
+            $scope.image = response.data.photo.result[0];
         } function errorCallback(response){
             $scope.image = "ehm, an error..";
         }
