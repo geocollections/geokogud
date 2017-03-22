@@ -9,6 +9,12 @@ jQuery(document).ready(function ($) {
         }, 1250, 'easeInOutExpo');
         event.preventDefault();
     });
+    $(document).on('click', 'a.page-scroll-to-searches', function(event) {
+        $('html, body').stop().animate({
+            scrollTop: ($("#searches").offset().top - 50)
+        }, 1250, 'easeInOutExpo');
+        event.preventDefault();
+    });
     $(document).on('click', 'a.page-scroll-to-additional', function(event) {
         $('html, body').stop().animate({
             scrollTop: ($("#additional").offset().top - 50)
@@ -62,11 +68,17 @@ jQuery(document).ready(function ($) {
 
     //hide or show the "back to top" link
     $(window).scroll(function () {
-        ( $(this).scrollTop() > offset ) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
+
+        if( $(this).scrollTop() > offset ) {
+            $back_to_top.addClass('cd-is-visible');
+        } else {
+            $back_to_top.removeClass('cd-is-visible cd-fade-out');
+        }
         if ($(this).scrollTop() > offset_opacity) {
             $back_to_top.addClass('cd-fade-out');
         }
     });
+
     //smooth scroll to top
     $back_to_top.on('click', function (event) {
         event.preventDefault();

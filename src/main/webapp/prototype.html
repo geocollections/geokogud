@@ -25,6 +25,22 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand page-scroll" href="#page-top">{{ 'INDEX.GEOCOLLECTIONS_TITLE' | translate }}</a>
+            <!-- Quick search in header
+            <!--<div class="col-sm-4 col-md-4 pull-left">
+                <form class="navbar-form">
+                    <div class="form-group" role="search">
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control input-sm"
+                                   placeholder="{{ 'INDEX.SEARCH_FIELD_TEXT' | translate }}">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-search sr-icons" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>-->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                 <span class="sr-only">Menu</span>
                 <span class="icon-bar"></span>
@@ -35,7 +51,7 @@
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="page-scroll" href="#searches">{{ 'INDEX.SEARCH_LINK' | translate }}</a>
+                    <a class="page-scroll-to-additional" href="#search">{{ 'INDEX.SEARCH_LINK' | translate }}</a>
                 </li>
                 <li>
                     <a class="page-scroll-to-additional" href="#map">{{ 'INDEX.MAP_LINK' | translate }}</a>
@@ -102,6 +118,25 @@
                <!-- <a href="#searches" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>-->
             </div>
         </div>
+        <form role="form" class="form-inline">
+            <label>Found <strong>9280</strong> georeferenced localities. Show only those or search by:</label>
+            <div class="input-group input-group-sm input-inline">
+                <input type="text" class="form-control input-sm" placeholder="Name">
+                <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default btn-sm">
+                        <i class="fa fa-refresh sr-icons" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div><br/>
+            <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="specimens" value="1"/>collection specimens |</label>
+            <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="samples" value="1"/>samples |</label>
+            <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="drillcores" value="1"/>drillcores |</label>
+            <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="references" value="1"/>citing references |</label>
+            <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="analyses" value="1"/>analyses |</label>
+            <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="stratotypes" value="1"/>stratotypes |</label>
+            <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="images" value="1"/>photos |</label>
+            <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="taxa" value="1"/>taxon occurrences |</label>
+        </form>
     </div>
 </section>
 
@@ -190,7 +225,6 @@
 
 <aside class="bg-dark" id="resources">
     <div class="container">
-
         <div class="row">
             <div class="col-md-6">
                 <h2 class="text-muted">{{ 'INDEX.USEFUL_INFO' | translate }}</h2>
@@ -200,7 +234,6 @@
                 <p><a class="page-scroll-to-additional" href="#usingCollection">{{ 'INDEX.USING_COLLECTIONS_LINK' | translate }}</a></p>
                 <p><a class="page-scroll-to-additional" href="#git">{{ 'INDEX.GIT_TUT' | translate }}</a></p>
                 <p><a href="http://api.geokogud.info/">{{ 'INDEX.PUBLIC_API_LINK' | translate }}</a></p>
-
             </div>
             <div class="col-md-6">
                 <h2 class="text-muted">{{ 'PARTNERS.HEADING' | translate }}</h2>
@@ -211,33 +244,6 @@
         </div>
     </div>
 </aside>
-<!--
-<section>
-   <div class="container">
-       <div class="row">
-           <div class="col-lg-12  text-center">
-               <h2 class="section-heading">{{'INDEX.NEWS_LINK' | translate }}</h2>
-               <hr class="primary">
-           </div>
-           <nav >
-
-               <div class="text-center">
-               <button type="button" class="news-button" >2015</button>
-               <button type="button" class="news-button" >2014</button>
-               <button type="button" class="news-button" >2013</button>
-               <button type="button" class="news-button" >2011</button>
-               <button type="button" class="news-button" >2010</button>
-               <button type="button" class="news-button" >2008</button>
-               <button type="button" class="news-button" >2006</button>
-               <button type="button" class="news-button" >2005</button>
-               <button type="button" class="news-button" >2004</button>
-               <button type="button" class="news-button" >2003</button>
-               <button type="button" class="news-button" >2002</button>
-               </div>
-           </nav>
-       </div>
-   </div>
-</section>-->
 <section id="additional">
     <loading></loading>
     <div data-ui-view></div>

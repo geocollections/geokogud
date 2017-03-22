@@ -7,10 +7,14 @@ footer {
     padding-bottom: 20px;
 }
 
-#contact, #additional {
-    padding: 50px;
+#contact {
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
-
+#additional {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
 #footer-logos > a > img {
     height: 70px;
     margin-right: 25px;
@@ -80,7 +84,7 @@ footer {
     .back-to-top {
         height: 60px;
         width: 60px;
-        right: 30px;
+        right: 14px;
         bottom: 30px;
     }
 }
@@ -106,8 +110,17 @@ footer {
     color: #222222;
 }
 .navbar-collapse.in {
-    overflow-y: hidden;
+    overflow: hidden;
 }
 .input-group .form-control {
     margin: 0px !important;
+}
+.navbar-default.affix .navbar-header #header-search{
+    display:block;
+}
+#header-search {
+    display:none;
+}
+.navbar-default .navbar-form {
+    border-color:white;
 }

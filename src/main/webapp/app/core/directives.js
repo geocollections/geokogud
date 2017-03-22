@@ -966,12 +966,8 @@ angular.module('geoApp').directive('loading', function () {
                     }).extend([
                         new ol.control.ScaleLine({units: "metric"}),
                         new ol.control.FullScreen()
-                    ])
+                    ]),
                 });
-
-
-
-
 
                 var openLoc = function(pixel) {
 

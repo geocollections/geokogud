@@ -61,6 +61,9 @@ aside {
 .no-padding {
   padding: 0;
 }
+.navbar-inner, .navbar .btn-navbar {
+    border:0px;
+}
 .navbar-default {
   background-color: white;
   border-color: rgba(34, 34, 34, 0.05);
