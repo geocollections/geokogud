@@ -42,22 +42,11 @@ angular.module('database', []).config(function($stateProvider, $urlRouterProvide
                     templateUrl: "app/main/database.html"
            });
         });
-//routes
-angular.module('locality', []).config(function($stateProvider, $urlRouterProvider) {
-    $stateProvider.state('locality', {
-        url: "/locality",
-        template: '<data-ui-view/>',
-    }).state('locality.edit', {
-        url: "/:id",
-        templateUrl: "app/main/locality.html",
-        controller: "LocalityController"
-    });
-});
 
-angular.module('main').controller('MainInfoController', function(){
+angular.module('main', []).controller('MainInfoController', function(){
     console.log("MainInfoController");
 }).controller('MainNewsController', function(){
     console.log("MainNewsController");
 }).controller('MainMapController', function(){
     console.log("MainMapController");
-})
+});

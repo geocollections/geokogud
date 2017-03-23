@@ -87,6 +87,31 @@ public class FluentGeoApiDetailsBuilder {
         return this;
     }
 
+    public FluentGeoApiDetailsBuilder returnCountry() {
+        query += addReturningField(COUNTRY);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnAdminUnit() {
+        query += addReturningField(ADMIN_UNIT);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnVald() {
+        query += addReturningField(VALD);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnAsustusYksus() {
+        query += addReturningField(ASUSTUSYKSUS);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnElevation() {
+        query += addReturningField(ELEVATION);
+        return this;
+    }
+
     public FluentGeoApiDetailsBuilder returnLocalityCountryEng() {
         query += addReturningField(LOCALITY_COUNTRY_ENG);
         return this;
@@ -134,6 +159,11 @@ public class FluentGeoApiDetailsBuilder {
 
     public FluentGeoApiDetailsBuilder returnLocalityLocality() {
         query += addReturningField(LOCALITY_LOCALITY);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnLocality() {
+        query += addReturningField(LOCALITY);
         return this;
     }
 
@@ -214,6 +244,11 @@ public class FluentGeoApiDetailsBuilder {
 
     public FluentGeoApiDetailsBuilder returnLocalityId() {
         query += addReturningField(LOCALITY_ID);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnNumber(){
+        query += addReturningField(NUMBER);
         return this;
     }
 

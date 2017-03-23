@@ -91,6 +91,10 @@ public class ApiFields {
     public static final String COUNTRY_ENG = "country__value_en";
     public static final String ADMIN_UNIT = "maakond__maakond";
     public static final String ADMIN_UNIT_ENG = "maakond__maakond_en";
+    public static final String VALD = "vald__vald";
+    public static final String ASUSTUSYKSUS = "asustusyksus__asustusyksus";
+    public static final String ELEVATION = "elevation";
+    public static final String COORD_SYSTEM = "elevation";
 
 
 }

@@ -9,7 +9,6 @@ angular.module('geoApp', [
     'news',
     'geocollection',
     'git',
-    'locality',
     'cgNotify',
     'ui.select2',
     'angular-confirm',

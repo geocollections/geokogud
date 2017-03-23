@@ -1,10 +1,12 @@
 package ee.ttu.geodeesia.search.controller;
 
 
+import ee.ttu.geodeesia.interop.api.Request.SampleSearchCriteria;
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.drillCores.service.DrillCoreApiService;
-import ee.ttu.geodeesia.interop.api.Request.SampleSearchCriteria;
+import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityDetailsDialogDto;
+import ee.ttu.geodeesia.interop.api.localities.service.LocalitiesApiService;
 import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.photoArchive.service.PhotoArchiveApiService;
 import ee.ttu.geodeesia.interop.api.samples.pojo.SampleDetailsDialogDto;
@@ -29,6 +31,8 @@ public class DetailsController {
     private SamplesApiService samplesApiService;
     @Autowired
     private PhotoArchiveApiService photoArchiveApiService;
+    @Autowired
+    private LocalitiesApiService localitiesApiService;
 
     @RequestMapping(value = "/soil/{id}")
     public SoilDetailsDialogDto findSoilById(@PathVariable Long id) {
@@ -57,5 +61,11 @@ public class DetailsController {
     public PhotoArchiveDetailsDialogDto findPhotoArchiveById(@PathVariable Long id) {
         Response photo = photoArchiveApiService.findById(id);
         return new PhotoArchiveDetailsDialogDto(photo);
+    }
+
+    @RequestMapping(value = "/locality/{id}")
+    public LocalityDetailsDialogDto findLocalityById(@PathVariable Long id) {
+        Response locality = localitiesApiService.findById(id);
+        return new LocalityDetailsDialogDto(locality,null,null);
     }
 }

@@ -1,0 +1,64 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-3">
+                <label>PROOV #{{sample.number}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <table class="table table-bordered table-hover">
+                    <tr><td>Name</td><td>{{soil.site}}</td></tr>
+                    <tr><td>Number</td><td>{{soil.site}}</td></tr>
+                    <tr><td>Country</td><td>{{soil.site}}</td></tr>
+                    <tr><td>Loc. type</td><td>{{soil.site}}</td></tr>
+                    <tr><td>Latitude (dec. deg.)</td><td>{{soil.latitude}}</td></tr>
+                    <tr><td>Longitude (dec. deg.)</td><td>{{soil.longitude}}</td></tr>
+                    <tr><td>Coord. precision</td><td>???</td></tr>
+                    <tr><td>Coord. method</td><td>????</td></tr>
+                    <tr><td>Coord. agent</td><td>????</td></tr>
+                    <tr><td>Localition remarks</td><td>????</td></tr>
+                    <tr><td>Stratigraphy base freeform</td><td>???</td></tr>
+                    <tr><td>Stratigraphy top</td><td>{{entity.agent}}</td></tr>
+                    <tr><td>Stratigraphy base</td><td>{{soil.soil}}</td></tr>
+                    <tr><td>Record inserted</td><td>???</td></tr>
+                    <tr><td>Record changed</td><td>????</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <label>References to locality</label>
+        </div>
+        <div class="row">
+            <label>Specimens</label>
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Number</th>
+                    <th>Horizon</th>
+                    <th>Depth, m</th>
+                    <th>Remarks</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr style="cursor: pointer; " data-ng-repeat="sample in samples">
+                    <td><a href data-ng-click="openInNewWindow({object:'sample',id:sample.id})">{{sample.id}}</a></td>
+                    <td>{{sample.number}}</td>
+                    <td>???????</td>
+                    <td>{{sample.depth}} - {{sample.depthInterval}}</td>
+                    <td>?????</td>
+                </tr>
+                </tbody>
+            </table>
+            <a href="">Show all specimens</a>
+        </div>
+        <div class="row">
+            <locality-map x = "sample.latitude" y = "sample.longitude" name = "sample.localityEng" fid = "sample.localityId"></locality-map>
+            <a href data-ng-click="showGoogleMap(soil.latitude, soil.longitude, soil.locality, soil.localityEng)">Google Maps</a></span>
+            <a href data-ng-click="showEstonianLandBoardMap(soil.latitude, soil.longitude)">Maa-amet / Estonian Land Board</a>
+        </div>
+    </div>
+</div>
