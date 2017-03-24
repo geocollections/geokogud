@@ -412,7 +412,8 @@
         "FOOTER_TITLE": "Küsimused andmebaasi ja veebilehe kohta!",
         "WEBSITE_TITLE": "Eesti geokogud",
         "SEARCH2_LINK": "Otsing2",
-        "READ_MORE": "Loe rohkem"
+        "READ_MORE": "Loe rohkem",
+        "PAGE_LOADING": "Palun oota. Rakendust laaditakse."
     },
     "PARTNERS": {
         "HEADING": "PARTNERID",

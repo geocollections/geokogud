@@ -110,7 +110,7 @@ footer {
     color: #222222;
 }
 .navbar-collapse.in {
-    overflow: hidden;
+    max-height: none;
 }
 .input-group .form-control {
     margin: 0px !important;
@@ -123,4 +123,13 @@ footer {
 }
 .navbar-default .navbar-form {
     border-color:white;
+}
+#button-extended-search {
+    font-size:16px;
+    color:white;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding:6px 12px;
+    display:inline-block;
 }
