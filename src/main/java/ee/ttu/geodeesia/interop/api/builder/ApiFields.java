@@ -94,7 +94,20 @@ public class ApiFields {
     public static final String VALD = "vald__vald";
     public static final String ASUSTUSYKSUS = "asustusyksus__asustusyksus";
     public static final String ELEVATION = "elevation";
-    public static final String COORD_SYSTEM = "elevation";
+    public static final String COORD_SYSTEM = "coord_system";
+    public static final String COORD_X = "coordx";
+    public static final String COORD_Y = "coordy";
+    public static final String COORD_DET_PRECISION = "coord_det_precision__value";
+    public static final String COORD_DET_METHOD = "coord_det_method__value";
+    public static final String COORD_DET_AGENT = "coord_det_agent__agent";
+    public static final String STRATIGRAPHY_TOP_FREE = "stratigraphy_top_free";
+    public static final String STRATIGRAPHY_BASE_FREE = "stratigraphy_base_free";
+    public static final String USER_ADDED = "user_added";
+    public static final String DATE_ADDED = "date_added";
+    public static final String DATE_CHANGED = "date_changed";
+    public static final String PARENT_LOCALITY = "parent__locality";
+    public static final String EELIS = "eelis";
+    public static final String MAAAMET_PA_ID = "maaamet_pa_id";
 
 
 }

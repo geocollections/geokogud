@@ -1,5 +1,6 @@
 package ee.ttu.geodeesia.interop.api.samples.service.impl;
 
+import ee.ttu.geodeesia.interop.api.Request.SampleSearchCriteria;
 import ee.ttu.geodeesia.interop.api.Request.SearchApiRequest;
 import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.NewVersionOfApiResponse;
@@ -8,7 +9,6 @@ import ee.ttu.geodeesia.interop.api.Response.ResponseMapper;
 import ee.ttu.geodeesia.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geodeesia.interop.api.builder.search.FluentSampleSearchApiBuilder;
 import ee.ttu.geodeesia.interop.api.samples.pojo.SampleEntity;
-import ee.ttu.geodeesia.interop.api.Request.SampleSearchCriteria;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.interop.api.service.ApiService;
 import ee.ttu.geodeesia.search.domain.CommonSearch;
@@ -67,12 +67,6 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     public Response findById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
-                .returnId()
-                .returnLocalityCountry()
-                .returnLocalityCountryEng()
-                .returnLocalityLatitude()
-                .returnLocalityLongitude()
-                .returnDepth()
                 .build();
         return apiService.findEntity("sample", requestParams, SampleEntity.class);
     }

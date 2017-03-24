@@ -5,7 +5,7 @@ import ee.ttu.geodeesia.search.domain.SortField;
 
 public interface ApiService {
     //search without returning exactly fields
-    Response searchEntities(String tableName, int page, SortField sortField, String requestParams, Class<?> responseClass);
+    <T> Response<T> searchEntities(String tableName, int page, SortField sortField, String requestParams, Class<T> responseClass);
 
-    Response findEntity(String tableName, String requestParams, Class<?> responseClass);
+    <T> Response<T> findEntity(String tableName, String requestParams, Class<T> responseClass);
 }

@@ -5,6 +5,7 @@ import ee.ttu.geodeesia.interop.api.Request.SampleSearchCriteria;
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.drillCores.service.DrillCoreApiService;
+import ee.ttu.geodeesia.interop.api.localities.pojo.Locality;
 import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.localities.service.LocalitiesApiService;
 import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveDetailsDialogDto;
@@ -13,6 +14,8 @@ import ee.ttu.geodeesia.interop.api.samples.pojo.SampleDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.soil.service.SoilApiService;
+import ee.ttu.geodeesia.interop.api.specimen.pojo.SpecimenSearchCriteria;
+import ee.ttu.geodeesia.interop.api.specimen.service.SpecimenApiService;
 import ee.ttu.geodeesia.search.domain.LookUpType;
 import ee.ttu.geodeesia.search.domain.SearchField;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +36,8 @@ public class DetailsController {
     private PhotoArchiveApiService photoArchiveApiService;
     @Autowired
     private LocalitiesApiService localitiesApiService;
+    @Autowired
+    private SpecimenApiService specimenApiService;
 
     @RequestMapping(value = "/soil/{id}")
     public SoilDetailsDialogDto findSoilById(@PathVariable Long id) {
@@ -65,7 +70,10 @@ public class DetailsController {
 
     @RequestMapping(value = "/locality/{id}")
     public LocalityDetailsDialogDto findLocalityById(@PathVariable Long id) {
-        Response locality = localitiesApiService.findById(id);
-        return new LocalityDetailsDialogDto(locality,null,null);
+        Response<Locality> locality = localitiesApiService.findById(id);
+        SpecimenSearchCriteria specimenSearchCriteria = new SpecimenSearchCriteria();
+        specimenSearchCriteria.setLocality(new SearchField(locality.getResult().get(0).getLocality(),LookUpType.exact));
+        Response specimens = specimenApiService.findSpecimen(specimenSearchCriteria);
+        return new LocalityDetailsDialogDto(locality,null, specimens);
     }
 }

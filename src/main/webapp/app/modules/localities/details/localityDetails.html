@@ -2,27 +2,27 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-3">
-                <label>PROOV #{{sample.number}}</label>
+                <label>Locality #{{locality.number}}</label>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-6">
                 <table class="table table-bordered table-hover">
-                    <tr><td>Name</td><td>{{soil.site}}</td></tr>
-                    <tr><td>Number</td><td>{{soil.site}}</td></tr>
-                    <tr><td>Country</td><td>{{soil.site}}</td></tr>
-                    <tr><td>Loc. type</td><td>{{soil.site}}</td></tr>
-                    <tr><td>Latitude (dec. deg.)</td><td>{{soil.latitude}}</td></tr>
-                    <tr><td>Longitude (dec. deg.)</td><td>{{soil.longitude}}</td></tr>
-                    <tr><td>Coord. precision</td><td>???</td></tr>
-                    <tr><td>Coord. method</td><td>????</td></tr>
-                    <tr><td>Coord. agent</td><td>????</td></tr>
-                    <tr><td>Localition remarks</td><td>????</td></tr>
-                    <tr><td>Stratigraphy base freeform</td><td>???</td></tr>
-                    <tr><td>Stratigraphy top</td><td>{{entity.agent}}</td></tr>
-                    <tr><td>Stratigraphy base</td><td>{{soil.soil}}</td></tr>
-                    <tr><td>Record inserted</td><td>???</td></tr>
-                    <tr><td>Record changed</td><td>????</td></tr>
+                    <tr><td>Name</td><td>{{locality.locality}}</td></tr>
+                    <tr><td>Number</td><td>{{locality.number}}</td></tr>
+                    <tr><td>Country</td><td>{{locality.countryValue}}</td></tr>
+                    <tr><td>Loc. type</td><td>{{locality.type}}</td></tr>
+                    <tr><td>Latitude (dec. deg.)</td><td>{{locality.latitude}}</td></tr>
+                    <tr><td>Longitude (dec. deg.)</td><td>{{locality.longitude}}</td></tr>
+                    <tr><td>Coord. precision</td><td>{{locality.coordPrecision}}</td></tr>
+                    <tr><td>Coord. method</td><td>{{locality.coordMethod}}</td></tr>
+                    <tr><td>Coord. agent</td><td>{{locality.coordAgent}}</td></tr>
+                    <tr><td>Localition remarks</td><td>{{locality.remarksLocation}}</td></tr>
+                    <tr><td>Stratigraphy base freeform</td><td>{{locality.stratigraphyBaseFree}}</td></tr>
+                    <tr><td>Stratigraphy top</td><td>{{locality.stratigraphyTop}}</td></tr>
+                    <tr><td>Stratigraphy base</td><td>{{locality.stratigraphyBase}}</td></tr>
+                    <tr><td>Record inserted</td><td>{{locality.dateAdded}}</td></tr>
+                    <tr><td>Record changed</td><td>{{locality.dateChanged}}</td></tr>
                 </table>
             </div>
         </div>

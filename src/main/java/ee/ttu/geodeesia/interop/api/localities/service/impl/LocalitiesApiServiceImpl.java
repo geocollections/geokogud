@@ -4,6 +4,7 @@ import ee.ttu.geodeesia.interop.api.Request.SearchApiRequest;
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geodeesia.interop.api.builder.search.FluentLocalitySearchApiBuilder;
+import ee.ttu.geodeesia.interop.api.localities.pojo.Locality;
 import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityApiResponse;
 import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityEntity;
 import ee.ttu.geodeesia.interop.api.localities.pojo.LocalitySearchCriteria;
@@ -49,20 +50,9 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
     }
 
     @Override
-    public Response findById(Long id) {
-        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
-                .returnLocality()
-                .returnNumber()
-                .returnTypeValue()
-                .returnCountry()
-                .returnAdminUnit()
-                .returnVald()
-                .returnAsustusYksus()
-                .returnElevation()
-                .returnLatitude()
-                .returnLongitude()
-                .build();
-        return apiService.findEntity("locality", requestParams, LocalityApiResponse.class);
+    public Response<Locality> findById(Long id) {
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest().id(id).build();
+        return apiService.findEntity("locality", requestParams, Locality.class);
     }
 
     @Override

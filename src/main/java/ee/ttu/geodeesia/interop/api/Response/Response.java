@@ -2,9 +2,9 @@ package ee.ttu.geodeesia.interop.api.Response;
 
 import java.util.List;
 
-public class Response {
+public class Response<T> {
     private int count;
-    private List<?> result;
+    private List<T> result;
     private int numberOfPages;
     private int currentPage;
 
@@ -32,11 +32,11 @@ public class Response {
         this.count = count;
     }
 
-    public List<?> getResult() {
+    public List<T> getResult() {
         return result;
     }
 
-    public void setResult(List<?> result) {
+    public void setResult(List<T> result) {
         this.result = result;
     }
 }

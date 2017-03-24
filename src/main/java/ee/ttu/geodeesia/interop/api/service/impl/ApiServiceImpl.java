@@ -22,7 +22,7 @@ public class ApiServiceImpl implements ApiService {
     private RestTemplate restTemplate = new RestTemplate();
 
     @Override
-    public Response searchEntities(String tableName, int page, SortField sortField, String requestParams, Class<?> responseClass) {
+    public <T> Response<T> searchEntities(String tableName, int page, SortField sortField, String requestParams, Class<T> responseClass) {
         if(sortField == null) {
             sortField = new SortField();
         }
@@ -33,7 +33,7 @@ public class ApiServiceImpl implements ApiService {
         System.err.println(url);
         ResponseEntity<ApiResponse> rawResponse = restTemplate.getForEntity(url, ApiResponse.class);
 
-        Response response = new Response();
+        Response<T> response = new Response<>();
 
         ObjectMapper mapper = new ObjectMapper();
         response.setResult(
@@ -60,13 +60,13 @@ public class ApiServiceImpl implements ApiService {
     }
 
     @Override
-    public Response findEntity(String tableName, String requestParams, Class<?> responseClass) {
+    public <T> Response<T> findEntity(String tableName, String requestParams, Class<T> responseClass) {
         String url = apiUrl + "/" + tableName +"/" + requestParams;
 
         System.err.println(url);
         ResponseEntity<ApiResponse> rawResponse = restTemplate.getForEntity(url, ApiResponse.class);
 
-        Response response = new Response();
+        Response<T> response = new Response<>();
 
         ObjectMapper mapper = new ObjectMapper();
         response.setResult(
