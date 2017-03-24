@@ -64,6 +64,12 @@ public class ApiFields {
     public static final String TYPE_VALUE = "type__value";
     public static final String TYPE_VALUE_EN = "type__value_en";
     public static final String DEVICE_NAME = "device__name";
+    public static final String IMAGESET_NUMBER = "imageset__imageset_number";
+    public static final String IMAGESET_SERIES = "imageset__imageset_series";
+    public static final String COPYRIGHT_AGENT = "copyright_agent__agent";
+    public static final String LICENCE = "licence__licence_en";
+    public static final String LICENCE_URL = "licence__licence_url_en";
+    public static final String LOCALITY_ID = "locality_id";
 
     // Drill core search
     public static final String DRILL_CORE = "drillcore";
@@ -85,6 +91,10 @@ public class ApiFields {
     public static final String COUNTRY_ENG = "country__value_en";
     public static final String ADMIN_UNIT = "maakond__maakond";
     public static final String ADMIN_UNIT_ENG = "maakond__maakond_en";
+    public static final String VALD = "vald__vald";
+    public static final String ASUSTUSYKSUS = "asustusyksus__asustusyksus";
+    public static final String ELEVATION = "elevation";
+    public static final String COORD_SYSTEM = "elevation";
 
 
 }

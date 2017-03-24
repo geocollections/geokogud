@@ -13,7 +13,7 @@
             "LI_THREE": "Estonian Museum of Natural History",
             "LI_FOUR": "Department of Geology, University of Tartu, and",
             "LI_FIVE": "Estonian University of Life Sciences, Soil Museum",
-            "PARAGRAPH_TWO": "Large numbers of rock samples and drill cores are also held by the Geological Survey of Estonia",
+            "PARAGRAPH_TWO": "Large numbers of rock samples and drill cores are also held by the ",
             "PARAGRAPH_TWO_A_LINK": "Geological Survey of Estonia"
         },
         "COMMON_DATABASE": {
@@ -59,9 +59,10 @@
             "PARAGRAPH_ONE": "The multi-institutional geocollections database SARV aims to make specimen-level records and oher digitised geological data available and searchable in Estonian geocollections portal as well as international data networks (GeoCASe, BioCASe, GBIF). Automatic queries can make use of the public API. Some data may be restricted to institutional usage and require direct collaboration with researcher(s) of the institute in order to get access to. Also, when searching the on-line database, please remember that not all unit-level data are currently digitised.",
             "PARAGRAPH_TWO": "The publicly available data are copyrighted by the individual collection holding institutions and distributed under the Creative Commons BY-NC licence, if not indicated otherwise.",
             "CC_EXPLANATION": "This means that you are free to download, use and distribute the data for any non-commercial purposes, given that you cite the author and source.",
-            "LI_ONE": "Please use the following form of citation: Estonian geocollections database, [photo/figure/data/..] by [author name, e.g. Enn Pirrus], [institution name, e.g., Institute of Geology at TUT], [year].",
+            "LI_ONE": "Please use the following form of citation:",
+            "LI_ONE_ONE": "Estonian geocollections database, [photo/figure/data/..] by [author name, e.g. Enn Pirrus], [institution name, e.g., Institute of Geology at TUT], [year].",
             "LI_TWO": "In publications it is requested that you use unique indentifiers (such as specimen number) when available, together with institutional abbreviation [GIT/TUG/ELM], for instance specimen GIT 160-7.",
-            "LI_THREE": "If appropriate, add a full link to the resource used, for instance http://geokogud.info/specimen/66130.",
+            "LI_THREE": "If appropriate, add a full link to the resource used, for instance ",
             "LI_FOUR": "We would appreciate that you let us know when using our data in publications or on websites.",
             "LI_FIVE": "For any commercial use of the data or images a permission in needed; please contact the curators for details."
         },
@@ -404,13 +405,14 @@
         "RESOURCES_LINK": "Resources",
         "CONTACT_LINK": "Contact",
         "INVESTIGATORS_LINK": "For investigators",
-        "GEOCOLLECTIONS_HEADER": "Favorite Geoscience collections of Estonia",
+        "GEOCOLLECTIONS_HEADER": "Geoscience collections of Estonia",
         "EXTENDED_SEARCH_LINK": "Extended Search",
         "USEFUL_INFO": "USEFUL INFORMATION",
         "GIT_TUT": "Geological collections at the Institute of Geology at TUT",
         "FOOTER_TITLE": "Questions and comments about the database and website!",
         "WEBSITE_TITLE": "Geocollections of Estonia",
-        "SEARCH2_LINK": "Search2"
+        "SEARCH2_LINK": "Search2",
+        "READ_MORE": "Read more"
     },
     "PARTNERS": {
         "HEADING": "PARTNERS",
@@ -423,5 +425,35 @@
         "COUNTRY": "Country",
         "LATITUDE": "Latitude",
         "LONGITUDE": "Longitude"
+    },
+    "GIT" : {
+        "GIT_HEADING": "GIT",
+        "GIT_TITLE": "Geological collections at the Institute of Geology at TUT",
+        "PARAGRAPH_ONE": "The Institute of Geology at Tallinn University of Technology possesses the largest geological collections in Estonia. They comprise fossils, rocks, minerals and meteorites from all over the world, the emphasis being, however, on the Estonian and former Soviet Union material. The collections include historical specimens collected already in the 1850s, but most of the material has been accumulated since the 1950s until present.",
+        "PARAGRAPH_TWO": "The collections form an integral part of the research carried out at the Institute, particularly in the fields of paleontology, sedimentology and geochemistry."
+    },
+    "GEOLOGICALCOLLECTIONS": {
+        "TITLE": "About geological collections in Estonia",
+        "PARAGRAPH_ONE": "Minerals, rocks and fossils that form the essence of geological collections are the main source of information of the 4.6 billion year history of Earth. Unlike other natural history collections, the geological specimens represent both physical and organic world and common to all of them is the dimension of geological time.",
+        "PARAGRAPH_TWO": "The largest geological collections in Estonia are nowadays deposited in three institutions, which also form the core of national geological collection: Institute of Geology at Tallinn University of Technology, Geological Museum of the University of Tartu and the Estonian Museum of Natural History. Additionally a great number of drill cores, actively used in international research, are held by the Geological Survey of Estonia. Various smaller collections are deposited in other institutions, local museums and private collectors. The oldest collections date to early 19th century whilst the bulk of material has been accumulated in 1950–1980s.",
+        "PARAGRAPH_THREE": "In total more than 800 000 units are stored in the national geological collection, including fossil specimens, microfossil preparations, minerals, meteorites, rock and sediment samples and drill cores. The palaeontological collections are mostly composed of invertebrate fossils such as brachiopods, trilobites, bryozoans, corals, mollusks, echinoderms and graptolites, but also early fishes and agnathans. The microfossil collections are also notable, with chitinozoans, conodonts, ostracods and scolecodonts being especially well represented.",
+        "PARAGRAPH_FOUR": "In scientific perspective the particular strength of the collection lies in the Lower Palaeozoic palaeontology and petrology of the Baltic area, which serves as the proxy for the entire Baltica palaeocontinent. Estonian collections have contributed significantly to studies of evolution and diversification of biota during the Great Ordovician Biodiversification Event as well as the end-Ordovician extinction. The Estonian microfossil collections, some of the largest in the world for this time-span, have been used to establish and correlate regional and global geological timescales and biostratigraphical zonations.",
+        "PARAGRAPH_FIVE": "The drill cores and rock samples are continuously utilized for testing new methods and developing scientific ideas. For instance, the recent advancement in stable isotope research, which also grounds on collections, has turned the Baltic isotopic curve as world-wide standard for the Ordovician and Silurian. Noteworthy is also the Estonian meteorite collection holding several thousands of specimens many of which are unique in the world.",
+        "PARAGRAPH_SIX": "When estimating the importance of collections for geological research in Estonia it should be mentioned that at least half of scientific papers published in international journals ground partly or entirely on collections. Likewise the national science prizes awarded to geologists during the last decade make intense use of collections and have not been possible without them.",
+        "PARAGRAPH_SEVEN": "The first attempts to utilize electronic databases for collection data were made in 1994. However, it was only in 1998 when the Institute of Geology at Tallinn University of Technology started development of an in-house database specifically suitable for geological collections. As of 2008, this system has evolved into a complex information system that grounds on MySQL relational database back-end and MS Access-based user interface for data entry. The entire database is on-line and can be queried using public web-based interface. First in Estonia it joined the international specimen-level networks of BioCASE and GBIF. The data model of the system consists of more than 90 related tables, most important of which are the collection, specimen, sample, locality, drill core, agent, image, stratigraphy, reference etc. The same database is now used in all three main institutions possessing geological collections. In the Institute of Geology about 25% of specimen-level data are digitized and in the Estonian Museum of Natural History the amount of data is expected to reach 100% by the end of 2008. Next steps to make the data even more easily accessible include building a common public query interface and data portal for all data holders.",
+        "TABLE": {
+            "HEADING1": "collection",
+            "HEADING2": "fossils, minerals, rocks",
+            "HEADING3": "micro-palaeontology",
+            "HEADING4": "rock and sediment samples",
+            "HEADING5": "drill cores (boxes)",
+            "HEADING6": "TOTAL",
+            "ROW1": "GIT",
+            "ROW2": "TUG",
+            "ROW3": "ELM",
+            "ROW4": "EGK",
+            "ROW5": "smaller collections",
+            "ROW6": "TOTAL"
+        }
     }
 }

@@ -58,6 +58,19 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
         field.setLookUpType(LookUpType.contains.exact);
         searchCriteria.setId(field);
        return findLocality(searchCriteria);
+/*        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
+                .returnLocality()
+                .returnNumber()
+                .returnTypeValue()
+                .returnCountry()
+                .returnAdminUnit()
+                .returnVald()
+                .returnAsustusYksus()
+                .returnElevation()
+                .returnLatitude()
+                .returnLongitude()
+                .build();
+        return apiService.findEntity("locality", requestParams, LocalityApiResponse.class);*/
     }
 
     @Override

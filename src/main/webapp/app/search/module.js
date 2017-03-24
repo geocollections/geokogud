@@ -63,11 +63,10 @@ angular.module('search.localities', []).config(function($stateProvider) {
         templateUrl: "app/modules/localities/search/localities.html",
         controller: "SearchLocalitiesController"
     }).state('locality', {
-        url: "/locality",
         template: '<data-ui-view/>',
     }).state('locality.view', {
-        url: "/:id",
-        templateUrl: "app/main/locality.html",
+        url: "/locality/:id",
+        templateUrl: "app/modules/localities/details/localityDetails.html",
         controller: "LocalityDetailsController"
     });
 });

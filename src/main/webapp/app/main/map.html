@@ -1,30 +1,64 @@
-<div class="panel panel-default">
-    <div class="panel-body">
-        <div> <!--id="mapcontainer"-->
-
-            <div id='hoverbox' class='coupontooltip'>
-                <div id='hoversystem' style='position: relative; top: 0; left: 0;'></div>
-                <div id='hoverstat' style='position: relative; top: 0; left: 0;'></div>
-            </div>
-
+<style>
+    @media screen and (min-width: 1024px){
+        .map-container{
+            height: 500px;
+            width:100%;
+        }
+    }
+    @media screen and (min-width : 768px) and (max-width : 1023px){
+        .map-container{
+            height: 400px;
+            width:100%;
+        }
+    }
+    /*### Smartphones (portrait and landscape)(small)### */
+    @media screen and (min-width : 500px) and (max-width : 767px){
+        .map-container{
+            height: 400px;
+            width:100%;
+        }
+    }
+    @media screen and (min-width : 0px) and (max-width : 499px){
+        .map-container{
+            height: 300px;
+            width:100%;
+        }
+    }
+    #map-footer-menu {
+        padding:5px;
+    }
+    .map {
+        height:100%;
+        width:100%;
+    }
+</style>
+<div class="container" style="padding: 0px">
+        <div id='hoverbox' class='coupontooltip'>
+            <div id='hoversystem'></div>
+            <div id='hoverstat'></div>
+        </div>
+        <div class="map-container">
             <main-map></main-map>
         </div>
-        <div id='footer'>
-            <div><!-- id='formcontainer'-->
-            <form method='get' name='filter'>
-                Found <b>9280</b> georeferenced localities. Show only those with:
-                <input onchange="window.document.filter.submit();" type="checkbox" name="specimens" value="1"  />collection specimens |
-                <input onchange="window.document.filter.submit();" type="checkbox" name="samples" value="1"  />samples |
-                <input onchange="window.document.filter.submit();" type="checkbox" name="drillcores" value="1"  />drillcores |
-                <input onchange="window.document.filter.submit();" type="checkbox" name="references" value="1"  />citing references |
-                <input onchange="window.document.filter.submit();" type="checkbox" name="analyses" value="1"  />analyses |
-                <input onchange="window.document.filter.submit();" type="checkbox" name="stratotypes" value="1"  />stratotypes |
-                <input onchange="window.document.filter.submit();" type="checkbox" name="images" value="1"  />photos |
-                <input onchange="window.document.filter.submit();" type="checkbox" name="taxa" value="1"  />taxon occurrences |
-                name: <input type="text" style="width: 100px;" name="loc" value="" />
-
-                <input type="submit" value="refresh map"> <a href='/'>Back to SARV. </a>
-            </form>
-        </div></div>
+    <div class="bg-dark" id="map-footer-menu">
+    <form role="form" class="form-inline">
+        <label>Found <strong>9280</strong> georeferenced localities. Show only those or search by:</label>
+        <div class="input-group input-group-sm input-inline">
+            <input type="text" class="form-control input-sm" placeholder="Name">
+            <div class="input-group-btn">
+                <button type="submit" class="btn btn-primary btn-sm">
+                    <i class="fa fa-refresh sr-icons" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div><br/>
+        <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="specimens" value="1"/>collection specimens |</label>
+        <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="samples" value="1"/>samples |</label>
+        <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="drillcores" value="1"/>drillcores |</label>
+        <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="references" value="1"/>citing references |</label>
+        <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="analyses" value="1"/>analyses |</label>
+        <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="stratotypes" value="1"/>stratotypes |</label>
+        <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="images" value="1"/>photos |</label>
+        <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="taxa" value="1"/>taxon occurrences</label>
+    </form>
     </div>
 </div>

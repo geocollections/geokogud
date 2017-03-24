@@ -1,21 +1,12 @@
 'use strict';
 
 //routes
-angular.module('main', []).config(function($stateProvider, $urlRouterProvider) {
-    $stateProvider.state('main', {
-        url: "/info",
-        templateUrl: "app/main/info.html"
-    });
-});
-
-//routes
 angular.module('news', []).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('news', {
         url: "/news",
         templateUrl: "app/main/news.html"
     });
 });
-
 //routes
 angular.module('map', []).config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('map', {
@@ -30,18 +21,32 @@ angular.module('usingCollection', []).config(function($stateProvider, $urlRouter
         templateUrl: "app/main/using_collection.html"
       });
 });
+//routes
+angular.module('git', []).config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider.state('git', {
+                url: "/git",
+        templateUrl: "app/main/git.html"
+      });
+});
+//routes
+angular.module('geocollection', []).config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider.state('geocollection', {
+                url: "/geocollection",
+        templateUrl: "app/main/geocollection.html"
+      });
+});
 -//routes
 angular.module('database', []).config(function($stateProvider, $urlRouterProvider) {
-    $stateProvider.state('database', {
-            url: "/database",
-            templateUrl: "app/main/database.html"
-   });
-});
+            $stateProvider.state('database', {
+                    url: "/database",
+                    templateUrl: "app/main/database.html"
+           });
+        });
 
-angular.module('main').controller('MainInfoController', function(){
+angular.module('main', []).controller('MainInfoController', function(){
     console.log("MainInfoController");
 }).controller('MainNewsController', function(){
     console.log("MainNewsController");
 }).controller('MainMapController', function(){
     console.log("MainMapController");
-})
+});

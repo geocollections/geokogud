@@ -62,8 +62,6 @@ angular.module('search').controller('SearchLocalitiesController', function($scop
         }
         return $scope.localities;
     }
-
-
 }).controller('LocalityDetailsController', function($scope, LocalityService, $uibModal, $http,$stateParams){
     $scope.locality = {};
     LocalityService.details($stateParams.id).then(function(result) {
@@ -85,4 +83,4 @@ angular.module('search').controller('SearchLocalitiesController', function($scop
                 });
         }
     };
-}])
+}]);

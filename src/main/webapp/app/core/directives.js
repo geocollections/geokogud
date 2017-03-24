@@ -419,15 +419,14 @@ angular.module('geoApp').directive('loading', function () {
 
                     olMap.addLayer(layerData);
 
-                    /*olMap.getViewport().addEventListener('mousemove', function(evt)
+                    olMap.getViewport().addEventListener('mousemove', function(evt)
                      {
                      var pixel = olMap.getEventPixel(evt);
                      displayFeatureInfo(pixel);
                      });
 
-                     //olMap.on('click', function(evt) { displayFeatureInfo(evt.pixel); }); //Useful for touch-based viewing, e.g. on iPhone.
+                     olMap.on('click', function(evt) { displayFeatureInfo(evt.pixel); }); //Useful for touch-based viewing, e.g. on iPhone.
                      olMap.on('click', function(evt) { openLoc(evt.pixel); });
-                     */
                 }
 
 
@@ -563,7 +562,7 @@ angular.module('geoApp').directive('loading', function () {
                     $scope.olMap.getViewport().addEventListener('mousemove', function(evt)
                     {
                         var pixel = $scope.olMap.getEventPixel(evt);
-                        //displayFeatureInfo(pixel); OLESJA
+                        displayFeatureInfo(pixel); //OLESJA
                     });
 
 
@@ -578,7 +577,7 @@ angular.module('geoApp').directive('loading', function () {
                         $scope.olMap.getView().setZoom(9);
                     }
 
-                    //$scope.olMap.on('click', function(evt) { //displayFeatureInfo(evt.pixel); }); //Useful for touch-based viewing, e.g. on iPhone.
+                    $scope.olMap.on('click', function(evt) { displayFeatureInfo(evt.pixel); }); //Useful for touch-based viewing, e.g. on iPhone.
                     $scope.olMap.on('click', function(evt) { openLoc(evt.pixel); });
                 }
 
@@ -967,12 +966,8 @@ angular.module('geoApp').directive('loading', function () {
                     }).extend([
                         new ol.control.ScaleLine({units: "metric"}),
                         new ol.control.FullScreen()
-                    ])
+                    ]),
                 });
-
-
-
-
 
                 var openLoc = function(pixel) {
 
@@ -1056,13 +1051,14 @@ angular.module('geoApp').directive('loading', function () {
                 map.addControl(layerSwitcher);
 
 
-                var extent = vector1.getSource().getExtent();
+               /* not wr
+               var extent = vector1.getSource().getExtent();
                 map.getView().fitExtent(extent, map.getSize());
                 var zz = map.getView().getZoom();
                 if(zz>10)
                 {
                     map.getView().setZoom(10);
-                }
+                }*/
 
                 //----------------------------------------------
                 var tooltip = document.querySelectorAll('.coupontooltip');

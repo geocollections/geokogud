@@ -5,9 +5,10 @@ angular.module('geoApp', [
     'ui.bootstrap.showErrors',
     'ui.bootstrap.datetimepicker',
     'ui.router',
-    'main',
     'map',
     'news',
+    'geocollection',
+    'git',
     'cgNotify',
     'ui.select2',
     'angular-confirm',
@@ -32,7 +33,12 @@ angular.module('geoApp').constant('configuration', configuration);
 
 angular.module('geoApp').value('isActivityLogging', true);
 angular.module('geoApp').config(['$locationProvider', function($locationProvider) {
-    $locationProvider.hashPrefix('');
+    //for fixing # in address bar
+   /* $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });*/
+   $locationProvider.hashPrefix('');
 }]);
 
 angular.module('geoApp').config(function($stateProvider, $urlRouterProvider, $httpProvider, $provide, uibDatepickerConfig, uibDatepickerPopupConfig) {
