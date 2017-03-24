@@ -18,16 +18,18 @@ angular.module('search').controller('SearchPhotoArchiveController', function ($s
     $scope.search = function () {
         if ($scope.photoArchiveSearch.imageSize) {
             imageDimensions = $scope.photoArchiveSearch.imageSize.name;
-            x = imageDimensions.substring(0, imageDimensions.indexOf("x"));
-            y = imageDimensions.substring(imageDimensions.indexOf("x") + 1);
-            $scope.photoArchiveSearch.sizeX = {
-                lookUpType: $scope.photoArchiveSearch.imageSize.lookUpType,
-                name: x
-            };
-            $scope.photoArchiveSearch.sizeY = {
-                lookUpType: $scope.photoArchiveSearch.imageSize.lookUpType,
-                name: y
-            };
+            if(imageDimensions) {
+                x = imageDimensions.substring(0, imageDimensions.indexOf("x"));
+                y = imageDimensions.substring(imageDimensions.indexOf("x") + 1);
+                $scope.photoArchiveSearch.sizeX = {
+                    lookUpType: $scope.photoArchiveSearch.imageSize.lookUpType,
+                    name: x
+                };
+                $scope.photoArchiveSearch.sizeY = {
+                    lookUpType: $scope.photoArchiveSearch.imageSize.lookUpType,
+                    name: y
+                };
+            }
         }
         console.log($scope.photoArchiveSearch);
         PhotoService.search($scope.photoArchiveSearch).then(function (result) {
