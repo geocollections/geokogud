@@ -101,7 +101,8 @@
                     </div>
                 </div>
             </form>
-           <a href="#searches" class="btn btn-primary btn-xl page-scroll">{{ 'INDEX.EXTENDED_SEARCH_LINK' | translate }}</a>
+
+        <a href="#searches" id="button-extended-search" class="page-scroll">{{ 'INDEX.EXTENDED_SEARCH_LINK' | translate }}</a>
         </div>
     </div>
 </header>
@@ -118,25 +119,6 @@
                <!-- <a href="#searches" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>-->
             </div>
         </div>
-        <form role="form" class="form-inline">
-            <label>Found <strong>9280</strong> georeferenced localities. Show only those or search by:</label>
-            <div class="input-group input-group-sm input-inline">
-                <input type="text" class="form-control input-sm" placeholder="Name">
-                <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default btn-sm">
-                        <i class="fa fa-refresh sr-icons" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div><br/>
-            <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="specimens" value="1"/>collection specimens |</label>
-            <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="samples" value="1"/>samples |</label>
-            <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="drillcores" value="1"/>drillcores |</label>
-            <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="references" value="1"/>citing references |</label>
-            <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="analyses" value="1"/>analyses |</label>
-            <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="stratotypes" value="1"/>stratotypes |</label>
-            <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="images" value="1"/>photos |</label>
-            <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="taxa" value="1"/>taxon occurrences |</label>
-        </form>
     </div>
 </section>
 
@@ -245,7 +227,7 @@
     </div>
 </aside>
 <section id="additional">
-    <loading></loading>
+   <!-- <loading></loading>-->
     <div data-ui-view></div>
 </section>
 <section id="contact">

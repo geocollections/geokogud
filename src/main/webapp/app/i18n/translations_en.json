@@ -412,7 +412,8 @@
         "FOOTER_TITLE": "Questions and comments about the database and website!",
         "WEBSITE_TITLE": "Geocollections of Estonia",
         "SEARCH2_LINK": "Search2",
-        "READ_MORE": "Read more"
+        "READ_MORE": "Read more",
+        "PAGE_LOADING": "Please wait. The page is loading."
     },
     "PARTNERS": {
         "HEADING": "PARTNERS",
