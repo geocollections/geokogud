@@ -6,11 +6,8 @@
 <div class="panel panel-default">
     <div class="panel-body">
         <div class="row">
-            TODO: need database.acronym
-            http://geokogud.info/di.php?f=/var/www/tug/image/b/b1000-1099/b1021.jpg&w=1024
-            <img src="http://geokogud.info/di.php?f=/var/www/{{image.acronym}}/image/{{image.imagesetSeries}}/{{image.imagesetNumber}}/{{image.fileName}}&w=1024"
-            class="window-size"/>
-            <a href="http://geokogud.info/tug/image/MI/MI16-3/MI16-3-22.jpg">Original</a>
+            <img src="{{imageUrl}}&w=1024" class="window-size"/>
+            <a href="{{imageUrl}}">Original</a>
         </div>
         <div class="row">
             <table class="table table-bordered table-hover">
@@ -21,8 +18,7 @@
                 <tr><td>Number</td><td>{{image.imageNumber}}</td></tr>
                 <tr><td>Author</td><td>{{image.authorAgent}}</td></tr>
                 <tr><td>Date taken</td><td>{{image.dateTaken}}</td></tr>
-                //TODO add link to locality modal:
-                <tr><td>Locality</td><td><a href="{{image.localityId}}">{{image.locality}}</a></td></tr>
+                <tr><td>Locality</td><td><a href data-ng-click="openInNewWindow({object:'locality',id:image.localityId})">{{image.locality}}</a></td></tr>
                 <tr><td>Object</td><td>{{image.object}}</td></tr>
                 <tr><td>Category</td><td>????</td></tr>
                 <tr><td>Keywords</td><td>{{image.keywords}}</td></tr>

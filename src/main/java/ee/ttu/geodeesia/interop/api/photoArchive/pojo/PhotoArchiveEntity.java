@@ -1,9 +1,11 @@
 package ee.ttu.geodeesia.interop.api.photoArchive.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import static ee.ttu.geodeesia.interop.api.builder.ApiFields.*;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PhotoArchiveEntity {
     /*
                 "id": 28794,
@@ -38,6 +40,17 @@ public class PhotoArchiveEntity {
     private String licence;
     private String licenceUrl;
     private String localityId;
+    private String databaseAcronym;
+
+    @JsonProperty("databaseAcronym")
+    public String getDatabaseAcronym() {
+        return databaseAcronym;
+    }
+
+    @JsonProperty("database__acronym")
+    public void setDatabaseAcronym(String databaseAcronym) {
+        this.databaseAcronym = databaseAcronym;
+    }
 
     @JsonProperty("localityId")
     public String getLocalityId() {
