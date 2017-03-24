@@ -32,22 +32,10 @@ angular.module('usingCollection', []).config(function($stateProvider, $urlRouter
 });
 -//routes
 angular.module('database', []).config(function($stateProvider, $urlRouterProvider) {
-            $stateProvider.state('database', {
-                    url: "/database",
-                    templateUrl: "app/main/database.html"
-           });
-        });
-//routes
-angular.module('locality', []).config(function($stateProvider, $urlRouterProvider) {
-    $stateProvider.state('locality', {
-        url: "/locality",
-        template: '<data-ui-view/>',
-    }).state('locality.edit', {
-        url: "/:id",
-        templateUrl: "app/main/locality.html",
-        controller: "LocalityController"
-    });
-
+    $stateProvider.state('database', {
+            url: "/database",
+            templateUrl: "app/main/database.html"
+   });
 });
 
 angular.module('main').controller('MainInfoController', function(){

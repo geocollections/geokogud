@@ -8,7 +8,6 @@ angular.module('geoApp', [
     'main',
     'map',
     'news',
-    'locality',
     'cgNotify',
     'ui.select2',
     'angular-confirm',

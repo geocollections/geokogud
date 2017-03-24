@@ -2,12 +2,15 @@ package ee.ttu.geodeesia.interop.api.localities.service.impl;
 
 import ee.ttu.geodeesia.interop.api.Request.SearchApiRequest;
 import ee.ttu.geodeesia.interop.api.Response.Response;
+import ee.ttu.geodeesia.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geodeesia.interop.api.builder.search.FluentLocalitySearchApiBuilder;
 import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityApiResponse;
 import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityEntity;
 import ee.ttu.geodeesia.interop.api.localities.pojo.LocalitySearchCriteria;
 import ee.ttu.geodeesia.interop.api.localities.service.LocalitiesApiService;
 import ee.ttu.geodeesia.interop.api.service.ApiService;
+import ee.ttu.geodeesia.search.domain.LookUpType;
+import ee.ttu.geodeesia.search.domain.SearchField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -49,7 +52,12 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
 
     @Override
     public Response findById(Long id) {
-        return null;
+        LocalitySearchCriteria searchCriteria = new LocalitySearchCriteria();
+        SearchField field = new SearchField();
+        field.setName(id+"");
+        field.setLookUpType(LookUpType.contains.exact);
+        searchCriteria.setId(field);
+       return findLocality(searchCriteria);
     }
 
     @Override
