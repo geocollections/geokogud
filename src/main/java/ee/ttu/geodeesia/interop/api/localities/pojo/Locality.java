@@ -29,6 +29,16 @@ public class Locality {
     private Double elevation;
     @JsonProperty("depth")
     private Double depth;
+    private Double maPaId;
+
+    @JsonProperty("maPaId")
+    public Double getMaPaId() {
+        return maPaId;
+    }
+    @JsonProperty("maaamet_pa_id")
+    public void setMaPaId(Double maPaId) {
+        this.maPaId = maPaId;
+    }
 
     private String asustusYksus;
     private String coordSystem;

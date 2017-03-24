@@ -80,6 +80,17 @@ public class LocalityEntity implements Serializable, ConvertableToResponseEntity
 
     private String stratigraphyTopStratigraphyEn;
 
+    private Double maPaId;
+
+    @JsonProperty("maPaId")
+    public Double getMaPaId() {
+        return maPaId;
+    }
+    @JsonProperty("maaamet_pa_id")
+    public void setMaPaId(Double maPaId) {
+        this.maPaId = maPaId;
+    }
+
     @JsonProperty("localityEn")
     public String getLocalityEn() {
         return localityEn;

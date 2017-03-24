@@ -1,7 +1,7 @@
 angular.module('search').controller('SearchSampleController', function($scope, SampleService, SearchService, $uibModal){
-    $scope.isIdentifierFieldsCollapsed = true;
+    $scope.isIdentifierFieldsCollapsed = false;
     $scope.isLocationFieldsCollapsed = true;
-    $scope.isInstitutionsCollapsed = false;
+    $scope.isInstitutionsCollapsed = true;
 
     $scope.sortbyOptions = [
         {  name: 'ID', value: 'id' },

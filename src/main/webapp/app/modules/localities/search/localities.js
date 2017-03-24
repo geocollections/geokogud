@@ -62,13 +62,25 @@ angular.module('search').controller('SearchLocalitiesController', function($scop
         }
         return $scope.localities;
     }
-
-
-}).controller('LocalityController', function($scope, SearchService, $uibModal, $http,$stateParams){
-    $scope.loadInfo = function() {
-        $http.get('/search/locality/' + $stateParams.id).success(function (response) {
-            $scope.locality = response.result[0];
-        });
+}).controller('LocalityDetailsController', function($scope, LocalityService, $uibModal, $http,$stateParams){
+    $scope.locality = {};
+    LocalityService.details($stateParams.id).then(function(result) {
+        $scope.locality = result.locality.result[0];
+        console.log(result);
+    });
+}).factory("LocalityService", ['$http', function ($http) {
+    return {
+        search: function (searchParameters) {
+            return $http.post('/search/locality', searchParameters)
+                .then(function (response) {
+                    return response.data;
+                });
+        },
+        details: function(id) {
+            return $http.get('/details/locality/'+id)
+                .then(function(response){
+                    return response.data;
+                });
+        }
     };
-    $scope.loadInfo();
-});
+}]);
