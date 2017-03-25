@@ -163,11 +163,12 @@ angular.module('search.doi', []).config(function($stateProvider) {
         controller: "SearchReferenceController",
         params: {doi: true}
     }).state('doi', {
-    template: '<data-ui-view/>',
-}).state('doi.view', {
-    url: "/doi/:id",
-    templateUrl: "app/modules/doi/details/doiDetails.html",
-    controller: "ReferenceDetailsController"
-});
+        template: '<data-ui-view/>',
+    }).state('doi.view', {
+        url: "/doi/:id",
+        templateUrl: "app/modules/doi/details/doiDetails.html",
+        controller: "ReferenceDetailsController",
+        params: {doi: true}
+    });
 });
 

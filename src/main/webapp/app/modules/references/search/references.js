@@ -45,7 +45,7 @@ angular.module('search').controller('SearchReferenceController', function($scope
     };
 
 }).controller('ReferenceDetailsController', function($scope,$stateParams, ReferenceService){
-    ReferenceService.details($stateParams.id).then(function(result) {
+    ReferenceService.details($stateParams).then(function(result) {
         $scope.reference = result.drillCore.result[0];
         console.log(result);
     });
@@ -59,10 +59,11 @@ angular.module('search').controller('SearchReferenceController', function($scope
                     return response.data;
                 });
         },
-        details: function(id, params) {
+        details: function(params) {
             var search = "reference";
+            console.log(params)
             if(params.doi) search = "doi";
-            return $http.get('/details/'+search+'/'+id)
+            return $http.get('/details/'+search+'/'+params.id)
                 .then(function(response){
                     return response.data;
                 });
