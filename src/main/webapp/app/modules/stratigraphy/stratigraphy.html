@@ -129,7 +129,7 @@
                     </thead>
                     <tbody>
                     <tr style="cursor: pointer; " data-ng-repeat="entity in response.result">
-                        <td>{{entity.id}}</td>
+                        <td><a href data-ng-click="openInNewWindow({object:'locality',id:entity.id})">{{entity.id}}</a></td>
                         <td>{{entity.stratigraphy}}</td>
                         <td>{{entity.stratigraphyEng}}</td>
                         <td>???</td>

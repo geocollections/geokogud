@@ -37,28 +37,26 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Number</th>
-                    <th>Horizon</th>
-                    <th>Depth, m</th>
-                    <th>Remarks</th>
+                    <th>Name</th>
+                    <th>Stratigraphy</th>
+                    <th>Stratigraphy remarks</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr style="cursor: pointer; " data-ng-repeat="sample in samples">
-                    <td><a href data-ng-click="openInNewWindow({object:'sample',id:sample.id})">{{sample.id}}</a></td>
-                    <td>{{sample.number}}</td>
-                    <td>???????</td>
-                    <td>{{sample.depth}} - {{sample.depthInterval}}</td>
-                    <td>?????</td>
+                <tr style="cursor: pointer; " data-ng-repeat="specimen in specimens.">
+                    <td><a href data-ng-click="openInNewWindow({object:'specimen',id:specimen.id})">{{specimen.id}}</a></td>
+                    <td><a href="http://fossiilid.info/{{specimen.taxonId}}">{{specimen.taxon}}</a></td>
+                    <td>{{specimen.stratigraphy}}</td>
+                    <td>stratigraphy_free</td>
                 </tr>
                 </tbody>
             </table>
             <a href="">Show all specimens</a>
         </div>
         <div class="row">
-            <locality-map x = "sample.latitude" y = "sample.longitude" name = "sample.localityEng" fid = "sample.localityId"></locality-map>
-            <a href data-ng-click="showGoogleMap(soil.latitude, soil.longitude, soil.locality, soil.localityEng)">Google Maps</a></span>
-            <a href data-ng-click="showEstonianLandBoardMap(soil.latitude, soil.longitude)">Maa-amet / Estonian Land Board</a>
+            <locality-map x = "locality.latitude" y = "locality.longitude" name = "locality.locality" fid = "locality.id"></locality-map>
+            <a href data-ng-click="showGoogleMap(locality.latitude, locality.longitude, locality.locality, locality.localityEn)">Google Maps</a></span>
+            <a href data-ng-click="showEstonianLandBoardMap(locality.latitude, locality.longitude)">Maa-amet / Estonian Land Board</a>
         </div>
     </div>
 </div>

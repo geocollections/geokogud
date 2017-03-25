@@ -2,32 +2,9 @@ package ee.ttu.geodeesia.interop.api.specimen.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ee.ttu.geodeesia.interop.api.Response.ConvertableToResponseEntity;
-import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
-
-import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SpecimenEntity implements Serializable, ConvertableToResponseEntity {
-    /*
-            "id": 282444,
-            "specimenNr": "152-747",
-            "locality_id": 10267,
-            "locality__locality": "Kiviõli kraav",
-            "locality__locality_en": "Kiviõli trench",
-            "specimenidentification__name": "Pseudocrania? sp.",
-            "specimenidentification__taxon__taxon": "Pseudocrania",
-            "specimenidentification__taxon__author_year": "McCoy, 1851",
-            "specimenidentification__taxon__parent__taxon": "Craniidae",
-            "specimenidentification__taxon__fossil_group__taxon": "Brachiopoda",
-            "stratigraphy_id": 23,
-            "stratigraphy__stratigraphy": "Kukruse lade",
-            "stratigraphy__stratigraphy_en": "Kukruse Stage",
-            "lithostratigraphy_id": null,
-            "lithostratigraphy__stratigraphy": null,
-            "lithostratigraphy__stratigraphy_en": null,
-            "sample_id": null
-     */
+public class SpecimenEntity {
     @JsonProperty("id")
     private Long id;
     private String specimenNr;
@@ -37,8 +14,7 @@ public class SpecimenEntity implements Serializable, ConvertableToResponseEntity
     @JsonProperty("locality__locality_en")
     private String localityEng;
     private String specimenidentificationName;
-    @JsonProperty("specimenidentification__taxon__taxon")
-    private String specimenidentificationTaxon;
+    private String taxon;
     @JsonProperty("specimenidentification__taxon__author_year")
     private String specimenidentificationTaxonAuthorYear;
     @JsonProperty("specimenidentification__taxon__parent__taxon")
@@ -60,29 +36,6 @@ public class SpecimenEntity implements Serializable, ConvertableToResponseEntity
     private Long sampleId;
     private String classification;
     private String depth;
-
-    @Override
-    public ResponseEntity toResponse() {
-        ResponseEntity response = new ResponseEntity();
-        response.setId(this.id);
-        response.setSpecimenNr(this.specimenNr);
-        response.setLocalityId(this.localityId);
-        response.setLocality(this.locality);
-        response.setLocalityEng(this.localityEng);
-        response.setSpecimenidentificationName(this.specimenidentificationName);
-        response.setSpecimenidentificationTaxon(this.specimenidentificationTaxon);
-        response.setSpecimenidentificationTaxonAuthorYear(this.specimenidentificationTaxonAuthorYear);
-        response.setSpecimenidentificationTaxonParentTaxon(this.specimenidentificationTaxonParentTaxon);
-        response.setSpecimenidentificationTaxonFossilGroupTaxon(this.specimenidentificationTaxonFossilGroupTaxon);
-        response.setStratigraphyId(this.stratigraphyId);
-        response.setStratigraphy(this.stratigraphy);
-        response.setStratigraphyEng(this.stratigraphyEng);
-        response.setLithostratigraphyId(this.lithostratigraphyId);
-        response.setLithostratigraphyStratigraphy(this.lithostratigraphyStratigraphy);
-        response.setLithostratigraphyStratigraphyEng(this.lithostratigraphyStratigraphyEng);
-        response.setSampleId(this.sampleId);
-        return response;
-    }
 
     @JsonProperty("classification")
     public String getClassification() {
@@ -156,12 +109,14 @@ public class SpecimenEntity implements Serializable, ConvertableToResponseEntity
         this.specimenidentificationName = specimenidentificationName;
     }
 
-    public String getSpecimenidentificationTaxon() {
-        return specimenidentificationTaxon;
+    @JsonProperty("taxon")
+    public String getTaxon() {
+        return taxon;
     }
 
-    public void setSpecimenidentificationTaxon(String specimenidentificationTaxon) {
-        this.specimenidentificationTaxon = specimenidentificationTaxon;
+    @JsonProperty("specimenidentification__taxon__taxon")
+    public void setTaxon(String taxon) {
+        this.taxon = taxon;
     }
 
     public String getSpecimenidentificationTaxonAuthorYear() {
