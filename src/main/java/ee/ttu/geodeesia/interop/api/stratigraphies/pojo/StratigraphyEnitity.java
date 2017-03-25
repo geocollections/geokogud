@@ -10,21 +10,6 @@ import java.io.Serializable;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class StratigraphyEnitity implements Serializable, ConvertableToResponseEntity {
     private static final long serialVersionUID = 1L;
-   /* "id":2,
-   "stratigraphy":"Eelkambrium",
-   "stratigraphy_en":"Precambrian",
-   "rank__value":null,
-   "rank__value_en":null,
-   "scope__value":"globaalne",
-   "scope__value_en":"global",
-   "status__value":null,
-   "status__value_en":null,
-   "index_main":"PC",
-   "index_additional":null,
-   "index_main_html":"PC",
-   "index_additional_html":null,
-   "parent__stratigraphy":"Globaalne kronostratigraafia",
-   "parent__stratigraphy_en":"Global Chronostratigraphy"*/
 
     @JsonProperty("id")
     private Long id;

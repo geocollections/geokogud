@@ -99,7 +99,7 @@ angular.module('search.stratigraphy', []).config(function($stateProvider) {
     }).state('stratigraphy.view', {
         url: "/stratigraphy/:id",
         templateUrl: "app/modules/stratigraphy/modal/stratigraphy.html",
-        controller: "SampleController"
+        controller: "StratigraphyDetailsController"
     });
 
 });

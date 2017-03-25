@@ -20,4 +20,13 @@ public class FluentStratigraphySearchApiBuilder extends FluentSearchApiBuilder<F
         return this;
     }
 
+    public FluentStratigraphySearchApiBuilder queryStratigraphy(SearchField stratigraphy){
+        query += buildFieldParameters(STRATIGRAPHY, stratigraphy);
+        return this;
+    }
+
+    public FluentStratigraphySearchApiBuilder queryIndex(SearchField index){
+        query += buildFieldParameters(INDEX_MAIN, index);
+        return this;
+    }
 }

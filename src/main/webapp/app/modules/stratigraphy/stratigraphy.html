@@ -37,10 +37,10 @@
                 <div class="row">
                     <label class="control-label col-md-2">{{ 'SEARCH.STRATIGRAPHY.AGE_MIN_Y' | translate }}</label>
                     <div class="col-md-5">
-                        <selectexact ng-model="stratigraphicSearch.age.lookUpType"></selectexact>
+                        <selectexact ng-model="stratigraphicSearch.ageMinY.lookUpType"></selectexact>
                     </div>
                     <div class="col-md-5">
-                        <input type="text" ng-model="stratigraphicSearch.age.name" class="form-control"/>
+                        <input type="text" ng-model="stratigraphicSearch.ageMinY.name" class="form-control"/>
                     </div>
                 </div>
                 <div class="row">
@@ -77,13 +77,6 @@
                     <div class="col-md-5">
                         <ascdesc></ascdesc>
                     </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <label>
-                                Show map: <input type="checkbox" ng-model="showMap"/>
-                            </label>
-                        </div>
-                    </div>
                     <div class="row geo-section-row no-border">
                         <button class="btn btn-default pull-right" data-ng-click="defaultSearch()"><i class="glyphicon glyphicon-erase"></i>{{ 'SEARCH.RESET_FORM' | translate }}</button>
                         <button class="btn btn-default pull-right" data-ng-click="search()">
@@ -109,7 +102,7 @@
                     </div>
                 </div>
                 <div class="text-right">
-                    <uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize" max-size="sampleSearch.maxSize" rotate="false" total-items="totalItems" ng-model="sampleSearch.page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize" max-size="stratigraphicSearch.maxSize" rotate="false" total-items="totalItems" ng-model="stratigraphicSearch.page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
                 </div>
                 <table class="table table-bordered table-hover">
                     <thead>
@@ -129,7 +122,7 @@
                     </thead>
                     <tbody>
                     <tr style="cursor: pointer; " data-ng-repeat="entity in response.result">
-                        <td><a href data-ng-click="openInNewWindow({object:'locality',id:entity.id})">{{entity.id}}</a></td>
+                        <td><a href data-ng-click="openInNewWindow({object:'stratigraphy',id:entity.id})">{{entity.id}}</a></td>
                         <td>{{entity.stratigraphy}}</td>
                         <td>{{entity.stratigraphyEng}}</td>
                         <td>???</td>
@@ -144,7 +137,7 @@
                     </tbody>
                 </table>
                 <div class="text-right">
-                    <uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize" max-size="sampleSearch.maxSize" rotate="false" total-items="totalItems" ng-model="sampleSearch.page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize" max-size="stratigraphicSearch.maxSize" rotate="false" total-items="totalItems" ng-model="stratigraphicSearch.page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
                 </div>
             </div>
         </div>

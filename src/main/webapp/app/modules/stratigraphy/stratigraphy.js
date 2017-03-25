@@ -1,26 +1,21 @@
-angular.module('search').controller('SearchStratigraphyController', function($scope, SearchService){
+angular.module('search').controller('SearchStratigraphyController', function($scope, StratigraphyService){
     $scope.sortbyOptions = [
         {  name: 'ID', value: 'id' },
         {  name: 'Author', value: 'author' },
     ];
+    $scope.stratigraphicSearch = {page:1};
 
-    $scope.searchDefault = function(search) {
-        if(!search) search = "stratigraphy";
-        SearchService.getSearch(search).then(function(search) {
-            $scope.sampleSearch = search;
-            $scope.search();
-        });
-    };
-
-    $scope.searchDefault();
 
     $scope.search = function() {
-        SearchService.listSearch($scope.sampleSearch).then(function(result) {
+        StratigraphyService.search($scope.stratigraphicSearch).then(function(result) {
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
+            $scope.stratigraphicSearch.maxSize = 5;
             $scope.response = result;
         });
     };
+
+    $scope.search();
 }).controller('StratigraphyController', function($scope, SearchService, $uibModal, $http,$stateParams){
     $scope.loadInfo = function() {
         $http.get('/search/stratigraphy/' + $stateParams.id).success(function (response) {
@@ -28,4 +23,6 @@ angular.module('search').controller('SearchStratigraphyController', function($sc
         });
     };
     $scope.loadInfo();
+}).controller('StratigraphyDetailsController',function($scope,$http){
+
 });
