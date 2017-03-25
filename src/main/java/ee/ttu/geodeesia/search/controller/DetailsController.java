@@ -10,6 +10,8 @@ import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.localities.service.LocalitiesApiService;
 import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.photoArchive.service.PhotoArchiveApiService;
+import ee.ttu.geodeesia.interop.api.reference.pojo.ReferenceDetailsDialogDto;
+import ee.ttu.geodeesia.interop.api.reference.service.ReferenceApiService;
 import ee.ttu.geodeesia.interop.api.samples.pojo.SampleDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilDetailsDialogDto;
@@ -28,6 +30,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class DetailsController {
     @Autowired
     private DrillCoreApiService drillCoreApiService;
+    @Autowired
+    private ReferenceApiService referenceApiService;
     @Autowired
     private SoilApiService soilApiService;
     @Autowired
@@ -54,6 +58,17 @@ public class DetailsController {
     public DrillCoreDetailsDialogDto findDrillCoreById(@PathVariable Long id) {
         Response drillCore = drillCoreApiService.findById(id);
         return new DrillCoreDetailsDialogDto(drillCore);
+    }
+
+
+    @RequestMapping(value = "/reference/{id}")
+    public ReferenceDetailsDialogDto findReferenceById(@PathVariable Long id) {
+        return new ReferenceDetailsDialogDto(referenceApiService.findById(id));
+    }
+
+    @RequestMapping(value = "/doi/{id}")
+    public ReferenceDetailsDialogDto findDoiById(@PathVariable Long id) {
+        return new ReferenceDetailsDialogDto(referenceApiService.findDoiById(id));
     }
 
     @RequestMapping(value = "/sample/{id}")

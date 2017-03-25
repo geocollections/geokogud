@@ -1,8 +1,9 @@
 package ee.ttu.geodeesia.interop.api.reference.service.impl;
 
 import ee.ttu.geodeesia.interop.api.Response.Response;
+import ee.ttu.geodeesia.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geodeesia.interop.api.builder.search.FluentReferenceSearchApiBuilder;
-import ee.ttu.geodeesia.interop.api.reference.pojo.ReferenceApiResponse;
+import ee.ttu.geodeesia.interop.api.reference.pojo.Reference;
 import ee.ttu.geodeesia.interop.api.reference.pojo.ReferenceSearchCriteria;
 import ee.ttu.geodeesia.interop.api.reference.service.ReferenceApiService;
 import ee.ttu.geodeesia.interop.api.service.ApiService;
@@ -25,7 +26,7 @@ public class ReferenceApiServiceImpl implements ReferenceApiService {
                 .queryBook(searchCriteria.getBook()).andReturn()
                 .queryJournal(searchCriteria.getJournal()).andReturn()
                 .buildWithoutReturningCertainFields();
-        return apiService.searchEntities("reference", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, ReferenceApiResponse.class);
+        return apiService.searchEntities("reference", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, Reference.class);
     }
 
     @Override
@@ -38,6 +39,19 @@ public class ReferenceApiServiceImpl implements ReferenceApiService {
                 .queryDoi(searchCriteria.getDoi()).andReturn()
                 .fieldIsNotNull("doi")
                 .build();
-        return apiService.searchEntities("reference", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, ReferenceApiResponse.class);
+        return apiService.searchEntities("reference", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, Reference.class);
     }
+
+    @Override
+    public Response<Reference> findById(Long id) {
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest().id(id).build();
+        return apiService.findEntity("reference", requestParams, Reference.class);
+    }
+
+    @Override
+    public Response<Reference> findDoiById(Long id) {
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest().id(id).build();
+        return apiService.findEntity("reference", requestParams, Reference.class);
+    }
+
 }

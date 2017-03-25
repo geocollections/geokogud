@@ -175,7 +175,7 @@
                     <tbody>
                     <tr style="cursor: pointer; " data-ng-repeat="entity in response.result">
                         <td>{{entity.id}}</td>
-                        <td>{{entity.reference}}</td>
+                        <td><a href data-ng-click="openInNewWindow({object:'references',id:entity.id})">{{entity.reference}}</a></td>
                         <td>{{entity.author}}</td>
                         <td>{{entity.year}}</td>
                         <td>{{entity.title}}</td>

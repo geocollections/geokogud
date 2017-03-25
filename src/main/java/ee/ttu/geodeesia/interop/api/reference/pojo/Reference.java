@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ReferenceApiResponse {
+public class Reference {
     /*
     {"id":1,
     "reference":"Bekker, 1921",

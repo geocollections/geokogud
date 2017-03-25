@@ -78,6 +78,12 @@ angular.module('search.references', []).config(function($stateProvider) {
         templateUrl: "app/modules/references/search/references.html",
         controller: "SearchReferenceController",
         params: {doi: false}
+    }).state('references', {
+        template: '<data-ui-view/>',
+    }).state('references.view', {
+        url: "/references/:id",
+        templateUrl: "app/modules/references/details/referenceDetails.html",
+        controller: "ReferenceDetailsController"
     });
 
 });
@@ -156,6 +162,12 @@ angular.module('search.doi', []).config(function($stateProvider) {
         templateUrl: "app/modules/doi/search/doi.html",
         controller: "SearchReferenceController",
         params: {doi: true}
-    });
+    }).state('doi', {
+    template: '<data-ui-view/>',
+}).state('doi.view', {
+    url: "/doi/:id",
+    templateUrl: "app/modules/doi/details/doiDetails.html",
+    controller: "ReferenceDetailsController"
+});
 });
 

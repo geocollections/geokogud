@@ -6,4 +6,8 @@ import ee.ttu.geodeesia.interop.api.reference.pojo.ReferenceSearchCriteria;
 public interface ReferenceApiService {
     Response findReference(ReferenceSearchCriteria searchCriteria);
     Response findDoi(ReferenceSearchCriteria searchCriteria);
+
+    Response findById(Long id);
+
+    Response findDoiById(Long id);
 }

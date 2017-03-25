@@ -44,6 +44,11 @@ angular.module('search').controller('SearchReferenceController', function($scope
         $scope.search();
     };
 
+}).controller('ReferenceDetailsController', function($scope,$stateParams, ReferenceService){
+    ReferenceService.details($stateParams.id).then(function(result) {
+        $scope.reference = result.drillCore.result[0];
+        console.log(result);
+    });
 }).factory("ReferenceService", ['$http', function ($http) {
     return {
         search: function (searchParameters, params) {
@@ -51,6 +56,14 @@ angular.module('search').controller('SearchReferenceController', function($scope
             if(params.doi) search = "doi";
             return $http.post('/search/'+search, searchParameters)
                 .then(function (response) {
+                    return response.data;
+                });
+        },
+        details: function(id, params) {
+            var search = "reference";
+            if(params.doi) search = "doi";
+            return $http.get('/details/'+search+'/'+id)
+                .then(function(response){
                     return response.data;
                 });
         }
