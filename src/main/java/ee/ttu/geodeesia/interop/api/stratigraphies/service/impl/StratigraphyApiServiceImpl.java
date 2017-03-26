@@ -1,6 +1,7 @@
 package ee.ttu.geodeesia.interop.api.stratigraphies.service.impl;
 
 import ee.ttu.geodeesia.interop.api.Response.Response;
+import ee.ttu.geodeesia.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geodeesia.interop.api.builder.search.FluentStratigraphySearchApiBuilder;
 import ee.ttu.geodeesia.interop.api.service.ApiService;
 import ee.ttu.geodeesia.interop.api.stratigraphies.pojo.StratigraphyEnitity;
@@ -15,7 +16,7 @@ public class StratigraphyApiServiceImpl implements StratigraphyApiService {
     private ApiService apiService;
 
     @Override
-    public Response findStratigraphy(StratigraphySearchCriteria searchCriteria) {
+    public Response<StratigraphyEnitity> findStratigraphy(StratigraphySearchCriteria searchCriteria) {
         String requestParams = FluentStratigraphySearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId())
                 .queryStratigraphy(searchCriteria.getStratigraphy())
@@ -30,7 +31,11 @@ public class StratigraphyApiServiceImpl implements StratigraphyApiService {
     }
 
     @Override
-    public Response findById(Long id) {
-        return null;
+    public Response<StratigraphyEnitity> findById(Long id) {
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest().id(id).build();
+        return apiService.findEntity(
+                "stratigraphy",
+                requestParams,
+                StratigraphyEnitity.class);
     }
 }

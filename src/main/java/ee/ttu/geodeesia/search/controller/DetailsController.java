@@ -18,6 +18,9 @@ import ee.ttu.geodeesia.interop.api.soil.pojo.SoilDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.soil.service.SoilApiService;
 import ee.ttu.geodeesia.interop.api.specimen.pojo.SpecimenSearchCriteria;
 import ee.ttu.geodeesia.interop.api.specimen.service.SpecimenApiService;
+import ee.ttu.geodeesia.interop.api.stratigraphies.pojo.StratigraphyDetailsDialogDto;
+import ee.ttu.geodeesia.interop.api.stratigraphies.pojo.StratigraphyEnitity;
+import ee.ttu.geodeesia.interop.api.stratigraphies.service.StratigraphyApiService;
 import ee.ttu.geodeesia.search.domain.LookUpType;
 import ee.ttu.geodeesia.search.domain.SearchField;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +45,8 @@ public class DetailsController {
     private LocalitiesApiService localitiesApiService;
     @Autowired
     private SpecimenApiService specimenApiService;
+    @Autowired
+    private StratigraphyApiService stratigraphyApiService;
 
     @RequestMapping(value = "/soil/{id}")
     public SoilDetailsDialogDto findSoilById(@PathVariable Long id) {
@@ -90,5 +95,11 @@ public class DetailsController {
         specimenSearchCriteria.setLocality(new SearchField(locality.getResult().get(0).getLocality(),LookUpType.exact));
         Response specimens = specimenApiService.findSpecimen(specimenSearchCriteria);
         return new LocalityDetailsDialogDto(locality,null, specimens);
+    }
+
+    @RequestMapping(value ="/stratigraphy/{id}")
+    public StratigraphyDetailsDialogDto findStratigraphyById(@PathVariable Long id) {
+        Response<StratigraphyEnitity> straigraphy = stratigraphyApiService.findById(id);
+        return new StratigraphyDetailsDialogDto(straigraphy);
     }
 }

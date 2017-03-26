@@ -16,13 +16,12 @@ angular.module('search').controller('SearchStratigraphyController', function($sc
     };
 
     $scope.search();
-}).controller('StratigraphyController', function($scope, SearchService, $uibModal, $http,$stateParams){
+}).controller('StratigraphyDetailsController', function($scope, StratigraphyService, $http,$stateParams){
     $scope.loadInfo = function() {
-        $http.get('/search/stratigraphy/' + $stateParams.id).success(function (response) {
-            $scope.stratigraphy = response.result[0];
+        StratigraphyService.details($stateParams.id).then(function(result){
+            $scope.stratigraphy = result.stratigraphy.result[0];
+            console.log(result);
         });
     };
     $scope.loadInfo();
-}).controller('StratigraphyDetailsController',function($scope,$http){
-
 });

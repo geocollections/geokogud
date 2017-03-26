@@ -18,6 +18,28 @@ public class StratigraphyEnitity {
     private String indexAdditionalHtml;
     private String parentStratigraphy;
     private String parentStratigraphyEn;
+    private String statusValue;
+    private String statusValueEn;
+
+    @JsonProperty("statusValue")
+    public String getStatusValue() {
+        return statusValue;
+    }
+
+    @JsonProperty("status__value")
+    public void setStatusValue(String statusValue) {
+        this.statusValue = statusValue;
+    }
+
+    @JsonProperty("statusValueEn")
+    public String getStatusValueEn() {
+        return statusValueEn;
+    }
+
+    @JsonProperty("status__value_en")
+    public void setStatusValueEn(String statusValueEn) {
+        this.statusValueEn = statusValueEn;
+    }
 
     public Long getId() {
         return id;
