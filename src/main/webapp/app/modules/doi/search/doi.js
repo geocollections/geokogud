@@ -51,7 +51,27 @@ angular.module('search').controller('SearchDoiController', function($scope, DoiS
 
 }).controller('DoiDetailsController', function($scope,$stateParams, DoiService){
     DoiService.details($stateParams).then(function(result) {
+        console.log(result)
         $scope.doi = result.reference.result[0];
+        $scope.doiAgent = result.reference.relatedData != null ? result.reference.relatedData.doiAgent : null;
+        $scope.doiRelatedIdentifier = result.reference.relatedData != null ? result.reference.relatedData.doiRelatedIdentifier : null;
+        $scope.doiGeolocation = result.reference.relatedData != null ? result.reference.relatedData.doiGeolocation : null;
+
+        $scope.getLocalities = function() {
+            $scope.localities = [];
+            if($scope.doiGeolocation){
+                angular.forEach($scope.doiGeolocation, function (el) {
+                    if(el.point != null && el.point != ""){
+                        var token = el.point.split(" ");
+                        $scope.localities.push({latitude:token[0], longitude:token[1], localityEng : "", localityEt:"", fid:el.locality})
+                    }
+                })
+            }
+            console.log($scope.localities)
+            return $scope.localities;
+        }
+
+        $scope.getLocalities()
     });
 }).factory("DoiService", ['$http', function ($http) {
     return {

@@ -76,6 +76,11 @@ public class ApiServiceImpl implements ApiService {
                         rawResponse.getBody().getResult(),
                         mapper.getTypeFactory().constructCollectionType(List.class, responseClass)));
 
+        if(rawResponse.getBody().getRelatedData()!= null) {
+            response.setRelatedData(mapper.convertValue(
+                    rawResponse.getBody().getRelatedData(), ApiResponse.RelatedData.class));
+        }
+        System.err.println(rawResponse.getBody().getRelatedData());
         System.err.println(rawResponse.getBody().getPageInfo());
 
         return response;

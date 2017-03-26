@@ -14,6 +14,11 @@ public class FluentGeoApiDetailsBuilder {
         return this;
     }
 
+    public FluentGeoApiDetailsBuilder relatedData(String relatedData) {
+        query += relatedData;
+        return this;
+    }
+
     private String addReturningField(String field) {
         return isFirstField() ? field : "," + field;
     }
@@ -25,5 +30,4 @@ public class FluentGeoApiDetailsBuilder {
     public String build() {
         return query;
     }
-
 }

@@ -39,7 +39,10 @@ public class DoiApiServiceImpl implements DoiApiService {
 
     @Override
     public Response<Doi> findById(Long id) {
-        String requestParams = FluentGeoApiDetailsBuilder.aRequest().id(id).build();
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
+                .id(id)
+                .relatedData("?related_data=doi_agent&related_data=doi_geolocation&related_data=doi_related_identifier")
+                .build();
         return apiService.findEntity("doi", requestParams, Doi.class);
     }
 

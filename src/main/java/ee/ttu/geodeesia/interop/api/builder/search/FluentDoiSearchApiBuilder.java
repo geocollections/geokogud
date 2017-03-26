@@ -41,4 +41,5 @@ public class FluentDoiSearchApiBuilder extends FluentSearchApiBuilder<FluentDoiS
         query += buildFieldParameters("abstract", text);
         return this;
     }
+
 }

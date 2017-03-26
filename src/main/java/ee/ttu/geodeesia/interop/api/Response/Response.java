@@ -1,10 +1,15 @@
 package ee.ttu.geodeesia.interop.api.Response;
 
+import ee.ttu.geodeesia.interop.api.doi.pojo.DoiAgent;
+import ee.ttu.geodeesia.interop.api.doi.pojo.DoiGeolocation;
+import ee.ttu.geodeesia.interop.api.doi.pojo.DoiRelatedIdentifier;
+
 import java.util.List;
 
 public class Response<T> {
     private int count;
     private List<T> result;
+    private ApiResponse.RelatedData relatedData;
     private int numberOfPages;
     private int currentPage;
 
@@ -38,5 +43,13 @@ public class Response<T> {
 
     public void setResult(List<T> result) {
         this.result = result;
+    }
+
+    public ApiResponse.RelatedData getRelatedData() {
+        return relatedData;
+    }
+
+    public void setRelatedData(ApiResponse.RelatedData relatedData) {
+        this.relatedData = relatedData;
     }
 }
