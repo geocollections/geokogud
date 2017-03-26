@@ -21,6 +21,8 @@ import ee.ttu.geodeesia.interop.api.soil.pojo.SoilSearchCriteria;
 import ee.ttu.geodeesia.interop.api.soil.service.SoilApiService;
 import ee.ttu.geodeesia.interop.api.specimen.pojo.SpecimenSearchCriteria;
 import ee.ttu.geodeesia.interop.api.specimen.service.SpecimenApiService;
+import ee.ttu.geodeesia.interop.api.stratigraphies.pojo.StratigraphySearchCriteria;
+import ee.ttu.geodeesia.interop.api.stratigraphies.service.StratigraphyApiService;
 import ee.ttu.geodeesia.interop.api.taxon.pojo.TaxonApiResponse;
 import ee.ttu.geodeesia.interop.api.taxon.service.TaxonApiService;
 import ee.ttu.geodeesia.search.domain.CommonSearch;
@@ -54,6 +56,8 @@ public class SearchController {
     private PreparationsApiService preparationsApiService;
     @Autowired
     private LocalitiesApiService localitiesApiService;
+    @Autowired
+    private StratigraphyApiService stratigraphyApiService;
 
     @RequestMapping(value = "/get-search", method = RequestMethod.GET)
     public CommonSearch getSearch(@RequestParam("name") String search) {
@@ -125,5 +129,8 @@ public class SearchController {
         return preparationsApiService.findPreparations(preparationsSearchCriteria);
     }
 
-
+    @RequestMapping(value = "/stratigraphy", method = RequestMethod.POST)
+    public Response searchPreparations(@RequestBody StratigraphySearchCriteria stratigraphySearchCriteria) {
+        return stratigraphyApiService.findStratigraphy(stratigraphySearchCriteria);
+    }
 }

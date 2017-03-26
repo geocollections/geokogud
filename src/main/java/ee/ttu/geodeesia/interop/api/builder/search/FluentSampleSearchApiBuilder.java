@@ -26,7 +26,7 @@ public class FluentSampleSearchApiBuilder extends FluentSearchApiBuilder<FluentS
     }
 
     public FluentSampleSearchApiBuilder queryStratigraphy(SearchField stratigraphy) {
-        query += buildFieldParameters(STRATIGRAPHY, stratigraphy);
+        query += buildFieldParameters(STRATIGRAPHY_STRATIGRAPHY, stratigraphy);
         return this;
     }
 

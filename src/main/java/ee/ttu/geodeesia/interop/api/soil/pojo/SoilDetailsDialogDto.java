@@ -1,10 +1,14 @@
 package ee.ttu.geodeesia.interop.api.soil.pojo;
 
 import ee.ttu.geodeesia.interop.api.Response.Response;
+import ee.ttu.geodeesia.interop.api.samples.pojo.SampleEntity;
 
 public class SoilDetailsDialogDto {
-    private Response soil;
-    private Response samples;
+    private Response<SoilApiResponse> soil;
+    private Response<SampleEntity> samples;
+
+    public SoilDetailsDialogDto() {
+    }
 
     public SoilDetailsDialogDto(Response soil, Response samples) {
         this.soil = soil;

@@ -15,7 +15,7 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
     private ApiService apiService;
 
     @Override
-    public Response findSpecimen(SpecimenSearchCriteria searchCriteria) {
+    public Response<SpecimenEntity> findSpecimen(SpecimenSearchCriteria searchCriteria) {
         String requestParams = FluentSpecimenSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId()).andReturn()
                 .querySpecimenNumber(searchCriteria.getSpecimenNumber()).andReturn()

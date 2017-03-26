@@ -16,7 +16,7 @@ public class ApiFields {
 
     // Sample search
     public static final String NUMBER = "number";
-    public static final String STRATIGRAPHY = "stratigraphy__stratigraphy";
+    public static final String STRATIGRAPHY_STRATIGRAPHY = "stratigraphy__stratigraphy";
     public static final String STRATIGRAPHY_ENG = "stratigraphy__stratigraphy_en";
     public static final String STRATIGRAPHY_BED = "stratigraphy_bed";
     public static final String LOCATION = "location";
@@ -109,6 +109,9 @@ public class ApiFields {
     public static final String PARENT_LOCALITY = "parent__locality";
     public static final String EELIS = "eelis";
     public static final String MAAAMET_PA_ID = "maaamet_pa_id";
+
+    public static final String STRATIGRAPHY = "stratigraphy";
+    public static final String INDEX_MAIN = "index_main";
 
 
 }

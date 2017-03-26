@@ -3,12 +3,8 @@ package ee.ttu.geodeesia.interop.api.drillCores.pojo;
 import ee.ttu.geodeesia.search.domain.SearchField;
 import ee.ttu.geodeesia.search.domain.SortField;
 
-import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Olesja Senkiv on 17.03.2017.
- */
 public class DrillCoreSearchCriteria {
     private int page = 1;
     private SortField sortField;

@@ -5,8 +5,6 @@ import com.google.common.collect.ImmutableMap;
 import ee.ttu.geodeesia.interop.api.analyses.pojo.AnalysesEntity;
 import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityEntity;
 import ee.ttu.geodeesia.interop.api.samples.pojo.SampleEntity;
-import ee.ttu.geodeesia.interop.api.specimen.pojo.SpecimenEntity;
-import ee.ttu.geodeesia.interop.api.stratigraphies.pojo.StratigraphyEnitity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,11 +15,9 @@ import static java.util.stream.Collectors.toList;
 public class ResponseMapper {
     private ImmutableMap<String, Class<? extends ConvertableToResponseEntity>> responseClasses =
             ImmutableMap.<String, Class<? extends ConvertableToResponseEntity>>builder()
-                    .put("specimen", SpecimenEntity.class)
                     .put("sample", SampleEntity.class)
                     .put("locality", LocalityEntity.class)
                     //.put("reference", ReferenceEntity.class)
-                    .put("stratigraphy", StratigraphyEnitity.class)
                     .put("analysis", AnalysesEntity.class)
                     //.put("drillcore", DrillCoresEntity.class)
                     //.put("image", PhotoArchiveEntity.class)
