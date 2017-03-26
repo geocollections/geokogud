@@ -2,57 +2,146 @@ package ee.ttu.geodeesia.interop.api.stratigraphies.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ee.ttu.geodeesia.interop.api.Response.ConvertableToResponseEntity;
-import ee.ttu.geodeesia.interop.api.Response.ResponseEntity;
-
-import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class StratigraphyEnitity implements Serializable, ConvertableToResponseEntity {
-    private static final long serialVersionUID = 1L;
-
-    @JsonProperty("id")
+public class StratigraphyEnitity {
     private Long id;
-    @JsonProperty("stratigraphy")
     private String stratigraphy;
-    @JsonProperty("stratigraphy_en")
     private String stratigraphyEn;
-    @JsonProperty("rank__value")
     private String rankValue;
-    @JsonProperty("rank__value_en")
     private String rankValueEng;
-    @JsonProperty("scope__value")
     private String scopeValue;
-    @JsonProperty("scope__value_en")
-    private String scoreValueEng;
-    @JsonProperty("index_main")
+    private String scopeValueEng;
     private String indexMain;
-    @JsonProperty("index_additional")
     private String indexAdditional;
-    @JsonProperty("index_main_html")
     private String indexMainHtml;
-    @JsonProperty("index_additional_html")
     private String indexAdditionalHtml;
-    @JsonProperty("parent__stratigraphy")
     private String parentStratigraphy;
-    @JsonProperty("parent__stratigraphy_en")
     private String parentStratigraphyEn;
 
-    @Override
-    public ResponseEntity toResponse() {
-        ResponseEntity response = new ResponseEntity();
-        response.setId(this.id);
-        response.setStratigraphy(this.stratigraphy);
-        response.setStratigraphyEng(this.stratigraphyEn);
-        response.setRankValue(this.rankValue);
-        response.setRankValueEng(this.rankValueEng);
-        response.setScopeValue(this.scopeValue);
-        response.setScopeValue(this.scoreValueEng);
-        response.setIndexMain(this.indexMain);
-        response.setIndexMainHtml(this.indexMainHtml);
-        response.setIndexAdditional(this.indexAdditional);
-        response.setIndexAdditionalHtml(this.indexAdditionalHtml);
-        return response;
+    public Long getId() {
+        return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getStratigraphy() {
+        return stratigraphy;
+    }
+
+    public void setStratigraphy(String stratigraphy) {
+        this.stratigraphy = stratigraphy;
+    }
+
+    @JsonProperty("stratigraphyEn")
+    public String getStratigraphyEn() {
+        return stratigraphyEn;
+    }
+
+    @JsonProperty("stratigraphy_en")
+    public void setStratigraphyEn(String stratigraphyEn) {
+        this.stratigraphyEn = stratigraphyEn;
+    }
+
+    @JsonProperty("rankValue")
+    public String getRankValue() {
+        return rankValue;
+    }
+
+    @JsonProperty("rank__value")
+    public void setRankValue(String rankValue) {
+        this.rankValue = rankValue;
+    }
+
+    @JsonProperty("rankValueEng")
+    public String getRankValueEng() {
+        return rankValueEng;
+    }
+
+    @JsonProperty("rank__value_en")
+    public void setRankValueEng(String rankValueEng) {
+        this.rankValueEng = rankValueEng;
+    }
+
+    @JsonProperty("scopeValue")
+    public String getScopeValue() {
+        return scopeValue;
+    }
+
+    @JsonProperty("scope__value")
+    public void setScopeValue(String scopeValue) {
+        this.scopeValue = scopeValue;
+    }
+
+    @JsonProperty("scopeValueEng")
+    public String getScopeValueEng() {
+        return scopeValueEng;
+    }
+
+    @JsonProperty("scope__value_en")
+    public void setScopeValueEng(String scopeValueEng) {
+        this.scopeValueEng = scopeValueEng;
+    }
+
+    @JsonProperty("indexMain")
+    public String getIndexMain() {
+        return indexMain;
+    }
+
+    @JsonProperty("index_main")
+    public void setIndexMain(String indexMain) {
+        this.indexMain = indexMain;
+    }
+
+    @JsonProperty("indexAdditional")
+    public String getIndexAdditional() {
+        return indexAdditional;
+    }
+
+    @JsonProperty("index_additional")
+    public void setIndexAdditional(String indexAdditional) {
+        this.indexAdditional = indexAdditional;
+    }
+
+    @JsonProperty("indexMainHtml")
+    public String getIndexMainHtml() {
+        return indexMainHtml;
+    }
+
+    @JsonProperty("index_main_html")
+    public void setIndexMainHtml(String indexMainHtml) {
+        this.indexMainHtml = indexMainHtml;
+    }
+
+    @JsonProperty("indexAdditionalHtml")
+    public String getIndexAdditionalHtml() {
+        return indexAdditionalHtml;
+    }
+
+    @JsonProperty("index_additional_html")
+    public void setIndexAdditionalHtml(String indexAdditionalHtml) {
+        this.indexAdditionalHtml = indexAdditionalHtml;
+    }
+
+    @JsonProperty("parentStratigraphy")
+    public String getParentStratigraphy() {
+        return parentStratigraphy;
+    }
+
+    @JsonProperty("parent__stratigraphy")
+    public void setParentStratigraphy(String parentStratigraphy) {
+        this.parentStratigraphy = parentStratigraphy;
+    }
+
+    @JsonProperty("parentStratigraphyEn")
+    public String getParentStratigraphyEn() {
+        return parentStratigraphyEn;
+    }
+
+    @JsonProperty("parent__stratigraphy_en")
+    public void setParentStratigraphyEn(String parentStratigraphyEn) {
+        this.parentStratigraphyEn = parentStratigraphyEn;
+    }
 }

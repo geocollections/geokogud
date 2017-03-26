@@ -124,15 +124,15 @@
                     <tr style="cursor: pointer; " data-ng-repeat="entity in response.result">
                         <td><a href data-ng-click="openInNewWindow({object:'stratigraphy',id:entity.id})">{{entity.id}}</a></td>
                         <td>{{entity.stratigraphy}}</td>
-                        <td>{{entity.stratigraphyEng}}</td>
-                        <td>???</td>
-                        <td>???</td>
-                        <td>???</td>
-                        <td>{{entity.rankValueEng}}</td>
+                        <td>{{entity.stratigraphyEn}}</td>
+                        <td>{{entity.indexMain}}</td>
+                        <td>{{entity.indexAdditional}}</td>
+                        <td>???Type</td>
+                        <td>{{entity.rankValue}}</td>
                         <td>{{entity.scopeValue}}</td>
-                        <td>???</td>
-                        <td>???</td>
-                        <td>???</td>
+                        <td>???lithology</td>
+                        <td>???age_base</td>
+                        <td>{{entity.parentStratigraphy}}</td>
                     </tr>
                     </tbody>
                 </table>

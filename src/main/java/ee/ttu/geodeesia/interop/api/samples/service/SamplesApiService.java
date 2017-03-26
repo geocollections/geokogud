@@ -3,6 +3,7 @@ package ee.ttu.geodeesia.interop.api.samples.service;
 import ee.ttu.geodeesia.interop.api.Request.SearchApiRequest;
 import ee.ttu.geodeesia.interop.api.Response.NewVersionOfApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.Response;
+import ee.ttu.geodeesia.interop.api.samples.pojo.SampleEntity;
 import ee.ttu.geodeesia.search.domain.CommonSearch;
 
 public interface SamplesApiService {
@@ -21,5 +22,5 @@ public interface SamplesApiService {
 
     NewVersionOfApiResponse getEntityInfo(Long id,SearchApiRequest request);
 
-    Response searchSamples(ee.ttu.geodeesia.interop.api.Request.SampleSearchCriteria criteria);
+    Response<SampleEntity> searchSamples(ee.ttu.geodeesia.interop.api.Request.SampleSearchCriteria criteria);
 }
