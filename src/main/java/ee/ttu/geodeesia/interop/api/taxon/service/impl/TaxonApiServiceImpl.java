@@ -33,16 +33,16 @@ public class TaxonApiServiceImpl implements TaxonApiService {
     }
 
     @Override
-    public ApiResponse searchLocality(String q, String table) {
+    public ApiResponse searchByField(String q, String table) {
         SearchApiRequest request = new SearchApiRequest();
         request.setTable(table);
         request.setField(table);
         request.setSearchCriteria("istartswith");
-        return searchLocality(q, request);
+        return searchByField(q, request);
     }
 
     @Override
-    public ApiResponse searchLocality(String q, SearchApiRequest request) {
+    public ApiResponse searchByField(String q, SearchApiRequest request) {
         String url = apiUrl + "/"+request.getTable()+"?format=" + request.getOutputFormat() + "&" + request.getField() + "__" + request.getSearchCriteria() + "=" + q;
         ResponseEntity<ApiResponse> response = restTemplate.getForEntity(url, ApiResponse.class);
         return response.getBody();

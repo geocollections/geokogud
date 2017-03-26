@@ -2,25 +2,26 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-3">
-                <label>{{reference.drillcore}}</label>
+                <label>{{doi.identifier}}</label>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-6">
                 <table class="table table-bordered table-hover">
-                    <tr><td>ID</td><td>{{reference.id}}</td></tr>
-                    <tr><td>Reference</td><td>{{reference.reference}}</td></tr>
-                    <tr><td>Author</td><td>{{reference.author}}</td></tr>
-                    <tr><td>Year</td><td>{{reference.year}}</td></tr>
-                    <tr><td>Title</td><td>{{reference.title}}</td></tr>
-                    <tr><td>Title original</td><td>{{reference.titleOriginal}}</td></tr>
-                    <tr><td>Journal</td><td>{{reference.journalName}}</td></tr>
-                    <tr><td>Volume</td><td>{{reference.volume}}</td></tr>
-                    <tr><td>Number</td><td>???</td></tr>
-                    <tr><td>Pages</td><td>{{reference.pages}}</td></tr>
-                    <tr><td>Source type</td><td>???</td></tr>
-                    <tr><td>Language</td><td>{{reference.languageEng}}</td></tr>
-                    <tr><td>DOI</td><td>{{reference.doi}}</td></tr>
+                    <tr><td>Citation</td><td>{{doi.abstract}}</td></tr>
+                    <tr><td>DOI</td><td>{{doi.identifier}}</td></tr>
+                    <tr><td>Resource type general</td><td>{{doi.resourceType}}</td></tr>
+                    <tr><td>Resource type</td><td>{{doi.resource}}</td></tr>
+                    <tr><td>Creators</td><td>{{doi.creators}}</td></tr>
+                    <tr><td>Publisher</td><td>{{doi.publisher}}</td></tr>
+                    <tr><td>Key words</td><td>{{doi.subjects}}</td></tr>
+                    <tr><td>Language</td><td>{{doi.languageEn}}</td></tr>
+                    <tr><td>Version</td><td>{{doi.version}}</td></tr>
+                    <tr><td>Formats</td><td>{{doi.formats}}</td></tr>
+                    <tr><td>Copyright</td><td>{{doi.copyrightAgent}}</td></tr>
+                    <tr><td>Licence</td><td><a href data-ng-click="openUrlInNewWindow({url:doi.licenceUrlEn})">{{doi.licenceEn}}</a></td></tr>
+                    <tr><td>SARV created</td><td>{{doi.dateAdded}}</td></tr>
+                    <tr><td>SARV updated</td><td>{{doi.dateChanged}}</td></tr>
                 </table>
             </div>
         </div>

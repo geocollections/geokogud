@@ -3,17 +3,17 @@ package ee.ttu.geodeesia.interop.api.reference.pojo;
 import ee.ttu.geodeesia.interop.api.Response.Response;
 
 public class ReferenceDetailsDialogDto {
-    private Response drillCore;
+    private Response reference;
 
-    public ReferenceDetailsDialogDto(Response drillCore) {
-        this.drillCore = drillCore;
+    public ReferenceDetailsDialogDto(Response reference) {
+        this.reference = reference;
     }
 
-    public Response getDrillCore() {
-        return drillCore;
+    public Response getReference() {
+        return reference;
     }
 
-    public void setDrillCore(Response drillCore) {
-        this.drillCore = drillCore;
+    public void setReference(Response reference) {
+        this.reference = reference;
     }
 }

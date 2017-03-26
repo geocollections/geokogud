@@ -36,10 +36,12 @@ public class ApiServiceImpl implements ApiService {
         Response<T> response = new Response<>();
 
         ObjectMapper mapper = new ObjectMapper();
+
         response.setResult(
                 mapper.convertValue(
                         rawResponse.getBody().getResult(),
                         mapper.getTypeFactory().constructCollectionType(List.class, responseClass)));
+
 
         response.setCount(rawResponse.getBody().getCount());
         if(rawResponse.getBody().getPageInfo() != null) {
@@ -78,4 +80,18 @@ public class ApiServiceImpl implements ApiService {
 
         return response;
     }
+
+    @Override
+    public   List<?> findByParam(String tableName, String requestParams) {
+        String url = apiUrl + "/" + tableName +"/" + "?paginate_by=" + 30
+                + "&format=json" + requestParams;
+        System.err.println(url);
+        ResponseEntity<ApiResponse> rawResponse = restTemplate.getForEntity(url, ApiResponse.class);
+
+
+        System.err.println(rawResponse.getBody().getResult());
+
+        return rawResponse.getBody().getResult();
+    }
+
 }

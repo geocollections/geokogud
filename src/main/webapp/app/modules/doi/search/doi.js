@@ -1,4 +1,4 @@
-angular.module('search').controller('SearchReferenceController', function($scope, ReferenceService, $stateParams){
+angular.module('search').controller('SearchDoiController', function($scope, DoiService, $stateParams, SearchService){
 
     $scope.departments = [
         {code:"GIT",label:"GIT"},
@@ -7,6 +7,11 @@ angular.module('search').controller('SearchReferenceController', function($scope
         {code:"TUGO",label:"TUGO"},
         {code:"MUMU",label:"MUMU"},
         {code:"EGK",label:"EGK"}];
+
+    $scope.searchService = SearchService;
+    $scope.entitySelected = function(item) {
+        $scope.searchParameters.author.name = item;
+    };
 
     $scope.isInstitutionsCollapsed = true;
     $scope.isIdentifierFieldsCollapsed = false;
@@ -20,7 +25,7 @@ angular.module('search').controller('SearchReferenceController', function($scope
         }
     };
     $scope.search = function() {
-        ReferenceService.search($scope.searchParameters, $stateParams).then(function(result) {
+        DoiService.search($scope.searchParameters, $stateParams).then(function(result) {
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
             $scope.searchParameters.maxSize = 5;
@@ -44,25 +49,20 @@ angular.module('search').controller('SearchReferenceController', function($scope
         $scope.search();
     };
 
-}).controller('ReferenceDetailsController', function($scope,$stateParams, ReferenceService){
-    ReferenceService.details($stateParams).then(function(result) {
-        $scope.reference = result.drillCore.result[0];
-        console.log(result);
+}).controller('DoiDetailsController', function($scope,$stateParams, DoiService){
+    DoiService.details($stateParams).then(function(result) {
+        $scope.doi = result.reference.result[0];
     });
-}).factory("ReferenceService", ['$http', function ($http) {
+}).factory("DoiService", ['$http', function ($http) {
     return {
         search: function (searchParameters, params) {
-            var search = "reference";
-            if(params.doi) search = "doi";
-            return $http.post('/search/'+search, searchParameters)
+            return $http.post('/search/doi', searchParameters)
                 .then(function (response) {
                     return response.data;
                 });
         },
         details: function(params) {
-            var search = "reference";
-            if(params.doi) search = "doi";
-            return $http.get('/details/'+search+'/'+params.id)
+            return $http.get('/details/doi/'+params.id)
                 .then(function(response){
                     return response.data;
                 });

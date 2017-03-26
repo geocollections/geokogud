@@ -9,9 +9,9 @@ public interface TaxonApiService {
 
     TaxonApiResponse searchTaxon(String q, SearchApiRequest request);
 
-    ApiResponse searchLocality(String q, String table);
+    ApiResponse searchByField(String q, String table);
 
-    ApiResponse searchLocality(String q, SearchApiRequest request);
+    ApiResponse searchByField(String q, SearchApiRequest request);
 
     TaxonApiResponse searchTaxonList();
 

@@ -3,6 +3,8 @@ package ee.ttu.geodeesia.search.controller;
 import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.NewVersionOfApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.Response;
+import ee.ttu.geodeesia.interop.api.doi.pojo.DoiSearchCriteria;
+import ee.ttu.geodeesia.interop.api.doi.service.DoiApiService;
 import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreSearchCriteria;
 import ee.ttu.geodeesia.interop.api.drillCores.service.DrillCoreApiService;
 import ee.ttu.geodeesia.interop.api.localities.pojo.LocalitySearchCriteria;
@@ -45,6 +47,8 @@ public class SearchController {
     @Autowired
     private ReferenceApiService referenceApiService;
     @Autowired
+    private DoiApiService doiApiService;
+    @Autowired
     private PhotoArchiveApiService photoArchiveApiService;
     @Autowired
     private PreparationsApiService preparationsApiService;
@@ -74,7 +78,7 @@ public class SearchController {
 
     @RequestMapping(value = "/{table}", method = RequestMethod.GET)
     public ApiResponse search(@PathVariable String table,@RequestParam("term") String q) {
-        return taxonApiService.searchLocality(q, table);
+        return taxonApiService.searchByField(q, table);
     }
 
     @RequestMapping(value = "/specimen", method = RequestMethod.POST)
@@ -106,14 +110,14 @@ public class SearchController {
         return soilApiService.findSoil(searchCriteria);
     }
 
-    @RequestMapping(value = "/doi", method = RequestMethod.POST)
+    @RequestMapping(value = "/reference", method = RequestMethod.POST)
     public Response searchDoi(@RequestBody ReferenceSearchCriteria searchCriteria) {
-        return referenceApiService.findDoi(searchCriteria);
+        return referenceApiService.findReference(searchCriteria);
     }
 
-    @RequestMapping(value = "/reference", method = RequestMethod.POST)
-    public Response searchReference(@RequestBody ReferenceSearchCriteria searchCriteria) {
-        return referenceApiService.findReference(searchCriteria);
+    @RequestMapping(value = "/doi", method = RequestMethod.POST)
+    public Response searchReference(@RequestBody DoiSearchCriteria searchCriteria) {
+        return doiApiService.findDoi(searchCriteria);
     }
 
     @RequestMapping(value = "/preparations", method = RequestMethod.POST)

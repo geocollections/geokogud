@@ -3,6 +3,7 @@ package ee.ttu.geodeesia.search.controller;
 
 import ee.ttu.geodeesia.interop.api.Request.SampleSearchCriteria;
 import ee.ttu.geodeesia.interop.api.Response.Response;
+import ee.ttu.geodeesia.interop.api.doi.service.DoiApiService;
 import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.drillCores.service.DrillCoreApiService;
 import ee.ttu.geodeesia.interop.api.localities.pojo.Locality;
@@ -21,9 +22,9 @@ import ee.ttu.geodeesia.interop.api.specimen.service.SpecimenApiService;
 import ee.ttu.geodeesia.search.domain.LookUpType;
 import ee.ttu.geodeesia.search.domain.SearchField;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/details")
@@ -32,6 +33,8 @@ public class DetailsController {
     private DrillCoreApiService drillCoreApiService;
     @Autowired
     private ReferenceApiService referenceApiService;
+    @Autowired
+    private DoiApiService doiApiService;
     @Autowired
     private SoilApiService soilApiService;
     @Autowired
@@ -42,6 +45,14 @@ public class DetailsController {
     private LocalitiesApiService localitiesApiService;
     @Autowired
     private SpecimenApiService specimenApiService;
+
+    @RequestMapping(value = "/field", method = RequestMethod.GET)
+    public List<?> findDoiById(
+            @RequestParam("table") String table,
+            @RequestParam("term") String term,
+            @RequestParam("searchField") String searchField) {
+        return doiApiService.searchByField(table,term,searchField);
+    }
 
     @RequestMapping(value = "/soil/{id}")
     public SoilDetailsDialogDto findSoilById(@PathVariable Long id) {
@@ -68,7 +79,7 @@ public class DetailsController {
 
     @RequestMapping(value = "/doi/{id}")
     public ReferenceDetailsDialogDto findDoiById(@PathVariable Long id) {
-        return new ReferenceDetailsDialogDto(referenceApiService.findDoiById(id));
+        return new ReferenceDetailsDialogDto(doiApiService.findById(id));
     }
 
     @RequestMapping(value = "/sample/{id}")

@@ -160,15 +160,13 @@ angular.module('search.doi', []).config(function($stateProvider) {
     $stateProvider.state('search.doi', {
         url: "/doi",
         templateUrl: "app/modules/doi/search/doi.html",
-        controller: "SearchReferenceController",
-        params: {doi: true}
+        controller: "SearchDoiController"
     }).state('doi', {
         template: '<data-ui-view/>',
     }).state('doi.view', {
         url: "/doi/:id",
         templateUrl: "app/modules/doi/details/doiDetails.html",
-        controller: "ReferenceDetailsController",
-        params: {doi: true}
+        controller: "DoiDetailsController"
     });
 });
 

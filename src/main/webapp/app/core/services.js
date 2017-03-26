@@ -39,11 +39,6 @@ angular.module('geoApp').factory("UserService", ['$http', '$state', '$rootScope'
 
 });
 
-
-
-
-
-
 angular.module('geoApp').factory("SearchService", ['$http', '$state', '$rootScope', '$q', function($http, $state, $rootScope, $q) {
     var apiUrl = '/search';
     var deferred = $q.defer();
@@ -61,7 +56,14 @@ angular.module('geoApp').factory("SearchService", ['$http', '$state', '$rootScop
                 return response.data;
             });
         },
-
+        searchByParam: function (table, term, searchField) {
+            return $http.get('/details/field', {
+                params: {table: table,term: term, searchField: searchField}}).then(function (response) {
+                console.log(response.data)
+                return response.data;
+            });
+        },
+        /*
         taxonSearch: function (val) {
             return $http.get(apiUrl + '/taxon', {params: {term: val}}).then(function (response) {
                 return response.data.results;
@@ -79,7 +81,7 @@ angular.module('geoApp').factory("SearchService", ['$http', '$state', '$rootScop
             return $http.get(apiUrl + '/taxon/search-by-param/', {params: {term: val}}).then(function (response) {
                 return response.data.results;
             });
-        },
+        },*/
 
         defaultSearchOptions : function() {
             return  [

@@ -103,11 +103,26 @@
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.DOI.AUTHOR' | translate }}</b>
+                                 <!--   <input type="text" class="form-control input-sm"
+                                           data-ng-model="searchParameters.author.value"
+                                           placeholder="input search parameter..."
+                                           data-uib-typeahead="e as entity.reference__author for entity in searchService.searchByParam('doi',$viewValue,'reference__author')"
+                                           data-typeahead-min-length="2"
+                                           data-typeahead-on-select="entitySelected($item, $model)"/>-->
                                     <selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.author.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.author.name" class="form-control"/>
+                                    <input type="text" class="form-control input-sm"
+                                           data-ng-model="searchParameters.author.name"
+                                           placeholder="input search parameter..."
+                                           data-uib-typeahead="entity.reference__author for entity in searchService.searchByParam('doi',$viewValue,'reference__author')"
+                                           data-typeahead-min-length="2"
+                                           data-typeahead-on-select="entitySelected($item.reference__author, $model)"/>
                                 </div>
+                                    <!--<selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.author.lookUpType"></selectdefault>-->
+                               <!-- <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.author.name" class="form-control"/>
+                                </div>-->
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
@@ -159,12 +174,12 @@
                     <tbody>
                     <tr style="cursor: pointer; " data-ng-repeat="entity in response.result">
                         <td>{{entity.id}}</td>
-                        <td><a href data-ng-click="openInNewWindow({object:'doi',id:entity.id,doi:true})">{{entity.doi}}</a></td>
+                        <td><a href data-ng-click="openInNewWindow({object:'doi',id:entity.id})">{{entity.identifier}}</a></td>
                         <td>{{entity.author}}</td>
                         <td>{{entity.year}}</td>
                         <td>{{entity.title}}</td>
-                        <td>???</td>
-                        <td>???</td>
+                        <td>{{entity.resourceType}}</td>
+                        <td>{{entity.dataciteCreated}}</td>
                     </tr>
                     </tbody>
                 </table>

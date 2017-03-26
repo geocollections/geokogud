@@ -129,6 +129,10 @@ angular.module('geoApp').run(['$http', '$rootScope', '$state', '$stateParams',
         window.open('/#/'+params.object+'/' + params.id, '', 'width=750,height=750,scrollbars, resizable');
     };
 
+    $rootScope.openUrlInNewWindow = function(params) {
+        window.open(params.url, '', 'width=750,height=750,scrollbars, resizable');
+    };
+
     $rootScope.showGoogleMap = function(lat, lon, localityName) {
         window.open('http://maps.google.com/?q='+lat+','+lon+' ('+localityName+')', '', 'width=750,height=540,scrollbars, resizable');
     };
