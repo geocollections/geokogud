@@ -18,6 +18,7 @@ public class DoiGeolocation {
 
 
     private String locality;
+    private String localityEn;
     @JsonProperty("place")
     private String place;
     @JsonProperty("point")
@@ -30,6 +31,15 @@ public class DoiGeolocation {
     @JsonProperty("locality__locality")
     public void setLocality(String locality) {
         this.locality = locality;
+    }
+
+    @JsonProperty("localityEn")
+    public String getLocalityEn() {
+        return localityEn;
+    }
+    @JsonProperty("locality__locality_en")
+    public void setLocalityEn(String localityEn) {
+        this.localityEn = localityEn;
     }
 
     public String getPlace() {
