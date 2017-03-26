@@ -80,8 +80,6 @@ public class ApiServiceImpl implements ApiService {
             response.setRelatedData(mapper.convertValue(
                     rawResponse.getBody().getRelatedData(), ApiResponse.RelatedData.class));
         }
-        System.err.println(rawResponse.getBody().getRelatedData());
-        System.err.println(rawResponse.getBody().getPageInfo());
 
         return response;
     }
