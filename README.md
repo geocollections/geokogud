@@ -4,6 +4,12 @@ http://geocollections.arendus.geokogud.info/
 
 ## Getting Started
 
+Prerequisites:
+
+installed Java JDK or JRE version 7 or higher.
+
+installed Gradle build tool. You can download it from here https://gradle.org/releases
+
 ### Installing
 
 Install all libraries:
