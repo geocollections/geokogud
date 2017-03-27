@@ -1,4 +1,4 @@
-angular.module('search').controller('SearchSampleController', function($scope, SampleService, SearchService, $uibModal){
+angular.module('search').controller('SearchSampleController', function($scope, SampleService, SearchService, $uibModal, $window){
     $scope.isIdentifierFieldsCollapsed = false;
     $scope.isLocationFieldsCollapsed = true;
     $scope.isInstitutionsCollapsed = true;
@@ -48,7 +48,31 @@ angular.module('search').controller('SearchSampleController', function($scope, S
         SampleService.search($scope.searchParameters).then(function(result) {
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
-            $scope.searchParameters.maxSize = 5;
+            $scope.windowWidth = "innerWidth" in window ? window.innerWidth : document.documentElement.offsetWidth;
+            if($scope.windowWidth > 400) {
+                $scope.searchParameters.maxSize = 5;
+            } else {
+                $scope.searchParameters.maxSize = 2;
+            }
+            // Window resize event
+            var w = angular.element($window);
+            w.bind('resize', function () {
+                $scope.windowWidth = "innerWidth" in window ? window.innerWidth : document.documentElement.offsetWidth;
+                // Change maxSize based on window width
+               /* if($scope.windowWidth > 1000) {
+                    $scope.searchParameters.maxSize = 15;
+                } else if($scope.windowWidth > 800) {
+                    $scope.searchParameters.maxSize = 10;
+                } else if($scope.windowWidth > 600) {
+                    $scope.searchParameters.maxSize = 8;
+                } */
+               if($scope.windowWidth > 400) {
+                    $scope.searchParameters.maxSize = 5;
+                } else {
+                    $scope.searchParameters.maxSize = 2;
+                }
+                $scope.$apply();
+            });
             $scope.response = result;
             if($scope.isMapHidden) {
                 $scope.getLocalities($scope.response.result);
@@ -75,6 +99,11 @@ angular.module('search').controller('SearchSampleController', function($scope, S
         $scope.searchParameters.sortField.sortBy =  predicate;
         !$scope.sortByAsc ? $scope.searchParameters.sortField.order = "ASCENDING" :  $scope.searchParameters.sortField.order = "DESCENDING";
         $scope.search();
+    };
+
+    $scope.showHint = function(){
+        $scope.isHintHidden = !$scope.isHintHidden;
+        $scope.getLocalities($scope.response.result);
     };
 
     $scope.showMap = function(){

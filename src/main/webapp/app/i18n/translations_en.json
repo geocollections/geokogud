@@ -97,6 +97,7 @@
     "SEARCH": {
         "ANALYSES": {
             "HELP_POPUP": {
+                "HEADING": "SEARCH TIPS:",
                 "PARAGRAPH_ONE": "First select the base table (specimens, samples, localities, references etc);",
                 "PARAGRAPH_TWO": "Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search 'asap' in specimen name field will find 'Asaphus sp.' as well as 'Asaphus expansus'); for stratigraphy and classification the search is hierarchical by default, for number fields exact maches will be searched if user does not specify otherwise;",
                 "PARAGRAPH_THREE": "To show a map where available, tick the appropriate checkbox;",
@@ -135,7 +136,7 @@
             }
         },
         "SEND_QUERY": "Send query",
-        "RESET_FORM": "Reset form",
+        "RESET_FORM": "Reset",
         "INSTITUTIONS": "Institutions",
         "NO_OF_RESULTS": "Number of results",
         "DOI": {
@@ -295,7 +296,7 @@
             }
         },
         "SAMPLES": {
-            "HEADING": "Search: Samples",
+            "HEADING": "Samples",
             "ID": "ID",
             "NUMBER": "Number",
             "DEPTH_M": "Depth (m)",

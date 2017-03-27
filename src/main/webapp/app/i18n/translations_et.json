@@ -97,6 +97,7 @@
     "SEARCH": {
         "ANALYSES": {
             "HELP_POPUP": {
+                "HEADING": "ABIKS PÄRINGU KOOSTAMISEL:",
                 "PARAGRAPH_ONE": "Valige põhitabel (eksemplarid, proovid, lokaliteedid, kirjandus jne);",
                 "PARAGRAPH_TWO": "Sisestage üks või mitu otsingukriteeriumit; NB! suur- ja väiketähti ei eristata; tekstiväljade puhul otsitakse vaikimisi vasteid, kus sisaldub otsingusõna (st. otsing 'asap' leiab üles nii 'Asaphus sp.' kui ka 'Asaphus expansus'); klassifikatsiooni ja stratigraafia puhul toimib vaikimisi hierarhiline otsing, numbrite puhoul otsitakse täpset vastet, kui kasutaja ei määra teisiti;",
                 "PARAGRAPH_THREE": "Kaardi kuvamiseks märkige vastav linnuke;",
@@ -295,7 +296,7 @@
             }
         },
         "SAMPLES": {
-            "HEADING": "Päring: Proovid",
+            "HEADING": "Proovid",
             "ID": "ID",
             "NUMBER": "number",
             "DEPTH_M": "sügavus (m)",
