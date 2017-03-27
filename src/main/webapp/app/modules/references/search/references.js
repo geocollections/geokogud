@@ -46,7 +46,7 @@ angular.module('search').controller('SearchReferenceController', function($scope
 
 }).controller('ReferenceDetailsController', function($scope,$stateParams, ReferenceService){
     ReferenceService.details($stateParams).then(function(result) {
-        $scope.reference = result.drillCore.result[0];
+        $scope.reference = result.reference.result[0];
         console.log(result);
     });
 }).factory("ReferenceService", ['$http', function ($http) {
