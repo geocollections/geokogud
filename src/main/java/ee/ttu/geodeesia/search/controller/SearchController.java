@@ -124,7 +124,7 @@ public class SearchController {
         return doiApiService.findDoi(searchCriteria);
     }
 
-    @RequestMapping(value = "/preparations", method = RequestMethod.POST)
+    @RequestMapping(value = "/preparation", method = RequestMethod.POST)
     public Response searchPreparations(@RequestBody PreparationsSearchCriteria preparationsSearchCriteria) {
         return preparationsApiService.findPreparations(preparationsSearchCriteria);
     }
