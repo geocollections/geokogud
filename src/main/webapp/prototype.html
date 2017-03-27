@@ -54,13 +54,13 @@
                     <a class="page-scroll-to-additional" href="#search">{{ 'INDEX.SEARCH_LINK' | translate }}</a>
                 </li>
                 <li>
-                    <a class="page-scroll-to-additional" href="#map">{{ 'INDEX.MAP_LINK' | translate }}</a>
-                </li>
-                <li>
                     <a class="page-scroll" href="#about">{{ 'INDEX.ABOUT_LINK' | translate }}</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#resources">{{ 'INDEX.RESOURCES_LINK' | translate }}</a>
+                </li>
+                <li>
+                    <a class="page-scroll-to-additional" href="#map">{{ 'INDEX.MAP_LINK' | translate }}</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#contact">{{ 'INDEX.CONTACT_LINK' | translate }}</a>
@@ -153,18 +153,18 @@
                     <p>
                         {{ 'INFO.COLLECTIONS_IN_ESTONIA.PARAGRAPH_ONE' | translate }}
                     </p>
-                        <ul class="fa-ul">
-                            <li><i class="fa-li fa fa-square"></i><a href="http://www.gi.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_ONE' | translate }}</a></li>
-                            <li><i class="fa-li fa fa-square"></i><a href="http://natmuseum.ut.ee/388858">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_TWO' | translate }}</a></li>
-                            <li><i class="fa-li fa fa-square"></i><a href="http://www.loodusmuuseum.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_THREE' | translate }}</a></li>
-                            <li><i class="fa-li fa fa-square"></i><a href="http://www.geoloogia.ut.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_FOUR' | translate }}</a></li>
-                            <li><i class="fa-li fa fa-square"></i><a href="http://kogud.emu.ee/mullamuuseum/">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_FIVE' | translate }}</a></li>
+                        <ul class="fa-ul ul-square">
+                            <li><a href="http://www.gi.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_ONE' | translate }}</a></li>
+                            <li><a href="http://natmuseum.ut.ee/388858">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_TWO' | translate }}</a></li>
+                            <li><a href="http://www.loodusmuuseum.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_THREE' | translate }}</a></li>
+                            <li><a href="http://www.geoloogia.ut.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_FOUR' | translate }}</a></li>
+                            <li><a href="http://kogud.emu.ee/mullamuuseum/">{{ 'INFO.COLLECTIONS_IN_ESTONIA.LI_FIVE' | translate }}</a></li>
                         </ul>
                     <p>
                         {{ 'INFO.COLLECTIONS_IN_ESTONIA.PARAGRAPH_TWO' | translate }} <a href="http://www.egk.ee">{{ 'INFO.COLLECTIONS_IN_ESTONIA.PARAGRAPH_TWO_A_LINK' | translate }}</a>.
                     </p>
                     <p>
-                        <a class="page-scroll-to-additional btn btn-secondary" href="#geocollection" role="button">{{ 'INDEX.READ_MORE' | translate }} &raquo;</a>
+                        <a class="page-scroll-to-additional" href="#geocollection" role="button">{{ 'INDEX.READ_MORE' | translate }} &raquo;</a>
                     </p>
                 </div>
             </div>
@@ -197,7 +197,7 @@
                         {{ 'INFO.COMMON_DATABASE.PARAGRAPH_THREE_LINE_THREE' | translate }} <b>2017-03-16 19:13:23.</b>
                     </p>
                     <p>
-                        <a class="btn btn-secondary" href="http://schema.geokogud.info/" role="button">{{ 'INDEX.READ_MORE' | translate }} &raquo;</a>
+                        <a class="page-scroll-to-additional" href="#database" role="button">{{ 'INDEX.READ_MORE' | translate }} &raquo;</a>
                     </p>
                 </div>
             </div>
@@ -228,7 +228,7 @@
 </aside>
 <section id="additional">
    <!-- <loading></loading>-->
-    <div data-ui-view></div>
+    <div ui-view></div>
 </section>
 <section id="contact">
     <div class="container">
