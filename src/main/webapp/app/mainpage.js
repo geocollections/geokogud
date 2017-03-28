@@ -11,7 +11,7 @@ jQuery(document).ready(function ($) {
     });
     $(document).on('click', 'a.page-scroll-to-searches', function(event) {
         $('html, body').stop().animate({
-            scrollTop: ($("#searches").offset().top - 50)
+            scrollTop: ($("#search").offset().top - 50)
         }, 1250, 'easeInOutExpo');
         event.preventDefault();
     });

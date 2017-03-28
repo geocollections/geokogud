@@ -51,7 +51,7 @@
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="page-scroll-to-additional" href="#search">{{ 'INDEX.SEARCH_LINK' | translate }}</a>
+                    <a class="page-scroll-to-searches" href="#search">{{ 'INDEX.SEARCH_LINK' | translate }}</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#about">{{ 'INDEX.ABOUT_LINK' | translate }}</a>
@@ -102,12 +102,12 @@
                 </div>
             </form>
 
-        <a href="#searches" id="button-extended-search" class="page-scroll">{{ 'INDEX.EXTENDED_SEARCH_LINK' | translate }}</a>
+        <a href="#search" id="button-extended-search" class="page-scroll">{{ 'INDEX.EXTENDED_SEARCH_LINK' | translate }}</a>
         </div>
     </div>
 </header>
 
-<section class="bg-primary" id="searches">
+<section class="bg-primary" id="search">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
@@ -117,6 +117,7 @@
                     Search engine in development
                 </p>
                <!-- <a href="#searches" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>-->
+                <div ui-view></div>
             </div>
         </div>
     </div>
@@ -208,27 +209,25 @@
 <aside class="bg-dark" id="resources">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <h2 class="text-muted">{{ 'INDEX.USEFUL_INFO' | translate }}</h2>
-                <p><a class="page-scroll-to-additional" href="#news" id="">{{'INDEX.NEWS_LINK' | translate }}</a></p>
-                <p><a href="http://fossiilid.info/" data-toggle="tooltip" data-placement="bottom" title="A web portal on Baltoscandian fossils">Fossils</a></p>
-                <p><a href="http://ermas.geokogud.info/" data-toggle="tooltip" data-placement="bottom" title="Analytical database of rocks and sediments of Estonia">ERMAS</a></p>
-                <p><a class="page-scroll-to-additional" href="#usingCollection">{{ 'INDEX.USING_COLLECTIONS_LINK' | translate }}</a></p>
-                <p><a class="page-scroll-to-additional" href="#git">{{ 'INDEX.GIT_TUT' | translate }}</a></p>
-                <p><a href="http://api.geokogud.info/">{{ 'INDEX.PUBLIC_API_LINK' | translate }}</a></p>
-            </div>
-            <div class="col-md-6">
-                <h2 class="text-muted">{{ 'PARTNERS.HEADING' | translate }}</h2>
-                <p><a href="http://www.natmuseum.ut.ee/en/content/geological-collections">{{ 'PARTNERS.UNIVERSITY_TARTU' | translate }}</a></p>
-                <p><a href="http://www.loodusmuuseum.ee/en">{{ 'PARTNERS.ELM' | translate }}</a></p>
-                <p><a href="http://www.geocase.eu/">{{ 'PARTNERS.GEOCASE' | translate }}</a></p>
+                <div class="col-md-6">
+                    <p><a class="page-scroll-to-additional" href="#usingCollection">{{ 'INDEX.USING_COLLECTIONS_LINK' | translate }}</a></p>
+                    <p><a href="http://api.geokogud.info/">{{ 'INDEX.PUBLIC_API_LINK' | translate }}</a></p>
+                    <p><a class="page-scroll-to-additional" href="#git">{{ 'INDEX.GIT_TUT' | translate }}</a></p>
+                </div>
+                <div class="col-md-6">
+                    <p><a class="page-scroll-to-additional" href="#news" id="">{{'INDEX.NEWS_LINK' | translate }}</a></p>
+                    <p><a href="http://fossiilid.info/" data-toggle="tooltip" data-placement="bottom" title="A web portal on Baltoscandian fossils">Fossils</a></p>
+                    <p><a href="http://ermas.geokogud.info/" data-toggle="tooltip" data-placement="bottom" title="Analytical database of rocks and sediments of Estonia">ERMAS</a></p>
+                </div>
             </div>
         </div>
     </div>
 </aside>
 <section id="additional">
    <!-- <loading></loading>-->
-    <div ui-view></div>
+    <div ui-view="additional"></div>
 </section>
 <section id="contact">
     <div class="container">
