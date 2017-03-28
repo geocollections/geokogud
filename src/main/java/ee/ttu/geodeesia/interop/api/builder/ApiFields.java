@@ -113,5 +113,6 @@ public class ApiFields {
     public static final String STRATIGRAPHY = "stratigraphy";
     public static final String INDEX_MAIN = "index_main";
 
-
+    // webnews
+    public static final String DATE_ADDED_LT = "date_added__lt";
 }
