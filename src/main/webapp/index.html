@@ -102,21 +102,24 @@
                 </div>
             </form>
 
-        <a href="#search" id="button-extended-search" class="page-scroll">{{ 'INDEX.EXTENDED_SEARCH_LINK' | translate }}</a>
+            <a href="#search" id="button-extended-search" class="page-scroll">{{ 'INDEX.EXTENDED_SEARCH_LINK' | translate }}</a>
         </div>
     </div>
 </header>
 
+<!--ui-view for searchers-->
+<div ui-view></div>
 
-<div ui-view="search"></div>
-<div ui-view="about"></div>
-<div ui-view="resource"></div>
+<div ng-include="'app/templates/main/about.html'"></div>
+<div ng-include="'app/templates/main/resource.html'"></div>
+
 <section id="additional">
-   <!-- <loading></loading>-->
+     <loading></loading>
     <div ui-view="additional"></div>
 </section>
-<div ui-view="contact"></div>
-<div ui-view="footer"></div>
+
+<div ng-include="'app/templates/main/contact.html'"></div>
+<div ng-include="'app/templates/main/footer.html'"></div>
 
 <script src="lib/jquery/dist/jquery.min.js"></script>
 <script src="lib/angular/angular.js"></script>

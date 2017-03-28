@@ -19,14 +19,12 @@ angular.module('search.specimens', []).config(function($stateProvider) {
                 controller: "SearchSpecimensController"
             }
         }
+    }).state('specimen', {
+        template: '<data-ui-view/>',
     }).state('specimen.view', {
         url: "/specimen/:id",
-        views: {
-            "specific-search": {
-                templateUrl: "app/modules/specimens/modal/specimen.html",
-                controller: "SpecimenController"
-            }
-        }
+        templateUrl: "app/modules/specimens/modal/specimen.html",
+        controller: "SpecimenController"
     });
 });
 
@@ -40,14 +38,12 @@ angular.module('search.samples', []).config(function($stateProvider) {
                 controller: "SearchSampleController"
             }
         }
+    }).state('sample', {
+        template: '<data-ui-view/>',
     }).state('sample.view', {
         url: "/sample/:id",
-        views: {
-            "specific-search": {
-                templateUrl: "app/modules/samples/modal/sample.html",
-                controller: "SampleController"
-            }
-        }
+        templateUrl: "app/modules/samples/modal/sample.html",
+        controller: "SampleController"
     });
 
 });
@@ -62,14 +58,12 @@ angular.module('search.drillCores', []).config(function($stateProvider) {
                 controller: "SearchDrillCoresController"
             }
         }
+    }).state('drillCores', {
+        template: '<data-ui-view/>',
     }).state('drillCores.view', {
         url: "/drillCores/:id",
-        views: {
-            "specific-search": {
-                templateUrl: "app/modules/drillCores/details/drillCoreDetails.html",
-                controller: "DrillCoreDetailsController"
-            }
-        }
+        templateUrl: "app/modules/drillCores/details/drillCoreDetails.html",
+        controller: "DrillCoreDetailsController"
     });
 
 });
@@ -84,14 +78,12 @@ angular.module('search.localities', []).config(function($stateProvider) {
                 controller: "SearchLocalitiesController"
             }
         }
+    }).state('locality', {
+        template: '<data-ui-view/>',
     }).state('locality.view', {
         url: "/locality/:id",
-        views: {
-            "specific-search": {
-                templateUrl: "app/modules/localities/details/localityDetails.html",
-                controller: "LocalityDetailsController"
-            }
-        }
+        templateUrl: "app/modules/localities/details/localityDetails.html",
+        controller: "LocalityDetailsController"
     });
 });
 
@@ -106,14 +98,12 @@ angular.module('search.references', []).config(function($stateProvider) {
                 params: {doi: false}
             }
         }
+    }).state('references', {
+        template: '<data-ui-view/>',
     }).state('references.view', {
         url: "/references/:id",
-        views: {
-            "specific-search": {
-                templateUrl: "app/modules/references/details/referenceDetails.html",
-                controller: "ReferenceDetailsController"
-            }
-        }
+        templateUrl: "app/modules/references/details/referenceDetails.html",
+        controller: "ReferenceDetailsController"
     });
 
 });
@@ -128,14 +118,12 @@ angular.module('search.stratigraphy', []).config(function($stateProvider) {
                 controller: "SearchStratigraphyController"
             }
         }
+    }).state('stratigraphy', {
+        template: '<data-ui-view/>',
     }).state('stratigraphy.view', {
         url: "/stratigraphy/:id",
-        views: {
-            "specific-search": {
-                templateUrl: "app/modules/stratigraphy/modal/stratigraphy.html",
-                controller: "StratigraphyDetailsController"
-            }
-        }
+        templateUrl: "app/modules/stratigraphy/modal/stratigraphy.html",
+        controller: "StratigraphyDetailsController"
     });
 
 });
@@ -178,14 +166,12 @@ angular.module('search.photoArchive', []).config(function($stateProvider) {
                 controller: "SearchPhotoArchiveController"
             }
         }
+    }).state('photoArchive', {
+        template: '<data-ui-view/>',
     }).state('photoArchive.view', {
         url: "/image/:id",
-        views: {
-            "specific-search": {
-                templateUrl: "app/modules/photoArchive/modal/photo_archive.html",
-                controller: "PhotoArchiveController"
-            }
-        }
+        templateUrl: "app/modules/photoArchive/modal/photo_archive.html",
+        controller: "PhotoArchiveController"
     });
 
 });
@@ -200,14 +186,12 @@ angular.module('search.soil', []).config(function($stateProvider) {
                 controller: "SearchSoilController"
             }
         }
+    }).state('soil', {
+        template: '<data-ui-view/>',
     }).state('soil.view', {
         url: "/soil/:id",
-        views: {
-            "specific-search": {
-                templateUrl: "app/modules/soil/details/soilDetails.html",
-                controller: "SoilDetailsController"
-            }
-        }
+        templateUrl: "app/modules/soil/details/soilDetails.html",
+        controller: "SoilDetailsController"
     });
 });
 
@@ -221,14 +205,12 @@ angular.module('search.doi', []).config(function($stateProvider) {
                 controller: "SearchDoiController"
             }
         }
+    }).state('doi', {
+        template: '<data-ui-view/>',
     }).state('doi.view', {
         url: "/doi/:id",
-        views: {
-            "specific-search": {
-                templateUrl: "app/modules/doi/details/doiDetails.html",
-                controller: "DoiDetailsController"
-            }
-        }
+        templateUrl: "app/modules/doi/details/doiDetails.html",
+        controller: "DoiDetailsController"
     });
 });
 

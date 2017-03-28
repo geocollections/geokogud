@@ -61,15 +61,6 @@ angular.module('geoApp').config(function($stateProvider, $urlRouterProvider, $ht
             $http.get('/config/').then(function(response) {
                 $rootScope.config = response.data;
             });
-
-
-        },
-        views: {
-            "search": {templateUrl: "app/templates/main/search.html" },
-            "about": { templateUrl: "app/templates/main/about.html" },
-            "resource": { templateUrl: "app/templates/main/resource.html" },
-            "footer": { templateUrl: "app/templates/main/footer.html" },
-            "contact": { templateUrl: "app/templates/main/contact.html" }
         },
         resolve: {
 

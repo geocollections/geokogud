@@ -9,6 +9,7 @@ angular.module('news', []).config(function ($stateProvider, $urlRouterProvider) 
                 templateUrl: "app/main/news.html"
             }
         }
+
     });
 });
 //routes
