@@ -17,7 +17,8 @@ angular.module('geoApp', [
     'database',
     'usingCollection',
     'ngCookies',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'ngSanitize'
 ]);
 
 var configuration = CONFIG;
