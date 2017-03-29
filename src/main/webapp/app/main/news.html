@@ -4,20 +4,18 @@
 			<h2 class="section-heading">{{'INDEX.NEWS_LINK' | translate }}</h2>
 			<hr class="primary">
 		</div>
-		<nav >
-			<div class="text-center">
-				<button type="button" class="news-button" >2015</button>
-				<button type="button" class="news-button" >2014</button>
-				<button type="button" class="news-button" >2013</button>
-				<button type="button" class="news-button" >2011</button>
-				<button type="button" class="news-button" >2010</button>
-				<button type="button" class="news-button" >2008</button>
-				<button type="button" class="news-button" >2006</button>
-				<button type="button" class="news-button" >2005</button>
-				<button type="button" class="news-button" >2004</button>
-				<button type="button" class="news-button" >2003</button>
-				<button type="button" class="news-button" >2002</button>
+		<div ng-controller="NewsController">
+			<nav>
+				<div class="text-center">
+					<button type="button" class="news-button" ng-repeat="year in years"
+						ng-click="showNews($event)">{{ year }}</button>
+				</div>
+			</nav>
+			<div ng-repeat="id in news.result | filter: yearFilter">
+				<div>{{ id.date_added }}</div>
+				<div>{{ id.title_en }}</div>
+				<div>{{ id.text_en }}</div>
 			</div>
-		</nav>
+		</div>
 	</div>
 </div>

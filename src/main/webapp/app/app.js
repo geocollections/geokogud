@@ -108,6 +108,28 @@ angular.module('geoApp').config(['$translateProvider', function ($translateProvi
     };
   }]);
 
+  angular.module('geoApp').controller('NewsController', function($scope, $http) {
+	  var years = [];
+	  var yearToShow;
+	    $http.get('/news').
+	        then(function(response) {
+	            $scope.news = response.data;
+	            angular.forEach($scope.news.result, function(currentNews) {
+	                var year = currentNews.date_added.split("-")[0];
+	                if (years.indexOf(year) == -1) { years.push(year); }
+	            });
+	            $scope.years = years.reverse();
+	            yearToShow = $scope.years[0];
+	            console.log(yearToShow);
+	        });
+	    $scope.showNews = function ($event) {
+	        yearToShow = $event.target.innerText;
+	     }
+	    $scope.yearFilter = function (id) {
+	        return id.date_added.startsWith(yearToShow);
+	    };
+});
+
 angular.module('geoApp').run(['$http', '$rootScope', '$state', '$stateParams',
     'AddressService', 'UserService', '$sce',
     '$window','$uibModal', 'AuthorizationService', 'SearchService',
