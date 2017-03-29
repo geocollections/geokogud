@@ -56,7 +56,7 @@ angular.module('geocollection', []).config(function ($stateProvider, $urlRouterP
         }
     });
 });
--//routes
+//routes
     angular.module('database', []).config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider.state('database', {
             url: "/database",
