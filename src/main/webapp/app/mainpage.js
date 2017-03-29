@@ -28,11 +28,6 @@ jQuery(document).ready(function ($) {
         offset: 51
     });
 
-    // Closes the Responsive Menu on Menu Item Click
-    $(document).on('click',function(){
-        $('.collapse').collapse('hide');
-    })
-
     // Offset for Main Navigation
     $('#mainNav').affix({
         offset: {
@@ -89,6 +84,8 @@ jQuery(document).ready(function ($) {
     });
 
 });
+/*
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
+*/

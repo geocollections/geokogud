@@ -7,11 +7,11 @@ footer {
     padding-bottom: 20px;
 }
 
-#contact, #about {
+#contact, #about, #additional {
     padding-top: 50px;
     padding-bottom: 50px;
 }
-#additional,#search {
+#search {
     padding-top: 0px;
     padding-bottom: 0px;
 }
@@ -297,4 +297,8 @@ footer {
 }
 #table-search tr > td > a:hover {
     color:#FF2F00;
+}
+.searchGroupHeading {
+    border-bottom: 1px solid #9c9c9c;
+    cursor: pointer;
 }
