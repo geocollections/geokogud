@@ -13,8 +13,8 @@
 			</nav>
 			<div ng-repeat="id in news.result | filter: yearFilter">
 				<div ng-bind-html="id.date_added"></div>
-				<div ng-bind-html="id.title_en"></div>
-				<div ng-bind-html="id.text_en"></div>
+				<div ng-bind-html="getTitle(id)"></div>
+				<div ng-bind-html="getText(id)"></div>
 			</div>
 		</div>
 	</div>
