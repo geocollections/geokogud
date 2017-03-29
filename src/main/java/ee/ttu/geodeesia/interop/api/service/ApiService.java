@@ -1,6 +1,5 @@
 package ee.ttu.geodeesia.interop.api.service;
 
-import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.search.domain.SortField;
 
@@ -12,4 +11,6 @@ public interface ApiService {
 
     <T> Response<T> findEntity(String tableName, String requestParams, Class<T> responseClass);
     List<?> findByParam(String tableName, String requestParams);
+
+    <T> Response<T> findEntityAndMagicallyDeserialize(String tableName, String requestParams, Class<T> responseClass);
 }

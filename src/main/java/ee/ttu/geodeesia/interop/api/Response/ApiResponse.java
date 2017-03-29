@@ -10,6 +10,7 @@ import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveEntity;
 import ee.ttu.geodeesia.interop.api.reference.pojo.Reference;
 
 import java.util.List;
+import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiResponse {
@@ -18,7 +19,7 @@ public class ApiResponse {
     @JsonProperty("page")
     private String pageInfo;
     @JsonProperty("results")
-    private List<?> result;
+    private List<Map<String, String>> result;
 
     private RelatedData relatedData;
 
@@ -38,11 +39,11 @@ public class ApiResponse {
         this.pageInfo = pageInfo;
     }
 
-    public List<?> getResult() {
+    public List<Map<String, String>> getResult() {
         return result;
     }
 
-    public void setResult(List<?> result) {
+    public void setResult(List<Map<String, String>> result) {
         this.result = result;
     }
 
@@ -50,10 +51,12 @@ public class ApiResponse {
     public RelatedData getRelatedData() {
         return relatedData;
     }
+
     @JsonProperty("related_data")
     public void setRelatedData(RelatedData relatedData) {
         this.relatedData = relatedData;
     }
+
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class RelatedData {
 
@@ -66,26 +69,32 @@ public class ApiResponse {
         private List<DrillCoreEntity> drillcore;
         @JsonProperty("reference")
         private List<Reference> reference;
+
         @JsonProperty("doiAgent")
         public List<DoiAgent> getDoiAgent() {
             return doiAgent;
         }
+
         @JsonProperty("doi_agent")
         public void setDoiAgent(List<DoiAgent> doiAgent) {
             this.doiAgent = doiAgent;
         }
+
         @JsonProperty("doiRelatedIdentifier")
         public List<DoiRelatedIdentifier> getDoiRelatedIdentifier() {
             return doiRelatedIdentifier;
         }
+
         @JsonProperty("doi_related_identifier")
         public void setDoiRelatedIdentifier(List<DoiRelatedIdentifier> doiRelatedIdentifier) {
             this.doiRelatedIdentifier = doiRelatedIdentifier;
         }
+
         @JsonProperty("doiGeolocation")
         public List<DoiGeolocation> getDoiGeolocation() {
             return doiGeolocation;
         }
+
         @JsonProperty("doi_geolocation")
         public void setDoiGeolocation(List<DoiGeolocation> doiGeolocation) {
             this.doiGeolocation = doiGeolocation;

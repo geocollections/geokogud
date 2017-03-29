@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DrillCoreApiServiceImpl implements DrillCoreApiService{
+public class DrillCoreApiServiceImpl implements DrillCoreApiService {
     @Autowired
     private ApiService apiService;
 
@@ -48,6 +48,7 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService{
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
                 .build();
+        //return apiService.findEntityAndMagicallyDeserialize("drillcore", requestParams, DrillCoreProto.class);
         return apiService.findEntity("drillcore", requestParams, DrillCoreEntity.class);
     }
 }
