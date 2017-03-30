@@ -17,7 +17,8 @@ angular.module('geoApp', [
     'database',
     'usingCollection',
     'ngCookies',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'ngSanitize'
 ]);
 
 var configuration = CONFIG;
@@ -108,7 +109,7 @@ angular.module('geoApp').config(['$translateProvider', function ($translateProvi
     };
   }]);
 
-  angular.module('geoApp').controller('NewsController', function($scope, $http) {
+  angular.module('geoApp').controller('NewsController', function($scope, $http, $translate) {
 	  var years = [];
 	  var yearToShow;
 	    $http.get('/news').
@@ -122,11 +123,17 @@ angular.module('geoApp').config(['$translateProvider', function ($translateProvi
 	            yearToShow = $scope.years[0];
 	            console.log(yearToShow);
 	        });
-	    $scope.showNews = function ($event) {
+	    $scope.showNews = function($event) {
 	        yearToShow = $event.target.innerText;
 	     }
-	    $scope.yearFilter = function (id) {
+	    $scope.yearFilter = function(id) {
 	        return id.date_added.startsWith(yearToShow);
+	    };
+	    $scope.getTitle = function(id) {
+	        return $translate.use() === "et" ? id.title_et : id.title_en;
+	    };
+	    $scope.getText = function(id) {
+	        return $translate.use() === "et" ? id.text_et : id.text_en;
 	    };
 });
 
