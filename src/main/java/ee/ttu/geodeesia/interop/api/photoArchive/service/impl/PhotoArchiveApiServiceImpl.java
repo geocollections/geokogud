@@ -40,7 +40,7 @@ public class PhotoArchiveApiServiceImpl implements PhotoArchiveApiService{
     public Response findById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
-                .build();
+                .buildWithDefaultReturningFields();
         return apiService.findEntity("image", requestParams, PhotoArchiveEntity.class);
     }
 }

@@ -7,7 +7,9 @@ import org.springframework.stereotype.Component;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * it will detect objects by double underscore __
@@ -24,6 +26,7 @@ public class Deserializer {
 
     public <T> T doMagic(Map<String, String> map, Class<T> targeClass) {
         try {
+            Set<String> fieldsToIgnore = new HashSet<>();
             T instance = targeClass.newInstance();
             for (Map.Entry<String, String> fieldValue : map.entrySet()) {
                 String field = fieldValue.getKey();
@@ -32,12 +35,15 @@ public class Deserializer {
                     continue;
                 }
                 if (isObject(field)) {
-                    //create object
+                    if(fieldsToIgnore.contains(field)){
+                        continue;
+                    }
                     int firstDelimiter = field.indexOf(OBJECT_DELIMITER);
                     String objectFieldName = field.substring(0, firstDelimiter);
                     Class<?> objectFieldClass = findObjectFieldClass(targeClass, objectFieldName);
-                    Map<String, String> objectRelatedFields = findRelatedFieldsAndRemoveObjectPrefix(objectFieldName, map);
-                    Object newObject = doMagic(objectRelatedFields, objectFieldClass);
+                    ObjectFields objectFields = findRelatedFieldsAndRemoveObjectPrefix(objectFieldName, map);
+                    fieldsToIgnore.addAll(objectFields.getFullFields());
+                    Object newObject = doMagic(objectFields.getCutFields(), objectFieldClass);
 
                     BeanUtils.setProperty(instance, objectFieldName, newObject);
                 } else {
@@ -53,20 +59,22 @@ public class Deserializer {
     }
 
     private <T> Class<?> findObjectFieldClass(Class<T> targeClass, String objectName) throws NoSuchFieldException {
-        Field objectField = targeClass.getField(objectName);
-        return objectField.getDeclaringClass();
+        Field objectField = targeClass.getDeclaredField(objectName);
+        return objectField.getType();
     }
 
-    private Map<String, String> findRelatedFieldsAndRemoveObjectPrefix(String prefix, Map<String, String> fieldValues) {
-        Map<String, String> result = new HashMap<>();
+    private ObjectFields findRelatedFieldsAndRemoveObjectPrefix(String prefix, Map<String, String> fieldValues) {
+        Set<String> fullFields = new HashSet<>();
+        Map<String, String> cutFields = new HashMap<>();
         int prefixLength = prefix.length();
         for (Map.Entry<String, String> fieldValue : fieldValues.entrySet()) {
             String field = fieldValue.getKey();
-            if (field.substring(0, prefixLength).equals(prefix)) {
-                result.put(field.substring(prefixLength + 2), fieldValue.getValue());
+            if (field.length() >= prefixLength && field.substring(0, prefixLength).equals(prefix)) {
+                cutFields.put(field.substring(prefixLength + 2), fieldValue.getValue());
+                fullFields.add(field);
             }
         }
-        return result;
+        return new ObjectFields(fullFields, cutFields);
     }
 
     private String removeUnderscoresMakeCammelCase(String field) {
@@ -86,5 +94,23 @@ public class Deserializer {
 
     private boolean isObject(String field) {
         return field.contains(OBJECT_DELIMITER);
+    }
+
+    private class ObjectFields {
+        private Set<String> fullFields = new HashSet<>();
+        private Map<String, String> cutFields = new HashMap<>();
+
+        private ObjectFields(Set<String> fullFields, Map<String, String> cutFields) {
+            this.fullFields = fullFields;
+            this.cutFields = cutFields;
+        }
+
+        public Set<String> getFullFields() {
+            return fullFields;
+        }
+
+        private Map<String, String> getCutFields() {
+            return cutFields;
+        }
     }
 }

@@ -36,7 +36,7 @@ public class SoilApiServiceImpl implements SoilApiService {
     public Response findById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
-                .build();
+                .buildWithDefaultReturningFields();
         return apiService.findEntity("soil_site", requestParams, SoilApiResponse.class);
     }
 }

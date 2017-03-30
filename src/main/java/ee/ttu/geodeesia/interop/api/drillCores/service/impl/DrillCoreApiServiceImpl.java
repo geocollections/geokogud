@@ -3,6 +3,7 @@ package ee.ttu.geodeesia.interop.api.drillCores.service.impl;
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geodeesia.interop.api.builder.search.FluentDrillCoreSearchApiBuilder;
+import ee.ttu.geodeesia.interop.api.deserializer.protoPojo.DrillCoreProto;
 import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreEntity;
 import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreSearchCriteria;
 import ee.ttu.geodeesia.interop.api.drillCores.service.DrillCoreApiService;
@@ -47,8 +48,13 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService {
     public Response findById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
-                .build();
-        //return apiService.findEntityAndMagicallyDeserialize("drillcore", requestParams, DrillCoreProto.class);
-        return apiService.findEntity("drillcore", requestParams, DrillCoreEntity.class);
+                .returnDepth()
+                .returnLongitude()
+                .returnLatitude()
+                .returnBoxes()
+                .returnCountryValue()
+                .returnCountryValueEn()
+                .buildWithReturningFields();
+        return apiService.findEntityAndMagicallyDeserialize("drillcore", requestParams, DrillCoreProto.class);
     }
 }

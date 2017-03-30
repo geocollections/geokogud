@@ -32,7 +32,7 @@ public class StratigraphyApiServiceImpl implements StratigraphyApiService {
 
     @Override
     public Response<StratigraphyEnitity> findById(Long id) {
-        String requestParams = FluentGeoApiDetailsBuilder.aRequest().id(id).build();
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest().id(id).buildWithDefaultReturningFields();
         return apiService.findEntity(
                 "stratigraphy",
                 requestParams,

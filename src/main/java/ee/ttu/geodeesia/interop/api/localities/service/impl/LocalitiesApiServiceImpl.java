@@ -54,7 +54,7 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
                 .relatedData("?related_data=image&related_data=drillcore&related_data=reference")
-                .build();
+                .buildWithDefaultReturningFields();
         return apiService.findEntity("locality", requestParams, Locality.class);
     }
 

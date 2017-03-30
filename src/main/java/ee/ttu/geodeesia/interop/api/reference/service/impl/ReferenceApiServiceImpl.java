@@ -44,13 +44,13 @@ public class ReferenceApiServiceImpl implements ReferenceApiService {
 
     @Override
     public Response<Reference> findById(Long id) {
-        String requestParams = FluentGeoApiDetailsBuilder.aRequest().id(id).build();
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest().id(id).buildWithDefaultReturningFields();
         return apiService.findEntity("reference", requestParams, Reference.class);
     }
 
     @Override
     public Response<Reference> findDoiById(Long id) {
-        String requestParams = FluentGeoApiDetailsBuilder.aRequest().id(id).build();
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest().id(id).buildWithDefaultReturningFields();
         return apiService.findEntity("reference", requestParams, Reference.class);
     }
 

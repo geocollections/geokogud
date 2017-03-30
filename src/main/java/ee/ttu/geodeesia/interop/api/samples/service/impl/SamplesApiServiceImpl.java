@@ -67,7 +67,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     public Response findById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
-                .build();
+                .buildWithDefaultReturningFields();
         return apiService.findEntity("sample", requestParams, SampleEntity.class);
     }
 

@@ -2,17 +2,14 @@ package ee.ttu.geodeesia.interop.api.doi.service.impl;
 
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.builder.details.FluentGeoApiDetailsBuilder;
-import ee.ttu.geodeesia.interop.api.builder.search.*;
+import ee.ttu.geodeesia.interop.api.builder.search.FluentCommonSearchApiBuilder;
+import ee.ttu.geodeesia.interop.api.builder.search.FluentDoiSearchApiBuilder;
 import ee.ttu.geodeesia.interop.api.doi.pojo.Doi;
 import ee.ttu.geodeesia.interop.api.doi.pojo.DoiSearchCriteria;
 import ee.ttu.geodeesia.interop.api.doi.service.DoiApiService;
-import ee.ttu.geodeesia.interop.api.reference.pojo.Reference;
-import ee.ttu.geodeesia.interop.api.reference.pojo.ReferenceSearchCriteria;
-import ee.ttu.geodeesia.interop.api.reference.service.ReferenceApiService;
 import ee.ttu.geodeesia.interop.api.service.ApiService;
 import ee.ttu.geodeesia.search.domain.LookUpType;
 import ee.ttu.geodeesia.search.domain.SearchField;
-import ee.ttu.geodeesia.search.domain.SortField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +39,7 @@ public class DoiApiServiceImpl implements DoiApiService {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
                 .relatedData("?related_data=doi_agent&related_data=doi_geolocation&related_data=doi_related_identifier")
-                .build();
+                .buildWithDefaultReturningFields();
         return apiService.findEntity("doi", requestParams, Doi.class);
     }
 
