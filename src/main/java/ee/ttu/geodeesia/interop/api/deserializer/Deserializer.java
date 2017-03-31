@@ -2,6 +2,8 @@ package ee.ttu.geodeesia.interop.api.deserializer;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
@@ -20,9 +22,10 @@ import java.util.Set;
 @Component
 public class Deserializer {
 
+    private static final Logger logger = LoggerFactory.getLogger(Deserializer.class);
+
     private static final String UNDERSCORE = "_";
     private static final String OBJECT_DELIMITER = StringUtils.repeat(UNDERSCORE, 2);
-    public static final String NULL = "null";
 
     public <T> T doMagic(Map<String, String> map, Class<T> targeClass) {
         try {
@@ -49,6 +52,7 @@ public class Deserializer {
 
                         BeanUtils.setProperty(instance, formattedObjectFieldName, newObject);
                     } catch (NoSuchFieldException e) {
+                        traceFieldDoesNotExist(targeClass, formattedObjectFieldName);
                         continue;
                     }
                 } else {
@@ -56,6 +60,7 @@ public class Deserializer {
                     try {
                         targeClass.getDeclaredField(field);
                     } catch (NoSuchFieldException e) {
+                        traceFieldDoesNotExist(targeClass, field);
                         continue;
                     }
                     BeanUtils.setProperty(instance, field, value);
@@ -66,6 +71,10 @@ public class Deserializer {
             e.printStackTrace();
             return null;
         }
+    }
+
+    private <T> void traceFieldDoesNotExist(Class<T> targeClass, String field) {
+        logger.trace(targeClass.getTypeName()+": field " + field + " does not exist");
     }
 
     private <T> Class<?> findObjectFieldClass(Class<T> targeClass, String objectName) throws NoSuchFieldException {
