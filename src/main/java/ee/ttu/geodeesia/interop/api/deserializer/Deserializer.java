@@ -43,7 +43,7 @@ public class Deserializer {
                     }
                     int firstDelimiter = field.indexOf(OBJECT_DELIMITER);
                     String objectFieldName = field.substring(0, firstDelimiter);
-                    String formattedObjectFieldName = removeUnderscoresMakeCammelCase(objectFieldName);
+                    String formattedObjectFieldName = removeUnderscoresMakeCamelCase(objectFieldName);
                     try {
                         Class<?> objectFieldClass = findObjectFieldClass(targeClass, formattedObjectFieldName);
                         ObjectFields objectFields = findRelatedFieldsAndRemoveObjectPrefix(objectFieldName, map);
@@ -56,7 +56,7 @@ public class Deserializer {
                         continue;
                     }
                 } else {
-                    field = removeUnderscoresMakeCammelCase(field);
+                    field = removeUnderscoresMakeCamelCase(field);
                     try {
                         targeClass.getDeclaredField(field);
                     } catch (NoSuchFieldException e) {
@@ -96,7 +96,7 @@ public class Deserializer {
         return new ObjectFields(fullFields, cutFields);
     }
 
-    private String removeUnderscoresMakeCammelCase(String field) {
+    private String removeUnderscoresMakeCamelCase(String field) {
         int underscorePosition = field.indexOf(UNDERSCORE);
         if (underscorePosition > -1) {
             StringBuilder result = new StringBuilder(field);

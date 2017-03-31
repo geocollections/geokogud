@@ -7,6 +7,15 @@ public class DrillcoreBox {
     private String depthEnd;
     private Stratigraphy stratigraphyTop;
     private Stratigraphy stratigraphyBase;
+    private Drillcoreimage drillcoreimage;
+
+    public Drillcoreimage getDrillcoreimage() {
+        return drillcoreimage;
+    }
+
+    public void setDrillcoreimage(Drillcoreimage drillcoreimage) {
+        this.drillcoreimage = drillcoreimage;
+    }
 
     public String getId() {
         return id;

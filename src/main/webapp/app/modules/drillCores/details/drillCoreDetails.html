@@ -8,31 +8,69 @@
         <div class="row">
             <div class="col-lg-6">
                 <table class="table table-bordered table-hover">
-                    <tr><td>ID</td><td>{{drillCore.id}}</td></tr>
-                    <tr><td>Name</td><td>{{drillCore.drillcore}}</td></tr>
-                    <tr><td>Name</td><td>{{drillCore.drillcoreEn}}</td></tr>
-                    <tr><td>Locality</td>
+                    <tr>
+                        <td>ID</td>
+                        <td>{{drillCore.id}}</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>{{drillCore.drillcore}}</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>{{drillCore.drillcoreEn}}</td>
+                    </tr>
+                    <tr>
+                        <td>Locality</td>
                         <td>
                             <a href data-ng-click="openInNewWindow({object:'locality',id:drillCore.localityId})">
                                 <localize et="drillCore.locality.locality" en="drillCore.locality.localityEn"></localize>
                             </a>
                         </td>
                     </tr>
-                    <tr><td>Box count</td><td>{{drillCore.boxes}}</td></tr>
-                    <tr><td>Box numbers</td><td>{{drillCore.boxNumbers}}</td></tr>
-                    <tr><td>Storage</td><td>{{drillCore.depository.value}}</td></tr>
-                    <tr><td>Storage</td><td>{{drillCore.storage.location}}</td></tr>
-                    <tr><td>Agent</td><td>{{drillCore.agent.agent}}</td></tr>
-                    <tr><td>Year</td><td>{{drillCore.year}}</td></tr>
-                    <tr><td>Depth</td><td>{{drillCore.depth}}</td></tr>
-                    <tr><td>m in boxes</td><td>{{drillCore.numberMeters}}</td></tr>
-                    <tr><td>Remarks</td><td>{{drillCore.remarks}}</td></tr>
+                    <tr>
+                        <td>Box count</td>
+                        <td>{{drillCore.boxes}}</td>
+                    </tr>
+                    <tr>
+                        <td>Box numbers</td>
+                        <td>{{drillCore.boxNumbers}}</td>
+                    </tr>
+                    <tr>
+                        <td>Storage</td>
+                        <td>{{drillCore.depository.value}}</td>
+                    </tr>
+                    <tr>
+                        <td>Storage</td>
+                        <td>{{drillCore.storage.location}}</td>
+                    </tr>
+                    <tr>
+                        <td>Agent</td>
+                        <td>{{drillCore.agent.agent}}</td>
+                    </tr>
+                    <tr>
+                        <td>Year</td>
+                        <td>{{drillCore.year}}</td>
+                    </tr>
+                    <tr>
+                        <td>Depth</td>
+                        <td>{{drillCore.depth}}</td>
+                    </tr>
+                    <tr>
+                        <td>m in boxes</td>
+                        <td>{{drillCore.numberMeters}}</td>
+                    </tr>
+                    <tr>
+                        <td>Remarks</td>
+                        <td>{{drillCore.remarks}}</td>
+                    </tr>
                 </table>
             </div>
             <div class="col-lg-6" data-ng-if="drillCore.locality.latitude != null && drillCore.locality.longitude != null">
-                <locality-map x = "drillCore.locality.latitude" y = "drillCore.locality.longitude" name = "drillCore.locality.localityEn" fid = "drillCore.localityId"></locality-map>
-                <a href data-ng-click="showGoogleMap(drillCore.locality.latitude, drillCore.locality.longitude, drillCore.locality.locality, drillCore.locality.localityEn)">Google Maps</a> |
-                <span><a href data-ng-click="showEstonianLandBoardMap(drillCore.locality.latitude, drillCore.locality.longitude)">Maa-amet / Estonian Land Board</a></span>
+                <locality-map x="drillCore.locality.latitude" y="drillCore.locality.longitude" name="drillCore.locality.localityEn"
+                              fid="drillCore.localityId"></locality-map>
+                <a href
+                   data-ng-click="showGoogleMap(drillCore.locality.latitude, drillCore.locality.longitude, drillCore.locality.locality, drillCore.locality.localityEn)">Google Maps</a> |<span><a href data-ng-click="showEstonianLandBoardMap(drillCore.locality.latitude, drillCore.locality.longitude)">Maa-amet / Estonian Land Board</a></span>
             </div>
         </div>
     </div>
@@ -41,6 +79,37 @@
             <label>Horizons</label>
         </div>
         <div class="row">
+            <label>Drill core boxes</label>
+            <table data-ng-repeat="box in drillCore.drillcoreBoxes" style="float:left">
+                <tr><td><h3>Box no. {{box.number}}</h3></td></tr>
+                <tr>
+                    <td>Start (m):</td>
+                    <td>{{box.depthStart}}</td>
+                </tr>
+                <tr>
+                    <td>End (m):</td>
+                    <td>{{box.depthEnd}}</td>
+                </tr>
+                <tr>
+                    <td>Stratigraphy top:</td>
+                    <td>
+                        <localize et="box.stratigraphyTop.stratigraphy" en="box.stratigraphyTop.stratigraphyEn"></localize>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Stratigraphy base:</td>
+                    <td>
+                        <localize et="box.stratigraphyBase.stratigraphy" en="box.stratigraphyBase.stratigraphyEn"></localize>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href data-ng-click="openInNewWindow({object:'drillcorebox',id:box.id})">
+                            <img style="max-width:200px" src="http://{{box.drillcoreimage.url}}"/>
+                        </a>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>

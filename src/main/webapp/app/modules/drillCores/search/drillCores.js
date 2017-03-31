@@ -72,8 +72,7 @@ angular.module('search').controller('SearchDrillCoresController', function ($sco
     $scope.drillCore = {};
     DrillCoreService.details($stateParams.id).then(function(result) {
         $scope.drillCore = result;
-        $scope.drillCoreBoxes = result.drillcoreBoxes;
-        console.log(result);
+        console.log($scope.drillCore.drillcoreBoxes);
     });
 }).factory("DrillCoreService", ['$http', function ($http) {
     return {
