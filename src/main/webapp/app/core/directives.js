@@ -290,7 +290,33 @@ angular.module('geoApp').directive('loading', function () {
             isOpened: '='
         }
     };
-}).directive('localityMap',
+}).directive('showRowIfPresent', function () {
+    return {
+        template: '<tr ng-show=\"value\"><td>{{name}}</td><td>{{value}}</td></tr>',
+        restrict: 'E',
+        scope: {
+            name: '@',
+            value: '='
+        }
+    };
+}).directive('localize', ['$translate', '$rootScope', function ($translate, $rootScope) {
+    return {
+        template: '{{localizedValue}}',
+        restrict: 'E',
+        scope: {
+            et: '=',
+            en: '='
+        },
+        link: function (scope) {
+            scope.$watch('[et, en]', function(newValue) {
+                scope.localizedValue = $translate.use() == 'et' ? newValue[0] : newValue[1];
+            }, true);
+            $rootScope.$on('$translateChangeSuccess', function() {
+                scope.localizedValue = $translate.use() == 'et' ? scope.et : scope.en;
+            });
+        }
+    };
+}]).directive('localityMap',
     function () {
         return {
             scope: {

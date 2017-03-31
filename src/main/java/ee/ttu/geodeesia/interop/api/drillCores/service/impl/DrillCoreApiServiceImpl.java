@@ -48,13 +48,7 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService {
     public Response findById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
-                .returnDepth()
-                .returnLongitude()
-                .returnLatitude()
-                .returnBoxes()
-                .returnCountryValue()
-                .returnCountryValueEn()
-                .buildWithReturningFields();
+                .buildWithDefaultReturningFields();
         return apiService.findEntityAndMagicallyDeserialize("drillcore", requestParams, DrillCoreProto.class);
     }
 }

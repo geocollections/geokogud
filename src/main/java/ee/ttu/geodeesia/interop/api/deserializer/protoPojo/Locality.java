@@ -2,10 +2,20 @@ package ee.ttu.geodeesia.interop.api.deserializer.protoPojo;
 
 import java.math.BigDecimal;
 
-public class LocalityProto {
+public class Locality {
     private BigDecimal latitude;
     private BigDecimal longitude;
-    private CountryProto country;
+    private Long maaametPaId;
+
+    private Country country;
+
+    public Long getMaaametPaId() {
+        return maaametPaId;
+    }
+
+    public void setMaaametPaId(Long maaametPaId) {
+        this.maaametPaId = maaametPaId;
+    }
 
     public BigDecimal getLatitude() {
         return latitude;
@@ -23,11 +33,11 @@ public class LocalityProto {
         this.longitude = longitude;
     }
 
-    public CountryProto getCountry() {
+    public Country getCountry() {
         return country;
     }
 
-    public void setCountry(CountryProto country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 }

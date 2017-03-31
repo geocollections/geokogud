@@ -1,6 +1,6 @@
 package ee.ttu.geodeesia.interop.api.deserializer.protoPojo;
 
-public class CountryProto {
+public class Country {
     private String value;
     private String valueEn;
 

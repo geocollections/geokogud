@@ -3,11 +3,84 @@ package ee.ttu.geodeesia.interop.api.deserializer.protoPojo;
 public class DrillCoreProto {
     private Long id;
     private String drillcore;
+    private String drillcoreEn;
+    private Long localityId;
     private String boxes;
     private String boxNumbers;
-    private Storage storage;
     private String depth;
-    private LocalityProto locality;
+    private Integer year;
+    private Double numberMeters;
+    private String remarks;
+
+    private Storage storage;
+    private Agent agent;
+    private Locality locality;
+    private Depository depository;
+    private Database database;
+
+    public Database getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(Database database) {
+        this.database = database;
+    }
+
+    public Depository getDepository() {
+        return depository;
+    }
+
+    public void setDepository(Depository depository) {
+        this.depository = depository;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public Double getNumberMeters() {
+        return numberMeters;
+    }
+
+    public void setNumberMeters(Double numberMeters) {
+        this.numberMeters = numberMeters;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
+    public String getDrillcoreEn() {
+        return drillcoreEn;
+    }
+
+    public void setDrillcoreEn(String drillcoreEn) {
+        this.drillcoreEn = drillcoreEn;
+    }
+
+    public Long getLocalityId() {
+        return localityId;
+    }
+
+    public void setLocalityId(Long localityId) {
+        this.localityId = localityId;
+    }
+
+    public Agent getAgent() {
+        return agent;
+    }
+
+    public void setAgent(Agent agent) {
+        this.agent = agent;
+    }
 
     public Storage getStorage() {
         return storage;
@@ -41,11 +114,11 @@ public class DrillCoreProto {
         this.drillcore = drillcore;
     }
 
-    public LocalityProto getLocality() {
+    public Locality getLocality() {
         return locality;
     }
 
-    public void setLocality(LocalityProto locality) {
+    public void setLocality(Locality locality) {
         this.locality = locality;
     }
 

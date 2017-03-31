@@ -1,13 +1,13 @@
 package ee.ttu.geodeesia.interop.api.deserializer.protoPojo;
 
 public class Storage {
-    private String localion;
+    private String location;
 
-    public String getLocalion() {
-        return localion;
+    public String getLocation() {
+        return location;
     }
 
-    public void setLocalion(String localion) {
-        this.localion = localion;
+    public void setLocation(String location) {
+        this.location = location;
     }
 }
