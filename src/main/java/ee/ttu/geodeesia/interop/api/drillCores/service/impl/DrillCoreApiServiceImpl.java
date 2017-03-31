@@ -45,7 +45,7 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService {
     }
 
     @Override
-    public Response findById(Long id) {
+    public Response<DrillCoreProto> findById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
                 .buildWithDefaultReturningFields();
