@@ -6,7 +6,8 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static ee.ttu.geodeesia.interop.api.builder.ApiFields.*;
+import static ee.ttu.geodeesia.interop.api.builder.ApiFields.ID;
+import static ee.ttu.geodeesia.interop.api.builder.ApiFields.REMARKS;
 
 public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>> {
     String query = StringUtils.EMPTY;
@@ -24,7 +25,7 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
     }
 
     public B queryId(SearchField id) {
-        query += buildFieldParameters(ID, id);
+        buildFieldParameters(ID, id);
         return getThis();
     }
 
@@ -37,7 +38,7 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
     }
 
     public B queryDepth(SearchField depth) {
-        query += buildFieldParameters("depth", depth);
+        buildFieldParameters("depth", depth);
         return getThis();
     }
 
@@ -66,9 +67,9 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
         return query;
     }
 
-    String buildFieldParameters(String fieldName, SearchField searchField) {
+    void buildFieldParameters(String fieldName, SearchField searchField) {
         this.lastQueryField = fieldName;
-        return isNotNullAndEmpty(searchField) ? "&" + fieldName + "__" + extractFieldParameters(searchField) : StringUtils.EMPTY;
+        query += isNotNullAndEmpty(searchField) ? "&" + fieldName + "__" + extractFieldParameters(searchField) : StringUtils.EMPTY;
     }
 
     private String extractFieldParameters(SearchField searchField) {

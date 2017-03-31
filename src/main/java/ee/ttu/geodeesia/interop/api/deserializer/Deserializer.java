@@ -31,28 +31,38 @@ public class Deserializer {
             for (Map.Entry<String, String> fieldValue : map.entrySet()) {
                 String field = fieldValue.getKey();
                 String value = fieldValue.getValue();
-                if(value == null){
+                if (value == null) {
                     continue;
                 }
                 if (isObject(field)) {
-                    if(fieldsToIgnore.contains(field)){
+                    if (fieldsToIgnore.contains(field)) {
                         continue;
                     }
                     int firstDelimiter = field.indexOf(OBJECT_DELIMITER);
                     String objectFieldName = field.substring(0, firstDelimiter);
-                    Class<?> objectFieldClass = findObjectFieldClass(targeClass, objectFieldName);
-                    ObjectFields objectFields = findRelatedFieldsAndRemoveObjectPrefix(objectFieldName, map);
-                    fieldsToIgnore.addAll(objectFields.getFullFields());
-                    Object newObject = doMagic(objectFields.getCutFields(), objectFieldClass);
+                    String formattedObjectFieldName = removeUnderscoresMakeCammelCase(objectFieldName);
+                    try {
+                        Class<?> objectFieldClass = findObjectFieldClass(targeClass, formattedObjectFieldName);
+                        ObjectFields objectFields = findRelatedFieldsAndRemoveObjectPrefix(objectFieldName, map);
+                        fieldsToIgnore.addAll(objectFields.getFullFields());
+                        Object newObject = doMagic(objectFields.getCutFields(), objectFieldClass);
 
-                    BeanUtils.setProperty(instance, objectFieldName, newObject);
+                        BeanUtils.setProperty(instance, formattedObjectFieldName, newObject);
+                    } catch (NoSuchFieldException e) {
+                        continue;
+                    }
                 } else {
                     field = removeUnderscoresMakeCammelCase(field);
+                    try {
+                        targeClass.getDeclaredField(field);
+                    } catch (NoSuchFieldException e) {
+                        continue;
+                    }
                     BeanUtils.setProperty(instance, field, value);
                 }
             }
             return instance;
-        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchFieldException e) {
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
             return null;
         }

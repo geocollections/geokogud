@@ -1,6 +1,9 @@
 package ee.ttu.geodeesia.interop.api.deserializer.protoPojo;
 
-public class DrillCoreProto {
+import java.util.ArrayList;
+import java.util.List;
+
+public class DrillCoreProto implements GeoEntity {
     private Long id;
     private String drillcore;
     private String drillcoreEn;
@@ -17,6 +20,16 @@ public class DrillCoreProto {
     private Locality locality;
     private Depository depository;
     private Database database;
+
+    private List<DrillcoreBox> drillcoreBoxes;
+
+    public List<DrillcoreBox> getDrillcoreBoxes() {
+        return drillcoreBoxes;
+    }
+
+    public void setDrillcoreBoxes(List<DrillcoreBox> drillcoreBoxes) {
+        this.drillcoreBoxes = drillcoreBoxes;
+    }
 
     public Database getDatabase() {
         return database;
@@ -136,5 +149,15 @@ public class DrillCoreProto {
 
     public void setDepth(String depth) {
         this.depth = depth;
+    }
+
+    @Override
+    public void addRelatedData(Object relatedData) {
+        if (relatedData instanceof DrillcoreBox) {
+            if (drillcoreBoxes == null) {
+                drillcoreBoxes = new ArrayList<>();
+            }
+            drillcoreBoxes.add((DrillcoreBox) relatedData);
+        }
     }
 }

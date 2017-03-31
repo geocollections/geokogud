@@ -5,6 +5,7 @@ import static org.apache.commons.lang3.StringUtils.EMPTY;
 public class FluentGeoApiDetailsBuilder {
     private String query = EMPTY;
     private String returningFields = EMPTY;
+    private String relatedData = EMPTY;
 
     public static FluentGeoApiDetailsBuilder aRequest() {
         return new FluentGeoApiDetailsBuilder();
@@ -16,37 +17,7 @@ public class FluentGeoApiDetailsBuilder {
     }
 
     public FluentGeoApiDetailsBuilder relatedData(String relatedData) {
-        query += relatedData;
-        return this;
-    }
-
-    public FluentGeoApiDetailsBuilder returnCountryValue() {
-        addReturningField("locality__country__value");
-        return this;
-    }
-
-    public FluentGeoApiDetailsBuilder returnCountryValueEn() {
-        addReturningField("locality__country__value_en");
-        return this;
-    }
-
-    public FluentGeoApiDetailsBuilder returnLatitude() {
-        addReturningField("locality__latitude");
-        return this;
-    }
-
-    public FluentGeoApiDetailsBuilder returnLongitude() {
-        addReturningField("locality__longitude");
-        return this;
-    }
-
-    public FluentGeoApiDetailsBuilder returnDepth() {
-        addReturningField("depth");
-        return this;
-    }
-
-    public FluentGeoApiDetailsBuilder returnBoxes() {
-        addReturningField("boxes");
+        query += query.contains("?") ? "&related_data=" + relatedData : "?related_data=" + relatedData;
         return this;
     }
 
@@ -59,6 +30,6 @@ public class FluentGeoApiDetailsBuilder {
     }
 
     public String buildWithReturningFields() {
-        return query + "?fields=" + returningFields;
+        return query;
     }
 }

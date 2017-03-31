@@ -3,7 +3,6 @@ package ee.ttu.geodeesia.interop.api.builder.search;
 import ee.ttu.geodeesia.search.domain.SearchField;
 
 import static ee.ttu.geodeesia.interop.api.builder.ApiFields.*;
-import static ee.ttu.geodeesia.interop.api.builder.ApiFields.IS_DEEP;
 
 public class FluentSoilSearchApiApiBuilder extends FluentSearchApiBuilder<FluentSoilSearchApiApiBuilder> {
 
@@ -12,27 +11,27 @@ public class FluentSoilSearchApiApiBuilder extends FluentSearchApiBuilder<Fluent
     }
 
     public FluentSoilSearchApiApiBuilder querySite(SearchField site) {
-        query += buildFieldParameters(SITE, site);
+        buildFieldParameters(SITE, site);
         return this;
     }
 
     public FluentSoilSearchApiApiBuilder queryAreaName(SearchField areaName) {
-        query += buildFieldParameters(AREA_NAME, areaName);
+        buildFieldParameters(AREA_NAME, areaName);
         return this;
     }
 
     public FluentSoilSearchApiApiBuilder querySoil(SearchField soil) {
-        query += buildFieldParameters(SOIL, soil);
+        buildFieldParameters(SOIL, soil);
         return this;
     }
 
     public FluentSoilSearchApiApiBuilder queryLandUse(SearchField landUse) {
-        query += buildFieldParameters(LAND_USE, landUse);
+        buildFieldParameters(LAND_USE, landUse);
         return this;
     }
 
     public FluentSoilSearchApiApiBuilder queryTransect(SearchField transect) {
-        query += buildFieldParameters(TRANSECT, transect);
+        buildFieldParameters(TRANSECT, transect);
         return this;
     }
 

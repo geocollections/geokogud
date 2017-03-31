@@ -16,17 +16,17 @@ public class FluentStratigraphySearchApiBuilder extends FluentSearchApiBuilder<F
     }
 
     public FluentStratigraphySearchApiBuilder queryId(SearchField id) {
-        query += buildFieldParameters(ID, id);
+        buildFieldParameters(ID, id);
         return this;
     }
 
     public FluentStratigraphySearchApiBuilder queryStratigraphy(SearchField stratigraphy){
-        query += buildFieldParameters(STRATIGRAPHY, stratigraphy);
+        buildFieldParameters(STRATIGRAPHY, stratigraphy);
         return this;
     }
 
     public FluentStratigraphySearchApiBuilder queryIndex(SearchField index){
-        query += buildFieldParameters(INDEX_MAIN, index);
+        buildFieldParameters(INDEX_MAIN, index);
         return this;
     }
 }

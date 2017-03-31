@@ -1,9 +1,13 @@
 package ee.ttu.geodeesia.interop.api.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.ImmutableMap;
 import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.Response;
+import ee.ttu.geodeesia.interop.api.deserializer.ApiResponseProto;
 import ee.ttu.geodeesia.interop.api.deserializer.Deserializer;
+import ee.ttu.geodeesia.interop.api.deserializer.protoPojo.DrillcoreBox;
+import ee.ttu.geodeesia.interop.api.deserializer.protoPojo.GeoEntity;
 import ee.ttu.geodeesia.interop.api.service.ApiService;
 import ee.ttu.geodeesia.search.domain.SortField;
 import ee.ttu.geodeesia.search.domain.SortingOrder;
@@ -14,8 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
+import java.util.Map;
 
 @Service
 public class ApiServiceImpl implements ApiService {
@@ -26,6 +29,10 @@ public class ApiServiceImpl implements ApiService {
     private Deserializer deserializer;
 
     private RestTemplate restTemplate = new RestTemplate();
+
+    private ImmutableMap<String, Class<?>> tableClassBindings = ImmutableMap.<String, Class<?>>builder()
+            .put("drillcore_box", DrillcoreBox.class)
+            .build();
 
     @Override
     public <T> Response<T> searchEntities(String tableName, int page, SortField sortField, String requestParams, Class<T> responseClass) {
@@ -104,25 +111,24 @@ public class ApiServiceImpl implements ApiService {
     }
 
     @Override
-    public <T> Response<T> findEntityAndMagicallyDeserialize(String tableName, String requestParams, Class<T> responseClass) {
+    public <T extends GeoEntity> T findEntityAndMagicallyDeserialize(String tableName, String requestParams, Class<T> responseClass) {
         String url = apiUrl + "/" + tableName + "/" + requestParams;
-
         System.err.println(url);
-        ResponseEntity<ApiResponse> rawResponse = restTemplate.getForEntity(url, ApiResponse.class);
+        ResponseEntity<ApiResponseProto> rawResponse = restTemplate.getForEntity(url, ApiResponseProto.class);
 
-        Response<T> response = new Response<>();
-
-        ObjectMapper mapper = new ObjectMapper();
-        response.setResult(
-                rawResponse.getBody().getResult().stream()
-                        .map(map -> deserializer.doMagic(map, responseClass))
-                        .collect(toList()));
+        T result = rawResponse.getBody().getResult().stream()
+                .map(map -> deserializer.doMagic(map, responseClass))
+                .findFirst()
+                .get();
 
         if (rawResponse.getBody().getRelatedData() != null) {
-            response.setRelatedData(mapper.convertValue(
-                    rawResponse.getBody().getRelatedData(), ApiResponse.RelatedData.class));
+            for(Map.Entry<String, List<Map<String, String>>> entry : rawResponse.getBody().getRelatedData().entrySet()){
+                Class<?> currentClass = tableClassBindings.get(entry.getKey());
+                entry.getValue().stream()
+                        .map(element -> deserializer.doMagic(element, currentClass))
+                        .forEach(result::addRelatedData);
+            }
         }
-
-        return response;
+        return result;
     }
 }

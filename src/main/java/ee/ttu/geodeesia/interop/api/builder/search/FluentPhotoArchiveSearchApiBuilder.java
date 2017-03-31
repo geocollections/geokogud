@@ -16,52 +16,52 @@ public class FluentPhotoArchiveSearchApiBuilder extends FluentSearchApiBuilder<F
     }
 
     public FluentPhotoArchiveSearchApiBuilder queryFileName(SearchField id) {
-        query += buildFieldParameters(FILE_NAME, id);
+        buildFieldParameters(FILE_NAME, id);
         return this;
     }
 
     public FluentPhotoArchiveSearchApiBuilder queryDateTaken(SearchField id) {
-        query += buildFieldParameters(DATE_TAKEN, id);
+        buildFieldParameters(DATE_TAKEN, id);
         return this;
     }
 
     public FluentPhotoArchiveSearchApiBuilder queryAuthorAgent(SearchField id) {
-        query += buildFieldParameters(AUTHOR_AGENT, id);
+        buildFieldParameters(AUTHOR_AGENT, id);
         return this;
     }
 
     public FluentPhotoArchiveSearchApiBuilder queryKeywords(SearchField keywords) {
-        query += buildFieldParameters(KEYWORDS, keywords);
+        buildFieldParameters(KEYWORDS, keywords);
         return this;
     }
 
     public FluentPhotoArchiveSearchApiBuilder queryNumber(SearchField imageNumber) {
-        query += buildFieldParameters(IMAGE_NUMBER, imageNumber);
+        buildFieldParameters(IMAGE_NUMBER, imageNumber);
         return this;
     }
 
     public FluentPhotoArchiveSearchApiBuilder queryPeople(SearchField people) {
-        query += buildFieldParameters(PEOPLE, people);
+        buildFieldParameters(PEOPLE, people);
         return this;
     }
 
     public FluentPhotoArchiveSearchApiBuilder queryLocality(SearchField locality) {
-        query += buildFieldParameters(LOCALITY_LOCALITY, locality);
+        buildFieldParameters(LOCALITY_LOCALITY, locality);
         return this;
     }
 
     public FluentPhotoArchiveSearchApiBuilder queryCountry(SearchField adminUnit) {
-        query += buildFieldParameters(LOCALITY_COUNTRY, adminUnit);
+        buildFieldParameters(LOCALITY_COUNTRY, adminUnit);
         return this;
     }
 
     public FluentPhotoArchiveSearchApiBuilder querySizeX(SearchField sizeX) {
-        query += buildFieldParameters(SIZE_X, sizeX);
+        buildFieldParameters(SIZE_X, sizeX);
         return this;
     }
 
     public FluentPhotoArchiveSearchApiBuilder querySizeY(SearchField sizeY) {
-        query += buildFieldParameters(SIZE_Y, sizeY);
+        buildFieldParameters(SIZE_Y, sizeY);
         return this;
     }
 

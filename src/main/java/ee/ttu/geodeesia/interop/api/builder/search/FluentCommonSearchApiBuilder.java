@@ -13,7 +13,7 @@ public class FluentCommonSearchApiBuilder extends FluentSearchApiBuilder<FluentC
     }
 
     public FluentCommonSearchApiBuilder queryField(String field, SearchField title) {
-        query += buildFieldParameters(field, title);
+        buildFieldParameters(field, title);
         return this;
     }
     public FluentCommonSearchApiBuilder returnField(String returningField) {

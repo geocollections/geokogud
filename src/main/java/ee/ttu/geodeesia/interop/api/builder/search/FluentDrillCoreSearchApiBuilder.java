@@ -16,47 +16,47 @@ public class FluentDrillCoreSearchApiBuilder extends FluentSearchApiBuilder<Flue
     }
 
     public FluentDrillCoreSearchApiBuilder queryDrillCore(SearchField id) {
-        query += buildFieldParameters(DRILL_CORE, id);
+        buildFieldParameters(DRILL_CORE, id);
         return this;
     }
 
     public FluentDrillCoreSearchApiBuilder queryBoxNumber(SearchField id) {
-        query += buildFieldParameters(BOX_NUMBERS, id);
+        buildFieldParameters(BOX_NUMBERS, id);
         return this;
     }
 
     public FluentDrillCoreSearchApiBuilder queryStorageLocation(SearchField id) {
-        query += buildFieldParameters(STORAGE_LOCATION, id);
+        buildFieldParameters(STORAGE_LOCATION, id);
         return this;
     }
 
     public FluentDrillCoreSearchApiBuilder queryLocalityCountry(SearchField id) {
-        query += buildFieldParameters(LOCALITY_COUNTRY, id);
+        buildFieldParameters(LOCALITY_COUNTRY, id);
         return this;
     }
 
     public FluentDrillCoreSearchApiBuilder queryLocalityCountryEng (SearchField id) {
-        query += buildFieldParameters(LOCALITY_COUNTRY_ENG, id);
+        buildFieldParameters(LOCALITY_COUNTRY_ENG, id);
         return this;
     }
 
     public FluentDrillCoreSearchApiBuilder queryLocalityLongitude (SearchField id) {
-        query += buildFieldParameters(LOCALITY_LONGITUDE, id);
+        buildFieldParameters(LOCALITY_LONGITUDE, id);
         return this;
     }
 
     public FluentDrillCoreSearchApiBuilder queryLocalityLatitude (SearchField id) {
-        query += buildFieldParameters(LOCALITY_LATITUDE, id);
+        buildFieldParameters(LOCALITY_LATITUDE, id);
         return this;
     }
 
     public FluentDrillCoreSearchApiBuilder queryDepth (SearchField id) {
-        query += buildFieldParameters(DEPTH, id);
+        buildFieldParameters(DEPTH, id);
         return this;
     }
 
     public FluentDrillCoreSearchApiBuilder queryBoxes (SearchField id) {
-        query += buildFieldParameters(BOXES, id);
+        buildFieldParameters(BOXES, id);
         return this;
     }
 }

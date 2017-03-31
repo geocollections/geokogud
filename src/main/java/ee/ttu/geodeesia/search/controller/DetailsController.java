@@ -3,8 +3,8 @@ package ee.ttu.geodeesia.search.controller;
 
 import ee.ttu.geodeesia.interop.api.Request.SampleSearchCriteria;
 import ee.ttu.geodeesia.interop.api.Response.Response;
+import ee.ttu.geodeesia.interop.api.deserializer.protoPojo.DrillCoreProto;
 import ee.ttu.geodeesia.interop.api.doi.service.DoiApiService;
-import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.drillCores.service.DrillCoreApiService;
 import ee.ttu.geodeesia.interop.api.localities.pojo.Locality;
 import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityDetailsDialogDto;
@@ -71,9 +71,8 @@ public class DetailsController {
     }
 
     @RequestMapping(value = "/drillcore/{id}")
-    public DrillCoreDetailsDialogDto findDrillCoreById(@PathVariable Long id) {
-        Response drillCore = drillCoreApiService.findById(id);
-        return new DrillCoreDetailsDialogDto(drillCore);
+    public DrillCoreProto findDrillCoreById(@PathVariable Long id) {
+        return drillCoreApiService.findById(id);
     }
 
 
