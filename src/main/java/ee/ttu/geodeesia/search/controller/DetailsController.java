@@ -3,8 +3,9 @@ package ee.ttu.geodeesia.search.controller;
 
 import ee.ttu.geodeesia.interop.api.Request.SampleSearchCriteria;
 import ee.ttu.geodeesia.interop.api.Response.Response;
-import ee.ttu.geodeesia.interop.api.deserializer.protoPojo.DrillCoreProto;
 import ee.ttu.geodeesia.interop.api.doi.service.DoiApiService;
+import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreProto;
+import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillcoreBox;
 import ee.ttu.geodeesia.interop.api.drillCores.service.DrillCoreApiService;
 import ee.ttu.geodeesia.interop.api.localities.pojo.Locality;
 import ee.ttu.geodeesia.interop.api.localities.pojo.LocalityDetailsDialogDto;
@@ -72,9 +73,13 @@ public class DetailsController {
 
     @RequestMapping(value = "/drillcore/{id}")
     public DrillCoreProto findDrillCoreById(@PathVariable Long id) {
-        return drillCoreApiService.findById(id);
+        return drillCoreApiService.findDrillcoreById(id);
     }
 
+    @RequestMapping(value = "/drillcoreBox/{id}")
+    public DrillcoreBox findDrillcoreBoxById(@PathVariable Long id) {
+        return drillCoreApiService.findDrillcoreBoxById(id);
+    }
 
     @RequestMapping(value = "/reference/{id}")
     public ReferenceDetailsDialogDto findReferenceById(@PathVariable Long id) {

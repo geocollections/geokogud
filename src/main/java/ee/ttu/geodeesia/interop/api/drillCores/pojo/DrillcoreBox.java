@@ -1,13 +1,34 @@
-package ee.ttu.geodeesia.interop.api.deserializer.protoPojo;
+package ee.ttu.geodeesia.interop.api.drillCores.pojo;
 
-public class DrillcoreBox {
+import ee.ttu.geodeesia.interop.api.common.GeoEntity;
+import ee.ttu.geodeesia.interop.api.deserializer.protoPojo.Stratigraphy;
+
+public class DrillcoreBox implements GeoEntity{
     private String id;
     private String number;
     private String depthStart;
     private String depthEnd;
+    private String depthOther;
+    private String numberMeters;
     private Stratigraphy stratigraphyTop;
     private Stratigraphy stratigraphyBase;
     private Drillcoreimage drillcoreimage;
+
+    public String getDepthOther() {
+        return depthOther;
+    }
+
+    public void setDepthOther(String depthOther) {
+        this.depthOther = depthOther;
+    }
+
+    public String getNumberMeters() {
+        return numberMeters;
+    }
+
+    public void setNumberMeters(String numberMeters) {
+        this.numberMeters = numberMeters;
+    }
 
     public Drillcoreimage getDrillcoreimage() {
         return drillcoreimage;
@@ -63,5 +84,10 @@ public class DrillcoreBox {
 
     public void setStratigraphyBase(Stratigraphy stratigraphyBase) {
         this.stratigraphyBase = stratigraphyBase;
+    }
+
+    @Override
+    public void addRelatedData(Object relatedData) {
+
     }
 }

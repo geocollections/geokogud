@@ -1,4 +1,4 @@
-package ee.ttu.geodeesia.interop.api.deserializer.protoPojo;
+package ee.ttu.geodeesia.interop.api.common;
 
 public class Agent {
     private String agent;

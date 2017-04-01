@@ -1,7 +1,7 @@
 package ee.ttu.geodeesia.interop.api.service;
 
 import ee.ttu.geodeesia.interop.api.Response.Response;
-import ee.ttu.geodeesia.interop.api.deserializer.protoPojo.GeoEntity;
+import ee.ttu.geodeesia.interop.api.common.GeoEntity;
 import ee.ttu.geodeesia.search.domain.SortField;
 
 import java.util.List;

@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import ee.ttu.geodeesia.interop.api.doi.pojo.DoiAgent;
 import ee.ttu.geodeesia.interop.api.doi.pojo.DoiGeolocation;
 import ee.ttu.geodeesia.interop.api.doi.pojo.DoiRelatedIdentifier;
-import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreEntity;
+import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreProto;
 import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveEntity;
 import ee.ttu.geodeesia.interop.api.reference.pojo.Reference;
 
@@ -65,8 +65,8 @@ public class ApiResponse {
         private List<DoiGeolocation> doiGeolocation;
         @JsonProperty("image")
         private List<PhotoArchiveEntity> image;
-        @JsonProperty("drillcore")
-        private List<DrillCoreEntity> drillcore;
+        @JsonProperty("drillcores")
+        private List<DrillCoreProto> drillcores;
         @JsonProperty("reference")
         private List<Reference> reference;
 
@@ -100,20 +100,20 @@ public class ApiResponse {
             this.doiGeolocation = doiGeolocation;
         }
 
+        public List<DrillCoreProto> getDrillcores() {
+            return drillcores;
+        }
+
+        public void setDrillcores(List<DrillCoreProto> drillcores) {
+            this.drillcores = drillcores;
+        }
+
         public List<PhotoArchiveEntity> getImage() {
             return image;
         }
 
         public void setImage(List<PhotoArchiveEntity> image) {
             this.image = image;
-        }
-
-        public List<DrillCoreEntity> getDrillcore() {
-            return drillcore;
-        }
-
-        public void setDrillcore(List<DrillCoreEntity> drillcore) {
-            this.drillcore = drillcore;
         }
 
         public List<Reference> getReference() {

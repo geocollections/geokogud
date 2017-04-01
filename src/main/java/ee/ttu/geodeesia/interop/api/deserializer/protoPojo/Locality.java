@@ -1,5 +1,7 @@
 package ee.ttu.geodeesia.interop.api.deserializer.protoPojo;
 
+import ee.ttu.geodeesia.interop.api.common.Country;
+
 import java.math.BigDecimal;
 
 public class Locality {

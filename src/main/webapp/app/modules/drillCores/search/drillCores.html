@@ -216,7 +216,7 @@
                             <a href data-ng-click="openInNewWindow({object:'drillCores',id:entity.id})">{{entity.id}}</a>
                         </td>
                         <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.DRILLCORE' | translate }}">
-                            <a href data-ng-click="openInNewWindow({object:'drillCores',id:entity.id})">{{entity.drillcore}}</a>
+                            <a href data-ng-click="openInNewWindow({object:'drillCores',id:entity.id})"><localize et="entity.drillcore" en="entity.drillcoreEn"/></a>
                         </td>
                         <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.LATITUDE' | translate }}">{{entity.locality.latitude}}</td>
                         <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.LONGITUDE' | translate }}">{{entity.locality.longitude}}

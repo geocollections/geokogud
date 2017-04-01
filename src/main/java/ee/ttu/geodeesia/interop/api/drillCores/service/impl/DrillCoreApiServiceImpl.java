@@ -3,8 +3,9 @@ package ee.ttu.geodeesia.interop.api.drillCores.service.impl;
 import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geodeesia.interop.api.builder.search.FluentDrillCoreSearchApiBuilder;
-import ee.ttu.geodeesia.interop.api.deserializer.protoPojo.DrillCoreProto;
+import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreProto;
 import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreSearchCriteria;
+import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillcoreBox;
 import ee.ttu.geodeesia.interop.api.drillCores.service.DrillCoreApiService;
 import ee.ttu.geodeesia.interop.api.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,11 +45,19 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService {
     }
 
     @Override
-    public DrillCoreProto findById(Long id) {
+    public DrillCoreProto findDrillcoreById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
                 .relatedData("drillcore_box")
                 .buildWithDefaultReturningFields();
         return apiService.findEntityAndMagicallyDeserialize("drillcore", requestParams, DrillCoreProto.class);
+    }
+
+    @Override
+    public DrillcoreBox findDrillcoreBoxById(Long id) {
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
+                .id(id)
+                .buildWithDefaultReturningFields();
+        return apiService.findEntityAndMagicallyDeserialize("drillcore_box", requestParams, DrillcoreBox.class);
     }
 }

@@ -30,17 +30,17 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
     @Override
     public Response findLocality(LocalitySearchCriteria searchCriteria) {
         String requestParams = FluentLocalitySearchApiBuilder.aRequest()
-                .queryId(searchCriteria.getId()).andReturn()
-                .queryNumber(searchCriteria.getNumber()).andReturn()
-                .queryStratigraphy(searchCriteria.getStratigraphy()).andReturn()
+                .queryId(searchCriteria.getId())
+                .queryNumber(searchCriteria.getNumber())
+                .queryStratigraphy(searchCriteria.getStratigraphy())
 //                .queryReference(searchCriteria.getReference()).andReturn()
-                .queryMaId(searchCriteria.getMaId()).andReturn()
-                .queryLocality(searchCriteria.getLocality()).andReturn()
-                .queryCountry(searchCriteria.getCountry()).andReturn()
-                .queryAdminUnit(searchCriteria.getAdminUnit()).andReturn()
-                .queryLongitude(searchCriteria.getLatitude()).andReturn()
-                .queryLongitude(searchCriteria.getLongitude()).andReturn()
-                .queryInstitution(searchCriteria.getDbs()).andReturn()
+                .queryMaId(searchCriteria.getMaId())
+                .queryLocality(searchCriteria.getLocality())
+                .queryCountry(searchCriteria.getCountry())
+                .queryAdminUnit(searchCriteria.getAdminUnit())
+                .queryLongitude(searchCriteria.getLatitude())
+                .queryLongitude(searchCriteria.getLongitude())
+                .queryInstitution(searchCriteria.getDbs())
                 .buildWithoutReturningCertainFields();
         return apiService.searchEntities("locality",
                 searchCriteria.getPage(),
@@ -53,7 +53,9 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
     public Response<Locality> findById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
-                .relatedData("?related_data=image&related_data=drillcore&related_data=reference")
+                .relatedData("image")
+                .relatedData("drillcore")
+                .relatedData("reference")
                 .buildWithDefaultReturningFields();
         return apiService.findEntity("locality", requestParams, Locality.class);
     }

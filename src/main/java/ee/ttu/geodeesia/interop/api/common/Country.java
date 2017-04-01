@@ -1,6 +1,6 @@
-package ee.ttu.geodeesia.interop.api.deserializer.protoPojo;
+package ee.ttu.geodeesia.interop.api.common;
 
-public class Depository {
+public class Country {
     private String value;
     private String valueEn;
 

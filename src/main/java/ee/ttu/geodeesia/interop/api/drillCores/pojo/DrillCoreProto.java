@@ -1,4 +1,9 @@
-package ee.ttu.geodeesia.interop.api.deserializer.protoPojo;
+package ee.ttu.geodeesia.interop.api.drillCores.pojo;
+
+import ee.ttu.geodeesia.interop.api.common.Agent;
+import ee.ttu.geodeesia.interop.api.common.Database;
+import ee.ttu.geodeesia.interop.api.common.GeoEntity;
+import ee.ttu.geodeesia.interop.api.deserializer.protoPojo.Locality;
 
 import java.util.ArrayList;
 import java.util.List;
