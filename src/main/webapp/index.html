@@ -101,14 +101,14 @@
                     </div>
                 </div>
             </form>
-
-            <a href="#search" id="button-extended-search" class="page-scroll">{{ 'INDEX.EXTENDED_SEARCH_LINK' | translate }}</a>
+            <a href="#search" id="button-extended-search" class="page-scroll-to-searches">{{ 'INDEX.EXTENDED_SEARCH_LINK' | translate }}</a>
         </div>
     </div>
 </header>
 
 <!--ui-view for searchers-->
-<div ui-view></div>
+
+<div ui-view id="searches"></div>
 
 <div ng-include="'app/templates/main/about.html'"></div>
 <div ng-include="'app/templates/main/resource.html'"></div>
@@ -184,6 +184,5 @@
 <!--details dialogs-->
 <script src="app/modules/soil/details/soilDetails.js"></script>
 <script src="app/modules/localities/details/localityDetails.js"></script>
-
 </body>
 </html>

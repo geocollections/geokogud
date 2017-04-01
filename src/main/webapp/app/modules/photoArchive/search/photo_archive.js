@@ -1,10 +1,8 @@
-angular.module('search').controller('SearchPhotoArchiveController', function ($scope, SearchService, PhotoService) {
-    $scope.sortbyOptions = [
-        {name: 'ID', value: 'id'},
-        {name: 'Date', value: 'date'},
-        {name: 'Number', value: 'number'},
-        {name: 'Author', value: 'author'},
-    ];
+angular.module('search').controller('SearchPhotoArchiveController', function ($scope, SearchService, PhotoService, $uibModal, $window) {
+    $scope.isIdentifierFieldsCollapsed = false;
+    $scope.isLocationFieldsCollapsed = true;
+    $scope.isInstitutionsCollapsed = true;
+
     $scope.departments = [
         {code: "GIT", label: "GIT"},
         {code: "TUG", label: "TUG"},
@@ -12,13 +10,18 @@ angular.module('search').controller('SearchPhotoArchiveController', function ($s
         {code: "TUGO", label: "TUGO"},
         {code: "MUMU", label: "MUMU"},
         {code: "EGK", label: "EGK"}];
+
     $scope.photoArchiveSearch = {};
 
+    $scope.showHint = function () {
+        $scope.isHintHidden = !$scope.isHintHidden;
+        $scope.getLocalities($scope.response.result);
+    };
 
     $scope.search = function () {
         if ($scope.photoArchiveSearch.imageSize) {
             imageDimensions = $scope.photoArchiveSearch.imageSize.name;
-            if(imageDimensions) {
+            if (imageDimensions) {
                 x = imageDimensions.substring(0, imageDimensions.indexOf("x"));
                 y = imageDimensions.substring(imageDimensions.indexOf("x") + 1);
                 $scope.photoArchiveSearch.sizeX = {
@@ -34,7 +37,32 @@ angular.module('search').controller('SearchPhotoArchiveController', function ($s
         console.log($scope.photoArchiveSearch);
         PhotoService.search($scope.photoArchiveSearch).then(function (result) {
             $scope.totalItems = result.count;
-            $scope.pageSize = 30;
+            $scope.pageSize = 100;
+            $scope.windowWidth = "innerWidth" in window ? window.innerWidth : document.documentElement.offsetWidth;
+            if ($scope.windowWidth > 400) {
+                $scope.searchParameters.maxSize = 5;
+            } else {
+                $scope.searchParameters.maxSize = 2;
+            }
+            // Window resize event
+            var w = angular.element($window);
+            w.bind('resize', function () {
+                $scope.windowWidth = "innerWidth" in window ? window.innerWidth : document.documentElement.offsetWidth;
+                // Change maxSize based on window width
+                /* if($scope.windowWidth > 1000) {
+                 $scope.searchParameters.maxSize = 15;
+                 } else if($scope.windowWidth > 800) {
+                 $scope.searchParameters.maxSize = 10;
+                 } else if($scope.windowWidth > 600) {
+                 $scope.searchParameters.maxSize = 8;
+                 } */
+                if ($scope.windowWidth > 400) {
+                    $scope.searchParameters.maxSize = 5;
+                } else {
+                    $scope.searchParameters.maxSize = 2;
+                }
+                $scope.$apply();
+            });
             $scope.response = result;
             console.log(result);
         });

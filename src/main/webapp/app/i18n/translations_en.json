@@ -136,6 +136,7 @@
             }
         },
         "SEND_QUERY": "Send query",
+        "FAQ": "FAQ",
         "RESET_FORM": "Reset",
         "INSTITUTIONS": "Institutions",
         "NO_OF_RESULTS": "Number of results",
@@ -146,7 +147,7 @@
                 "THREE": "To find particular digital object registered in SARV, and download datasets, specify one or more criteria and then click on DOI number for full details. For global DOI resolving use doi.org.",
                 "FOUR": "Küsimuste korral võta ühendust: Olle Hints, TTÜ Geoloogia Instituut (olle.hints@ttu.ee)"
             },
-            "HEADING": "Search: Digital Object Identifiers (DOIs)",
+            "HEADING": "Digital Object Identifiers (DOIs)",
             "FIELDS": "Fields",
             "DOI": "DOI",
             "TITLE": "Title",
@@ -167,7 +168,7 @@
         "DRILL_CORES": {
             "SEARCHING_DRILL_CORES_HEADING": "SEARCHING DRILL CORES",
             "SEARCHING_DRILL_CORES_TEXT": "Drill cores constitute a very important source of geological information and they are used regularly in scientific as well as applied research in Estonia. To search drill cores, specify the criteria and tick the map checkbox to show the locations. For detailed information click on the various links in the results table. A large number of cores are provided with images of core boxes. ",
-            "HEADING": "Search: Drill cores",
+            "HEADING": "Drill cores",
             "ID": "ID",
             "DRILLCORE": "Drillcore",
             "STRATIGRAPHY": "Stratigraphy",
@@ -190,7 +191,7 @@
         },
         "SHOW_MAP": "Show map",
         "LOCATILIES": {
-            "HEADING": "Search: Localities"
+            "HEADING": "Localities"
         },
         "LOCALITIES": {
             "IDENTIFIERS": {
@@ -226,7 +227,7 @@
             }
         },
         "PHOTO_ARCHIVE": {
-            "HEADING": "Search: Photo archive",
+            "HEADING": "Photo archive",
             "LOCALITY": "Locality",
             "PEOPLE": "People",
             "KEY_WORDS": "Key words",
@@ -250,7 +251,7 @@
             }
         },
         "PREPARATIONS": {
-            "HEADING": "Search: Preparation",
+            "HEADING": "Preparation",
             "NUMBER": "Number",
             "LOCALITY": "Locality",
             "DEPTH_M": "Depth (m)",
@@ -276,12 +277,12 @@
         "SORT_BY": "Sort by",
         "CHOOSE": "-- Choose --",
         "REFERENCES": {
-            "HEADING": "Search: References",
+            "HEADING": "References",
             "ID": "ID",
             "AUTHOR": "Author",
             "YEAR": "Year",
             "TITLE": "Title",
-            "JOURNAL": "",
+            "JOURNAL": "Journal",
             "BOOK": "Book",
             "TABLE": {
                 "ID": "ID",
@@ -317,7 +318,7 @@
             "ANAL": "Anal."
         },
         "SOIL_SITES": {
-            "HEADING": "Search: Soil sites",
+            "HEADING": "Soil sites",
             "ID": "ID",
             "SITE": "Site",
             "AREA_OF_STUDY": "Area of study",
@@ -339,7 +340,7 @@
             }
         },
         "SPECIMENS": {
-            "HEADING": "Search: Specimens",
+            "HEADING": "Specimens",
             "ID": "ID",
             "NUMBER": "Specimen number",
             "COLLECTION_NUMBER": "Collection number",
@@ -365,7 +366,7 @@
         },
         "SEARCH_IMAGES": "Search images",
         "STRATIGRAPHY": {
-            "HEADING": "Search: Stratigraphic units",
+            "HEADING": "Stratigraphic units",
             "ID": "ID",
             "STRATIGRAPHY": "Stratigraphy",
             "INDEX": "Index",

@@ -1,133 +1,179 @@
-<div class="panel panel-default">
-    <div class="panel-body">
-        <div class="row">
-            <div class="text-center">
-                <h1>{{ 'SEARCH.PHOTO_ARCHIVE.HEADING' | translate }}</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <div class="row">
+                <h3 class="search-heading">{{ 'SEARCH.PHOTO_ARCHIVE.HEADING' | translate }} <span
+                        class="badge badge-info">{{response.count}}</span>
+                    <button type="submit" value="showHint" class="btn btn-info btn-sm pull-right"
+                            data-ng-click="showHint()">
+                        <span class="glyphicon glyphicon-question-sign"></span> {{ 'SEARCH.FAQ' | translate }}
+                    </button>
+                </h3>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="row">
-                    <label class="control-label col-md-2">{{ 'SEARCH.PHOTO_ARCHIVE.LOCALITY' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectdefault ng-model = "photoArchiveSearch.locality.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="photoArchiveSearch.locality.name" class="form-control"/>
+            <div class="row">
+                <div class="panel-heading searchGroupHeading"
+                     ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
+                    <h4 class="panel-title">
+                        {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
+                        <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
+                    </h4>
+                </div>
+                <div uib-collapse="isIdentifierFieldsCollapsed">
+                    <div class="well well-lg">
+                        <div class="row searchCriterion">
+                            <div class="col-md-12  medium-padding">
+                                <b>{{ 'SEARCH.PHOTO_ARCHIVE.PEOPLE' | translate }}</b>
+                                <selectdefault custom-css="searchCriterionType"
+                                               ng-model="searchParameters.people.lookUpType"></selectdefault>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.people.name" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row searchCriterion">
+                            <div class="col-md-12  medium-padding">
+                                <b>{{ 'SEARCH.PHOTO_ARCHIVE.KEY_WORDS' | translate }}</b>
+                                <selectdefault custom-css="searchCriterionType"
+                                               ng-model="searchParameters.keywords.lookUpType"></selectdefault>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.keywords.name" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row searchCriterion">
+                            <div class="col-md-12  medium-padding">
+                                <b>{{ 'SEARCH.PHOTO_ARCHIVE.DATE' | translate }}</b>
+                                <selectexact custom-css="searchCriterionType"
+                                             ng-model="searchParameters.dateTaken.lookUpType"></selectexact>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.dateTaken.name" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row searchCriterion">
+                            <div class="col-md-12  medium-padding">
+                                <b>{{ 'SEARCH.PHOTO_ARCHIVE.NUMBER' | translate }}</b>
+                                <selectdefault custom-css="searchCriterionType"
+                                               ng-model="searchParameters.imageNumber.lookUpType"></selectdefault>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.imageNumber.name" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row searchCriterion">
+                            <div class="col-md-12  medium-padding">
+                                <b>{{ 'SEARCH.PHOTO_ARCHIVE.AUTHOR' | translate }}</b>
+                                <selectdefault custom-css="searchCriterionType"
+                                               ng-model="searchParameters.authorAgent.lookUpType"></selectdefault>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.authorAgent.name" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row searchCriterion">
+                            <div class="col-md-12  medium-padding">
+                                <b>{{ 'SEARCH.PHOTO_ARCHIVE.IMAGE_SIZE' | translate }}</b>
+                                <selectexact custom-css="searchCriterionType"
+                                             ng-model="searchParameters.imageSize.lookUpType"></selectexact>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.imageSize.name" class="form-control"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <label class="control-label col-md-2">{{ 'SEARCH.PHOTO_ARCHIVE.PEOPLE' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectdefault ng-model = "photoArchiveSearch.people.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="photoArchiveSearch.people.name" class="form-control"/>
+            </div>
+            <div class="row">
+                <div class="panel-heading searchGroupHeading"
+                     ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
+                    <h4 class="panel-title">
+                        {{ 'SEARCH.LOCALITIES.LOCATION.LOCATION'| translate }}
+                        <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
+                    </h4>
+                </div>
+                <div uib-collapse="isLocationFieldsCollapsed">
+                    <div class="well well-lg">
+                        <div class="row searchCriterion">
+                            <div class="col-md-12  medium-padding">
+                                <b>{{ 'SEARCH.PHOTO_ARCHIVE.LOCALITY' | translate }}</b>
+                                <selectdefault custom-css="searchCriterionType"
+                                               ng-model="searchParameters.locality.lookUpType"></selectdefault>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.locality.name" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row searchCriterion">
+                            <div class="col-md-12  medium-padding">
+                                <b>{{ 'SEARCH.PHOTO_ARCHIVE.ADMIN_UNIT' | translate }}</b>
+                                <selectdefault custom-css="searchCriterionType"
+                                               ng-model="searchParameters.adminunit.lookUpType"></selectdefault>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.adminunit.name" class="form-control"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <label class="control-label col-md-2">{{ 'SEARCH.PHOTO_ARCHIVE.KEY_WORDS' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectdefault ng-model = "photoArchiveSearch.keywords.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="photoArchiveSearch.keywords.name" class="form-control"/>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="panel-heading searchGroupHeading"
+                     ng-click="isInstitutionsCollapsed = !isInstitutionsCollapsed">
+                    <h4 class="panel-title title-institutions">
+                        {{ 'SEARCH.INSTITUTIONS'| translate }}
+                        <section-opened-icon is-opened="isInstitutionsCollapsed"/>
+                    </h4>
                 </div>
-                <div class="row">
-                    <label class="control-label col-md-2">{{ 'SEARCH.PHOTO_ARCHIVE.ADMIN_UNIT' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectdefault ng-model = "photoArchiveSearch.adminunit.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="photoArchiveSearch.adminunit.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="control-label col-md-2">{{ 'SEARCH.PHOTO_ARCHIVE.DATE' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectexact ng-model = "photoArchiveSearch.dateTaken.lookUpType"></selectexact>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="photoArchiveSearch.dateTaken.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="control-label col-md-2">{{ 'SEARCH.PHOTO_ARCHIVE.NUMBER' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectdefault ng-model = "photoArchiveSearch.imageNumber.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="photoArchiveSearch.imageNumber.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="control-label col-md-2">{{ 'SEARCH.PHOTO_ARCHIVE.AUTHOR' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectdefault ng-model = "photoArchiveSearch.authorAgent.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="photoArchiveSearch.authorAgent.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="control-label col-md-2">{{ 'SEARCH.PHOTO_ARCHIVE.IMAGE_SIZE' | translate }}</label>
-                    <div class="col-md-3">
-                        <selectexact ng-model = "photoArchiveSearch.imageSize.lookUpType"></selectexact>
-                    </div>
-                    <div class="col-md-7">
-                        <input type="text" ng-model="photoArchiveSearch.imageSize.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">Show additional criteria</a>
-                    <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">Hide additional criteria</a>
-                </div>
-                <div class="row">
-                    <label class="col-md-2">Institutions:</label>
-                    <label data-ng-repeat="state in departments"><input style="margin: 10px;" type="checkbox" value="{{state.code}}" data-ng-checked="specimensSearch.dbs.indexOf(state.code) > -1" data-ng-click="toggle(state.code)"> {{state.label}} </label>
-                </div>
-                <div class="row">
-                    <label class="control-label col-md-2">Sort by:</label>
-                    <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="photoArchiveSearch.content.lookUpType"
-                                data-ng-options="option.name for option in sortbyOptions track by option.value">
-                            <option value="">-- Choose --</option>
-                        </select>
-                    </div>
-                    <div class="col-md-5">
-                        <ascdesc></ascdesc>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-5">
+                <div uib-collapse="isInstitutionsCollapsed" class="well well-lg">
+                    <div class="row searchCriterion">
+                        <div class="checkbox" data-ng-repeat="state in departments">
                             <label>
-                                Show map: <input type="checkbox" ng-model="showMap"/>
+                                <input class="institution" type="checkbox"
+                                       value="{{state.code}}"
+                                       checked="checked"
+                                       data-ng-click="toggle(state.code)">
+                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                {{state.label}}
                             </label>
                         </div>
                     </div>
-                    <div class="row geo-section-row no-border">
-                        <button class="btn btn-default pull-right" data-ng-click="defaultSearch()"><i class="glyphicon glyphicon-erase"></i> Reset form</button>
-                        <button class="btn btn-default pull-right" data-ng-click="imageSearch()"><i class="glyphicon glyphicon-picture"></i> Search images</button>
-                        <button class="btn btn-default pull-right" data-ng-click="search()">
-                            <i class="glyphicon glyphicon-search"></i> Send query</button>
-                    </div>
                 </div>
             </div>
-            <div class="col-md-5">
-                <span>{{ 'SEARCH.PHOTO_ARCHIVE.SEARCH_TIPS.ONE' | translate }}</span>
-                <span>{{ 'SEARCH.PHOTO_ARCHIVE.SEARCH_TIPS.TWO' | translate }}</span>
+            <div class="row pull-right">
+                <button id="btn-form-reset" class="btn btn-danger" data-ng-click="searchDefault()">
+                    <i class="glyphicon glyphicon-erase"></i><span class="hidden-sm">{{ 'SEARCH.RESET_FORM'| translate }}</span>
+                </button>
+                <button id="btn-form-send" class="btn btn-info btn-primary" data-ng-click="search()">
+                    <i class="glyphicon glyphicon-search"></i><span>{{ 'SEARCH.SEND_QUERY'| translate }}</span>
+                </button>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="row geo-list-info ">
-                    <div class="col-md-6 text-right">
-                        <p class="amount">Kokku: {{response.count}}</p>
+        <div class="col-sm-9 col-md-9 col-lg-9">
+            <div class="row">
+                <div data-ng-if="isHintHidden">
+                    <div class="col-lg-8">
+                        <h4 class="header-collection">{{'SEARCH.ANALYSES.HELP_POPUP.HEADING'| translate}}</h4>
+                        <ul class="fa-ul ul-square">
+                            <li>{{'SEARCH.ANALYSES.HELP_POPUP.PARAGRAPH_ONE'| translate}}</li>
+                            <li>{{'SEARCH.ANALYSES.HELP_POPUP.PARAGRAPH_TWO'| translate}}</li>
+                            <li>{{'SEARCH.ANALYSES.HELP_POPUP.PARAGRAPH_THREE'| translate}}</li>
+                            <li>{{'SEARCH.ANALYSES.HELP_POPUP.PARAGRAPH_FOUR'| translate}}</li>
+                        </ul>
                     </div>
                 </div>
-                <table class="table table-bordered table-hover">
-                    <thead>
+                <loading></loading>
+            </div>
+            <div class="row">
+                <nav class="pull-right">
+                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize"
+                        max-size="searchParameters.maxSize" rotate="false" total-items="totalItems"
+                        ng-model="searchParameters.page" class="pagination-sm" previous-text="&lsaquo;"
+                        next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+                </nav>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="table-search">
+                    <thead class="thead-default">
                     <tr>
                         <th>{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.ID' | translate }}</th>
                         <th>{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.NUMBER' | translate }}</th>
@@ -139,23 +185,31 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr style="cursor: pointer; " data-ng-repeat="entity in response.result" data-ng-click="openInNewWindow({object:'image',id:entity.id})" >
-                        <td><a href data-ng-click="openInNewWindow({object:'image',id:entity.id})" >{{entity.imageNumber}}</a></td>
-                        <td>{{entity.imageNumber}}</td>
-                        <td>{{entity.authorAgent}}</td>
-                        <td>{{entity.dateTaken}}</td>
-                        <td>{{entity.locality}}</td>
-                        <td>{{entity.object}}</td>
-                        <td>{{entity.keywords}}</td>
+                    <tr data-ng-repeat="entity in response.result">
+                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.ID' | translate }}"><a href
+                                                                                              data-ng-click="openInNewWindow({object:'image',id:entity.id})">{{entity.imageNumber}}</a>
+                        </td>
+                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.NUMBER' | translate }}">{{entity.imageNumber}}
+                        </td>
+                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.AUTHOR' | translate }}">{{entity.authorAgent}}
+                        </td>
+                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.DATE' | translate }}">{{entity.dateTaken}}</td>
+                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.LOCALITY' | translate }}">{{entity.locality}}
+                        </td>
+                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.CATEGORY' | translate }}">{{entity.object}}</td>
+                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.KEY_WORDS' | translate }}">{{entity.keywords}}
+                        </td>
                     </tr>
                     </tbody>
                 </table>
-                <div class="text-right">
+            </div>
+            <div class="row">
+                <nav class="pull-right">
                     <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize"
-                        max-size="photoArchiveSearch.maxSize" rotate="false" total-items="totalItems"
-                        ng-model="photoArchiveSearch.page" class="pagination-sm" previous-text="&lsaquo;"
+                        max-size="searchParameters.maxSize" rotate="false" total-items="totalItems"
+                        ng-model="searchParameters.page" class="pagination-sm" previous-text="&lsaquo;"
                         next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
-                </div>
+                </nav>
             </div>
         </div>
     </div>

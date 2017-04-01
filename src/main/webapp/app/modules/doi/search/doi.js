@@ -1,22 +1,26 @@
-angular.module('search').controller('SearchDoiController', function($scope, DoiService, $stateParams, SearchService){
-
-    $scope.departments = [
-        {code:"GIT",label:"GIT"},
-        {code:"TUG",label:"TUG"},
-        {code:"ELM",label:"ELM"},
-        {code:"TUGO",label:"TUGO"},
-        {code:"MUMU",label:"MUMU"},
-        {code:"EGK",label:"EGK"}];
-
-    $scope.searchService = SearchService;
-    $scope.entitySelected = function(item) {
-        $scope.searchParameters.author.name = item;
-    };
-
+angular.module('search').controller('SearchDoiController', function ($scope, DoiService, $stateParams, SearchService, $uibModal, $window) {
     $scope.isInstitutionsCollapsed = true;
     $scope.isIdentifierFieldsCollapsed = false;
 
-    $scope.toggle = function(state) {
+    $scope.departments = [
+        {code: "GIT", label: "GIT"},
+        {code: "TUG", label: "TUG"},
+        {code: "ELM", label: "ELM"},
+        {code: "TUGO", label: "TUGO"},
+        {code: "MUMU", label: "MUMU"},
+        {code: "EGK", label: "EGK"}];
+
+    $scope.searchService = SearchService;
+    $scope.entitySelected = function (item) {
+        $scope.searchParameters.author.name = item;
+    };
+
+    $scope.showHint = function () {
+        $scope.isHintHidden = !$scope.isHintHidden;
+        $scope.getLocalities($scope.response.result);
+    };
+
+    $scope.toggle = function (state) {
         var i = $scope.searchParameters.dbs.indexOf(state);
         if (i > -1) {
             $scope.searchParameters.dbs.splice(i, 1);
@@ -24,8 +28,8 @@ angular.module('search').controller('SearchDoiController', function($scope, DoiS
             $scope.searchParameters.dbs.push(state);
         }
     };
-    $scope.search = function() {
-        DoiService.search($scope.searchParameters, $stateParams).then(function(result) {
+    $scope.search = function () {
+        DoiService.search($scope.searchParameters, $stateParams).then(function (result) {
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
             $scope.searchParameters.maxSize = 5;
@@ -33,8 +37,8 @@ angular.module('search').controller('SearchDoiController', function($scope, DoiS
         });
     };
 
-    $scope.searchDefault = function() {
-        $scope.searchParameters = {sortField : {}, dbs : []};
+    $scope.searchDefault = function () {
+        $scope.searchParameters = {sortField: {}, dbs: []};
         $scope.searchParameters.sortField.sortBy = "id";
         $scope.sortByAsc = true;
         $scope.toggle("GIT");
@@ -42,28 +46,34 @@ angular.module('search').controller('SearchDoiController', function($scope, DoiS
     };
     $scope.searchDefault();
 
-    $scope.order = function(predicate) {
+    $scope.order = function (predicate) {
         $scope.sortByAsc = ($scope.searchParameters.sortField.sortBy === predicate ? !$scope.sortByAsc : true);
-        $scope.searchParameters.sortField.sortBy =  predicate;
-        !$scope.sortByAsc ? $scope.searchParameters.sortField.order = "ASCENDING" :  $scope.searchParameters.sortField.order = "DESCENDING";
+        $scope.searchParameters.sortField.sortBy = predicate;
+        !$scope.sortByAsc ? $scope.searchParameters.sortField.order = "ASCENDING" : $scope.searchParameters.sortField.order = "DESCENDING";
         $scope.search();
     };
 
-}).controller('DoiDetailsController', function($scope,$stateParams, DoiService){
-    DoiService.details($stateParams).then(function(result) {
+}).controller('DoiDetailsController', function ($scope, $stateParams, DoiService) {
+    DoiService.details($stateParams).then(function (result) {
         console.log(result)
         $scope.doi = result.reference.result[0];
         $scope.doiAgent = result.reference.relatedData != null ? result.reference.relatedData.doiAgent : null;
         $scope.doiRelatedIdentifier = result.reference.relatedData != null ? result.reference.relatedData.doiRelatedIdentifier : null;
         $scope.doiGeolocation = result.reference.relatedData != null ? result.reference.relatedData.doiGeolocation : null;
 
-        $scope.getLocalities = function() {
+        $scope.getLocalities = function () {
             $scope.localities = [];
-            if($scope.doiGeolocation){
+            if ($scope.doiGeolocation) {
                 angular.forEach($scope.doiGeolocation, function (el) {
-                    if(el.point != null && el.point != ""){
+                    if (el.point != null && el.point != "") {
                         var token = el.point.split(" ");
-                        $scope.localities.push({latitude:token[0], longitude:token[1], localityEng : "", localityEt:"", fid:el.locality})
+                        $scope.localities.push({
+                            latitude: token[0],
+                            longitude: token[1],
+                            localityEng: "",
+                            localityEt: "",
+                            fid: el.locality
+                        })
                     }
                 })
             }
@@ -81,9 +91,9 @@ angular.module('search').controller('SearchDoiController', function($scope, DoiS
                     return response.data;
                 });
         },
-        details: function(params) {
-            return $http.get('/details/doi/'+params.id)
-                .then(function(response){
+        details: function (params) {
+            return $http.get('/details/doi/' + params.id)
+                .then(function (response) {
                     return response.data;
                 });
         }

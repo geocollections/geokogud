@@ -1,17 +1,16 @@
-angular.module('search').controller('SearchReferenceController', function($scope, ReferenceService, $stateParams){
+angular.module('search').controller('SearchReferenceController', function ($scope, ReferenceService, $stateParams, $uibModal, $window) {
+    $scope.isIdentifierFieldsCollapsed = false;
+    $scope.isInstitutionsCollapsed = true;
 
     $scope.departments = [
-        {code:"GIT",label:"GIT"},
-        {code:"TUG",label:"TUG"},
-        {code:"ELM",label:"ELM"},
-        {code:"TUGO",label:"TUGO"},
-        {code:"MUMU",label:"MUMU"},
-        {code:"EGK",label:"EGK"}];
+        {code: "GIT", label: "GIT"},
+        {code: "TUG", label: "TUG"},
+        {code: "ELM", label: "ELM"},
+        {code: "TUGO", label: "TUGO"},
+        {code: "MUMU", label: "MUMU"},
+        {code: "EGK", label: "EGK"}];
 
-    $scope.isInstitutionsCollapsed = true;
-    $scope.isIdentifierFieldsCollapsed = false;
-
-    $scope.toggle = function(state) {
+    $scope.toggle = function (state) {
         var i = $scope.searchParameters.dbs.indexOf(state);
         if (i > -1) {
             $scope.searchParameters.dbs.splice(i, 1);
@@ -19,17 +18,57 @@ angular.module('search').controller('SearchReferenceController', function($scope
             $scope.searchParameters.dbs.push(state);
         }
     };
-    $scope.search = function() {
-        ReferenceService.search($scope.searchParameters, $stateParams).then(function(result) {
+    $scope.showHint = function () {
+        $scope.isHintHidden = !$scope.isHintHidden;
+        $scope.getLocalities($scope.response.result);
+    };
+
+    $scope.getLocalities = function (list) {
+        $scope.localities = [];
+        if (list) {
+            angular.forEach(list, function (el) {
+                if (el.latitude != null && el.longitude != null)
+                    $scope.localities.push({latitude: el.latitude, longitude: el.longitude})
+            })
+        }
+        console.log($scope.localities);
+        return $scope.localities;
+    };
+    $scope.search = function () {
+        ReferenceService.search($scope.searchParameters, $stateParams).then(function (result) {
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
-            $scope.searchParameters.maxSize = 5;
+            $scope.windowWidth = "innerWidth" in window ? window.innerWidth : document.documentElement.offsetWidth;
+            if ($scope.windowWidth > 400) {
+                $scope.searchParameters.maxSize = 5;
+            } else {
+                $scope.searchParameters.maxSize = 2;
+            }
+            // Window resize event
+            var w = angular.element($window);
+            w.bind('resize', function () {
+                $scope.windowWidth = "innerWidth" in window ? window.innerWidth : document.documentElement.offsetWidth;
+                // Change maxSize based on window width
+                /* if($scope.windowWidth > 1000) {
+                 $scope.searchParameters.maxSize = 15;
+                 } else if($scope.windowWidth > 800) {
+                 $scope.searchParameters.maxSize = 10;
+                 } else if($scope.windowWidth > 600) {
+                 $scope.searchParameters.maxSize = 8;
+                 } */
+                if ($scope.windowWidth > 400) {
+                    $scope.searchParameters.maxSize = 5;
+                } else {
+                    $scope.searchParameters.maxSize = 2;
+                }
+                $scope.$apply();
+            });
             $scope.response = result;
         });
     };
 
-    $scope.searchDefault = function() {
-        $scope.searchParameters = {sortField : {}, dbs : []};
+    $scope.searchDefault = function () {
+        $scope.searchParameters = {sortField: {}, dbs: []};
         $scope.searchParameters.sortField.sortBy = "id";
         $scope.sortByAsc = true;
         $scope.toggle("GIT");
@@ -37,15 +76,15 @@ angular.module('search').controller('SearchReferenceController', function($scope
     };
     $scope.searchDefault();
 
-    $scope.order = function(predicate) {
+    $scope.order = function (predicate) {
         $scope.sortByAsc = ($scope.searchParameters.sortField.sortBy === predicate ? !$scope.sortByAsc : true);
-        $scope.searchParameters.sortField.sortBy =  predicate;
-        !$scope.sortByAsc ? $scope.searchParameters.sortField.order = "ASCENDING" :  $scope.searchParameters.sortField.order = "DESCENDING";
+        $scope.searchParameters.sortField.sortBy = predicate;
+        !$scope.sortByAsc ? $scope.searchParameters.sortField.order = "ASCENDING" : $scope.searchParameters.sortField.order = "DESCENDING";
         $scope.search();
     };
 
-}).controller('ReferenceDetailsController', function($scope,$stateParams, ReferenceService){
-    ReferenceService.details($stateParams).then(function(result) {
+}).controller('ReferenceDetailsController', function ($scope, $stateParams, ReferenceService) {
+    ReferenceService.details($stateParams).then(function (result) {
         $scope.reference = result.reference.result[0];
         console.log(result);
     });
@@ -53,17 +92,17 @@ angular.module('search').controller('SearchReferenceController', function($scope
     return {
         search: function (searchParameters, params) {
             var search = "reference";
-            if(params.doi) search = "doi";
-            return $http.post('/search/'+search, searchParameters)
+            if (params.doi) search = "doi";
+            return $http.post('/search/' + search, searchParameters)
                 .then(function (response) {
                     return response.data;
                 });
         },
-        details: function(params) {
+        details: function (params) {
             var search = "reference";
-            if(params.doi) search = "doi";
-            return $http.get('/details/'+search+'/'+params.id)
-                .then(function(response){
+            if (params.doi) search = "doi";
+            return $http.get('/details/' + search + '/' + params.id)
+                .then(function (response) {
                     return response.data;
                 });
         }

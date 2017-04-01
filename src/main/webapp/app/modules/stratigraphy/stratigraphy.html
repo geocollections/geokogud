@@ -1,111 +1,146 @@
-<div class="panel panel-default">
-    <div class="panel-body">
-        <div class="row">
-            <div class="text-center">
-                <h1>{{ 'SEARCH.STRATIGRAPHY.HEADING' | translate }}</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <div class="row">
+                <h3 class="search-heading">{{ 'SEARCH.STRATIGRAPHY.HEADING' | translate }} <span
+                        class="badge badge-info">{{response.count}}</span>
+                    <button type="submit" value="showHint" class="btn btn-info btn-sm pull-right"
+                            data-ng-click="showHint()">
+                        <span class="glyphicon glyphicon-question-sign"></span> {{ 'SEARCH.FAQ' | translate }}
+                    </button>
+                </h3>
+            </div>
+            <div class="row">
+                <div class="panel-heading searchGroupHeading"
+                     ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
+                    <h4 class="panel-title">
+                        {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
+                        <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
+                    </h4>
+                </div>
+                <div uib-collapse="isIdentifierFieldsCollapsed">
+                    <div class="well well-lg">
+                        <div class="row searchCriterion">
+                            <div class="col-md-12  medium-padding">
+                                <b>{{ 'SEARCH.STRATIGRAPHY.ID' | translate }}</b>
+                                <selectexact custom-css="searchCriterionType"
+                                             ng-model="searchParameters.id.lookUpType"></selectexact>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row searchCriterion">
+                            <div class="col-md-12  medium-padding">
+                                <b>{{ 'SEARCH.STRATIGRAPHY.STRATIGRAPHY' | translate }}</b>
+                                <selecthierarchy custom-css="searchCriterionType"
+                                                 ng-model="searchParameters.stratigraphy.lookUpType"></selecthierarchy>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.stratigraphy.name" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row searchCriterion">
+                            <div class="col-md-12  medium-padding">
+                                <b>{{ 'SEARCH.STRATIGRAPHY.INDEX' | translate }}</b>
+                                <selectdefault custom-css="searchCriterionType"
+                                               ng-model="searchParameters.index.lookUpType"></selectdefault>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.index.name" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row searchCriterion">
+                            <div class="col-md-12  medium-padding">
+                                <b>{{ 'SEARCH.STRATIGRAPHY.AGE_MIN_Y' | translate }}</b>
+                                <selectexact custom-css="searchCriterionType"
+                                             ng-model="searchParameters.ageMinY.lookUpType"></selectexact>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.ageMinY.name" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row searchCriterion">
+                            <div class="col-md-12  medium-padding">
+                                <b>{{ 'SEARCH.STRATIGRAPHY.MAIN_LITHOLOGY' | translate }}</b>
+                                <selectdefault custom-css="searchCriterionType"
+                                               ng-model="searchParameters.mainLithology.lookUpType"></selectdefault>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.mainLithology.name" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row searchCriterion">
+                            <div class="col-md-12  medium-padding">
+                                <b>{{ 'SEARCH.STRATIGRAPHY.AUTHOR' | translate }}</b>
+                                <selectdefault custom-css="searchCriterionType"
+                                               ng-model="searchParameters.author.lookUpType"></selectdefault>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.author.name" class="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="panel-heading searchGroupHeading"
+                     ng-click="isInstitutionsCollapsed = !isInstitutionsCollapsed">
+                    <h4 class="panel-title">
+                        {{ 'SEARCH.INSTITUTIONS'| translate }}
+                        <section-opened-icon is-opened="isInstitutionsCollapsed"/>
+                    </h4>
+                </div>
+                <div uib-collapse="isInstitutionsCollapsed" class="well well-lg">
+                    <div class="row searchCriterion">
+                        <div class="checkbox" data-ng-repeat="state in departments">
+                            <label>
+                                <input class="institution" type="checkbox"
+                                       value="{{state.code}}"
+                                       checked="checked"
+                                       data-ng-click="toggle(state.code)">
+                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                {{state.label}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pull-right">
+                <button id="btn-form-reset" class="btn btn-danger" data-ng-click="searchDefault()">
+                    <i class="glyphicon glyphicon-erase"></i><span class="hidden-sm">{{ 'SEARCH.RESET_FORM'| translate }}</span>
+                </button>
+                <button id="btn-form-send" class="btn btn-info btn-primary" data-ng-click="search()">
+                    <i class="glyphicon glyphicon-search"></i><span>{{ 'SEARCH.SEND_QUERY'| translate }}</span>
+                </button>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="row" data-ng-if="showAdditionalCriteria">
-                    <label class="control-label col-md-2">{{ 'SEARCH.STRATIGRAPHY.ID' | translate }}</label>
-                    <div class="col-md-5">
-                        <selectexact ng-model="stratigraphicSearch.id.lookUpType"></selectexact>
-                    </div>
-                    <div class="col-md-5">
-                        <input type="text" ng-model="stratigraphicSearch.id.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="control-label col-md-2">{{ 'SEARCH.STRATIGRAPHY.STRATIGRAPHY' | translate }}</label>
-                    <div class="col-md-5">
-                        <selectdefault ng-model="stratigraphicSearch.stratigraphy.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-5">
-                        <input type="text" ng-model="stratigraphicSearch.stratigraphy.name" class="form-control"/>
+        <div class="col-sm-9 col-md-9 col-lg-9">
+            <div class="row">
+                <div data-ng-if="isHintHidden">
+                    <div class="col-lg-8">
+                        <h4 class="header-collection">{{'SEARCH.ANALYSES.HELP_POPUP.HEADING'| translate}}</h4>
+                        <ul class="fa-ul ul-square">
+                            <li>{{'SEARCH.ANALYSES.HELP_POPUP.PARAGRAPH_ONE'| translate}}</li>
+                            <li>{{'SEARCH.ANALYSES.HELP_POPUP.PARAGRAPH_TWO'| translate}}</li>
+                            <li>{{'SEARCH.ANALYSES.HELP_POPUP.PARAGRAPH_THREE'| translate}}</li>
+                            <li>{{'SEARCH.ANALYSES.HELP_POPUP.PARAGRAPH_FOUR'| translate}}</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="row">
-                    <label class="control-label col-md-2">{{ 'SEARCH.STRATIGRAPHY.INDEX' | translate }}</label>
-                    <div class="col-md-5">
-                        <selectdefault ng-model="stratigraphicSearch.index.lookUpType"></selectdefault>
-                    </div>
-                    <div class="col-md-5">
-                        <input type="text" ng-model="stratigraphicSearch.index.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="control-label col-md-2">{{ 'SEARCH.STRATIGRAPHY.AGE_MIN_Y' | translate }}</label>
-                    <div class="col-md-5">
-                        <selectexact ng-model="stratigraphicSearch.ageMinY.lookUpType"></selectexact>
-                    </div>
-                    <div class="col-md-5">
-                        <input type="text" ng-model="stratigraphicSearch.ageMinY.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="control-label col-md-2">{{ 'SEARCH.STRATIGRAPHY.MAIN_LITHOLOGY' | translate }}</label>
-                    <div class="col-md-5">
-                        <selectexact ng-model="stratigraphicSearch.mainLithology.lookUpType"></selectexact>
-                    </div>
-                    <div class="col-md-5">
-                        <input type="text" ng-model="stratigraphicSearch.mainLithology.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <label class="control-label col-md-2">{{ 'SEARCH.STRATIGRAPHY.AUTHOR' | translate }}</label>
-                    <div class="col-md-5">
-                        <selectexact ng-model="stratigraphicSearch.author.lookUpType"></selectexact>
-                    </div>
-                    <div class="col-md-5">
-                        <input type="text" ng-model="stratigraphicSearch.author.name" class="form-control"/>
-                    </div>
-                </div>
-                <div class="row">
-                    <a href="" data-ng-show="!showAdditionalCriteria" data-ng-click="showAdditionalCriteria = true">{{ 'SEARCH.SHOW_ADDITIONAL_CRITERIA' | translate }}</a>
-                    <a href="" data-ng-show="showAdditionalCriteria" data-ng-click="showAdditionalCriteria = false">{{ 'SEARCH.HIDE_ADDITIONAL_CRITERIA' | translate }}</a>
-                </div>
-                <div class="row">
-                    <label class="control-label col-md-2"><span>{{ 'SEARCH.SORT_BY' | translate }}</span>:</label>
-                    <div class="col-md-5">
-                        <select class="col-md-4 form-control"
-                                data-ng-model="stratigraphicSearch.content.lookUpType"
-                                data-ng-options="option.name for option in sortbyOptions track by option.value">
-                            <option value="">{{ 'SEARCH.CHOOSE' | translate }}</option>
-                        </select>
-                    </div>
-                    <div class="col-md-5">
-                        <ascdesc></ascdesc>
-                    </div>
-                    <div class="row geo-section-row no-border">
-                        <button class="btn btn-default pull-right" data-ng-click="defaultSearch()"><i class="glyphicon glyphicon-erase"></i>{{ 'SEARCH.RESET_FORM' | translate }}</button>
-                        <button class="btn btn-default pull-right" data-ng-click="search()">
-                            <i class="glyphicon glyphicon-search"></i>{{ 'SEARCH.SEND_QUERY' | translate }}</button>
-                    </div>
-                </div>
+                <loading></loading>
             </div>
-            <div class="col-md-5">
-                SEARCH TIPS:
-
-                First select the base table (specimens, samples, localities, references etc);
-                Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search 'asap' in specimen name field will find 'Asaphus sp.' as well as 'Asaphus expansus'); for stratigraphy and classification the search is hierarchical by default, for number fields exact maches will be searched if user does not specify otherwise;
-                To show a map where available, tick the appropriate checkbox;
-                To show detailed information follow the links in the results table.
+            <div class="row">
+                <nav class="pull-right">
+                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize"
+                        max-size="searchParameters.maxSize" rotate="false" total-items="totalItems"
+                        ng-model="searchParameters.page" class="pagination-sm" previous-text="&lsaquo;"
+                        next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+                </nav>
             </div>
-        </div>
-        <div class="row">
-            <loading></loading>
-            <div class="col-lg-4">
-                <div class="row geo-list-info ">
-                    <div class="col-md-6 text-right">
-                        <p class="amount"><span>{{ 'SEARCH.NO_OF_RESULTS' | translate }}</span>: {{response.count}}</p>
-                    </div>
-                </div>
-                <div class="text-right">
-                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize" max-size="stratigraphicSearch.maxSize" rotate="false" total-items="totalItems" ng-model="stratigraphicSearch.page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
-                </div>
-                <table class="table table-bordered table-hover">
-                    <thead>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="table-search">
+                    <thead class="thead-default">
                     <tr>
                         <th>{{ 'SEARCH.STRATIGRAPHY.TABLE.ID' | translate }}</th>
                         <th>{{ 'SEARCH.STRATIGRAPHY.TABLE.STRATIGRAPHY_ET' | translate }}</th>
@@ -121,24 +156,37 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr style="cursor: pointer; " data-ng-repeat="entity in response.result">
-                        <td><a href data-ng-click="openInNewWindow({object:'stratigraphy',id:entity.id})">{{entity.id}}</a></td>
-                        <td>{{entity.stratigraphy}}</td>
-                        <td>{{entity.stratigraphyEn}}</td>
-                        <td>{{entity.indexMain}}</td>
-                        <td>{{entity.indexAdditional}}</td>
-                        <td>???Type</td>
-                        <td>{{entity.rankValue}}</td>
-                        <td>{{entity.scopeValue}}</td>
-                        <td>???lithology</td>
-                        <td>???age_base</td>
-                        <td>{{entity.parentStratigraphy}}</td>
+                    <tr data-ng-repeat="entity in response.result">
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.ID' | translate }}"><a href
+                                                                                             data-ng-click="openInNewWindow({object:'stratigraphy',id:entity.id})">{{entity.id}}</a>
+                        </td>
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.STRATIGRAPHY_ET' | translate }}">
+                            {{entity.stratigraphy}}
+                        </td>
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.STRATIGRAPHY_EN' | translate }}">
+                            {{entity.stratigraphyEn}}
+                        </td>
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.INDEX' | translate }}">{{entity.indexMain}}</td>
+                        <td data-title="">{{entity.indexAdditional}}</td>
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.TYPE' | translate }}">???Type</td>
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.RANK' | translate }}">{{entity.rankValue}}</td>
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.SCOPE' | translate }}">{{entity.scopeValue}}</td>
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.AGE' | translate }}">???lithology</td>
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.AGE_MA' | translate }}">???age_base</td>
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.BELONGS_TO' | translate }}">
+                            {{entity.parentStratigraphy}}
+                        </td>
                     </tr>
                     </tbody>
                 </table>
-                <div class="text-right">
-                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize" max-size="stratigraphicSearch.maxSize" rotate="false" total-items="totalItems" ng-model="stratigraphicSearch.page" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
-                </div>
+            </div>
+            <div class="row">
+                <nav class="pull-right">
+                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize"
+                        max-size="searchParameters.maxSize" rotate="false" total-items="totalItems"
+                        ng-model="searchParameters.page" class="pagination-sm" previous-text="&lsaquo;"
+                        next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+                </nav>
             </div>
         </div>
     </div>

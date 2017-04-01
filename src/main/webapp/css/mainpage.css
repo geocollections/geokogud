@@ -7,11 +7,11 @@ footer {
     padding-bottom: 20px;
 }
 
-#contact, #about, #additional {
+#contact, #about{
     padding-top: 50px;
     padding-bottom: 50px;
 }
-#search {
+#search, #additional {
     padding-top: 0px;
     padding-bottom: 0px;
 }
@@ -298,7 +298,66 @@ footer {
 #table-search tr > td > a:hover {
     color:#FF2F00;
 }
-.searchGroupHeading {
-    border-bottom: 1px solid #9c9c9c;
-    cursor: pointer;
+
+table tr > td:first-child {
+    font-weight: 700;
+}
+
+
+@media only screen and (max-width: 800px) {
+
+    /* Force table to not be like tables anymore */
+    #table-search table,
+    #table-search thead,
+    #table-search tbody,
+    #table-search th,
+    #table-search td,
+    #table-search tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    #table-search thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    #table-search tr { border: 1px solid #ccc; }
+
+    #table-search td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        white-space: normal;
+        text-align:left;
+    }
+
+    #table-search td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align:left;
+        font-weight: bold;
+    }
+
+    /*
+    Label the data
+    */
+    #table-search td:before { content: attr(data-title); }
+}
+
+.searchCriterionType {
+    float: right;
+    margin-bottom: 2px;
+}
+.panel-title {
+    cursor:pointer;
 }

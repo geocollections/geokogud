@@ -49,7 +49,7 @@ angular.module('geoApp').config(function($stateProvider, $urlRouterProvider, $ht
 
     $stateProvider.state('index', {
         url: "/",
-        template: "<div>{{ 'INDEX.PAGE_LOADING' | translate }}</div>",
+     //   template: "<div>{{ 'INDEX.PAGE_LOADING' | translate }}</div>",
         params: {toState: {name: 'index'}, id: null, readOnly: true, serviceAreaId: null},
         controller: function($http, $rootScope, $state, $stateParams) {
 

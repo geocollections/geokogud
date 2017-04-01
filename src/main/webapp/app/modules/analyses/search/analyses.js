@@ -1,24 +1,9 @@
-angular.module('search.analyses', []).config(function ($stateProvider, $urlRouterProvider) {
-    $stateProvider.state('search.analyses', {
-        url: "/analyses",
-        templateUrl: "app/modules/analyses/search/analyses.html",
-        controller: "SearchAnalysesController",
-        reloadOnSearch: false
-    });
-});
-angular.module('search').controller('SearchAnalysesController', function ($scope, $stateParams, $location, $state, SearchService) {
+angular.module('search').controller('SearchAnalysesController', function ($scope, $stateParams, $location, $state, SearchService, $uibModal, $window) {
     $scope.isIdentifierFieldsCollapsed = false;
     $scope.isLocationFieldsCollapsed = true;
     $scope.isAnalysesFieldsCollapsed = true;
     $scope.isInstitutionsCollapsed = true;
-    $scope.sortbyOptions = [
-        {name: 'ID', value: 'id'},
-        {name: 'Number', value: 'number'},
-        {name: 'Locality', value: 'locality'},
-        {name: 'Depth (m)', value: 'depth'},
-        {name: 'Stratigraphy', value: 'stratigraphy'},
-        {name: 'Collector', value: 'collector'},
-    ];
+
     $scope.departments = [
         {code: "GIT", label: "GIT"},
         {code: "TUG", label: "TUG"},
@@ -31,9 +16,13 @@ angular.module('search').controller('SearchAnalysesController', function ($scope
         if (!search) search = "analysis";
         //
         SearchService.getSearch(search).then(function (search) {
-            $scope.sampleSearch = search;
+            $scope.searchParameters = search;
             $scope.search();
         });
+    };
+    $scope.showHint = function () {
+        $scope.isHintHidden = !$scope.isHintHidden;
+        $scope.getLocalities($scope.response.result);
     };
 
     $scope.searchDefault();
@@ -64,9 +53,34 @@ angular.module('search').controller('SearchAnalysesController', function ($scope
             contentValue: returnValue(s.content),
             contentType: returnType(s.content)
         });
-        SearchService.listSearch($scope.sampleSearch).then(function (result) {
+        SearchService.listSearch($scope.searchParameters).then(function (result) {
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
+            $scope.windowWidth = "innerWidth" in window ? window.innerWidth : document.documentElement.offsetWidth;
+            if ($scope.windowWidth > 400) {
+                $scope.searchParameters.maxSize = 5;
+            } else {
+                $scope.searchParameters.maxSize = 2;
+            }
+            // Window resize event
+            var w = angular.element($window);
+            w.bind('resize', function () {
+                $scope.windowWidth = "innerWidth" in window ? window.innerWidth : document.documentElement.offsetWidth;
+                // Change maxSize based on window width
+                /* if($scope.windowWidth > 1000) {
+                 $scope.searchParameters.maxSize = 15;
+                 } else if($scope.windowWidth > 800) {
+                 $scope.searchParameters.maxSize = 10;
+                 } else if($scope.windowWidth > 600) {
+                 $scope.searchParameters.maxSize = 8;
+                 } */
+                if ($scope.windowWidth > 400) {
+                    $scope.searchParameters.maxSize = 5;
+                } else {
+                    $scope.searchParameters.maxSize = 2;
+                }
+                $scope.$apply();
+            });
             $scope.response = result;
             console.log($location.search().bedIndexValue);
         });

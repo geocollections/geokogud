@@ -11,7 +11,7 @@ jQuery(document).ready(function ($) {
     });
     $(document).on('click', 'a.page-scroll-to-searches', function(event) {
         $('html, body').stop().animate({
-            scrollTop: ($("#search").offset().top - 50)
+            scrollTop: ($("#searches").offset().top - 50)
         }, 1250, 'easeInOutExpo');
         event.preventDefault();
     });
@@ -21,7 +21,11 @@ jQuery(document).ready(function ($) {
         }, 1250, 'easeInOutExpo');
         event.preventDefault();
     });
-
+    $(document).on('click','.navbar-collapse.in',function(e) {
+        if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
+            $(this).collapse('hide');
+        }
+    });
     // Highlight the top nav as scrolling occurs
     $('body').scrollspy({
         target: '.navbar-fixed-top',
@@ -82,10 +86,5 @@ jQuery(document).ready(function ($) {
             }
         );
     });
-
+    $("body").tooltip({ selector: '[data-toggle=tooltip]' });
 });
-/*
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-})
-*/

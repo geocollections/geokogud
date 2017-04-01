@@ -26,7 +26,7 @@ angular.module('map', []).config(function ($stateProvider, $urlRouterProvider) {
 //routes
 angular.module('usingCollection', []).config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider.state('usingCollection', {
-        url: "/usingCollection",
+        url: "/usingcollection",
         views: {
             "additional": {
                 templateUrl: "app/main/using_collection.html"

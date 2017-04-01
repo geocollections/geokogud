@@ -139,7 +139,6 @@ angular.module('search.analyses', []).config(function($stateProvider) {
             }
         }
     });
-
 });
 
 //routes
