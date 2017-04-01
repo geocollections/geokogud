@@ -20,6 +20,8 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.stream.Collectors.toList;
+
 @Service
 public class ApiServiceImpl implements ApiService {
 
@@ -130,5 +132,41 @@ public class ApiServiceImpl implements ApiService {
             }
         }
         return result;
+    }
+
+
+    @Override
+    public <T> Response<T> searchEntitiesAngMagicallyDeserialize(String tableName, int page, SortField sortField, String requestParams, Class<T> responseClass) {
+        if (sortField == null) {
+            sortField = new SortField();
+        }
+
+        String url = apiUrl + "/" + tableName + "/" + "?paginate_by=" + 30 + "&page=" + page
+                + "&order_by=" + getSortingDirection(sortField.getOrder()) + sortField.getSortyBy()
+                + "&format=json" + requestParams;
+        System.err.println(url);
+        ResponseEntity<ApiResponseProto> rawResponse = restTemplate.getForEntity(url, ApiResponseProto.class);
+
+        Response<T> response = new Response<>();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        response.setResult(
+                rawResponse.getBody().getResult().stream()
+                        .map(map -> deserializer.doMagic(map, responseClass))
+                        .collect(toList()));
+
+        response.setCount(rawResponse.getBody().getCount());
+        if (rawResponse.getBody().getPageInfo() != null) {
+            response.setCurrentPage(Integer.parseInt(rawResponse.getBody().getPageInfo().split("\\s")[1])); //Page 1 of 39
+            response.setNumberOfPages(Integer.parseInt(rawResponse.getBody().getPageInfo().split("\\s")[3]));
+        } else {
+            response.setCurrentPage(1);
+            response.setNumberOfPages(1);
+        }
+
+        System.err.println(rawResponse.getBody().getPageInfo());
+
+        return response;
     }
 }

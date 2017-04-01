@@ -16,8 +16,7 @@ import java.util.Set;
 /**
  * it will detect objects by double underscore __
  * it will convert value_en to valueEn in class
- * will I need to make it recursive ?
- * POJOs are required to have setters (?)
+ * POJOs are required to have setters
  */
 @Component
 public class Deserializer {

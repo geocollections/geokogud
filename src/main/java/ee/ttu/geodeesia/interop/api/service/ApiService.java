@@ -14,4 +14,6 @@ public interface ApiService {
     List<?> findByParam(String tableName, String requestParams);
 
     <T extends GeoEntity> T findEntityAndMagicallyDeserialize(String tableName, String requestParams, Class<T> responseClass);
+
+    <T> Response<T> searchEntitiesAngMagicallyDeserialize(String tableName, int page, SortField sortField, String requestParams, Class<T> responseClass);
 }

@@ -212,23 +212,23 @@
                     </thead>
                     <tbody>
                     <tr data-ng-repeat="entity in response.result">
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.ID' | translate }}"><a href
-                                                                                            data-ng-click="openInNewWindow({object:'drillCores',id:entity.id})">{{entity.id}}</a>
+                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.ID' | translate }}">
+                            <a href data-ng-click="openInNewWindow({object:'drillCores',id:entity.id})">{{entity.id}}</a>
                         </td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.DRILLCORE' | translate }}"><a href
-                                                                                                   data-ng-click="openInNewWindow({object:'drillCores',id:entity.id})">{{entity.drillcore}}</a>
+                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.DRILLCORE' | translate }}">
+                            <a href data-ng-click="openInNewWindow({object:'drillCores',id:entity.id})">{{entity.drillcore}}</a>
                         </td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.LATITUDE' | translate }}">{{entity.latitude}}</td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.LONGITUDE' | translate }}">{{entity.longitude}}
+                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.LATITUDE' | translate }}">{{entity.locality.latitude}}</td>
+                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.LONGITUDE' | translate }}">{{entity.locality.longitude}}
                         </td>
                         <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.DEPTH_M' | translate }}">{{entity.depth}}</td>
                         <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.BOX_COUNT' | translate }}">{{entity.boxes}}</td>
                         <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.BOX_NUMBERS' | translate }}">
                             {{entity.boxNumbers}}
                         </td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.INSTITUTE' | translate }}">???</td>
+                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.INSTITUTE' | translate }}">{{entity.database.acronym}}</td>
                         <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.STORAGE' | translate }}">
-                            {{entity.storageLocation}}
+                            {{entity.storage.location}}
                         </td>
                         <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.IMAGES' | translate }}">???</td>
                     </tr>

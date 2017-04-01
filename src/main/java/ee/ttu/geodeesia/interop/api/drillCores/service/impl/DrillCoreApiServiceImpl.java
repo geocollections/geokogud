@@ -4,7 +4,6 @@ import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geodeesia.interop.api.builder.search.FluentDrillCoreSearchApiBuilder;
 import ee.ttu.geodeesia.interop.api.deserializer.protoPojo.DrillCoreProto;
-import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreEntity;
 import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreSearchCriteria;
 import ee.ttu.geodeesia.interop.api.drillCores.service.DrillCoreApiService;
 import ee.ttu.geodeesia.interop.api.service.ApiService;
@@ -18,30 +17,30 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService {
 
     //https://api.arendus.geokogud.info/drillcore/?paginate_by=30&order_by=id&page=1&format=json
     @Override
-    public Response findDrillCore(DrillCoreSearchCriteria searchCriteria) {
+    public Response<DrillCoreProto> findDrillCore(DrillCoreSearchCriteria searchCriteria) {
         String requestParams = FluentDrillCoreSearchApiBuilder.aRequest()
-                .queryId(searchCriteria.getId()).andReturn()
-                .queryDrillCore(searchCriteria.getDrillcore()).andReturn()
-                .queryBoxNumber(searchCriteria.getBoxNumber()).andReturn()
-                .queryStorageLocation(searchCriteria.getStorage()).andReturn()
+                .queryId(searchCriteria.getId())
+                .queryDrillCore(searchCriteria.getDrillcore())
+                .queryBoxNumber(searchCriteria.getBoxNumber())
+                .queryStorageLocation(searchCriteria.getStorage())
                 //following fields is not possible to set via search but we can ask from API
                 //locality__country__value,locality__country__value_en,locality__latitude,
                 //locality__longitude,depth,boxes
-                .queryLocalityCountry(searchCriteria.getLocalityCountry()).andReturn()
+                .queryLocalityCountry(searchCriteria.getLocalityCountry())
 
-                .queryLocalityCountry(searchCriteria.getLocalityCountry()).andReturn()
-                .queryLocalityCountryEng(searchCriteria.getLocalityCountryEng()).andReturn()
-                .queryLocalityLatitude(searchCriteria.getLatitude()).andReturn()
-                .queryLocalityLongitude(searchCriteria.getLongitude()).andReturn()
-                .queryBoxes(searchCriteria.getBoxes()).andReturn()
-                .queryDepth(searchCriteria.getDepth()).andReturn()
-                .queryInstitution(searchCriteria.getDbs()).andReturn()
-                .build();
-        return apiService.searchEntities("drillcore",
+                .queryLocalityCountry(searchCriteria.getLocalityCountry())
+                .queryLocalityCountryEng(searchCriteria.getLocalityCountryEng())
+                .queryLocalityLatitude(searchCriteria.getLatitude())
+                .queryLocalityLongitude(searchCriteria.getLongitude())
+                .queryBoxes(searchCriteria.getBoxes())
+                .queryDepth(searchCriteria.getDepth())
+                .queryInstitution(searchCriteria.getDbs())
+                .buildWithoutReturningCertainFields();
+        return apiService.searchEntitiesAngMagicallyDeserialize("drillcore",
                 searchCriteria.getPage(),
                 searchCriteria.getSortField(),
                 requestParams,
-                DrillCoreEntity.class);
+                DrillCoreProto.class);
     }
 
     @Override

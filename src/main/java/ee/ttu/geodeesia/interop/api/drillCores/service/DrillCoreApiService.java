@@ -5,7 +5,7 @@ import ee.ttu.geodeesia.interop.api.deserializer.protoPojo.DrillCoreProto;
 import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreSearchCriteria;
 
 public interface DrillCoreApiService {
-    Response findDrillCore(DrillCoreSearchCriteria searchCriteria);
+    Response<DrillCoreProto> findDrillCore(DrillCoreSearchCriteria searchCriteria);
 
     DrillCoreProto findById(Long id);
 }
