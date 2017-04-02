@@ -47,17 +47,23 @@ public class ApiFields {
     // Photo archive search
     public static final String FILE_NAME = "filename";
     public static final String DATE_TAKEN = "date_taken";
+    public static final String DATE_TAKEN_FREE = "date_taken_free";
     public static final String AUTHOR_AGENT = "author__agent";
     public static final String KEYWORDS = "keywords";
     public static final String IMAGE_NUMBER = "image_number";
+    public static final String PLACE = "place";
     public static final String PEOPLE = "people";
     public static final String LOCALITY_LOCALITY = "locality__locality";
+    public static final String LOCALITY__MAAKOND__MAAKOND_EN = "locality__maakond__maakond_en";
+    public static final String LOCALITY__VALD__VALD = "locality__vald__vald";
+    public static final String LOCALITY__ASUSTUSYKSUS__ASUSTUSYKSUS = "locality__asustusyksus__asustusyksus";
     public static final String OBJECT = "object";
     public static final String SIZE_X = "size_x";
     public static final String SIZE_Y = "size_y";
 
     public static final String AUTHOR_FORENAME = "author__forename";
     public static final String AUTHOR_SURENAME = "author__surename";
+    public static final String AUTHOR_FREE = "author_free";
     public static final String LOCALITY_LOCALITY_EN = "locality__locality_en";
     public static final String DESCRIPTION = "description";
     public static final String DATA_ADDED = "date_added";

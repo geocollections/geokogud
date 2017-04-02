@@ -11,7 +11,7 @@ angular.module('search').controller('SearchPhotoArchiveController', function ($s
         {code: "MUMU", label: "MUMU"},
         {code: "EGK", label: "EGK"}];
 
-    $scope.photoArchiveSearch = {};
+    $scope.searchParameters = {};
 
     $scope.showHint = function () {
         $scope.isHintHidden = !$scope.isHintHidden;
@@ -19,23 +19,23 @@ angular.module('search').controller('SearchPhotoArchiveController', function ($s
     };
 
     $scope.search = function () {
-        if ($scope.photoArchiveSearch.imageSize) {
-            imageDimensions = $scope.photoArchiveSearch.imageSize.name;
+        if ($scope.searchParameters.imageSize) {
+            imageDimensions = $scope.searchParameters.imageSize.name;
             if (imageDimensions) {
                 x = imageDimensions.substring(0, imageDimensions.indexOf("x"));
                 y = imageDimensions.substring(imageDimensions.indexOf("x") + 1);
-                $scope.photoArchiveSearch.sizeX = {
-                    lookUpType: $scope.photoArchiveSearch.imageSize.lookUpType,
+                $scope.searchParameters.sizeX = {
+                    lookUpType: $scope.searchParameters.imageSize.lookUpType,
                     name: x
                 };
-                $scope.photoArchiveSearch.sizeY = {
-                    lookUpType: $scope.photoArchiveSearch.imageSize.lookUpType,
+                $scope.searchParameters.sizeY = {
+                    lookUpType: $scope.searchParameters.imageSize.lookUpType,
                     name: y
                 };
             }
         }
-        console.log($scope.photoArchiveSearch);
-        PhotoService.search($scope.photoArchiveSearch).then(function (result) {
+        console.log($scope.searchParameters);
+        PhotoService.search($scope.searchParameters).then(function (result) {
             $scope.totalItems = result.count;
             $scope.pageSize = 100;
             $scope.windowWidth = "innerWidth" in window ? window.innerWidth : document.documentElement.offsetWidth;

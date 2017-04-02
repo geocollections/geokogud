@@ -8,11 +8,12 @@ import java.util.stream.Collectors;
 
 import static ee.ttu.geodeesia.interop.api.builder.ApiFields.ID;
 import static ee.ttu.geodeesia.interop.api.builder.ApiFields.REMARKS;
+import static org.apache.commons.lang3.StringUtils.EMPTY;
 
 public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>> {
-    String query = StringUtils.EMPTY;
-    private String returnFields = StringUtils.EMPTY;
-    String lastQueryField = StringUtils.EMPTY;
+    String query = EMPTY;
+    private String returnFields = EMPTY;
+    String lastQueryField = EMPTY;
 
     FluentSearchApiBuilder() {
     }
@@ -31,9 +32,9 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
 
 
     public B queryInstitution(List<String> dbs) {
-        if(dbs == null) return getThis();
-        query += dbs.size() > 0 ?"&database__acronym=" +
-                dbs.stream().collect(Collectors.joining("&database__acronym=")) : StringUtils.EMPTY;
+        if (dbs == null) return getThis();
+        query += dbs.size() > 0 ? "&database__acronym=" +
+                dbs.stream().collect(Collectors.joining("&database__acronym=")) : EMPTY;
         return getThis();
     }
 
@@ -60,6 +61,7 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
     public String build() {
         return query + "&fields=" + returnFields;
     }
+
     /*
         Accept search query but do not return certain fields but all by default
      */
@@ -69,7 +71,15 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
 
     void buildFieldParameters(String fieldName, SearchField searchField) {
         this.lastQueryField = fieldName;
-        query += isNotNullAndEmpty(searchField) ? "&" + fieldName + "__" + extractFieldParameters(searchField) : StringUtils.EMPTY;
+        query += isNotNullAndEmpty(searchField) ? "&" + fieldName + "__" + extractFieldParameters(searchField) : EMPTY;
+    }
+
+    void buildMultiSearch(SearchField searchField, String... fieldName) {
+        query += isNotNullAndEmpty(searchField) ?
+                "&multi_search=value:" + searchField.getName()
+                        + ";fields:" + StringUtils.join(fieldName, ",")
+                        + ";lookuptype:" + searchField.getLookUpType()
+                : EMPTY;
     }
 
     private String extractFieldParameters(SearchField searchField) {

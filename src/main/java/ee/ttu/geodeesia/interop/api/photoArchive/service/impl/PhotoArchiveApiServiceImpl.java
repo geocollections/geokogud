@@ -19,19 +19,18 @@ public class PhotoArchiveApiServiceImpl implements PhotoArchiveApiService{
     @Override
     public Response findPhoto(PhotoArchiveSearchCriteria searchCriteria) {
         String requestParams = FluentPhotoArchiveSearchApiBuilder.aRequest()
-                .queryId(searchCriteria.getId()).andReturn()
+                .queryId(searchCriteria.getId())
                 .queryFileName(searchCriteria.getFileName())
-                .queryAuthorAgent(searchCriteria.getAuthorAgent()).andReturn()
-                .queryDateTaken(searchCriteria.getDateTaken()).andReturn()
-                .queryKeywords(searchCriteria.getKeywords()).andReturn()
-                .queryNumber(searchCriteria.getImageNumber()).andReturn()
+                .queryAuthorAgent(searchCriteria.getAuthorAgent())
+                .queryDateTaken(searchCriteria.getDateTaken())
+                .queryKeywords(searchCriteria.getKeywords())
+                .queryNumber(searchCriteria.getImageNumber())
                 .queryPeople(searchCriteria.getPeople())
-                .queryLocality(searchCriteria.getLocality()).andReturn()
+                .queryLocality(searchCriteria.getLocality())
                 .queryCountry(searchCriteria.getAdminUnit())
                 .querySizeX(searchCriteria.getSizeX())
                 .querySizeY(searchCriteria.getSizeY())
-                .returnObject()
-                .build();
+                .buildWithoutReturningCertainFields();
         return apiService.searchEntities("image", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, PhotoArchiveEntity.class);
 
     }

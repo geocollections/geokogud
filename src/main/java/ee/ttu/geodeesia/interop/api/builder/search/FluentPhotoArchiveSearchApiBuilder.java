@@ -21,22 +21,22 @@ public class FluentPhotoArchiveSearchApiBuilder extends FluentSearchApiBuilder<F
     }
 
     public FluentPhotoArchiveSearchApiBuilder queryDateTaken(SearchField id) {
-        buildFieldParameters(DATE_TAKEN, id);
+        buildMultiSearch(id, DATE_TAKEN, DATE_TAKEN_FREE);
         return this;
     }
 
     public FluentPhotoArchiveSearchApiBuilder queryAuthorAgent(SearchField id) {
-        buildFieldParameters(AUTHOR_AGENT, id);
+        buildMultiSearch(id, AUTHOR_AGENT, AUTHOR_FORENAME, AUTHOR_SURENAME, AUTHOR_FREE);
         return this;
     }
 
     public FluentPhotoArchiveSearchApiBuilder queryKeywords(SearchField keywords) {
-        buildFieldParameters(KEYWORDS, keywords);
+        buildMultiSearch(keywords, KEYWORDS, DESCRIPTION, OBJECT, PLACE, LOCALITY_LOCALITY_EN, LOCALITY_LOCALITY);
         return this;
     }
 
     public FluentPhotoArchiveSearchApiBuilder queryNumber(SearchField imageNumber) {
-        buildFieldParameters(IMAGE_NUMBER, imageNumber);
+        buildMultiSearch(imageNumber, IMAGE_NUMBER, IMAGESET_NUMBER);
         return this;
     }
 
@@ -46,12 +46,14 @@ public class FluentPhotoArchiveSearchApiBuilder extends FluentSearchApiBuilder<F
     }
 
     public FluentPhotoArchiveSearchApiBuilder queryLocality(SearchField locality) {
-        buildFieldParameters(LOCALITY_LOCALITY, locality);
+        buildMultiSearch(locality, LOCALITY_LOCALITY, LOCALITY_LOCALITY_EN, PLACE);
         return this;
     }
 
     public FluentPhotoArchiveSearchApiBuilder queryCountry(SearchField adminUnit) {
-        buildFieldParameters(LOCALITY_COUNTRY, adminUnit);
+        buildMultiSearch(
+                adminUnit,
+                LOCALITY_COUNTRY, LOCALITY_COUNTRY_ENG, LOCALITY__MAAKOND__MAAKOND_EN, LOCALITY__VALD__VALD, LOCALITY__ASUSTUSYKSUS__ASUSTUSYKSUS);
         return this;
     }
 
