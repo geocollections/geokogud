@@ -119,9 +119,8 @@ angular.module('geoApp').config(['$translateProvider', function ($translateProvi
 	                var year = currentNews.date_added.split("-")[0];
 	                if (years.indexOf(year) == -1) { years.push(year); }
 	            });
-	            $scope.years = years.reverse();
+	            $scope.years = years;
 	            yearToShow = $scope.years[0];
-	            console.log(yearToShow);
 	        });
 	    $scope.showNews = function($event) {
 	        yearToShow = $event.target.innerText;
