@@ -1,0 +1,462 @@
+{
+    "INFO": {
+        "COLLECTIONS_IN_GEOLOGY": {
+            "HEADING": "Collections in geology",
+            "PARAGRAPH_ONE": "Information about the 4.6 billion year history of the planet Earth is stored in rocks, minerals and fossils, which together form the essence of geological collections, or geocollections. A large part of geological research is based on collections and often discoveries arise from specimens once collected and stored in museums.",
+            "PARAGRAPH_TWO": "On the other hand, geocollections are created during geological research and need to be kept and made available as referece material."
+        },
+        "COLLECTIONS_IN_ESTONIA": {
+            "HEADING": "Geocollections in Estonia",
+            "PARAGRAPH_ONE": "In Estonia, the main geocollections are owned by the following institutions that together make up a virtual national geological collection:",
+            "LI_ONE": "Institute of Geology at Tallinn University of Technology",
+            "LI_TWO": "Geological Museum, University of Tartu",
+            "LI_THREE": "Estonian Museum of Natural History",
+            "LI_FOUR": "Department of Geology, University of Tartu, and",
+            "LI_FIVE": "Estonian University of Life Sciences, Soil Museum",
+            "PARAGRAPH_TWO": "Large numbers of rock samples and drill cores are also held by the ",
+            "PARAGRAPH_TWO_A_LINK": "Geological Survey of Estonia"
+        },
+        "COMMON_DATABASE": {
+            "HEADING": "Common database",
+            "PARAGRAPH_ONE": "The geocollections database SARV is used in four academic institutions. This public portal enables to search various geological data including collection specimens, rock and sediment samples, drill cores, localities, references, photo archive etc.",
+            "PARAGRAPH_TWO": "In addition, specific interfaces can be used to access data on Baltoscandian fossils and analytical data.",
+            "LINE_ONE": "The geocollections database",
+            "LINE_TWO": "SARV",
+            "LINE_THREE": "is used in four academic institutions.",
+            "LINE_FOUR": " This public portal",
+            "LINE_FIVE": " enables to search various geological data including",
+            "LINE_SPECIMENS": "collection specimens",
+            "LINE_ROCK": "rock and sediment samples",
+            "LINE_DRILL_CORE": "drill cores",
+            "LINE_LOCALITIES": "localities",
+            "LINE_REFERENCES": "references",
+            "LINE_PHOTO_ARCHIVE": "photo archive",
+            "LINE_ETC": "etc.",
+            "PARAGRAPH_TWO_LINE_ONE": "In addition, specific interfaces can be used to access data on",
+            "PARAGRAPH_TWO_LINE_TWO": "Baltoscandian fossils",
+            "PARAGRAPH_TWO_LINE_THREE": "and",
+            "PARAGRAPH_TWO_LINE_FOUR": "analytical data",
+            "PARAGRAPH_THREE_LINE_ONE": "Currently the database holds records of ",
+            "PARAGRAPH_THREE_LINE_TWO": "collection specimens and rock samples, and ",
+            "PARAGRAPH_THREE_LINE_THREE": "digital images and other media files. The data were last updated on ",
+            "PARAGRAPH_THREE": "Currently the database holds records of {{noOfSamples}} collection specimens and rock samples, and {{noOfFiles}} digital images and other media files. The data were last updated on {{databaseUpdated}}."
+        },
+        "HEADING": "Collections"
+    },
+    "USING_COLLECTIONS": {
+        "HEADING_USING_COLLECTIONS": "Using the collections",
+        "PARAGRAPH_ONE": "The geological collections held by different institutions in Estonia are generally open for researchers. Specific regulations on using the collections in individual institutions can be found below:",
+        "TUT": "Institute of Geology at Tallinn University of Technology",
+        "IN_ESTONIAN": "{{extension}}, in Estonian",
+        "IN_ENGLISH": "{{extension}}, in English",
+        "UT_AND_MUSEUM_OF_GEO": "University of Tartu, Museum of Geology",
+        "INQUERIES": {
+            "HEADING": "Inqueries, loans and visits",
+            "PARAGRAPH": "In brief, inqueries and research visits are welcome, and loans of most specimens for scientific purposes can be accepted, generally for one-year period. For visiting researchers the collection holders will be able to provide necessary office and lab facilities, but no financial support for guests is currently available. For details contact the curators of individual institutions few weeks in advance to arrange a visit and/or check the availability of the material of interest."
+        },
+        "DATABASE": {
+            "HEADING": "Database",
+            "PARAGRAPH_ONE": "The multi-institutional geocollections database SARV aims to make specimen-level records and oher digitised geological data available and searchable in Estonian geocollections portal as well as international data networks (GeoCASe, BioCASe, GBIF). Automatic queries can make use of the public API. Some data may be restricted to institutional usage and require direct collaboration with researcher(s) of the institute in order to get access to. Also, when searching the on-line database, please remember that not all unit-level data are currently digitised.",
+            "PARAGRAPH_TWO": "The publicly available data are copyrighted by the individual collection holding institutions and distributed under the Creative Commons BY-NC licence, if not indicated otherwise.",
+            "CC_EXPLANATION": "This means that you are free to download, use and distribute the data for any non-commercial purposes, given that you cite the author and source.",
+            "LI_ONE": "Please use the following form of citation:",
+            "LI_ONE_ONE": "Estonian geocollections database, [photo/figure/data/..] by [author name, e.g. Enn Pirrus], [institution name, e.g., Institute of Geology at TUT], [year].",
+            "LI_TWO": "In publications it is requested that you use unique indentifiers (such as specimen number) when available, together with institutional abbreviation [GIT/TUG/ELM], for instance specimen GIT 160-7.",
+            "LI_THREE": "If appropriate, add a full link to the resource used, for instance ",
+            "LI_FOUR": "We would appreciate that you let us know when using our data in publications or on websites.",
+            "LI_FIVE": "For any commercial use of the data or images a permission in needed; please contact the curators for details."
+        },
+        "CONTACT": {
+            "HEADING": "Contact",
+            "TUT": {
+                "ORGANIZATION": "Institute of Geology at Tallinn University of Technology, Depertment of Collections",
+                "ADDRESS": "Ehitajate tee 5, 19086 Tallinn, Estonia",
+                "CONTACT": {
+                    "PERSON": "Ursula Toom, Chief Curator",
+                    "PHONE_EMAIL": "phone +372 620 3009, ursula.toom@ttu.ee"
+                }
+            },
+            "UT": {
+                "ORGANIZATION": "University of Tartu Natural History Museum, Geology",
+                "ADDRESS": "Vanemuise 46, Tartu, Estonia",
+                "CONTACT": {
+                    "PERSON": "Mare Isakar, Chief Curator",
+                    "PHONE_EMAIL": "phone +372 737 5839, mare.isakar@ut.ee"
+                }
+            },
+            "EMNH": {
+                "ORGANIZATION": "Estonian Museum of Natural History, Department of Geology",
+                "ADDRESS": "Lai 29A, 10133 Tallinn, Estonia",
+                "CONTACT": {
+                    "PERSON": "Sander Olo, Head of Department",
+                    "PHONE_EMAIL": "phone +372 641 1057, Sander.Olo@loodusmuuseum.ee"
+                }
+            }
+        }
+    },
+    "SEARCH": {
+        "ANALYSES": {
+            "HELP_POPUP": {
+                "HEADING": "SEARCH TIPS:",
+                "PARAGRAPH_ONE": "First select the base table (specimens, samples, localities, references etc);",
+                "PARAGRAPH_TWO": "Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search 'asap' in specimen name field will find 'Asaphus sp.' as well as 'Asaphus expansus'); for stratigraphy and classification the search is hierarchical by default, for number fields exact maches will be searched if user does not specify otherwise;",
+                "PARAGRAPH_THREE": "To show a map where available, tick the appropriate checkbox;",
+                "PARAGRAPH_FOUR": "To show detailed information follow the links in the results table."
+            },
+            "HEADING": "Search: Analyses",
+            "IDENTIFIERS": {
+                "SAMPLE_ID": "Sample ID",
+                "NUMBER": "Number",
+                "BED_NAME_INDEX": "Bed name / index",
+                "IDENTIFIERS": "Identifiers"
+            },
+            "LOCATION": {
+                "LOCATION": "Location",
+                "LOCALITY": "Locality",
+                "ADMIN_UNIT": "Admin. unit",
+                "DEPTH_M": "Depth (m)",
+                "STRATIGRAPHY": "Stratigraphy"
+            },
+            "ANALYSIS": {
+                "PANEL_TITLE": "Analysis",
+                "TYPE": "Type of analysis",
+                "COMPONENT_ANALYZED": "Component analysed",
+                "CONTENT": "Content"
+            },
+            "TABLE": {
+                "ID": "ID",
+                "SAMPLE_ID": "Sample #",
+                "LOCALITY": "@:SEARCH.ANALYSES.LOCATION.LOCALITY",
+                "DEPTH_M": "@:SEARCH.ANALYSES.LOCATION.DEPTH_M",
+                "STRATIGRAPHY": "@:SEARCH.ANALYSES.LOCATION.STRATIGRAPHY",
+                "LITHOSTRATIGRAPHY": "Lithostratigraphy",
+                "BED_ID": "bed ID",
+                "METHOD": "Method",
+                "LAB": "Lab."
+            }
+        },
+        "SEND_QUERY": "Send query",
+        "FAQ": "FAQ",
+        "RESET_FORM": "Reset",
+        "INSTITUTIONS": "Institutions",
+        "NO_OF_RESULTS": "Number of results",
+        "DOI": {
+            "SEARCH_TIPS": {
+                "ONE": "DOI identifiers are used to create permanent links to various digital objects, such as research datasets or publications. For more information about DOIs and research data see DataCite portal.",
+                "TWO": "As of 2014 the Estonian geocollections information system SARV is part of DataCite Estonia consortium (datacite.utlib.ee) and acts as data depository for Earth Science research data in Estonia.",
+                "THREE": "To find particular digital object registered in SARV, and download datasets, specify one or more criteria and then click on DOI number for full details. For global DOI resolving use doi.org.",
+                "FOUR": "Küsimuste korral võta ühendust: Olle Hints, TTÜ Geoloogia Instituut (olle.hints@ttu.ee)"
+            },
+            "HEADING": "Digital Object Identifiers (DOIs)",
+            "FIELDS": "Fields",
+            "DOI": "DOI",
+            "TITLE": "Title",
+            "PUBLISHED_BY": "Published by",
+            "YEAR": "Year",
+            "AUTHOR": "Author",
+            "ABSTRACT": "Abstract",
+            "TABLE": {
+                "ID": "ID",
+                "DOI": "DOI",
+                "AUTHOR": "Author",
+                "YEAR": "Year",
+                "TITLE": "Title",
+                "TYPE": "Type",
+                "DATACITE_REGISTRATION": "DataCite registration"
+            }
+        },
+        "DRILL_CORES": {
+            "SEARCHING_DRILL_CORES_HEADING": "SEARCHING DRILL CORES",
+            "SEARCHING_DRILL_CORES_TEXT": "Drill cores constitute a very important source of geological information and they are used regularly in scientific as well as applied research in Estonia. To search drill cores, specify the criteria and tick the map checkbox to show the locations. For detailed information click on the various links in the results table. A large number of cores are provided with images of core boxes. ",
+            "HEADING": "Drill cores",
+            "ID": "ID",
+            "DRILLCORE": "Drillcore",
+            "STRATIGRAPHY": "Stratigraphy",
+            "STORAGE": "Storage",
+            "BOX_COUNT": "Box count",
+            "COUNTRY": "Country",
+            "ADMIN_UNIT": "Admin. unit",
+            "TABLE": {
+                "ID": "ID",
+                "DRILLCORE": "Drillcore",
+                "LATITUDE": "Latitude (deg. deg.)",
+                "LONGITUDE": "Longitude (deg. deg.)",
+                "DEPTH_M": "Depth (m)",
+                "BOX_COUNT": "Box count",
+                "BOX_NUMBERS": "Box count",
+                "INSTITUTE": "insts.",
+                "STORAGE": "Storage",
+                "IMAGES": "Images"
+            }
+        },
+        "SHOW_MAP": "Show map",
+        "LOCATILIES": {
+            "HEADING": "Localities"
+        },
+        "LOCALITIES": {
+            "IDENTIFIERS": {
+                "IDENTIFIERS": "Identifiers",
+                "ID": "ID",
+                "NUMBER": "Number",
+                "STRATIGRAPHY": "Stratigraphy",
+                "REFERENCE": "Reference",
+                "MA_ID": "MA ID"
+            },
+            "LOCATION": {
+                "LOCATION": "Location",
+                "LOCALITY": "Locality",
+                "COUNTRY": "Country",
+                "ADMIN_UNIT": "Admin. unit",
+                "LATITUDE": "Latitude (dec. deg.)",
+                "LONGITUDE": "Longitude (dec. deg.)",
+                "VERTICAL_EXTENT": "Vertical extent (m)"
+            },
+            "TABLE": {
+                "ID": "ID",
+                "LOCALITY": "Locality",
+                "COUNTRY": "Country",
+                "LATITUDE": "Latitude (dec. deg.)",
+                "LONGITUDE": "Longitude (dec. deg.)",
+                "VERTICAL_EXTENT": "Vertical extent (m)",
+                "STRATIGRAPHY_BASE": "Stratigraphy base",
+                "STRATIGRAPHY_TOP": "Stratigraphy top",
+                "DRILLCORE": "Drillcore",
+                "IMAGES": "Images",
+                "MAP": "Map",
+                "MA_ID": "MA ID"
+            }
+        },
+        "PHOTO_ARCHIVE": {
+            "HEADING": "Photo archive",
+            "LOCALITY": "Locality",
+            "PEOPLE": "People",
+            "KEY_WORDS": "Key words",
+            "ADMIN_UNIT": "Admin. unit",
+            "DATE": "Date",
+            "NUMBER": "Number",
+            "AUTHOR": "Author",
+            "IMAGE_SIZE": "Image size",
+            "SEARCH_TIPS": {
+                "ONE": "Archive of geological photos dates back to early 1900s and is expanding by the ongoing digitization and new photos.",
+                "TWO": "When using the photos please follow licence conditions and consult curators if necessary."
+            },
+            "TABLE": {
+                "ID": "ID",
+                "NUMBER": "Number",
+                "AUTHOR": "Author",
+                "DATE": "Date",
+                "LOCALITY": "Locality",
+                "CATEGORY": "Category",
+                "KEY_WORDS": "Key words"
+            }
+        },
+        "PREPARATIONS": {
+            "HEADING": "Preparation",
+            "NUMBER": "Number",
+            "LOCALITY": "Locality",
+            "DEPTH_M": "Depth (m)",
+            "STRATIGRAPHY": "Stratigraphy",
+            "COLLECTOR": "Collector",
+            "DESCRIPTION": "Description",
+            "SPECIES_RECOVERED": "Species recovered",
+            "SPECIES_FREQUENCY": "Species frequency",
+            "TABLE": {
+                "ID": "ID",
+                "NUMBER": "Number",
+                "LOCALITY": "Locality",
+                "DEPTH_M": "Depth (m)",
+                "STRATIGRAPHY": "Stratigraphy",
+                "LITHOSTRATIGRAPHY": "Lithostratigraphy",
+                "COLLECTOR": "coll.",
+                "WEIGHT": "Weight",
+                "MORE_INFO": ""
+            }
+        },
+        "SHOW_ADDITIONAL_CRITERIA": "Show additional criteria",
+        "HIDE_ADDITIONAL_CRITERIA": "Hide additional criteria",
+        "SORT_BY": "Sort by",
+        "CHOOSE": "-- Choose --",
+        "REFERENCES": {
+            "HEADING": "References",
+            "ID": "ID",
+            "AUTHOR": "Author",
+            "YEAR": "Year",
+            "TITLE": "Title",
+            "JOURNAL": "Journal",
+            "BOOK": "Book",
+            "TABLE": {
+                "ID": "ID",
+                "REFERENCE": "Reference",
+                "AUTHOR": "Author",
+                "YEAR": "Year",
+                "TITLE": "Title",
+                "JOURNAL_BOOK": "Journal / Book",
+                "PP": "pp.",
+                "DOI": "DOI",
+                "REMARKS": "file(s)"
+            }
+        },
+        "SAMPLES": {
+            "HEADING": "Samples",
+            "ID": "ID",
+            "NUMBER": "Number",
+            "DEPTH_M": "Depth (m)",
+            "STRATIGRAPHY": "Stratigraphy",
+            "BED_NAME_INDEX": "bed name / index",
+            "COLLECTOR": "Collector",
+            "WEIGHT": "Weight (remaining, g)",
+            "STORAGE": "Storage",
+            "SPECIES_RECOVERED": "Species recovered",
+            "SPECIES_FREQUENCY": "Species frequency",
+            "TYPE_OF_ANALYSIS": "Type of analysis",
+            "COMPONENT_ANALYSED": "Component analysed",
+            "CONTENT": "Content",
+            "LOCALITY": "Locality",
+            "ADMIN_UNIT": "Admin. unit",
+            "INSTITUTE": "Inst.",
+            "LITHOSTRATIGRAPHY": "Lithostratigraphy",
+            "ANAL": "Anal."
+        },
+        "SOIL_SITES": {
+            "HEADING": "Soil sites",
+            "ID": "ID",
+            "SITE": "Site",
+            "AREA_OF_STUDY": "Area of study",
+            "TRANSECT": "Transect",
+            "SOIL_NAME": "Soil name",
+            "LAND_USE": "Land use",
+            "DEEP_MINING": "Deep mining",
+            "TABLE": {
+                "ID": "ID",
+                "SITE": "Site",
+                "AREA_OF_STUDY": "Area of study",
+                "TRANSECT": "Transect",
+                "POINT_OF_THE_TRANSECT": "Point on the transect",
+                "SOIL_NAME": "Soil name",
+                "LAND_USE": "Land use",
+                "LATITUDE": "Lat.",
+                "LONGITUDE": "Lon.",
+                "IS_DEEP_MINING": "Is deep mining"
+            }
+        },
+        "SPECIMENS": {
+            "HEADING": "Specimens",
+            "ID": "ID",
+            "NUMBER": "Specimen number",
+            "COLLECTION_NUMBER": "Collection number",
+            "CLASSIFICATION_NUMBER": "Classification",
+            "FOSSIL_MINERAL_ROCK": "Fossil/ Mineral/ Rock",
+            "NAME_OF_ROCK": "Name of fossil",
+            "MINERAL_ROCK": "Mineral/Rock",
+            "ADMIN_UNIT": "Admin.unit",
+            "LOCALITY": "Locality",
+            "DEPHT_M": "Depth (m)",
+            "STRATIGRAPHY": "Stratigraphy",
+            "COLLECTOR": "Collector",
+            "REFERENCE": "Reference",
+            "TYPE_STATUS": "Type status",
+            "PART_OF_FOSSIL": "Part (of fossil)",
+            "KEYWORDS": "Key words",
+            "REG_DATE": "Reg. date",
+            "OLD_SPECIMEN_NUMBER": "Old specimen #",
+            "NAME_PART_ELEMENT": "Name Part/element",
+            "LITHOSTRATIGRAPHY": "Lithostratigraphy",
+            "STATUS": "Status",
+            "IMAGES": "Images"
+        },
+        "SEARCH_IMAGES": "Search images",
+        "STRATIGRAPHY": {
+            "HEADING": "Stratigraphic units",
+            "ID": "ID",
+            "STRATIGRAPHY": "Stratigraphy",
+            "INDEX": "Index",
+            "AGE_MIN_Y": "Age mln y",
+            "MAIN_LITHOLOGY": "Main lithology",
+            "AUTHOR": "Author",
+            "TABLE": {
+                "ID": "ID",
+                "STRATIGRAPHY_ET": "Stratigraphy (et)",
+                "STRATIGRAPHY_EN": "Stratigraphy (en)",
+                "INDEX": "Index",
+                "TYPE": "Type",
+                "RANK": "Rank",
+                "SCOPE": "Scope",
+                "AGE": "Age",
+                "AGE_MA": "Age (Ma)",
+                "BELONGS_TO": "Belongs to"
+            }
+        }
+    },
+    "INDEX": {
+        "GEOCOLLECTIONS_TITLE": "Geoscience collections of Estonia",
+        "SEARCH_FIELD_TEXT": "Start searching…",
+        "SEARCH_BUTTON_TEXT": "Search",
+        "ABOUT_LINK": "About",
+        "NEWS_LINK": "News",
+        "SEARCH_LINK": "Search",
+        "MAP_LINK": "Map",
+        "USING_COLLECTIONS_LINK": "Using collections",
+        "FOR_DEVELOPERS_LINK": "For developers",
+        "DATABASE_LINK": "Database",
+        "PUBLIC_API_LINK": "Public API",
+        "BUTTON_LANG_ET": "EST",
+        "BUTTON_LANG_EN": "ENG",
+        "SARV_CC": "SARV: Geoscience collections and data repository",
+        "FOOTER_MESSAGE": "If not indicated otherwise, content of the these pages may be used, reused and distributed for non-commercial purposes taken that original author and source are properly cited.",
+        "BACK_TO_TOP": "Back to top",
+        "RESOURCES_LINK": "Resources",
+        "CONTACT_LINK": "Contact",
+        "INVESTIGATORS_LINK": "For investigators",
+        "GEOCOLLECTIONS_HEADER": "Geoscience collections of Estonia",
+        "EXTENDED_SEARCH_LINK": "Extended Search",
+        "USEFUL_INFO": "USEFUL INFORMATION",
+        "GIT_TUT": "Geological collections at the Institute of Geology at TUT",
+        "FOOTER_TITLE": "Questions and comments about the database and website!",
+        "WEBSITE_TITLE": "Geocollections of Estonia",
+        "SEARCH2_LINK": "Search2",
+        "READ_MORE": "Read more",
+        "PAGE_LOADING": "Please wait. The page is loading."
+    },
+    "PARTNERS": {
+        "HEADING": "PARTNERS",
+        "UNIVERSITY_TARTU": "University of Tartu Natural History Museum",
+        "ELM": "Estonian Museum of Natural History",
+        "GEOCASE": "Geosciences Collection Access Service"
+    },
+    "LOCALITY": {
+        "LOCALITY": "Locality",
+        "COUNTRY": "Country",
+        "LATITUDE": "Latitude",
+        "LONGITUDE": "Longitude"
+    },
+    "GIT" : {
+        "GIT_HEADING": "GIT",
+        "GIT_TITLE": "Geological collections at the Institute of Geology at TUT",
+        "PARAGRAPH_ONE": "The Institute of Geology at Tallinn University of Technology possesses the largest geological collections in Estonia. They comprise fossils, rocks, minerals and meteorites from all over the world, the emphasis being, however, on the Estonian and former Soviet Union material. The collections include historical specimens collected already in the 1850s, but most of the material has been accumulated since the 1950s until present.",
+        "PARAGRAPH_TWO": "The collections form an integral part of the research carried out at the Institute, particularly in the fields of paleontology, sedimentology and geochemistry."
+    },
+    "GEOLOGICALCOLLECTIONS": {
+        "TITLE": "About geological collections in Estonia",
+        "PARAGRAPH_ONE": "Minerals, rocks and fossils that form the essence of geological collections are the main source of information of the 4.6 billion year history of Earth. Unlike other natural history collections, the geological specimens represent both physical and organic world and common to all of them is the dimension of geological time.",
+        "PARAGRAPH_TWO": "The largest geological collections in Estonia are nowadays deposited in three institutions, which also form the core of national geological collection: Institute of Geology at Tallinn University of Technology, Geological Museum of the University of Tartu and the Estonian Museum of Natural History. Additionally a great number of drill cores, actively used in international research, are held by the Geological Survey of Estonia. Various smaller collections are deposited in other institutions, local museums and private collectors. The oldest collections date to early 19th century whilst the bulk of material has been accumulated in 1950–1980s.",
+        "PARAGRAPH_THREE": "In total more than 800 000 units are stored in the national geological collection, including fossil specimens, microfossil preparations, minerals, meteorites, rock and sediment samples and drill cores. The palaeontological collections are mostly composed of invertebrate fossils such as brachiopods, trilobites, bryozoans, corals, mollusks, echinoderms and graptolites, but also early fishes and agnathans. The microfossil collections are also notable, with chitinozoans, conodonts, ostracods and scolecodonts being especially well represented.",
+        "PARAGRAPH_FOUR": "In scientific perspective the particular strength of the collection lies in the Lower Palaeozoic palaeontology and petrology of the Baltic area, which serves as the proxy for the entire Baltica palaeocontinent. Estonian collections have contributed significantly to studies of evolution and diversification of biota during the Great Ordovician Biodiversification Event as well as the end-Ordovician extinction. The Estonian microfossil collections, some of the largest in the world for this time-span, have been used to establish and correlate regional and global geological timescales and biostratigraphical zonations.",
+        "PARAGRAPH_FIVE": "The drill cores and rock samples are continuously utilized for testing new methods and developing scientific ideas. For instance, the recent advancement in stable isotope research, which also grounds on collections, has turned the Baltic isotopic curve as world-wide standard for the Ordovician and Silurian. Noteworthy is also the Estonian meteorite collection holding several thousands of specimens many of which are unique in the world.",
+        "PARAGRAPH_SIX": "When estimating the importance of collections for geological research in Estonia it should be mentioned that at least half of scientific papers published in international journals ground partly or entirely on collections. Likewise the national science prizes awarded to geologists during the last decade make intense use of collections and have not been possible without them.",
+        "PARAGRAPH_SEVEN": "The first attempts to utilize electronic databases for collection data were made in 1994. However, it was only in 1998 when the Institute of Geology at Tallinn University of Technology started development of an in-house database specifically suitable for geological collections. As of 2008, this system has evolved into a complex information system that grounds on MySQL relational database back-end and MS Access-based user interface for data entry. The entire database is on-line and can be queried using public web-based interface. First in Estonia it joined the international specimen-level networks of BioCASE and GBIF. The data model of the system consists of more than 90 related tables, most important of which are the collection, specimen, sample, locality, drill core, agent, image, stratigraphy, reference etc. The same database is now used in all three main institutions possessing geological collections. In the Institute of Geology about 25% of specimen-level data are digitized and in the Estonian Museum of Natural History the amount of data is expected to reach 100% by the end of 2008. Next steps to make the data even more easily accessible include building a common public query interface and data portal for all data holders.",
+        "TABLE": {
+            "HEADING1": "collection",
+            "HEADING2": "fossils, minerals, rocks",
+            "HEADING3": "micro-palaeontology",
+            "HEADING4": "rock and sediment samples",
+            "HEADING5": "drill cores (boxes)",
+            "HEADING6": "TOTAL",
+            "ROW1": "GIT",
+            "ROW2": "TUG",
+            "ROW3": "ELM",
+            "ROW4": "EGK",
+            "ROW5": "smaller collections",
+            "ROW6": "TOTAL"
+        }
+    }
+}

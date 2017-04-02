@@ -2,24 +2,12 @@
     <div class="row">
         <div class="col-sm-3 col-md-3 col-lg-3">
             <div class="row">
-                <h3 class="search-heading">{{ 'SEARCH.DRILL_CORES.HEADING' | translate }} <span
-                        class="badge badge-info">{{response.count}}</span>
+                <h3 class="search-heading">{{ 'SEARCH.REFERENCES.HEADING' | translate }} <span class="badge badge-info">{{response.count}}</span>
                     <button type="submit" value="showHint" class="btn btn-info btn-sm pull-right"
                             data-ng-click="showHint()">
                         <span class="glyphicon glyphicon-question-sign"></span> {{ 'SEARCH.FAQ' | translate }}
                     </button>
                 </h3>
-            </div>
-            <div class="row">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox"
-                               value="showMap"
-                               data-ng-click="showMap()">
-                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                        {{ 'SEARCH.SHOW_MAP' | translate }}
-                    </label>
-                </div>
             </div>
             <div class="row">
                 <div class="panel-heading searchGroupHeading"
@@ -33,7 +21,7 @@
                     <div class="well well-lg">
                         <div class="row searchCriterion">
                             <div class="col-md-12 searchCriterionTitle medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.ID' | translate }}</b>
+                                <b>{{ 'SEARCH.REFERENCES.ID' | translate }}</b>
                                 <selectexact custom-css="searchCriterionType"
                                              ng-model="searchParameters.id.lookUpType"></selectexact>
                             </div>
@@ -43,79 +31,53 @@
                         </div>
                         <div class="row searchCriterion">
                             <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.DRILLCORE' | translate }}</b>
+                                <b>{{ 'SEARCH.REFERENCES.AUTHOR' | translate }}</b>
                                 <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.drillcore.lookUpType"></selectdefault>
+                                               ng-model="searchParameters.author.lookUpType"></selectdefault>
                             </div>
                             <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.drillcore.name" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.STRATIGRAPHY' | translate }}</b>
-                                <selecthierarchy custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.xxx.lookUpType"
-                                                 ng-disabled="true"></selecthierarchy>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.xxx.name" class="form-control"
-                                       ng-disabled="true"/>
+                                <input type="text" ng-model="searchParameters.author.name" class="form-control"/>
                             </div>
                         </div>
                         <div class="row searchCriterion">
                             <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.STORAGE' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.storageLocation.lookUpType"></selectdefault>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.storageLocation.name"
-                                       class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.BOX_COUNT' | translate }}</b>
+                                <b>{{ 'SEARCH.REFERENCES.YEAR' | translate }}</b>
                                 <selectexact custom-css="searchCriterionType"
-                                             ng-model="searchParameters.boxes.lookUpType"></selectexact>
+                                             ng-model="searchParameters.year.lookUpType"
+                                             ng-disabled="true"></selectexact>
                             </div>
                             <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.boxes.name" class="form-control"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="panel-heading searchGroupHeading"
-                     ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
-                    <h4 class="panel-title">
-                        {{ 'SEARCH.ANALYSES.LOCATION.LOCATION'| translate }}
-                        <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
-                    </h4>
-                </div>
-                <div uib-collapse="isLocationFieldsCollapsed">
-                    <div class="well well-lg">
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.COUNTRY' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.country.type"
-                                               ng-disabled="true"></selectdefault>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.country.value" class="form-control"
-                                       ng-disabled="true"/>
+                                <input type="text" ng-model="searchParameters.year.name" class="form-control"/>
                             </div>
                         </div>
                         <div class="row searchCriterion">
                             <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.ADMIN_UNIT' | translate }}</b>
+                                <b>{{ 'SEARCH.REFERENCES.TITLE' | translate }}</b>
                                 <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.adminunit.lookUpType"></selectdefault>
+                                               ng-model="searchParameters.title.lookUpType"></selectdefault>
                             </div>
                             <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.adminunit.name" class="form-control"/>
+                                <input type="text" ng-model="searchParameters.title.name" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row searchCriterion">
+                            <div class="col-md-12 medium-padding">
+                                <b>{{ 'SEARCH.REFERENCES.JOURNAL' | translate }}</b>
+                                <selectdefault custom-css="searchCriterionType"
+                                               ng-model="searchParameters.journal.lookUpType"></selectdefault>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.journal.name" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row searchCriterion">
+                            <div class="col-md-12 medium-padding">
+                                <b>{{ 'SEARCH.REFERENCES.BOOK' | translate }}</b>
+                                <selectexact custom-css="searchCriterionType"
+                                             ng-model="searchParameters.book.lookUpType"></selectexact>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.book.name" class="form-control"/>
                             </div>
                         </div>
                     </div>
@@ -166,11 +128,6 @@
                         </ul>
                     </div>
                 </div>
-                <div data-ng-if="isMapHidden">
-                    <div class="col-lg-12 search-map">
-                        <localities-map localities="localities"></localities-map>
-                    </div>
-                </div>
                 <loading></loading>
             </div>
             <div class="row">
@@ -186,51 +143,59 @@
                     <thead class="thead-default">
                     <tr>
                         <th>
-                            <a href style="cursor: pointer" data-ng-click="order('id')"><span>{{ 'SEARCH.DRILL_CORES.TABLE.ID' | translate }}</span>
+                            <a href style="cursor: pointer" data-ng-click="order('id')"><span>{{ 'SEARCH.REFERENCES.TABLE.ID' | translate }}</span>
                                 <span data-ng-show="searchParameters.sortField.sortBy == 'id' && sortByAsc"
                                       class="glyphicon glyphicon-triangle-bottom"></span>
                                 <span data-ng-show="searchParameters.sortField.sortBy == 'id' && !sortByAsc"
                                       class="glyphicon glyphicon-triangle-top"></span>
                             </a>
                         </th>
-                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.DRILLCORE' | translate }}</th>
-                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.LATITUDE' | translate }}</th>
-                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.LONGITUDE' | translate }}</th>
-                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.DEPTH_M' | translate }}</th>
+                        <th>{{ 'SEARCH.REFERENCES.TABLE.REFERENCE' | translate }}</th>
                         <th>
-                            <a href
-                               style="cursor: pointer"><span>{{ 'SEARCH.DRILL_CORES.TABLE.BOX_COUNT' | translate }}</span>
-                                <!--<span data-ng-show="sampleSearch.orderBy == 'id' && sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-bottom"></span>
-                                    <span data-ng-show="sampleSearch.orderBy == 'id' && !sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-top"></span>-->
+                            <a href style="cursor: pointer" data-ng-click="order('author')"><span>{{ 'SEARCH.REFERENCES.TABLE.AUTHOR' | translate }}</span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'author' && sortByAsc"
+                                      class="glyphicon glyphicon-triangle-bottom"></span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'author' && !sortByAsc"
+                                      class="glyphicon glyphicon-triangle-top"></span>
                             </a>
                         </th>
-                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.BOX_NUMBERS' | translate }}</th>
-                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.INSTITUTE' | translate }}</th>
-                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.STORAGE' | translate }}</th>
-                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.IMAGES' | translate }}</th>
+                        <th>
+                            <a href style="cursor: pointer" data-ng-click="order('year')"><span>{{ 'SEARCH.REFERENCES.TABLE.YEAR' | translate }}</span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'year' && sortByAsc"
+                                      class="glyphicon glyphicon-triangle-bottom"></span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'year' && !sortByAsc"
+                                      class="glyphicon glyphicon-triangle-top"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href style="cursor: pointer" data-ng-click="order('title')"><span>{{ 'SEARCH.REFERENCES.TABLE.TITLE' | translate }}</span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'title' && sortByAsc"
+                                      class="glyphicon glyphicon-triangle-bottom"></span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'title' && !sortByAsc"
+                                      class="glyphicon glyphicon-triangle-top"></span>
+                            </a>
+                        </th>
+                        <th>{{ 'SEARCH.REFERENCES.TABLE.JOURNAL_BOOK' | translate }}</th>
+                        <th>{{ 'SEARCH.REFERENCES.TABLE.PP' | translate }}</th>
+                        <th>{{ 'SEARCH.REFERENCES.TABLE.DOI' | translate }}</th>
+                        <th>{{ 'SEARCH.REFERENCES.TABLE.REMARKS' | translate }}</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr data-ng-repeat="entity in response.result">
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.ID' | translate }}"><a href
-                                                                                            data-ng-click="openInNewWindow({object:'drillCores',id:entity.id})">{{entity.id}}</a>
+                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.ID' | translate }}">{{entity.id}}</td>
+                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.REFERENCE' | translate }}"><a href
+                                                                                                  data-ng-click="ctrl.service.openInNewWindow({object:'references',id:entity.id})">{{entity.reference}}</a>
                         </td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.DRILLCORE' | translate }}"><a href
-                                                                                                   data-ng-click="openInNewWindow({object:'drillCores',id:entity.id})">{{entity.drillcore}}</a>
+                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.AUTHOR' | translate }}">{{entity.author}}</td>
+                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.YEAR' | translate }}">{{entity.year}}</td>
+                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.TITLE' | translate }}">{{entity.title}}</td>
+                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.JOURNAL_BOOK' | translate }}">
+                            {{entity.journalName}}
                         </td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.LATITUDE' | translate }}">{{entity.latitude}}</td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.LONGITUDE' | translate }}">{{entity.longitude}}
-                        </td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.DEPTH_M' | translate }}">{{entity.depth}}</td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.BOX_COUNT' | translate }}">{{entity.boxes}}</td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.BOX_NUMBERS' | translate }}">
-                            {{entity.boxNumbers}}
-                        </td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.INSTITUTE' | translate }}">???</td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.STORAGE' | translate }}">
-                            {{entity.storageLocation}}
-                        </td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.IMAGES' | translate }}">???</td>
+                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.PP' | translate }}">{{entity.pages}}</td>
+                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.DOI' | translate }}">{{entity.doi}}</td>
+                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.REMARKS' | translate }}">{{entity.remarks}}</td>
                     </tr>
                     </tbody>
                 </table>

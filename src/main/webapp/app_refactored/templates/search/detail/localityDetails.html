@@ -1,0 +1,143 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-3">
+                <label>Locality #{{locality.number}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <table class="table table-bordered table-hover">
+                    <tr><td>Name</td><td>{{locality.locality}}</td></tr>
+                    <tr><td>Number</td><td>{{locality.number}}</td></tr>
+                    <tr><td>Country</td><td>{{locality.countryValue}}</td></tr>
+                    <tr><td>Loc. type</td><td>{{locality.type}}</td></tr>
+                    <tr><td>Latitude (dec. deg.)</td><td>{{locality.latitude}}</td></tr>
+                    <tr><td>Longitude (dec. deg.)</td><td>{{locality.longitude}}</td></tr>
+                    <tr><td>Coord. precision</td><td>{{locality.coordPrecision}}</td></tr>
+                    <tr><td>Coord. method</td><td>{{locality.coordMethod}}</td></tr>
+                    <tr><td>Coord. agent</td><td>{{locality.coordAgent}}</td></tr>
+                    <tr><td>Localition remarks</td><td>{{locality.remarksLocation}}</td></tr>
+                    <tr><td>Stratigraphy base freeform</td><td>{{locality.stratigraphyBaseFree}}</td></tr>
+                    <tr><td>Stratigraphy top</td><td>{{locality.stratigraphyTop}}</td></tr>
+                    <tr><td>Stratigraphy base</td><td>{{locality.stratigraphyBase}}</td></tr>
+                    <tr><td>Record inserted</td><td>{{locality.dateAdded}}</td></tr>
+                    <tr><td>Record changed</td><td>{{locality.dateChanged}}</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <label>References to locality</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+            <label>Specimens</label>
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Stratigraphy</th>
+                    <th>Stratigraphy remarks</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr style="cursor: pointer; " data-ng-repeat="specimen in specimens">
+                    <td><a href data-ng-click="openInNewWindow({object:'specimen',id:specimen.id})">{{specimen.id}}</a></td>
+                    <td><a href="http://fossiilid.info/{{specimen.taxonId}}">{{specimen.taxon}}</a></td>
+                    <td>{{specimen.stratigraphy}}</td>
+                    <td>stratigraphy_free</td>
+                </tr>
+                </tbody>
+            </table>
+            <a href="">Show all specimens</a>
+            </div>
+        </div>
+        <div class="row">
+            <locality-map x = "locality.latitude" y = "locality.longitude" name = "locality.locality" fid = "locality.id"></locality-map>
+            <a href data-ng-click="showGoogleMap(locality.latitude, locality.longitude, locality.locality, locality.localityEn)">Google Maps</a></span>
+            <a href data-ng-click="showEstonianLandBoardMap(locality.latitude, locality.longitude)">Maa-amet / Estonian Land Board</a>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <label></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label>Linked files</label>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Tüüp/type</th>
+                        <th>Format</th>
+                        <th>Description</th>
+                        <th>Author</th>
+                        <th>Date</th>
+                        <th>Link</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in images">
+                        <td>???</td>
+                        <td>???</td>
+                        <td>???</td>
+                        <td>???</td>
+                        <td>???</td>
+                        <td>???</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label>References to locality</label>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Reference</th>
+                        <th>Pages</th>
+                        <th>Figs.</th>
+                        <th>Remarks</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in references">
+                        <td><a href data-ng-click="openInNewWindow({object:'references',id:entity.id})">{{entity.reference}}</a></td>
+                        <td>{{entity.pages}}</td>
+                        <td>???</td>
+                        <td>{{entity.remarks}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label>Drillcores</label>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Drillcore</th>
+                        <th>???</th>
+                        <th>???</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in drillcores">
+                        <td><a href data-ng-click="openInNewWindow({object:'drillCores',id:entity.id})">{{entity.drillcore}}</a></td>
+                        <td>???</td>
+                        <td>???</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

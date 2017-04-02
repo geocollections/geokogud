@@ -2,8 +2,7 @@
     <div class="row">
         <div class="col-sm-3 col-md-3 col-lg-3">
             <div class="row">
-                <h3 class="search-heading">{{ 'SEARCH.DRILL_CORES.HEADING' | translate }} <span
-                        class="badge badge-info">{{response.count}}</span>
+                <h3 class="search-heading">{{ 'SEARCH.LOCATILIES.HEADING' | translate }} <span class="badge badge-info">{{response.count}}</span>
                     <button type="submit" value="showHint" class="btn btn-info btn-sm pull-right"
                             data-ng-click="showHint()">
                         <span class="glyphicon glyphicon-question-sign"></span> {{ 'SEARCH.FAQ' | translate }}
@@ -33,7 +32,7 @@
                     <div class="well well-lg">
                         <div class="row searchCriterion">
                             <div class="col-md-12 searchCriterionTitle medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.ID' | translate }}</b>
+                                <b>{{ 'SEARCH.LOCALITIES.IDENTIFIERS.ID' | translate }}</b>
                                 <selectexact custom-css="searchCriterionType"
                                              ng-model="searchParameters.id.lookUpType"></selectexact>
                             </div>
@@ -43,45 +42,44 @@
                         </div>
                         <div class="row searchCriterion">
                             <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.DRILLCORE' | translate }}</b>
+                                <b>{{ 'SEARCH.LOCALITIES.IDENTIFIERS.NUMBER'| translate }}</b>
                                 <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.drillcore.lookUpType"></selectdefault>
+                                               ng-model="searchParameters.number.lookUpType"></selectdefault>
                             </div>
                             <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.drillcore.name" class="form-control"/>
+                                <input type="text" ng-model="searchParameters.number.name" class="form-control"/>
                             </div>
                         </div>
                         <div class="row searchCriterion">
                             <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.STRATIGRAPHY' | translate }}</b>
+                                <b>{{ 'SEARCH.LOCALITIES.IDENTIFIERS.STRATIGRAPHY'| translate }}</b>
                                 <selecthierarchy custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.xxx.lookUpType"
+                                                 ng-model="searchParameters.stratigraphy.lookUpType"
                                                  ng-disabled="true"></selecthierarchy>
                             </div>
                             <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.xxx.name" class="form-control"
-                                       ng-disabled="true"/>
+                                <input type="text" ng-model="searchParameters.stratigraphy.name" class="form-control"/>
                             </div>
                         </div>
                         <div class="row searchCriterion">
                             <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.STORAGE' | translate }}</b>
+                                <b>{{ 'SEARCH.LOCALITIES.IDENTIFIERS.REFERENCE' | translate }}</b>
                                 <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.storageLocation.lookUpType"></selectdefault>
+                                               ng-model="searchParameters.reference.lookUpType"></selectdefault>
                             </div>
                             <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.storageLocation.name"
-                                       class="form-control"/>
+                                <input type="text" ng-model="searchParameters.reference.name" class="form-control"
+                                       data-ng-disabled="true"/>
                             </div>
                         </div>
                         <div class="row searchCriterion">
                             <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.BOX_COUNT' | translate }}</b>
+                                <b>{{ 'SEARCH.LOCALITIES.IDENTIFIERS.MA_ID' | translate }}</b>
                                 <selectexact custom-css="searchCriterionType"
-                                             ng-model="searchParameters.boxes.lookUpType"></selectexact>
+                                             ng-model="searchParameters.maPaId.lookUpType"></selectexact>
                             </div>
                             <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.boxes.name" class="form-control"/>
+                                <input type="text" ng-model="searchParameters.maPaId.name" class="form-control"/>
                             </div>
                         </div>
                     </div>
@@ -91,7 +89,7 @@
                 <div class="panel-heading searchGroupHeading"
                      ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
                     <h4 class="panel-title">
-                        {{ 'SEARCH.ANALYSES.LOCATION.LOCATION'| translate }}
+                        {{ 'SEARCH.LOCALITIES.LOCATION.LOCATION'| translate }}
                         <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
                     </h4>
                 </div>
@@ -99,23 +97,62 @@
                     <div class="well well-lg">
                         <div class="row searchCriterion">
                             <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.COUNTRY' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.country.type"
-                                               ng-disabled="true"></selectdefault>
+                                <b>{{ 'SEARCH.LOCALITIES.LOCATION.LOCALITY' | translate }}</b>
+                                <selectdefault custom-css="searchCriterionType"
+                                               ng-model="searchParameters.locality.type"></selectdefault>
                             </div>
                             <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.country.value" class="form-control"
-                                       ng-disabled="true"/>
+                                <input type="text" ng-model="searchParameters.locality.value" class="form-control"/>
                             </div>
                         </div>
                         <div class="row searchCriterion">
                             <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.ADMIN_UNIT' | translate }}</b>
+                                <b>{{ 'SEARCH.LOCALITIES.LOCATION.COUNTRY' | translate }}</b>
                                 <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.adminunit.lookUpType"></selectdefault>
+                                               ng-model="searchParameters.country.type"></selectdefault>
                             </div>
                             <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.adminunit.name" class="form-control"/>
+                                <input type="text" ng-model="searchParameters.country.value" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row searchCriterion">
+                            <div class="col-md-12 medium-padding">
+                                <b>{{ 'SEARCH.LOCALITIES.LOCATION.ADMIN_UNIT' | translate }}</b>
+                                <selectdefault custom-css="searchCriterionType"
+                                               ng-model="searchParameters.adminUnit.lookUpType"></selectdefault>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.adminUnit.name" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row searchCriterion">
+                            <div class="col-md-12 medium-padding">
+                                <b>{{ 'SEARCH.LOCALITIES.LOCATION.LATITUDE' | translate }}</b>
+                                <selectexact custom-css="searchCriterionType"
+                                             ng-model="searchParameters.latitude.type"></selectexact>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.latitude.value" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row searchCriterion">
+                            <div class="col-md-12 medium-padding">
+                                <b>{{ 'SEARCH.LOCALITIES.LOCATION.LONGITUDE' | translate }}</b>
+                                <selectexact custom-css="searchCriterionType"
+                                             ng-model="searchParameters.longitude.type"></selectexact>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.longitude.value" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="row searchCriterion">
+                            <div class="col-md-12 medium-padding">
+                                <b>{{ 'SEARCH.LOCALITIES.LOCATION.VERTICAL_EXTENT' | translate }} </b>
+                                <selectexact custom-css="searchCriterionType"
+                                             ng-model="searchParameters.depth.type"></selectexact>
+                            </div>
+                            <div class="col-md-12 medium-padding">
+                                <input type="text" ng-model="searchParameters.depth.value" class="form-control"/>
                             </div>
                         </div>
                     </div>
@@ -186,51 +223,58 @@
                     <thead class="thead-default">
                     <tr>
                         <th>
-                            <a href style="cursor: pointer" data-ng-click="order('id')"><span>{{ 'SEARCH.DRILL_CORES.TABLE.ID' | translate }}</span>
+                            <a href style="cursor: pointer" data-ng-click="order('id')"><span>{{ 'SEARCH.LOCALITIES.TABLE.ID' | translate }}</span>
                                 <span data-ng-show="searchParameters.sortField.sortBy == 'id' && sortByAsc"
                                       class="glyphicon glyphicon-triangle-bottom"></span>
                                 <span data-ng-show="searchParameters.sortField.sortBy == 'id' && !sortByAsc"
                                       class="glyphicon glyphicon-triangle-top"></span>
                             </a>
                         </th>
-                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.DRILLCORE' | translate }}</th>
-                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.LATITUDE' | translate }}</th>
-                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.LONGITUDE' | translate }}</th>
-                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.DEPTH_M' | translate }}</th>
                         <th>
-                            <a href
-                               style="cursor: pointer"><span>{{ 'SEARCH.DRILL_CORES.TABLE.BOX_COUNT' | translate }}</span>
-                                <!--<span data-ng-show="sampleSearch.orderBy == 'id' && sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-bottom"></span>
-                                    <span data-ng-show="sampleSearch.orderBy == 'id' && !sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-top"></span>-->
+                            <a href style="cursor: pointer" data-ng-click="order('locality')"><span>{{ 'SEARCH.LOCALITIES.TABLE.LOCALITY' | translate }}</span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'locality' && sortByAsc"
+                                      class="glyphicon glyphicon-triangle-bottom"></span>
+                                <span data-ng-show="searchParameters.sortField.sortBy == 'locality' && !sortByAsc"
+                                      class="glyphicon glyphicon-triangle-top"></span>
                             </a>
                         </th>
-                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.BOX_NUMBERS' | translate }}</th>
-                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.INSTITUTE' | translate }}</th>
-                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.STORAGE' | translate }}</th>
-                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.IMAGES' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.COUNTRY' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.LATITUDE' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.LONGITUDE' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.VERTICAL_EXTENT' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.STRATIGRAPHY_BASE' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.STRATIGRAPHY_TOP' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.DRILLCORE' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.IMAGES' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.MAP' | translate }}</th>
+                        <th>{{ 'SEARCH.LOCALITIES.TABLE.MA_ID' | translate }}</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr data-ng-repeat="entity in response.result">
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.ID' | translate }}"><a href
-                                                                                            data-ng-click="openInNewWindow({object:'drillCores',id:entity.id})">{{entity.id}}</a>
+                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.ID' | translate }}"><a href
+                                                                                           data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.id})">{{entity.id}}</a>
                         </td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.DRILLCORE' | translate }}"><a href
-                                                                                                   data-ng-click="openInNewWindow({object:'drillCores',id:entity.id})">{{entity.drillcore}}</a>
+                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.LOCALITY' | translate }}"><a href
+                                                                                                 data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.id})">{{entity.locality}}</a>
                         </td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.LATITUDE' | translate }}">{{entity.latitude}}</td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.LONGITUDE' | translate }}">{{entity.longitude}}
+                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.COUNTRY' | translate }}">{{entity.countryValueEn}}
                         </td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.DEPTH_M' | translate }}">{{entity.depth}}</td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.BOX_COUNT' | translate }}">{{entity.boxes}}</td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.BOX_NUMBERS' | translate }}">
-                            {{entity.boxNumbers}}
+                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.LATITUDE' | translate }}">{{entity.latitude}}</td>
+                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.LONGITUDE' | translate }}">{{entity.longitude}}</td>
+                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.VERTICAL_EXTENT' | translate }}">{{entity.depth}}
                         </td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.INSTITUTE' | translate }}">???</td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.STORAGE' | translate }}">
-                            {{entity.storageLocation}}
+                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.STRATIGRAPHY_BASE' | translate }}">
+                            {{entity.stratigraphyBaseStratigraphyEn}}
                         </td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.IMAGES' | translate }}">???</td>
+                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.STRATIGRAPHY_TOP' | translate }}">
+                            {{entity.stratigraphyTopStratigraphyEn}}
+                        </td>
+                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.DRILLCORE' | translate }}">???</td>
+                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.IMAGES' | translate }}">???</td>
+                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.MAP' | translate }}"><span
+                                data-ng-if="entity.latitude != null && entity.longitude != null">+</span></td>
+                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.MA_ID' | translate }}">{{entity.maPaId}}</td>
                     </tr>
                     </tbody>
                 </table>

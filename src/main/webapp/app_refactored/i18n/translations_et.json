@@ -1,0 +1,462 @@
+{
+    "INFO": {
+        "COLLECTIONS_IN_GEOLOGY": {
+            "HEADING": "Kollektsioonid geoloogias",
+            "PARAGRAPH_ONE": "Informatsiooni meie planeedi 4,6 miljardi aastase arenguloo kohta on talletunud maakoore kivimites, mineraalides ning fossiilides, mis moodustavad geoloogiliste kollektsioonide, lühendatult geokogude, peamise osa.",
+            "PARAGRAPH_TWO": "Kollektsioonidel baseerub märkimisväärne osa geoloogia-alasest teadustööst – palju uusi avastusi on tehtud varem kogutud ja alles hoitud materjale uurides. Ning teistpidi, kollektsioonid moodustuvad sageli just teadustöö või rakendusuuringute käigus, kus on vajalik tõendusmaterjali säilitamine ning kättesaadavaks tegemine. "
+        },
+        "COLLECTIONS_IN_ESTONIA": {
+            "HEADING": "Geoloogia rahvuskollektsioon",
+            "PARAGRAPH_ONE": " Eesti geoloogiline rahvuskollektsioon on eri asutuste kogude virtuaalne ühendus, mis moodustati riikliku programmi \"Humanitaar- ja loodusteaduslikud kollektsioonid (2004-2008)\" raames. Geoloogilisse rahvuskollektsiooni kuuluvad: ",
+            "LI_ONE": "Tallinna Tehnikaülikooli Geoloogia Instituudi,",
+            "LI_TWO": "Tartu Ülikooli geoloogiamuuseumi,",
+            "LI_THREE": "Tartu Ülikooli geoloogia osakonna,",
+            "LI_FOUR": "Eesti Loodusmuuseumi,",
+            "LI_FIVE": "Eesti Maaülikooli Mullamuuseumi",
+            "PARAGRAPH_TWO": "kollektsioonid. Suured kivimiproovide ning puursüdamike kollektsioonid on ka Maa-ameti valduses / ",
+            "PARAGRAPH_TWO_A_LINK": "Eesti Geoloogiakeskuse"
+        },
+        "COMMON_DATABASE": {
+            "HEADING": "Geokogude andmebaas",
+            "PARAGRAPH_ONE": "Akadeemilistes asutustes on geokogude ja seonduva andmestiku haldamiseks kasutusele võetud infosüsteem SARV.",
+            "PARAGRAPH_TWO": "Siinne veebipõhine kasutajaliides võimaldab otsida ja sirvida peamisi andmeobjekte nagu eksemplarid, proovid, puursüdamikud, lokaliteedid, kirjandus, fotoarhiiv jt. Lisaks on loodud eraldi portaalid Baltoskandia kivististele ning analüütilisele teadusandmestikule. ",
+            "LINE_ONE": "Akadeemilistes asutustes on geokogude ja seonduva andmestiku haldamiseks kasutusele võetud infosüsteem",
+            "LINE_TWO": "SARV.",
+            "LINE_THREE": "Siinne",
+            "LINE_FOUR": " veebipõhine kasutajaliides",
+            "LINE_FIVE": " võimaldab otsida ja sirvida peamisi andmeobjekte nagu",
+            "LINE_SPECIMENS": "eksemplarid",
+            "LINE_ROCK": "proovid",
+            "LINE_DRILL_CORE": "puursüdamikud",
+            "LINE_LOCALITIES": "lokaliteedid",
+            "LINE_REFERENCES": "kirjandus",
+            "LINE_PHOTO_ARCHIVE": "fotoarhiiv",
+            "LINE_ETC": "jt.",
+            "PARAGRAPH_TWO_LINE_ONE": "Lisaks on loodud eraldi portaalid",
+            "PARAGRAPH_TWO_LINE_TWO": "Baltoskandia kivististele",
+            "PARAGRAPH_TWO_LINE_THREE": "ning",
+            "PARAGRAPH_TWO_LINE_FOUR": "analüütilisele teadusandmestikule",
+            "PARAGRAPH_THREE_LINE_ONE": "Geokogude infosüsteemis on praeguseks talletatud andmed ",
+            "PARAGRAPH_THREE_LINE_TWO": "eksemplari ja kivimiproovi kohta ning ",
+            "PARAGRAPH_THREE_LINE_THREE": "pilti jm meediafaili. Andmeid on viimati täiendatud ",
+            "PARAGRAPH_THREE": "Geokogude infosüsteemis on praeguseks talletatud andmed {{noOfSamples}} eksemplari ja kivimiproovi kohta ning {{noOfFiles}} pilti jm meediafaili. Andmeid on viimati täiendatud {{noOfFiles}} digital images and other media files. The data were last updated on {{databaseUpdated}}"
+        },
+        "HEADING": "Kollektsioonid"
+    },
+    "USING_COLLECTIONS": {
+        "HEADING_USING_COLLECTIONS": "Teaduskogude kasutamine",
+        "PARAGRAPH_ONE": "Kollektsioonide kasutamise eeskirjad asutustes:",
+        "TUT": "TTÜ Geoloogia Instituut",
+        "IN_ESTONIAN": "{{extension}}, eesti k",
+        "IN_ENGLISH": "{{extension}}, inglise k",
+        "UT_AND_MUSEUM_OF_GEO": "Tartu Ülikooli geoloogiamuuseum",
+        "INQUERIES": {
+            "HEADING": "Päringud, laenud ja visiidid",
+            "PARAGRAPH": "Suur osa Eesti geoloogilise rahvuskollektsiooni säilikutest on avatud nii Eesti kui välismaa teadlastele uurimistööks ning erandkorras ka muul otstarbel kasutamiseks (näitustel eksponeerimiseks, kasutamiseks õppematerjalina jne). Kogude kasutamine on eelneval kokkuleppel võimalik kohapeal ning sõltuvalt materjali ja töö iseloomust on võimalik eksemplare ka laenutada või hankida proove analüüsimiseks."
+        },
+        "DATABASE": {
+            "HEADING": "Andmebaas",
+            "PARAGRAPH_ONE": "Andmed suure osa Eesti geoloogiliste kollektsioonide kohta on talletatud andmebaasis SARV ning avalikult kättesaadavad Eesti Geokogude portaalis ning rahvusvahelistes andmevõrgustikes (GeoCASe, BioCASe, GBIF). Automatiseeritud päringud ning andmevahetus on võimalikud geokogude avaliku API kaudu. Andmete (piltide, jooniste, käsikirjade) autoriõigused kuuluvad konkreetsetele asutustele ja autoritele.",
+            "PARAGRAPH_TWO": "Andmete (piltide, jooniste, käsikirjade) autoriõigused kuuluvad konkreetsetele asutustele ja autoritele. Kui ei ole mainitud teisiti, siis toimub kõigi avalikult kättesaadavate andmete kasutamine ja levitamine vastavalt Creative Commons'i litsentsitingimustele.",
+            "CC_EXPLANATION": "Lühidalt tähendab see, et andmete kasutamine ja levitamine on mitteärilistel eesmärkidel kõigile vaba, eeldusel, et viidatakase autorile ja allikale.",
+            "LI_ONE": "Andmetele viitamisel palume kasutada järgmist vormi:",
+            "LI_ONE_ONE": "Eesti geokogude infosüsteem, [foto/joonis/andmed/..]: autor [author, nt Enn Pirrus], [asutus, nt TTÜ Geoloogia Instituut], [aasta].",
+            "LI_TWO": "Teaduslikule usaldusväärsusele pretendeerivates trükistes ja elektroonilistes publikatsioonides on nõutav kasutada objektide unikaalseid identifikaatoreid (nt eksemplari või proovi number) koos asutuse akronüümiga [GIT/TUG/ELM, nt eksemplar GIT 160-7].",
+            "LI_THREE": "Võimaluse korral lisage täislink konkreetsele andmebaasikirjele, näiteks ",
+            "LI_FOUR": "Oleme tänulikud, kui andmete kasutamisest publikatsioonides või veebilehtedel tagasisidet antakse.",
+            "LI_FIVE": "Kommertskasutuseks on vajalik eraldi luba, täpsustamiseks võtke ühendust konkreetse asutuse kuraatoriga."
+        },
+        "CONTACT": {
+            "HEADING": "Kontakt",
+            "TUT": {
+                "ORGANIZATION": "Tallinna Tehnikaülikooli Geoloogia Instituut, teaduskogude osakond",
+                "ADDRESS": "Ehitajate tee 5, 19086 Tallinn",
+                "CONTACT": {
+                    "PERSON": "Ursula Toom, peavarahoidja",
+                    "PHONE_EMAIL": "tel 620 3009, ursula.toom@ttu.ee"
+                }
+            },
+            "UT": {
+                "ORGANIZATION": "Tartu Ülikooli loodusmuuseum ja botaanikaaed, geoloogiamuuseum",
+                "ADDRESS": "Vanemuise 46, Tartu",
+                "CONTACT": {
+                    "PERSON": "Mare Isakar, geoloogiamuuseumi peavarahoidja",
+                    "PHONE_EMAIL": "tel 737 5839, mare.isakar@ut.ee"
+                }
+            },
+            "EMNH": {
+                "ORGANIZATION": "Eesti Loodusmuuseum, geoloogia osakond",
+                "ADDRESS": "Lai 29A, 10133 Tallinn",
+                "CONTACT": {
+                    "PERSON": "Sander Olo, osakonnajuhataja",
+                    "PHONE_EMAIL": "tel 641 1057, Sander.Olo@loodusmuuseum.ee"
+                }
+            }
+        }
+    },
+    "SEARCH": {
+        "ANALYSES": {
+            "HELP_POPUP": {
+                "HEADING": "ABIKS PÄRINGU KOOSTAMISEL:",
+                "PARAGRAPH_ONE": "Valige põhitabel (eksemplarid, proovid, lokaliteedid, kirjandus jne);",
+                "PARAGRAPH_TWO": "Sisestage üks või mitu otsingukriteeriumit; NB! suur- ja väiketähti ei eristata; tekstiväljade puhul otsitakse vaikimisi vasteid, kus sisaldub otsingusõna (st. otsing 'asap' leiab üles nii 'Asaphus sp.' kui ka 'Asaphus expansus'); klassifikatsiooni ja stratigraafia puhul toimib vaikimisi hierarhiline otsing, numbrite puhoul otsitakse täpset vastet, kui kasutaja ei määra teisiti;",
+                "PARAGRAPH_THREE": "Kaardi kuvamiseks märkige vastav linnuke;",
+                "PARAGRAPH_FOUR": "Detailsema infoni jõudmiseks kasutage otsingutulemuste tabelis esinevaid linke."
+            },
+            "HEADING": "Analüüsid",
+            "IDENTIFIERS": {
+                "SAMPLE_ID": "Number",
+                "NUMBER": "Proov #",
+                "BED_NAME_INDEX": "",
+                "IDENTIFIERS": "Identifikaator"
+            },
+            "LOCATION": {
+                "LOCATION": "Leiukoht",
+                "LOCALITY": "Leiukoht",
+                "ADMIN_UNIT": "Admin. üksus",
+                "DEPTH_M": "Sügavus (m)",
+                "STRATIGRAPHY": "Stratigraafia"
+            },
+            "ANALYSIS": {
+                "PANEL_TITLE": "Analüüs",
+                "TYPE": "Analüüsi tüüp",
+                "COMPONENT_ANALYZED": "Analüüsitud komponent",
+                "CONTENT": "Komponendi sisaldus"
+            },
+            "TABLE": {
+                "ID": "ID",
+                "SAMPLE_ID": "@:SEARCH.ANALYSES.IDENTIFIERS.SAMPLE_ID",
+                "LOCALITY": "@:SEARCH.ANALYSES.LOCATION.LOCALITY",
+                "DEPTH_M": "@:SEARCH.ANALYSES.LOCATION.DEPTH_M",
+                "STRATIGRAPHY": "@:SEARCH.ANALYSES.LOCATION.STRATIGRAPHY",
+                "LITHOSTRATIGRAPHY": "Litostratigraafia",
+                "BED_ID": "",
+                "METHOD": "Metoodika",
+                "LAB": ""
+            }
+        },
+        "SEND_QUERY": "Saada päring",
+        "FAQ": "KKK",
+        "RESET_FORM": "Тühista",
+        "INSTITUTIONS": "Asutused",
+        "NO_OF_RESULTS": "Kokku",
+        "DOI": {
+            "SEARCH_TIPS": {
+                "ONE": "DOI identifikaatoreid kasutatakse püsivate linkide loomiseks erinevatele digitaalsetele objektidele, sh teadusandmetele ja publikatsioonidele. DOId võimaldavad andmetele viidata ning suurendavad nende kättesaadavust, vt ka DataCite portaal.",
+                "TWO": "Alates 2014 a on geokogude infosüsteem SARV osaks DataCite Eesti konsortsiumist (vt datacite.utlib.ee), registreerides DOI numbreid geoteaduslikele andmetele. ",
+                "THREE": "SARVes registreeritud DOI otsinguks ja andmete allalaadimiseks sisestage otsingukriteeriumid; detailinfo kuvamiseks klikkige huvipakkuva kirje DOI numbril. Universaalne DOI otsing vt doi.org.",
+                "FOUR": "In case of DOI related questions contact Olle Hints, Institute of Geology at Tallinn University of Technology (olle.hints@ttu.ee) "
+            },
+            "HEADING": "Digitaalsed identifikaatorid (DOI)",
+            "FIELDS": "Väljad",
+            "DOI": "DOI",
+            "TITLE": "Pealkiri",
+            "PUBLISHED_BY": "Kirjastus",
+            "YEAR": "Aasta",
+            "AUTHOR": "Autor",
+            "ABSTRACT": "Abstract",
+            "TABLE": {
+                "ID": "ID",
+                "DOI": "DOI",
+                "AUTHOR": "Autor",
+                "YEAR": "Aasta",
+                "TITLE": "Pealkiri",
+                "TYPE": "Tüüp",
+                "DATACITE_REGISTRATION": "DataCite registration"
+            }
+        },
+        "DRILL_CORES": {
+            "SEARCHING_DRILL_CORES_HEADING": "PUURSÜDAMIKE OTSING",
+            "SEARCHING_DRILL_CORES_TEXT": "Puursüdamikud on olulised geoloogilise informatsiooni kandjad ning leiavad pidevat kasutamist nii teadustöös kui rakendusuuringutes. Südamike otsimiseks sisesta sobivad kriteeriumid, puuraukude kuvamiseks kaardil tee vastav märge. Detailse info nägemiseks kasutage linke tulemuste tabelis. Suur osa südamikukaste on varustatud fotodega.  Kui otsitav jäi leidmata siis vt. puursüdamike andmebaasi Maa-ameti geoportaalis.",
+            "HEADING": "Puursüdamikud",
+            "ID": "ID",
+            "DRILLCORE": "puursüdamik",
+            "STRATIGRAPHY": "stratigraafia",
+            "STORAGE": "hoiukoht",
+            "BOX_COUNT": "südamikukaste",
+            "COUNTRY": "riik",
+            "ADMIN_UNIT": "admin. üksus",
+            "TABLE": {
+                "ID": "ID",
+                "DRILLCORE": "puursüdamik",
+                "LATITUDE": "laiuskraad",
+                "LONGITUDE": "pikkuskraad",
+                "DEPTH_M": "sügavus (m)",
+                "BOX_COUNT": "südamikukaste",
+                "BOX_NUMBERS": "kastinumbrid",
+                "INSTITUTE": "inst.",
+                "STORAGE": "hoiukoht",
+                "IMAGES": "pildid"
+            }
+        },
+        "SHOW_MAP": "Näita kaardil",
+        "LOCATILIES": {
+            "HEADING": "Lokaliteedid"
+        },
+        "LOCALITIES": {
+            "IDENTIFIERS": {
+                "IDENTIFIERS": "Identifikaator",
+                "ID": "ID",
+                "NUMBER": "number",
+                "STRATIGRAPHY": "stratigraafia",
+                "REFERENCE": "viide",
+                "MA_ID": "MA ID"
+            },
+            "LOCATION": {
+                "LOCATION": "Leiukoht",
+                "LOCALITY": "leiukoht",
+                "COUNTRY": "riik",
+                "ADMIN_UNIT": "admin. üksus",
+                "LATITUDE": "laiuskraad",
+                "LONGITUDE": "pikkuskraad",
+                "VERTICAL_EXTENT": "läbilõike ulatus, m"
+            },
+            "TABLE": {
+                "ID": "ID",
+                "LOCALITY": "leiukoht",
+                "COUNTRY": "riik",
+                "LATITUDE": "laiuskraad",
+                "LONGITUDE": "pikkuskraad",
+                "VERTICAL_EXTENT": "läbilõike ulatus, m",
+                "STRATIGRAPHY_BASE": "stratigraphy alum.",
+                "STRATIGRAPHY_TOP": "stratigraafia ülem.",
+                "DRILLCORE": "puursüdamik",
+                "IMAGES": "pildid",
+                "MAP": "kaart",
+                "MA_ID": "MA ID"
+            }
+        },
+        "PHOTO_ARCHIVE": {
+            "HEADING": "Fotoarhiiv",
+            "LOCALITY": "leiukoht",
+            "PEOPLE": "inimesed",
+            "KEY_WORDS": "märksõnad",
+            "ADMIN_UNIT": "admin. üksus ",
+            "DATE": "aeg",
+            "NUMBER": "number",
+            "AUTHOR": "autor",
+            "IMAGE_SIZE": "pildi suurus",
+            "SEARCH_TIPS": {
+                "ONE": "Geokogude fotoarhiivi vanimad kaadrid on pärit 20. saj. algusest. Arhiiv täieneb nii jätkuva digiteerimise kui uute piltide lisandumise teel. Otsinguks sisesta sobivad märksõnad.",
+                "TWO": "Piltide kasutamisel palume jälgida litsentsitingimusi ja vajadusel konsulteerida asutuse kuraatoriga."
+            },
+            "TABLE": {
+                "ID": "ID",
+                "NUMBER": "number",
+                "AUTHOR": "autor",
+                "DATE": "aeg",
+                "LOCALITY": "leiukoht",
+                "CATEGORY": "kategooria",
+                "KEY_WORDS": "märksõnad"
+            }
+        },
+        "PREPARATIONS": {
+            "HEADING": "Preparaadid",
+            "NUMBER": "number",
+            "LOCALITY": "leiukoht",
+            "DEPTH_M": "sügavus (m)",
+            "STRATIGRAPHY": "stratigraafia",
+            "COLLECTOR": "koguja",
+            "DESCRIPTION": "kirjeldus",
+            "SPECIES_RECOVERED": "Taksoni nimi",
+            "SPECIES_FREQUENCY": "Taksoni arvukus",
+            "TABLE": {
+                "ID": "ID",
+                "NUMBER": "number",
+                "LOCALITY": "leiukoht",
+                "DEPTH_M": "sügavus (m)",
+                "STRATIGRAPHY": "stratigraafia",
+                "LITHOSTRATIGRAPHY": "litostratigraafia",
+                "COLLECTOR": "coll.",
+                "WEIGHT": "kaal",
+                "MORE_INFO": ""
+            }
+        },
+        "SHOW_ADDITIONAL_CRITERIA": "Kuva täiendavad otsinguväljad",
+        "HIDE_ADDITIONAL_CRITERIA": "Peida lisaväljad",
+        "SORT_BY": "järjesta kirjed",
+        "CHOOSE": "-- Vali --",
+        "REFERENCES": {
+            "HEADING": "Kirjandus",
+            "ID": "ID",
+            "AUTHOR": "Autor",
+            "YEAR": "Aasta",
+            "TITLE": "Pealkiri",
+            "JOURNAL": "Ajakiri",
+            "BOOK": "Raamat, kogumik",
+            "TABLE": {
+                "ID": "ID",
+                "REFERENCE": "Viide",
+                "AUTHOR": "Autor",
+                "YEAR": "Aasta",
+                "TITLE": "Pealkiri",
+                "JOURNAL_BOOK": "Ajakiri / kogumik",
+                "PP": "pp.",
+                "DOI": "DOI",
+                "REMARKS": "file(s)"
+            }
+        },
+        "SAMPLES": {
+            "HEADING": "Proovid",
+            "ID": "ID",
+            "NUMBER": "number",
+            "DEPTH_M": "sügavus (m)",
+            "STRATIGRAPHY": "stratigraafia",
+            "BED_NAME_INDEX": "bed name / index",
+            "COLLECTOR": "koguja",
+            "WEIGHT": "kaal (alles, g)",
+            "STORAGE": "hoiukoht",
+            "SPECIES_RECOVERED": "Taksoni nimi",
+            "SPECIES_FREQUENCY": "Taksoni arvukus",
+            "TYPE_OF_ANALYSIS": "Analüüsi tüüp",
+            "COMPONENT_ANALYSED": "Analüüsitud komponent",
+            "CONTENT": "Komponendi sisaldus",
+            "LOCALITY": "leiukoht",
+            "ADMIN_UNIT": "admin. üksus",
+            "INSTITUTE": "Inst.",
+            "LITHOSTRATIGRAPHY": "litostratigraafia",
+            "ANAL": "anal."
+        },
+        "SOIL_SITES": {
+            "HEADING": "Mullakaeved ja transektid",
+            "ID": "ID",
+            "SITE": "Koht",
+            "AREA_OF_STUDY": "Uuringuala",
+            "TRANSECT": "Transekt",
+            "SOIL_NAME": "Mulla nimetus",
+            "LAND_USE": "Maakasutus",
+            "DEEP_MINING": "Kas on sügavkaeve?",
+            "TABLE": {
+                "ID": "ID",
+                "SITE": "Mullakoht",
+                "AREA_OF_STUDY": "Uuringuala",
+                "TRANSECT": "Transekt",
+                "POINT_OF_THE_TRANSECT": "Punkt transektil",
+                "SOIL_NAME": "Mulla nimetus",
+                "LAND_USE": "Maakasutus",
+                "LATITUDE": "Lat.",
+                "LONGITUDE": "Lon.",
+                "IS_DEEP_MINING": "Sügavkaeve"
+            }
+        },
+        "SPECIMENS": {
+            "HEADING": "Eksemplarid",
+            "ID": "ID",
+            "NUMBER": "eksemplari nr",
+            "COLLECTION_NUMBER": "kollektsiooni nr",
+            "CLASSIFICATION_NUMBER": "klassifikatsioon",
+            "FOSSIL_MINERAL_ROCK": "fossiil/kivim/mineraal",
+            "NAME_OF_ROCK": "fossiili nimi",
+            "MINERAL_ROCK": "mineraal/kivim",
+            "ADMIN_UNIT": "admin. üksus",
+            "LOCALITY": "leiukoht",
+            "DEPHT_M": "sügavus (m)",
+            "STRATIGRAPHY": "stratigraafia",
+            "COLLECTOR": "koguja",
+            "REFERENCE": "viide",
+            "TYPE_STATUS": "originaali staatus ",
+            "PART_OF_FOSSIL": "fossiili osis",
+            "KEYWORDS": "märksõnad",
+            "REG_DATE": "Reg. date",
+            "OLD_SPECIMEN_NUMBER": "vana nr.",
+            "NAME_PART_ELEMENT": "nimi osis/element",
+            "LITHOSTRATIGRAPHY": "litostratigraafia",
+            "STATUS": "status",
+            "IMAGES": "pildid"
+        },
+        "SEARCH_IMAGES": "otsi pilte",
+        "STRATIGRAPHY": {
+            "HEADING": "Stratigraafilised üksused",
+            "ID": "ID",
+            "STRATIGRAPHY": "stratigraafia",
+            "INDEX": "indeks",
+            "AGE_MIN_Y": "vanus, mln a",
+            "MAIN_LITHOLOGY": "litoloogia",
+            "AUTHOR": "autor",
+            "TABLE": {
+                "ID": "ID",
+                "STRATIGRAPHY_ET": "stratigraafia (et)",
+                "STRATIGRAPHY_EN": "stratigraafia (en)",
+                "INDEX": "indeks",
+                "TYPE": "tüüp",
+                "RANK": "tase",
+                "SCOPE": "skoop",
+                "AGE": "vanus",
+                "AGE_MA": "vanus (Ma)",
+                "BELONGS_TO": "kuulub"
+            }
+        }
+    },
+    "INDEX": {
+        "GEOCOLLECTIONS_TITLE": "Eesti geokogude infosüsteem",
+        "SEARCH_FIELD_TEXT": "Sisesta otsingusõna…",
+        "SEARCH_BUTTON_TEXT": "Otsi",
+        "ABOUT_LINK": "Üldinfo",
+        "NEWS_LINK": "Uudised",
+        "SEARCH_LINK": "Otsing",
+        "MAP_LINK": "Kaart",
+        "USING_COLLECTIONS_LINK": "Kogude kasutamine",
+        "FOR_DEVELOPERS_LINK": "Arendajatele",
+        "DATABASE_LINK": "Andmebaas",
+        "PUBLIC_API_LINK": "Avalik API",
+        "BUTTON_LANG_ET": "EST",
+        "BUTTON_LANG_EN": "ENG",
+        "SARV_CC": "SARV: Eesti geokogude infosüsteem ja andmerepositoorium",
+        "FOOTER_MESSAGE": "Kui pole märgitud teisiti, siis on siin leiduvate materjalide kasutamine ja levitamine mitteärilistel eesmärkidel kõigile vaba, eeldusel, et viidatakse allikale.",
+        "BACK_TO_TOP": "Üles",
+        "RESOURCES_LINK": "Ressursid",
+        "CONTACT_LINK": "Kontakt",
+        "INVESTIGATORS_LINK": "Uurijatele",
+        "GEOCOLLECTIONS_HEADER": "Eesti geokogude infosüsteem",
+        "EXTENDED_SEARCH_LINK": "Liitotsing",
+        "USEFUL_INFO": "KASULIK INFORMATSIOON",
+        "GIT_TUT": "TTÜ Geoloogia Instituudi geoloogilised kollektsioonid",
+        "FOOTER_TITLE": "Küsimused andmebaasi ja veebilehe kohta!",
+        "WEBSITE_TITLE": "Eesti geokogud",
+        "SEARCH2_LINK": "Otsing2",
+        "READ_MORE": "Loe rohkem",
+        "PAGE_LOADING": "Palun oota. Rakendust laaditakse."
+    },
+    "PARTNERS": {
+        "HEADING": "PARTNERID",
+        "UNIVERSITY_TARTU": "Tartu Ülikool Loodusmuuseum",
+        "ELM": "Eesti Loodusmuuseum",
+        "GEOCASE": "Geosciences Collection Access Service"
+    },
+    "LOCALITY": {
+        "LOCALITY": "Nimi",
+        "COUNTRY": "Riik",
+        "LATITUDE": "Laiuskraad",
+        "LONGITUDE": "Pikkuskraad"
+    },
+    "GIT" : {
+        "GIT_HEADING": "GIT",
+        "GIT_TITLE": "TTÜ Geoloogia Instituudi geoloogilised kollektsioonid",
+        "PARAGRAPH_ONE": "TTÜ Geoloogia Instituudi valduses on Eesti suurimad geolooglised kogud, kus fossiilide, mineraalide, kivimite ja meteoriitide koguarv ulatub poole miljonini. Kogud on igapäevaselt kasutuses instituudi töötajate poolt, leides ühtlasi rakendust ka mitmete rahvusvaheliste projektide raames. Väike osa kogudest on eksponeeritud ning leiab rakendust õppe- ja huvialatöös. Paleontoloogilised kogud on eriti esinduslikud alam- ja kesk-Paleosoikumi selgrootute ja varajaste selgroogsete osas. Enamus kogutud materjalist pärineb Baltikumist ning mujalt endise NL aladelt, kuid esindatud on ka palju teisi riike ja piirkondi.",
+        "PARAGRAPH_TWO": ""
+    },
+    "GEOLOGICALCOLLECTIONS": {
+        "TITLE": "Üldinfo Eesti geoloogiliste kogude kohta",
+        "PARAGRAPH_ONE": "Sätendavaid mineraale ja kivistunud teokarpe on Eestis kogutud ilmselt ammustest aegadest peale. Esimesed teadaolevad süstemaatilised kogud, millest on tänaseks säilinud küll õige vähe, tekkisid baltisaksa aadlikel 18.-19. sajandil, Tartu Ülikooli vanimad geoloogilised kogud pärinevad 19. saj algusaastatest. Enam kui kahe sajandi vältel on kodu- ja välismaalt pärit geoloogilised objektid Eesti kogusid jõudsalt kasvatanud. Tänaseks moodustavad Eesti geoloogilise rahvuskollektsiooni tuumiku Tallinna Tehnikaülikooli Geoloogia Instituudi (endine Teaduste Akadeemia Geoloogia Instituut), Tartu Ülikooli geoloogiamuuseumi ja Eesti Loodusmuuseumi kogud, mida on üksikasjalikult käsitletud allpool (vt. tabel 1).",
+        "PARAGRAPH_TWO": "Eraldi esiletõstmist vajaks Eesti Geoloogiakeskus (EGK), kelle hallata on Eesti suurim ning teadustöös aktiivset kasutust leidev puursüdamike kollektsioon, kokku u 70 000 jooksvat meetrit südamikku (17 900 kasti). Puursüdamikele lisandub enam kui 30 000 kivimiproovi ja u 20 000 kivimiõhikut. Kuigi Geoloogiakeskus ei ole otseselt teaduskogude programmis osalenud, väärib see kogu suurt tähelepanu, püsivat säilitamist ja sidustamist teiste suuremate kogudega. Ka EGK võiks tulevikus kuuluda geoloogia rahvuskollektsiooni koosseisu.",
+        "PARAGRAPH_THREE": "Teaduskogude programmis leidsid äramärkimist Eesti Maaülikooli mullateaduslikud kogud, kus on arvel ligikaudu 5000 mullamonoliiti ja -proovi, ning TÜ Ajaloomuuseum, mille teadusajalooliste kogude hulgas leidub ka geoloogilisi museaale. Geoloogilisi objekte esineb ka paljudes maakonna- ja kohalikes muuseumides, neist väärivad eraldi äramärkimist Saaremaa Muuseum oma ligi 8000 säilikuga ning geoloogiale spetsialiseerunud Porkuni Paemuuseum. Geoloogiast huvituvaid erakollektsionääre on Eestis teadaolevalt vähe. Põhjalikumalt on väiksemaid geoloogiliste kogusid iseloomustanud Toivo Lodjak (1995). Kuigi era- ja väikekogudel on kanda oluline roll kohaliku looduse tutvustamisel, loodushariduse edendamisel ja loodusteaduste propageerimisel, jääb nende kogude teaduslik väärtus siiski tagasihoidlikuks.",
+        "PARAGRAPH_FOUR": "",
+        "PARAGRAPH_FIVE": "",
+        "PARAGRAPH_SIX": "",
+        "PARAGRAPH_SEVEN": "",
+        "TABLE": {
+            "HEADING1": "kollektsioon",
+            "HEADING2": "fossiilid, mineraalid, kivimid",
+            "HEADING3": "mikro-paleontoloogia",
+            "HEADING4": "kivimi- ja setteproovid",
+            "HEADING5": "puursüdamikud (kaste)",
+            "HEADING6": "KOKKU",
+            "ROW1": "TTÜ GI",
+            "ROW2": "TÜ GM",
+            "ROW3": "ELM",
+            "ROW4": "EGK",
+            "ROW5": "väiksemad kogud kokku",
+            "ROW6": "KOKKU"
+        }
+    }
+}
