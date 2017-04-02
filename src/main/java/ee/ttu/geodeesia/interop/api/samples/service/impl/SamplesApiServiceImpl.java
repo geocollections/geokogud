@@ -8,6 +8,7 @@ import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.Response.ResponseMapper;
 import ee.ttu.geodeesia.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geodeesia.interop.api.builder.search.FluentSampleSearchApiBuilder;
+import ee.ttu.geodeesia.interop.api.samples.pojo.Sample;
 import ee.ttu.geodeesia.interop.api.samples.pojo.SampleEntity;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geodeesia.interop.api.service.ApiService;
@@ -139,16 +140,13 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     }
 
     @Override
-    public Response searchSamples(SampleSearchCriteria criteria) {
+    public Response<Sample> searchSamples(SampleSearchCriteria criteria) {
         String requestParams = FluentSampleSearchApiBuilder.aRequest()
-                .queryId(criteria.getId()).andReturn()
-                .queryDepth(criteria.getDepth()).andReturn()
+                .queryId(criteria.getId())
+                .queryDepth(criteria.getDepth())
                 .querySoilSiteId(criteria.getSoilSiteId())
-                .returnNumberAdditional()
-                .returnDepthInterval()
-                .returnRemarks()
-                .build();
-        return apiService.searchEntities("sample", criteria.getPage(), criteria.getSortField(), requestParams, SampleEntity.class);
+                .buildWithoutReturningCertainFields();
+        return apiService.searchEntitiesAngMagicallyDeserialize("sample", criteria.getPage(), criteria.getSortField(), requestParams, Sample.class);
     }
 
     private String composeFieldQuery(CommonSearch search) {

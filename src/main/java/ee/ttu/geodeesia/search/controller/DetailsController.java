@@ -14,9 +14,12 @@ import ee.ttu.geodeesia.interop.api.photoArchive.pojo.PhotoArchiveDetailsDialogD
 import ee.ttu.geodeesia.interop.api.photoArchive.service.PhotoArchiveApiService;
 import ee.ttu.geodeesia.interop.api.reference.pojo.ReferenceDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.reference.service.ReferenceApiService;
+import ee.ttu.geodeesia.interop.api.samples.pojo.Sample;
 import ee.ttu.geodeesia.interop.api.samples.pojo.SampleDetailsDialogDto;
 import ee.ttu.geodeesia.interop.api.samples.service.SamplesApiService;
+import ee.ttu.geodeesia.interop.api.soil.pojo.Soil;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilDetailsDialogDto;
+import ee.ttu.geodeesia.interop.api.soil.pojo.SoilHorizon;
 import ee.ttu.geodeesia.interop.api.soil.service.SoilApiService;
 import ee.ttu.geodeesia.interop.api.specimen.pojo.SpecimenSearchCriteria;
 import ee.ttu.geodeesia.interop.api.specimen.service.SpecimenApiService;
@@ -65,8 +68,9 @@ public class DetailsController {
         SampleSearchCriteria criteria = new SampleSearchCriteria();
         criteria.setSoilSiteId(new SearchField(id.toString(), LookUpType.exact));
 
-        Response soil = soilApiService.findById(id);
-        Response samples = samplesApiService.searchSamples(criteria);
+        Soil soil = soilApiService.findById(id);
+        Response<Sample> samples = samplesApiService.searchSamples(criteria);
+        Response<SoilHorizon> soilHorizons = soilApiService.findSoilHorizons(null);
 
         return new SoilDetailsDialogDto(soil, samples);
     }

@@ -1,14 +1,11 @@
 package ee.ttu.geodeesia.interop.api.soil.pojo;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import ee.ttu.geodeesia.search.domain.Coordinates;
+import ee.ttu.geodeesia.interop.api.common.GeoEntity;
 
 import java.math.BigDecimal;
 
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class SoilApiResponse {
+public class Soil implements GeoEntity{
     private Long id;
     private String site;
     private String areaOfStudy;
@@ -19,13 +16,68 @@ public class SoilApiResponse {
     private BigDecimal latitude;
     private BigDecimal longitude;
     private boolean deep;
+    private String coordx;
+    private String coordy;
+    private String coordSystem;
+    private String kSizeA;
+    private String kAsteA;
+    private String date;
+    private String dateFree;
 
-    public String getTransect() {
-        return transect;
+    public String getCoordx() {
+        return coordx;
     }
 
-    public void setTransect(String transect) {
-        this.transect = transect;
+    public void setCoordx(String coordx) {
+        this.coordx = coordx;
+    }
+
+    public String getCoordy() {
+        return coordy;
+    }
+
+    public void setCoordy(String coordy) {
+        this.coordy = coordy;
+    }
+
+    public String getCoordSystem() {
+        return coordSystem;
+    }
+
+    public void setCoordSystem(String coordSystem) {
+        this.coordSystem = coordSystem;
+    }
+
+    public String getkSizeA() {
+        return kSizeA;
+    }
+
+    public void setkSizeA(String kSizeA) {
+        this.kSizeA = kSizeA;
+    }
+
+    public String getkAsteA() {
+        return kAsteA;
+    }
+
+    public void setkAsteA(String kAsteA) {
+        this.kAsteA = kAsteA;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDateFree() {
+        return dateFree;
+    }
+
+    public void setDateFree(String dateFree) {
+        this.dateFree = dateFree;
     }
 
     public Long getId() {
@@ -44,22 +96,26 @@ public class SoilApiResponse {
         this.site = site;
     }
 
-    @JsonProperty("areaOfStudy")
     public String getAreaOfStudy() {
         return areaOfStudy;
     }
 
-    @JsonProperty("area_name")
     public void setAreaOfStudy(String areaOfStudy) {
         this.areaOfStudy = areaOfStudy;
     }
 
-    @JsonProperty("transectPoint")
+    public String getTransect() {
+        return transect;
+    }
+
+    public void setTransect(String transect) {
+        this.transect = transect;
+    }
+
     public String getTransectPoint() {
         return transectPoint;
     }
 
-    @JsonProperty("transect_point")
     public void setTransectPoint(String transectPoint) {
         this.transectPoint = transectPoint;
     }
@@ -72,12 +128,10 @@ public class SoilApiResponse {
         this.soil = soil;
     }
 
-    @JsonProperty("landUse")
     public String getLandUse() {
         return landUse;
     }
 
-    @JsonProperty("land_use")
     public void setLandUse(String landUse) {
         this.landUse = landUse;
     }
@@ -98,13 +152,16 @@ public class SoilApiResponse {
         this.longitude = longitude;
     }
 
-    @JsonProperty("isDeep")
     public boolean isDeep() {
         return deep;
     }
 
-    @JsonProperty("is_deep")
     public void setDeep(boolean deep) {
         this.deep = deep;
+    }
+
+    @Override
+    public void addRelatedData(Object relatedData) {
+
     }
 }

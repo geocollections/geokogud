@@ -4,7 +4,8 @@ import ee.ttu.geodeesia.interop.api.Response.Response;
 import ee.ttu.geodeesia.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geodeesia.interop.api.builder.search.FluentSoilSearchApiApiBuilder;
 import ee.ttu.geodeesia.interop.api.service.ApiService;
-import ee.ttu.geodeesia.interop.api.soil.pojo.SoilApiResponse;
+import ee.ttu.geodeesia.interop.api.soil.pojo.Soil;
+import ee.ttu.geodeesia.interop.api.soil.pojo.SoilHorizon;
 import ee.ttu.geodeesia.interop.api.soil.pojo.SoilSearchCriteria;
 import ee.ttu.geodeesia.interop.api.soil.service.SoilApiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +30,19 @@ public class SoilApiServiceImpl implements SoilApiService {
                 .returnLongitude()
                 .returnTransectPoint()
                 .build();
-        return apiService.searchEntities("soil_site", searchCriteria.getPage(),searchCriteria.getSortField(), requestParams, SoilApiResponse.class);
+        return apiService.searchEntities("soil_site", searchCriteria.getPage(),searchCriteria.getSortField(), requestParams, Soil.class);
     }
 
     @Override
-    public Response findById(Long id) {
+    public Soil findById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
                 .buildWithDefaultReturningFields();
-        return apiService.findEntity("soil_site", requestParams, SoilApiResponse.class);
+        return apiService.findEntityAndMagicallyDeserialize("soil_site", requestParams, Soil.class);
+    }
+
+    @Override
+    public Response<SoilHorizon> findSoilHorizons(SoilSearchCriteria searchCriteria) {
+        return null;
     }
 }

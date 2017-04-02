@@ -11,19 +11,19 @@
                     <tr><td>Name</td><td>{{soil.site}}</td></tr>
                     <tr><td>Latitude (dec. deg.)</td><td>{{soil.latitude}}</td></tr>
                     <tr><td>Longitude (dec. deg.)</td><td>{{soil.longitude}}</td></tr>
-                    <tr><td>EPSG</td><td>???</td></tr>
-                    <tr><td>X (m)</td><td>????</td></tr>
-                    <tr><td>Y (m)</td><td>????</td></tr>
-                    <tr><td>Aeg</td><td>????</td></tr>
-                    <tr><td>Aasta</td><td>???</td></tr>
-                    <tr><td>Land use</td><td>{{entity.agent}}</td></tr>
+                    <tr><td>EPSG</td><td>{{soil.coordSystem}}</td></tr>
+                    <tr><td>X (m)</td><td>{{soil.coordx}}</td></tr>
+                    <tr><td>Y (m)</td><td>{{soil.coordy}}</td></tr>
+                    <tr><td>Aeg</td><td>{{soil.date}}</td></tr>
+                    <tr><td>Aasta</td><td>{{soil.dateFree}}</td></tr>
+                    <tr><td>Land use</td><td>{{soil.agent}}</td></tr>
                     <tr><td>Soil name</td><td>{{soil.soil}}</td></tr>
-                    <tr><td>K aste A</td><td>???</td></tr>
-                    <tr><td>K suurus A</td><td>????</td></tr>
+                    <tr><td>K aste A</td><td>{{soil.kAsteA}}</td></tr>
+                    <tr><td>K suurus A</td><td>{{soil.kSizeA}}</td></tr>
                 </table>
             </div>
             <div class="col-lg-6">
-                <locality-map x = "sample.latitude" y = "sample.longitude" name = "sample.localityEng" fid = "sample.localityId"></locality-map>
+                <locality-map x = "soil.latitude" y = "soil.longitude" name = "soil.localityEng" fid = "soil.localityId"></locality-map>
                 <a href data-ng-click="showGoogleMap(soil.latitude, soil.longitude, soil.locality, soil.localityEng)">Google Maps</a></span>
                 <a href data-ng-click="showEstonianLandBoardMap(soil.latitude, soil.longitude)">Maa-amet / Estonian Land Board</a>
             </div>
@@ -48,10 +48,10 @@
                 <tbody>
                 <tr style="cursor: pointer; " data-ng-repeat="sample in samples">
                     <td><a href data-ng-click="openInNewWindow({object:'sample',id:sample.id})">{{sample.id}}</a></td>
-                    <td>{{sample.number}}</td>
-                    <td>???????</td>
+                    <td>{{sample.numberAdditional}}</td>
+                    <td>{{sample.soilHorizon}}</td>
                     <td>{{sample.depth}} - {{sample.depthInterval}}</td>
-                    <td>?????</td>
+                    <td>{{sample.remarks}}</td>
                 </tr>
                 </tbody>
             </table>
