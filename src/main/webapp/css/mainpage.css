@@ -361,3 +361,31 @@ table tr > td:first-child {
 .panel-title {
     cursor:pointer;
 }
+
+#newsHeading {
+	margin: 40px;
+}
+
+.content img {
+	max-width: 100%;
+}
+
+.content .dateAdded {
+	font-weight: bold;
+	font-size: 18px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.content .heading {
+	font-size: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-style: italic;
+}
+
+.content .text {
+	font-size: 16px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
