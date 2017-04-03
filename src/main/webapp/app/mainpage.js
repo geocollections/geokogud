@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
     "use strict"; // Start of use strict
 
-    // jQuery for page scrolling feature - requires jQuery Easing plugin
+   // jQuery for page scrolling feature - requires jQuery Easing plugin
     $(document).on('click', 'a.page-scroll', function(event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
@@ -9,29 +9,30 @@ jQuery(document).ready(function ($) {
         }, 1250, 'easeInOutExpo');
         event.preventDefault();
     });
-    $(document).on('click', 'a.page-scroll-to-searches', function(event) {
+     $(document).on('click', 'a.page-scroll-to-searches', function(event) {
         $('html, body').stop().animate({
             scrollTop: ($("#searches").offset().top - 50)
         }, 1250, 'easeInOutExpo');
         event.preventDefault();
     });
-    $(document).on('click', 'a.page-scroll-to-additional', function(event) {
+     $(document).on('click', 'a.page-scroll-to-additional', function(event) {
         $('html, body').stop().animate({
             scrollTop: ($("#additional").offset().top - 50)
         }, 1250, 'easeInOutExpo');
         event.preventDefault();
     });
-    $(document).on('click','.navbar-collapse.in',function(e) {
+     $(document).on('click','.navbar-collapse.in',function(e) {
         if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
             $(this).collapse('hide');
         }
     });
+
     // Highlight the top nav as scrolling occurs
-    $('body').scrollspy({
+    /* $('body').scrollspy({
         target: '.navbar-fixed-top',
         offset: 51
     });
-
+     */
     // Offset for Main Navigation
     $('#mainNav').affix({
         offset: {
