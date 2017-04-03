@@ -21,7 +21,7 @@ var constructor = function (utils,configuration) {
 
     service.getList = function (searchType, data, success, error) {
         var url = getSearchUrl(searchType);
-        if(url != null) utils.httpPost(url, {data: data}, success, error);
+        if(url != null) utils.httpPost(url, data, success, error);
     };
 
     service.getEntity = function (searchType, id, callback, error) {

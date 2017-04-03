@@ -42,6 +42,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
 
     @Override
     public Response findSample(ee.ttu.geodeesia.interop.api.samples.pojo.SampleSearchCriteria searchCriteria) {
+        System.err.println(searchCriteria.getId());
         String requestParams = FluentSampleSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId()).andReturn()
                 .queryNumber(searchCriteria.getSampleNumber()).andReturn()

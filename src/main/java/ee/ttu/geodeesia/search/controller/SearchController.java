@@ -3,6 +3,8 @@ package ee.ttu.geodeesia.search.controller;
 import ee.ttu.geodeesia.interop.api.Response.ApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.NewVersionOfApiResponse;
 import ee.ttu.geodeesia.interop.api.Response.Response;
+import ee.ttu.geodeesia.interop.api.analyses.pojo.AnalysesSearchCriteria;
+import ee.ttu.geodeesia.interop.api.analyses.search.AnalysesApiService;
 import ee.ttu.geodeesia.interop.api.doi.pojo.DoiSearchCriteria;
 import ee.ttu.geodeesia.interop.api.doi.service.DoiApiService;
 import ee.ttu.geodeesia.interop.api.drillCores.pojo.DrillCoreSearchCriteria;
@@ -58,6 +60,8 @@ public class SearchController {
     private LocalitiesApiService localitiesApiService;
     @Autowired
     private StratigraphyApiService stratigraphyApiService;
+    @Autowired
+    private AnalysesApiService analysesApiService;
 
     @RequestMapping(value = "/get-search", method = RequestMethod.GET)
     public CommonSearch getSearch(@RequestParam("name") String search) {
@@ -122,6 +126,11 @@ public class SearchController {
     @RequestMapping(value = "/doi", method = RequestMethod.POST)
     public Response searchReference(@RequestBody DoiSearchCriteria searchCriteria) {
         return doiApiService.findDoi(searchCriteria);
+    }
+
+    @RequestMapping(value = "/analyses", method = RequestMethod.POST)
+    public Response searchAnalyses(@RequestBody AnalysesSearchCriteria searchCriteria) {
+        return analysesApiService.findAnalyses(searchCriteria);
     }
 
     @RequestMapping(value = "/preparation", method = RequestMethod.POST)

@@ -23,7 +23,8 @@ var constructor = function (configuration,$translate,$http, applicationService,$
             var year = currentNews.date_added.split("-")[0];
             if (vm.years.indexOf(year) == -1) { vm.years.push(year); }
         });
-        vm.years = vm.years.reverse();
+        //vm.years = vm.years.reverse();
+        yearToShow = vm.years[0];
     }
 
     function showNews($event) {

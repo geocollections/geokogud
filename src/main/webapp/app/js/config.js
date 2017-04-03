@@ -114,7 +114,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
         views: {
             "specific-search": {
                 templateUrl: "app/templates/search/photo_archive.html",
-                controller: "SearchControlleras ctrl",
+                controller: "SearchController as ctrl",
                 params: {type: "photoArchive"}
             }
         },
@@ -128,7 +128,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
         url: "/soil",
         views: {
             "specific-search": {
-                templateUrl: "/templates/search/soilSearch.html",
+                templateUrl: "app/templates/search/soil.html",
                 controller: "SearchController as ctrl"
             }
         },

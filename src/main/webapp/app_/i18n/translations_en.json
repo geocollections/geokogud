@@ -103,7 +103,7 @@
                 "PARAGRAPH_THREE": "To show a map where available, tick the appropriate checkbox;",
                 "PARAGRAPH_FOUR": "To show detailed information follow the links in the results table."
             },
-            "HEADING": "Search: Analyses",
+            "HEADING": "Analyses",
             "IDENTIFIERS": {
                 "SAMPLE_ID": "Sample ID",
                 "NUMBER": "Number",
@@ -320,6 +320,7 @@
         "SOIL_SITES": {
             "HEADING": "Soil sites",
             "ID": "ID",
+            "SOIL": "Soil",
             "SITE": "Site",
             "AREA_OF_STUDY": "Area of study",
             "TRANSECT": "Transect",

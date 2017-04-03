@@ -320,6 +320,7 @@
         "SOIL_SITES": {
             "HEADING": "Mullakaeved ja transektid",
             "ID": "ID",
+            "SOIL": "Muld",
             "SITE": "Koht",
             "AREA_OF_STUDY": "Uuringuala",
             "TRANSECT": "Transekt",
@@ -368,7 +369,7 @@
         "STRATIGRAPHY": {
             "HEADING": "Stratigraafilised üksused",
             "ID": "ID",
-            "STRATIGRAPHY": "stratigraafia",
+            "STRATIGRAPHY": "Stratigraafia",
             "INDEX": "indeks",
             "AGE_MIN_Y": "vanus, mln a",
             "MAIN_LITHOLOGY": "litoloogia",

@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class Soil implements GeoEntity{
     private Long id;
     private String site;
-    private String areaOfStudy;
+ /*   private String areaOfStudy;*/
     private String transect;
     private String transectPoint;
     private String soil;
@@ -23,6 +23,15 @@ public class Soil implements GeoEntity{
     private String kAsteA;
     private String date;
     private String dateFree;
+    private String areaName;
+
+    public String getAreaName() {
+        return areaName;
+    }
+
+    public void setAreaName(String areaName) {
+        this.areaName = areaName;
+    }
 
     public String getCoordx() {
         return coordx;
@@ -94,14 +103,6 @@ public class Soil implements GeoEntity{
 
     public void setSite(String site) {
         this.site = site;
-    }
-
-    public String getAreaOfStudy() {
-        return areaOfStudy;
-    }
-
-    public void setAreaOfStudy(String areaOfStudy) {
-        this.areaOfStudy = areaOfStudy;
     }
 
     public String getTransect() {
