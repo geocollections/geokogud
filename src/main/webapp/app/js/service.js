@@ -57,7 +57,7 @@ var constructor = function (utils,configuration) {
     }
 
     function openInNewWindow(params) {
-        console.log("TEST");
+        console.log(params);
         window.open('/#/'+params.object+'/' + params.id, '', 'width=750,height=750,scrollbars, resizable');
     }
 

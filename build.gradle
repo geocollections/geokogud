@@ -24,7 +24,7 @@ apply plugin: 'org.flywaydb.flyway'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-mainClassName = 'ee.ttu.geodeesia.App'
+mainClassName = 'ee.ttu.geocollection.App'
 applicationDefaultJvmArgs = ['-Xms1G', '-Xmx1G', '-XX:+UseConcMarkSweepGC', '-Dfile.encoding=UTF-8']
 
 idea {
