@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="panel-heading searchGroupHeading"
+         ng-click="isInstitutionsCollapsed = !isInstitutionsCollapsed">
+        <h4 class="panel-title">
+            {{ 'SEARCH.INSTITUTIONS'| translate }}
+            <section-opened-icon is-opened="isInstitutionsCollapsed"/>
+        </h4>
+    </div>
+    <div uib-collapse="isInstitutionsCollapsed" class="well well-lg">
+        <div class="row searchCriterion">
+            <div class="checkbox" data-ng-repeat="state in ctrl.service.departments track by $index">
+                <label>
+                    <input class="institution" type="checkbox"
+                           value="{{state.code}}"
+                           checked="checked"
+                           data-ng-click="toggle(state.code)">
+                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                    {{state.label}}
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

@@ -84,37 +84,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="panel-heading searchGroupHeading"
-                     ng-click="isInstitutionsCollapsed = !isInstitutionsCollapsed">
-                    <h4 class="panel-title">
-                        {{ 'SEARCH.INSTITUTIONS'| translate }}
-                        <section-opened-icon is-opened="isInstitutionsCollapsed"/>
-                    </h4>
-                </div>
-                <div uib-collapse="isInstitutionsCollapsed" class="well well-lg">
-                    <div class="row searchCriterion">
-                        <div class="checkbox" data-ng-repeat="state in departments">
-                            <label>
-                                <input class="institution" type="checkbox"
-                                       value="{{state.code}}"
-                                       checked="checked"
-                                       data-ng-click="toggle(state.code)">
-                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                {{state.label}}
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row pull-right">
-                <button id="btn-form-reset" class="btn btn-danger" data-ng-click="searchDefault()">
-                    <i class="glyphicon glyphicon-erase"></i><span class="hidden-sm">{{ 'SEARCH.RESET_FORM'| translate }}</span>
-                </button>
-                <button id="btn-form-send" class="btn btn-info btn-primary" data-ng-click="search()">
-                    <i class="glyphicon glyphicon-search"></i><span>{{ 'SEARCH.SEND_QUERY'| translate }}</span>
-                </button>
-            </div>
+
+            <div ng-include="'app/templates/search/partial/institution.search.criteria.html'"></div>
+            <div ng-include="'app/templates/search/partial/button.search.html'"></div>
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9">
             <div class="row">

@@ -116,31 +116,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="panel-heading searchGroupHeading"
-                     ng-click="isInstitutionsCollapsed = !isInstitutionsCollapsed">
-                    <h4 class="panel-title title-institutions">
-                        {{ 'SEARCH.INSTITUTIONS'| translate }}
-                        <section-opened-icon is-opened="isInstitutionsCollapsed"/>
-                    </h4>
-                </div>
-                <div uib-collapse="isInstitutionsCollapsed" class="well well-lg">
-                    <div class="row searchCriterion">
-                        <div class="checkbox" data-ng-repeat="state in departments">
-                            <label>
-                                <input class="institution" type="checkbox"
-                                       value="{{state.code}}"
-                                       checked="checked"
-                                       data-ng-click="toggle(state.code)">
-                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                                {{state.label}}
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div ng-include="'app/templates/search/partial/pagination.html'"></div>
+            <div ng-include="'app/templates/search/partial/institution.search.criteria.html'"></div>
+            <div ng-include="'app/templates/search/partial/button.search.html'"></div>
 
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9">
@@ -158,14 +136,7 @@
                 </div>
                 <loading></loading>
             </div>
-            <div class="row">
-                <nav class="pull-right">
-                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize"
-                        max-size="searchParameters.maxSize" rotate="false" total-items="totalItems"
-                        ng-model="searchParameters.page" class="pagination-sm" previous-text="&lsaquo;"
-                        next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
-                </nav>
-            </div>
+            <div ng-include="'app/templates/search/partial/pagination.html'"></div>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="table-search">
                     <thead class="thead-default">
