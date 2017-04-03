@@ -1,8 +1,9 @@
 var module = angular.module("geoApp");
 
-var constructor = function ($scope, $stateParams, configuration, $http, applicationService,$window,$state) {
+var constructor = function ($scope, $stateParams, configuration, $http, applicationService,$window,$translate) {
     var vm = this;
     vm.service = applicationService;
+    var search = vm.service.getTranslationRoot($stateParams.type);
 
     $scope.isIdentifierFieldsCollapsed = false;
     $scope.isLocationFieldsCollapsed = true;
@@ -83,10 +84,24 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
             })
         }
         return $scope.localities;
+    };
+
+
+    function loadHintText() {
+        var hintRoot = search+'.HELP_POPUP.';
+        $translate([hintRoot+'HEADING',hintRoot+'PARAGRAPH_ONE',hintRoot+'PARAGRAPH_TWO',hintRoot+'PARAGRAPH_THREE',hintRoot+'PARAGRAPH_FOUR']).then(function (translations) {
+            $scope.popupHeading = translations[hintRoot+'HEADING'];
+            $scope.paragraphOne = translations[hintRoot+'PARAGRAPH_ONE'];
+            $scope.paragraphTwo = translations[hintRoot+'PARAGRAPH_TWO'];
+            $scope.paragraphThree = translations[hintRoot+'PARAGRAPH_THREE'];
+            $scope.paragraphFour = translations[hintRoot+'PARAGRAPH_FOUR'];
+        });
     }
+    loadHintText();
+
 
 };
 
-constructor.$inject = ["$scope", "$stateParams", "configuration", "$http", 'ApplicationService', '$window','$state'];
+constructor.$inject = ["$scope", "$stateParams", "configuration", "$http", 'ApplicationService', '$window','$translate'];
 
 module.controller("SearchController", constructor);

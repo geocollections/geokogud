@@ -10,6 +10,7 @@ var constructor = function (utils,configuration) {
     service.openUrlInNewWindow = openUrlInNewWindow;
     service.showGoogleMap = showGoogleMap;
     service.showEstonianLandBoardMap = showEstonianLandBoardMap;
+    service.getTranslationRoot = getTranslationRoot;
 
     service.toggle = function (el,array) {
         utils.toggleInArray(el,array)
@@ -46,6 +47,25 @@ var constructor = function (utils,configuration) {
             default : break;
         }
         return url;
+    }
+
+    function getTranslationRoot (searchType) {
+        var root = "SEARCH.";
+        switch (searchType) {
+            case "specimens" : root += "SPECIMENS"; break;
+            case "samples" : root += "SAMPLES"; break;
+            case "drillCores" : root += "DRILL_CORES"; break;
+            case "localities" : root += "LOCALITIES"; break;
+            case "references" : root += "REFERENCES"; break;
+            case "stratigraphy" : root += "STRATIGRAPHY"; break;
+            case "analyses" : root += "ANALYSES"; break;
+            case "preparations" : root += "PREPARATIONS"; break;
+            case "photoArchive" : root += "PHOTO_ARCHIVE"; break;
+            case "soil" : root += "SOIL_SITES"; break;
+            case "doi" : root += "DOI"; break;
+            default : break;
+        }
+        return root;
     }
 
     function showGoogleMap(lat, lon, localityName) {
