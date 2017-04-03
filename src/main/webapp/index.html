@@ -71,7 +71,8 @@
 <header  ng-include="'app/templates/main/partial/header.html'"></header>
 
 <!--ui-view for searchers-->
-<div id="searches" ng-include="'app/templates/main/partial/search.html'"></div>
+<!--<div ui-view="specific-search"  id="searches"></div>-->
+<div id="searches" ng-if="true" ng-include="'app/templates/main/partial/search.html'"></div>
 
 <div ng-include="'app/templates/main/partial/about.html'"></div>
 <div ng-include="'app/templates/main/partial/resource.html'"></div>

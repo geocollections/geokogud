@@ -1,61 +1,63 @@
 var module = angular.module("geoApp");
 
 module.config(function($stateProvider,$urlRouterProvider) {
-    $urlRouterProvider.when('/search', '/samples');
+    $urlRouterProvider.when('/search', '/sample');
     $stateProvider.state('search', {
         url: "/search",
-        templateUrl: "app/templates/main/partial/search.html"
-    }).state('specimens', {
-        url: "/specimens",
         views: {
             "specific-search": {
-                templateUrl: "app/templates/search/specimen.html",
-                controller: "SearchController as ctrl"
+                templateUrl: "app/templates/main/partial/search.html"
             }
-        },
+        }
+
+    }).state('specimens', {
+        url: "/specimen",
+        templateUrl: "app/templates/search/specimen.html",
+        controller: "SearchController as ctrl",
         params: {type: "specimens"}
+    }).state('specimen', {
+        template: '<data-ui-view/>',
     }).state('specimen.view', {
         url: "/specimen/:id",
         templateUrl: "app/templates/search/detail/specimen.html",
         controller: "DetailController as detailCtrl",
         params: {type: "specimens"}
     }).state('samples', {
-        url: "/samples",
-        views: {
+        url: "/sample",
+/*        views: {
             "specific-search": {
-                templateUrl: "app/templates/search/samples.html",
-                controller: "SearchController as ctrl"
+
             }
-        },
+        },*/
+        templateUrl: "app/templates/search/samples.html",
+        controller: "SearchController as ctrl",
         params: {type: "samples"}
+    }).state('sample', {
+        template: '<data-ui-view/>',
     }).state('sample.view', {
         url: "/sample/:id",
         templateUrl: "app//templates/search/detail/sample.html",
         controller: "DetailController as detailCtrl",
         params: {type: "samples"}
     }).state('drillCores', {
-        url: "/drillCores",
-        views: {
-            "specific-search": {
-                templateUrl: "app//templates/search/drillCores.html",
-                controller: "SearchController as ctrl"
-            }
-        },
+        url: "/drillcore",
+        templateUrl: "app//templates/search/drillCores.html",
+        controller: "SearchController as ctrl",
         params: {type: "drillCores"}
-    }).state('drillCores.view', {
-        url: "/drillCores/:id",
+    }).state('drillCore', {
+        template: '<data-ui-view/>',
+    }).state('drillCore.view', {
+        url: "/drillcore/:id",
         templateUrl: "app//templates/search/detail/drillCoreDetails.html",
         controller: "DetailController as detailCtrl",
         params: {type: "drillCores"}
     }).state('localities', {
         url: "/localities",
-        views: {
-            "specific-search": {
-                templateUrl: "app/templates/search/localities.html",
-                controller: "SearchController as ctrl"
-            }
-        },
+        templateUrl: "app/templates/search/localities.html",
+        controller: "SearchController as ctrl",
         params: {type: "localities"}
+    }).state('locality', {
+        template: '<data-ui-view/>',
     }).state('locality.view', {
         url: "/locality/:id",
         templateUrl: "app/templates/search/detail/localityDetails.html",
@@ -63,90 +65,80 @@ module.config(function($stateProvider,$urlRouterProvider) {
         params: {type: "localities"}
     }).state('references', {
         url: "/references",
-        views: {
-            "specific-search": {
-                templateUrl: "app/templates/search/references.html",
-                controller: "SearchController as ctrl"
-            }
-        },
+        templateUrl: "app/templates/search/references.html",
+        controller: "SearchController as ctrl",
         params: {type: "references",doi: false}
+    }).state('reference', {
+        template: '<data-ui-view/>',
     }).state('references.view', {
         url: "/references/:id",
         templateUrl: "app/templates/search/detail/referenceDetails.html",
         controller: "DetailController as detailCtrl",
         params: {type: "references",doi: false}
-    }).state('stratigraphy', {
+    }).state('stratigraphies', {
         url: "/stratigraphy",
-        views: {
-            "specific-search": {
-                templateUrl: "app/templates/search/stratigraphy.html",
-                controller: "SearchController as ctrl",
-                params: {type: "stratigraphy"}
-            }
-        },
+        templateUrl: "app/templates/search/stratigraphy.html",
+        controller: "SearchController as ctrl",
         params: {type: "stratigraphy"}
+    }).state('stratigraphy', {
+        template: '<data-ui-view/>',
     }).state('stratigraphy.view', {
         url: "/stratigraphy/:id",
         templateUrl: "app/templates/search/detail/stratigraphy.html",
         controller: "DetailController as detailCtrl",
         params: {type: "stratigraphy"}
     }).state('analyses', {
-        url: "/analyses",
-        views: {
-            "specific-search": {
-                templateUrl: "app/templates/search/analyses.html",
-                controller: "SearchController as ctrl"
-            }
-        },
+        url: "/analysis",
+        templateUrl: "app/templates/search/analyses.html",
+        controller: "SearchController as ctrl",
         params: {type: "analyses"}
+    }).state('analysis', {
+        template: '<data-ui-view/>'
+    }).state('analysis.view', {
+        url: "/analysis/:id",
+        template: ''
     }).state('preparations', {
-        url: "/preparations",
-        views: {
-            "specific-search": {
-                templateUrl: "app/templates/search/preparations.html",
-                controller: "SearchController as ctrl",
-                params: {type: "preparations"}
-            }
-        },
+        url: "/preparation",
+        templateUrl: "app/templates/search/preparations.html",
+        controller: "SearchController as ctrl",
         params: {type: "preparations"}
-    }).state('photoArchive', {
-        url: "/photoArchive",
-        views: {
-            "specific-search": {
-                templateUrl: "app/templates/search/photo_archive.html",
-                controller: "SearchController as ctrl",
-                params: {type: "photoArchive"}
-            }
-        },
+    }).state('preparation', {
+        template: '<data-ui-view/>'
+    }).state('preparation.view', {
+        url: "/preparation/:id",
+        template: ''
+    }).state('photoArchives', {
+        url: "/image",
+        templateUrl: "app/templates/search/photo_archive.html",
+        controller: "SearchController as ctrl",
         params: {type: "photoArchive"}
+    }).state('photoArchive', {
+        template: '<data-ui-view/>'
     }).state('photoArchive.view', {
         url: "/image/:id",
         templateUrl: "app/templates/search/detail/photo_archive.html",
         controller: "DetailController as detailCtrl",
         params: {type: "photoArchive"}
-    }).state('soil', {
+    }).state('soils', {
         url: "/soil",
-        views: {
-            "specific-search": {
-                templateUrl: "app/templates/search/soil.html",
-                controller: "SearchController as ctrl"
-            }
-        },
+        templateUrl: "app/templates/search/soil.html",
+        controller: "SearchController as ctrl",
         params: {type: "soil"}
+    }).state('soil', {
+        template: '<data-ui-view/>'
     }).state('soil.view', {
         url: "/soil/:id",
         templateUrl: "app/templates/search/detail/soilDetails.html",
         controller: "DetailController as detailCtrl",
         params: {type: "soil"}
-    }).state('doi', {
+
+    }).state('dois', {
         url: "/doi",
-        views: {
-            "specific-search": {
-                templateUrl: "app/templates/search/doi.html",
-                controller: "SearchController as ctrl"
-            }
-        },
+        templateUrl: "app/templates/search/doi.html",
+        controller: "SearchController as ctrl",
         params: {type: "doi"}
+    }).state('doi', {
+        template: '<data-ui-view/>'
     }).state('doi.view', {
         url: "/doi/:id",
         templateUrl: "app/templates/search/detail/doiDetails.html",

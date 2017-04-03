@@ -139,14 +139,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row pull-right">
-                <button id="btn-form-reset" class="btn btn-danger" data-ng-click="searchDefault()">
-                    <i class="glyphicon glyphicon-erase"></i><span class="hidden-sm">{{ 'SEARCH.RESET_FORM'| translate }}</span>
-                </button>
-                <button id="btn-form-send" class="btn btn-info btn-primary" data-ng-click="search()">
-                    <i class="glyphicon glyphicon-search"></i><span>{{ 'SEARCH.SEND_QUERY'| translate }}</span>
-                </button>
-            </div>
+
+            <div ng-include="'app/templates/search/partial/pagination.html'"></div>
+
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9">
             <div class="row">
@@ -203,14 +198,8 @@
                     </tbody>
                 </table>
             </div>
-            <div class="row">
-                <nav class="pull-right">
-                    <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize"
-                        max-size="searchParameters.maxSize" rotate="false" total-items="totalItems"
-                        ng-model="searchParameters.page" class="pagination-sm" previous-text="&lsaquo;"
-                        next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
-                </nav>
-            </div>
+
+            <div ng-include="'app/templates/search/partial/pagination.html'"></div>
         </div>
     </div>
 </div>

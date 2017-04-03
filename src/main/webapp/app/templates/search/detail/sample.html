@@ -11,31 +11,31 @@
                     <thead>
                     </thead>
                     <tbody>
-                    <tr><td>number</td><td>{{sample.number}}</td></tr>
-                    <tr><td>lisanumber</td><td>{{sample.numberAdditional}}</td></tr>
-                    <tr><td>leiukoht</td><td><a href data-ng-click="openInNewWindow({object:'locality',id:sample.localityId})" >{{sample.localityEng}}</a></td></tr>
-                    <tr><td>Depth (m)</td><td>{{sample.depth}}</td></tr>
-                    <tr><td>Depth (m, interval)</td><td>{{sample.depthInterval}}</td></tr>
-                    <tr><td>Stratigraphy</td><td><a href data-ng-click="openInNewWindow({object:'stratigraphy',id:sample.stratigraphyId})" >{{sample.stratigraphyEng}}</a></td></tr>
+                    <tr><td>number</td><td>{{detailCtrl.sample.number}}</td></tr>
+                    <tr><td>lisanumber</td><td>{{detailCtrl.sample.numberAdditional}}</td></tr>
+                    <tr><td>leiukoht</td><td><a href data-ng-click="openInNewWindow({object:'locality',id:detailCtrl.sample.localityId})" >{{detailCtrl.sample.localityEng}}</a></td></tr>
+                    <tr><td>Depth (m)</td><td>{{detailCtrl.sample.depth}}</td></tr>
+                    <tr><td>Depth (m, interval)</td><td>{{detailCtrl.sample.depthInterval}}</td></tr>
+                    <tr><td>Stratigraphy</td><td><a href data-ng-click="openInNewWindow({object:'stratigraphy',id:sample.stratigraphyId})" >{{detailCtrl.sample.stratigraphyEng}}</a></td></tr>
                     <tr><td>Stratigraphy remarks</td><td>???</td></tr>
-                    <tr><td>Date (string)</td><td>{{sample.dateCollectedFree}}</td></tr>
-                    <tr><td>Collector</td><td>{{entity.agent}}</td></tr>
-                    <tr><td>Weight (remaining, g)</td><td>{{entity.weight}}</td></tr>
-                    <tr><td>Rock characterisation</td><td>{{entity.rock}}</td></tr>
-                    <tr><td>Rock/sediment type</td><td>{{entity.classificationRockNameEn}}</td></tr>
-                    <tr><td>laiuskraad</td><td>{{sample.latitude}}</td></tr>
-                    <tr><td>pikkuskraad</td><td>{{sample.longitude}}</td></tr>
-                    <tr><td>Parent specimen</td><td>{{sample.agent}}</td></tr>
-                    <tr><td>Owner (institution)</td><td>{{sample.git}}</td></tr>
+                    <tr><td>Date (string)</td><td>{{detailCtrl.sample.dateCollectedFree}}</td></tr>
+                    <tr><td>Collector</td><td>{{detailCtrl.sample.agent}}</td></tr>
+                    <tr><td>Weight (remaining, g)</td><td>{{detailCtrl.sample.weight}}</td></tr>
+                    <tr><td>Rock characterisation</td><td>{{detailCtrl.sample.rock}}</td></tr>
+                    <tr><td>Rock/sediment type</td><td>{{detailCtrl.sample.classificationRockNameEn}}</td></tr>
+                    <tr><td>laiuskraad</td><td>{{detailCtrl.sample.latitude}}</td></tr>
+                    <tr><td>pikkuskraad</td><td>{{detailCtrl.sample.longitude}}</td></tr>
+                    <tr><td>Parent specimen</td><td>{{detailCtrl.sample.agent}}</td></tr>
+                    <tr><td>Owner (institution)</td><td>{{detailCtrl.sample.git}}</td></tr>
                     <tr><td>Palaeontology</td><td>???</td></tr>
-                    <tr><td>Record changed</td><td>{{sample.depth}}</td></tr>
+                    <tr><td>Record changed</td><td>{{detailCtrl.sample.depth}}</td></tr>
                     </tbody>
                 </table>
             </div>
             <div class="col-lg-6">
-                <locality-map x = "sample.latitude" y = "sample.longitude" name = "sample.localityEng" fid = "sample.localityId"></locality-map>
-                <a href data-ng-click="cntr.service.showGoogleMap(sample.latitude, sample.longitude, sample.locality, sample.localityEng)">Google Maps</a>            </span>
-                <a href data-ng-click="cntr.service.showEstonianLandBoardMap(sample.latitude, sample.longitude)">Maa-amet / Estonian Land Board</a>
+                <locality-map x = "detailCtrl.sample.latitude" y = "detailCtrl.sample.longitude" name = "detailCtrl.sample.localityEng" fid = "detailCtrl.sample.localityId"></locality-map>
+                <a href data-ng-click="ctrl.service.showGoogleMap(detailCtrl.sample.latitude, detailCtrl.sample.longitude, detailCtrl.sample.locality, detailCtrl.sample.localityEng)">Google Maps</a>            </span>
+                &ensp;&ensp;|&ensp;&ensp; <a href data-ng-click="ctrl.service.showEstonianLandBoardMap(detailCtrl.sample.latitude, detailCtrl.sample.longitude)">Maa-amet / Estonian Land Board</a>
             </div>
         </div>
     </div>

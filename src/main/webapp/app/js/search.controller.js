@@ -1,8 +1,7 @@
 var module = angular.module("geoApp");
 
-var constructor = function ($scope, $stateParams, configuration, $http, applicationService,$window) {
+var constructor = function ($scope, $stateParams, configuration, $http, applicationService,$window,$state) {
     var vm = this;
-
     vm.service = applicationService;
 
     $scope.isIdentifierFieldsCollapsed = false;
@@ -32,7 +31,7 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
         });
         $scope.response = result.data;
         if ($scope.isMapHidden) {
-            $scope.getLocalities($scope.response.data.result);
+            $scope.getLocalities($scope.response.data);
         }
     }
 
@@ -88,6 +87,6 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
 
 };
 
-constructor.$inject = ["$scope", "$stateParams", "configuration", "$http", 'ApplicationService', '$window'];
+constructor.$inject = ["$scope", "$stateParams", "configuration", "$http", 'ApplicationService', '$window','$state'];
 
 module.controller("SearchController", constructor);

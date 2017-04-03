@@ -1,6 +1,6 @@
 var module = angular.module("geoApp");
 
-var constructor = function (configuration,$translate,$http, applicationService,$scope) {
+var constructor = function (configuration,$translate,$http, applicationService,$state) {
     //$state.transitionTo('samples');
     var vm = this;
     vm.service = applicationService;
@@ -13,17 +13,16 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     vm.getTitle = getTitle;
     vm.getText = getText;
     vm.changeLanguage = changeLanguage;
-
     applicationService.getNews(onNewsData);
 
     var yearToShow;
+
     function onNewsData(response) {
         vm.news = response.data;
         angular.forEach(vm.news.result, function(currentNews) {
             var year = currentNews.date_added.split("-")[0];
             if (vm.years.indexOf(year) == -1) { vm.years.push(year); }
         });
-        //vm.years = vm.years.reverse();
         yearToShow = vm.years[0];
     }
 
@@ -48,6 +47,6 @@ var constructor = function (configuration,$translate,$http, applicationService,$
 
 };
 
-constructor.$inject = ["configuration",'$translate', '$http', 'ApplicationService','$scope'];
+constructor.$inject = ["configuration",'$translate', '$http', 'ApplicationService','$state'];
 
 module.controller("MainController", constructor);
