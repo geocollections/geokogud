@@ -27,7 +27,7 @@ var constructor = function (utils,configuration) {
 
     service.getEntity = function (searchType, id, callback, error) {
         var url = getSearchUrl(searchType);
-        if(url != null) utils.httpGet(url + "/"+id, null, callback, error);
+        utils.httpGet(configuration.sampleDetailUrl + "/"+id, null, callback, error);
     };
 
     function getSearchUrl (searchType) {

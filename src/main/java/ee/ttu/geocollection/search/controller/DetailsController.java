@@ -32,6 +32,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/details")
@@ -99,6 +100,12 @@ public class DetailsController {
     public SampleDetailsDialogDto findSampleById(@PathVariable Long id) {
         Response samples = samplesApiService.findById(id);
         return new SampleDetailsDialogDto(samples);
+    }
+
+
+    @RequestMapping(value = "/raw-sample/{id}")
+    public Map findRawSampleById(@PathVariable Long id) {
+        return samplesApiService.findRawById(id);
     }
 
     @RequestMapping(value = "/photo-archive/{id}")

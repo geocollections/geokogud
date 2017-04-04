@@ -6,11 +6,15 @@ import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.samples.pojo.Sample;
 import ee.ttu.geocollection.search.domain.CommonSearch;
 
+import java.util.Map;
+
 public interface SamplesApiService {
 
     Response findSample(ee.ttu.geocollection.interop.api.samples.pojo.SampleSearchCriteria searchCriteria);
 
     Response findById(Long id);
+
+    Map findRawById(Long id);
 
     Response searchByParam(String q, String table);
 

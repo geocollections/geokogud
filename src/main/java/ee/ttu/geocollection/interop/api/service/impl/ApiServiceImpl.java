@@ -11,8 +11,12 @@ import ee.ttu.geocollection.interop.api.drillCores.pojo.DrillcoreBox;
 import ee.ttu.geocollection.interop.api.service.ApiService;
 import ee.ttu.geocollection.search.domain.SortField;
 import ee.ttu.geocollection.search.domain.SortingOrder;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -97,6 +101,21 @@ public class ApiServiceImpl implements ApiService {
         }
 
         return response;
+    }
+
+    @Override
+    public Map findRawEntity(String tableName, String requestParams) {
+        String url = apiUrl + "/" + tableName + "/" + requestParams;
+
+        HttpHeaders headers = new HttpHeaders();
+        String requestId = MDC.get("REQUEST_UUID");
+        if (requestId != null) {
+            headers.set("Trace-UUID", requestId);
+        }
+        HttpEntity<String> request = new HttpEntity<String>(headers);
+        System.err.println(url);
+        HttpEntity<Map> response = restTemplate.exchange(url, HttpMethod.GET, request, Map.class);
+        return  response.getBody();
     }
 
     @Override

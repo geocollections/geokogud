@@ -17,6 +17,8 @@
   "soilUrl":"/search/soil",
   "doiUrl":"/search/doi",
 
+  "sampleDetailUrl":"/details/raw-sample",
+
   "departments": [{"code": "GIT", "label": "GIT"},
                   {"code": "TUG", "label": "TUG"},
                   {"code": "ELM", "label": "ELM"},
