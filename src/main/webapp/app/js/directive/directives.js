@@ -100,8 +100,15 @@ angular.module('geoApp').directive('loading', function () {
 }])
     .directive('selectexact', function () {
         return {
-            template: '<select class="{{selectCss}}" data-ng-model="field" ' +
-            'ng-options="option.value as option.name for option in idOptions"></select>',
+            template:
+                '<select class="{{selectCss}}">' +
+                    '<option value="exact" selected="selected">{{ \'SEARCH.SELECT.EQUALS\' | translate }}</option>' +
+                    '<option value="iexact">{{ \'SEARCH.SELECT.DOESNOTEQUAL\' | translate }}</option>' +
+                    '<option value="gt">{{ \'SEARCH.SELECT.GREATERTHAN\' | translate }}</option>' +
+                    '<option value="lt">{{ \'SEARCH.SELECT.SMALLERTHAN\' | translate }}</option>' +
+                    '<option value="in">{{ \'SEARCH.SELECT.ISINLIST\' | translate }}</option>' +
+                    '<option value="range">{{ \'SEARCH.SELECT.ISBWETWEEN\' | translate }}</option>' +
+                '</select>',
             restrict: 'E',
             scope: {
                 field: '=?ngModel',
@@ -109,31 +116,19 @@ angular.module('geoApp').directive('loading', function () {
             },
             link: function (scope) {
                 scope.selectCss = angular.isUndefined(scope.customCss) ? 'col-md-4 form-control' : scope.customCss;
-                scope.idOptions = [{
-                    name: 'equals', value: 'exact'
-                }, {
-                    name: 'does not equal', value: 'iexact'
-                }, {
-                    name: 'greater than', value: 'gt'
-                }, {
-                    name: 'smaller than', value: 'lt'
-                }, {
-                    name: 'is in list', value: 'in'
-                }, {
-                    name: 'is between', value: 'range'
-                }
-                ];
-
-                scope.$watch('field', function (data) {
-                    if (data) return;
-                    scope.field = scope.idOptions[0].value;
-                });
             }
         };
     }).directive('selectdefault', function () {
     return {
-        template: '<select class="{{selectCss}}" data-ng-model="field" ' +
-        'ng-options="option.value as option.name for option in defaultOptions"></select>',
+        template:
+            '<select class="{{selectCss}}">' +
+                '<option value="contains" selected="selected">{{ \'SEARCH.SELECT.CONTAINS\' | translate }}</option>' +
+                '<option value="exact">{{ \'SEARCH.SELECT.EQUALS\' | translate }}</option>' +
+                '<option value="startswith">{{ \'SEARCH.SELECT.STARTSWITH\' | translate }}</option>' +
+                '<option value="endswith">{{ \'SEARCH.SELECT.ENDSWITH\' | translate }}</option>' +
+                '<option value="icontains">{{ \'SEARCH.SELECT.DOESNOTCONTAIN\' | translate }}</option>' +
+                '<option value="in">{{ \'SEARCH.SELECT.ISINLIST\' | translate }}</option>' +
+            '</select>',
         restrict: 'E',
         scope: {
             field: '=?ngModel',
@@ -141,77 +136,26 @@ angular.module('geoApp').directive('loading', function () {
         },
         link: function (scope, $watch) {
             scope.selectCss = angular.isUndefined(scope.customCss) ? 'col-md-4 form-control' : scope.customCss;
-            scope.defaultOptions = [{
-                name: 'contains', value: 'contains'
-            }, {
-                name: 'equals', value: 'exact'
-            }, {
-                name: 'start with', value: 'startswith'
-            }, {
-                name: 'ends with', value: 'startswith'
-            }, {
-                name: 'does not contain', value: 'icontains'
-            }, {
-                name: 'is in list', value: 'in'
-            }
-            ];
-
-            scope.$watch('field', function (data) {
-                if (data) return;
-                scope.field = scope.defaultOptions[0].value;
-            });
         }
     };
 }).directive('selecthierarchy', function () {
     return {
-        template: '<select class="{{selectCss}}" data-ng-model="field" ' +
-        'ng-options="option.value as option.name for option in defaultOptions"></select>',
-        restrict: 'E',
+        template:
+            '<select class="{{selectCss}}">' +
+                '<option value="hierarchy" selected="selected">{{ \'SEARCH.SELECT.HIERARCHY\' | translate }}</option>' +
+                '<option value="contains">{{ \'SEARCH.SELECT.CONTAINS\' | translate }}</option>' +
+                '<option value="exact">{{ \'SEARCH.SELECT.EQUALS\' | translate }}</option>' +
+                '<option value="startswith">{{ \'SEARCH.SELECT.STARTSWITH\' | translate }}</option>' +
+                '<option value="endswith">{{ \'SEARCH.SELECT.ENDSWITH\' | translate }}</option>' +
+                '<option value="icontains">{{ \'SEARCH.SELECT.DOESNOTCONTAIN\' | translate }}</option>' +
+                '<option value="in">{{ \'SEARCH.SELECT.ISINLIST\' | translate }}</option>' +
+            '</select>',
         scope: {
             field: '=?ngModel',
             customCss: '@'
         },
         link: function (scope) {
             scope.selectCss = angular.isUndefined(scope.customCss) ? 'col-md-4 form-control' : scope.customCss;
-            scope.defaultOptions = [{
-                name: 'hierarchy', value: 'hierarchy'
-            }, {
-                name: 'contains', value: 'contains'
-            }, {
-                name: 'equals', value: 'exact'
-            }, {
-                name: 'start with', value: 'startswith'
-            }, {
-                name: 'ends with', value: 'startswith'
-            }, {
-                name: 'does not contain', value: 'icontains'
-            }, {
-                name: 'is in list', value: 'in'
-            },
-            ];
-
-            scope.$watch('field', function (data) {
-                if (data) return;
-                scope.field = scope.defaultOptions[0].value;
-            });
-        }
-    };
-}).directive('ascdesc', function () {
-    return {
-        template: '<select class="col-md-4 form-control" data-ng-model="field" ' +
-        'ng-options="option.value as option.name for option in defaultOptions track by option.value"><option value="">-- Choose --</option></select>',
-        restrict: 'E',
-        scope: {
-            field: '=?ngModel'
-        },
-        link: function (scope) {
-            scope.defaultOptions = [{
-                name: 'ASC', value: 'asc'
-            }, {
-                name: 'DESC', value: 'desc'
-            }
-            ];
-
         }
     };
 }).directive('sectionOpenedIcon', function () {

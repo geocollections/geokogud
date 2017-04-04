@@ -23,6 +23,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -71,6 +72,13 @@ public class SamplesApiServiceImpl implements SamplesApiService {
                 .id(id)
                 .buildWithDefaultReturningFields();
         return apiService.findEntity("sample", requestParams, SampleEntity.class);
+    }
+    @Override
+    public Map findRawById(Long id) {
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
+                .id(id)
+                .buildWithDefaultReturningFields();
+        return apiService.findRawEntity("sample", requestParams);
     }
 
 

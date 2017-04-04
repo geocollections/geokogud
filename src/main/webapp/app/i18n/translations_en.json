@@ -95,6 +95,19 @@
         }
     },
     "SEARCH": {
+        "SELECT": {
+            "GREATERTHAN": "greater than",
+            "SMALLERTHAN": "smaller than",
+            "CONTAINS": "contains",
+            "DOESNOTCONTAIN": "does not contain",
+            "EQUALS": "equals",
+            "DOESNOTEQUAL": "does not equal",
+            "STARTSWITH": "starts with",
+            "ENDSWITH": "ends with",
+            "ISINLIST": "is in list",
+            "ISBWETWEEN": "is between",
+            "HIERARCHY": "hierarchy"
+        },
         "ANALYSES": {
             "HELP_POPUP": {
                 "HEADING": "SEARCH TIPS:",

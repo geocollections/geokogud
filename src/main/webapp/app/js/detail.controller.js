@@ -1,4 +1,4 @@
-var constructor = function ($scope, $stateParams, applicationService) {
+var constructor = function ($scope, $stateParams, applicationService, $translate) {
     var vm = this;
 
     vm.service = applicationService;
@@ -10,25 +10,29 @@ var constructor = function ($scope, $stateParams, applicationService) {
     }
 
     function onEntityData(response) {
-        console.log(response.data.result[0]);
-        vm.sample = response.data.result[0];
+        console.log(response.data.results[0]);
+        vm.sample = response.data.results[0];
         dynamicalyCreateField(vm.sample);
     }
 
     function dynamicalyCreateField(obj) {
+        var hintRoot = 'API_TRANSLATION.SAMPLE.';
         Object.keys(obj).forEach(function(key,index) {
-            console.log(key);
-            console.log(vm.sample[key]);
+            var upKey = key.toUpperCase()
+            console.log(upKey);
             if(vm.sample[key] != null && vm.sample[key] != '')
-                vm.fields.push({"name" : key, "value" : vm.sample[key]});
+                $translate([hintRoot+upKey]).then(function (translations) {
+                    var name = translations[hintRoot+upKey];
+                    vm.fields.push({"name" : name, "value" : vm.sample[key]});
+                });
+
             // key: the name of the object key
             // index: the ordinal position of the key within the object
         });
     }
 
-
 };
 
-constructor.$inject = ["$scope", "$stateParams", 'ApplicationService'];
+constructor.$inject = ["$scope", "$stateParams", 'ApplicationService', '$translate'];
 
 module.controller("DetailController", constructor);

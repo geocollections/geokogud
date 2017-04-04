@@ -3,23 +3,26 @@ jQuery(document).ready(function ($) {
 
    // jQuery for page scrolling feature - requires jQuery Easing plugin
     $(document).on('click', 'a.page-scroll', function(event) {
-        var $anchor = $(this);
         $('html, body').stop().animate({
-            scrollTop: ($($anchor.attr('href')).offset().top - 50)
-        }, 1250, 'easeInOutExpo');
+            scrollTop: ($($(this).attr('href')).offset().top - 50)
+        }, 'slow');
         event.preventDefault();
     });
      $(document).on('click', 'a.page-scroll-to-searches', function(event) {
         $('html, body').stop().animate({
             scrollTop: ($("#searches").offset().top - 50)
-        }, 1250, 'easeInOutExpo');
+        }, 'slow');
         event.preventDefault();
     });
      $(document).on('click', 'a.page-scroll-to-additional', function(event) {
-        $('html, body').stop().animate({
-            scrollTop: ($("#additional").offset().top - 50)
-        }, 1250, 'easeInOutExpo');
-        event.preventDefault();
+         setTimeout(
+             function() {
+                 $('html, body').stop().animate({
+                     scrollTop: ($("#additional").offset().top - 50)
+                 }, 'slow');
+                 event.preventDefault();
+             },
+             50);
     });
      $(document).on('click','.navbar-collapse.in',function(e) {
         if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
@@ -56,36 +59,6 @@ jQuery(document).ready(function ($) {
         scale: 0.3,
         distance: '0px'
     }, 300);
-
-    // browser window scroll (in pixels) after which the "back to top" link is shown
-    var offset = 300,
-        //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
-        offset_opacity = 1200,
-        //duration of the top scrolling animation (in ms)
-        scroll_top_duration = 700,
-        //grab the "back to top" link
-        $back_to_top = $('.back-to-top');
-
-    //hide or show the "back to top" link
-    $(window).scroll(function () {
-
-        if( $(this).scrollTop() > offset ) {
-            $back_to_top.addClass('cd-is-visible');
-        } else {
-            $back_to_top.removeClass('cd-is-visible cd-fade-out');
-        }
-        if ($(this).scrollTop() > offset_opacity) {
-            $back_to_top.addClass('cd-fade-out');
-        }
-    });
-
-    //smooth scroll to top
-    $back_to_top.on('click', function (event) {
-        event.preventDefault();
-        $('body,html').animate({
-                scrollTop: 0,
-            }
-        );
-    });
+    
     $("body").tooltip({ selector: '[data-toggle=tooltip]' });
 });
