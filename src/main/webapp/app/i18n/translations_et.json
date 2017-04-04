@@ -95,6 +95,19 @@
         }
     },
     "SEARCH": {
+        "SELECT": {
+            "GREATERTHAN": "suurem kui",
+            "SMALLERTHAN": "väiksem kui",
+            "CONTAINS": "sisaldab",
+            "DOESNOTCONTAIN": "ei sisalda",
+            "EQUALS": "võrdub",
+            "DOESNOTEQUAL": "ei võrdu",
+            "STARTSWITH": "algab",
+            "ENDSWITH": "lõpeb",
+            "ISINLIST": "sisaldub loetelus",
+            "ISBWETWEEN": "vahemikus",
+            "HIERARCHY": "hierarhia"
+        },
         "ANALYSES": {
             "HELP_POPUP": {
                 "HEADING": "ABIKS PÄRINGU KOOSTAMISEL:",
