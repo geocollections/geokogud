@@ -1,0 +1,6 @@
+id
+rock_id
+image
+image__image
+image__database
+image__image_url
