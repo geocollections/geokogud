@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12  text-center">
-			<h2 class="section-heading">{{'INDEX.NEWS_LINK' | translate }}</h2>
+			<h2 class="section-heading text-center">{{'INDEX.NEWS_LINK' | translate }}</h2>
 			<hr class="primary">
 		</div>
 		<div>
@@ -11,10 +11,10 @@
 						ng-click="main.showNews($event)">{{ year }}</button>
 				</div>
 			</nav>
-			<div ng-repeat="id in main.news.result | filter: main.yearFilter">
-				<div ng-bind-html="id.date_added"></div>
-				<div ng-bind-html="main.getTitle(id)"></div>
-				<div ng-bind-html="main.getText(id)"></div>
+			<div ng-repeat="id in main.news.result | filter: main.yearFilter" class="content">
+				<div ng-bind-html="id.date_added" class="dateAdded"></div>
+				<div ng-bind-html="main.getTitle(id)" class="heading"></div>
+				<div ng-bind-html="main.getText(id)" class="text"></div>
 			</div>
 		</div>
 	</div>
