@@ -19,7 +19,7 @@ public class ApiResponse {
     @JsonProperty("page")
     private String pageInfo;
     @JsonProperty("results")
-    private List<Map<String, String>> result;
+    private List<Map> result;
 
     private RelatedData relatedData;
 
@@ -39,11 +39,11 @@ public class ApiResponse {
         this.pageInfo = pageInfo;
     }
 
-    public List<Map<String, String>> getResult() {
+    public List<Map> getResult() {
         return result;
     }
 
-    public void setResult(List<Map<String, String>> result) {
+    public void setResult(List<Map> result) {
         this.result = result;
     }
 

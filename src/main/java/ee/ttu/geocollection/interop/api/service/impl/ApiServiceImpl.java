@@ -11,6 +11,8 @@ import ee.ttu.geocollection.interop.api.drillCores.pojo.DrillcoreBox;
 import ee.ttu.geocollection.interop.api.service.ApiService;
 import ee.ttu.geocollection.search.domain.SortField;
 import ee.ttu.geocollection.search.domain.SortingOrder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,6 +31,8 @@ import static java.util.stream.Collectors.toList;
 @Service
 public class ApiServiceImpl implements ApiService {
 
+    private static final Logger logger = LoggerFactory.getLogger(ApiServiceImpl.class);
+
     @Value("${geo-api.url}")
     private String apiUrl;
     @Autowired
@@ -41,6 +45,36 @@ public class ApiServiceImpl implements ApiService {
             .build();
 
     @Override
+    public Map findRawEntity(String tableName, String requestParams) {
+        String url = apiUrl + "/" + tableName + "/" + requestParams;
+
+        HttpHeaders headers = new HttpHeaders();
+        String requestId = MDC.get("REQUEST_UUID");
+        if (requestId != null) {
+            headers.set("Trace-UUID", requestId);
+        }
+        HttpEntity<String> request = new HttpEntity<String>(headers);
+        System.err.println(url);
+        HttpEntity<Map> response = restTemplate.exchange(url, HttpMethod.GET, request, Map.class);
+        return response.getBody();
+    }
+
+    @Override
+    public ApiResponse searchRawEntities(String tableName, int page, SortField sortField, String requestParams) {
+        String url = apiUrl + "/" + tableName + "/" + "?paginate_by=" + 30 + "&page=" + page
+                + "&order_by=" + getSortingDirection(sortField.getOrder()) + sortField.getSortyBy()
+                + "&format=json" + requestParams;
+        logger.trace("Searching: " + url);
+        ResponseEntity<ApiResponse> rawResponse = restTemplate.getForEntity(url, ApiResponse.class);
+        return rawResponse.getBody();
+    }
+
+    private String getSortingDirection(SortingOrder order) {
+        return order.equals(SortingOrder.ASCENDING) ? "" : "-";
+    }
+
+    @Override
+    @Deprecated
     public <T> Response<T> searchEntities(String tableName, int page, SortField sortField, String requestParams, Class<T> responseClass) {
         if (sortField == null) {
             sortField = new SortField();
@@ -76,11 +110,8 @@ public class ApiServiceImpl implements ApiService {
         return response;
     }
 
-    private String getSortingDirection(SortingOrder order) {
-        return order.equals(SortingOrder.ASCENDING) ? "" : "-";
-    }
-
     @Override
+    @Deprecated
     public <T> Response<T> findEntity(String tableName, String requestParams, Class<T> responseClass) {
         String url = apiUrl + "/" + tableName + "/" + requestParams;
 
@@ -104,21 +135,7 @@ public class ApiServiceImpl implements ApiService {
     }
 
     @Override
-    public Map findRawEntity(String tableName, String requestParams) {
-        String url = apiUrl + "/" + tableName + "/" + requestParams;
-
-        HttpHeaders headers = new HttpHeaders();
-        String requestId = MDC.get("REQUEST_UUID");
-        if (requestId != null) {
-            headers.set("Trace-UUID", requestId);
-        }
-        HttpEntity<String> request = new HttpEntity<String>(headers);
-        System.err.println(url);
-        HttpEntity<Map> response = restTemplate.exchange(url, HttpMethod.GET, request, Map.class);
-        return  response.getBody();
-    }
-
-    @Override
+    @Deprecated
     public List<?> findByParam(String tableName, String requestParams) {
         String url = apiUrl + "/" + tableName + "/" + "?paginate_by=" + 30
                 + "&format=json" + requestParams;
@@ -132,6 +149,7 @@ public class ApiServiceImpl implements ApiService {
     }
 
     @Override
+    @Deprecated
     public <T extends GeoEntity> T findEntityAndMagicallyDeserialize(String tableName, String requestParams, Class<T> responseClass) {
         String url = apiUrl + "/" + tableName + "/" + requestParams;
         System.err.println(url);
@@ -143,7 +161,7 @@ public class ApiServiceImpl implements ApiService {
                 .get();
 
         if (rawResponse.getBody().getRelatedData() != null) {
-            for(Map.Entry<String, List<Map<String, String>>> entry : rawResponse.getBody().getRelatedData().entrySet()){
+            for (Map.Entry<String, List<Map<String, String>>> entry : rawResponse.getBody().getRelatedData().entrySet()) {
                 Class<?> currentClass = tableClassBindings.get(entry.getKey());
                 entry.getValue().stream()
                         .map(element -> deserializer.doMagic(element, currentClass))
@@ -155,6 +173,7 @@ public class ApiServiceImpl implements ApiService {
 
 
     @Override
+    @Deprecated
     public <T> Response<T> searchEntitiesAngMagicallyDeserialize(String tableName, int page, SortField sortField, String requestParams, Class<T> responseClass) {
         if (sortField == null) {
             sortField = new SortField();

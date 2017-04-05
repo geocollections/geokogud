@@ -194,7 +194,25 @@ angular.module('geoApp').directive('loading', function () {
             });
         }
     };
-}]).directive('localityMap',
+}]).directive('firstNotNull',function(){
+    return {
+        template: '{{value}}',
+        restrict: 'E',
+        scope: {
+            values: '='
+        },
+        link: function (scope) {
+            values = scope.values;
+            for (var i = 0; i < values.length; i++) {
+                if(values[i]){
+                    scope.value = values[i];
+                    break;
+                }
+            }
+        }
+    };
+})
+    .directive('localityMap',
     function () {
         return {
             scope: {
