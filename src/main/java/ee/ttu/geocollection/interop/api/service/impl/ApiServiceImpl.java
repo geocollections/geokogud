@@ -119,6 +119,21 @@ public class ApiServiceImpl implements ApiService {
     }
 
     @Override
+    public Map findRawEntities(String tableName, String requestParams) {
+        String url = apiUrl + "/" + tableName + "/?format=json";
+
+        HttpHeaders headers = new HttpHeaders();
+        String requestId = MDC.get("REQUEST_UUID");
+        if (requestId != null) {
+            headers.set("Trace-UUID", requestId);
+        }
+        HttpEntity<String> request = new HttpEntity<String>(headers);
+        System.err.println(url);
+        HttpEntity<Map> response = restTemplate.getForEntity(url, Map.class);
+        return  response.getBody();
+    }
+
+    @Override
     public List<?> findByParam(String tableName, String requestParams) {
         String url = apiUrl + "/" + tableName + "/" + "?paginate_by=" + 30
                 + "&format=json" + requestParams;

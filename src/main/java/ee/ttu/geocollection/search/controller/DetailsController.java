@@ -102,7 +102,6 @@ public class DetailsController {
         return new SampleDetailsDialogDto(samples);
     }
 
-
     @RequestMapping(value = "/raw-sample/{id}")
     public Map findRawSampleById(@PathVariable Long id) {
         return samplesApiService.findRawById(id);
@@ -128,4 +127,5 @@ public class DetailsController {
         Response<StratigraphyEnitity> straigraphy = stratigraphyApiService.findById(id);
         return new StratigraphyDetailsDialogDto(straigraphy);
     }
+
 }

@@ -472,5 +472,49 @@
             "ROW5": "smaller collections",
             "ROW6": "TOTAL"
         }
+    },
+
+    "API_TRANSLATION": {
+        "SAMPLE" : {
+            "ID": "ID",
+            "NUMBER": "Number",
+            "NUMBER_ADDITIONAL": "Additional number",
+            "LOCALITY_ID": "Locality id",
+            "LOCALITY__LOCALITY": "Locality",
+            "LOCALITY__LOCALITY_EN": "",
+            "LOCALITY_FREE": "",
+            "LOCALITY__LATITUDE": "Latitude",
+            "LOCALITY__LONGITUDE": "Longitude",
+            "LOCALITY__COUNTRY__VALUE": "",
+            "LOCALITY__COUNTRY__VALUE_EN": "",
+            "SOIL_HORIZON": "",
+            "SOIL_SITE__SITE": "",
+            "SOIL_SITE__SITE_EN": "",
+            "SOIL_SITE__LATITUDE": "",
+            "SOIL_SITE__LONGITUDE": "",
+            "STRATIGRAPHY_ID": "",
+            "STRATIGRAPHY__STRATIGRAPHY": "",
+            "STRATIGRAPHY__STRATIGRAPHY_EN": "",
+            "LITHOSTRATIGRAPHY__STRATIGRAPHY": "",
+            "LITHOSTRATIGRAPHY__STRATIGRAPHY_EN": "",
+            "STRATIGRAPHY_BED": "",
+            "AGENT_COLLECTED__AGENT": "",
+            "AGENT_COLLECTED_FREE": "",
+            "DATE_COLLECTED": "",
+            "DATE_COLLECTED_FREE": "",
+            "DEPTH": "",
+            "DEPTH_INTERVAL": "",
+            "CLASSIFICATION_ROCK__NAME": "",
+            "CLASSIFICATION_ROCK__NAME_EN": "",
+            "ROCK": "",
+            "ROCK_EN": "",
+            "LOCATION": "",
+            "MASS": "Mass",
+            "REMARKS": "",
+            "SERIES_ID": "",
+            "DATABASE__ACRONYM": "Instituut",
+            "DATE_ADDED": "",
+            "DATE_CHANGED": ""
+        }
     }
 }

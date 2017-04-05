@@ -15,6 +15,8 @@ public interface ApiService {
 
     Map findRawEntity(String tableName, String requestParams);
 
+    Map findRawEntities(String tableName, String requestParams);
+
     List<?> findByParam(String tableName, String requestParams);
 
     <T extends GeoEntity> T findEntityAndMagicallyDeserialize(String tableName, String requestParams, Class<T> responseClass);

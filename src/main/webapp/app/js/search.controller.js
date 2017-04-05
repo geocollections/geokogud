@@ -37,6 +37,7 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
     }
 
     $scope.search = function () {
+        console.log($scope.searchParameters)
         applicationService.getList($stateParams.type,$scope.searchParameters,onSearchData)
     };
 

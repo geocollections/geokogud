@@ -16,6 +16,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Map;
+
 @Service
 public class LocalitiesApiServiceImpl implements LocalitiesApiService {
 
@@ -70,5 +72,12 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
         String url = apiUrl + "/locality/" + id + "?format=" + request.getOutputFormat();
         ResponseEntity<LocalityApiResponse> response = restTemplate.getForEntity(url, LocalityApiResponse.class);
         return response.getBody();
+    }
+
+    @Override
+    public Map findLocalitiesSummary() {
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
+                .buildWithDefaultReturningFields();
+        return apiService.findRawEntities("locality_summary", requestParams);
     }
 }

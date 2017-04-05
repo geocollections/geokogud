@@ -30,6 +30,11 @@ var constructor = function (utils,configuration) {
         utils.httpGet(configuration.sampleDetailUrl + "/"+id, null, callback, error);
     };
 
+    service.loadMapData = function (callback, error) {
+        utils.httpGet(configuration.mapData.allLocalities , null, callback, error);
+    };
+
+
     function getSearchUrl (searchType) {
         var url = null;
         switch (searchType) {

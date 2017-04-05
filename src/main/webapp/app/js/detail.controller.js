@@ -1,4 +1,5 @@
-var constructor = function ($scope, $stateParams, applicationService, $translate) {
+var module = angular.module("geoApp");
+var constructor = function ($scope, $stateParams, applicationService, $translate, $sce) {
     var vm = this;
 
     vm.service = applicationService;
@@ -10,7 +11,6 @@ var constructor = function ($scope, $stateParams, applicationService, $translate
     }
 
     function onEntityData(response) {
-        console.log(response.data.results[0]);
         vm.sample = response.data.results[0];
         dynamicalyCreateField(vm.sample);
     }
@@ -18,21 +18,17 @@ var constructor = function ($scope, $stateParams, applicationService, $translate
     function dynamicalyCreateField(obj) {
         var hintRoot = 'API_TRANSLATION.SAMPLE.';
         Object.keys(obj).forEach(function(key,index) {
-            var upKey = key.toUpperCase()
-            console.log(upKey);
+            var upKey = key.toUpperCase();
             if(vm.sample[key] != null && vm.sample[key] != '')
                 $translate([hintRoot+upKey]).then(function (translations) {
                     var name = translations[hintRoot+upKey];
-                    vm.fields.push({"name" : name, "value" : vm.sample[key]});
+                    vm.fields.push({"name" : name, "value" : $sce.trustAsHtml('<a href="">' + vm.sample[key] + '</a>')});
                 });
-
-            // key: the name of the object key
-            // index: the ordinal position of the key within the object
         });
     }
 
 };
 
-constructor.$inject = ["$scope", "$stateParams", 'ApplicationService', '$translate'];
+constructor.$inject = ["$scope", "$stateParams", 'ApplicationService', '$translate', '$sce'];
 
 module.controller("DetailController", constructor);

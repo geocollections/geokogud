@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @Controller
-@RequestMapping("/locality")
+@RequestMapping("/map")
 public class MapController {
 
     private static final Logger logger = LoggerFactory.getLogger(MapController.class);
@@ -21,6 +23,11 @@ public class MapController {
     @ResponseBody
     public LocalityApiResponse getLocality(@PathVariable Long id){
         return localitiesApiService.getLocality(id);
+    }
+
+    @RequestMapping(value = "/locality-summary")
+    public Map findLocalitySummary() {
+        return localitiesApiService.findLocalitiesSummary();
     }
 }
 
