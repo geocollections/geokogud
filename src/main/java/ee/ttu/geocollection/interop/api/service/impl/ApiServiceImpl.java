@@ -69,6 +69,11 @@ public class ApiServiceImpl implements ApiService {
         return rawResponse.getBody();
     }
 
+    @Override
+    public Map findRawEntities(String tableName, String requestParams) {
+        return null;
+    }
+
     private String getSortingDirection(SortingOrder order) {
         return order.equals(SortingOrder.ASCENDING) ? "" : "-";
     }
