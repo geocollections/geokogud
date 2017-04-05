@@ -7,7 +7,7 @@
         </layout>
     </appender>
 
-    <logger name="ee.ttu" level="INFO"/>
+    <logger name="ee.ttu" level="TRACE"/>
 <!--    <logger name="org.hibernate.persister.entity" level="DEBUG"></logger>-->
     <root level="WARN">
         <appender-ref ref="STDOUT" />

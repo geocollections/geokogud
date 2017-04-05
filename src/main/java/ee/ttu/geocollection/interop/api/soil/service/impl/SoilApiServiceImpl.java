@@ -1,5 +1,6 @@
 package ee.ttu.geocollection.interop.api.soil.service.impl;
 
+import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentSoilSearchApiApiBuilder;
@@ -17,7 +18,7 @@ public class SoilApiServiceImpl implements SoilApiService {
     private ApiService apiService;
 
     @Override
-    public Response findSoil(SoilSearchCriteria searchCriteria) {
+    public ApiResponse findSoil(SoilSearchCriteria searchCriteria) {
         String requestParams = FluentSoilSearchApiApiBuilder.aRequest()
                 .queryId(searchCriteria.getId()).andReturn()
                 .querySite(searchCriteria.getSite()).andReturn()
@@ -30,7 +31,7 @@ public class SoilApiServiceImpl implements SoilApiService {
                 .returnLongitude()
                 .returnTransectPoint()
                 .build();
-        return apiService.searchEntities("soil_site", searchCriteria.getPage(),searchCriteria.getSortField(), requestParams, Soil.class);
+        return apiService.searchRawEntities("soil_site", searchCriteria.getPage(),searchCriteria.getSortField(), requestParams);
     }
 
     @Override

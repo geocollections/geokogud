@@ -4,6 +4,7 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
     var vm = this;
     vm.service = applicationService;
     var search = vm.service.getTranslationRoot($stateParams.type);
+    $scope.searchParameters = {};
 
     $scope.isIdentifierFieldsCollapsed = false;
     $scope.isLocationFieldsCollapsed = true;

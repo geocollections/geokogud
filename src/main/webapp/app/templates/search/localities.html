@@ -209,30 +209,33 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="entity in response.result">
-                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.ID' | translate }}"><a href
-                                                                                           data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.id})">{{entity.id}}</a>
+                    <tr data-ng-repeat="entity in response.results">
+                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.ID' | translate }}">
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.id})">{{entity.id}}</a>
                         </td>
-                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.LOCALITY' | translate }}"><a href
-                                                                                                 data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.id})">{{entity.locality}}</a>
+                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.LOCALITY' | translate }}">
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.id})">{{entity.locality}}</a>
                         </td>
-                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.COUNTRY' | translate }}">{{entity.countryValueEn}}
+                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.COUNTRY' | translate }}">
+                            <localize en="entity.country__value_en" et="entity.country__value"/>
                         </td>
                         <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.LATITUDE' | translate }}">{{entity.latitude}}</td>
                         <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.LONGITUDE' | translate }}">{{entity.longitude}}</td>
                         <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.VERTICAL_EXTENT' | translate }}">{{entity.depth}}
                         </td>
                         <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.STRATIGRAPHY_BASE' | translate }}">
-                            {{entity.stratigraphyBaseStratigraphyEn}}
+                            {{entity.stratigraphy_base__stratigraphy_en}}
                         </td>
                         <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.STRATIGRAPHY_TOP' | translate }}">
-                            {{entity.stratigraphyTopStratigraphyEn}}
+                            {{entity.stratigraphy_base__stratigraphy}}
                         </td>
                         <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.DRILLCORE' | translate }}">???</td>
                         <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.IMAGES' | translate }}">???</td>
                         <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.MAP' | translate }}"><span
                                 data-ng-if="entity.latitude != null && entity.longitude != null">+</span></td>
-                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.MA_ID' | translate }}">{{entity.maPaId}}</td>
+                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.MA_ID' | translate }}">
+                            <a href="http://geoportaal.maaamet.ee/index.php?&action=viewPA&page_id=382&pa_id={{entity.maaamet_pa_id}}">{{entity.maaamet_pa_id}}</a>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
