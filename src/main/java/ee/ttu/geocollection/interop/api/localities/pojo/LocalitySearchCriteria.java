@@ -3,8 +3,6 @@ package ee.ttu.geocollection.interop.api.localities.pojo;
 import ee.ttu.geocollection.search.domain.SearchField;
 import ee.ttu.geocollection.search.domain.SortField;
 
-import java.util.List;
-
 /**
  * Created by Olesja Senkiv on 17.03.2017.
  */
@@ -22,7 +20,6 @@ public class LocalitySearchCriteria {
     private SearchField latitude;
     private SearchField longitude;
     private SearchField verticalExtent;
-    private List<String> dbs;
 
     public SearchField getCountry() {
         return country;
@@ -127,13 +124,5 @@ public class LocalitySearchCriteria {
 
     public void setLongitude(SearchField longitude) {
         this.longitude = longitude;
-    }
-
-    public List<String> getDbs() {
-        return dbs;
-    }
-
-    public void setDbs(List<String> dbs) {
-        this.dbs = dbs;
     }
 }

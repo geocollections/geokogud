@@ -100,11 +100,12 @@ public class SearchController {
     }
 
     @RequestMapping(value = "/drillcore", method = RequestMethod.POST)
-    public Response searchDrillcore(@RequestBody DrillCoreSearchCriteria searchCriteria) {
+    public Response searchDrillCores(@RequestBody DrillCoreSearchCriteria searchCriteria) {
         return drillCoreApiService.findDrillCore(searchCriteria);
     }
+
     @RequestMapping(value = "/locality", method = RequestMethod.POST)
-    public Response searchDrillcore(@RequestBody LocalitySearchCriteria searchCriteria) {
+    public ApiResponse searchLocalities(@RequestBody LocalitySearchCriteria searchCriteria) {
         return localitiesApiService.findLocality(searchCriteria);
     }
 

@@ -1,12 +1,12 @@
 package ee.ttu.geocollection.interop.api.localities.service.impl;
 
 import ee.ttu.geocollection.interop.api.Request.SearchApiRequest;
+import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentLocalitySearchApiBuilder;
 import ee.ttu.geocollection.interop.api.localities.pojo.Locality;
 import ee.ttu.geocollection.interop.api.localities.pojo.LocalityApiResponse;
-import ee.ttu.geocollection.interop.api.localities.pojo.LocalityEntity;
 import ee.ttu.geocollection.interop.api.localities.pojo.LocalitySearchCriteria;
 import ee.ttu.geocollection.interop.api.localities.service.LocalitiesApiService;
 import ee.ttu.geocollection.interop.api.service.ApiService;
@@ -28,7 +28,7 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
     private ApiService apiService;
 
     @Override
-    public Response findLocality(LocalitySearchCriteria searchCriteria) {
+    public ApiResponse findLocality(LocalitySearchCriteria searchCriteria) {
         String requestParams = FluentLocalitySearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId())
                 .queryNumber(searchCriteria.getNumber())
@@ -40,13 +40,11 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
                 .queryAdminUnit(searchCriteria.getAdminUnit())
                 .queryLongitude(searchCriteria.getLatitude())
                 .queryLongitude(searchCriteria.getLongitude())
-                .queryInstitution(searchCriteria.getDbs())
                 .buildWithoutReturningCertainFields();
-        return apiService.searchEntities("locality",
+        return apiService.searchRawEntities("locality",
                 searchCriteria.getPage(),
                 searchCriteria.getSortField(),
-                requestParams,
-                LocalityEntity.class);
+                requestParams);
     }
 
     @Override
