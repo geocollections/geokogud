@@ -97,7 +97,7 @@ public class SearchController {
     }
 
     @RequestMapping(value = "/sample", method = RequestMethod.POST)
-    public Response searchSample(@RequestBody SampleSearchCriteria sampleSearchCriteria) {
+    public ApiResponse searchSample(@RequestBody SampleSearchCriteria sampleSearchCriteria) {
         return samplesApiService.findSample(sampleSearchCriteria);
     }
 
@@ -111,7 +111,7 @@ public class SearchController {
     }
 
     @RequestMapping(value = "/photo-archive", method = RequestMethod.POST)
-    public Response searchSpecimen(@RequestBody PhotoArchiveSearchCriteria photoArchiveSearchCriteria) {
+    public ApiResponse searchSpecimen(@RequestBody PhotoArchiveSearchCriteria photoArchiveSearchCriteria) {
         return photoArchiveApiService.findPhoto(photoArchiveSearchCriteria);
     }
 

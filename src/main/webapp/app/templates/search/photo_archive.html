@@ -142,20 +142,20 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="entity in response.result">
-                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.ID' | translate }}"><a href
-                                                                                              data-ng-click="ctrl.service.openInNewWindow({object:'image',id:entity.id})">{{entity.imageNumber}}</a>
+                    <tr data-ng-repeat="entity in response.results">
+                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.ID' | translate }}">
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'image',id:entity.id})">{{entity.id}}</a>
                         </td>
-                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.NUMBER' | translate }}">{{entity.imageNumber}}
+                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.NUMBER' | translate }}">{{entity.image_number}}</td>
+                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.AUTHOR' | translate }}">
+                            <first-not-null values="[entity.agent_collected__agent, entity.agent_collected_free]"
                         </td>
-                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.AUTHOR' | translate }}">{{entity.authorAgent}}
-                        </td>
-                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.DATE' | translate }}">{{entity.dateTaken}}</td>
-                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.LOCALITY' | translate }}">{{entity.locality}}
+                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.DATE' | translate }}">{{entity.date_taken}}</td>
+                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.LOCALITY' | translate }}">
+                            <localize et="entity.locality__locality" en="entity.locality__locality_en"/>
                         </td>
                         <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.CATEGORY' | translate }}">{{entity.object}}</td>
-                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.KEY_WORDS' | translate }}">{{entity.keywords}}
-                        </td>
+                        <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.KEY_WORDS' | translate }}">{{entity.keywords}}</td>
                     </tr>
                     </tbody>
                 </table>

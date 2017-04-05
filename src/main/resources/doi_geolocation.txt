@@ -1,4 +1,0 @@
-point
-place
-locality__locality
-locality__locality_en

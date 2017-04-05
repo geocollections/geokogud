@@ -1,3 +1,0 @@
-doi_geolocation
-drillcore
-rock_image

@@ -42,7 +42,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
 
 
     @Override
-    public Response findSample(ee.ttu.geocollection.interop.api.samples.pojo.SampleSearchCriteria searchCriteria) {
+    public ApiResponse findSample(ee.ttu.geocollection.interop.api.samples.pojo.SampleSearchCriteria searchCriteria) {
         System.err.println(searchCriteria.getId());
         String requestParams = FluentSampleSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId()).andReturn()
@@ -59,20 +59,13 @@ public class SamplesApiServiceImpl implements SamplesApiService {
                 .queryContent(searchCriteria.getContent()).andReturn()*/
                 .queryInstitution(searchCriteria.getDbs()).andReturn()
                 .buildWithoutReturningCertainFields();
-        return apiService.searchEntities("sample",
+        return apiService.searchRawEntities(
+                "sample",
                 searchCriteria.getPage(),
                 searchCriteria.getSortField(),
-                requestParams,
-                SampleEntity.class);
+                requestParams);
     }
 
-    @Override
-    public Response findById(Long id) {
-        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
-                .id(id)
-                .buildWithDefaultReturningFields();
-        return apiService.findEntity("sample", requestParams, SampleEntity.class);
-    }
     @Override
     public Map findRawById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
@@ -81,8 +74,18 @@ public class SamplesApiServiceImpl implements SamplesApiService {
         return apiService.findRawEntity("sample", requestParams);
     }
 
+    @Override
+    @Deprecated
+    public Response findById(Long id) {
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
+                .id(id)
+                .buildWithDefaultReturningFields();
+        return apiService.findEntity("sample", requestParams, SampleEntity.class);
+    }
+
 
     @Override
+    @Deprecated
     public Response searchByParam(String q, String table) {
         SearchApiRequest request = new SearchApiRequest();
         request.setField(table);
@@ -92,6 +95,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
 
 
     @Override
+    @Deprecated
     public Response searchList(CommonSearch search) {
         SearchApiRequest request = new SearchApiRequest();
         request.setTable(search.getTable());
@@ -103,6 +107,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     }
 
     @Override
+    @Deprecated
     public Response searchList(SearchApiRequest request) {
         System.err.print(request.getTable());
         Response response_ = new Response();
@@ -130,6 +135,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     }
 
     @Override
+    @Deprecated
     public NewVersionOfApiResponse getEntityInfo(String entity, Long id) {
         SearchApiRequest request = new SearchApiRequest();
         request.setTable(entity);
@@ -137,6 +143,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     }
 
     @Override
+    @Deprecated
     public NewVersionOfApiResponse getEntityInfo(Long id, SearchApiRequest request) {
         if (request.getTable() == null) return new NewVersionOfApiResponse();
         String url = apiUrl + "/" + request.getTable() + "/" + id + "?format=" + request.getOutputFormat();
@@ -149,6 +156,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     }
 
     @Override
+    @Deprecated
     public Response<Sample> searchSamples(SampleSearchCriteria criteria) {
         String requestParams = FluentSampleSearchApiBuilder.aRequest()
                 .queryId(criteria.getId())

@@ -1,6 +1,7 @@
 package ee.ttu.geocollection.interop.api.samples.service;
 
 import ee.ttu.geocollection.interop.api.Request.SearchApiRequest;
+import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.NewVersionOfApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.samples.pojo.Sample;
@@ -10,11 +11,11 @@ import java.util.Map;
 
 public interface SamplesApiService {
 
-    Response findSample(ee.ttu.geocollection.interop.api.samples.pojo.SampleSearchCriteria searchCriteria);
-
-    Response findById(Long id);
+    ApiResponse findSample(ee.ttu.geocollection.interop.api.samples.pojo.SampleSearchCriteria searchCriteria);
 
     Map findRawById(Long id);
+
+    Response findById(Long id);
 
     Response searchByParam(String q, String table);
 
