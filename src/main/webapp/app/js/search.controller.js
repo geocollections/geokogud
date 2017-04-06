@@ -70,18 +70,29 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
         $scope.localities = [];
         if (list) {
             angular.forEach(list, function (el) {
-                if (el.locality__latitude != null && el.locality__longitude != null && el.locality__locality_en != null && el.locality__locality != null && el.locality_id != null)
-                    $scope.localities.push({
-                        latitude: el.locality__latitude,
-                        longitude: el.locality__longitude,
-                        localityEng: el.locality__locality_en,
-                        localityEt: el.locality__locality,
-                        fid: el.locality_id
-                    })
+                if (el.locality__latitude != null && el.locality__longitude != null && el.locality__locality_en != null && el.locality__locality != null && el.locality_id != null) {
+                    addToLocalities(el.locality__latitude, el.locality__longitude, el.locality__locality_en, el.locality__locality, el.locality_id);
+                } else if (noneIsNull(el.latitude, el.longitude, el.locality_en, el.locality, el.id)) {
+                    addToLocalities(el.latitude, el.longitude, el.locality_en, el.locality, el.id);
+                }
             })
         }
         return $scope.localities;
     };
+
+    function noneIsNull(latitude, longitude, locality_en, locality, locality_id) {
+        return latitude != null && longitude != null && locality_en != null && locality != null && locality_id != null;
+    }
+
+    function addToLocalities(latitude, longitude, locality_en, locality, locality_id) {
+        $scope.localities.push({
+            latitude: latitude,
+            longitude: longitude,
+            localityEng: locality_en,
+            localityEt: locality,
+            fid: locality_id
+        });
+    }
 
 
     function loadHintText() {
