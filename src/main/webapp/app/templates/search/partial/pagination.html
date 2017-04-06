@@ -1,8 +1,8 @@
 <div class="row">
     <nav class="pull-right">
         <ul uib-pagination boundary-links="true" ng-change="search()" items-per-page="pageSize"
-            max-size="searchParameters.maxSize" rotate="false" total-items="totalItems"
-            ng-model="searchParameters.page" class="pagination-sm" previous-text="&lsaquo;"
+            max-size="$parent.searchParameters.maxSize" rotate="false" total-items="totalItems"
+            ng-model="$parent.searchParameters.page" class="pagination-sm" previous-text="&lsaquo;"
             next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
     </nav>
 </div>

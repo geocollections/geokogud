@@ -238,30 +238,15 @@
                     <thead class="thead-default">
                     <tr>
                         <th>
-                            <a href data-ng-click="order('id')"><span>{{ 'SEARCH.SAMPLES.ID' | translate }}</span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'id' && sortByAsc"
-                                      class="glyphicon glyphicon-triangle-bottom"></span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'id' && !sortByAsc"
-                                      class="glyphicon glyphicon-triangle-top"></span>
-                            </a>
+                            <sort-field value = "id" name="SEARCH.SAMPLES.ID"></sort-field>
                         </th>
                         <th>{{ 'SEARCH.SAMPLES.INSTITUTE' | translate }}</th>
                         <th>
-                            <a href style="cursor: pointer" data-ng-click="order('number')"><span>{{ 'SEARCH.SAMPLES.NUMBER' | translate }}</span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'number' && sortByAsc"
-                                      class="glyphicon glyphicon-triangle-bottom"></span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'number' && !sortByAsc"
-                                      class="glyphicon glyphicon-triangle-top"></span>
-                            </a>
+                            <sort-field value = "number" name="SEARCH.SAMPLES.NUMBER"></sort-field>
                         </th>
                         <th></th>
                         <th>
-                            <a href style="cursor: pointer" data-ng-click="order('localityEng')"><span>{{ 'SEARCH.SAMPLES.LOCALITY' | translate }}</span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'localityEng' && sortByAsc"
-                                      class="glyphicon glyphicon-triangle-bottom"></span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'localityEng' && !sortByAsc"
-                                      class="glyphicon glyphicon-triangle-top"></span>
-                            </a>
+                            <sort-field value = "localityEng" name="SEARCH.SAMPLES.LOCALITY"></sort-field>
                         </th>
                         <th>
                             <a href style="cursor: pointer" data-ng-click="order('depth')"><span>{{ 'SEARCH.SAMPLES.DEPTH_M' | translate }}</span>

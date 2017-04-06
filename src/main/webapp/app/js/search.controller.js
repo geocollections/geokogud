@@ -3,6 +3,7 @@ var module = angular.module("geoApp");
 var constructor = function ($scope, $stateParams, configuration, $http, applicationService, $window, $translate) {
     var vm = this;
     vm.service = applicationService;
+
     var search = vm.service.getTranslationRoot($stateParams.type);
     $scope.searchParameters = {};
 
@@ -39,7 +40,6 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
     }
 
     $scope.search = function () {
-        console.log($scope.searchParameters);
         applicationService.getList($stateParams.type, $scope.searchParameters, onSearchData)
     };
 
@@ -55,12 +55,6 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
 
     $scope.entitySelected = function (item) {
         $scope.sampleSearch.locality.name = item.locality;
-    };
-    $scope.order = function (predicate) {
-        $scope.sortByAsc = ($scope.searchParameters.sortField.sortBy === predicate ? !$scope.sortByAsc : true);
-        $scope.searchParameters.sortField.sortBy = predicate;
-        !$scope.sortByAsc ? $scope.searchParameters.sortField.order = "ASCENDING" : $scope.searchParameters.sortField.order = "DESCENDING";
-        $scope.search();
     };
 
     $scope.showHint = function () {
