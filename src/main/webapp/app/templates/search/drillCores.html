@@ -143,25 +143,12 @@
                 <table class="table table-bordered table-hover" id="table-search">
                     <thead class="thead-default">
                     <tr>
-                        <th>
-                            <a href style="cursor: pointer" data-ng-click="order('id')"><span>{{ 'SEARCH.DRILL_CORES.TABLE.ID' | translate }}</span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'id' && sortByAsc"
-                                      class="glyphicon glyphicon-triangle-bottom"></span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'id' && !sortByAsc"
-                                      class="glyphicon glyphicon-triangle-top"></span>
-                            </a>
-                        </th>
+                        <th><sort-field value = "id" name="SEARCH.DRILL_CORES.TABLE.ID"></sort-field></th>
                         <th>{{ 'SEARCH.DRILL_CORES.TABLE.DRILLCORE' | translate }}</th>
                         <th>{{ 'SEARCH.DRILL_CORES.TABLE.LATITUDE' | translate }}</th>
                         <th>{{ 'SEARCH.DRILL_CORES.TABLE.LONGITUDE' | translate }}</th>
                         <th>{{ 'SEARCH.DRILL_CORES.TABLE.DEPTH_M' | translate }}</th>
-                        <th>
-                            <a href
-                               style="cursor: pointer"><span>{{ 'SEARCH.DRILL_CORES.TABLE.BOX_COUNT' | translate }}</span>
-                                <!--<span data-ng-show="sampleSearch.orderBy == 'id' && sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-bottom"></span>
-                                    <span data-ng-show="sampleSearch.orderBy == 'id' && !sampleSearch.sortAsc" class="glyphicon glyphicon-triangle-top"></span>-->
-                            </a>
-                        </th>
+                        <th>{{ 'SEARCH.DRILL_CORES.TABLE.BOX_COUNT' | translate }}</th>
                         <th>{{ 'SEARCH.DRILL_CORES.TABLE.BOX_NUMBERS' | translate }}</th>
                         <th>{{ 'SEARCH.DRILL_CORES.TABLE.INSTITUTE' | translate }}</th>
                         <th>{{ 'SEARCH.DRILL_CORES.TABLE.STORAGE' | translate }}</th>

@@ -116,22 +116,8 @@
                 <table class="table table-bordered table-hover" id="table-search">
                     <thead class="thead-default">
                     <tr>
-                        <th>
-                            <a href style="cursor: pointer" data-ng-click="order('id')"><span>{{ 'SEARCH.DOI.TABLE.ID' | translate }}</span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'id' && sortByAsc"
-                                      class="glyphicon glyphicon-chevron-down"></span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'id' && !sortByAsc"
-                                      class="glyphicon glyphicon-chevron-up"></span>
-                            </a>
-                        </th>
-                        <th>
-                            <a href style="cursor: pointer" data-ng-click="order('doi')"><span>{{ 'SEARCH.DOI.TABLE.DOI' | translate }}</span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'doi' && sortByAsc"
-                                      class="glyphicon glyphicon-chevron-down"></span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'doi' && !sortByAsc"
-                                      class="glyphicon glyphicon-chevron-up"></span>
-                            </a>
-                        </th>
+                        <th><sort-field value = "id" name="SEARCH.DOI.TABLE.ID"></sort-field></th>
+                        <th><sort-field value = "doi" name="SEARCH.DOI.TABLE.DOI"></sort-field></th>
                         <th>{{ 'SEARCH.DOI.TABLE.AUTHOR' | translate }}</th>
                         <th>{{ 'SEARCH.DOI.TABLE.YEAR' | translate }}</th>
                         <th>{{ 'SEARCH.DOI.TABLE.TITLE' | translate }}</th>

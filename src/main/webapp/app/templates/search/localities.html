@@ -180,22 +180,8 @@
                 <table class="table table-bordered table-hover" id="table-search">
                     <thead class="thead-default">
                     <tr>
-                        <th>
-                            <a href style="cursor: pointer" data-ng-click="order('id')"><span>{{ 'SEARCH.LOCALITIES.TABLE.ID' | translate }}</span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'id' && sortByAsc"
-                                      class="glyphicon glyphicon-triangle-bottom"></span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'id' && !sortByAsc"
-                                      class="glyphicon glyphicon-triangle-top"></span>
-                            </a>
-                        </th>
-                        <th>
-                            <a href style="cursor: pointer" data-ng-click="order('locality')"><span>{{ 'SEARCH.LOCALITIES.TABLE.LOCALITY' | translate }}</span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'locality' && sortByAsc"
-                                      class="glyphicon glyphicon-triangle-bottom"></span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'locality' && !sortByAsc"
-                                      class="glyphicon glyphicon-triangle-top"></span>
-                            </a>
-                        </th>
+                        <th><sort-field value = "id" name="SEARCH.LOCALITIES.TABLE.ID"></sort-field></th>
+                        <th><sort-field value = "locality" name="SEARCH.LOCALITIES.LOCALITY.ID"></sort-field></th>
                         <th>{{ 'SEARCH.LOCALITIES.TABLE.COUNTRY' | translate }}</th>
                         <th>{{ 'SEARCH.LOCALITIES.TABLE.LATITUDE' | translate }}</th>
                         <th>{{ 'SEARCH.LOCALITIES.TABLE.LONGITUDE' | translate }}</th>

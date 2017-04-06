@@ -170,23 +170,8 @@
                 <table class="table table-bordered table-hover" id="table-search">
                     <thead class="thead-default">
                     <tr>
-                        <th>
-                            <a href style="cursor: pointer" data-ng-click="order('id')"><span>{{ 'SEARCH.ANALYSES.TABLE.ID'| translate }}</span>
-                                <span data-ng-show="sampleSearch.orderBy == 'id' && sampleSearch.sortAsc"
-                                      class="glyphicon glyphicon-triangle-bottom"></span>
-                                <span data-ng-show="sampleSearch.orderBy == 'id' && !sampleSearch.sortAsc"
-                                      class="glyphicon glyphicon-triangle-top"></span>
-                            </a>
-                        </th>
-                        <th>
-                            <a href style="cursor: pointer" data-ng-click="order('sample')">{{
-                                'SEARCH.ANALYSES.TABLE.SAMPLE_ID'| translate }}
-                                <span data-ng-show="sampleSearch.orderBy == 'sample' && sampleSearch.sortAsc"
-                                      class="glyphicon glyphicon-triangle-bottom"></span>
-                                <span data-ng-show="sampleSearch.orderBy == 'sample' && !sampleSearch.sortAsc"
-                                      class="glyphicon glyphicon-triangle-top"></span>
-                            </a>
-                        </th>
+                        <th><sort-field value = "id" name="SEARCH.ANALYSES.TABLE.ID"></sort-field></th>
+                        <th><sort-field value = "sample" name="SEARCH.ANALYSES.TABLE.SEARCH.ANALYSES.TABLE.SAMPLE_ID"></sort-field></th>
                         <th>{{ 'SEARCH.ANALYSES.TABLE.LOCALITY'| translate }}</th>
                         <th>{{ 'SEARCH.ANALYSES.TABLE.DEPTH_M'| translate }}</th>
                         <th><span>{{ 'SEARCH.ANALYSES.TABLE.STRATIGRAPHY' | translate }}</span> | <span>{{ 'SEARCH.ANALYSES.TABLE.LITHOSTRATIGRAPHY' | translate }}</span>

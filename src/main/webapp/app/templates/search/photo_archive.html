@@ -132,6 +132,7 @@
                 <table class="table table-bordered table-hover" id="table-search">
                     <thead class="thead-default">
                     <tr>
+                        <th><sort-field value = "id" name="SEARCH.PHOTO_ARCHIVE.TABLE.ID"></sort-field></th>
                         <th>{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.ID' | translate }}</th>
                         <th>{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.NUMBER' | translate }}</th>
                         <th>{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.AUTHOR' | translate }}</th>
@@ -148,7 +149,7 @@
                         </td>
                         <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.NUMBER' | translate }}">{{entity.image_number}}</td>
                         <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.AUTHOR' | translate }}">
-                            <first-not-null values="[entity.agent_collected__agent, entity.agent_collected_free]"
+                            <first-not-null values="[entity.agent_collected__agent, entity.agent_collected_free]"></first-not-null>
                         </td>
                         <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.DATE' | translate }}">{{entity.date_taken}}</td>
                         <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.LOCALITY' | translate }}">

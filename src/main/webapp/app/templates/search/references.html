@@ -99,39 +99,11 @@
                 <table class="table table-bordered table-hover" id="table-search">
                     <thead class="thead-default">
                     <tr>
-                        <th>
-                            <a href style="cursor: pointer" data-ng-click="order('id')"><span>{{ 'SEARCH.REFERENCES.TABLE.ID' | translate }}</span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'id' && sortByAsc"
-                                      class="glyphicon glyphicon-triangle-bottom"></span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'id' && !sortByAsc"
-                                      class="glyphicon glyphicon-triangle-top"></span>
-                            </a>
-                        </th>
+                        <th><sort-field value = "id" name="SEARCH.REFERENCES.TABLE.ID"></sort-field></th>
                         <th>{{ 'SEARCH.REFERENCES.TABLE.REFERENCE' | translate }}</th>
-                        <th>
-                            <a href style="cursor: pointer" data-ng-click="order('author')"><span>{{ 'SEARCH.REFERENCES.TABLE.AUTHOR' | translate }}</span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'author' && sortByAsc"
-                                      class="glyphicon glyphicon-triangle-bottom"></span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'author' && !sortByAsc"
-                                      class="glyphicon glyphicon-triangle-top"></span>
-                            </a>
-                        </th>
-                        <th>
-                            <a href style="cursor: pointer" data-ng-click="order('year')"><span>{{ 'SEARCH.REFERENCES.TABLE.YEAR' | translate }}</span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'year' && sortByAsc"
-                                      class="glyphicon glyphicon-triangle-bottom"></span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'year' && !sortByAsc"
-                                      class="glyphicon glyphicon-triangle-top"></span>
-                            </a>
-                        </th>
-                        <th>
-                            <a href style="cursor: pointer" data-ng-click="order('title')"><span>{{ 'SEARCH.REFERENCES.TABLE.TITLE' | translate }}</span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'title' && sortByAsc"
-                                      class="glyphicon glyphicon-triangle-bottom"></span>
-                                <span data-ng-show="searchParameters.sortField.sortBy == 'title' && !sortByAsc"
-                                      class="glyphicon glyphicon-triangle-top"></span>
-                            </a>
-                        </th>
+                        <th><sort-field value = "author" name="SEARCH.REFERENCES.TABLE.AUTHOR"></sort-field></th>
+                        <th><sort-field value = "year" name="SEARCH.REFERENCES.TABLE.YEAR"></sort-field></th>
+                        <th><sort-field value = "title" name="SEARCH.REFERENCES.TABLE.TITLE"></sort-field></th>
                         <th>{{ 'SEARCH.REFERENCES.TABLE.JOURNAL_BOOK' | translate }}</th>
                         <th>{{ 'SEARCH.REFERENCES.TABLE.PP' | translate }}</th>
                         <th>{{ 'SEARCH.REFERENCES.TABLE.DOI' | translate }}</th>
