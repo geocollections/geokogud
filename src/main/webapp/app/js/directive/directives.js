@@ -98,10 +98,10 @@ angular.module('geoApp').directive('loading', function () {
         }
     }
 }])
-    .directive('selectexact', function () {
+    .directive('selectexact', function ($translate) {
         return {
             template:
-                '<select class="{{selectCss}}">' +
+                '<select class="{{selectCss}}" ng-model="field">' +
                     '<option value="exact" selected="selected">{{ \'SEARCH.SELECT.EQUALS\' | translate }}</option>' +
                     '<option value="iexact">{{ \'SEARCH.SELECT.DOESNOTEQUAL\' | translate }}</option>' +
                     '<option value="gt">{{ \'SEARCH.SELECT.GREATERTHAN\' | translate }}</option>' +
@@ -116,12 +116,31 @@ angular.module('geoApp').directive('loading', function () {
             },
             link: function (scope) {
                 scope.selectCss = angular.isUndefined(scope.customCss) ? 'col-md-4 form-control' : scope.customCss;
+                scope.idOptions = [{
+                    name: 'equals', value: 'exact'
+                }, {
+                    name: 'does not equal', value: 'iexact'
+                }, {
+                    name: 'greater than', value: 'gt'
+                }, {
+                    name: 'smaller than', value: 'lt'
+                }, {
+                    name: 'is in list', value: 'in'
+                }, {
+                    name: 'is between', value: 'range'
+                }
+                ];
+
+                scope.$watch('field', function (data) {
+                    if (data) return;
+                    scope.field = scope.idOptions[0].value;
+                });
             }
         };
     }).directive('selectdefault', function () {
     return {
         template:
-            '<select class="{{selectCss}}">' +
+            '<select class="{{selectCss}}" ng-model="field">' +
                 '<option value="contains" selected="selected">{{ \'SEARCH.SELECT.CONTAINS\' | translate }}</option>' +
                 '<option value="exact">{{ \'SEARCH.SELECT.EQUALS\' | translate }}</option>' +
                 '<option value="startswith">{{ \'SEARCH.SELECT.STARTSWITH\' | translate }}</option>' +
@@ -136,12 +155,31 @@ angular.module('geoApp').directive('loading', function () {
         },
         link: function (scope, $watch) {
             scope.selectCss = angular.isUndefined(scope.customCss) ? 'col-md-4 form-control' : scope.customCss;
+            scope.defaultOptions = [{
+                name: 'contains', value: 'contains'
+            }, {
+                name: 'equals', value: 'exact'
+            }, {
+                name: 'start with', value: 'startswith'
+            }, {
+                name: 'ends with', value: 'startswith'
+            }, {
+                name: 'does not contain', value: 'icontains'
+            }, {
+                name: 'is in list', value: 'in'
+            }
+            ];
+
+            scope.$watch('field', function (data) {
+                if (data) return;
+                scope.field = scope.defaultOptions[0].value;
+            });
         }
     };
 }).directive('selecthierarchy', function () {
     return {
         template:
-            '<select class="{{selectCss}}">' +
+            '<select class="{{selectCss}}" ng-model="field">' +
                 '<option value="hierarchy" selected="selected">{{ \'SEARCH.SELECT.HIERARCHY\' | translate }}</option>' +
                 '<option value="contains">{{ \'SEARCH.SELECT.CONTAINS\' | translate }}</option>' +
                 '<option value="exact">{{ \'SEARCH.SELECT.EQUALS\' | translate }}</option>' +
@@ -156,6 +194,27 @@ angular.module('geoApp').directive('loading', function () {
         },
         link: function (scope) {
             scope.selectCss = angular.isUndefined(scope.customCss) ? 'col-md-4 form-control' : scope.customCss;
+            scope.defaultOptions = [{
+                name: 'hierarchy', value: 'hierarchy'
+            }, {
+                name: 'contains', value: 'contains'
+            }, {
+                name: 'equals', value: 'exact'
+            }, {
+                name: 'start with', value: 'startswith'
+            }, {
+                name: 'ends with', value: 'startswith'
+            }, {
+                name: 'does not contain', value: 'icontains'
+            }, {
+                name: 'is in list', value: 'in'
+            }
+            ];
+
+            scope.$watch('field', function (data) {
+                if (data) return;
+                scope.field = scope.defaultOptions[0].value;
+            });
         }
     };
 }).directive('sectionOpenedIcon', function () {
