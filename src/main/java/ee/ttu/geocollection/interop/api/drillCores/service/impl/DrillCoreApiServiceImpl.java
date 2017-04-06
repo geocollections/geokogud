@@ -1,6 +1,6 @@
 package ee.ttu.geocollection.interop.api.drillCores.service.impl;
 
-import ee.ttu.geocollection.interop.api.Response.Response;
+import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentDrillCoreSearchApiBuilder;
 import ee.ttu.geocollection.interop.api.drillCores.pojo.DrillCoreProto;
@@ -18,7 +18,7 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService {
 
     //https://api.arendus.geokogud.info/drillcore/?paginate_by=30&order_by=id&page=1&format=json
     @Override
-    public Response<DrillCoreProto> findDrillCore(DrillCoreSearchCriteria searchCriteria) {
+    public ApiResponse findDrillCore(DrillCoreSearchCriteria searchCriteria) {
         String requestParams = FluentDrillCoreSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId())
                 .queryDrillCore(searchCriteria.getDrillcore())
@@ -37,11 +37,7 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService {
                 .queryDepth(searchCriteria.getDepth())
                 .queryInstitution(searchCriteria.getDbs())
                 .buildWithoutReturningCertainFields();
-        return apiService.searchEntitiesAngMagicallyDeserialize("drillcore",
-                searchCriteria.getPage(),
-                searchCriteria.getSortField(),
-                requestParams,
-                DrillCoreProto.class);
+        return apiService.searchRawEntities("drillcore", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }
 
     @Override

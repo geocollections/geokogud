@@ -100,7 +100,7 @@ public class SearchController {
     }
 
     @RequestMapping(value = "/drillcore", method = RequestMethod.POST)
-    public Response searchDrillCores(@RequestBody DrillCoreSearchCriteria searchCriteria) {
+    public ApiResponse searchDrillCores(@RequestBody DrillCoreSearchCriteria searchCriteria) {
         return drillCoreApiService.findDrillCore(searchCriteria);
     }
 
