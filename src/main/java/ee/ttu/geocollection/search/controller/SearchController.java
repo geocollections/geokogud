@@ -90,7 +90,7 @@ public class SearchController {
     }
 
     @RequestMapping(value = "/specimen", method = RequestMethod.POST)
-    public Response searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) {
+    public ApiResponse searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) {
         return specimenApiService.findSpecimen(specimenSearchCriteria);
     }
 

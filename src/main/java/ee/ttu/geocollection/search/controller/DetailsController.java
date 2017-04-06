@@ -2,6 +2,7 @@ package ee.ttu.geocollection.search.controller;
 
 
 import ee.ttu.geocollection.interop.api.Request.SampleSearchCriteria;
+import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.doi.service.DoiApiService;
 import ee.ttu.geocollection.interop.api.drillCores.pojo.DrillCoreProto;
@@ -61,7 +62,7 @@ public class DetailsController {
             @RequestParam("table") String table,
             @RequestParam("term") String term,
             @RequestParam("searchField") String searchField) {
-        return doiApiService.searchByField(table,term,searchField);
+        return doiApiService.searchByField(table, term, searchField);
     }
 
     @RequestMapping(value = "/soil/{id}")
@@ -117,12 +118,12 @@ public class DetailsController {
     public LocalityDetailsDialogDto findLocalityById(@PathVariable Long id) {
         Response<Locality> locality = localitiesApiService.findById(id);
         SpecimenSearchCriteria specimenSearchCriteria = new SpecimenSearchCriteria();
-        specimenSearchCriteria.setLocality(new SearchField(locality.getResult().get(0).getLocality(),LookUpType.exact));
-        Response specimens = specimenApiService.findSpecimen(specimenSearchCriteria);
-        return new LocalityDetailsDialogDto(locality,null, specimens);
+        specimenSearchCriteria.setLocality(new SearchField(locality.getResult().get(0).getLocality(), LookUpType.exact));
+        ApiResponse specimens = specimenApiService.findSpecimen(specimenSearchCriteria);
+        return new LocalityDetailsDialogDto(locality, null, specimens);
     }
 
-    @RequestMapping(value ="/stratigraphy/{id}")
+    @RequestMapping(value = "/stratigraphy/{id}")
     public StratigraphyDetailsDialogDto findStratigraphyById(@PathVariable Long id) {
         Response<StratigraphyEnitity> straigraphy = stratigraphyApiService.findById(id);
         return new StratigraphyDetailsDialogDto(straigraphy);

@@ -270,24 +270,26 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="entity in response.result">
+                    <tr data-ng-repeat="entity in response.results">
                         <td data-title="{{ 'SEARCH.SPECIMENS.ID' | translate }}">{{entity.id}}</td>
-                        <td data-title="{{ 'SEARCH.SPECIMENS.NUMBER' | translate }}">{{entity.git}}</td>
+                        <td data-title="{{ 'SEARCH.SPECIMENS.NUMBER' | translate }}">???</td>
                         <td data-title="{{ 'SEARCH.SPECIMENS.OLD_SPECIMEN_NUMBER' | translate }}">
-                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'sample',id:entity.id})">{{entity.number == null ? entity.id : entity.number}}</a></td>
+                            ???
                         <td data-title="{{ 'SEARCH.SPECIMENS.NAME_PART_ELEMENT' | translate }}">
-                            {{entity.numberAdditional}}
+                            {{entity.specimenidentification__name}}
                         </td>
                         <td data-title="{{ 'SEARCH.SPECIMENS.LOCALITY' | translate }}">
-                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.localityId})">{{entity.locality}}</a>
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.locality_id})">{{entity.locality__locality}}</a>
                         </td>
-                        <td data-title="{{ 'SEARCH.SPECIMENS.DEPTH_M' | translate }}">{{entity.depth}}</td>
-                        <td data-title="{{ 'SEARCH.SPECIMENS.STRATIGRAPHY' | translate }}">{{entity.depthInterval}}</td>
+                        <td data-title="{{ 'SEARCH.SPECIMENS.DEPTH_M' | translate }}">{{entity.depth}} {{entity.depth_interval}}</td>
+                        <td data-title="{{ 'SEARCH.SPECIMENS.STRATIGRAPHY' | translate }}">
+                            <first-not-null values="[entity.stratigraphy__stratigraphy, entity.stratigraphy__stratigraphy_en, lithostratigraphy__stratigraphy, lithostratigraphy__stratigraphy_en, stratigraphy_free]"/>
+                        </td>
                         <td data-title="{{ 'SEARCH.SPECIMENS.COLLECTOR' | translate }}">
-                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.stratigraphyId})">{{entity.stratigraphyEng}}</a>
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.stratigraphy_id})">{{entity.stratigraphy__stratigraphy_en}}</a>
                         </td>
                         <td data-title="{{ 'SEARCH.SPECIMENS.STATUS' | translate }}">???</td>
-                        <td data-title="{{ 'SEARCH.SPECIMENS.IMAGES' | translate }}">{{entity.mass}}</td>
+                        <td data-title="{{ 'SEARCH.SPECIMENS.IMAGES' | translate }}">??? num_specmien_images</td>
                     </tr>
                     </tbody>
                 </table>

@@ -1,13 +1,14 @@
 package ee.ttu.geocollection.interop.api.localities.pojo;
 
+import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
 
 public class LocalityDetailsDialogDto {
     private Response locality;
     private Response references;
-    private Response specimens;
+    private ApiResponse specimens;
 
-    public LocalityDetailsDialogDto(Response locality, Response references, Response specimens) {
+    public LocalityDetailsDialogDto(Response locality, Response references, ApiResponse specimens) {
         this.locality = locality;
         this.references = references;
         this.specimens = specimens;
@@ -21,11 +22,11 @@ public class LocalityDetailsDialogDto {
         this.references = references;
     }
 
-    public Response getSpecimens() {
+    public ApiResponse getSpecimens() {
         return specimens;
     }
 
-    public void setSpecimens(Response specimens) {
+    public void setSpecimens(ApiResponse specimens) {
         this.specimens = specimens;
     }
 
