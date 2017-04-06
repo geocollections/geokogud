@@ -111,16 +111,16 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="entity in response.result">
+                    <tr data-ng-repeat="entity in response.results">
                         <td data-title="{{ 'SEARCH.REFERENCES.TABLE.ID' | translate }}">{{entity.id}}</td>
-                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.REFERENCE' | translate }}"><a href
-                                                                                                  data-ng-click="ctrl.service.openInNewWindow({object:'references',id:entity.id})">{{entity.reference}}</a>
+                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.REFERENCE' | translate }}">
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'references',id:entity.id})">{{entity.reference}}</a>
                         </td>
                         <td data-title="{{ 'SEARCH.REFERENCES.TABLE.AUTHOR' | translate }}">{{entity.author}}</td>
                         <td data-title="{{ 'SEARCH.REFERENCES.TABLE.YEAR' | translate }}">{{entity.year}}</td>
                         <td data-title="{{ 'SEARCH.REFERENCES.TABLE.TITLE' | translate }}">{{entity.title}}</td>
                         <td data-title="{{ 'SEARCH.REFERENCES.TABLE.JOURNAL_BOOK' | translate }}">
-                            {{entity.journalName}}
+                            {{entity.journal__journal_name}}
                         </td>
                         <td data-title="{{ 'SEARCH.REFERENCES.TABLE.PP' | translate }}">{{entity.pages}}</td>
                         <td data-title="{{ 'SEARCH.REFERENCES.TABLE.DOI' | translate }}">{{entity.doi}}</td>
