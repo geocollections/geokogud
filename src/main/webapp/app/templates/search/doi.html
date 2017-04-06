@@ -126,17 +126,17 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="entity in response.result">
+                    <tr data-ng-repeat="entity in response.results">
                         <td data-title="{{ 'SEARCH.DOI.TABLE.ID' | translate }}">{{entity.id}}</td>
-                        <td data-title="{{ 'SEARCH.DOI.TABLE.DOI' | translate }}"><a href
-                                                                                     data-ng-click="ctrl.service.openInNewWindow({object:'doi',id:entity.id})">{{entity.identifier}}</a>
+                        <td data-title="{{ 'SEARCH.DOI.TABLE.DOI' | translate }}">
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'doi',id:entity.id})">{{entity.identifier}}</a>
                         </td>
-                        <td data-title="{{ 'SEARCH.DOI.TABLE.AUTHOR' | translate }}">{{entity.author}}</td>
+                        <td data-title="{{ 'SEARCH.DOI.TABLE.AUTHOR' | translate }}">{{entity.reference__author}}</td>
                         <td data-title="{{ 'SEARCH.DOI.TABLE.YEAR' | translate }}">{{entity.year}}</td>
-                        <td data-title="{{ 'SEARCH.DOI.TABLE.TITLE' | translate }}">{{entity.title}}</td>
-                        <td data-title="{{ 'SEARCH.DOI.TABLE.TYPE' | translate }}">{{entity.resourceType}}</td>
+                        <td data-title="{{ 'SEARCH.DOI.TABLE.TITLE' | translate }}">{{entity.reference__title}}</td>
+                        <td data-title="{{ 'SEARCH.DOI.TABLE.TYPE' | translate }}">{{entity.resource_type_value}}</td>
                         <td data-title="{{ 'SEARCH.DOI.TABLE.DATACITE_REGISTRATION' | translate }}">
-                            {{entity.dataciteCreated | date:dateFormat}}
+                            {{entity.datacite_created | date:dateFormat}}
                         </td>
                     </tr>
                     </tbody>

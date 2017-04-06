@@ -33,8 +33,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
-
 @RestController
 @RequestMapping("/search")
 public class SearchController {
@@ -122,12 +120,12 @@ public class SearchController {
     }
 
     @RequestMapping(value = "/reference", method = RequestMethod.POST)
-    public Response searchDoi(@RequestBody ReferenceSearchCriteria searchCriteria) {
+    public ApiResponse searchDoi(@RequestBody ReferenceSearchCriteria searchCriteria) {
         return referenceApiService.findReference(searchCriteria);
     }
 
     @RequestMapping(value = "/doi", method = RequestMethod.POST)
-    public Response searchReference(@RequestBody DoiSearchCriteria searchCriteria) {
+    public ApiResponse searchReference(@RequestBody DoiSearchCriteria searchCriteria) {
         return doiApiService.findDoi(searchCriteria);
     }
 

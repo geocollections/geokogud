@@ -1,5 +1,6 @@
 package ee.ttu.geocollection.interop.api.reference.service.impl;
 
+import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentReferenceSearchApiBuilder;
@@ -16,7 +17,7 @@ public class ReferenceApiServiceImpl implements ReferenceApiService {
     private ApiService apiService;
 
     @Override
-    public Response findReference(ReferenceSearchCriteria searchCriteria) {
+    public ApiResponse findReference(ReferenceSearchCriteria searchCriteria) {
         String requestParams = FluentReferenceSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId()).andReturn()
                 .queryAuthor(searchCriteria.getAuthor()).andReturn()
@@ -26,7 +27,7 @@ public class ReferenceApiServiceImpl implements ReferenceApiService {
                 .queryBook(searchCriteria.getBook()).andReturn()
                 .queryJournal(searchCriteria.getJournal()).andReturn()
                 .buildWithoutReturningCertainFields();
-        return apiService.searchEntities("reference", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, Reference.class);
+        return apiService.searchRawEntities("reference", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }
 
     @Override

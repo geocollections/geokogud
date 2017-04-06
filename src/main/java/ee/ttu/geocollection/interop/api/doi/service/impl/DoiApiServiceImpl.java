@@ -1,5 +1,6 @@
 package ee.ttu.geocollection.interop.api.doi.service.impl;
 
+import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentCommonSearchApiBuilder;
@@ -21,7 +22,7 @@ public class DoiApiServiceImpl implements DoiApiService {
     private ApiService apiService;
 
     @Override
-    public Response findDoi(DoiSearchCriteria searchCriteria) {
+    public ApiResponse findDoi(DoiSearchCriteria searchCriteria) {
         String requestParams = FluentDoiSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId()).andReturn()
                 .queryAuthor(searchCriteria.getAuthor()).andReturn()
@@ -31,7 +32,7 @@ public class DoiApiServiceImpl implements DoiApiService {
                 .queryPublishedBy(searchCriteria.getPublishedBy()).andReturn()
                 .queryAbstract(searchCriteria.getAbstractText()).andReturn()
                 .buildWithoutReturningCertainFields();
-        return apiService.searchEntities("doi", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, Doi.class);
+        return apiService.searchRawEntities("doi", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }
 
     @Override
