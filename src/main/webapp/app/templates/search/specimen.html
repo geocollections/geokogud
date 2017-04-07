@@ -272,24 +272,28 @@
                     <tbody>
                     <tr data-ng-repeat="entity in response.results">
                         <td data-title="{{ 'SEARCH.SPECIMENS.ID' | translate }}">{{entity.id}}</td>
-                        <td data-title="{{ 'SEARCH.SPECIMENS.NUMBER' | translate }}">???</td>
+                        <td data-title="{{ 'SEARCH.SPECIMENS.NUMBER' | translate }}"></td>
                         <td data-title="{{ 'SEARCH.SPECIMENS.OLD_SPECIMEN_NUMBER' | translate }}">
-                            ???
+                            {{entity.specimen_nr}}
                         <td data-title="{{ 'SEARCH.SPECIMENS.NAME_PART_ELEMENT' | translate }}">
-                            {{entity.specimenidentification__name}}
+                            <a href="http://fossiilid.info/{{entity.specimenidentification__taxon_id}}" target="_blank">
+                                {{entity.specimenidentification__taxon__taxon}}
+                            </a> {{entity.specimenidentification__name}}
                         </td>
                         <td data-title="{{ 'SEARCH.SPECIMENS.LOCALITY' | translate }}">
                             <a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.locality_id})">{{entity.locality__locality}}</a>
                         </td>
                         <td data-title="{{ 'SEARCH.SPECIMENS.DEPTH_M' | translate }}">{{entity.depth}} {{entity.depth_interval}}</td>
                         <td data-title="{{ 'SEARCH.SPECIMENS.STRATIGRAPHY' | translate }}">
-                            <first-not-null values="[entity.stratigraphy__stratigraphy, entity.stratigraphy__stratigraphy_en, lithostratigraphy__stratigraphy, lithostratigraphy__stratigraphy_en, stratigraphy_free]"/>
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.stratigraphy_id})">
+                                <first-not-null values="[entity.stratigraphy__stratigraphy, entity.stratigraphy__stratigraphy_en, lithostratigraphy__stratigraphy, lithostratigraphy__stratigraphy_en, stratigraphy_free]"/>
+                            </a>
                         </td>
                         <td data-title="{{ 'SEARCH.SPECIMENS.COLLECTOR' | translate }}">
-                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.stratigraphy_id})">{{entity.stratigraphy__stratigraphy_en}}</a>
+                            <first-not-null values="[entity.agent_collected__agent, [entity.agent_collected__forename, entity.agent_collected__surename]]"/>
                         </td>
-                        <td data-title="{{ 'SEARCH.SPECIMENS.STATUS' | translate }}">???</td>
-                        <td data-title="{{ 'SEARCH.SPECIMENS.IMAGES' | translate }}">??? num_specmien_images</td>
+                        <td data-title="{{ 'SEARCH.SPECIMENS.STATUS' | translate }}"><localize et="entity.original_status__value" en="entity.original_status__value_en"/></td>
+                        <td data-title="{{ 'SEARCH.SPECIMENS.IMAGES' | translate }}"><img style="width:100px" src="{{entity.specimen_image_thumbnail.results[0].image_url}}"/></td>
                     </tr>
                     </tbody>
                 </table>

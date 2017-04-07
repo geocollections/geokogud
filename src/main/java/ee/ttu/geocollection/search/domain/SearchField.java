@@ -13,7 +13,7 @@ public class SearchField {
     public SearchField() {
     }
 
-    public SearchField(String name,LookUpType lookUpType) {
+    public SearchField(String name, LookUpType lookUpType) {
         this.name = name;
         this.lookUpType = lookUpType;
     }

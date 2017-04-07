@@ -122,6 +122,9 @@ public class ApiFields {
     public static final String INDEX_ADDITIONAL = "index_additional";
     public static final String AGE_BASE = "age_base";
     public static final String LITHOLOGY = "lithology";
+    public static final String SPECIMEN_ID = "specimen_id";
+    public static final String IMAGE_URL = "image_url";
+
 
     // webnews
     public static final String DATE_ADDED_LT = "date_added__lt";

@@ -260,12 +260,26 @@ angular.module('geoApp').directive('loading', function () {
         scope: {
             values: '='
         },
+        //also accepts inner arrays:
+        // [entity.id, [entity.name, entity.number]] - if id is null, will show non-null elements from the inner array
         link: function (scope) {
             values = scope.values;
-            for (var i = 0; i < values.length; i++) {
-                if(values[i]){
-                    scope.value = values[i];
-                    break;
+            if (values) {
+                for (var i = 0; i < values.length; i++) {
+                    if (values[i]) {
+                        if (values[i] instanceof Array) {
+                            result = "";
+                            for (var j = 0; j < values[i].length; j++) {
+                                if (values[i][j]) {
+                                    result += values[i][j] + " ";
+                                }
+                            }
+                            scope.value = result;
+                        } else {
+                            scope.value = values[i];
+                        }
+                        break;
+                    }
                 }
             }
         }

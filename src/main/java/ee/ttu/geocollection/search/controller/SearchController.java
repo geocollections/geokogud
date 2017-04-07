@@ -26,10 +26,14 @@ import ee.ttu.geocollection.interop.api.stratigraphies.pojo.StratigraphySearchCr
 import ee.ttu.geocollection.interop.api.stratigraphies.service.StratigraphyApiService;
 import ee.ttu.geocollection.interop.api.taxon.pojo.TaxonApiResponse;
 import ee.ttu.geocollection.interop.api.taxon.service.TaxonApiService;
+import ee.ttu.geocollection.search.domain.LookUpType;
+import ee.ttu.geocollection.search.domain.SearchField;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/search")
@@ -74,7 +78,12 @@ public class SearchController {
 
     @RequestMapping(value = "/specimen", method = RequestMethod.POST)
     public ApiResponse searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) {
-        return specimenApiService.findSpecimen(specimenSearchCriteria);
+        ApiResponse specimens = specimenApiService.findSpecimen(specimenSearchCriteria);
+        for(Map map : specimens.getResult()){
+            Map<String, Object> castedMap = (Map<String, Object>) map;
+            map.put("specimen_image_thumbnail", specimenApiService.findSpecimenImage(new SearchField(castedMap.get("id").toString(), LookUpType.exact)));
+        }
+        return specimens;
     }
 
     @RequestMapping(value = "/sample", method = RequestMethod.POST)
@@ -93,7 +102,7 @@ public class SearchController {
     }
 
     @RequestMapping(value = "/photo-archive", method = RequestMethod.POST)
-    public ApiResponse searchSpecimen(@RequestBody PhotoArchiveSearchCriteria photoArchiveSearchCriteria) {
+    public ApiResponse searchPhotoArchive(@RequestBody PhotoArchiveSearchCriteria photoArchiveSearchCriteria) {
         return photoArchiveApiService.findPhoto(photoArchiveSearchCriteria);
     }
 
