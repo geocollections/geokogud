@@ -135,7 +135,7 @@ public class SearchController {
     }
 
     @RequestMapping(value = "/preparation", method = RequestMethod.POST)
-    public Response searchPreparations(@RequestBody PreparationsSearchCriteria preparationsSearchCriteria) {
+    public ApiResponse searchPreparations(@RequestBody PreparationsSearchCriteria preparationsSearchCriteria) {
         return preparationsApiService.findPreparations(preparationsSearchCriteria);
     }
 

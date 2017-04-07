@@ -134,13 +134,19 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="entity in response.result">
-                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.ID' | translate }}">{{entity.id}}</td>
-                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.NUMBER' | translate }}">{{entity.number}}</td>
-                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.LOCALITY' | translate }}">{{entity.sampleLocality}}</td>
-                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.DEPTH_M' | translate }}">{{entity.sampleDepth}}</td>
-                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.STRATIGRAPHY' | translate }}">{{entity.sampleStratigraphy}}</td>
-                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.COLLECTOR' | translate }}">{{entity.sampleAgentCollected}}</td>
+                    <tr data-ng-repeat="entity in response.results">
+                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.ID' | translate }}">
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'preparation',id:entity.id})">{{entity.id}}</a>
+                        </td>
+                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.NUMBER' | translate }}">{{entity.preparation_number}}</td>
+                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.LOCALITY' | translate }}">
+                            <localize et="entity.sample__locality__locality" en="entity.sample__locality__locality_en"/>
+                        </td>
+                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.DEPTH_M' | translate }}">{{entity.sample__depth}}</td>
+                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.STRATIGRAPHY' | translate }}">
+                            <localize et="entity.sample__stratigraphy__stratigraphy" en="entity.sample__stratigraphy__stratigraphy_en"/>
+                        </td>
+                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.COLLECTOR' | translate }}">{{entity.sample__agent_collected__agent}}</td>
                         <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.WEIGHT' | translate }}">???</td>
                         <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.MORE_INFO' | translate }}">???</td>
                     </tr>
