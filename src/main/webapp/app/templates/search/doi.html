@@ -11,97 +11,99 @@
                     </button>
                 </h3>
             </div>
-            <div class="row">
-                <div class="panel-heading searchGroupHeading"
-                     ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
-                    <h4 class="panel-title">
-                        {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
-                        <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
-                    </h4>
-                </div>
-                <div uib-collapse="isIdentifierFieldsCollapsed">
-                    <div class="well well-lg">
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 searchCriterionTitle medium-padding">
-                                <b>{{ 'SEARCH.DOI.DOI' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.doi.lookUpType"></selectdefault>
+            <form ng-enter="search()">
+                <div class="row">
+                    <div class="panel-heading searchGroupHeading"
+                         ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
+                        <h4 class="panel-title">
+                            {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
+                            <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
+                        </h4>
+                    </div>
+                    <div uib-collapse="isIdentifierFieldsCollapsed">
+                        <div class="well well-lg">
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 searchCriterionTitle medium-padding">
+                                    <b>{{ 'SEARCH.DOI.DOI' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.doi.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.doi.name" class="form-control"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.doi.name" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.DOI.TITLE' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.title.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.title.name" class="form-control"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DOI.TITLE' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.title.lookUpType"></selectdefault>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.DOI.PUBLISHED_BY' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.publishedBy.type"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.publishedBy.value" class="form-control"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.title.name" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.DOI.YEAR' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.year.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.year.name" class="form-control"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DOI.PUBLISHED_BY' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.publishedBy.type"></selectdefault>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.DOI.AUTHOR' | translate }}</b>
+                                    <!--   <input type="text" class="form-control input-sm"
+                                              data-ng-model="searchParameters.author.value"
+                                              placeholder="input search parameter..."
+                                              data-uib-typeahead="e as entity.reference__author for entity in searchService.searchByParam('doi',$viewValue,'reference__author')"
+                                              data-typeahead-min-length="2"
+                                              data-typeahead-on-select="entitySelected($item, $model)"/>-->
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.author.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" class="form-control input-sm"
+                                           data-ng-model="searchParameters.author.name"
+                                           placeholder="input search parameter..."
+                                           data-uib-typeahead="entity.reference__author for entity in searchService.searchByParam('doi',$viewValue,'reference__author')"
+                                           data-typeahead-min-length="2"
+                                           data-typeahead-on-select="entitySelected($item.reference__author, $model)"/>
+                                </div>
+                                <!--<selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.author.lookUpType"></selectdefault>-->
+                                <!-- <div class="col-md-12 medium-padding">
+                                     <input type="text" ng-model="searchParameters.author.name" class="form-control"/>
+                                 </div>-->
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.publishedBy.value" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DOI.YEAR' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.year.lookUpType"></selectdefault>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.year.name" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DOI.AUTHOR' | translate }}</b>
-                                <!--   <input type="text" class="form-control input-sm"
-                                          data-ng-model="searchParameters.author.value"
-                                          placeholder="input search parameter..."
-                                          data-uib-typeahead="e as entity.reference__author for entity in searchService.searchByParam('doi',$viewValue,'reference__author')"
-                                          data-typeahead-min-length="2"
-                                          data-typeahead-on-select="entitySelected($item, $model)"/>-->
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.author.lookUpType"></selectdefault>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" class="form-control input-sm"
-                                       data-ng-model="searchParameters.author.name"
-                                       placeholder="input search parameter..."
-                                       data-uib-typeahead="entity.reference__author for entity in searchService.searchByParam('doi',$viewValue,'reference__author')"
-                                       data-typeahead-min-length="2"
-                                       data-typeahead-on-select="entitySelected($item.reference__author, $model)"/>
-                            </div>
-                            <!--<selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.author.lookUpType"></selectdefault>-->
-                            <!-- <div class="col-md-12 medium-padding">
-                                 <input type="text" ng-model="searchParameters.author.name" class="form-control"/>
-                             </div>-->
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DOI.ABSTRACT' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.abstract.lookUpType"></selectdefault>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.abstract.name" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.DOI.ABSTRACT' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.abstract.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.abstract.name" class="form-control"/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div ng-include="'app/templates/search/partial/institution.search.criteria.html'"></div>
-            <div ng-include="'app/templates/search/partial/button.search.html'"></div>
+                <div ng-include="'app/templates/search/partial/institution.search.criteria.html'"></div>
+                <div ng-include="'app/templates/search/partial/button.search.html'"></div>
+            </form>
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9">
             <div class="row">

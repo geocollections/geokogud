@@ -9,82 +9,85 @@
                     </button>
                 </h3>
             </div>
-            <div class="row">
-                <div class="panel-heading searchGroupHeading"
-                     ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
-                    <h4 class="panel-title">
-                        {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
-                        <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
-                    </h4>
-                </div>
-                <div uib-collapse="isIdentifierFieldsCollapsed">
-                    <div class="well well-lg">
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 searchCriterionTitle medium-padding">
-                                <b>{{ 'SEARCH.REFERENCES.ID' | translate }}</b>
-                                <selectexact custom-css="searchCriterionType"
-                                             ng-model="searchParameters.id.lookUpType"></selectexact>
+            <form ng-enter="search()">
+                <div class="row">
+                    <div class="panel-heading searchGroupHeading"
+                         ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
+                        <h4 class="panel-title">
+                            {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
+                            <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
+                        </h4>
+                    </div>
+                    <div uib-collapse="isIdentifierFieldsCollapsed">
+                        <div class="well well-lg">
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 searchCriterionTitle medium-padding">
+                                    <b>{{ 'SEARCH.REFERENCES.ID' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType"
+                                                 ng-model="searchParameters.id.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.REFERENCES.AUTHOR' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.author.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.author.name" class="form-control"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.REFERENCES.AUTHOR' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.author.lookUpType"></selectdefault>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.REFERENCES.YEAR' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType"
+                                                 ng-model="searchParameters.year.lookUpType"
+                                                 ng-disabled="true"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.year.name" class="form-control"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.author.name" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.REFERENCES.TITLE' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.title.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.title.name" class="form-control"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.REFERENCES.YEAR' | translate }}</b>
-                                <selectexact custom-css="searchCriterionType"
-                                             ng-model="searchParameters.year.lookUpType"
-                                             ng-disabled="true"></selectexact>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.REFERENCES.JOURNAL' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.journal.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.journal.name" class="form-control"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.year.name" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.REFERENCES.TITLE' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.title.lookUpType"></selectdefault>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.title.name" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.REFERENCES.JOURNAL' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.journal.lookUpType"></selectdefault>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.journal.name" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.REFERENCES.BOOK' | translate }}</b>
-                                <selectexact custom-css="searchCriterionType"
-                                             ng-model="searchParameters.book.lookUpType"></selectexact>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.book.name" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.REFERENCES.BOOK' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType"
+                                                 ng-model="searchParameters.book.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.book.name" class="form-control"/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div ng-include="'app/templates/search/partial/institution.search.criteria.html'"></div>
-            <div ng-include="'app/templates/search/partial/button.search.html'"></div>
+
+                <div ng-include="'app/templates/search/partial/institution.search.criteria.html'"></div>
+                <div ng-include="'app/templates/search/partial/button.search.html'"></div>
+            </form>
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9">
             <div class="row">

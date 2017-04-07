@@ -20,214 +20,215 @@
                     </label>
                 </div>
             </div>
-            <div class="row">
-                <div class="panel-heading searchGroupHeading"
-                     ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
-                    <h4 class="panel-title">
-                        {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
-                        <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
-                    </h4>
-                </div>
-                <div uib-collapse="isIdentifierFieldsCollapsed">
-                    <div class="well well-lg">
-                        <div class="row searchCriterion">
-                            <div class="col-md-12  medium-padding">
-                                <b>{{ 'SEARCH.SPECIMENS.ID' | translate }}</b>
-                                <selectexact custom-css="searchCriterionType"
-                                             ng-model="searchParameters.id.lookUpType"></selectexact>
+            <form ng-enter="search()">
+                <div class="row">
+                    <div class="panel-heading searchGroupHeading"
+                         ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
+                        <h4 class="panel-title">
+                            {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
+                            <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
+                        </h4>
+                    </div>
+                    <div uib-collapse="isIdentifierFieldsCollapsed">
+                        <div class="well well-lg">
+                            <div class="row searchCriterion">
+                                <div class="col-md-12  medium-padding">
+                                    <b>{{ 'SEARCH.SPECIMENS.ID' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType"
+                                                 ng-model="searchParameters.id.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12  medium-padding">
+                                    <b>{{ 'SEARCH.SPECIMENS.NUMBER' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.specimenNumber.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.specimenNumber.name"
+                                           class="form-control"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12  medium-padding">
-                                <b>{{ 'SEARCH.SPECIMENS.NUMBER' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.specimenNumber.lookUpType"></selectdefault>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12  medium-padding">
+                                    <b>{{ 'SEARCH.SPECIMENS.COLLECTION_NUMBER' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType"
+                                                 ng-model="searchParameters.collectionNumber.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.collectionNumber.name"
+                                           class="form-control"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.specimenNumber.name"
-                                       class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12  medium-padding">
+                                    <b>{{ 'SEARCH.SPECIMENS.CLASSIFICATION_NUMBER' | translate }}</b>
+                                    <selecthierarchy custom-css="searchCriterionType"
+                                                     ng-model="searchParameters.classification.lookUpType"></selecthierarchy>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.classification.name"
+                                           class="form-control"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12  medium-padding">
-                                <b>{{ 'SEARCH.SPECIMENS.COLLECTION_NUMBER' | translate }}</b>
-                                <selectexact custom-css="searchCriterionType"
-                                             ng-model="searchParameters.collectionNumber.lookUpType"></selectexact>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12  medium-padding">
+                                    <b>{{ 'SEARCH.SPECIMENS.FOSSIL_MINERAL_ROCK' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.fossilmineralrock.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.fossilmineralrock.name"
+                                           class="form-control"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.collectionNumber.name"
-                                       class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12  medium-padding">
+                                    <b>{{ 'SEARCH.SPECIMENS.NAME_OF_ROCK' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.fossilName.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.fossilName.name" class="form-control"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12  medium-padding">
-                                <b>{{ 'SEARCH.SPECIMENS.CLASSIFICATION_NUMBER' | translate }}</b>
-                                <selecthierarchy custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.classification.lookUpType"></selecthierarchy>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12  medium-padding">
+                                    <b>{{ 'SEARCH.SPECIMENS.MINERAL_ROCK' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.mineralrock.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.mineralrock.name" class="form-control"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.classification.name"
-                                       class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12  medium-padding">
+                                    <b>{{ 'SEARCH.SPECIMENS.DEPHT_M' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType"
+                                                 ng-model="searchParameters.depth.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.depth.name" class="form-control"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12  medium-padding">
-                                <b>{{ 'SEARCH.SPECIMENS.FOSSIL_MINERAL_ROCK' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.fossilmineralrock.lookUpType"></selectdefault>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12  medium-padding">
+                                    <b>{{ 'SEARCH.SPECIMENS.STRATIGRAPHY' | translate }}</b>
+                                    <selecthierarchy custom-css="searchCriterionType"
+                                                     ng-model="searchParameters.stratigraphy.lookUpType"></selecthierarchy>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" class="form-control input-sm"
+                                           data-ng-model="searchParameters.stratigraphy.name"
+                                           placeholder="input search parameter..."
+                                           data-uib-typeahead="e as entity.stratigraphy for entity in searchService.localitySearch($viewValue, 'stratigraphy')"
+                                           data-typeahead-min-length="2"
+                                           data-typeahead-on-select="entitySelected($item, $model)"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.fossilmineralrock.name"
-                                       class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12  medium-padding">
+                                    <b>{{ 'SEARCH.SPECIMENS.COLLECTOR' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.collector.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.collector.name" class="form-control"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12  medium-padding">
-                                <b>{{ 'SEARCH.SPECIMENS.NAME_OF_ROCK' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.fossilName.lookUpType"></selectdefault>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12  medium-padding">
+                                    <b>{{ 'SEARCH.SPECIMENS.REFERENCE' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.reference.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.reference.name" class="form-control"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.fossilName.name" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12  medium-padding">
+                                    <b>{{ 'SEARCH.SPECIMENS.TYPE_STATUS' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.typeStatus.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.typeStatus.name" class="form-control"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12  medium-padding">
-                                <b>{{ 'SEARCH.SPECIMENS.MINERAL_ROCK' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.mineralrock.lookUpType"></selectdefault>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12  medium-padding">
+                                    <b>{{ 'SEARCH.SPECIMENS.PART_OF_FOSSIL' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.partoffossil.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.partoffossil.name" class="form-control"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.mineralrock.name" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12  medium-padding">
+                                    <b>{{ 'SEARCH.SPECIMENS.KEYWORDS' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.keywords.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.keywords.name" class="form-control"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12  medium-padding">
-                                <b>{{ 'SEARCH.SPECIMENS.DEPHT_M' | translate }}</b>
-                                <selectexact custom-css="searchCriterionType"
-                                             ng-model="searchParameters.depth.lookUpType"></selectexact>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.depth.name" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12  medium-padding">
-                                <b>{{ 'SEARCH.SPECIMENS.STRATIGRAPHY' | translate }}</b>
-                                <selecthierarchy custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.stratigraphy.lookUpType"></selecthierarchy>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" class="form-control input-sm"
-                                       data-ng-model="searchParameters.stratigraphy.name"
-                                       placeholder="input search parameter..."
-                                       data-uib-typeahead="e as entity.stratigraphy for entity in searchService.localitySearch($viewValue, 'stratigraphy')"
-                                       data-typeahead-min-length="2"
-                                       data-typeahead-on-select="entitySelected($item, $model)"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12  medium-padding">
-                                <b>{{ 'SEARCH.SPECIMENS.COLLECTOR' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.collector.lookUpType"></selectdefault>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.collector.name" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12  medium-padding">
-                                <b>{{ 'SEARCH.SPECIMENS.REFERENCE' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.reference.lookUpType"></selectdefault>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.reference.name" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12  medium-padding">
-                                <b>{{ 'SEARCH.SPECIMENS.TYPE_STATUS' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.typeStatus.lookUpType"></selectdefault>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.typeStatus.name" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12  medium-padding">
-                                <b>{{ 'SEARCH.SPECIMENS.PART_OF_FOSSIL' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.partoffossil.lookUpType"></selectdefault>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.partoffossil.name" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12  medium-padding">
-                                <b>{{ 'SEARCH.SPECIMENS.KEYWORDS' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.keywords.lookUpType"></selectdefault>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.keywords.name" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12  medium-padding">
-                                <b>{{ 'SEARCH.SPECIMENS.REG_DATE' | translate }}</b>
-                                <selectexact custom-css="searchCriterionType"
-                                             ng-model="searchParameters.regdate.lookUpType"></selectexact>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.regdate.name" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12  medium-padding">
+                                    <b>{{ 'SEARCH.SPECIMENS.REG_DATE' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType"
+                                                 ng-model="searchParameters.regdate.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.regdate.name" class="form-control"/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="panel-heading searchGroupHeading"
-                     ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
-                    <h4 class="panel-title">{{ 'SEARCH.ANALYSES.LOCATION.LOCATION'| translate }}
-                        <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
-                    </h4>
-                </div>
-                <div uib-collapse="isLocationFieldsCollapsed">
-                    <div class="well well-lg">
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.SPECIMENS.ADMIN_UNIT' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.adminunit.lookUpType"></selectdefault>
+                <div class="row">
+                    <div class="panel-heading searchGroupHeading"
+                         ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
+                        <h4 class="panel-title">{{ 'SEARCH.ANALYSES.LOCATION.LOCATION'| translate }}
+                            <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
+                        </h4>
+                    </div>
+                    <div uib-collapse="isLocationFieldsCollapsed">
+                        <div class="well well-lg">
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.SPECIMENS.ADMIN_UNIT' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.adminunit.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.adminunit.name" class="form-control"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.adminunit.name" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.SPECIMENS.LOCALITY' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.locality.lookUpType"></selectdefault>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.locality.name" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.SPECIMENS.LOCALITY' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.locality.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.locality.name" class="form-control"/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div ng-include="'app/templates/search/partial/institution.search.criteria.html'"></div>
-            <div ng-include="'app/templates/search/partial/button.search.html'"></div>
-
+                <div ng-include="'app/templates/search/partial/institution.search.criteria.html'"></div>
+                <div ng-include="'app/templates/search/partial/button.search.html'"></div>
+            </form>
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9">
             <div class="row">

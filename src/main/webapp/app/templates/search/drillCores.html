@@ -21,109 +21,111 @@
                     </label>
                 </div>
             </div>
-            <div class="row">
-                <div class="panel-heading searchGroupHeading"
-                     ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
-                    <h4 class="panel-title">
-                        {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
-                        <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
-                    </h4>
-                </div>
-                <div uib-collapse="isIdentifierFieldsCollapsed">
-                    <div class="well well-lg">
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 searchCriterionTitle medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.ID' | translate }}</b>
-                                <selectexact custom-css="searchCriterionType"
-                                             ng-model="searchParameters.id.lookUpType"></selectexact>
+            <form ng-enter="search()">
+                <div class="row">
+                    <div class="panel-heading searchGroupHeading"
+                         ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
+                        <h4 class="panel-title">
+                            {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
+                            <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
+                        </h4>
+                    </div>
+                    <div uib-collapse="isIdentifierFieldsCollapsed">
+                        <div class="well well-lg">
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 searchCriterionTitle medium-padding">
+                                    <b>{{ 'SEARCH.DRILL_CORES.ID' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType"
+                                                 ng-model="searchParameters.id.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.DRILL_CORES.DRILLCORE' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.drillcore.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.drillcore.name" class="form-control"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.DRILLCORE' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.drillcore.lookUpType"></selectdefault>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.DRILL_CORES.STRATIGRAPHY' | translate }}</b>
+                                    <selecthierarchy custom-css="searchCriterionType"
+                                                     ng-model="searchParameters.xxx.lookUpType"
+                                                     ng-disabled="true"></selecthierarchy>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.xxx.name" class="form-control"
+                                           ng-disabled="true"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.drillcore.name" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.DRILL_CORES.STORAGE' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.storageLocation.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.storageLocation.name"
+                                           class="form-control"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.STRATIGRAPHY' | translate }}</b>
-                                <selecthierarchy custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.xxx.lookUpType"
-                                                 ng-disabled="true"></selecthierarchy>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.xxx.name" class="form-control"
-                                       ng-disabled="true"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.STORAGE' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.storageLocation.lookUpType"></selectdefault>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.storageLocation.name"
-                                       class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.BOX_COUNT' | translate }}</b>
-                                <selectexact custom-css="searchCriterionType"
-                                             ng-model="searchParameters.boxes.lookUpType"></selectexact>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.boxes.name" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.DRILL_CORES.BOX_COUNT' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType"
+                                                 ng-model="searchParameters.boxes.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.boxes.name" class="form-control"/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="panel-heading searchGroupHeading"
-                     ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
-                    <h4 class="panel-title">
-                        {{ 'SEARCH.ANALYSES.LOCATION.LOCATION'| translate }}
-                        <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
-                    </h4>
-                </div>
-                <div uib-collapse="isLocationFieldsCollapsed">
-                    <div class="well well-lg">
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.COUNTRY' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.country.type"
-                                               ng-disabled="true"></selectdefault>
+                <div class="row">
+                    <div class="panel-heading searchGroupHeading"
+                         ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
+                        <h4 class="panel-title">
+                            {{ 'SEARCH.ANALYSES.LOCATION.LOCATION'| translate }}
+                            <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
+                        </h4>
+                    </div>
+                    <div uib-collapse="isLocationFieldsCollapsed">
+                        <div class="well well-lg">
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.DRILL_CORES.COUNTRY' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.country.type"
+                                                   ng-disabled="true"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.country.value" class="form-control"
+                                           ng-disabled="true"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.country.value" class="form-control"
-                                       ng-disabled="true"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.DRILL_CORES.ADMIN_UNIT' | translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="searchParameters.adminunit.lookUpType"></selectdefault>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="searchParameters.adminunit.name" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.DRILL_CORES.ADMIN_UNIT' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.adminunit.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.adminunit.name" class="form-control"/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div ng-include="'app/templates/search/partial/institution.search.criteria.html'"></div>
-            <div ng-include="'app/templates/search/partial/button.search.html'"></div>
+                <div ng-include="'app/templates/search/partial/institution.search.criteria.html'"></div>
+                <div ng-include="'app/templates/search/partial/button.search.html'"></div>
+            </form>
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9">
             <div class="row">

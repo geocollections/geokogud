@@ -9,148 +9,150 @@
                     </button>
                 </h3>
             </div>
-            <div class="row">
-                <div class="panel-heading searchGroupHeading"
-                     ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
-                    <h4 class="panel-title">
-                        {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
-                        <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
-                    </h4>
-                </div>
-                <div uib-collapse="isIdentifierFieldsCollapsed">
-                    <div class="well well-lg">
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 searchCriterionTitle medium-padding">
-                                <b>{{ 'SEARCH.ANALYSES.IDENTIFIERS.SAMPLE_ID'| translate }}</b>
-                                <selectexact custom-css="searchCriterionType" ng-model="analysesSearch.id.type"/>
+            <form ng-enter="search()">
+                <div class="row">
+                    <div class="panel-heading searchGroupHeading"
+                         ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
+                        <h4 class="panel-title">
+                            {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
+                            <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
+                        </h4>
+                    </div>
+                    <div uib-collapse="isIdentifierFieldsCollapsed">
+                        <div class="well well-lg">
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 searchCriterionTitle medium-padding">
+                                    <b>{{ 'SEARCH.ANALYSES.IDENTIFIERS.SAMPLE_ID'| translate }}</b>
+                                    <selectexact custom-css="searchCriterionType" ng-model="analysesSearch.id.type"/>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="analysesSearch.id.value" class="form-control"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="analysesSearch.id.value" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.ANALYSES.IDENTIFIERS.NUMBER'| translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="analysesSearch.number.type"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="analysesSearch.number.value" class="form-control"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.ANALYSES.IDENTIFIERS.NUMBER'| translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="analysesSearch.number.type"></selectdefault>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="analysesSearch.number.value" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.ANALYSES.IDENTIFIERS.BED_NAME_INDEX'| translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="analysesSearch.bedIndex.type"></selectdefault>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="analysesSearch.bedIndex.value" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.ANALYSES.IDENTIFIERS.BED_NAME_INDEX'| translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="analysesSearch.bedIndex.type"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="analysesSearch.bedIndex.value" class="form-control"/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="panel-heading searchGroupHeading"
-                     ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
-                    <h4 class="panel-title">
-                        {{ 'SEARCH.LOCALITIES.LOCATION.LOCATION'| translate }}
-                        <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
-                    </h4>
-                </div>
-                <div uib-collapse="isLocationFieldsCollapsed">
-                    <div class="well well-lg">
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.ANALYSES.LOCATION.LOCALITY'| translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="analysesSearch.locality.type"></selectdefault>
+                <div class="row">
+                    <div class="panel-heading searchGroupHeading"
+                         ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
+                        <h4 class="panel-title">
+                            {{ 'SEARCH.LOCALITIES.LOCATION.LOCATION'| translate }}
+                            <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
+                        </h4>
+                    </div>
+                    <div uib-collapse="isLocationFieldsCollapsed">
+                        <div class="well well-lg">
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.ANALYSES.LOCATION.LOCALITY'| translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="analysesSearch.locality.type"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="analysesSearch.locality.value" class="form-control"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="analysesSearch.locality.value" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.ANALYSES.LOCATION.ADMIN_UNIT'| translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="analysesSearch.adminunit.type"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="analysesSearch.adminunit.value" class="form-control"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.ANALYSES.LOCATION.ADMIN_UNIT'| translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="analysesSearch.adminunit.type"></selectdefault>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.ANALYSES.LOCATION.DEPTH_M'| translate }}</b>
+                                    <selectexact custom-css="searchCriterionType"
+                                                 ng-model="analysesSearch.depth.type"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="analysesSearch.depth.value" class="form-control"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="analysesSearch.adminunit.value" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.ANALYSES.LOCATION.DEPTH_M'| translate }}</b>
-                                <selectexact custom-css="searchCriterionType"
-                                             ng-model="analysesSearch.depth.type"></selectexact>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="analysesSearch.depth.value" class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.ANALYSES.LOCATION.STRATIGRAPHY'| translate }}</b>
-                                <selecthierarchy custom-css="searchCriterionType"
-                                                 ng-model="analysesSearch.stratigraphy.type"></selecthierarchy>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="analysesSearch.stratigraphy.value" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.ANALYSES.LOCATION.STRATIGRAPHY'| translate }}</b>
+                                    <selecthierarchy custom-css="searchCriterionType"
+                                                     ng-model="analysesSearch.stratigraphy.type"></selecthierarchy>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="analysesSearch.stratigraphy.value" class="form-control"/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="panel-heading searchGroupHeading"
-                     ng-click="isAnalysesFieldsCollapsed = !isAnalysesFieldsCollapsed">
-                    <h4 class="panel-title">
-                        {{ 'SEARCH.ANALYSES.ANALYSIS.PANEL_TITLE'| translate }}
-                        <section-opened-icon is-opened="isAnalysesFieldsCollapsed"/>
-                    </h4>
-                </div>
-                <div uib-collapse="isAnalysesFieldsCollapsed">
-                    <div class="well well-lg">
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.ANALYSES.ANALYSIS.TYPE'| translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="analysesSearch.analysisType.type"></selectdefault>
+                <div class="row">
+                    <div class="panel-heading searchGroupHeading"
+                         ng-click="isAnalysesFieldsCollapsed = !isAnalysesFieldsCollapsed">
+                        <h4 class="panel-title">
+                            {{ 'SEARCH.ANALYSES.ANALYSIS.PANEL_TITLE'| translate }}
+                            <section-opened-icon is-opened="isAnalysesFieldsCollapsed"/>
+                        </h4>
+                    </div>
+                    <div uib-collapse="isAnalysesFieldsCollapsed">
+                        <div class="well well-lg">
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.ANALYSES.ANALYSIS.TYPE'| translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="analysesSearch.analysisType.type"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="analysesSearch.analysisType.value" class="form-control"/>
+                                </div>
                             </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="analysesSearch.analysisType.value" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.ANALYSES.ANALYSIS.COMPONENT_ANALYZED'| translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="analysesSearch.componentAnalysed.type"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="analysesSearch.componentAnalysed.value"
+                                           class="form-control"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.ANALYSES.ANALYSIS.COMPONENT_ANALYZED'| translate }}</b>
-                                <selectdefault custom-css="searchCriterionType"
-                                               ng-model="analysesSearch.componentAnalysed.type"></selectdefault>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="analysesSearch.componentAnalysed.value"
-                                       class="form-control"/>
-                            </div>
-                        </div>
-                        <div class="row searchCriterion">
-                            <div class="col-md-12 medium-padding">
-                                <b>{{ 'SEARCH.ANALYSES.ANALYSIS.CONTENT'| translate }}</b>
-                                <selectexact custom-css="searchCriterionType"
-                                             ng-model="analysesSearch.content.type"></selectexact>
-                            </div>
-                            <div class="col-md-12 medium-padding">
-                                <input type="text" ng-model="analysesSearch.content.value" class="form-control"/>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.ANALYSES.ANALYSIS.CONTENT'| translate }}</b>
+                                    <selectexact custom-css="searchCriterionType"
+                                                 ng-model="analysesSearch.content.type"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="analysesSearch.content.value" class="form-control"/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div ng-include="'app/templates/search/partial/institution.search.criteria.html'"></div>
-            <div ng-include="'app/templates/search/partial/button.search.html'"></div>
+                <div ng-include="'app/templates/search/partial/institution.search.criteria.html'"></div>
+                <div ng-include="'app/templates/search/partial/button.search.html'"></div>
+            </form>
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9">
             <div class="row">
