@@ -2,7 +2,6 @@ package ee.ttu.geocollection.search.controller;
 
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.NewVersionOfApiResponse;
-import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.analyses.pojo.AnalysesSearchCriteria;
 import ee.ttu.geocollection.interop.api.analyses.search.AnalysesApiService;
 import ee.ttu.geocollection.interop.api.doi.pojo.DoiSearchCriteria;
@@ -27,7 +26,6 @@ import ee.ttu.geocollection.interop.api.stratigraphies.pojo.StratigraphySearchCr
 import ee.ttu.geocollection.interop.api.stratigraphies.service.StratigraphyApiService;
 import ee.ttu.geocollection.interop.api.taxon.pojo.TaxonApiResponse;
 import ee.ttu.geocollection.interop.api.taxon.service.TaxonApiService;
-import ee.ttu.geocollection.search.domain.CommonSearch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,16 +61,6 @@ public class SearchController {
     @Autowired
     private AnalysesApiService analysesApiService;
 
-    @RequestMapping(value = "/get-search", method = RequestMethod.GET)
-    public CommonSearch getSearch(@RequestParam("name") String search) {
-        return new CommonSearch(search);
-    }
-
-    @RequestMapping(value = "/list", method = RequestMethod.POST)
-    public Response sampleRequest(@RequestBody CommonSearch search) {
-        return samplesApiService.searchList(search);
-    }
-
     @RequestMapping(value = "/{entity}/{id}", method= RequestMethod.GET)
     @ResponseBody
     public NewVersionOfApiResponse getEntity(@PathVariable String entity, @PathVariable Long id){
@@ -82,11 +70,6 @@ public class SearchController {
     @RequestMapping(value = "/taxon", method = RequestMethod.GET)
     public TaxonApiResponse list(@RequestParam("term") String q) {
         return taxonApiService.searchTaxon(q);
-    }
-
-    @RequestMapping(value = "/{table}", method = RequestMethod.GET)
-    public ApiResponse search(@PathVariable String table,@RequestParam("term") String q) {
-        return taxonApiService.searchByField(q, table);
     }
 
     @RequestMapping(value = "/specimen", method = RequestMethod.POST)
