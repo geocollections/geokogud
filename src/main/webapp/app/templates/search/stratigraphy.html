@@ -120,7 +120,7 @@
                             {{entity.stratigraphy_en}}
                         </td>
                         <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.INDEX' | translate }}">{{entity.index_main}}</td>
-                        <td data-title="">{{entity.index_additional}}</td>
+                        <td data-title=""><div ng-bind-html="entity.index_additional_html | trustedHtml"></div></td>
                         <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.TYPE' | translate }}">???</td>
                         <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.RANK' | translate }}">
                             <localize et="entity.rank__value" en="entity.rank__value_en"/>
