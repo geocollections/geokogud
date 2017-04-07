@@ -140,7 +140,7 @@ public class SearchController {
     }
 
     @RequestMapping(value = "/stratigraphy", method = RequestMethod.POST)
-    public Response searchPreparations(@RequestBody StratigraphySearchCriteria stratigraphySearchCriteria) {
+    public ApiResponse searchPreparations(@RequestBody StratigraphySearchCriteria stratigraphySearchCriteria) {
         return stratigraphyApiService.findStratigraphy(stratigraphySearchCriteria);
     }
 }

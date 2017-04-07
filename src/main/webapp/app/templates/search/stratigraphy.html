@@ -109,25 +109,33 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="entity in response.result">
-                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.ID' | translate }}"><a href
-                                                                                             data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.id})">{{entity.id}}</a>
+                    <tr data-ng-repeat="entity in response.results">
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.ID' | translate }}">
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.id})">{{entity.id}}</a>
                         </td>
                         <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.STRATIGRAPHY_ET' | translate }}">
                             {{entity.stratigraphy}}
                         </td>
                         <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.STRATIGRAPHY_EN' | translate }}">
-                            {{entity.stratigraphyEn}}
+                            {{entity.stratigraphy_en}}
                         </td>
-                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.INDEX' | translate }}">{{entity.indexMain}}</td>
-                        <td data-title="">{{entity.indexAdditional}}</td>
-                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.TYPE' | translate }}">???Type</td>
-                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.RANK' | translate }}">{{entity.rankValue}}</td>
-                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.SCOPE' | translate }}">{{entity.scopeValue}}</td>
-                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.AGE' | translate }}">???lithology</td>
-                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.AGE_MA' | translate }}">???age_base</td>
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.INDEX' | translate }}">{{entity.index_main}}</td>
+                        <td data-title="">{{entity.index_additional}}</td>
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.TYPE' | translate }}">???</td>
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.RANK' | translate }}">
+                            <localize et="entity.rank__value" en="entity.rank__value_en"/>
+                        </td>
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.SCOPE' | translate }}">
+                            <localize et="entity.scope__value" en="entity.scope__value_en"/>
+                        </td>
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.AGE' | translate }}">???</td>
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.AGE_MA' | translate }}">
+                            {{entity.age_base}}<br>{{entity.age_top}}
+                        </td>
                         <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.BELONGS_TO' | translate }}">
-                            {{entity.parentStratigraphy}}
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.id})">
+                                <localize et="entity.parent__stratigraphy" en="entity.parent__stratigraphy_en"/>
+                            </a>
                         </td>
                     </tr>
                     </tbody>
