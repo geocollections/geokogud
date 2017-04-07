@@ -171,7 +171,7 @@
                     <thead class="thead-default">
                     <tr>
                         <th><sort-field value = "id" name="SEARCH.ANALYSES.TABLE.ID"></sort-field></th>
-                        <th><sort-field value = "sample" name="SEARCH.ANALYSES.TABLE.SEARCH.ANALYSES.TABLE.SAMPLE_ID"></sort-field></th>
+                        <th><sort-field value = "sample" name="SEARCH.ANALYSES.TABLE.SAMPLE_ID"></sort-field></th>
                         <th>{{ 'SEARCH.ANALYSES.TABLE.LOCALITY'| translate }}</th>
                         <th>{{ 'SEARCH.ANALYSES.TABLE.DEPTH_M'| translate }}</th>
                         <th><span>{{ 'SEARCH.ANALYSES.TABLE.STRATIGRAPHY' | translate }}</span> | <span>{{ 'SEARCH.ANALYSES.TABLE.LITHOSTRATIGRAPHY' | translate }}</span>
@@ -182,15 +182,17 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="entity in response.result">
-                        <td data-title="{{ 'SEARCH.ANALYSES.TABLE.ID'| translate }}">{{entity.id}}</td>
+                    <tr data-ng-repeat="entity in response.results">
+                        <td data-title="{{ 'SEARCH.ANALYSES.TABLE.ID'| translate }}">
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'analysis',id:entity.id})">{{entity.id}}</a>
+                        </td>
                         <td data-title="{{ 'SEARCH.ANALYSES.TABLE.SAMPLE_ID'| translate }}">{{entity.sample}}</td>
                         <td data-title="{{ 'SEARCH.ANALYSES.TABLE.LOCALITY'| translate }}">???</td>
                         <td data-title="{{ 'SEARCH.ANALYSES.TABLE.DEPTH_M'| translate }}">???</td>
                         <td data-title="{{ 'SEARCH.ANALYSES.TABLE.STRATIGRAPHY' | translate }}">???</td>
                         <td data-title="{{ 'SEARCH.ANALYSES.TABLE.BED_ID'| translate }}">???</td>
                         <td data-title="{{ 'SEARCH.ANALYSES.TABLE.METHOD'| translate }}">
-                            {{entity.analysisMethodMethodEng}}
+                            <localize et="entity.analysis_method__analysis_method" en="entity.analysis_method__method_en"/>
                         </td>
                         <td data-title="{{ 'SEARCH.ANALYSES.TABLE.LAB'| translate }}">{{entity.lab}}</td>
                     </tr>

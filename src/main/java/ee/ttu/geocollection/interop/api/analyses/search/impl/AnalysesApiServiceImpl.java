@@ -1,5 +1,6 @@
 package ee.ttu.geocollection.interop.api.analyses.search.impl;
 
+import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.analyses.pojo.AnalysesEntity;
 import ee.ttu.geocollection.interop.api.analyses.pojo.AnalysesSearchCriteria;
@@ -18,11 +19,11 @@ public class AnalysesApiServiceImpl implements AnalysesApiService{
     private ApiService apiService;
 
     @Override
-    public Response findAnalyses(AnalysesSearchCriteria searchCriteria) {
+    public ApiResponse findAnalyses(AnalysesSearchCriteria searchCriteria) {
         String requestParams = FluentDoiSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId()).andReturn()
                 .buildWithoutReturningCertainFields();
-        return apiService.searchEntities("analysis", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, AnalysesEntity.class);
+        return apiService.searchRawEntities("analysis", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }
 
         @Override

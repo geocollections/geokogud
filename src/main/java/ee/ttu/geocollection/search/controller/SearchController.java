@@ -130,7 +130,7 @@ public class SearchController {
     }
 
     @RequestMapping(value = "/analyses", method = RequestMethod.POST)
-    public Response searchAnalyses(@RequestBody AnalysesSearchCriteria searchCriteria) {
+    public ApiResponse searchAnalyses(@RequestBody AnalysesSearchCriteria searchCriteria) {
         return analysesApiService.findAnalyses(searchCriteria);
     }
 
