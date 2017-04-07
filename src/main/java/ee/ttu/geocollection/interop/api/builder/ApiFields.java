@@ -117,7 +117,11 @@ public class ApiFields {
     public static final String MAAAMET_PA_ID = "maaamet_pa_id";
 
     public static final String STRATIGRAPHY = "stratigraphy";
+    public static final String STRATIGRAPHY_EN = "stratigraphy_en";
     public static final String INDEX_MAIN = "index_main";
+    public static final String INDEX_ADDITIONAL = "index_additional";
+    public static final String AGE_BASE = "age_base";
+    public static final String LITHOLOGY = "lithology";
 
     // webnews
     public static final String DATE_ADDED_LT = "date_added__lt";

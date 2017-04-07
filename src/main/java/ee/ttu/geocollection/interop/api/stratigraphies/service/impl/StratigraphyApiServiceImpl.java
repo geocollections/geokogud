@@ -22,6 +22,9 @@ public class StratigraphyApiServiceImpl implements StratigraphyApiService {
                 .queryId(searchCriteria.getId())
                 .queryStratigraphy(searchCriteria.getStratigraphy())
                 .queryIndex(searchCriteria.getIndex())
+                .queryAgeBase(searchCriteria.getAgeMinY())
+                .queryLithology(searchCriteria.getMainLithology())
+                .queryAuthor(searchCriteria.getAuthor())
                 .buildWithoutReturningCertainFields();
         return apiService.searchRawEntities(
                     "stratigraphy",

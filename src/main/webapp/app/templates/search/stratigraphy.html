@@ -114,10 +114,10 @@
                             <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.id})">{{entity.id}}</a>
                         </td>
                         <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.STRATIGRAPHY_ET' | translate }}">
-                            {{entity.stratigraphy}}
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.id})">{{entity.stratigraphy}}</a>
                         </td>
                         <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.STRATIGRAPHY_EN' | translate }}">
-                            {{entity.stratigraphy_en}}
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.id})">{{entity.stratigraphy_en}}</a>
                         </td>
                         <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.INDEX' | translate }}">{{entity.index_main}}</td>
                         <td data-title=""><div ng-bind-html="entity.index_additional_html"></div></td>

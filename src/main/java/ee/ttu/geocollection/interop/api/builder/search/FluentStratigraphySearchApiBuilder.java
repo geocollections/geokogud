@@ -21,12 +21,27 @@ public class FluentStratigraphySearchApiBuilder extends FluentSearchApiBuilder<F
     }
 
     public FluentStratigraphySearchApiBuilder queryStratigraphy(SearchField stratigraphy){
-        buildFieldParameters(STRATIGRAPHY, stratigraphy);
+        buildMultiSearch(stratigraphy, STRATIGRAPHY, STRATIGRAPHY_EN);
         return this;
     }
 
     public FluentStratigraphySearchApiBuilder queryIndex(SearchField index){
-        buildFieldParameters(INDEX_MAIN, index);
+        buildMultiSearch(index, INDEX_MAIN, INDEX_ADDITIONAL);
+        return this;
+    }
+
+    public FluentStratigraphySearchApiBuilder queryAgeBase(SearchField ageBase) {
+        buildFieldParameters(AGE_BASE, ageBase);
+        return this;
+    }
+
+    public FluentStratigraphySearchApiBuilder queryLithology(SearchField lithology) {
+        buildFieldParameters(LITHOLOGY, lithology);
+        return this;
+    }
+
+    public FluentStratigraphySearchApiBuilder queryAuthor(SearchField author) {
+        buildFieldParameters(AUTHOR_FREE, author);
         return this;
     }
 }
