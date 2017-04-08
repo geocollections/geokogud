@@ -2,6 +2,8 @@ package ee.ttu.geocollection.interop.api.builder.search;
 
 import ee.ttu.geocollection.search.domain.SearchField;
 
+import static ee.ttu.geocollection.interop.api.builder.ApiFields.*;
+
 public class FluentDoiSearchApiBuilder extends FluentSearchApiBuilder<FluentDoiSearchApiBuilder> {
     public static FluentDoiSearchApiBuilder aRequest() {
         return new FluentDoiSearchApiBuilder();
@@ -12,33 +14,33 @@ public class FluentDoiSearchApiBuilder extends FluentSearchApiBuilder<FluentDoiS
         return this;
     }
 
-    public FluentDoiSearchApiBuilder queryTitle(SearchField title) {
-        buildFieldParameters("reference__title", title);
-        return this;
-    }
-
     public FluentDoiSearchApiBuilder queryIdentifier(SearchField doi) {
-        buildFieldParameters("identifier", doi);
+        buildFieldParameters(IDENTIFIER, doi);
         return this;
     }
 
-    public FluentDoiSearchApiBuilder queryAuthor(SearchField author) {
-        buildFieldParameters("reference__author", author);
-        return this;
-    }
-
-    public FluentDoiSearchApiBuilder queryYear(SearchField year) {
-        buildFieldParameters("reference__year", year);
+    public FluentDoiSearchApiBuilder queryTitle(SearchField title) {
+        buildFieldParameters(REFERENCETITLE, title);
         return this;
     }
 
     public FluentDoiSearchApiBuilder queryPublishedBy(SearchField journal) {
-        buildFieldParameters("publisher", journal);
+        buildFieldParameters(PUBLISHER, journal);
         return this;
     }
 
-    public FluentDoiSearchApiBuilder queryAbstract(SearchField text) {
-        buildFieldParameters("abstract", text);
+    public FluentDoiSearchApiBuilder queryYear(SearchField year) {
+        buildFieldParameters(REFERENCEYEAR, year);
+        return this;
+    }
+
+    public FluentDoiSearchApiBuilder queryAuthor(SearchField author) {
+        buildFieldParameters(REFERENCEAUTHOR, author);
+        return this;
+    }
+
+    public FluentDoiSearchApiBuilder queryAbstract(SearchField abstractText) {
+        buildFieldParameters(ABSTRACT, abstractText);
         return this;
     }
 

@@ -71,19 +71,13 @@ public class DoiSearchCriteria {
         this.doi = doi;
     }
 
-    public SearchField getPublishedBy() {
-        return publishedBy;
-    }
+    public SearchField getPublishedBy() { return publishedBy; }
 
     public void setPublishedBy(SearchField publishedBy) {
         this.publishedBy = publishedBy;
     }
 
-    public SearchField getAbstractText() {
-        return abstractText;
-    }
+    public SearchField getAbstractText() { return abstractText; }
 
-    public void setAbstractText(SearchField abstractText) {
-        this.abstractText = abstractText;
-    }
+    public void setAbstractText(SearchField abstractText) { this.abstractText = abstractText; }
 }

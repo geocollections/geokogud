@@ -34,7 +34,14 @@ public class ApiFields {
     public static final String COMPONENT = "component";
     public static final String CONTENT = "content";
 
-    // DOI search
+    //DOI search
+    public static final String IDENTIFIER = "identifier";
+    public static final String REFERENCETITLE = "reference__title";
+    public static final String PUBLISHER = "publisher";
+    public static final String REFERENCEYEAR = "reference__year";
+    public static final String REFERENCEAUTHOR = "reference__author";
+
+    // Reference search
     public static final String REFERENCE = "reference";
     public static final String AUTHOR = "author";
     public static final String TITLE = "title";
