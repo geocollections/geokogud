@@ -23,30 +23,30 @@
                             <div class="row searchCriterion">
                                 <div class="col-md-12 searchCriterionTitle medium-padding">
                                     <b>{{ 'SEARCH.ANALYSES.IDENTIFIERS.SAMPLE_ID'| translate }}</b>
-                                    <selectexact custom-css="searchCriterionType" ng-model="analysesSearch.id.type"/>
+                                    <selectexact custom-css="searchCriterionType" ng-model="searchParameters.id.lookUpType"/>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.id.value" class="form-control"/>
+                                    <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.ANALYSES.IDENTIFIERS.NUMBER'| translate }}</b>
                                     <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="analysesSearch.number.type"></selectdefault>
+                                                   ng-model="searchParameters.sample.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.number.value" class="form-control"/>
+                                    <input type="text" ng-model="searchParameters.sample.name" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.ANALYSES.IDENTIFIERS.BED_NAME_INDEX'| translate }}</b>
                                     <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="analysesSearch.bedIndex.type"></selectdefault>
+                                                   ng-model="searchParameters.XXX.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.bedIndex.value" class="form-control"/>
+                                    <input type="text" ng-model="searchParameters.XXX.name" class="form-control"/>
                                 </div>
                             </div>
                         </div>
@@ -66,40 +66,40 @@
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.ANALYSES.LOCATION.LOCALITY'| translate }}</b>
                                     <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="analysesSearch.locality.type"></selectdefault>
+                                                   ng-model="searchParameters.XXX.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.locality.value" class="form-control"/>
+                                    <input type="text" ng-model="searchParameters.XXX.name" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.ANALYSES.LOCATION.ADMIN_UNIT'| translate }}</b>
                                     <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="analysesSearch.adminunit.type"></selectdefault>
+                                                   ng-model="searchParameters.XXX.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.adminunit.value" class="form-control"/>
+                                    <input type="text" ng-model="searchParameters.XXX.name" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.ANALYSES.LOCATION.DEPTH_M'| translate }}</b>
                                     <selectexact custom-css="searchCriterionType"
-                                                 ng-model="analysesSearch.depth.type"></selectexact>
+                                                 ng-model="searchParameters.XXX.lookUpType"></selectexact>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.depth.value" class="form-control"/>
+                                    <input type="text" ng-model="searchParameters.XXX.name" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.ANALYSES.LOCATION.STRATIGRAPHY'| translate }}</b>
                                     <selecthierarchy custom-css="searchCriterionType"
-                                                     ng-model="analysesSearch.stratigraphy.type"></selecthierarchy>
+                                                     ng-model="searchParameters.XXX.lookUpType"></selecthierarchy>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.stratigraphy.value" class="form-control"/>
+                                    <input type="text" ng-model="searchParameters.XXX.name" class="form-control"/>
                                 </div>
                             </div>
                         </div>
@@ -119,20 +119,20 @@
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.ANALYSES.ANALYSIS.TYPE'| translate }}</b>
                                     <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="analysesSearch.analysisType.type"></selectdefault>
+                                                   ng-model="searchParameters.analysisMethod.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.analysisType.value" class="form-control"/>
+                                    <input type="text" ng-model="searchParameters.analysisMethod.name" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.ANALYSES.ANALYSIS.COMPONENT_ANALYZED'| translate }}</b>
                                     <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="analysesSearch.componentAnalysed.type"></selectdefault>
+                                                   ng-model="searchParameters.XXX.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.componentAnalysed.value"
+                                    <input type="text" ng-model="searchParameters.XXX.name"
                                            class="form-control"/>
                                 </div>
                             </div>
@@ -140,10 +140,10 @@
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.ANALYSES.ANALYSIS.CONTENT'| translate }}</b>
                                     <selectexact custom-css="searchCriterionType"
-                                                 ng-model="analysesSearch.content.type"></selectexact>
+                                                 ng-model="searchParameters.methodDetails.lookUpType"></selectexact>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="analysesSearch.content.value" class="form-control"/>
+                                    <input type="text" ng-model="searchParameters.methodDetails.name" class="form-control"/>
                                 </div>
                             </div>
                         </div>

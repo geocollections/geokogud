@@ -125,6 +125,16 @@ public class ApiFields {
     public static final String SPECIMEN_ID = "specimen_id";
     public static final String IMAGE_URL = "image_url";
 
+    //Analyses search
+    public static final String ANALYSIS_METHOD__ANALYSIS_METHOD = "analysis_method__analysis_method";
+    public static final String ANALYSIS_METHOD__METHOD_EN = "analysis_method__method_en";
+    public static final String METHOD_DETAILS = "method_details";
+    public static final String LAB = "lab";
+    public static final String INSTRUMENT = "instrument";
+    public static final String INSTRUMENT_TXT = "instrument_txt";
+    public static final String SAMPLE = "sample";
+    public static final String DATE = "date";
+    public static final String DATE_FREE = "date_free";
 
     // webnews
     public static final String DATE_ADDED_LT = "date_added__lt";

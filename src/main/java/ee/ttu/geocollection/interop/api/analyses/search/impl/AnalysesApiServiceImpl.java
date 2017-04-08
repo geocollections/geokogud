@@ -6,7 +6,7 @@ import ee.ttu.geocollection.interop.api.analyses.pojo.AnalysesEntity;
 import ee.ttu.geocollection.interop.api.analyses.pojo.AnalysesSearchCriteria;
 import ee.ttu.geocollection.interop.api.analyses.search.AnalysesApiService;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
-import ee.ttu.geocollection.interop.api.builder.search.FluentDoiSearchApiBuilder;
+import ee.ttu.geocollection.interop.api.builder.search.FluentAnalysesApiBuilder;
 import ee.ttu.geocollection.interop.api.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,9 +20,19 @@ public class AnalysesApiServiceImpl implements AnalysesApiService{
 
     @Override
     public ApiResponse findAnalyses(AnalysesSearchCriteria searchCriteria) {
-        String requestParams = FluentDoiSearchApiBuilder.aRequest()
-                .queryId(searchCriteria.getId()).andReturn()
+        String requestParams = FluentAnalysesApiBuilder.aRequest()
+                .queryId(searchCriteria.getId())
+                .queryAnalysisMethod(searchCriteria.getAnalysisMethod())
+                .queryAnalysisMethodEng(searchCriteria.getAnalysisMethodEng())
+                .queryMethodDetails(searchCriteria.getMethodDetails())
+                .queryLab(searchCriteria.getLab())
+                .queryInstrument(searchCriteria.getInstrument())
+                .queryInstrumentTxt(searchCriteria.getInstrumentTxt())
+                .querySample(searchCriteria.getSample())
+                .queryDate(searchCriteria.getDate())
+                .queryDateFree(searchCriteria.getDateFree())
                 .buildWithoutReturningCertainFields();
+        System.err.println(requestParams);
         return apiService.searchRawEntities("analysis", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }
 

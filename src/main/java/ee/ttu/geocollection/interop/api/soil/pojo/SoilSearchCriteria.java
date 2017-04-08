@@ -15,9 +15,7 @@ public class SoilSearchCriteria {
     private SearchField landUse;
     private SearchField deepMining;
 
-    public SearchField getId() {
-        return id;
-    }
+    public SearchField getId() { return id; }
 
     public void setId(SearchField id) {
         this.id = id;
