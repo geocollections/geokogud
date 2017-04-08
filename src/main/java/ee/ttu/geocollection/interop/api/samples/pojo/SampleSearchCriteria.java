@@ -5,9 +5,6 @@ import ee.ttu.geocollection.search.domain.SortField;
 
 import java.util.List;
 
-/**
- * Created by Olesja Senkiv on 17.03.2017.
- */
 public class SampleSearchCriteria {
     private int page = 1;
     private SortField sortField;
@@ -25,7 +22,25 @@ public class SampleSearchCriteria {
     private SearchField analysis;
     private SearchField component;
     private SearchField content;
+    private SearchField locality;
+    private SearchField country;
     private List<String> dbs;
+
+    public SearchField getCountry() {
+        return country;
+    }
+
+    public void setCountry(SearchField country) {
+        this.country = country;
+    }
+
+    public SearchField getLocality() {
+        return locality;
+    }
+
+    public void setLocality(SearchField locality) {
+        this.locality = locality;
+    }
 
     public int getPage() {
         return page;

@@ -45,19 +45,22 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     public ApiResponse findSample(ee.ttu.geocollection.interop.api.samples.pojo.SampleSearchCriteria searchCriteria) {
         System.err.println(searchCriteria.getId());
         String requestParams = FluentSampleSearchApiBuilder.aRequest()
-                .queryId(searchCriteria.getId()).andReturn()
-                .queryNumber(searchCriteria.getSampleNumber()).andReturn()
-                .queryStratigraphy(searchCriteria.getStratigraphy()).andReturn()
-                .queryStratigraphyBed(searchCriteria.getStratigraphyBed()).andReturn()
-                .queryLocation(searchCriteria.getLocation()).andReturn()
-                .queryMass(searchCriteria.getMass()).andReturn()
-                .queryAgent(searchCriteria.getAgent()).andReturn()
+                .queryId(searchCriteria.getId())
+                .queryNumber(searchCriteria.getSampleNumber())
+                .queryLocality(searchCriteria.getLocality())
+                .queryCountry(searchCriteria.getCountry())
+                .queryDepth(searchCriteria.getDepth())
+                .queryStratigraphy(searchCriteria.getStratigraphy())
+                .queryStratigraphyBed(searchCriteria.getStratigraphyBed())
+                .queryAgent(searchCriteria.getAgent())
+                .queryMass(searchCriteria.getMass())
+                .queryLocation(searchCriteria.getLocation())
              /*   .queryTaxon(searchCriteria.getTaxon()).andReturn()
                 .queryAnalysis(searchCriteria.getAnalysis()).andReturn()
                 .queryFrequency(searchCriteria.getFrequency()).andReturn()
                 .queryComponet(searchCriteria.getComponent()).andReturn()
                 .queryContent(searchCriteria.getContent()).andReturn()*/
-                .queryInstitution(searchCriteria.getDbs()).andReturn()
+                .queryInstitution(searchCriteria.getDbs())
                 .buildWithoutReturningCertainFields();
         return apiService.searchRawEntities(
                 "sample",

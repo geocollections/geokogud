@@ -17,7 +17,7 @@ public class ApiFields {
     // Sample search
     public static final String NUMBER = "number";
     public static final String STRATIGRAPHY_STRATIGRAPHY = "stratigraphy__stratigraphy";
-    public static final String STRATIGRAPHY_ENG = "stratigraphy__stratigraphy_en";
+    public static final String STRATIGRAPHY_STRATIGRAPHY_ENG = "stratigraphy__stratigraphy_en";
     public static final String STRATIGRAPHY_BED = "stratigraphy_bed";
     public static final String LOCATION = "location";
     public static final String MASS = "mass";
@@ -55,7 +55,9 @@ public class ApiFields {
     public static final String PEOPLE = "people";
     public static final String LOCALITY_LOCALITY = "locality__locality";
     public static final String LOCALITY__MAAKOND__MAAKOND_EN = "locality__maakond__maakond_en";
+    public static final String LOCALITY__MAAKOND__MAAKOND = "locality__maakond__maakond";
     public static final String LOCALITY__VALD__VALD = "locality__vald__vald";
+    public static final String LOCALITY__VALD__VALD_ENG = "locality__vald__vald_en";
     public static final String LOCALITY__ASUSTUSYKSUS__ASUSTUSYKSUS = "locality__asustusyksus__asustusyksus";
     public static final String OBJECT = "object";
     public static final String SIZE_X = "size_x";
@@ -94,6 +96,7 @@ public class ApiFields {
     public static final String MA_ID = "maaamet_pa_id";
     public static final String LOCALITY = "locality";
     public static final String LOCALITY_ENG = "locality_en";
+    public static final String LOCALITY_FREE = "locality_free";
     public static final String COUNTRY = "country__value";
     public static final String COUNTRY_ENG = "country__value_en";
     public static final String ADMIN_UNIT = "maakond__maakond";
@@ -122,6 +125,8 @@ public class ApiFields {
     public static final String INDEX_ADDITIONAL = "index_additional";
     public static final String AGE_BASE = "age_base";
     public static final String LITHOLOGY = "lithology";
+    public static final String LITHOSTRATIGRAPHY__STRATIGRAPHY = "lithostratigraphy__stratigraphy";
+    public static final String LITHOSTRATIGRAPHY__STRATIGRAPHY_ENG = "lithostratigraphy__stratigraphy_en";
     public static final String SPECIMEN_ID = "specimen_id";
     public static final String IMAGE_URL = "image_url";
 

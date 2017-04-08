@@ -21,22 +21,43 @@ public class FluentSampleSearchApiBuilder extends FluentSearchApiBuilder<FluentS
     }
 
     public FluentSampleSearchApiBuilder queryNumber(SearchField number) {
-        buildFieldParameters(NUMBER, number);
+        buildMultiSearch(number, NUMBER, NUMBER_ADDITIONAL, ID);
         return this;
     }
 
     public FluentSampleSearchApiBuilder queryStratigraphy(SearchField stratigraphy) {
-        buildFieldParameters(STRATIGRAPHY_STRATIGRAPHY, stratigraphy);
+        buildMultiSearch(stratigraphy,
+                STRATIGRAPHY_STRATIGRAPHY,
+                STRATIGRAPHY_STRATIGRAPHY_ENG,
+                LITHOSTRATIGRAPHY__STRATIGRAPHY,
+                LITHOSTRATIGRAPHY__STRATIGRAPHY_ENG);
         return this;
     }
 
     public FluentSampleSearchApiBuilder queryStratigraphyBed(SearchField stratigraphyBed) {
-        buildFieldParameters(STRATIGRAPHY_BED, stratigraphyBed);
+        buildMultiSearch(stratigraphyBed, STRATIGRAPHY_BED, STRATIGRAPHY_STRATIGRAPHY_ENG);
         return this;
     }
 
-    public FluentSampleSearchApiBuilder queryLocation(SearchField location) {
-        buildFieldParameters(LOCATION, location);
+    public FluentSampleSearchApiBuilder queryLocality(SearchField location) {
+        buildMultiSearch(location, LOCALITY, LOCALITY_LOCALITY_EN, LOCALITY_FREE);
+        return this;
+    }
+
+    public FluentSampleSearchApiBuilder queryCountry(SearchField country) {
+        buildMultiSearch(country,
+                LOCALITY_COUNTRY,
+                LOCALITY_COUNTRY_ENG,
+                LOCALITY__MAAKOND__MAAKOND,
+                LOCALITY__MAAKOND__MAAKOND_EN,
+                LOCALITY__VALD__VALD,
+                LOCALITY__VALD__VALD_ENG);
+        return this;
+    }
+
+    @Override
+    public FluentSampleSearchApiBuilder queryDepth(SearchField depth) {
+        buildMultiSearch(depth, DEPTH, DEPTH_INTERVAL);
         return this;
     }
 
@@ -89,4 +110,8 @@ public class FluentSampleSearchApiBuilder extends FluentSearchApiBuilder<FluentS
         return this;
     }
 
+    public FluentSampleSearchApiBuilder queryLocation(SearchField location) {
+        buildFieldParameters(LOCATION, location);
+        return this;
+    }
 }
