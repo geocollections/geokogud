@@ -24,13 +24,13 @@ public class DoiApiServiceImpl implements DoiApiService {
     @Override
     public ApiResponse findDoi(DoiSearchCriteria searchCriteria) {
         String requestParams = FluentDoiSearchApiBuilder.aRequest()
-                .queryId(searchCriteria.getId()).andReturn()
-                .queryAuthor(searchCriteria.getAuthor()).andReturn()
-                .queryTitle(searchCriteria.getTitle()).andReturn()
-                .queryYear(searchCriteria.getYear()).andReturn()
-                .queryIdentifier(searchCriteria.getDoi()).andReturn()
-                .queryPublishedBy(searchCriteria.getPublishedBy()).andReturn()
-                .queryAbstract(searchCriteria.getAbstractText()).andReturn()
+                .queryId(searchCriteria.getId())
+                .queryIdentifier(searchCriteria.getDoi())
+                .queryTitle(searchCriteria.getTitle())
+                .queryPublishedBy(searchCriteria.getPublishedBy())
+                .queryYear(searchCriteria.getYear())
+                .queryAuthor(searchCriteria.getAuthor())
+                .queryAbstract(searchCriteria.getAbstractText())
                 .buildWithoutReturningCertainFields();
         return apiService.searchRawEntities("doi", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }

@@ -91,10 +91,10 @@
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.DOI.ABSTRACT' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.abstract.lookUpType"></selectdefault>
+                                                   ng-model="searchParameters.abstractText.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.abstract.name" class="form-control"/>
+                                    <input type="text" ng-model="searchParameters.abstractText.name" class="form-control"/>
                                 </div>
                             </div>
                         </div>
@@ -134,9 +134,9 @@
                             <a href data-ng-click="ctrl.service.openInNewWindow({object:'doi',id:entity.id})">{{entity.identifier}}</a>
                         </td>
                         <td data-title="{{ 'SEARCH.DOI.TABLE.AUTHOR' | translate }}">{{entity.reference__author}}</td>
-                        <td data-title="{{ 'SEARCH.DOI.TABLE.YEAR' | translate }}">{{entity.year}}</td>
+                        <td data-title="{{ 'SEARCH.DOI.TABLE.YEAR' | translate }}">{{entity.publication_year}}</td>
                         <td data-title="{{ 'SEARCH.DOI.TABLE.TITLE' | translate }}">{{entity.reference__title}}</td>
-                        <td data-title="{{ 'SEARCH.DOI.TABLE.TYPE' | translate }}">{{entity.resource_type_value}}</td>
+                        <td data-title="{{ 'SEARCH.DOI.TABLE.TYPE' | translate }}">{{entity.resource_type__value}}</td>
                         <td data-title="{{ 'SEARCH.DOI.TABLE.DATACITE_REGISTRATION' | translate }}">
                             {{entity.datacite_created | date:dateFormat}}
                         </td>
