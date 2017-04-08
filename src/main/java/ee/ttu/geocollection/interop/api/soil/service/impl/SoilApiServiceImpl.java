@@ -20,17 +20,17 @@ public class SoilApiServiceImpl implements SoilApiService {
     @Override
     public ApiResponse findSoil(SoilSearchCriteria searchCriteria) {
         String requestParams = FluentSoilSearchApiApiBuilder.aRequest()
-                .queryId(searchCriteria.getId()).andReturn()
-                .querySite(searchCriteria.getSite()).andReturn()
-                .queryAreaName(searchCriteria.getAreaOfStudy()).andReturn()
-                .queryLandUse(searchCriteria.getLandUse()).andReturn()
-                .querySoil(searchCriteria.getSoilName()).andReturn()
-                .queryTransect(searchCriteria.getTransect()).andReturn()
-                .queryDeepMining(searchCriteria.getDeepMining()).andReturn()
+                .queryId(searchCriteria.getId())
+                .querySite(searchCriteria.getSite())
+                .queryAreaName(searchCriteria.getAreaOfStudy())
+                .queryLandUse(searchCriteria.getLandUse())
+                .querySoil(searchCriteria.getSoilName())
+                .queryTransect(searchCriteria.getTransect())
+                .queryDeepMining(searchCriteria.getDeepMining())
                 .returnLatitude()
                 .returnLongitude()
                 .returnTransectPoint()
-                .build();
+                .buildWithoutReturningCertainFields();
         return apiService.searchRawEntities("soil_site", searchCriteria.getPage(),searchCriteria.getSortField(), requestParams);
     }
 

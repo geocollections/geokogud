@@ -15,13 +15,13 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     vm.changeLanguage = changeLanguage;
     var yearToShow;
 
-    asyncLoadData(); //fixme make async request
+    /*asyncLoadData(); //fixme make async request
 
     function asyncLoadData () {
         applicationService.getNews(onNewsData);
         applicationService.loadMapData(onMapData)
     }
-
+*/
 
     function onMapData(response) {
         console.log(response.data.results[0]);

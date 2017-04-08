@@ -35,12 +35,13 @@ public class FluentSoilSearchApiApiBuilder extends FluentSearchApiBuilder<Fluent
         return this;
     }
 
-    public FluentSoilSearchApiApiBuilder queryDeepMining(Boolean deep) {
-        if (deep != null) {
+    public FluentSoilSearchApiApiBuilder queryDeepMining(SearchField deep) {
+       /*if (deep != null) {
             String isDeep = booleanToString(deep);
             query += "&" + IS_DEEP + "=" + isDeep;
             lastQueryField = IS_DEEP;
-        }
+        }*/
+        buildFieldParameters(IS_DEEP, deep);
         return this;
     }
 

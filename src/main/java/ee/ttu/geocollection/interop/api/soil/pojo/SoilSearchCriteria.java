@@ -13,7 +13,7 @@ public class SoilSearchCriteria {
     private SearchField transect;
     private SearchField soilName;
     private SearchField landUse;
-    private Boolean deepMining;
+    private SearchField deepMining;
 
     public SearchField getId() {
         return id;
@@ -63,11 +63,9 @@ public class SoilSearchCriteria {
         this.landUse = landUse;
     }
 
-    public Boolean getDeepMining() {
-        return deepMining;
-    }
+    public SearchField getDeepMining() { return deepMining; }
 
-    public void setDeepMining(Boolean deepMining) {
+    public void setDeepMining(SearchField deepMining) {
         this.deepMining = deepMining;
     }
 
