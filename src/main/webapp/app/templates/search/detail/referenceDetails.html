@@ -21,8 +21,9 @@
                     <tr><td>Source type</td><td>???</td></tr>
                     <tr><td>Language</td><td>{{reference.languageEng}}</td></tr>
                     <tr><td>DOI</td><td>{{reference.doi}}</td></tr>-->
-                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''">
-                        <td entity-field-name name="'API_TRANSLATION.REFERENCE.'+field | uppercase"></td><td entity-field-value value="detailCtrl.results[field]"></td>
+                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''&& detailCtrl.isIncludedField(field)">
+                        <td entity-field-name name="'API_TRANSLATION.REFERENCE.'+field | uppercase"></td>
+                        <td entity-field-value name = "field" value="detailCtrl.results[field]" values = "detailCtrl.results"></td>
                     </tr>
                 </table>
             </div>

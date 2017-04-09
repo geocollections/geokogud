@@ -1,10 +1,11 @@
 var module = angular.module("geoApp");
-var constructor = function ($scope, $stateParams, applicationService, $translate, $sce) {
+var constructor = function ($scope, $stateParams, applicationService, configuration) {
     var vm = this;
 
     vm.service = applicationService;
     vm.fields = [];
     vm.urlsMap = [];
+    vm.isIncludedField = isIncludedField
 
     searchEntity();
 
@@ -15,16 +16,14 @@ var constructor = function ($scope, $stateParams, applicationService, $translate
     function onEntityData(response) {
         vm.results = response.data.results[0];
         vm.fields = Object.keys(vm.results);
-        vm.urlsMap = collectUrls(vm.results);
-
     }
 
-    function collectUrls(obj) {
-
+    function isIncludedField (field) {
+        return configuration.detailFieldsConfig[$stateParams.type].ignoreFields.indexOf(field) == -1;
     }
 
 };
 
-constructor.$inject = ["$scope", "$stateParams", 'ApplicationService', '$translate', '$sce'];
+constructor.$inject = ["$scope", "$stateParams", 'ApplicationService', 'configuration'];
 
 module.controller("DetailController", constructor);

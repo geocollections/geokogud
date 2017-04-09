@@ -4,15 +4,17 @@
             <div class="col-lg-3">
                 <label>PROOV #{{detailCtrl.sample.number}}</label>
             </div>
-        </div>
+        </div>}
         <div class="row">
             <div class="col-lg-6">
                 <table class="table table-bordered table-hover">
                     <thead>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''">
-                        <td entity-field-name name="'API_TRANSLATION.SAMPLE.'+field | uppercase"></td><td entity-field-value value="detailCtrl.results[field]"></td>
+                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''
+                                                                                    && detailCtrl.isIncludedField(field)">
+                        <td entity-field-name name="'API_TRANSLATION.SAMPLE.'+field | uppercase"></td>
+                        <td entity-field-value name = "field" value="detailCtrl.results[field]" values = "detailCtrl.results"></td>
                     </tr>
 <!--                    <tr><td>number</td><td>{{detailCtrl.sample.number}}</td></tr>
                     <tr><td>lisanumber</td><td>{{detailCtrl.sample.numberAdditional}}</td></tr>

@@ -8,8 +8,9 @@
         <div class="row">
             <div class="col-lg-6">
                 <table class="table table-bordered table-hover">
-                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''">
-                        <td entity-field-name name="'API_TRANSLATION.LOCALITY.'+field | uppercase"></td><td entity-field-value value="detailCtrl.results[field]"></td>
+                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''&& detailCtrl.isIncludedField(field)">
+                        <td entity-field-name name="'API_TRANSLATION.LOCALITY.'+field | uppercase"></td>
+                        <td entity-field-value name = "field" value="detailCtrl.results[field]" values = "detailCtrl.results"></td>
                     </tr>
                <!--     <tr><td>Name</td><td>{{locality.locality}}</td></tr>
                     <tr><td>Number</td><td>{{locality.number}}</td></tr>

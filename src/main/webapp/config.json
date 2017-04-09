@@ -4,6 +4,9 @@
   },
 
   "newsUrl":"/news",
+  "mapData": {
+    "allLocalities":"/map/locality-summary"
+  },
 
   "specimenUrl":"/search/specimen",
   "sampleUrl":"/search/sample",
@@ -29,10 +32,84 @@
   "soilDetailUrl":"/details/raw-soil",
   "doiDetailUrl":"/details/raw-doi",
 
-
-
-  "mapData": {
-    "allLocalities":"/map/locality-summary"
+  "detailFieldsConfig" : {
+    "specimens" : {
+      "urls" : [],
+      "localizedValues" : [],
+      "date" : [],
+      "ignoreFields" : []
+    },
+    "samples" : {
+      "urls" : [
+        {"object" : "locality", "id": "locality_id", "value_et" : "locality__locality",  "value_en" : "locality__locality_en"},
+        {"object" : "stratigraphy", "id": "stratigraphy_id", "value_et" : "stratigraphy__stratigraphy",  "value_en" : "lithostratigraphy__stratigraphy_en"}
+      ],
+      "localizedValues" : [
+        {"value_et" : "locality__locality",  "value_en" : "locality__locality_en"},
+        {"value_et" : "locality__country__value",  "value_en" : "locality__country__value_en"},
+        {"value_et" : "soil_site__site",  "value_en" : "soil_site__site_en"},
+        {"value_et" : "stratigraphy__stratigraphy",  "value_en" : "lithostratigraphy__stratigraphy_en"},
+        {"value_et" : "lithostratigraphy__stratigraphy",  "value_en" : "lithostratigraphy__stratigraphy_en"},
+        {"value_et" : "classification_rock__name",  "value_en" : "classification_rock__name_en"},
+        {"value_et" : "rock",  "value_en" : "rock_en"}
+      ],
+      "date" : ["date_collected","date_collected_free", "date_added", "date_changed"],
+      "ignoreFields" : ["locality_id", "stratigraphy_id"]
+    },
+    "drillCores" : {
+      "urls" : [],
+      "localizedValues" : [],
+      "date" : [],
+      "ignoreFields" : []
+    },
+    "localities" : {
+      "urls" : [],
+      "localizedValues" : [],
+      "date" : [],
+      "ignoreFields" : []
+    },
+    "references" : {
+      "urls" : [],
+      "localizedValues" : [],
+      "date" : [],
+      "ignoreFields" : []
+    },
+    "stratigraphy" : {
+      "urls" : [],
+      "localizedValues" : [],
+      "date" : [],
+      "ignoreFields" : []
+    },
+    "analysis" : {
+      "urls" : [],
+      "localizedValues" : [],
+      "date" : [],
+      "ignoreFields" : []
+    },
+    "preparations" : {
+      "urls" : [],
+      "localizedValues" : [],
+      "date" : [],
+      "ignoreFields" : []
+    },
+    "photoArchive" : {
+      "urls" : [],
+      "localizedValues" : [],
+      "date" : [],
+      "ignoreFields" : []
+    },
+    "soil" : {
+      "urls" : [],
+      "localizedValues" : [],
+      "date" : [],
+      "ignoreFields" : []
+    },
+    "doi" : {
+      "urls" : [],
+      "localizedValues" : [],
+      "date" : [],
+      "ignoreFields" : []
+    }
   },
 
   "departments": [{"code": "GIT", "label": "GIT"},
@@ -49,10 +126,6 @@
   "elmUrl" : "http://www.loodusmuuseum.ee/",
   "geocaseUrl" : "http://www.geocase.eu/",
   "tugUrl" : "http://natmuseum.ut.ee/388858",
-  "githubUrl" : "https://github.com/geocollections/geokogud",
-
-  "sample" : {
-    "relatedData" : ["analysis", "" ]
-  }
+  "githubUrl" : "https://github.com/geocollections/geokogud"
 
 }
