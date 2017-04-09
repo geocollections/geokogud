@@ -20,6 +20,10 @@ var constructor = function (utils,configuration) {
         utils.httpGet(configuration.newsUrl, null, callback, error);
     };
 
+    service.getWebPage = function (id, callback, error) {
+        utils.httpGet(configuration.webPagesUrl + "/" + id, null, callback, error);
+    };
+
     service.getList = function (searchType, data, success, error) {
         var url = getSearchUrl(searchType);
         if(url != null) utils.httpPost(url, data, success, error);

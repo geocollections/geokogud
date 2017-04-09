@@ -4,6 +4,7 @@
   },
 
   "newsUrl":"/news",
+  "webPagesUrl":"/webpages",
 
   "specimenUrl":"/search/specimen",
   "sampleUrl":"/search/sample",

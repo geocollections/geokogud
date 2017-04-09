@@ -154,7 +154,6 @@ module.config(function($stateProvider,$urlRouterProvider) {
                 templateUrl: "app/templates/main/news.html"
             }
         }
-
     }).state('map', {
         url: "/map",
         views: {
@@ -164,6 +163,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
         }
     }).state('usingcollection', {
         url: "/usingcollection",
+        params: { contentId: 32 },
         views: {
             "additional": {
                 templateUrl: "app/templates/main/using_collection.html"
@@ -171,6 +171,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
         }
     }).state('git', {
         url: "/git",
+        params: { contentId: 2 },
         views: {
             "additional": {
                 templateUrl: "app/templates/main/git.html"
@@ -185,6 +186,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
         }
     }).state('database', {
         url: "/database",
+        params: { contentId: 21 },
         views: {
             "additional": {
                 templateUrl: "app/templates/main/database.html"
