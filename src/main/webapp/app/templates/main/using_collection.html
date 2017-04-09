@@ -1,56 +1,5 @@
 <div class="container">
-	<div class="row">
-		<div class="col-lg-12  text-center">
-			<h2 class="section-heading">{{ 'USING_COLLECTIONS.HEADING_USING_COLLECTIONS' | translate}}</h2>
-			<hr class="primary">
-		</div>
-		<h3 class="header-collection">{{' USING_COLLECTIONS.PARAGRAPH_ONE' | translate }}</h3>
-		<ul class="fa-ul">
-			<li><i class="fa-li fa fa-square"></i><span>{{ 'USING_COLLECTIONS.TUT' | translate }}&nbsp;</span><a href="/git/teaduskogude_kasutamise_kord.pdf">{{ 'USING_COLLECTIONS.IN_ESTONIAN' | translate:'{ extension: "pdf" }'}} </a> <span> | </span> <a href="/git/teaduskogude_kasutamise_kord_en.pdf">{{ 'USING_COLLECTIONS.IN_ENGLISH' | translate:'{ extension: "pdf" }'}} </a></li>
-			<li><i class="fa-li fa fa-square"></i><span>{{ 'USING_COLLECTIONS.UT_AND_MUSEUM_OF_GEO' | translate }}</span> <a href="http://www.natmuseum.ut.ee/sites/loodusmuuseum/files/pildid/UTLM_Geoloogiamuuseumi_kogude_kasutamine_2015.pdf">{{ 'USING_COLLECTIONS.IN_ESTONIAN' | translate:'{ extension: "pdf"}' }} </a></li>
-		</ul>
-		<h3 class="header-collection">{{ 'USING_COLLECTIONS.INQUERIES.HEADING' | translate }}</h3>
-		<p>{{ 'USING_COLLECTIONS.INQUERIES.PARAGRAPH' | translate }}</p>
-		<h3 class="header-collection">{{ 'USING_COLLECTIONS.DATABASE.HEADING' | translate }}</h3>
-		<p>{{ 'USING_COLLECTIONS.DATABASE.PARAGRAPH_ONE' | translate }}</p>
-		<p>{{ 'USING_COLLECTIONS.DATABASE.PARAGRAPH_TWO' | translate }}</p>
-		<p>
-			<a href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="" src="http://mirrors.creativecommons.org/presskit/icons/cc.png" /></a>
-			<a href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="" src="http://mirrors.creativecommons.org/presskit/icons/by.png" /></a>
-			<a href="http://creativecommons.org/licenses/by-nc/3.0/"><img alt="" src="http://mirrors.creativecommons.org/presskit/icons/nc.png" /></a>
-		</p>
-		<p>{{ 'USING_COLLECTIONS.DATABASE.CC_EXPLANATION' | translate }}</p>
-		<ul class="fa-ul">
-			<li><i class="fa-li fa fa-square"></i>{{ 'USING_COLLECTIONS.DATABASE.LI_ONE' | translate }}<br><em>{{ 'USING_COLLECTIONS.DATABASE.LI_ONE_ONE' | translate }}</em></li>
-			<li><i class="fa-li fa fa-square"></i>{{ 'USING_COLLECTIONS.DATABASE.LI_TWO' | translate }}</li>
-			<li><i class="fa-li fa fa-square"></i>{{ 'USING_COLLECTIONS.DATABASE.LI_THREE' | translate }} <a href="http://geokogud.info/specimen/66130"><em>http://geokogud.info/specimen/66130</em></a>.</li>
-			<li><i class="fa-li fa fa-square"></i>{{ 'USING_COLLECTIONS.DATABASE.LI_FOUR' | translate }}</li>
-			<li><i class="fa-li fa fa-square"></i>{{ 'USING_COLLECTIONS.DATABASE.LI_FIVE' | translate }}</li>
-		</ul>
-		<h3 class="header-collection">{{ 'USING_COLLECTIONS.CONTACT.HEADING' | translate }}</h3>
-		<div>
-			<address>
-                <h4 class="header-collection">{{ 'USING_COLLECTIONS.CONTACT.TUT.ORGANIZATION' | translate }}</h4>
-                <div>{{ 'USING_COLLECTIONS.CONTACT.TUT.ADDRESS' | translate }}</div>
-                <div>{{ 'USING_COLLECTIONS.CONTACT.TUT.CONTACT.PERSON' | translate }}</div>
-                <div>{{ 'USING_COLLECTIONS.CONTACT.TUT.CONTACT.PHONE_EMAIL' | translate }}</div>
-			</address>
-		</div>
-		<div>
-			<address>
-				<h4 class="header-collection">{{ 'USING_COLLECTIONS.CONTACT.UT.ORGANIZATION' | translate }}</h4>
-				<div>{{ 'USING_COLLECTIONS.CONTACT.UT.ADDRESS' | translate }}</div>
-				<div>{{ 'USING_COLLECTIONS.CONTACT.UT.CONTACT.PERSON' | translate }}</div>
-				<div>{{ 'USING_COLLECTIONS.CONTACT.UT.CONTACT.PHONE_EMAIL' | translate }}</div>
-			</address>
-		</div>
-		<div>
-			<address>
-				<h4 class="header-collection">{{ 'USING_COLLECTIONS.CONTACT.EMNH.ORGANIZATION' | translate }}</h4>
-				<div>{{ 'USING_COLLECTIONS.CONTACT.EMNH.ADDRESS' | translate }}</div>
-				<div>{{ 'USING_COLLECTIONS.CONTACT.EMNH.CONTACT.PERSON' | translate }}</div>
-				<div>{{ 'USING_COLLECTIONS.CONTACT.EMNH.CONTACT.PHONE_EMAIL' | translate }}</div>
-			</address>
-		</div>
+	<div class="col-lg-12">
+		<div ng-bind-html="main.webpages.results[0].content_et"></div>
 	</div>
 </div>

@@ -31,8 +31,7 @@ public class PhotoArchiveApiServiceImpl implements PhotoArchiveApiService{
                 .queryPeople(searchCriteria.getPeople())
                 .queryLocality(searchCriteria.getLocality())
                 .queryCountry(searchCriteria.getAdminUnit())
-                .querySizeX(searchCriteria.getSizeX())
-                .querySizeY(searchCriteria.getSizeY())
+                .querySize(searchCriteria.getSizeXY())
                 .buildWithoutReturningCertainFields();
         return apiService.searchRawEntities("image", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
 
