@@ -57,13 +57,8 @@ public class FluentPhotoArchiveSearchApiBuilder extends FluentSearchApiBuilder<F
         return this;
     }
 
-    public FluentPhotoArchiveSearchApiBuilder querySizeX(SearchField sizeX) {
-        buildFieldParameters(SIZE_X, sizeX);
-        return this;
-    }
-
-    public FluentPhotoArchiveSearchApiBuilder querySizeY(SearchField sizeY) {
-        buildFieldParameters(SIZE_Y, sizeY);
+    public FluentPhotoArchiveSearchApiBuilder querySize(SearchField sizeXY) {
+        buildMultiSearch(sizeXY, SIZE_X, SIZE_Y);
         return this;
     }
 

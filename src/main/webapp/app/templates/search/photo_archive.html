@@ -75,10 +75,10 @@
                                 <div class="col-md-12  medium-padding">
                                     <b>{{ 'SEARCH.PHOTO_ARCHIVE.IMAGE_SIZE' | translate }}</b>
                                     <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.imageSize.lookUpType"></selectexact>
+                                                 ng-model="searchParameters.sizeXY1.lookUpType"></selectexact>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.imageSize.name" class="form-control"/>
+                                    <input type="text" ng-model="searchParameters.sizeXY.name" class="form-control"/>
                                 </div>
                             </div>
                         </div>
@@ -108,10 +108,10 @@
                                 <div class="col-md-12  medium-padding">
                                     <b>{{ 'SEARCH.PHOTO_ARCHIVE.ADMIN_UNIT' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.adminunit.lookUpType"></selectdefault>
+                                                   ng-model="searchParameters.adminUnit.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.adminunit.name" class="form-control"/>
+                                    <input type="text" ng-model="searchParameters.adminUnit.name" class="form-control"/>
                                 </div>
                             </div>
                         </div>
@@ -134,7 +134,6 @@
                     <thead class="thead-default">
                     <tr>
                         <th><sort-field value = "id" name="SEARCH.PHOTO_ARCHIVE.TABLE.ID"></sort-field></th>
-                        <th>{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.ID' | translate }}</th>
                         <th>{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.NUMBER' | translate }}</th>
                         <th>{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.AUTHOR' | translate }}</th>
                         <th>{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.DATE' | translate }}</th>
@@ -150,7 +149,7 @@
                         </td>
                         <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.NUMBER' | translate }}">{{entity.image_number}}</td>
                         <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.AUTHOR' | translate }}">
-                            <first-not-null values="[entity.agent_collected__agent, entity.agent_collected_free]"></first-not-null>
+                            <first-not-null values="[entity.author__agent, entity.author_free]"></first-not-null>
                         </td>
                         <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.DATE' | translate }}">{{entity.date_taken}}</td>
                         <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.LOCALITY' | translate }}">
