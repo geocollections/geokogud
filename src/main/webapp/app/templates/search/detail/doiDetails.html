@@ -8,7 +8,10 @@
         <div class="row">
             <div class="col-lg-6">
                 <table class="table table-bordered table-hover">
-                    <tr><td>Citation</td><td>{{doi.abstract}}</td></tr>
+                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''">
+                        <td entity-field-name name="'API_TRANSLATION.DOI.'+field | uppercase"></td><td entity-field-value value="detailCtrl.results[field]"></td>
+                    </tr>
+                <!--    <tr><td>Citation</td><td>{{doi.abstract}}</td></tr>
                     <tr><td>DOI</td><td>{{doi.identifier}}</td></tr>
                     <tr><td>Resource type general</td><td>{{doi.resourceType}}</td></tr>
                     <tr><td>Resource type</td><td>{{doi.resource}}</td></tr>
@@ -21,7 +24,7 @@
                     <tr><td>Copyright</td><td>{{doi.copyrightAgent}}</td></tr>
                     <tr><td>Licence</td><td><a href data-ng-click="openUrlInNewWindow({url:doi.licenceUrlEn})">{{doi.licenceEn}}</a></td></tr>
                     <tr><td>SARV created</td><td>{{doi.dateAdded | date:dateFormat}}</td></tr>
-                    <tr><td>SARV updated</td><td>{{doi.dateChanged | date:dateFormat}}</td></tr>
+                    <tr><td>SARV updated</td><td>{{doi.dateChanged | date:dateFormat}}</td></tr>-->
                 </table>
             </div>
         </div>

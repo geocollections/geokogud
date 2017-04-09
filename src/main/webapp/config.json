@@ -17,7 +17,19 @@
   "soilUrl":"/search/soil",
   "doiUrl":"/search/doi",
 
+  "specimenDetailUrl":"/details/raw-specimen",
   "sampleDetailUrl":"/details/raw-sample",
+  "localityDetailUrl":"/details/raw-locality",
+  "stratigraphyDetailUrl":"/details/raw-stratigraphy",
+  "drillCoreDetailUrl":"/details/raw-drillcore",
+  "referenceDetailUrl":"/details/raw-reference",
+  "analysisDetailUrl":"/details/raw-analysis",
+  "preparationDetailUrl":"/details/raw-preparation",
+  "photoArchiveDetailUrl":"/details/raw-photo-archive",
+  "soilDetailUrl":"/details/raw-soil",
+  "doiDetailUrl":"/details/raw-doi",
+
+
 
   "mapData": {
     "allLocalities":"/map/locality-summary"

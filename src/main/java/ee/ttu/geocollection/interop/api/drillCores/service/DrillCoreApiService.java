@@ -5,10 +5,14 @@ import ee.ttu.geocollection.interop.api.drillCores.pojo.DrillCoreProto;
 import ee.ttu.geocollection.interop.api.drillCores.pojo.DrillCoreSearchCriteria;
 import ee.ttu.geocollection.interop.api.drillCores.pojo.DrillcoreBox;
 
+import java.util.Map;
+
 public interface DrillCoreApiService {
     ApiResponse findDrillCore(DrillCoreSearchCriteria searchCriteria);
 
     DrillCoreProto findDrillcoreById(Long id);
 
     DrillcoreBox findDrillcoreBoxById(Long id);
+
+    Map findRawById(Long id);
 }

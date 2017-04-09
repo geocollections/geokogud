@@ -1,6 +1,6 @@
 var module = angular.module("geoApp");
 
-var constructor = function (configuration,$translate,$http, applicationService,$state) {
+var constructor = function (configuration,$translate,$http, applicationService,$state, $scope, $rootScope) {
     //$state.transitionTo('samples');
     var vm = this;
     vm.service = applicationService;
@@ -15,6 +15,9 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     vm.changeLanguage = changeLanguage;
     var yearToShow;
 
+    console.log($scope);
+
+
     /*asyncLoadData(); //fixme make async request
 
     function asyncLoadData () {
@@ -23,6 +26,19 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     }
 */
 
+
+    $rootScope.$on('$stateChangeStart',
+        function(event, toState, toParams, fromState, fromParams) {
+            console.log(toState);
+    });
+
+    $rootScope.openInNewTab = function(to, params) {
+        window.open($state.href(to, params, {absolute: true}), '_blank');
+    };
+/*
+    $state.$watch('currentState', function(data){
+        console.log(data)
+    });*/
     function onMapData(response) {
         console.log(response.data.results[0]);
     }
@@ -57,6 +73,6 @@ var constructor = function (configuration,$translate,$http, applicationService,$
 
 };
 
-constructor.$inject = ["configuration",'$translate', '$http', 'ApplicationService','$state'];
+constructor.$inject = ["configuration",'$translate', '$http', 'ApplicationService','$state','$scope', '$rootScope'];
 
 module.controller("MainController", constructor);

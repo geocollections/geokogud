@@ -10,7 +10,10 @@
                 <thead>
                 </thead>
                 <tbody>
-                <tr><td>Unit name</td><td>{{stratigraphy.stratigraphy}}</td></tr>
+                <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''">
+                    <td entity-field-name name="'API_TRANSLATION.STRATIGRAPHY.'+field | uppercase"></td><td entity-field-value value="detailCtrl.results[field]"></td>
+                </tr>
+              <!--  <tr><td>Unit name</td><td>{{stratigraphy.stratigraphy}}</td></tr>
                 <tr><td>Unit name</td><td>{{stratigraphy.stratigraphyEn}}</td></tr>
                 <tr><td>Belongs to</td><td>{{stratigraphy.parentStratigraphy}}</td></tr>
                 <tr><td>Overlies</td><td>weird query here...</td></tr>
@@ -32,7 +35,7 @@
                 <tr><td>USGS color code</td><td>???</td></tr>
                 <tr><td>Max thickness</td><td>???</td></tr>
                 <tr><td>Lithology</td><td>???</td></tr>
-                <tr><td>Remarks</td><td>???</td></tr>
+                <tr><td>Remarks</td><td>???</td></tr>-->
                 </tbody>
             </table>
 

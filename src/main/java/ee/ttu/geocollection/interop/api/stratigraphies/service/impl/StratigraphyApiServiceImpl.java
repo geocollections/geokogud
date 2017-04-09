@@ -11,6 +11,8 @@ import ee.ttu.geocollection.interop.api.stratigraphies.service.StratigraphyApiSe
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 @Service
 public class StratigraphyApiServiceImpl implements StratigraphyApiService {
     @Autowired
@@ -41,4 +43,16 @@ public class StratigraphyApiServiceImpl implements StratigraphyApiService {
                 requestParams,
                 StratigraphyEnitity.class);
     }
+
+    @Override
+    public Map findRawById(Long id) {
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
+                .id(id)
+                .relatedData("stratigraphy_reference")
+                .relatedData("stratigraphy_stratotype")
+                .relatedData("stratigraphy_synonym")
+                .buildWithDefaultReturningFields();
+        return apiService.findRawEntity("stratigraphy", requestParams);
+    }
+
 }

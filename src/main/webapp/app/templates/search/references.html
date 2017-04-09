@@ -117,7 +117,7 @@
                     <tr data-ng-repeat="entity in response.results">
                         <td data-title="{{ 'SEARCH.REFERENCES.TABLE.ID' | translate }}">{{entity.id}}</td>
                         <td data-title="{{ 'SEARCH.REFERENCES.TABLE.REFERENCE' | translate }}">
-                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'references',id:entity.id})">{{entity.reference}}</a>
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'reference',id:entity.id})">{{entity.reference}}</a>
                         </td>
                         <td data-title="{{ 'SEARCH.REFERENCES.TABLE.AUTHOR' | translate }}">{{entity.author}}</td>
                         <td data-title="{{ 'SEARCH.REFERENCES.TABLE.YEAR' | translate }}">{{entity.year}}</td>

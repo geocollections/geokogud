@@ -24,31 +24,26 @@ module.config(function($stateProvider,$urlRouterProvider) {
         params: {type: "specimens"}
     }).state('samples', {
         url: "/sample",
-/*        views: {
-            "specific-search": {
-
-            }
-        },*/
         templateUrl: "app/templates/search/samples.html",
         controller: "SearchController as ctrl",
         params: {type: "samples"}
     }).state('sample', {
-        template: '<data-ui-view/>',
+        template: '<data-ui-view/>'
     }).state('sample.view', {
         url: "/sample/:id",
-        templateUrl: "app//templates/search/detail/sample.html",
+        templateUrl: "app/templates/search/detail/sample.html",
         controller: "DetailController as detailCtrl",
         params: {type: "samples"}
-    }).state('drillCores', {
+    }).state('drillcores', {
         url: "/drillcore",
-        templateUrl: "app//templates/search/drillCores.html",
+        templateUrl: "app/templates/search/drillCores.html",
         controller: "SearchController as ctrl",
         params: {type: "drillCores"}
-    }).state('drillCore', {
-        template: '<data-ui-view/>',
-    }).state('drillCore.view', {
+    }).state('drillcore', {
+        template: '<data-ui-view/>'
+    }).state('drillcore.view', {
         url: "/drillcore/:id",
-        templateUrl: "app//templates/search/detail/drillCoreDetails.html",
+        templateUrl: "app/templates/search/detail/drillCoreDetails.html",
         controller: "DetailController as detailCtrl",
         params: {type: "drillCores"}
     }).state('localities', {
@@ -64,14 +59,14 @@ module.config(function($stateProvider,$urlRouterProvider) {
         controller: "DetailController as detailCtrl",
         params: {type: "localities"}
     }).state('references', {
-        url: "/references",
+        url: "/reference",
         templateUrl: "app/templates/search/references.html",
         controller: "SearchController as ctrl",
         params: {type: "references",doi: false}
     }).state('reference', {
         template: '<data-ui-view/>',
-    }).state('references.view', {
-        url: "/references/:id",
+    }).state('reference.view', {
+        url: "/reference/:id",
         templateUrl: "app/templates/search/detail/referenceDetails.html",
         controller: "DetailController as detailCtrl",
         params: {type: "references",doi: false}
@@ -96,7 +91,9 @@ module.config(function($stateProvider,$urlRouterProvider) {
         template: '<data-ui-view/>'
     }).state('analysis.view', {
         url: "/analysis/:id",
-        template: ''
+        templateUrl: 'app/templates/search/detail/analysis.html',
+        controller: "DetailController as detailCtrl",
+        params: {type: "analysis"}
     }).state('preparations', {
         url: "/preparation",
         templateUrl: "app/templates/search/preparations.html",
@@ -106,17 +103,19 @@ module.config(function($stateProvider,$urlRouterProvider) {
         template: '<data-ui-view/>'
     }).state('preparation.view', {
         url: "/preparation/:id",
-        template: ''
+        templateUrl: "app/templates/search/detail/preparation.html",
+        controller: "DetailController as detailCtrl",
+        params: {type: "preparations"}
     }).state('photoArchives', {
         url: "/image",
-        templateUrl: "app/templates/search/photo_archive.html",
+        templateUrl: "app/templates/search/photoArchive.html",
         controller: "SearchController as ctrl",
         params: {type: "photoArchive"}
     }).state('photoArchive', {
         template: '<data-ui-view/>'
     }).state('photoArchive.view', {
         url: "/image/:id",
-        templateUrl: "app/templates/search/detail/photo_archive.html",
+        templateUrl: "app/templates/search/detail/photoArchive.html",
         controller: "DetailController as detailCtrl",
         params: {type: "photoArchive"}
     }).state('soils', {

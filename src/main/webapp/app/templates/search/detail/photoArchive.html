@@ -20,7 +20,10 @@
                 <thead>
                 </thead>
                 <tbody>
-                <tr><td>ID</td><td>{{image.id}}</td></tr>
+                <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''">
+                    <td entity-field-name name="'API_TRANSLATION.PHOTO_ARCHIVE.'+field | uppercase"></td><td entity-field-value value="detailCtrl.results[field]"></td>
+                </tr>
+     <!--           <tr><td>ID</td><td>{{image.id}}</td></tr>
                 <tr><td>Number</td><td>{{image.imageNumber}}</td></tr>
                 <tr><td>Author</td><td>{{image.authorAgent}}</td></tr>
                 <tr><td>Date taken</td><td>{{image.dateTaken}}</td></tr>
@@ -34,7 +37,7 @@
                 <tr><td>Device name</td><td>{{image.deviceName}}</td></tr>
                 <tr><td>Licence</td><td><a href="{{image.licenceUrl}}">{{image.licence}}</a></td></tr>
                 <tr><td>Record created</td><td>{{image.dataAdded}}</td></tr>
-                <tr><td>Record changed</td><td>{{image.dataChanged}}</td></tr>
+                <tr><td>Record changed</td><td>{{image.dataChanged}}</td></tr>-->
                 </tbody>
             </table>
         </div>

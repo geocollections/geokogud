@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class AnalysesApiServiceImpl implements AnalysesApiService{
@@ -47,5 +48,13 @@ public class AnalysesApiServiceImpl implements AnalysesApiService{
     @Override
     public List<?> searchByField(String table, String term, String searchField) {
         return null;
+    }
+
+    @Override
+    public Map findRawById(Long id) {
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
+                .id(id)
+                .buildWithDefaultReturningFields();
+        return apiService.findRawEntity("analysis", requestParams);
     }
 }

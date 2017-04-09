@@ -160,10 +160,10 @@
                     <tbody>
                     <tr data-ng-repeat="entity in response.results">
                         <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.ID' | translate }}">
-                            <a href data-ng-click="openInNewWindow({object:'drillCores',id:entity.id})">{{entity.id}}</a>
+                            <a href data-ng-click="openInNewWindow({object:'drillcore',id:entity.id})">{{entity.id}}</a>
                         </td>
                         <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.DRILLCORE' | translate }}">
-                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'drillCores',id:entity.id})"><localize et="entity.drillcore" en="entity.drillcore_en"/></a>
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'drillcore',id:entity.id})"><localize et="entity.drillcore" en="entity.drillcore_en"/></a>
                         </td>
                         <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.LATITUDE' | translate }}">{{entity.locality__latitude}}</td>
                         <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.LONGITUDE' | translate }}">{{entity.locality__longitude}}

@@ -61,6 +61,17 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
     }
 
     @Override
+    public Map findRawById(Long id) {
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
+                .id(id)
+                .relatedData("image")
+                .relatedData("drillcore")
+                .relatedData("reference")
+                .buildWithDefaultReturningFields();
+        return apiService.findRawEntity("locality", requestParams);
+    }
+
+    @Override
     public LocalityApiResponse getLocality(Long id) {
         return getLocality(id, new SearchApiRequest());
     }

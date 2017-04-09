@@ -8,7 +8,10 @@
         <div class="row">
             <div class="col-lg-6">
                 <table class="table table-bordered table-hover">
-                    <tr><td>Name</td><td>{{soil.site}}</td></tr>
+                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''">
+                        <td entity-field-name name="'API_TRANSLATION.SOIL.'+field | uppercase"></td><td entity-field-value value="detailCtrl.results[field]"></td>
+                    </tr>
+        <!--            <tr><td>Name</td><td>{{soil.site}}</td></tr>
                     <tr><td>Latitude (dec. deg.)</td><td>{{soil.latitude}}</td></tr>
                     <tr><td>Longitude (dec. deg.)</td><td>{{soil.longitude}}</td></tr>
                     <tr><td>EPSG</td><td>{{soil.coordSystem}}</td></tr>
@@ -19,7 +22,7 @@
                     <tr><td>Land use</td><td>{{soil.agent}}</td></tr>
                     <tr><td>Soil name</td><td>{{soil.soil}}</td></tr>
                     <tr><td>K aste A</td><td>{{soil.kAsteA}}</td></tr>
-                    <tr><td>K suurus A</td><td>{{soil.kSizeA}}</td></tr>
+                    <tr><td>K suurus A</td><td>{{soil.kSizeA}}</td></tr>-->
                 </table>
             </div>
             <div class="col-lg-6">

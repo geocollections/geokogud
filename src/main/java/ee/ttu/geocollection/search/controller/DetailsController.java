@@ -4,6 +4,7 @@ package ee.ttu.geocollection.search.controller;
 import ee.ttu.geocollection.interop.api.Request.SampleSearchCriteria;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
+import ee.ttu.geocollection.interop.api.analyses.search.AnalysesApiService;
 import ee.ttu.geocollection.interop.api.doi.service.DoiApiService;
 import ee.ttu.geocollection.interop.api.drillCores.pojo.DrillCoreProto;
 import ee.ttu.geocollection.interop.api.drillCores.pojo.DrillcoreBox;
@@ -13,6 +14,7 @@ import ee.ttu.geocollection.interop.api.localities.pojo.LocalityDetailsDialogDto
 import ee.ttu.geocollection.interop.api.localities.service.LocalitiesApiService;
 import ee.ttu.geocollection.interop.api.photoArchive.pojo.PhotoArchiveDetailsDialogDto;
 import ee.ttu.geocollection.interop.api.photoArchive.service.PhotoArchiveApiService;
+import ee.ttu.geocollection.interop.api.preparations.PreparationsApiService;
 import ee.ttu.geocollection.interop.api.reference.pojo.ReferenceDetailsDialogDto;
 import ee.ttu.geocollection.interop.api.reference.service.ReferenceApiService;
 import ee.ttu.geocollection.interop.api.samples.pojo.Sample;
@@ -56,6 +58,10 @@ public class DetailsController {
     private SpecimenApiService specimenApiService;
     @Autowired
     private StratigraphyApiService stratigraphyApiService;
+    @Autowired
+    private AnalysesApiService analysesApiService;
+    @Autowired
+    private PreparationsApiService preparationsApiService;
 
     @RequestMapping(value = "/field", method = RequestMethod.GET)
     public List<?> findDoiById(
@@ -102,11 +108,58 @@ public class DetailsController {
         Response samples = samplesApiService.findById(id);
         return new SampleDetailsDialogDto(samples);
     }
+    @RequestMapping(value = "/raw-specimen/{id}")
+    public Map findRawSpecimenById(@PathVariable Long id) {
+        return specimenApiService.findRawById(id);
+    }
 
     @RequestMapping(value = "/raw-sample/{id}")
     public Map findRawSampleById(@PathVariable Long id) {
         return samplesApiService.findRawById(id);
     }
+
+    @RequestMapping(value = "/raw-drillcore/{id}")
+    public Map findRawDrillCoreById(@PathVariable Long id) {
+        return drillCoreApiService.findRawById(id);
+    }
+
+    @RequestMapping(value = "/raw-locality/{id}")
+    public Map findRawLocalityById(@PathVariable Long id) {
+        return localitiesApiService.findRawById(id);
+    }
+
+    @RequestMapping(value = "/raw-stratigraphy/{id}")
+    public Map findRawStratigraphyById(@PathVariable Long id) {
+        return stratigraphyApiService.findRawById(id);
+    }
+
+
+    @RequestMapping(value = "/raw-reference/{id}")
+    public Map findRawReferenceById(@PathVariable Long id) {
+        return referenceApiService.findRawById(id);
+    }
+
+    @RequestMapping(value = "/raw-analysis/{id}")
+    public Map findRawAnalysisById(@PathVariable Long id) {
+        return analysesApiService.findRawById(id);
+    }
+    @RequestMapping(value = "/raw-preparation/{id}")
+    public Map findRawPreparationById(@PathVariable Long id) {
+        return preparationsApiService.findRawById(id);
+    }
+    @RequestMapping(value = "/raw-photo-archive/{id}")
+    public Map findRawPhotoArchiveById(@PathVariable Long id) {
+        return photoArchiveApiService.findRawById(id);
+    }
+    @RequestMapping(value = "/raw-soil/{id}")
+    public Map findRawSoilById(@PathVariable Long id) {
+        return soilApiService.findRawById(id);
+    }
+    @RequestMapping(value = "/raw-doi/{id}")
+    public Map findRawDoiById(@PathVariable Long id) {
+        return doiApiService.findRawById(id);
+    }
+
 
     @RequestMapping(value = "/photo-archive/{id}")
     public PhotoArchiveDetailsDialogDto findPhotoArchiveById(@PathVariable Long id) {

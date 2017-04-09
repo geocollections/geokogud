@@ -8,7 +8,10 @@
         <div class="row">
             <div class="col-lg-6">
                 <table class="table table-bordered table-hover">
-                    <tr>
+                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''">
+                        <td entity-field-name name="'API_TRANSLATION.DRILL_CORE.'+field | uppercase"></td><td entity-field-value value="detailCtrl.results[field]"></td>
+                    </tr>
+              <!--      <tr>
                         <td>ID</td>
                         <td>{{drillCore.id}}</td>
                     </tr>
@@ -63,7 +66,7 @@
                     <tr>
                         <td>Remarks</td>
                         <td>{{drillCore.remarks}}</td>
-                    </tr>
+                    </tr>-->
                 </table>
             </div>
             <div class="col-lg-6" data-ng-if="drillCore.locality.latitude != null && drillCore.locality.longitude != null">

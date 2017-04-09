@@ -12,6 +12,8 @@ import ee.ttu.geocollection.interop.api.soil.service.SoilApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 @Service
 public class SoilApiServiceImpl implements SoilApiService {
     @Autowired
@@ -45,5 +47,15 @@ public class SoilApiServiceImpl implements SoilApiService {
     @Override
     public Response<SoilHorizon> findSoilHorizons(SoilSearchCriteria searchCriteria) {
         return null;
+    }
+
+    @Override
+    public Map findRawById(Long id) {
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
+                .id(id)
+                .relatedData("sample")
+                .relatedData("soil_horizon")
+                .buildWithDefaultReturningFields();
+        return apiService.findRawEntity("soil_site", requestParams);
     }
 }

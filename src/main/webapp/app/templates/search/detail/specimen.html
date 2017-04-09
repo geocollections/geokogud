@@ -11,7 +11,9 @@
                     <thead>
                     </thead>
                     <tbody>
-                    <tr><td></td><td></td></tr>
+                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''">
+                        <td entity-field-name name="'API_TRANSLATION.SPECIMEN.'+field | uppercase"></td><td entity-field-value value="detailCtrl.results[field]"></td>
+                    </tr>
                     </tbody>
                 </table>
             </div>

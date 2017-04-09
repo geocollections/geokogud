@@ -11,6 +11,8 @@ import ee.ttu.geocollection.interop.api.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 @Service
 public class PhotoArchiveApiServiceImpl implements PhotoArchiveApiService{
     @Autowired
@@ -42,5 +44,13 @@ public class PhotoArchiveApiServiceImpl implements PhotoArchiveApiService{
                 .id(id)
                 .buildWithDefaultReturningFields();
         return apiService.findEntity("image", requestParams, PhotoArchiveEntity.class);
+    }
+
+    @Override
+    public Map findRawById(Long id) {
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
+                .id(id)
+                .buildWithDefaultReturningFields();
+        return apiService.findRawEntity("image", requestParams);
     }
 }

@@ -4,6 +4,8 @@ var constructor = function ($scope, $stateParams, applicationService, $translate
 
     vm.service = applicationService;
     vm.fields = [];
+    vm.urlsMap = [];
+
     searchEntity();
 
     function searchEntity () {
@@ -11,20 +13,14 @@ var constructor = function ($scope, $stateParams, applicationService, $translate
     }
 
     function onEntityData(response) {
-        vm.sample = response.data.results[0];
-        dynamicalyCreateField(vm.sample);
+        vm.results = response.data.results[0];
+        vm.fields = Object.keys(vm.results);
+        vm.urlsMap = collectUrls(vm.results);
+
     }
 
-    function dynamicalyCreateField(obj) {
-        var hintRoot = 'API_TRANSLATION.SAMPLE.';
-        Object.keys(obj).forEach(function(key,index) {
-            var upKey = key.toUpperCase();
-            if(vm.sample[key] != null && vm.sample[key] != '')
-                $translate([hintRoot+upKey]).then(function (translations) {
-                    var name = translations[hintRoot+upKey];
-                    vm.fields.push({"name" : name, "value" : $sce.trustAsHtml('<a href="">' + vm.sample[key] + '</a>')});
-                });
-        });
+    function collectUrls(obj) {
+
     }
 
 };

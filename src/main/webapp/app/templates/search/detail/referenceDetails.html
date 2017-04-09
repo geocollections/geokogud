@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <table class="table table-bordered table-hover">
-                    <tr><td>ID</td><td>{{reference.id}}</td></tr>
+             <!--       <tr><td>ID</td><td>{{reference.id}}</td></tr>
                     <tr><td>Reference</td><td>{{reference.reference}}</td></tr>
                     <tr><td>Author</td><td>{{reference.author}}</td></tr>
                     <tr><td>Year</td><td>{{reference.year}}</td></tr>
@@ -20,7 +20,10 @@
                     <tr><td>Pages</td><td>{{reference.pages}}</td></tr>
                     <tr><td>Source type</td><td>???</td></tr>
                     <tr><td>Language</td><td>{{reference.languageEng}}</td></tr>
-                    <tr><td>DOI</td><td>{{reference.doi}}</td></tr>
+                    <tr><td>DOI</td><td>{{reference.doi}}</td></tr>-->
+                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''">
+                        <td entity-field-name name="'API_TRANSLATION.REFERENCE.'+field | uppercase"></td><td entity-field-value value="detailCtrl.results[field]"></td>
+                    </tr>
                 </table>
             </div>
         </div>

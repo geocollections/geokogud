@@ -4,8 +4,12 @@ import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.photoArchive.pojo.PhotoArchiveSearchCriteria;
 
+import java.util.Map;
+
 public interface PhotoArchiveApiService {
     ApiResponse findPhoto(PhotoArchiveSearchCriteria searchCriteria);
 
     Response findById(Long id);
+
+    Map findRawById(Long id);
 }

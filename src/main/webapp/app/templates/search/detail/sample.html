@@ -11,7 +11,9 @@
                     <thead>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="field in detailCtrl.fields"><td>{{field.name}}</td><td>{{field.value}}</td></tr>
+                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''">
+                        <td entity-field-name name="'API_TRANSLATION.SAMPLE.'+field | uppercase"></td><td entity-field-value value="detailCtrl.results[field]"></td>
+                    </tr>
 <!--                    <tr><td>number</td><td>{{detailCtrl.sample.number}}</td></tr>
                     <tr><td>lisanumber</td><td>{{detailCtrl.sample.numberAdditional}}</td></tr>
                     <tr><td>leiukoht</td><td><a href data-ng-click="openInNewWindow({object:'locality',id:detailCtrl.sample.localityId})" >{{detailCtrl.sample.localityEng}}</a></td></tr>

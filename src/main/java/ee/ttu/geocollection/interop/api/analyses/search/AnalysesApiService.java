@@ -5,9 +5,12 @@ import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.analyses.pojo.AnalysesSearchCriteria;
 
 import java.util.List;
+import java.util.Map;
 
 public interface AnalysesApiService {
     ApiResponse findAnalyses(AnalysesSearchCriteria searchCriteria);
     Response findById(Long id);
     List<?> searchByField(String table, String term, String searchField);
+
+    Map findRawById(Long id);
 }

@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-3">
+                <label></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    </thead>
+                    <tbody>
+                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''">
+                        <td entity-field-name name="'API_TRANSLATION.PREPARATION.'+field | uppercase"></td><td entity-field-value value="detailCtrl.results[field]"></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -272,7 +272,9 @@
                     </thead>
                     <tbody>
                     <tr data-ng-repeat="entity in response.results">
-                        <td data-title="{{ 'SEARCH.SPECIMENS.ID' | translate }}">{{entity.id}}</td>
+                        <td data-title="{{ 'SEARCH.SPECIMENS.ID' | translate }}">
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen',id:entity.id})">{{entity.id}}</a>
+                        </td>
                         <td data-title="{{ 'SEARCH.SPECIMENS.NUMBER' | translate }}"></td>
                         <td data-title="{{ 'SEARCH.SPECIMENS.OLD_SPECIMEN_NUMBER' | translate }}">
                             {{entity.specimen_nr}}

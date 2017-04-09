@@ -26,14 +26,32 @@ var constructor = function (utils,configuration) {
     };
 
     service.getEntity = function (searchType, id, callback, error) {
-        var url = getSearchUrl(searchType);
-        utils.httpGet(configuration.sampleDetailUrl + "/"+id, null, callback, error);
+        var url = getDetailUrl(searchType);
+        utils.httpGet(url + "/"+id, null, callback, error);
     };
 
     service.loadMapData = function (callback, error) {
         utils.httpGet(configuration.mapData.allLocalities , null, callback, error);
     };
 
+    function getDetailUrl (searchType) {
+        var url = null;
+        switch (searchType) {
+            case "specimens" : url = configuration.specimenDetailUrl; break;
+            case "samples" : url = configuration.sampleDetailUrl; break;
+            case "drillCores" : url = configuration.drillCoreDetailUrl; break;
+            case "localities" : url = configuration.localityDetailUrl; break;
+            case "references" : url = configuration.referenceDetailUrl; break;
+            case "stratigraphy" : url = configuration.stratigraphyDetailUrl; break;
+            case "analysis" : url = configuration.analysisDetailUrl; break;
+            case "preparations" : url = configuration.preparationDetailUrl; break;
+            case "photoArchive" : url = configuration.photoArchiveDetailUrl; break;
+            case "soil" : url = configuration.soilDetailUrl; break;
+            case "doi" : url = configuration.doiDetailUrl; break;
+            default : break;
+        }
+        return url;
+    }
 
     function getSearchUrl (searchType) {
         var url = null;

@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class DoiApiServiceImpl implements DoiApiService {
@@ -58,5 +59,15 @@ public class DoiApiServiceImpl implements DoiApiService {
         return apiService.findByParam("doi", requestParams);
     }
 
+    @Override
+    public Map findRawById(Long id) {
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
+                .id(id)
+                .relatedData("doi_agent")
+                .relatedData("doi_geolocation")
+                .relatedData("doi_related_identifier")
+                .buildWithDefaultReturningFields();
+        return apiService.findRawEntity("doi", requestParams);
+    }
 
 }

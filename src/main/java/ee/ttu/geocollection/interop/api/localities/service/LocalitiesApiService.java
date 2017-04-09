@@ -15,6 +15,8 @@ public interface LocalitiesApiService {
 
     Response<Locality> findById(Long id);
 
+    Map findRawById(Long id);
+
     LocalityApiResponse getLocality(Long id);
 
     LocalityApiResponse getLocality(Long id, SearchApiRequest request);

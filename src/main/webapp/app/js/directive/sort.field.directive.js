@@ -6,7 +6,7 @@ angular.module('geoApp').directive('sortField', function () {
                     '<span>{{ name | translate}}</span>' +
                     '<span data-ng-show="$parent.searchParameters.sortField.sortBy == value && sortByAsc" class="glyphicon glyphicon-triangle-bottom"></span>' +
                     '<span data-ng-show="$parent.searchParameters.sortField.sortBy == value && !sortByAsc" class="glyphicon glyphicon-triangle-top"></span>' +
-                  '</a>{{$parent.sortByAsc}}',
+                  '</a>',
         scope: {
             name: '@',
             value: '@'
