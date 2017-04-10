@@ -13,6 +13,7 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     vm.yearFilter = yearFilter;
     vm.getTitle = getTitle;
     vm.getText = getText;
+    vm.getContent = getContent;
     vm.changeLanguage = changeLanguage;
     vm.webpages;
     var yearToShow;
@@ -65,6 +66,12 @@ var constructor = function (configuration,$translate,$http, applicationService,$
         return $translate.use() === "et" ? id.text_et : id.text_en;
     }
 
+    function getContent(webpage) {
+        if (webpage != null) {
+            return $translate.use() === "et" ? webpage.content_et : webpage.content_en;
+        } return null;
+    }
+
     function changeLanguage(langKey) {
         $translate.use(langKey);
     }
@@ -77,4 +84,3 @@ var constructor = function (configuration,$translate,$http, applicationService,$
 constructor.$inject = ["configuration",'$translate', '$http', 'ApplicationService','$state', '$scope', '$rootScope'];
 
 module.controller("MainController", constructor);
-
