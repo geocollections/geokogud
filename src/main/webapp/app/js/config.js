@@ -170,7 +170,6 @@ module.config(function($stateProvider,$urlRouterProvider) {
         }
     }).state('git', {
         url: "/git",
-        params: { contentId: 2 },
         views: {
             "additional": {
                 templateUrl: "app/templates/main/git.html"
@@ -178,6 +177,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
         }
     }).state('geocollection', {
         url: "/geocollection",
+        params: { contentId: 2 },
         views: {
             "additional": {
                 templateUrl: "app/templates/main/geocollection.html"
