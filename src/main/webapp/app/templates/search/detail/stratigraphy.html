@@ -41,11 +41,76 @@
             </table>
 
         </div>
-        <div class="row">
-            <label>Numeric age</label>
-        </div>
-        <div class="row">
+        <div class="row" data-ng-if="detailCtrl.stratigraphyReference.length > 0">
             <label>References</label>
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Reference</th>
+                    <th>Pages</th>
+                    <th>Remarks</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr style="cursor: pointer; " data-ng-repeat="entity in detailCtrl.stratigraphyReference">
+                    <td>{{entity.id}}</td>
+                    <td>{{entity.reference__reference}}</td>
+                    <td>{{entity.pages}}</td>
+                    <td>{{entity.remarks}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row" data-ng-if="detailCtrl.stratigraphyStratotype.length > 0">
+            <label>Stratotype</label>
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Locality</th>
+                    <th>Stratotype</th>
+                    <th>Reference</th>
+                    <th>Depth top</th>
+                    <th>Depth base</th>
+                    <th>Remarks</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr style="cursor: pointer; " data-ng-repeat="entity in detailCtrl.stratigraphyStratotype">
+                    <td>{{entity.id}}</td>
+                    <td><localize et="entity.locality__locality" en="entity.locality__locality_en"/></td>
+                    <td><localize et="entity.stratotype_type__value" en="entity.stratotype_type__value_en"/></td>
+                    <td>{{entity.reference__reference}}</td>
+                    <td>{{entity.depth_top}}</td>
+                    <td>{{entity.depth_base}}</td>
+                    <td>{{entity.remarks}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row" data-ng-if="detailCtrl.stratigraphySynonym.length > 0">
+            <label>Synpnym</label>
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Synonym</th>
+                    <th>Language</th>
+                    <th>Reference</th>
+                    <th>Remarks</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr style="cursor: pointer; " data-ng-repeat="entity in detailCtrl.stratigraphySynonym">
+                    <td>{{entity.id}}</td>
+                    <td><localize et="entity.synonym" en="entity.synonym_en"/></td>
+                    <td><localize et="entity.language__value" en="entity.language__value_en"/></td>
+                    <td>{{entity.reference__reference}}</td>
+                    <td>{{entity.remarks}}</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

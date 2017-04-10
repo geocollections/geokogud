@@ -37,7 +37,8 @@
     "specimens" : {
       "urls" : [],
       "localizedValues" : [],
-      "date" : [],
+      "date" : ["date_added","date_changed"],
+      "locality" : {"id" : "locality_id", "country" : "locality__country__value_en", "lat" : "locality__latitude", "lon" : "locality__longitude", "value_et" : "locality__locality", "value_en" : "locality__locality_en"},
       "ignoreFields" : []
     },
     "samples" : {
@@ -55,18 +56,30 @@
         {"value_et" : "rock",  "value_en" : "rock_en"}
       ],
       "date" : ["date_collected","date_collected_free", "date_added", "date_changed"],
+      "locality" : {"id" : "locality_id", "country" : "locality__country__value_en", "lat" : "locality__latitude", "lon" : "locality__longitude", "value_et" : "locality__locality", "value_en" : "locality__locality_en"},
       "ignoreFields" : ["locality_id", "stratigraphy_id"]
     },
     "drillCores" : {
       "urls" : [],
       "localizedValues" : [],
       "date" : [],
+      "locality" : {"id" : "locality_id", "country" : "locality__country__value_en", "lat" : "locality__latitude", "lon" : "locality__longitude", "value_et" : "locality__locality", "value_en" : "locality__locality_en"},
       "ignoreFields" : []
     },
     "localities" : {
       "urls" : [],
-      "localizedValues" : [],
-      "date" : [],
+      "localizedValues" : [{"value_et" : "asustusyksus__asustusyksus",  "value_en" : "asustusyksus__asustusyksus_en"},
+        {"value_et" : "country__value",  "value_en" : "country__value_en"},
+        {"value_et" : "locality",  "value_en" : "locality_en"},
+        {"value_et" : "maakond__maakond",  "value_en" : "maakond__maakond_en"},
+        {"value_et" : "stratigraphy_base__stratigraphy",  "value_en" : "stratigraphy_base__stratigraphy_en"},
+        {"value_et" : "stratigraphy_top__stratigraphy",  "value_en" : "stratigraphy_top__stratigraphy_en"},
+        {"value_et" : "type__value",  "value_en" : "type__value_en"},
+        {"value_et" : "vald__vald",  "value_en" : "vald__vald_en"},
+        {"value_et" : "coord_det_method__value",  "value_en" : "coord_det_method__value_en"}
+      ],
+      "locality" : {"id" : "id", "country" : "locality__country__value_en", "lat" : "latitude", "lon" : "longitude", "value_et" : "locality", "value_en" : "locality_en"},
+      "date" : ["date_added","date_changed"],
       "ignoreFields" : []
     },
     "references" : {
@@ -77,38 +90,45 @@
     },
     "stratigraphy" : {
       "urls" : [],
-      "localizedValues" : [],
+      "localizedValues" : [{"value_et" : "stratigraphy",  "value_en" : "stratigraphy_en"},
+        {"value_et" : "rank__value",  "value_en" : "rank__value_en"},
+        {"value_et" : "scope__value",  "value_en" : "scope__value_en"},
+        {"value_et" : "status__value",  "value_en" : "status__value_en"},
+        {"value_et" : "parent__stratigraphy",  "value_en" : "parent__stratigraphy_en"},
+        {"value_et" : "etymon",  "value_en" : "etymon_en"},
+        {"value_et" : "region",  "value_en" : "region_en"}
+      ],
       "date" : [],
       "ignoreFields" : []
     },
     "analysis" : {
-      "urls" : [],
-      "localizedValues" : [],
-      "date" : [],
+      "urls" : [{"object" : "sample", "id": "sample", "value_et" : "sample",  "value_en" : "sample"}],
       "ignoreFields" : []
     },
     "preparations" : {
-      "urls" : [],
-      "localizedValues" : [],
-      "date" : [],
+      "date" : ["date_added","date_changed"],
       "ignoreFields" : []
     },
     "photoArchive" : {
-      "urls" : [],
-      "localizedValues" : [],
-      "date" : [],
+      "localizedValues" : [{"value_et" : "locality__locality",  "value_en" : "locality__locality_en"},
+        {"value_et" : "locality__country__value",  "value_en" : "locality__country__value_en"},
+        {"value_et" : "locality__maakond__maakond",  "value_en" : "locality__maakond__maakond_en"},
+        {"value_et" : "locality__vald__vald",  "value_en" : "locality__vald__vald_en"},
+        {"value_et" : "locality__asustusyksus__asustusyksus",  "value_en" : "locality__asustusyksus__asustusyksus_en"},
+        {"value_et" : "category__value",  "value_en" : "category__value_en"},
+        {"value_et" : "type__value",  "value_en" : "type__value_en"}
+      ],
+      "date" : ["date_added","date_changed"],
       "ignoreFields" : []
     },
     "soil" : {
-      "urls" : [],
-      "localizedValues" : [],
-      "date" : [],
+      "locality" : {"id" : "", "country" : "locality__country__value_en", "lat" : "latitude", "lon" : "longitude", "value_et" : "area_name", "value_en" : ""},
       "ignoreFields" : []
     },
     "doi" : {
-      "urls" : [],
-      "localizedValues" : [],
-      "date" : [],
+      "localizedValues" : [{"value_et" : "language__value",  "value_en" : "language__value_en"},
+        {"value_et" : "dataset__name",  "value_en" : "dataset__name_en"}],
+      "date" : ["date_added","date_changed", "datacite_created", "datacite_updated"],
       "ignoreFields" : []
     }
   },

@@ -61,17 +61,12 @@
             <a href="">Show all specimens</a>
             </div>
         </div>
-        <div class="row">
-            <locality-map x = "locality.latitude" y = "locality.longitude" name = "locality.locality" fid = "locality.id"></locality-map>
-            <a href data-ng-click="showGoogleMap(locality.latitude, locality.longitude, locality.locality, locality.localityEn)">Google Maps</a></span>
-            <a href data-ng-click="showEstonianLandBoardMap(locality.latitude, locality.longitude)">Maa-amet / Estonian Land Board</a>
+        <div class="col-lg-6" data-ng-if="detailCtrl.locality.latitude && detailCtrl.locality.longitude">
+            <locality-map x = "detailCtrl.locality.latitude" y = "detailCtrl.locality.longitude" name = "detailCtrl.locality.localityEn" fid = "detailCtrl.locality.localityId"></locality-map>
+            <a href data-ng-click="detailCtrl.service.showGoogleMap(detailCtrl.locality.latitude, detailCtrl.locality.longitude, detailCtrl.locality.localityEn)">Google Maps</a></span>
+            &ensp;&ensp;|&ensp;&ensp; <a href data-ng-click="detailCtrl.service.showEstonianLandBoardMap(detailCtrl.locality.latitude, detailCtrl.locality.longitude)">Maa-amet / Estonian Land Board</a>
         </div>
 
-        <div class="row">
-            <div class="col-lg-6">
-                <label></label>
-            </div>
-        </div>
         <div class="row">
             <div class="col-lg-6">
                 <label>Linked files</label>
@@ -87,7 +82,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr style="cursor: pointer; " data-ng-repeat="entity in images">
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in detailCtrl.images">
                         <td>???</td>
                         <td>???</td>
                         <td>???</td>
@@ -99,7 +94,7 @@
                 </table>
             </div>
         </div>
-        <div class="row">
+        <div class="row" data-ng-if="detailCtrl.references.length > 0">
             <div class="col-lg-6">
                 <label>References to locality</label>
                 <table class="table table-bordered table-hover">
@@ -112,8 +107,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr style="cursor: pointer; " data-ng-repeat="entity in references">
-                        <td><a href data-ng-click="openInNewWindow({object:'references',id:entity.id})">{{entity.reference}}</a></td>
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in detailCtrl.references">
+                        <td><a href data-ng-click="detailCtrl.service.openInNewWindow({object:'reference',id:entity.id})">{{entity.reference}}</a></td>
                         <td>{{entity.pages}}</td>
                         <td>???</td>
                         <td>{{entity.remarks}}</td>
@@ -122,7 +117,7 @@
                 </table>
             </div>
         </div>
-        <div class="row">
+        <div class="row" data-ng-if="detailCtrl.drillcores.length > 0">
             <div class="col-lg-6">
                 <label>Drillcores</label>
                 <table class="table table-bordered table-hover">
@@ -134,8 +129,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr style="cursor: pointer; " data-ng-repeat="entity in drillcores">
-                        <td><a href data-ng-click="openInNewWindow({object:'drillCores',id:entity.id})">{{entity.drillcore}}</a></td>
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in detailCtrl.drillcores">
+                        <td><a href data-ng-click="detailCtrl.service.openInNewWindow({object:'drillcore',id:entity.id})">{{entity.drillcore}}</a></td>
                         <td>???</td>
                         <td>???</td>
                     </tr>

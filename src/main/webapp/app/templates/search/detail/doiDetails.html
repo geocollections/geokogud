@@ -67,10 +67,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr style="cursor: pointer; " data-ng-repeat="entity in doiAgent">
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in detailCtrl.doiAgent">
                         <td>{{entity.name}}</td>
                         <td>{{entity.affiliation}}</td>
-                        <td>{{entity.agentType}}</td>
+                        <td>{{entity.agent_type__value}}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -94,10 +94,12 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr style="cursor: pointer; " data-ng-repeat="entity in doiRelatedIdentifier">
-                        <td>{{entity.relatedType}}</td>
-                        <td>{{entity.identifierType}}</td>
-                        <td>{{entity.value}}</td>
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in detailCtrl.doiRelatedIdentifier">
+                        <td>{{entity.relation_type__value}}</td>
+                        <td>{{entity.identifier_type__value}}</td>
+                        <td data-ng-if="entity.identifier_type__value != 'URL'">{{entity.value}}</td>
+                        <td data-ng-if="entity.identifier_type__value == 'URL'">
+                            <a href data-ng-click="detailCtrl.service.openUrlInNewWindow({url:entity.value})">{{entity.value}}</a></td>
                         <td>???</td>
                         <td>???</td>
                     </tr>
@@ -124,7 +126,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr style="cursor: pointer; " data-ng-repeat="entity in doiGeolocation">
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in detailCtrl.doiGeolocation">
                         <td>{{entity.place}}</td>
                         <td>{{entity.point}}</td>
                         <td>???</td>

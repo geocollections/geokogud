@@ -33,7 +33,6 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
             $scope.$apply();
         });
         $scope.response = result.data;
-        console.log($scope.response);
         if ($scope.isMapHidden) {
             $scope.getLocalities($scope.response.data);
         }
