@@ -17,6 +17,7 @@ angular.module('geoApp').directive('sortField', function () {
                 $scope.sortByAsc = ($scope.$parent.searchParameters.sortField.sortBy === predicate ? !$scope.sortByAsc : true);
                 $scope.$parent.searchParameters.sortField.sortBy = predicate;
                 !$scope.sortByAsc ? $scope.$parent.searchParameters.sortField.order = "ASCENDING" : $scope.$parent.searchParameters.sortField.order = "DESCENDING";
+                $scope.$parent.searchParameters.page = 1;
                 $scope.$parent.search();
             };
         }]
