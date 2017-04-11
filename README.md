@@ -6,7 +6,7 @@ http://geocollections.arendus.geokogud.info/
 
 Prerequisites:
 
-installed Java JDK or JRE version 7 or higher.
+installed Java JDK or JRE version 8.
 
 installed Gradle build tool. You can download it from here https://gradle.org/releases
 
