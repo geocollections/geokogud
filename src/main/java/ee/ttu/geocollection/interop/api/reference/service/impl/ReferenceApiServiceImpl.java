@@ -41,7 +41,7 @@ public class ReferenceApiServiceImpl implements ReferenceApiService {
                 .queryYear(searchCriteria.getYear()).andReturn()
                 .queryDoi(searchCriteria.getDoi()).andReturn()
                 .fieldIsNotNull("doi")
-                .build();
+                .buildWithReturningCertainFields();
         return apiService.searchEntities("reference", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams, Reference.class);
     }
 

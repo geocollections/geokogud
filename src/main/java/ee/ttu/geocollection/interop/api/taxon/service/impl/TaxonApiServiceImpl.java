@@ -63,7 +63,7 @@ public class TaxonApiServiceImpl implements TaxonApiService {
         RestTemplate restTemplate = new RestTemplate();
         UriComponentsBuilder urlBuilder = UriComponentsBuilder.fromHttpUrl(apiUrl + "/taxon");
         urlBuilder.queryParam("format", "json");
-        return restTemplate.getForObject(urlBuilder.build(false).toUriString(), TaxonApiResponse.class);
+        return restTemplate.getForObject(urlBuilder.buildWithReturningCertainFields(false).toUriString(), TaxonApiResponse.class);
 
         */
 

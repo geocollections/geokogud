@@ -57,8 +57,8 @@ public class SamplesApiServiceImpl implements SamplesApiService {
                 .queryMass(searchCriteria.getMassSince())
                 .queryMass(searchCriteria.getMassTo())
                 .queryLocation(searchCriteria.getLocation())
-             /*   .queryTaxon(searchCriteria.getTaxon()).andReturn()
-                .queryAnalysis(searchCriteria.getAnalysis()).andReturn()
+                //.queryTaxon(searchCriteria.getTaxon()).andReturn()
+                /*.queryAnalysis(searchCriteria.getAnalysis()).andReturn()
                 .queryFrequency(searchCriteria.getFrequency()).andReturn()
                 .queryComponet(searchCriteria.getComponent()).andReturn()
                 .queryContent(searchCriteria.getContent()).andReturn()*/

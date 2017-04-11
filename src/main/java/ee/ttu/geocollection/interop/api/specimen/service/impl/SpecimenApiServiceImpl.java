@@ -24,11 +24,16 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
         String requestParams = FluentSpecimenSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId())
                 .querySpecimenNumber(searchCriteria.getSpecimenNumber())
+                .queryCollectionNumber(searchCriteria.getCollectionNumber())
                 .queryClassification(searchCriteria.getClassification())
                 .queryMineralRock(searchCriteria.getMineralRock())
                 .queryLocality(searchCriteria.getLocality())
                 .queryDepth(searchCriteria.getDepth())
                 .queryStratigraphy(searchCriteria.getStratigraphy())
+                .queryDateAdded(searchCriteria.getRegDate())
+                .queryPartOfFossil(searchCriteria.getPartOfFossil())
+                .queryOriginalStatus(searchCriteria.getTypeStatus())
+                .queryCollector(searchCriteria.getCollector())
                 .buildWithoutReturningCertainFields();
         return apiService.searchRawEntities("specimen", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }

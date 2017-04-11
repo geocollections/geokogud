@@ -21,7 +21,7 @@ public class FluentSampleSearchApiBuilder extends FluentSearchApiBuilder<FluentS
     }
 
     public FluentSampleSearchApiBuilder queryNumber(SearchField number) {
-        buildMultiSearch(number, NUMBER, NUMBER_ADDITIONAL, ID);
+        buildMultiSearch(number, NUMBER, NUMBER_ADDITIONAL, NUMBER_FIELD, ID);
         return this;
     }
 
@@ -30,7 +30,8 @@ public class FluentSampleSearchApiBuilder extends FluentSearchApiBuilder<FluentS
                 STRATIGRAPHY_STRATIGRAPHY,
                 STRATIGRAPHY_STRATIGRAPHY_ENG,
                 LITHOSTRATIGRAPHY__STRATIGRAPHY,
-                LITHOSTRATIGRAPHY__STRATIGRAPHY_ENG);
+                LITHOSTRATIGRAPHY__STRATIGRAPHY_ENG,
+                STRATIGRAPHY_FREE);
         return this;
     }
 
@@ -48,10 +49,13 @@ public class FluentSampleSearchApiBuilder extends FluentSearchApiBuilder<FluentS
         buildMultiSearch(country,
                 LOCALITY_COUNTRY,
                 LOCALITY_COUNTRY_ENG,
+                LOCALITY__COUNTRY__ISO_CODE,
                 LOCALITY__MAAKOND__MAAKOND,
                 LOCALITY__MAAKOND__MAAKOND_EN,
                 LOCALITY__VALD__VALD,
-                LOCALITY__VALD__VALD_ENG);
+                LOCALITY__VALD__VALD_ENG,
+                LOCALITY__ASUSTUSYKSUS__ASUSTUSYKSUS,
+                LOCALITY__ASUSTUSYKSUS__ASUSTUSYKSUS_EN);
         return this;
     }
 
