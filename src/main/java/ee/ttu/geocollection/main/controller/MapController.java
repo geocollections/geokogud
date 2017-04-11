@@ -26,6 +26,7 @@ public class MapController {
     }
 
     @RequestMapping(value = "/locality-summary")
+    @ResponseBody
     public Map findLocalitySummary() {
         return localitiesApiService.findLocalitiesSummary();
     }

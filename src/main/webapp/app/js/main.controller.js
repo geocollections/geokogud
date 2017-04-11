@@ -30,7 +30,7 @@ var constructor = function (configuration,$translate,$http, applicationService,$
 
     function asyncLoadData () {
         applicationService.getNews(onNewsData);
-//        applicationService.loadMapData(onMapData);
+        applicationService.loadMapData(onMapData);
     }
 
     function getWebPageById(id) {
@@ -38,7 +38,7 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     }
 
     function onMapData(response) {
-        console.log(response.data.results[0]);
+        console.log(response);
     }
 
     function onNewsData(response) {

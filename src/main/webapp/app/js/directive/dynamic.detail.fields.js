@@ -1,6 +1,6 @@
 angular.module('geoApp').directive('entityFieldName', function () {
     return {
-        template: "{{name | translate}}",
+        template: "{{name}}",
         restrict: 'AE',
         scope: {
             name: '=',

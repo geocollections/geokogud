@@ -87,6 +87,6 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
     public Map findLocalitiesSummary() {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .buildWithDefaultReturningFields();
-        return apiService.findRawEntities("locality_summary", requestParams);
+        return apiService.findRawEntity("locality_summary", requestParams);
     }
 }
