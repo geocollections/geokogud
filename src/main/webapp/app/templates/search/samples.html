@@ -54,11 +54,12 @@
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.SAMPLES.DEPTH_M' | translate }}</b>
-                                    <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.depth.lookUpType"></selectexact>
+                                    <!--<selectexact custom-css="searchCriterionType"
+                                                 ng-model="searchParameters.depth.lookUpType"></selectexact>-->
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.depth.name" class="form-control"/>
+                                    <interval-field ng-model= "searchParameters.depthSince" lookup="gte"></interval-field >
+                                    <interval-field ng-model= "searchParameters.depthTo" lookup="lte"></interval-field >
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -94,11 +95,13 @@
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.SAMPLES.WEIGHT' | translate }}</b>
-                                    <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.mass.lookUpType"></selectexact>
+                                 <!--   <selectexact custom-css="searchCriterionType"
+                                                 ng-model="searchParameters.mass.lookUpType"></selectexact>-->
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.mass.name" class="form-control"/>
+                                    <interval-field ng-model= "searchParameters.massSince" lookup="gte"></interval-field >
+                                    <interval-field ng-model= "searchParameters.massTo" lookup="lte"></interval-field >
+                                  <!--  <input type="text" ng-model="searchParameters.mass.name" class="form-control"/>-->
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -108,7 +111,7 @@
                                                    ng-model="searchParameters.location.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.location.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.location.name" table="sample" en="null" et="location"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -184,15 +187,10 @@
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.SAMPLES.LOCALITY' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.locality.type"></selectdefault>
+                                                   ng-model="searchParameters.locality.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" class="form-control input-sm"
-                                           data-ng-model="searchParameters.locality.name"
-                                           placeholder="input search parameter..."
-                                           data-uib-typeahead="e as entity.locality for entity in searchService.localitySearch($viewValue, 'locality')"
-                                           data-typeahead-min-length="2"
-                                           data-typeahead-on-select="entitySelected($item, $model)"/>
+                                    <autocomplete-field ng-model="searchParameters.locality.name" table="sample" en="locality__locality_en" et="locality__locality"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
