@@ -5,6 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static ee.ttu.geocollection.interop.api.builder.ApiFields.ID;
 import static ee.ttu.geocollection.interop.api.builder.ApiFields.REMARKS;
@@ -14,6 +15,7 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
     String query = EMPTY;
     private String returnFields = EMPTY;
     String lastQueryField = EMPTY;
+    String[] lastQueryFields = new String[]{};
 
     FluentSearchApiBuilder() {
     }
@@ -22,6 +24,11 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
 
     public B andReturn() {
         addReturningField(lastQueryField);
+        lastQueryField = EMPTY;
+
+        Stream.of(lastQueryFields).forEach(this::addReturningField);
+        lastQueryFields = new String[]{};
+
         return getThis();
     }
 
@@ -58,7 +65,7 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
     }
 
 
-    public String build() {
+    public String buildWithReturningCertainFields() {
         return query + "&fields=" + returnFields;
     }
 
@@ -80,6 +87,7 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
                         + ";fields:" + StringUtils.join(fieldName, ",")
                         + ";lookuptype:" + searchField.getLookUpType()
                 : EMPTY;
+        this.lastQueryFields = fieldName;
     }
 
     private String extractFieldParameters(SearchField searchField) {

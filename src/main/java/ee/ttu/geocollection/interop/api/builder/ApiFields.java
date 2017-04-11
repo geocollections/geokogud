@@ -29,6 +29,8 @@ public class ApiFields {
     public static final String REMARKS = "remarks";
 
     public static final String AGENT_COLLECTED = "agent_collected__agent";
+    public static final String AGENT_COLLECTED__FORENAME = "agent_collected__forename";
+    public static final String AGENT_COLLECTED__SURENAME = "agent_collected__surename";
 
     public static final String TAXON = "taxon";
     public static final String ANALYSIS = "analysis";
@@ -140,7 +142,15 @@ public class ApiFields {
     public static final String LITHOSTRATIGRAPHY__STRATIGRAPHY = "lithostratigraphy__stratigraphy";
     public static final String LITHOSTRATIGRAPHY__STRATIGRAPHY_ENG = "lithostratigraphy__stratigraphy_en";
     public static final String SPECIMEN_ID = "specimen_id";
+    public static final String SPECIMEN_NR = "specimen_nr";
     public static final String IMAGE_URL = "image_url";
+    public static final String COLL__NUMBER = "coll__number";
+    public static final String COLL_ID = "coll_id";
+    public static final String CLASSIFICATION__CLASS_FIELD = "classification__class_field";
+    public static final String CLASSIFICATION__CLASS_EN = "classification__class_en";
+    public static final String PART = "part";
+    public static final String ORIGINAL_STATUS__VALUE = "original_status__value";
+    public static final String ORIGINAL_STATUS__VALUE_EN = "original_status__value_en";
 
     //Analyses search
     public static final String ANALYSIS_METHOD__ANALYSIS_METHOD = "analysis_method__analysis_method";

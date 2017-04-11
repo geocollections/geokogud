@@ -55,7 +55,7 @@ public class DoiApiServiceImpl implements DoiApiService {
         String requestParams = FluentCommonSearchApiBuilder.aRequest()
                 .queryField(searchField,searchField_)
                 .returnField(searchField)
-                .build();
+                .buildWithReturningCertainFields();
         return apiService.findByParam("doi", requestParams);
     }
 
