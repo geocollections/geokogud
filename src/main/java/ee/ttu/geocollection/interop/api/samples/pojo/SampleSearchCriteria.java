@@ -11,11 +11,13 @@ public class SampleSearchCriteria {
     private SearchField id;
     private SearchField sampleNumber;
 
-    private SearchField depth;
+    private SearchField depthSince;
+    private SearchField depthTo;
     private SearchField stratigraphy;
     private SearchField stratigraphyBed;
     private SearchField agent;
-    private SearchField mass;
+    private SearchField massSince;
+    private SearchField massTo;
     private SearchField location;
     private SearchField taxon;
     private SearchField frequency;
@@ -74,12 +76,20 @@ public class SampleSearchCriteria {
         this.sampleNumber = sampleNumber;
     }
 
-    public SearchField getDepth() {
-        return depth;
+    public SearchField getDepthSince() {
+        return depthSince;
     }
 
-    public void setDepth(SearchField depth) {
-        this.depth = depth;
+    public void setDepthSince(SearchField depthSince) {
+        this.depthSince = depthSince;
+    }
+
+    public SearchField getDepthTo() {
+        return depthTo;
+    }
+
+    public void setDepthTo(SearchField depthTo) {
+        this.depthTo = depthTo;
     }
 
     public SearchField getStratigraphy() {
@@ -106,12 +116,20 @@ public class SampleSearchCriteria {
         this.agent = agent;
     }
 
-    public SearchField getMass() {
-        return mass;
+    public SearchField getMassSince() {
+        return massSince;
     }
 
-    public void setMass(SearchField mass) {
-        this.mass = mass;
+    public void setMassSince(SearchField massSince) {
+        this.massSince = massSince;
+    }
+
+    public SearchField getMassTo() {
+        return massTo;
+    }
+
+    public void setMassTo(SearchField massTo) {
+        this.massTo = massTo;
     }
 
     public SearchField getLocation() {
