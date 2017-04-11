@@ -27,7 +27,71 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <label>Identifications ???</label>
+            <label>Identifications (minerals and rocks)</label>
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Formula</th>
+                    <th>Det.</th>
+                    <th>Date added?</th>
+                    <th>Reference</th>
+                    <th>Remarks</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr style="cursor: pointer; " data-ng-repeat="entity in detailCtrl.specimenIdentifications">
+                    <td><a href="http://fossiilid.info/{{entity.id}}">{{entity.taxon__taxon}}</a></td>
+                    <td>{{entity.soil_horizon}}</td>
+                    <td>???</td>
+                    <td>{{entity.date_added  | date:dateFormat}}</td>
+                    <td>{{entity.reference__reference}}</td>
+                    <td>{{entity.remarks}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <label>Reference</label>
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Reference</th>
+                    <th>Pages</th>
+                    <th>Figures</th>
+                    <th>DOI</th>
+                    <th>Remarks</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr style="cursor: pointer; " data-ng-repeat="entity in detailCtrl.specimenReference">
+                    <td><a href data-ng-click="detailCtrl.service.openInNewWindow({object:'reference',id:entity.id})">{{entity.reference__reference}}</a></td>
+                    <td>{{entity.pages}}</td>
+                    <td>{{entity.figures}}</td>
+                    <td>{{entity.reference__doi}}</td>
+                    <td>{{entity.remarks}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <label>Images</label>
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>???</th>
+                    <th>???</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr style="cursor: pointer; " data-ng-repeat="entity in detailCtrl.specimenImage">
+                    <td>???</td>
+                    <td>???</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+
+
 </div>

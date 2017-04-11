@@ -45,6 +45,9 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
     public Map findRawById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
+                .relatedData("specimen_identification")
+                .relatedData("specimen_image")
+                .relatedData("specimen_reference")
                 .buildWithDefaultReturningFields();
         return apiService.findRawEntity("specimen", requestParams);
     }

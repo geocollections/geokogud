@@ -18,6 +18,7 @@ import ee.ttu.geocollection.interop.api.reference.pojo.ReferenceSearchCriteria;
 import ee.ttu.geocollection.interop.api.reference.service.ReferenceApiService;
 import ee.ttu.geocollection.interop.api.samples.pojo.SampleSearchCriteria;
 import ee.ttu.geocollection.interop.api.samples.service.SamplesApiService;
+import ee.ttu.geocollection.interop.api.service.ApiService;
 import ee.ttu.geocollection.interop.api.soil.pojo.SoilSearchCriteria;
 import ee.ttu.geocollection.interop.api.soil.service.SoilApiService;
 import ee.ttu.geocollection.interop.api.specimen.pojo.SpecimenSearchCriteria;
@@ -33,6 +34,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -64,6 +66,16 @@ public class SearchController {
     private StratigraphyApiService stratigraphyApiService;
     @Autowired
     private AnalysesApiService analysesApiService;
+    @Autowired
+    private ApiService apiService;
+
+    @RequestMapping(value = "/autocomplete-field", method = RequestMethod.GET)
+    public Map findDoiById(
+            @RequestParam("table") String table,
+            @RequestParam("term") String term,
+            @RequestParam("searchField") String searchField) {
+        return apiService.searchByField(table, term, searchField);
+    }
 
     @RequestMapping(value = "/{entity}/{id}", method= RequestMethod.GET)
     @ResponseBody

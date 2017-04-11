@@ -58,7 +58,7 @@ angular.module('geoApp').factory("SearchService", ['$http', '$state', '$rootScop
         },
         searchByParam: function (table, term, searchField) {
             return $http.get('/details/field', {
-                params: {table: table,term: term, searchField: searchField}}).then(function (response) {
+                table: table,term: term, searchField: searchField}).then(function (response) {
                 console.log(response.data)
                 return response.data;
             });

@@ -38,6 +38,10 @@ var constructor = function (utils,configuration) {
         utils.httpGet(configuration.mapData.allLocalities , null, callback, error);
     };
 
+    service.autocompleteSearch = function (table, val, searchField) {
+        utils.httpGet(configuration.autocompleteUrl, {table: table, term: val, searchField: searchField}, null, null);
+    };
+
     function getDetailUrl (searchType) {
         var url = null;
         switch (searchType) {
@@ -117,3 +121,14 @@ var constructor = function (utils,configuration) {
 constructor.$inject = ['utils','configuration'];
 
 module.service("ApplicationService", constructor);
+
+module.factory("SearchFactory", ['$http', 'configuration', function($http, configuration) {
+    return {
+        autocompleteSearch: function (table, term, searchField) {
+            return $http.get(configuration.autocompleteUrl, {params:{table: table, term: term, searchField: searchField}})
+                .then(function (response) {
+                return response.data.results;
+            });
+        }
+    };
+}]);

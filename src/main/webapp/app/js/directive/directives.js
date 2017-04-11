@@ -154,7 +154,7 @@ angular.module('geoApp').directive('loading', function () {
             '<select class="{{selectCss}}" ng-model="field">' +
                 '<option value="contains" selected="selected">{{ \'SEARCH.SELECT.CONTAINS\' | translate }}</option>' +
                 '<option value="exact">{{ \'SEARCH.SELECT.EQUALS\' | translate }}</option>' +
-                '<option value="startswith">{{ \'SEARCH.SELECT.STARTSWITH\' | translate }}</option>' +
+                '<option value="istartswith">{{ \'SEARCH.SELECT.STARTSWITH\' | translate }}</option>' +
                 '<option value="endswith">{{ \'SEARCH.SELECT.ENDSWITH\' | translate }}</option>' +
                 '<option value="icontains">{{ \'SEARCH.SELECT.DOESNOTCONTAIN\' | translate }}</option>' +
                 '<option value="in">{{ \'SEARCH.SELECT.ISINLIST\' | translate }}</option>' +
@@ -171,9 +171,9 @@ angular.module('geoApp').directive('loading', function () {
             }, {
                 name: 'equals', value: 'exact'
             }, {
-                name: 'start with', value: 'startswith'
+                name: 'start with', value: 'istartswith'
             }, {
-                name: 'ends with', value: 'startswith'
+                name: 'ends with', value: 'endswith'
             }, {
                 name: 'does not contain', value: 'icontains'
             }, {
@@ -194,8 +194,8 @@ angular.module('geoApp').directive('loading', function () {
                 '<option value="hierarchy" selected="selected">{{ \'SEARCH.SELECT.HIERARCHY\' | translate }}</option>' +
                 '<option value="contains">{{ \'SEARCH.SELECT.CONTAINS\' | translate }}</option>' +
                 '<option value="exact">{{ \'SEARCH.SELECT.EQUALS\' | translate }}</option>' +
-                '<option value="startswith">{{ \'SEARCH.SELECT.STARTSWITH\' | translate }}</option>' +
-                '<option value="endswith">{{ \'SEARCH.SELECT.ENDSWITH\' | translate }}</option>' +
+                '<option value="istartswith">{{ \'SEARCH.SELECT.STARTSWITH\' | translate }}</option>' +
+                '<option value="iendswith">{{ \'SEARCH.SELECT.ENDSWITH\' | translate }}</option>' +
                 '<option value="icontains">{{ \'SEARCH.SELECT.DOESNOTCONTAIN\' | translate }}</option>' +
                 '<option value="in">{{ \'SEARCH.SELECT.ISINLIST\' | translate }}</option>' +
             '</select>',
@@ -214,7 +214,7 @@ angular.module('geoApp').directive('loading', function () {
             }, {
                 name: 'start with', value: 'startswith'
             }, {
-                name: 'ends with', value: 'startswith'
+                name: 'ends with', value: 'endsswith'
             }, {
                 name: 'does not contain', value: 'icontains'
             }, {

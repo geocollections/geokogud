@@ -68,12 +68,7 @@
                                                      ng-model="searchParameters.stratigraphy.lookUpType"></selecthierarchy>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" class="form-control input-sm"
-                                           data-ng-model="searchParameters.stratigraphy.name"
-                                           placeholder="input search parameter..."
-                                           data-uib-typeahead="e as entity.stratigraphy for entity in searchService.localitySearch($viewValue, 'stratigraphy')"
-                                           data-typeahead-min-length="2"
-                                           data-typeahead-on-select="entitySelected($item, $model)"/>
+                                    <autocomplete-field ng-model="searchParameters.stratigraphy.name" table="sample" en="stratigraphy__stratigraphy_en" et="stratigraphy__stratigraphy"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -83,8 +78,7 @@
                                                    ng-model="searchParameters.stratigraphyBed.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.stratigraphyBed.name"
-                                           class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.stratigraphyBed.name" table="sample" en="null" et="stratigraphy_bed"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -94,7 +88,7 @@
                                                    ng-model="searchParameters.agent.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.agent.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.agent.name" table="sample" en="null" et="agent_collected__agent"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -261,12 +255,14 @@
                         </td>
                         <td data-title="">{{entity.number_additional}}</td>
                         <td data-title="{{ 'SEARCH.SAMPLES.LOCALITY' | translate }}">
-                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.locality_id})">{{entity.locality__locality}}</a>
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.locality_id})">
+                                <localize en="entity.locality__locality_en" et="entity.locality__locality"/></a>
                         </td>
                         <td data-title="{{ 'SEARCH.SAMPLES.DEPTH_M' | translate }}">{{entity.depth}}</td>
                         <td data-title="">{{entity.depth_interval}}</td>
                         <td data-title="{{ 'SEARCH.SAMPLES.STRATIGRAPHY' | translate }}">
-                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.stratigraphy_id})">{{entity.stratigraphy__stratigraphy_en}}</a>
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.stratigraphy_id})">
+                                <localize en="entity.stratigraphy__stratigraphy_en" et="entity.stratigraphy__stratigraphy"/></a>
                         </td>
                         <td data-title="{{ 'SEARCH.SAMPLES.COLLECTOR' | translate }}">
                             <first-not-null values="[entity.agent_collected__agent, agent_collected_free]"/>

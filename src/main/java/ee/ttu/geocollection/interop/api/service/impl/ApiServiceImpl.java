@@ -4,11 +4,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
+import ee.ttu.geocollection.interop.api.builder.search.FluentCommonSearchApiBuilder;
 import ee.ttu.geocollection.interop.api.common.GeoEntity;
 import ee.ttu.geocollection.interop.api.deserializer.ApiResponseProto;
 import ee.ttu.geocollection.interop.api.deserializer.Deserializer;
 import ee.ttu.geocollection.interop.api.drillCores.pojo.DrillcoreBox;
 import ee.ttu.geocollection.interop.api.service.ApiService;
+import ee.ttu.geocollection.search.domain.LookUpType;
+import ee.ttu.geocollection.search.domain.SearchField;
 import ee.ttu.geocollection.search.domain.SortField;
 import ee.ttu.geocollection.search.domain.SortingOrder;
 import org.slf4j.Logger;
@@ -141,20 +144,6 @@ public class ApiServiceImpl implements ApiService {
 
     @Override
     @Deprecated
-    public List<?> findByParam(String tableName, String requestParams) {
-        String url = apiUrl + "/" + tableName + "/" + "?paginate_by=" + 30
-                + "&format=json" + requestParams;
-        System.err.println(url);
-        ResponseEntity<ApiResponse> rawResponse = restTemplate.getForEntity(url, ApiResponse.class);
-
-
-        System.err.println(rawResponse.getBody().getResult());
-
-        return rawResponse.getBody().getResult();
-    }
-
-    @Override
-    @Deprecated
     public <T extends GeoEntity> T findEntityAndMagicallyDeserialize(String tableName, String requestParams, Class<T> responseClass) {
         String url = apiUrl + "/" + tableName + "/" + requestParams;
         System.err.println(url);
@@ -211,5 +200,35 @@ public class ApiServiceImpl implements ApiService {
         System.err.println(rawResponse.getBody().getPageInfo());
 
         return response;
+    }
+
+    @Override
+    @Deprecated
+    public List<?> findByParam(String tableName, String requestParam) {
+        String url = apiUrl + "/" + tableName + "/" + "?paginate_by=" + 30
+                + "&format=json" + requestParam+ "&group_by="+ requestParam;
+        System.err.println(url);
+        ResponseEntity<ApiResponse> rawResponse = restTemplate.getForEntity(url, ApiResponse.class);
+        return rawResponse.getBody().getResult();
+    }
+
+
+    @Override
+    public Map searchByField(String table, String term, String searchField) {
+        String url = apiUrl + "/" + table + "/" + "?paginate_by=" + 30
+                + "&format=json&fields=" + searchField + "&multi_search=value:"+term+";fields:"+searchField+";lookuptype:icontains"
+                + "&group_by="+searchField;
+
+        System.err.println(url);
+        HttpHeaders headers = new HttpHeaders();
+        String requestId = MDC.get("REQUEST_UUID");
+        if (requestId != null) {
+            headers.set("Trace-UUID", requestId);
+        }
+        HttpEntity<String> request = new HttpEntity<String>(headers);
+        System.err.println(url);
+        HttpEntity<Map> response = restTemplate.exchange(url, HttpMethod.GET, request, Map.class);
+        return response.getBody();
+
     }
 }

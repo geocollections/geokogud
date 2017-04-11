@@ -1,8 +1,9 @@
 var module = angular.module("geoApp");
 
-var constructor = function ($scope, $stateParams, configuration, $http, applicationService, $window, $translate) {
+var constructor = function ($scope, $stateParams, configuration, $http, applicationService, $window, $translate, SearchFactory) {
     var vm = this;
     vm.service = applicationService;
+    vm.factory = SearchFactory;
 
     var search = vm.service.getTranslationRoot($stateParams.type);
     $scope.searchParameters = {};
@@ -51,10 +52,6 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
     };
 
     $scope.searchDefault();
-
-    $scope.entitySelected = function (item) {
-        $scope.sampleSearch.locality.name = item.locality;
-    };
 
     $scope.showHint = function () {
         $scope.isHintHidden = !$scope.isHintHidden;
@@ -107,9 +104,8 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
 
     loadHintText();
 
-
 };
 
-constructor.$inject = ["$scope", "$stateParams", "configuration", "$http", 'ApplicationService', '$window', '$translate'];
+constructor.$inject = ["$scope", "$stateParams", "configuration", "$http", 'ApplicationService', '$window', '$translate', 'SearchFactory'];
 
 module.controller("SearchController", constructor);

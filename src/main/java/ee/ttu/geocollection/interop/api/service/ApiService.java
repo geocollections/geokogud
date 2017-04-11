@@ -13,8 +13,6 @@ public interface ApiService {
 
     ApiResponse searchRawEntities(String tableName, int page, SortField sortField, String requestParams);
 
-
-
     Map findRawEntities(String tableName, String requestParams);
 
     List<?> findByParam(String tableName, String requestParams);
@@ -27,4 +25,6 @@ public interface ApiService {
     <T extends GeoEntity> T findEntityAndMagicallyDeserialize(String tableName, String requestParams, Class<T> responseClass);
 
     <T> Response<T> searchEntitiesAngMagicallyDeserialize(String tableName, int page, SortField sortField, String requestParams, Class<T> responseClass);
+
+    Map searchByField(String table, String term, String searchField);
 }

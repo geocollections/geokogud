@@ -3,6 +3,8 @@
     "pageSize":100
   },
 
+  "autocompleteUrl" : "/search/autocomplete-field",
+
   "newsUrl":"/news",
   "mapData": {
     "allLocalities":"/map/locality-summary"

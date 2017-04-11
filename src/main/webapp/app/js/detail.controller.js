@@ -52,6 +52,9 @@ var constructor = function ($scope, $stateParams, applicationService, configurat
             vm.drillcores = vm.relatedData["drillcore"];
             vm.images = vm.relatedData["image"];
             vm.drillcoreBoxes = vm.relatedData["drillcore_box"];
+            vm.specimenIdentifications = vm.relatedData["specimen_identification"];
+            vm.specimenReference = vm.relatedData["specimen_reference"];
+            vm.specimenImage = vm.relatedData["specimen_image"];
         }
     }
 };
