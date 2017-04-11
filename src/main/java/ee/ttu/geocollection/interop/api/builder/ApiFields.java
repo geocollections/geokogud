@@ -16,8 +16,10 @@ public class ApiFields {
 
     // Sample search
     public static final String NUMBER = "number";
+    public static final String NUMBER_FIELD = "number_field";
     public static final String STRATIGRAPHY_STRATIGRAPHY = "stratigraphy__stratigraphy";
     public static final String STRATIGRAPHY_STRATIGRAPHY_ENG = "stratigraphy__stratigraphy_en";
+    public static final String STRATIGRAPHY_FREE = "stratigraphy_free";
     public static final String STRATIGRAPHY_BED = "stratigraphy_bed";
     public static final String LOCATION = "location";
     public static final String MASS = "mass";
@@ -66,6 +68,8 @@ public class ApiFields {
     public static final String LOCALITY__VALD__VALD = "locality__vald__vald";
     public static final String LOCALITY__VALD__VALD_ENG = "locality__vald__vald_en";
     public static final String LOCALITY__ASUSTUSYKSUS__ASUSTUSYKSUS = "locality__asustusyksus__asustusyksus";
+    public static final String LOCALITY__ASUSTUSYKSUS__ASUSTUSYKSUS_EN = "locality__asustusyksus__asustusyksus_en";
+    public static final String LOCALITY__COUNTRY__ISO_CODE = "locality__country__iso_code";
     public static final String OBJECT = "object";
     public static final String SIZE_X = "size_x";
     public static final String SIZE_Y = "size_y";
