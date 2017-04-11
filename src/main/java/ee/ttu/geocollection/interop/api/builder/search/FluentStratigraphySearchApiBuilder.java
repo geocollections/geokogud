@@ -36,7 +36,7 @@ public class FluentStratigraphySearchApiBuilder extends FluentSearchApiBuilder<F
     }
 
     public FluentStratigraphySearchApiBuilder queryLithology(SearchField lithology) {
-        buildFieldParameters(LITHOLOGY, lithology);
+        buildMultiSearch(lithology, LITHOLOGY, LITHOLOGY_EN);
         return this;
     }
 

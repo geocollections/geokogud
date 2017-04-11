@@ -136,6 +136,7 @@ public class ApiFields {
     public static final String INDEX_ADDITIONAL = "index_additional";
     public static final String AGE_BASE = "age_base";
     public static final String LITHOLOGY = "lithology";
+    public static final String LITHOLOGY_EN = "lithology_en";
     public static final String LITHOSTRATIGRAPHY__STRATIGRAPHY = "lithostratigraphy__stratigraphy";
     public static final String LITHOSTRATIGRAPHY__STRATIGRAPHY_ENG = "lithostratigraphy__stratigraphy_en";
     public static final String SPECIMEN_ID = "specimen_id";

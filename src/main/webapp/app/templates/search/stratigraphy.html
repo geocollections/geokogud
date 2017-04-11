@@ -122,14 +122,18 @@
                         </td>
                         <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.INDEX' | translate }}">{{entity.index_main}}</td>
                         <td data-title=""><div ng-bind-html="entity.index_additional_html"></div></td>
-                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.TYPE' | translate }}">???</td>
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.TYPE' | translate }}">
+                            <localize en="entity.type__value_en" et="entity.type__value" />
+                        </td>
                         <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.RANK' | translate }}">
                             <localize et="entity.rank__value" en="entity.rank__value_en"/>
                         </td>
                         <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.SCOPE' | translate }}">
                             <localize et="entity.scope__value" en="entity.scope__value_en"/>
                         </td>
-                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.AGE' | translate }}">???</td>
+                        <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.AGE' | translate }}">
+                            <localize et="entity.age_chronostratigraphy__stratigraphy" en="entity.age_chronostratigraphy__stratigraphy_en"/>
+                        </td>
                         <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.AGE_MA' | translate }}">
                             {{entity.age_base}}<br>{{entity.age_top}}
                         </td>
