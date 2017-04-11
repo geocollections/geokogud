@@ -70,8 +70,7 @@
                                                      ng-model="searchParameters.classification.lookUpType"></selecthierarchy>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.classification.name"
-                                           class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.classification.name" table="specimen" en="classification__class_en" et="classification__class_field"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -92,7 +91,7 @@
                                                    ng-model="searchParameters.fossilName.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.fossilName.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.fossilName.name" table="specimen" en="fossil__value_en" et="fossil__value"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -102,7 +101,7 @@
                                                    ng-model="searchParameters.mineralrock.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.mineralrock.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.mineralrock.name" table="specimen" en="sample__rock_en" et="sample__rock"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -122,12 +121,7 @@
                                                      ng-model="searchParameters.stratigraphy.lookUpType"></selecthierarchy>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" class="form-control input-sm"
-                                           data-ng-model="searchParameters.stratigraphy.name"
-                                           placeholder="input search parameter..."
-                                           data-uib-typeahead="e as entity.stratigraphy for entity in searchService.localitySearch($viewValue, 'stratigraphy')"
-                                           data-typeahead-min-length="2"
-                                           data-typeahead-on-select="entitySelected($item, $model)"/>
+                                    <autocomplete-field ng-model="searchParameters.stratigraphy.name" table="specimen" en="stratigraphy__stratigraphy_en" et="stratigraphy__stratigraphy"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -137,7 +131,7 @@
                                                    ng-model="searchParameters.collector.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.collector.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.collector.name" table="specimen" en="null" et="agent_collected__agent"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -157,7 +151,7 @@
                                                    ng-model="searchParameters.typeStatus.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.typeStatus.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.typeStatus.name" table="specimen" en="original_status__value_en" et="original_status__value"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
