@@ -49,7 +49,7 @@
                                                    ng-model="searchParameters.drillcore.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.drillcore.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.drillcore.name" table="drillcore" en="drillcore_en" et="drillcore"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -71,18 +71,19 @@
                                                    ng-model="searchParameters.storageLocation.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.storageLocation.name"
-                                           class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.storageLocation.name" table="drillcore" en="null" et="storage__location"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.DRILL_CORES.BOX_COUNT' | translate }}</b>
-                                    <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.boxes.lookUpType"></selectexact>
+                                 <!--   <selectexact custom-css="searchCriterionType"
+                                                 ng-model="searchParameters.boxes.lookUpType"></selectexact>-->
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.boxes.name" class="form-control"/>
+                                    <interval-field ng-model= "searchParameters.boxesSince" lookup="gte"></interval-field >
+                                    <interval-field ng-model= "searchParameters.boxesTo" lookup="lte"></interval-field >
+                                 <!--   <input type="text" ng-model="searchParameters.boxes.name" class="form-control"/>-->
                                 </div>
                             </div>
                         </div>
@@ -105,8 +106,8 @@
                                                    ng-disabled="true"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.country.value" class="form-control"
-                                           ng-disabled="true"/>
+                                    <autocomplete-field ng-model="searchParameters.country.name" table="drillcore" en="locality__country__value_en" et="locality__country__value"/>
+
                                 </div>
                             </div>
                             <div class="row searchCriterion">

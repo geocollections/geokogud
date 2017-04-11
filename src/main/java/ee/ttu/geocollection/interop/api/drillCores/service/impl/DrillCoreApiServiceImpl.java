@@ -35,7 +35,8 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService {
                 .queryLocalityCountryEng(searchCriteria.getLocalityCountryEng())
                 .queryLocalityLatitude(searchCriteria.getLatitude())
                 .queryLocalityLongitude(searchCriteria.getLongitude())
-                .queryBoxes(searchCriteria.getBoxes())
+                .queryBoxes(searchCriteria.getBoxesSince())
+                .queryBoxes(searchCriteria.getBoxesTo())
                 .queryDepth(searchCriteria.getDepth())
                 .queryInstitution(searchCriteria.getDbs())
                 .buildWithoutReturningCertainFields();

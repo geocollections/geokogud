@@ -17,7 +17,8 @@ public class DrillCoreSearchCriteria {
     private SearchField latitude;
     private SearchField longitude;
     private SearchField depth;
-    private SearchField boxes;
+    private SearchField boxesSince;
+    private SearchField boxesTo;
     private List<String> dbs;
 
     //    Country, Admin. unit, Stratigraphy
@@ -112,12 +113,20 @@ public class DrillCoreSearchCriteria {
         this.depth = depth;
     }
 
-    public SearchField getBoxes() {
-        return boxes;
+    public SearchField getBoxesSince() {
+        return boxesSince;
     }
 
-    public void setBoxes(SearchField boxes) {
-        this.boxes = boxes;
+    public void setBoxesSince(SearchField boxesSince) {
+        this.boxesSince = boxesSince;
+    }
+
+    public SearchField getBoxesTo() {
+        return boxesTo;
+    }
+
+    public void setBoxesTo(SearchField boxesTo) {
+        this.boxesTo = boxesTo;
     }
 
     public List<String> getDbs() {
