@@ -75,4 +75,29 @@ public class FluentSpecimenSearchApiBuilder extends FluentSearchApiBuilder<Fluen
         buildMultiSearch(collector, AGENT_COLLECTED, AGENT_COLLECTED__FORENAME, AGENT_COLLECTED__SURENAME);
         return this;
     }
+
+    public FluentSpecimenSearchApiBuilder queryReference(SearchField reference) {
+        buildMultiSearch(reference, SPECIMENREFERENCE__REFERENCE__AUTHOR, SPECIMENREFERENCE__REFERENCE__TITLE, AGENT_COLLECTED__SURENAME);
+        return this;
+    }
+
+    public FluentSpecimenSearchApiBuilder queryNameOfFossil(SearchField nameOfFossil) {
+        buildMultiSearch(nameOfFossil, SPECIMENIDENTIFICATION__NAME, SPECIMENIDENTIFICATION__TAXON__TAXON);
+        return this;
+    }
+
+    public FluentSpecimenSearchApiBuilder queryFossilMineralRock(SearchField fossilMineralRock) {
+        buildMultiSearch(fossilMineralRock, KIND__VALUE, KIND__VALUE_EN);
+        return this;
+    }
+
+    public FluentSpecimenSearchApiBuilder queryKeywords(SearchField keyWords) {
+        buildFieldParameters(TAGS, keyWords);
+        return this;
+    }
+
+    public FluentSpecimenSearchApiBuilder returnDatabaseName() {
+        addReturningField(DATABASE__NAME_EN);
+        return this;
+    }
 }

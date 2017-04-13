@@ -1,7 +1,8 @@
 package ee.ttu.geocollection.controller;
 
 import ee.ttu.geocollection.core.utils.ControllerHelper;
-import ee.ttu.geocollection.domain.AppException;
+import ee.ttu.geocollection.domain.LookUpType;
+import ee.ttu.geocollection.domain.SearchField;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.analyses.pojo.AnalysesSearchCriteria;
 import ee.ttu.geocollection.interop.api.analyses.search.AnalysesApiService;
@@ -26,8 +27,6 @@ import ee.ttu.geocollection.interop.api.specimen.pojo.SpecimenSearchCriteria;
 import ee.ttu.geocollection.interop.api.specimen.service.SpecimenApiService;
 import ee.ttu.geocollection.interop.api.stratigraphies.pojo.StratigraphySearchCriteria;
 import ee.ttu.geocollection.interop.api.stratigraphies.service.StratigraphyApiService;
-import ee.ttu.geocollection.domain.LookUpType;
-import ee.ttu.geocollection.domain.SearchField;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,9 +75,11 @@ public class SearchController extends ControllerHelper {
     @RequestMapping(value = "/specimen", method = RequestMethod.POST)
     public ApiResponse searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) throws Exception {
         ApiResponse specimens = specimenApiService.findSpecimen(specimenSearchCriteria);
-        for(Map map : specimens.getResult()){
-            Map<String, Object> castedMap = (Map<String, Object>) map;
-            map.put("specimen_image_thumbnail", specimenApiService.findSpecimenImage(new SearchField(castedMap.get("id").toString(), LookUpType.exact)));
+        if(specimens.getResult() != null) {
+            for (Map map : specimens.getResult()) {
+                Map<String, Object> castedMap = (Map<String, Object>) map;
+                map.put("specimen_image_thumbnail", specimenApiService.findSpecimenImage(new SearchField(castedMap.get("id").toString(), LookUpType.exact)));
+            }
         }
         return specimens;
     }

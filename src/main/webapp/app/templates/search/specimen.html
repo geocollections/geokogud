@@ -77,10 +77,10 @@
                                 <div class="col-md-12  medium-padding">
                                     <b>{{ 'SEARCH.SPECIMENS.FOSSIL_MINERAL_ROCK' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.fossilmineralrock.lookUpType"></selectdefault>
+                                                   ng-model="searchParameters.fossilMineralRock.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.fossilmineralrock.name"
+                                    <input type="text" ng-model="searchParameters.fossilMineralRock.name"
                                            class="form-control"/>
                                 </div>
                             </div>
@@ -98,10 +98,10 @@
                                 <div class="col-md-12  medium-padding">
                                     <b>{{ 'SEARCH.SPECIMENS.MINERAL_ROCK' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.mineralrock.lookUpType"></selectdefault>
+                                                   ng-model="searchParameters.mineralRock.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.mineralrock.name" table="specimen" en="sample__rock_en" et="sample__rock"/>
+                                    <autocomplete-field ng-model="searchParameters.mineralRock.name" table="specimen" en="sample__rock_en" et="sample__rock"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -158,30 +158,30 @@
                                 <div class="col-md-12  medium-padding">
                                     <b>{{ 'SEARCH.SPECIMENS.PART_OF_FOSSIL' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.partoffossil.lookUpType"></selectdefault>
+                                                   ng-model="searchParameters.partOfFossil.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.partoffossil.name" class="form-control"/>
+                                    <input type="text" ng-model="searchParameters.partOfFossil.name" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12  medium-padding">
                                     <b>{{ 'SEARCH.SPECIMENS.KEYWORDS' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.keywords.lookUpType"></selectdefault>
+                                                   ng-model="searchParameters.keyWords.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.keywords.name" class="form-control"/>
+                                    <input type="text" ng-model="searchParameters.keyWords.name" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12  medium-padding">
                                     <b>{{ 'SEARCH.SPECIMENS.REG_DATE' | translate }}</b>
                                     <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.regdate.lookUpType"></selectexact>
+                                                 ng-model="searchParameters.regDate.lookUpType"></selectexact>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.regdate.name" class="form-control"/>
+                                    <input type="text" ng-model="searchParameters.regDate.name" class="form-control"/>
                                 </div>
                             </div>
                         </div>
@@ -200,10 +200,10 @@
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.SPECIMENS.ADMIN_UNIT' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.adminunit.lookUpType"></selectdefault>
+                                                   ng-model="searchParameters.adminUnit.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.adminunit.name" class="form-control"/>
+                                    <input type="text" ng-model="searchParameters.adminUnit.name" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -273,9 +273,13 @@
                         <td data-title="{{ 'SEARCH.SPECIMENS.ID' | translate }}">
                             <a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen',id:entity.id})">{{entity.id}}</a>
                         </td>
-                        <td data-title="{{ 'SEARCH.SPECIMENS.NUMBER' | translate }}"></td>
+                        <td data-title="{{ 'SEARCH.SPECIMENS.NUMBER' | translate }}">
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen',id:entity.id})">
+                                {{entity.database__name_en}} {{entity.specimen_nr}}
+                            </a>
+                        </td>
                         <td data-title="{{ 'SEARCH.SPECIMENS.OLD_SPECIMEN_NUMBER' | translate }}">
-                            {{entity.specimen_nr}}
+                            <first-not-null values="[entity.coll__number, entity.coll_id]"/>
                         <td data-title="{{ 'SEARCH.SPECIMENS.NAME_PART_ELEMENT' | translate }}">
                             <a href="http://fossiilid.info/{{entity.specimenidentification__taxon_id}}" target="_blank">
                                 {{entity.specimenidentification__taxon__taxon}}

@@ -23,8 +23,10 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
     abstract B getThis();
 
     public B andReturn() {
-        addReturningField(lastQueryField);
-        lastQueryField = EMPTY;
+        if (!lastQueryField.equals(EMPTY)) {
+            addReturningField(lastQueryField);
+            lastQueryField = EMPTY;
+        }
 
         Stream.of(lastQueryFields).forEach(this::addReturningField);
         lastQueryFields = new String[]{};

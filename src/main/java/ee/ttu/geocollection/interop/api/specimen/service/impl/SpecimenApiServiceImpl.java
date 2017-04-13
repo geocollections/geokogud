@@ -1,6 +1,8 @@
 package ee.ttu.geocollection.interop.api.specimen.service.impl;
 
 import ee.ttu.geocollection.domain.AppException;
+import ee.ttu.geocollection.domain.SearchField;
+import ee.ttu.geocollection.domain.SortField;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentSpecimenImageSearchApiBuilder;
@@ -8,8 +10,6 @@ import ee.ttu.geocollection.interop.api.builder.search.FluentSpecimenSearchApiBu
 import ee.ttu.geocollection.interop.api.service.ApiService;
 import ee.ttu.geocollection.interop.api.specimen.pojo.SpecimenSearchCriteria;
 import ee.ttu.geocollection.interop.api.specimen.service.SpecimenApiService;
-import ee.ttu.geocollection.domain.SearchField;
-import ee.ttu.geocollection.domain.SortField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,19 +23,24 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
     @Override
     public ApiResponse findSpecimen(SpecimenSearchCriteria searchCriteria) throws AppException {
         String requestParams = FluentSpecimenSearchApiBuilder.aRequest()
-                .queryId(searchCriteria.getId())
-                .querySpecimenNumber(searchCriteria.getSpecimenNumber())
+                .queryId(searchCriteria.getId()).andReturn()
+                .querySpecimenNumber(searchCriteria.getSpecimenNumber()).andReturn()
                 .queryCollectionNumber(searchCriteria.getCollectionNumber())
                 .queryClassification(searchCriteria.getClassification())
                 .queryMineralRock(searchCriteria.getMineralRock())
-                .queryLocality(searchCriteria.getLocality())
-                .queryDepth(searchCriteria.getDepth())
-                .queryStratigraphy(searchCriteria.getStratigraphy())
+                .queryLocality(searchCriteria.getLocality()).andReturn()
+                .queryDepth(searchCriteria.getDepth()).andReturn()
+                .queryStratigraphy(searchCriteria.getStratigraphy()).andReturn()
                 .queryDateAdded(searchCriteria.getRegDate())
                 .queryPartOfFossil(searchCriteria.getPartOfFossil())
-                .queryOriginalStatus(searchCriteria.getTypeStatus())
-                .queryCollector(searchCriteria.getCollector())
-                .buildWithoutReturningCertainFields();
+                .queryOriginalStatus(searchCriteria.getTypeStatus()).andReturn()
+                .queryCollector(searchCriteria.getCollector()).andReturn()
+                .queryKeywords(searchCriteria.getKeyWords())
+                .queryReference(searchCriteria.getReference())
+                .queryNameOfFossil(searchCriteria.getFossilName())
+                .queryFossilMineralRock(searchCriteria.getFossilMineralRock())
+                .returnDatabaseName()
+                .buildWithReturningCertainFields();
         return apiService.searchRawEntities("specimen", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }
 
