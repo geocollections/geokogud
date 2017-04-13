@@ -66,8 +66,7 @@
                             <div class="row searchCriterion">
                                 <div class="col-md-12  medium-padding">
                                     <b>{{ 'SEARCH.SOIL_SITES.TRANSECT' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.transect.lookUpType"></selectdefault>
+                                    <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.transect.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
                                     <autocomplete-field ng-model="searchParameters.transect.name" table="soil" en="null" et="transect"/>
@@ -76,8 +75,7 @@
                             <div class="row searchCriterion">
                                 <div class="col-md-12  medium-padding">
                                     <b>{{ 'SEARCH.SOIL_SITES.SOIL_NAME' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.soilName.lookUpType"></selectdefault>
+                                    <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.soilName.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
                                     <autocomplete-field ng-model="searchParameters.soil.name" table="soil" en="null" et="soil"/>
@@ -86,25 +84,16 @@
                             <div class="row searchCriterion">
                                 <div class="col-md-12  medium-padding">
                                     <b>{{ 'SEARCH.SOIL_SITES.LAND_USE' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.landUse.lookUpType"></selectdefault>
+                                    <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.landUse.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
                                     <autocomplete-field ng-model="searchParameters.landUse.name" table="soil" en="null" et="land_use"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
-                         <!--       <div class="col-md-12  medium-padding">
-                                    <b>{{ 'SEARCH.SOIL_SITES.DEEP_MINING' | translate }}</b>
-                                    <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.deepMining.lookUpType"></selectexact>
+                                <div class="checkbox">
+                                    <checkbox-field name = 'SEARCH.SOIL_SITES.DEEP_MINING' ng-model="searchParameters.deepMining"></checkbox-field>
                                 </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.deepMining.name" class="form-control"/>
-                                </div>-->
-                                <label><input type="checkbox" value="showMap">
-                                    {{ 'SEARCH.SOIL_SITES.DEEP_MINING' | translate }}
-                                </label>
                             </div>
                         </div>
                     </div>
@@ -160,7 +149,8 @@
                         <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.LAND_USE' | translate }}">{{entity.land_use}}</td>
                         <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.LATITUDE' | translate }}">{{entity.latitude}}</td>
                         <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.LONGITUDE' | translate }}">{{entity.longitude}}</td>
-                        <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.IS_DEEP_MINING' | translate }}">{{entity.is_deep}}
+                        <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.IS_DEEP_MINING' | translate }}">
+                            <span class="cr" data-ng-if="entity.is_deep"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                         </td>
                     </tr>
                     </tbody>

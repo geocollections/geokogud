@@ -1,15 +1,15 @@
 package ee.ttu.geocollection.search.domain;
 
 public class SortField {
-    private String sortyBy = "id";
+    private String sortBy = "id";
     private SortingOrder order = SortingOrder.ASCENDING;
 
-    public String getSortyBy() {
-        return sortyBy;
+    public String getSortBy() {
+        return sortBy;
     }
 
-    public void setSortyBy(String sortyBy) {
-        this.sortyBy = sortyBy;
+    public void setSortBy(String sortBy) {
+        this.sortBy = sortBy;
     }
 
     public SortingOrder getOrder() {

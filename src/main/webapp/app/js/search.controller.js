@@ -46,7 +46,7 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
 
     $scope.searchDefault = function () {
         $scope.searchParameters = {sortField: {}, dbs: []};
-        $scope.searchParameters.sortField.sortBy = "id";
+        $scope.searchParameters.sortField = {sortBy : "id", order : "DESCENDING"};
         $scope.sortByAsc = true;
         vm.service.toggle("GIT", $scope.searchParameters.dbs);
         $scope.search();

@@ -16,14 +16,23 @@ public class PhotoArchiveSearchCriteria {
     private SearchField imageNumber;
     private SearchField people;
     private SearchField adminUnit;
-    private SearchField sizeXY;
+    private SearchField sizeXYSince;
+    private SearchField sizeXYTo;
 
-    public SearchField getSizeXY() {
-        return sizeXY;
+    public SearchField getSizeXYSince() {
+        return sizeXYSince;
     }
 
-    public void setSizeXY(SearchField sizeXY) {
-        this.sizeXY = sizeXY;
+    public void setSizeXYSince(SearchField sizeXYSince) {
+        this.sizeXYSince = sizeXYSince;
+    }
+
+    public SearchField getSizeXYTo() {
+        return sizeXYTo;
+    }
+
+    public void setSizeXYTo(SearchField sizeXYTo) {
+        this.sizeXYTo = sizeXYTo;
     }
 
     public SearchField getAdminUnit() {

@@ -13,8 +13,6 @@ public interface ApiService {
 
     ApiResponse searchRawEntities(String tableName, int page, SortField sortField, String requestParams);
 
-    Map findRawEntities(String tableName, String requestParams);
-
     List<?> findByParam(String tableName, String requestParams);
 
     //search without returning exactly fields

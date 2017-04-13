@@ -4,14 +4,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
-import ee.ttu.geocollection.interop.api.builder.search.FluentCommonSearchApiBuilder;
 import ee.ttu.geocollection.interop.api.common.GeoEntity;
 import ee.ttu.geocollection.interop.api.deserializer.ApiResponseProto;
 import ee.ttu.geocollection.interop.api.deserializer.Deserializer;
 import ee.ttu.geocollection.interop.api.drillCores.pojo.DrillcoreBox;
 import ee.ttu.geocollection.interop.api.service.ApiService;
-import ee.ttu.geocollection.search.domain.LookUpType;
-import ee.ttu.geocollection.search.domain.SearchField;
 import ee.ttu.geocollection.search.domain.SortField;
 import ee.ttu.geocollection.search.domain.SortingOrder;
 import org.slf4j.Logger;
@@ -65,16 +62,11 @@ public class ApiServiceImpl implements ApiService {
     @Override
     public ApiResponse searchRawEntities(String tableName, int page, SortField sortField, String requestParams) {
         String url = apiUrl + "/" + tableName + "/" + "?paginate_by=" + 30 + "&page=" + page
-                + "&order_by=" + getSortingDirection(sortField.getOrder()) + sortField.getSortyBy()
+                + "&order_by=" + getSortingDirection(sortField.getOrder()) + sortField.getSortBy()
                 + "&format=json" + requestParams;
         logger.trace("Searching: " + url);
         ResponseEntity<ApiResponse> rawResponse = restTemplate.getForEntity(url, ApiResponse.class);
         return rawResponse.getBody();
-    }
-
-    @Override
-    public Map findRawEntities(String tableName, String requestParams) {
-        return null;
     }
 
     private String getSortingDirection(SortingOrder order) {
@@ -89,7 +81,7 @@ public class ApiServiceImpl implements ApiService {
         }
 
         String url = apiUrl + "/" + tableName + "/" + "?paginate_by=" + 30 + "&page=" + page
-                + "&order_by=" + getSortingDirection(sortField.getOrder()) + sortField.getSortyBy()
+                + "&order_by=" + getSortingDirection(sortField.getOrder()) + sortField.getSortBy()
                 + "&format=json" + requestParams;
         System.err.println(url);
         ResponseEntity<ApiResponse> rawResponse = restTemplate.getForEntity(url, ApiResponse.class);
@@ -174,7 +166,7 @@ public class ApiServiceImpl implements ApiService {
         }
 
         String url = apiUrl + "/" + tableName + "/" + "?paginate_by=" + 30 + "&page=" + page
-                + "&order_by=" + getSortingDirection(sortField.getOrder()) + sortField.getSortyBy()
+                + "&order_by=" + getSortingDirection(sortField.getOrder()) + sortField.getSortBy()
                 + "&format=json" + requestParams;
         System.err.println(url);
         ResponseEntity<ApiResponseProto> rawResponse = restTemplate.getForEntity(url, ApiResponseProto.class);
