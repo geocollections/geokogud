@@ -1,4 +1,4 @@
-package ee.ttu.geocollection.main.controller;
+package ee.ttu.geocollection.controller;
 
 import ee.ttu.geocollection.interop.api.localities.pojo.LocalityApiResponse;
 import ee.ttu.geocollection.interop.api.localities.service.LocalitiesApiService;
@@ -18,12 +18,6 @@ public class MapController {
 
     @Autowired
     private LocalitiesApiService localitiesApiService;
-
-    @RequestMapping(value = "/{id}", method= RequestMethod.GET)
-    @ResponseBody
-    public LocalityApiResponse getLocality(@PathVariable Long id){
-        return localitiesApiService.getLocality(id);
-    }
 
     @RequestMapping(value = "/locality-summary")
     @ResponseBody

@@ -41,11 +41,12 @@ var constructor = function ($http) {
         }
 
         $http(config).then(successCallback, errorCallback);
+
         function successCallback(response, status, headers, config) {
             service.isFunction(successCb) && successCb(response, status, headers, config);
         }
 
-        function errorCallback(response, status, headers, config) {
+        function errorCallback(err, status, headers, config) {
             service.isFunction(errorCb) && errorCb(err, status, headers, config);
         }
 

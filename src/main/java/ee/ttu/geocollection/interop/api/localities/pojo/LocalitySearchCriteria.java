@@ -1,7 +1,7 @@
 package ee.ttu.geocollection.interop.api.localities.pojo;
 
-import ee.ttu.geocollection.search.domain.SearchField;
-import ee.ttu.geocollection.search.domain.SortField;
+import ee.ttu.geocollection.domain.SearchField;
+import ee.ttu.geocollection.domain.SortField;
 
 /**
  * Created by Olesja Senkiv on 17.03.2017.

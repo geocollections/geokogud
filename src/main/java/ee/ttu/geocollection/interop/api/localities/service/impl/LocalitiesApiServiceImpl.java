@@ -1,5 +1,6 @@
 package ee.ttu.geocollection.interop.api.localities.service.impl;
 
+import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Request.SearchApiRequest;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
@@ -30,7 +31,7 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
     private ApiService apiService;
 
     @Override
-    public ApiResponse findLocality(LocalitySearchCriteria searchCriteria) {
+    public ApiResponse findLocality(LocalitySearchCriteria searchCriteria) throws AppException {
         String requestParams = FluentLocalitySearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId())
                 .queryNumber(searchCriteria.getNumber())
@@ -52,18 +53,6 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
     }
 
     @Override
-    public Response<Locality> findById(Long id) {
-        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
-                .id(id)
-                .relatedData("image")
-                .relatedData("drillcore")
-                .relatedData("locality_reference")
-                .relatedData("locality_synonym")
-                .buildWithDefaultReturningFields();
-        return apiService.findEntity("locality", requestParams, Locality.class);
-    }
-
-    @Override
     public Map findRawById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
@@ -73,18 +62,6 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
                 .relatedData("locality_synonym")
                 .buildWithDefaultReturningFields();
         return apiService.findRawEntity("locality", requestParams);
-    }
-
-    @Override
-    public LocalityApiResponse getLocality(Long id) {
-        return getLocality(id, new SearchApiRequest());
-    }
-
-    @Override
-    public LocalityApiResponse getLocality(Long id, SearchApiRequest request) {
-        String url = apiUrl + "/locality/" + id + "?format=" + request.getOutputFormat();
-        ResponseEntity<LocalityApiResponse> response = restTemplate.getForEntity(url, LocalityApiResponse.class);
-        return response.getBody();
     }
 
     @Override

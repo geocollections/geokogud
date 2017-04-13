@@ -1,7 +1,7 @@
 package ee.ttu.geocollection.interop.api.samples.pojo;
 
-import ee.ttu.geocollection.search.domain.SearchField;
-import ee.ttu.geocollection.search.domain.SortField;
+import ee.ttu.geocollection.domain.SearchField;
+import ee.ttu.geocollection.domain.SortField;
 
 import java.util.List;
 

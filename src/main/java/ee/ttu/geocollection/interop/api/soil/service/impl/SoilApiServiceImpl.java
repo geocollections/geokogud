@@ -1,5 +1,6 @@
 package ee.ttu.geocollection.interop.api.soil.service.impl;
 
+import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
@@ -20,7 +21,7 @@ public class SoilApiServiceImpl implements SoilApiService {
     private ApiService apiService;
 
     @Override
-    public ApiResponse findSoil(SoilSearchCriteria searchCriteria) {
+    public ApiResponse findSoil(SoilSearchCriteria searchCriteria) throws AppException {
         String requestParams = FluentSoilSearchApiApiBuilder.aRequest()
                 .queryId(searchCriteria.getId())
                 .querySite(searchCriteria.getSite())
@@ -34,19 +35,6 @@ public class SoilApiServiceImpl implements SoilApiService {
                 .returnTransectPoint()
                 .buildWithoutReturningCertainFields();
         return apiService.searchRawEntities("soil_site", searchCriteria.getPage(),searchCriteria.getSortField(), requestParams);
-    }
-
-    @Override
-    public Soil findById(Long id) {
-        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
-                .id(id)
-                .buildWithDefaultReturningFields();
-        return apiService.findEntityAndMagicallyDeserialize("soil_site", requestParams, Soil.class);
-    }
-
-    @Override
-    public Response<SoilHorizon> findSoilHorizons(SoilSearchCriteria searchCriteria) {
-        return null;
     }
 
     @Override

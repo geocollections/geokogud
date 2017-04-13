@@ -1,30 +1,20 @@
 package ee.ttu.geocollection.interop.api.samples.service.impl;
 
-import ee.ttu.geocollection.interop.api.Request.SampleSearchCriteria;
-import ee.ttu.geocollection.interop.api.Request.SearchApiRequest;
+import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
-import ee.ttu.geocollection.interop.api.Response.NewVersionOfApiResponse;
-import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.Response.ResponseMapper;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentSampleSearchApiBuilder;
-import ee.ttu.geocollection.interop.api.samples.pojo.Sample;
-import ee.ttu.geocollection.interop.api.samples.pojo.SampleEntity;
 import ee.ttu.geocollection.interop.api.samples.service.SamplesApiService;
 import ee.ttu.geocollection.interop.api.service.ApiService;
-import ee.ttu.geocollection.search.domain.CommonSearch;
-import ee.ttu.geocollection.search.domain.SearchField;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
 public class SamplesApiServiceImpl implements SamplesApiService {
@@ -42,7 +32,8 @@ public class SamplesApiServiceImpl implements SamplesApiService {
 
 
     @Override
-    public ApiResponse findSample(ee.ttu.geocollection.interop.api.samples.pojo.SampleSearchCriteria searchCriteria) {
+    public ApiResponse findSample(ee.ttu.geocollection.interop.api.samples.pojo.SampleSearchCriteria searchCriteria)
+            throws AppException {
         System.err.println(searchCriteria.getId());
         String requestParams = FluentSampleSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId())
@@ -72,7 +63,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     }
 
     @Override
-    public Map findRawById(Long id) {
+    public Map findRawById(Long id) throws AppException{
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
                 .relatedData("analysis")

@@ -1,6 +1,6 @@
 package ee.ttu.geocollection.interop.api.builder.search;
 
-import ee.ttu.geocollection.search.domain.SearchField;
+import ee.ttu.geocollection.domain.SearchField;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;

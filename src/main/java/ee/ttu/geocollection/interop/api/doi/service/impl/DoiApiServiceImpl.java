@@ -1,5 +1,6 @@
 package ee.ttu.geocollection.interop.api.doi.service.impl;
 
+import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
@@ -9,8 +10,8 @@ import ee.ttu.geocollection.interop.api.doi.pojo.Doi;
 import ee.ttu.geocollection.interop.api.doi.pojo.DoiSearchCriteria;
 import ee.ttu.geocollection.interop.api.doi.service.DoiApiService;
 import ee.ttu.geocollection.interop.api.service.ApiService;
-import ee.ttu.geocollection.search.domain.LookUpType;
-import ee.ttu.geocollection.search.domain.SearchField;
+import ee.ttu.geocollection.domain.LookUpType;
+import ee.ttu.geocollection.domain.SearchField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ public class DoiApiServiceImpl implements DoiApiService {
     private ApiService apiService;
 
     @Override
-    public ApiResponse findDoi(DoiSearchCriteria searchCriteria) {
+    public ApiResponse findDoi(DoiSearchCriteria searchCriteria) throws AppException {
         String requestParams = FluentDoiSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId())
                 .queryIdentifier(searchCriteria.getDoi())
@@ -35,29 +36,6 @@ public class DoiApiServiceImpl implements DoiApiService {
                 .queryAbstract(searchCriteria.getAbstractText())
                 .buildWithoutReturningCertainFields();
         return apiService.searchRawEntities("doi", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
-    }
-
-    @Override
-    public Response<Doi> findById(Long id) {
-        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
-                .id(id)
-                .relatedData("doi_agent")
-                .relatedData("doi_geolocation")
-                .relatedData("doi_related_identifier")
-                .buildWithDefaultReturningFields();
-        return apiService.findEntity("doi", requestParams, Doi.class);
-    }
-
-    @Override
-    public List<?> searchByField(String table, String term, String searchField) {
-        SearchField searchField_ = new SearchField();
-        searchField_.setLookUpType(LookUpType.istartswith);
-        searchField_.setName(term);
-        String requestParams = FluentCommonSearchApiBuilder.aRequest()
-                .queryField(searchField,searchField_)
-                .returnField(searchField)
-                .buildWithReturningCertainFields();
-        return apiService.findByParam("doi", requestParams);
     }
 
     @Override

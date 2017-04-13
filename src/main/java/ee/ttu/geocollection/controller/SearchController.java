@@ -1,7 +1,8 @@
-package ee.ttu.geocollection.search.controller;
+package ee.ttu.geocollection.controller;
 
+import ee.ttu.geocollection.core.utils.ControllerHelper;
+import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
-import ee.ttu.geocollection.interop.api.Response.NewVersionOfApiResponse;
 import ee.ttu.geocollection.interop.api.analyses.pojo.AnalysesSearchCriteria;
 import ee.ttu.geocollection.interop.api.analyses.search.AnalysesApiService;
 import ee.ttu.geocollection.interop.api.doi.pojo.DoiSearchCriteria;
@@ -25,27 +26,22 @@ import ee.ttu.geocollection.interop.api.specimen.pojo.SpecimenSearchCriteria;
 import ee.ttu.geocollection.interop.api.specimen.service.SpecimenApiService;
 import ee.ttu.geocollection.interop.api.stratigraphies.pojo.StratigraphySearchCriteria;
 import ee.ttu.geocollection.interop.api.stratigraphies.service.StratigraphyApiService;
-import ee.ttu.geocollection.interop.api.taxon.pojo.TaxonApiResponse;
-import ee.ttu.geocollection.interop.api.taxon.service.TaxonApiService;
-import ee.ttu.geocollection.search.domain.LookUpType;
-import ee.ttu.geocollection.search.domain.SearchField;
+import ee.ttu.geocollection.domain.LookUpType;
+import ee.ttu.geocollection.domain.SearchField;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/search")
-public class SearchController {
+public class SearchController extends ControllerHelper {
     private static final Logger logger = LoggerFactory.getLogger(SearchController.class);
 
     @Autowired
     private SamplesApiService samplesApiService;
-    @Autowired
-    private TaxonApiService taxonApiService;
     @Autowired
     private SoilApiService soilApiService;
     @Autowired
@@ -70,20 +66,15 @@ public class SearchController {
     private ApiService apiService;
 
     @RequestMapping(value = "/autocomplete-field", method = RequestMethod.GET)
-    public Map findDoiById(
+    public Map findDoiById (
             @RequestParam("table") String table,
             @RequestParam("term") String term,
-            @RequestParam("searchField") String searchField) {
+            @RequestParam("searchField") String searchField) throws Exception{
         return apiService.searchByField(table, term, searchField);
     }
 
-    @RequestMapping(value = "/taxon", method = RequestMethod.GET)
-    public TaxonApiResponse list(@RequestParam("term") String q) {
-        return taxonApiService.searchTaxon(q);
-    }
-
     @RequestMapping(value = "/specimen", method = RequestMethod.POST)
-    public ApiResponse searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) {
+    public ApiResponse searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) throws Exception {
         ApiResponse specimens = specimenApiService.findSpecimen(specimenSearchCriteria);
         for(Map map : specimens.getResult()){
             Map<String, Object> castedMap = (Map<String, Object>) map;
@@ -93,52 +84,52 @@ public class SearchController {
     }
 
     @RequestMapping(value = "/sample", method = RequestMethod.POST)
-    public ApiResponse searchSample(@RequestBody SampleSearchCriteria sampleSearchCriteria) {
+    public ApiResponse searchSample(@RequestBody SampleSearchCriteria sampleSearchCriteria) throws Exception {
         return samplesApiService.findSample(sampleSearchCriteria);
     }
 
     @RequestMapping(value = "/drillcore", method = RequestMethod.POST)
-    public ApiResponse searchDrillCores(@RequestBody DrillCoreSearchCriteria searchCriteria) {
+    public ApiResponse searchDrillCores(@RequestBody DrillCoreSearchCriteria searchCriteria) throws Exception {
         return drillCoreApiService.findDrillCore(searchCriteria);
     }
 
     @RequestMapping(value = "/locality", method = RequestMethod.POST)
-    public ApiResponse searchLocalities(@RequestBody LocalitySearchCriteria searchCriteria) {
+    public ApiResponse searchLocalities(@RequestBody LocalitySearchCriteria searchCriteria) throws Exception {
         return localitiesApiService.findLocality(searchCriteria);
     }
 
     @RequestMapping(value = "/photo-archive", method = RequestMethod.POST)
-    public ApiResponse searchPhotoArchive(@RequestBody PhotoArchiveSearchCriteria photoArchiveSearchCriteria) {
+    public ApiResponse searchPhotoArchive(@RequestBody PhotoArchiveSearchCriteria photoArchiveSearchCriteria) throws Exception {
         return photoArchiveApiService.findPhoto(photoArchiveSearchCriteria);
     }
 
     @RequestMapping(value = "/soil", method = RequestMethod.POST)
-    public ApiResponse searchSoil(@RequestBody SoilSearchCriteria searchCriteria) {
+    public ApiResponse searchSoil(@RequestBody SoilSearchCriteria searchCriteria) throws Exception {
         return soilApiService.findSoil(searchCriteria);
     }
 
     @RequestMapping(value = "/reference", method = RequestMethod.POST)
-    public ApiResponse searchDoi(@RequestBody ReferenceSearchCriteria searchCriteria) {
+    public ApiResponse searchDoi(@RequestBody ReferenceSearchCriteria searchCriteria) throws Exception{
         return referenceApiService.findReference(searchCriteria);
     }
 
     @RequestMapping(value = "/doi", method = RequestMethod.POST)
-    public ApiResponse searchReference(@RequestBody DoiSearchCriteria searchCriteria) {
+    public ApiResponse searchReference(@RequestBody DoiSearchCriteria searchCriteria) throws Exception{
         return doiApiService.findDoi(searchCriteria);
     }
 
     @RequestMapping(value = "/analyses", method = RequestMethod.POST)
-    public ApiResponse searchAnalyses(@RequestBody AnalysesSearchCriteria analysesSearchCriteria) {
+    public ApiResponse searchAnalyses(@RequestBody AnalysesSearchCriteria analysesSearchCriteria) throws Exception{
         return analysesApiService.findAnalyses(analysesSearchCriteria);
     }
 
     @RequestMapping(value = "/preparation", method = RequestMethod.POST)
-    public ApiResponse searchPreparations(@RequestBody PreparationsSearchCriteria preparationsSearchCriteria) {
+    public ApiResponse searchPreparations(@RequestBody PreparationsSearchCriteria preparationsSearchCriteria) throws Exception{
         return preparationsApiService.findPreparations(preparationsSearchCriteria);
     }
 
     @RequestMapping(value = "/stratigraphy", method = RequestMethod.POST)
-    public ApiResponse searchStratigraphy(@RequestBody StratigraphySearchCriteria stratigraphySearchCriteria) {
+    public ApiResponse searchStratigraphy(@RequestBody StratigraphySearchCriteria stratigraphySearchCriteria) throws Exception{
         return stratigraphyApiService.findStratigraphy(stratigraphySearchCriteria);
     }
 }

@@ -1,7 +1,7 @@
-package ee.ttu.geocollection.search.controller;
+package ee.ttu.geocollection.controller;
 
 
-import ee.ttu.geocollection.interop.api.Request.SampleSearchCriteria;
+import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.analyses.search.AnalysesApiService;
@@ -17,20 +17,15 @@ import ee.ttu.geocollection.interop.api.photoArchive.service.PhotoArchiveApiServ
 import ee.ttu.geocollection.interop.api.preparations.PreparationsApiService;
 import ee.ttu.geocollection.interop.api.reference.pojo.ReferenceDetailsDialogDto;
 import ee.ttu.geocollection.interop.api.reference.service.ReferenceApiService;
-import ee.ttu.geocollection.interop.api.samples.pojo.Sample;
-import ee.ttu.geocollection.interop.api.samples.pojo.SampleDetailsDialogDto;
 import ee.ttu.geocollection.interop.api.samples.service.SamplesApiService;
-import ee.ttu.geocollection.interop.api.soil.pojo.Soil;
-import ee.ttu.geocollection.interop.api.soil.pojo.SoilDetailsDialogDto;
-import ee.ttu.geocollection.interop.api.soil.pojo.SoilHorizon;
 import ee.ttu.geocollection.interop.api.soil.service.SoilApiService;
 import ee.ttu.geocollection.interop.api.specimen.pojo.SpecimenSearchCriteria;
 import ee.ttu.geocollection.interop.api.specimen.service.SpecimenApiService;
 import ee.ttu.geocollection.interop.api.stratigraphies.pojo.StratigraphyDetailsDialogDto;
 import ee.ttu.geocollection.interop.api.stratigraphies.pojo.StratigraphyEnitity;
 import ee.ttu.geocollection.interop.api.stratigraphies.service.StratigraphyApiService;
-import ee.ttu.geocollection.search.domain.LookUpType;
-import ee.ttu.geocollection.search.domain.SearchField;
+import ee.ttu.geocollection.domain.LookUpType;
+import ee.ttu.geocollection.domain.SearchField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -63,36 +58,13 @@ public class DetailsController {
     @Autowired
     private PreparationsApiService preparationsApiService;
 
-    @RequestMapping(value = "/field", method = RequestMethod.GET)
-    public List<?> findDoiById(
-            @RequestParam("table") String table,
-            @RequestParam("term") String term,
-            @RequestParam("searchField") String searchField) {
-        return doiApiService.searchByField(table, term, searchField);
-    }
-
-    @RequestMapping(value = "/drillcore/{id}")
-    public DrillCoreProto findDrillCoreById(@PathVariable Long id) {
-        return drillCoreApiService.findDrillcoreById(id);
-    }
-
-    @RequestMapping(value = "/drillcoreBox/{id}")
-    public DrillcoreBox findDrillcoreBoxById(@PathVariable Long id) {
-        return drillCoreApiService.findDrillcoreBoxById(id);
-    }
-
-    @RequestMapping(value = "/doi/{id}")
-    public ReferenceDetailsDialogDto findDoiById(@PathVariable Long id) {
-        return new ReferenceDetailsDialogDto(doiApiService.findById(id));
-    }
-
     @RequestMapping(value = "/raw-specimen/{id}")
     public Map findRawSpecimenById(@PathVariable Long id) {
         return specimenApiService.findRawById(id);
     }
 
     @RequestMapping(value = "/raw-sample/{id}")
-    public Map findRawSampleById(@PathVariable Long id) {
+    public Map findRawSampleById(@PathVariable Long id) throws AppException{
         return samplesApiService.findRawById(id);
     }
 
@@ -130,34 +102,12 @@ public class DetailsController {
         return photoArchiveApiService.findRawById(id);
     }
     @RequestMapping(value = "/raw-soil/{id}")
-    public Map findRawSoilById(@PathVariable Long id) {
+    public Map findRawSoilById(@PathVariable Long id) throws AppException {
         return soilApiService.findRawById(id);
     }
     @RequestMapping(value = "/raw-doi/{id}")
     public Map findRawDoiById(@PathVariable Long id) {
         return doiApiService.findRawById(id);
-    }
-
-
-    @RequestMapping(value = "/photo-archive/{id}")
-    public PhotoArchiveDetailsDialogDto findPhotoArchiveById(@PathVariable Long id) {
-        Response photo = photoArchiveApiService.findById(id);
-        return new PhotoArchiveDetailsDialogDto(photo);
-    }
-
-    @RequestMapping(value = "/locality/{id}")
-    public LocalityDetailsDialogDto findLocalityById(@PathVariable Long id) {
-        Response<Locality> locality = localitiesApiService.findById(id);
-        SpecimenSearchCriteria specimenSearchCriteria = new SpecimenSearchCriteria();
-        specimenSearchCriteria.setLocality(new SearchField(locality.getResult().get(0).getLocality(), LookUpType.exact));
-        ApiResponse specimens = specimenApiService.findSpecimen(specimenSearchCriteria);
-        return new LocalityDetailsDialogDto(locality, null, specimens);
-    }
-
-    @RequestMapping(value = "/stratigraphy/{id}")
-    public StratigraphyDetailsDialogDto findStratigraphyById(@PathVariable Long id) {
-        Response<StratigraphyEnitity> straigraphy = stratigraphyApiService.findById(id);
-        return new StratigraphyDetailsDialogDto(straigraphy);
     }
 
 }

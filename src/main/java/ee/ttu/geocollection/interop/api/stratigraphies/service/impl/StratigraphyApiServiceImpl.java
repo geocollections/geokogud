@@ -1,5 +1,6 @@
 package ee.ttu.geocollection.interop.api.stratigraphies.service.impl;
 
+import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
@@ -19,7 +20,7 @@ public class StratigraphyApiServiceImpl implements StratigraphyApiService {
     private ApiService apiService;
 
     @Override
-    public ApiResponse findStratigraphy(StratigraphySearchCriteria searchCriteria) {
+    public ApiResponse findStratigraphy(StratigraphySearchCriteria searchCriteria) throws AppException {
         String requestParams = FluentStratigraphySearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId())
                 .queryStratigraphy(searchCriteria.getStratigraphy())
@@ -33,15 +34,6 @@ public class StratigraphyApiServiceImpl implements StratigraphyApiService {
                     searchCriteria.getPage(),
                     searchCriteria.getSortField(),
                     requestParams);
-    }
-
-    @Override
-    public Response<StratigraphyEnitity> findById(Long id) {
-        String requestParams = FluentGeoApiDetailsBuilder.aRequest().id(id).buildWithDefaultReturningFields();
-        return apiService.findEntity(
-                "stratigraphy",
-                requestParams,
-                StratigraphyEnitity.class);
     }
 
     @Override

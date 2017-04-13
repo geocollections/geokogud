@@ -1,6 +1,6 @@
 var module = angular.module("geoApp");
 
-var constructor = function ($scope, $stateParams, configuration, $http, applicationService, $window, $translate, SearchFactory) {
+var constructor = function ($scope, $stateParams, configuration, $http, applicationService, $window, $translate, SearchFactory, errorService) {
     var vm = this;
     vm.service = applicationService;
     vm.factory = SearchFactory;
@@ -34,7 +34,6 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
             $scope.$apply();
         });
         $scope.response = result.data;
-        console.log($scope.response);
         if ($scope.isMapHidden) {
             $scope.getLocalities($scope.response.data);
         }
@@ -43,6 +42,10 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
     $scope.search = function () {
         applicationService.getList($stateParams.type, $scope.searchParameters, onSearchData)
     };
+
+    function onError(error, status, errorCallback) {
+        errorService.commonErrorHandler(error, status, errorCallback);
+    }
 
     $scope.searchDefault = function () {
         $scope.searchParameters = {sortField: {}, dbs: []};
@@ -104,9 +107,8 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
     }
 
     loadHintText();
-
 };
 
-constructor.$inject = ["$scope", "$stateParams", "configuration", "$http", 'ApplicationService', '$window', '$translate', 'SearchFactory'];
+constructor.$inject = ["$scope", "$stateParams", "configuration", "$http", 'ApplicationService', '$window', '$translate', 'SearchFactory','ErrorService'];
 
 module.controller("SearchController", constructor);

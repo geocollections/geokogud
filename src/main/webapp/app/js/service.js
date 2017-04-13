@@ -1,6 +1,6 @@
 var module = angular.module("geoApp");
 
-var constructor = function (utils,configuration) {
+var constructor = function (utils,configuration, errorService) {
 
     var service = {};
 
@@ -24,10 +24,11 @@ var constructor = function (utils,configuration) {
         utils.httpGet(configuration.webPagesUrl + "/" + id, null, callback, error);
     };
 
-    service.getList = function (searchType, data, success, error) {
+    service.getList = function (searchType, data, success,error) {
         var url = getSearchUrl(searchType);
-        if(url != null) utils.httpPost(url, data, success, error);
+        if(url != null) utils.httpPost(url, data, success, utils.isFunction(error) ? error : errorService.commonErrorHandler);
     };
+
 
     service.getEntity = function (searchType, id, callback, error) {
         var url = getDetailUrl(searchType);
@@ -118,7 +119,7 @@ var constructor = function (utils,configuration) {
     return service;
 };
 
-constructor.$inject = ['utils','configuration'];
+constructor.$inject = ['utils','configuration','ErrorService'];
 
 module.service("ApplicationService", constructor);
 

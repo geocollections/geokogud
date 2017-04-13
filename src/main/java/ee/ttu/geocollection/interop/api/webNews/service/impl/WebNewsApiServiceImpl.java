@@ -10,8 +10,8 @@ import ee.ttu.geocollection.interop.api.builder.ApiFields;
 import ee.ttu.geocollection.interop.api.service.ApiService;
 import ee.ttu.geocollection.interop.api.webNews.pojo.WebNewsEntity;
 import ee.ttu.geocollection.interop.api.webNews.service.WebNewsApiService;
-import ee.ttu.geocollection.search.domain.SortField;
-import ee.ttu.geocollection.search.domain.SortingOrder;
+import ee.ttu.geocollection.domain.SortField;
+import ee.ttu.geocollection.domain.SortingOrder;
 
 @Service
 public class WebNewsApiServiceImpl implements WebNewsApiService {

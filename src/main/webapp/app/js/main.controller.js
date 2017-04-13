@@ -20,7 +20,6 @@ var constructor = function (configuration,$translate,$http, applicationService,$
 
     $rootScope.$on('$stateChangeStart',
             function(event, toState, toParams, fromState, fromParams) {
-                console.log(toState);
                 if (toState.params != null) {
                     getWebPageById(toState.params.contentId);
                 }
@@ -38,7 +37,7 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     }
 
     function onMapData(response) {
-        console.log(response);
+        //console.log(response);
     }
 
     function onNewsData(response) {

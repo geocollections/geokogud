@@ -1,6 +1,6 @@
 package ee.ttu.geocollection.interop.api.builder.search;
 
-import ee.ttu.geocollection.search.domain.SearchField;
+import ee.ttu.geocollection.domain.SearchField;
 
 public class FluentCommonSearchApiBuilder extends FluentSearchApiBuilder<FluentCommonSearchApiBuilder> {
     public static FluentCommonSearchApiBuilder aRequest() {

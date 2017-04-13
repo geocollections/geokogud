@@ -893,5 +893,10 @@
             "DATACITE_UPDATED": "DataCite uuendatud",
             "DOIATTACHMENT__ATTACHMENT__FILENAME": ""
         }
+    },
+    "ERROR" : {
+        "TITLE" : "Viga",
+        "INVALID_REQUEST" : "Vigane päring",
+        "INTERNAL_SERVER_ERROR" : "Serveri viga"
     }
 }

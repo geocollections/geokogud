@@ -1,5 +1,6 @@
 package ee.ttu.geocollection.interop.api.photoArchive.service;
 
+import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.photoArchive.pojo.PhotoArchiveSearchCriteria;
@@ -7,9 +8,7 @@ import ee.ttu.geocollection.interop.api.photoArchive.pojo.PhotoArchiveSearchCrit
 import java.util.Map;
 
 public interface PhotoArchiveApiService {
-    ApiResponse findPhoto(PhotoArchiveSearchCriteria searchCriteria);
-
-    Response findById(Long id);
+    ApiResponse findPhoto(PhotoArchiveSearchCriteria searchCriteria) throws AppException;
 
     Map findRawById(Long id);
 }

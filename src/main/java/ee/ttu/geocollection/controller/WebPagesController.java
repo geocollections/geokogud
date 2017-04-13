@@ -1,5 +1,6 @@
-package ee.ttu.geocollection.main.controller;
+package ee.ttu.geocollection.controller;
 
+import ee.ttu.geocollection.domain.AppException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class WebPagesController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@ResponseBody
-	public ApiResponse getWebPages(@PathVariable int id) {
+	public ApiResponse getWebPages(@PathVariable int id) throws AppException {
 		return webPagesApiService.getWebPages(id);
 	}
 }

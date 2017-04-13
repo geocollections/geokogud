@@ -1,0 +1,16 @@
+<div>
+    <div class="modal-header">
+        <span class="cr pull-right" ng-click="error.close()"><i class="cr-icon glyphicon glyphicon-remove"></i></span>
+        <h2><b>{{'ERROR.TITLE' | translate}}</b></h2>
+    </div>
+    <div class="modal-body ">
+        <div class="alert alert-danger">
+            <ul>
+                <li>{{error.reason | translate}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="error.close()">SULGE</button>
+    </div>
+</div>

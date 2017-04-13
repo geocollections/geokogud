@@ -1,4 +1,4 @@
-package ee.ttu.geocollection.search.domain;
+package ee.ttu.geocollection.domain;
 
 import java.util.Arrays;
 import java.util.List;

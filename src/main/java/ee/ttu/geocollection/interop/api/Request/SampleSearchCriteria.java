@@ -1,7 +1,7 @@
 package ee.ttu.geocollection.interop.api.Request;
 
-import ee.ttu.geocollection.search.domain.SearchField;
-import ee.ttu.geocollection.search.domain.SortField;
+import ee.ttu.geocollection.domain.SearchField;
+import ee.ttu.geocollection.domain.SortField;
 
 public class SampleSearchCriteria {
     private int page = 1;

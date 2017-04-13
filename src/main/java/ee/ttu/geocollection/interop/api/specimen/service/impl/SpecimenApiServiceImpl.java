@@ -1,5 +1,6 @@
 package ee.ttu.geocollection.interop.api.specimen.service.impl;
 
+import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentSpecimenImageSearchApiBuilder;
@@ -7,8 +8,8 @@ import ee.ttu.geocollection.interop.api.builder.search.FluentSpecimenSearchApiBu
 import ee.ttu.geocollection.interop.api.service.ApiService;
 import ee.ttu.geocollection.interop.api.specimen.pojo.SpecimenSearchCriteria;
 import ee.ttu.geocollection.interop.api.specimen.service.SpecimenApiService;
-import ee.ttu.geocollection.search.domain.SearchField;
-import ee.ttu.geocollection.search.domain.SortField;
+import ee.ttu.geocollection.domain.SearchField;
+import ee.ttu.geocollection.domain.SortField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
     private ApiService apiService;
 
     @Override
-    public ApiResponse findSpecimen(SpecimenSearchCriteria searchCriteria) {
+    public ApiResponse findSpecimen(SpecimenSearchCriteria searchCriteria) throws AppException {
         String requestParams = FluentSpecimenSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId())
                 .querySpecimenNumber(searchCriteria.getSpecimenNumber())
@@ -39,7 +40,7 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
     }
 
     @Override
-    public ApiResponse findSpecimenImage(SearchField specimenId) {
+    public ApiResponse findSpecimenImage(SearchField specimenId) throws AppException{
         String requestParams = FluentSpecimenImageSearchApiBuilder.aRequest()
                 .querySpecimenIdForUrl(specimenId)
                 .buildWithoutReturningCertainFields();

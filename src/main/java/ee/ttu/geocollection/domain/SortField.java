@@ -1,4 +1,4 @@
-package ee.ttu.geocollection.search.domain;
+package ee.ttu.geocollection.domain;
 
 public class SortField {
     private String sortBy = "id";
