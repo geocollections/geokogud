@@ -3,6 +3,8 @@ package ee.ttu.geocollection.interop.api.specimen.pojo;
 import ee.ttu.geocollection.domain.SearchField;
 import ee.ttu.geocollection.domain.SortField;
 
+import java.util.List;
+
 public class SpecimenSearchCriteria {
     private int page = 1;
     private SortField sortField;
@@ -24,6 +26,15 @@ public class SpecimenSearchCriteria {
     private SearchField partOfFossil;
     private SearchField keyWords;
     private SearchField regDate;
+    private List<String> dbs;
+
+    public List<String> getDbs() {
+        return dbs;
+    }
+
+    public void setDbs(List<String> dbs) {
+        this.dbs = dbs;
+    }
 
     public SearchField getId() {
         return id;

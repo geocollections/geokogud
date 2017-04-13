@@ -25,7 +25,7 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
         String requestParams = FluentSpecimenSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId()).andReturn()
                 .querySpecimenNumber(searchCriteria.getSpecimenNumber()).andReturn()
-                .queryCollectionNumber(searchCriteria.getCollectionNumber())
+                .queryCollectionNumber(searchCriteria.getCollectionNumber()).andReturn()
                 .queryClassification(searchCriteria.getClassification())
                 .queryMineralRock(searchCriteria.getMineralRock())
                 .queryLocality(searchCriteria.getLocality()).andReturn()
@@ -39,6 +39,8 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
                 .queryReference(searchCriteria.getReference())
                 .queryNameOfFossil(searchCriteria.getFossilName())
                 .queryFossilMineralRock(searchCriteria.getFossilMineralRock())
+                //TODO [#5] should be added to API...
+                //.queryInstitution(searchCriteria.getDbs())
                 .returnDatabaseName()
                 .buildWithReturningCertainFields();
         return apiService.searchRawEntities("specimen", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
@@ -49,7 +51,7 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
         String requestParams = FluentSpecimenImageSearchApiBuilder.aRequest()
                 .querySpecimenIdForUrl(specimenId)
                 .buildWithoutReturningCertainFields();
-        return apiService.searchRawEntities("specimen_image", 1, new SortField(), requestParams);
+        return apiService.searchRawEntities("specimen_image", 2,1, new SortField(), requestParams);
     }
 
     @Override

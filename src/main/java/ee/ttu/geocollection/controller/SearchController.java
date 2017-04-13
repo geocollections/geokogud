@@ -78,7 +78,7 @@ public class SearchController extends ControllerHelper {
         if(specimens.getResult() != null) {
             for (Map map : specimens.getResult()) {
                 Map<String, Object> castedMap = (Map<String, Object>) map;
-                map.put("specimen_image_thumbnail", specimenApiService.findSpecimenImage(new SearchField(castedMap.get("id").toString(), LookUpType.exact)));
+                map.put("specimen_image_thumbnail", specimenApiService.findSpecimenImage(new SearchField(castedMap.get("specimen_id").toString(), LookUpType.exact)));
             }
         }
         return specimens;

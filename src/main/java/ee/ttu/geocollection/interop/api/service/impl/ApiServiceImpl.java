@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
 import ee.ttu.geocollection.domain.AppError;
 import ee.ttu.geocollection.domain.AppException;
+import ee.ttu.geocollection.domain.SortField;
+import ee.ttu.geocollection.domain.SortingOrder;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.common.GeoEntity;
@@ -11,8 +13,6 @@ import ee.ttu.geocollection.interop.api.deserializer.ApiResponseProto;
 import ee.ttu.geocollection.interop.api.deserializer.Deserializer;
 import ee.ttu.geocollection.interop.api.drillCores.pojo.DrillcoreBox;
 import ee.ttu.geocollection.interop.api.service.ApiService;
-import ee.ttu.geocollection.domain.SortField;
-import ee.ttu.geocollection.domain.SortingOrder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
@@ -65,7 +65,12 @@ public class ApiServiceImpl implements ApiService {
 
     @Override
     public ApiResponse searchRawEntities(String tableName, int page, SortField sortField, String requestParams) throws AppException{
-        String url = apiUrl + "/" + tableName + "/" + "?paginate_by=" + 30 + "&page=" + page
+        return searchRawEntities(tableName, 30, page, sortField, requestParams);
+    }
+
+    @Override
+    public ApiResponse searchRawEntities(String tableName, int paginateBy, int page, SortField sortField, String requestParams) throws AppException{
+        String url = apiUrl + "/" + tableName + "/" + "?paginate_by=" + paginateBy + "&page=" + page
                 + "&order_by=" + getSortingDirection(sortField.getOrder()) + sortField.getSortBy()
                 + "&format=json" + requestParams;
         logger.trace("Searching: " + url);
@@ -73,7 +78,7 @@ public class ApiServiceImpl implements ApiService {
             ResponseEntity<ApiResponse> rawResponse = restTemplate.getForEntity(url, ApiResponse.class);
             return rawResponse.getBody();
         } catch (HttpMessageNotReadableException e) {
-                throw new AppException(AppError.BAD_REQUEST);
+            throw new AppException(AppError.BAD_REQUEST);
         } catch (HttpServerErrorException e) {
             throw new AppException(AppError.ERROR_API_UNAVAILABLE);
         }
