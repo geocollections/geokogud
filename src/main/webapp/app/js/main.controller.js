@@ -20,6 +20,7 @@ var constructor = function (configuration,$translate,$http, applicationService,$
 
     $rootScope.$on('$stateChangeStart',
             function(event, toState, toParams, fromState, fromParams) {
+                console.log(toState);
                 if (toState.params != null) {
                     getWebPageById(toState.params.contentId);
                 }
@@ -28,12 +29,16 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     asyncLoadData(); //fixme make async request
 
     function asyncLoadData () {
-     //   applicationService.getNews(onNewsData);
-   //     applicationService.loadMapData(onMapData);
+        applicationService.getNews(onNewsData);
+        applicationService.loadMapData(onMapData);
     }
 
     function getWebPageById(id) {
         vm.webpages = applicationService.getWebPage(id, onWebPagesData);
+    }
+
+    function onMapData(response) {
+        console.log(response);
     }
 
     function onNewsData(response) {

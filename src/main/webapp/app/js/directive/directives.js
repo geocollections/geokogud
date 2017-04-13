@@ -461,7 +461,7 @@ angular.module('geoApp').directive('loading', function () {
             },
             restrict: 'AE',
             replace: true,
-            template: '<div id="map" style="position: relative; width: 100%; min-height: 350px; max-height:400px; max-width: 1000px; corner-radius: 3px;"></div>',
+            template: '<div id="map"></div>',
             controller: ['$scope', function ($scope) {
                 var watcher = $scope.$watch('localities', function () {
                     if ($scope.localities === undefined) return;
@@ -552,7 +552,7 @@ angular.module('geoApp').directive('loading', function () {
                         feature.fid = locality.fid;
                         $scope.vectorSource.addFeature(feature);
                     });
-                    console.log($scope.localities)
+                    console.log($scope.localities);
                     $scope.layerData = new ol.layer.Vector({
                         title: "Localities",
                         source: $scope.vectorSource,
@@ -601,7 +601,7 @@ angular.module('geoApp').directive('loading', function () {
 
                     if (feature) {
                         //window.location = '/locality/' + feature.fid;
-                        window.open('/locality/' + feature.fid, '', 'width=750,height=750,scrollbars, resizable');
+                        window.open('#/locality/' + feature.fid, '', 'width=750,height=750,scrollbars, resizable');
                     }
                     else {
                         document.getElementById('hoverbox').style.display = 'none';
@@ -627,7 +627,6 @@ angular.module('geoApp').directive('loading', function () {
                     }
                 };
                 //======================================================================
-
             }]
         }
     }).directive('mainMap',

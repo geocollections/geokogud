@@ -332,3 +332,36 @@ table tr > td:first-child {
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
+/* map hoverbox stuff */
+.couponcode:hover .coupontooltip {
+    display: block;
+}
+.coupontooltip {
+    display: none;
+    margin: 10px 0 0 10px;
+    position: absolute;
+    z-index: 1000;
+}
+.couponcode {
+    margin:50px;
+}
+
+#hoverbox {
+    display: none;
+    box-shadow: 2px 2px 6px #666;
+    border-radius: 3px;
+    border: solid 2px #fff;
+    opacity: 0.9;
+    color: #333;
+    min-height:10px;
+    font-weight: bold;
+    background-color: #F5E9BF;
+    min-width: 100px;
+    max-height: 150px;
+    max-width: 200px;
+    position: absolute;
+
+    top: 0px;
+    right: 0px;
+    padding: 5px;
+}
