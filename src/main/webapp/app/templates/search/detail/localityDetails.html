@@ -32,12 +32,7 @@
         </div>
     </div>
     <div class="panel-body">
-        <div class="row">
-            <div class="col-lg-6">
-                <label>References to locality</label>
-            </div>
-        </div>
-        <div class="row">
+        <div class="row"  data-ng-if="detailCtrl.specimens.length > 0">
             <div class="col-lg-6">
             <label>Specimens</label>
             <table class="table table-bordered table-hover">
@@ -50,7 +45,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr style="cursor: pointer; " data-ng-repeat="specimen in specimens">
+                <tr style="cursor: pointer; " data-ng-repeat="specimen in detailCtrl.specimens">
                     <td><a href data-ng-click="openInNewWindow({object:'specimen',id:specimen.id})">{{specimen.id}}</a></td>
                     <td><a href="http://fossiilid.info/{{specimen.taxonId}}">{{specimen.taxon}}</a></td>
                     <td>{{specimen.stratigraphy}}</td>
@@ -67,7 +62,7 @@
             &ensp;&ensp;|&ensp;&ensp; <a href data-ng-click="detailCtrl.service.showEstonianLandBoardMap(detailCtrl.locality.latitude, detailCtrl.locality.longitude)">Maa-amet / Estonian Land Board</a>
         </div>
 
-        <div class="row">
+        <div class="row" data-ng-if="detailCtrl.images.length > 0">
             <div class="col-lg-6">
                 <label>Linked files</label>
                 <table class="table table-bordered table-hover">
@@ -94,7 +89,30 @@
                 </table>
             </div>
         </div>
-        <div class="row" data-ng-if="detailCtrl.references.length > 0">
+        <div class="row" data-ng-if="detailCtrl.localitySynonyms.length > 0">
+            <div class="col-lg-6">
+                <label>Locality synonyms</label>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Synonym</th>
+                        <th>Reference</th>
+                        <th>Pages</th>
+                        <th>Remarks</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in detailCtrl.localitySynonyms">
+                        <td>{{entity.synonym}}</td>
+                        <td>{{entity.reference__reference}}</td>
+                        <td>{{entity.pages}}</td>
+                        <td>{{entity.remarks}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row" data-ng-if="detailCtrl.localityReferences.length > 0">
             <div class="col-lg-6">
                 <label>References to locality</label>
                 <table class="table table-bordered table-hover">
@@ -107,10 +125,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr style="cursor: pointer; " data-ng-repeat="entity in detailCtrl.references">
-                        <td><a href data-ng-click="detailCtrl.service.openInNewWindow({object:'reference',id:entity.id})">{{entity.reference}}</a></td>
+                    <tr style="cursor: pointer; " data-ng-repeat="entity in detailCtrl.localityReferences">
+                        <td><a href data-ng-click="detailCtrl.service.openInNewWindow({object:'reference',id:entity.id})">{{entity.reference__reference}}</a></td>
                         <td>{{entity.pages}}</td>
-                        <td>???</td>
+                        <td>{{entity.figures}}</td>
                         <td>{{entity.remarks}}</td>
                     </tr>
                     </tbody>

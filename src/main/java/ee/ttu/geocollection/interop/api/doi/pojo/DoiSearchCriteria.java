@@ -10,7 +10,8 @@ public class DoiSearchCriteria {
     private SearchField id;
     private SearchField author;
     private SearchField title;
-    private SearchField year;
+    private SearchField yearSince;
+    private SearchField yearTo;
     private SearchField doi;
     private SearchField publishedBy;
     private SearchField abstractText;
@@ -55,12 +56,20 @@ public class DoiSearchCriteria {
         this.title = title;
     }
 
-    public SearchField getYear() {
-        return year;
+    public SearchField getYearSince() {
+        return yearSince;
     }
 
-    public void setYear(SearchField year) {
-        this.year = year;
+    public void setYearSince(SearchField yearSince) {
+        this.yearSince = yearSince;
+    }
+
+    public SearchField getYearTo() {
+        return yearTo;
+    }
+
+    public void setYearTo(SearchField yearTo) {
+        this.yearTo = yearTo;
     }
 
     public SearchField getDoi() {

@@ -77,12 +77,6 @@ public class SearchController {
         return apiService.searchByField(table, term, searchField);
     }
 
-    @RequestMapping(value = "/{entity}/{id}", method= RequestMethod.GET)
-    @ResponseBody
-    public NewVersionOfApiResponse getEntity(@PathVariable String entity, @PathVariable Long id){
-        return samplesApiService.getEntityInfo(entity, id);
-    }
-
     @RequestMapping(value = "/taxon", method = RequestMethod.GET)
     public TaxonApiResponse list(@RequestParam("term") String q) {
         return taxonApiService.searchTaxon(q);

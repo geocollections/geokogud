@@ -39,7 +39,7 @@
                                                    ng-model="searchParameters.title.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.title.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.title.name" table="doi" en="null" et="reference__title"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -49,43 +49,29 @@
                                                    ng-model="searchParameters.publishedBy.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.publishedBy.value" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.publishedBy.name" table="doi" en="null" et="publisher"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.DOI.YEAR' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.year.lookUpType"></selectdefault>
+                                    <!--<selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.year.lookUpType"></selectdefault>-->
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.year.name" class="form-control"/>
+                                    <interval-field ng-model= "searchParameters.yearSince" lookup="gte"></interval-field >
+                                    <interval-field ng-model= "searchParameters.yearTo" lookup="lte"></interval-field >
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.DOI.AUTHOR' | translate }}</b>
-                                    <!--   <input type="text" class="form-control input-sm"
-                                              data-ng-model="searchParameters.author.value"
-                                              placeholder="input search parameter..."
-                                              data-uib-typeahead="e as entity.reference__author for entity in searchService.searchByParam('doi',$viewValue,'reference__author')"
-                                              data-typeahead-min-length="2"
-                                              data-typeahead-on-select="entitySelected($item, $model)"/>-->
                                     <selectdefault custom-css="searchCriterionType"
                                                    ng-model="searchParameters.author.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" class="form-control input-sm"
-                                           data-ng-model="searchParameters.author.name"
-                                           placeholder="input search parameter..."
-                                           data-uib-typeahead="entity.reference__author for entity in searchService.searchByParam('doi',$viewValue,'reference__author')"
-                                           data-typeahead-min-length="2"
-                                           data-typeahead-on-select="entitySelected($item.reference__author, $model)"/>
+                                    <autocomplete-field ng-model="searchParameters.author.name" table="doi" en="null" et="reference__author"/>
                                 </div>
-                                <!--<selectdefault custom-css="searchCriterionType" ng-model = "searchParameters.author.lookUpType"></selectdefault>-->
-                                <!-- <div class="col-md-12 medium-padding">
-                                     <input type="text" ng-model="searchParameters.author.name" class="form-control"/>
-                                 </div>-->
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">

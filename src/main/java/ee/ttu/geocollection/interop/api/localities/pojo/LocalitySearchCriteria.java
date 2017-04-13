@@ -19,7 +19,8 @@ public class LocalitySearchCriteria {
     private SearchField adminUnit;
     private SearchField latitude;
     private SearchField longitude;
-    private SearchField verticalExtent;
+    private SearchField verticalExtentSince;
+    private SearchField verticalExtentTo;
 
     public SearchField getCountry() {
         return country;
@@ -37,12 +38,20 @@ public class LocalitySearchCriteria {
         this.adminUnit = adminUnit;
     }
 
-    public SearchField getVerticalExtent() {
-        return verticalExtent;
+    public SearchField getVerticalExtentSince() {
+        return verticalExtentSince;
     }
 
-    public void setVerticalExtent(SearchField verticalExtent) {
-        this.verticalExtent = verticalExtent;
+    public void setVerticalExtentSince(SearchField verticalExtentSince) {
+        this.verticalExtentSince = verticalExtentSince;
+    }
+
+    public SearchField getVerticalExtentTo() {
+        return verticalExtentTo;
+    }
+
+    public void setVerticalExtentTo(SearchField verticalExtentTo) {
+        this.verticalExtentTo = verticalExtentTo;
     }
 
     public SearchField getLocality() {

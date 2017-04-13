@@ -10,7 +10,8 @@ public class PreparationsSearchCriteria {
     private SearchField number;
     private SearchField locality;
     private SearchField localityEn;
-    private SearchField depth;
+    private SearchField depthSince;
+    private SearchField depthTo;
     private SearchField stratigraphy;
     private SearchField stratigraphyEn;
     private SearchField collector;
@@ -66,12 +67,20 @@ public class PreparationsSearchCriteria {
         this.locality = locality;
     }
 
-    public SearchField getDepth() {
-        return depth;
+    public SearchField getDepthSince() {
+        return depthSince;
     }
 
-    public void setDepth(SearchField depth) {
-        this.depth = depth;
+    public void setDepthSince(SearchField depthSince) {
+        this.depthSince = depthSince;
+    }
+
+    public SearchField getDepthTo() {
+        return depthTo;
+    }
+
+    public void setDepthTo(SearchField depthTo) {
+        this.depthTo = depthTo;
     }
 
     public SearchField getStratigraphy() {

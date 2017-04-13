@@ -8,15 +8,70 @@ public class AnalysesSearchCriteria {
     private SortField sortField;
 
     private SearchField id;
+    private SearchField sample;
+    private SearchField stratigraphyBed;
+    private SearchField locality;
+    private SearchField adminUnit;
+    private SearchField depthSince;
+    private SearchField depthTo;
+    private SearchField stratigraphy;
     private SearchField analysisMethod;
     private SearchField analysisMethodEng;
     private SearchField methodDetails;
     private SearchField lab;
     private SearchField instrument;
     private SearchField instrumentTxt;
-    private SearchField sample;
+
     private SearchField date;
     private SearchField dateFree;
+
+    public SearchField getLocality() {
+        return locality;
+    }
+
+    public void setLocality(SearchField locality) {
+        this.locality = locality;
+    }
+
+    public SearchField getAdminUnit() {
+        return adminUnit;
+    }
+
+    public void setAdminUnit(SearchField adminUnit) {
+        this.adminUnit = adminUnit;
+    }
+
+    public SearchField getDepthSince() {
+        return depthSince;
+    }
+
+    public void setDepthSince(SearchField depthSince) {
+        this.depthSince = depthSince;
+    }
+
+    public SearchField getDepthTo() {
+        return depthTo;
+    }
+
+    public void setDepthTo(SearchField depthTo) {
+        this.depthTo = depthTo;
+    }
+
+    public SearchField getStratigraphy() {
+        return stratigraphy;
+    }
+
+    public void setStratigraphy(SearchField stratigraphy) {
+        this.stratigraphy = stratigraphy;
+    }
+
+    public SearchField getStratigraphyBed() {
+        return stratigraphyBed;
+    }
+
+    public void setStratigraphyBed(SearchField stratigraphyBed) {
+        this.stratigraphyBed = stratigraphyBed;
+    }
 
     public int getPage() {
         return page;

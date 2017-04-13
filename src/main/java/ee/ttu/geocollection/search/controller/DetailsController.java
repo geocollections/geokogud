@@ -71,18 +71,6 @@ public class DetailsController {
         return doiApiService.searchByField(table, term, searchField);
     }
 
-    @RequestMapping(value = "/soil/{id}")
-    public SoilDetailsDialogDto findSoilById(@PathVariable Long id) {
-        SampleSearchCriteria criteria = new SampleSearchCriteria();
-        criteria.setSoilSiteId(new SearchField(id.toString(), LookUpType.exact));
-
-        Soil soil = soilApiService.findById(id);
-        Response<Sample> samples = samplesApiService.searchSamples(criteria);
-        Response<SoilHorizon> soilHorizons = soilApiService.findSoilHorizons(null);
-
-        return new SoilDetailsDialogDto(soil, samples);
-    }
-
     @RequestMapping(value = "/drillcore/{id}")
     public DrillCoreProto findDrillCoreById(@PathVariable Long id) {
         return drillCoreApiService.findDrillcoreById(id);
@@ -93,21 +81,11 @@ public class DetailsController {
         return drillCoreApiService.findDrillcoreBoxById(id);
     }
 
-    @RequestMapping(value = "/reference/{id}")
-    public ReferenceDetailsDialogDto findReferenceById(@PathVariable Long id) {
-        return new ReferenceDetailsDialogDto(referenceApiService.findById(id));
-    }
-
     @RequestMapping(value = "/doi/{id}")
     public ReferenceDetailsDialogDto findDoiById(@PathVariable Long id) {
         return new ReferenceDetailsDialogDto(doiApiService.findById(id));
     }
 
-    @RequestMapping(value = "/sample/{id}")
-    public SampleDetailsDialogDto findSampleById(@PathVariable Long id) {
-        Response samples = samplesApiService.findById(id);
-        return new SampleDetailsDialogDto(samples);
-    }
     @RequestMapping(value = "/raw-specimen/{id}")
     public Map findRawSpecimenById(@PathVariable Long id) {
         return specimenApiService.findRawById(id);

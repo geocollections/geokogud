@@ -56,4 +56,9 @@ public class FluentLocalitySearchApiBuilder extends FluentSearchApiBuilder<Fluen
         buildFieldParameters(LONGITUDE, id);
         return this;
     }
+
+    public FluentLocalitySearchApiBuilder queryVerticalExtend(SearchField id) {
+        buildFieldParameters(LONGITUDE, id);
+        return this;
+    }
 }

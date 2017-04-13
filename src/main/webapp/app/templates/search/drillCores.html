@@ -107,7 +107,6 @@
                                 </div>
                                 <div class="col-md-12 medium-padding">
                                     <autocomplete-field ng-model="searchParameters.country.name" table="drillcore" en="locality__country__value_en" et="locality__country__value"/>
-
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -117,7 +116,7 @@
                                                    ng-model="searchParameters.adminunit.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.adminunit.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.adminunit.name" table="drillcore" en="locality__locality_en" et="locality__locality"/>
                                 </div>
                             </div>
                         </div>

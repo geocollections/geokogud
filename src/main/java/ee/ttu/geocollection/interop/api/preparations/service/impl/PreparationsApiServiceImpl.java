@@ -26,7 +26,8 @@ public class PreparationsApiServiceImpl implements PreparationsApiService{
                 .queryCollector(searchCriteria.getCollector())
                 .queryStratigraphy(searchCriteria.getStratigraphy())
                 .queryStratigraphyEn(searchCriteria.getStratigraphyEn())
-                .queryDepth(searchCriteria.getDepth())
+                .queryDepth(searchCriteria.getDepthSince())
+                .queryDepth(searchCriteria.getDepthTo())
                 .buildWithoutReturningCertainFields();
         return apiService.searchRawEntities("preparation", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }

@@ -8,11 +8,6 @@ import java.util.Map;
 
 public interface ReferenceApiService {
     ApiResponse findReference(ReferenceSearchCriteria searchCriteria);
-    Response findDoi(ReferenceSearchCriteria searchCriteria);
-
-    Response findById(Long id);
-
-    Response findDoiById(Long id);
 
     Map findRawById(Long id);
 }

@@ -14,18 +14,4 @@ public interface SamplesApiService {
     ApiResponse findSample(ee.ttu.geocollection.interop.api.samples.pojo.SampleSearchCriteria searchCriteria);
 
     Map findRawById(Long id);
-
-    Response findById(Long id);
-
-    Response searchByParam(String q, String table);
-
-    Response searchList(CommonSearch search);
-
-    Response searchList(SearchApiRequest request);
-
-    NewVersionOfApiResponse getEntityInfo(String entity, Long id);
-
-    NewVersionOfApiResponse getEntityInfo(Long id,SearchApiRequest request);
-
-    Response<Sample> searchSamples(ee.ttu.geocollection.interop.api.Request.SampleSearchCriteria criteria);
 }

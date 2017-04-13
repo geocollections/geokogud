@@ -39,7 +39,7 @@
                                                      ng-model="searchParameters.stratigraphy.lookUpType"></selecthierarchy>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.stratigraphy.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.stratigraphy.name" table="stratigraphy" en="stratigraphy_en" et="stratigraphy"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -69,7 +69,7 @@
                                                    ng-model="searchParameters.mainLithology.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.mainLithology.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.mainLithology.name" table="stratigraphy" en="lithology_en" et="lithology"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -79,7 +79,7 @@
                                                    ng-model="searchParameters.author.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.author.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.author.name" table="stratigraphy" en="null" et="author_free"/>
                                 </div>
                             </div>
                         </div>

@@ -103,7 +103,7 @@
                                                    ng-model="searchParameters.locality.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.locality.value" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.locality.name" table="locality" en="locality_en" et="locality"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -113,7 +113,7 @@
                                                    ng-model="searchParameters.country.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.country.value" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.country.name" table="locality" en="country__value_en" et="country__value"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -149,11 +149,12 @@
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.LOCALITIES.LOCATION.VERTICAL_EXTENT' | translate }} </b>
-                                    <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.depth.type"></selectexact>
+                                 <!--   <selectexact custom-css="searchCriterionType"
+                                                 ng-model="searchParameters.verticalExtent.type"></selectexact>-->
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.depth.value" class="form-control"/>
+                                    <interval-field ng-model= "searchParameters.verticalExtentSince" lookup="gte"></interval-field >
+                                    <interval-field ng-model= "searchParameters.verticalExtentTo" lookup="lte"></interval-field >
                                 </div>
                             </div>
                         </div>

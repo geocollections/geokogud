@@ -42,6 +42,8 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
                 .queryAdminUnit(searchCriteria.getAdminUnit())
                 .queryLongitude(searchCriteria.getLatitude())
                 .queryLongitude(searchCriteria.getLongitude())
+                .queryDepth(searchCriteria.getVerticalExtentSince())
+                .queryDepth(searchCriteria.getVerticalExtentTo())
                 .buildWithoutReturningCertainFields();
         return apiService.searchRawEntities("locality",
                 searchCriteria.getPage(),
@@ -55,7 +57,8 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
                 .id(id)
                 .relatedData("image")
                 .relatedData("drillcore")
-                .relatedData("reference")
+                .relatedData("locality_reference")
+                .relatedData("locality_synonym")
                 .buildWithDefaultReturningFields();
         return apiService.findEntity("locality", requestParams, Locality.class);
     }
@@ -66,7 +69,8 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
                 .id(id)
                 .relatedData("image")
                 .relatedData("drillcore")
-                .relatedData("reference")
+                .relatedData("locality_reference")
+                .relatedData("locality_synonym")
                 .buildWithDefaultReturningFields();
         return apiService.findRawEntity("locality", requestParams);
     }

@@ -23,13 +23,20 @@ public class AnalysesApiServiceImpl implements AnalysesApiService{
     public ApiResponse findAnalyses(AnalysesSearchCriteria searchCriteria) {
         String requestParams = FluentAnalysesApiBuilder.aRequest()
                 .queryId(searchCriteria.getId())
+                .querySample(searchCriteria.getSample())
+                .queryStratigraphyBed(searchCriteria.getStratigraphyBed())
+                .queryDepth(searchCriteria.getDepthSince())
+                .queryDepth(searchCriteria.getDepthTo())
+                .queryLocality(searchCriteria.getLocality())
+                .queryAdminUnit(searchCriteria.getAdminUnit())
+                .queryStratigraphy(searchCriteria.getStratigraphy())
+
                 .queryAnalysisMethod(searchCriteria.getAnalysisMethod())
                 .queryAnalysisMethodEng(searchCriteria.getAnalysisMethodEng())
                 .queryMethodDetails(searchCriteria.getMethodDetails())
                 .queryLab(searchCriteria.getLab())
                 .queryInstrument(searchCriteria.getInstrument())
                 .queryInstrumentTxt(searchCriteria.getInstrumentTxt())
-                .querySample(searchCriteria.getSample())
                 .queryDate(searchCriteria.getDate())
                 .queryDateFree(searchCriteria.getDateFree())
                 .buildWithoutReturningCertainFields();

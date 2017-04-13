@@ -38,17 +38,18 @@
                                                    ng-model="searchParameters.locality.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.locality.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.locality.name" table="preparaton" en="sample__locality__locality_en" et="sample__locality__locality"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.PREPARATIONS.DEPTH_M' | translate }}</b>
-                                    <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.depth.type"></selectexact>
+                               <!--     <selectexact custom-css="searchCriterionType"
+                                                 ng-model="searchParameters.depth.type"></selectexact>-->
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.depth.value" class="form-control"/>
+                                    <interval-field ng-model= "searchParameters.depthSince" lookup="gte"></interval-field >
+                                    <interval-field ng-model= "searchParameters.depthTo" lookup="lte"></interval-field >
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -58,7 +59,7 @@
                                                      ng-model="searchParameters.stratigraphy.lookUpType"></selecthierarchy>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.stratigraphy.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.stratigraphy.name" table="preparaton" en="sample__stratigraphy__stratigraphy_en" et="sample__stratigraphy__stratigraphy"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -68,7 +69,7 @@
                                                    ng-model="searchParameters.collector.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.collector.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.collector.name" table="preparaton" en="null" et="sample__agent_collected__agent"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -78,8 +79,7 @@
                                                    ng-model="searchParameters.description.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.description.name" class="form-control"
-                                           data-ng-disabled="true"/>
+                                    <input type="text" ng-model="searchParameters.description.name" class="form-control" data-ng-disabled="true"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -133,7 +133,7 @@
                             'SEARCH.PREPARATIONS.TABLE.LITHOSTRATIGRAPHY' | translate }}</em></th>
                         <th><sort-field value = "sampleAgentCollected" name="SEARCH.PREPARATIONS.TABLE.COLLECTOR"></sort-field></th>
                         <th>{{ 'SEARCH.PREPARATIONS.TABLE.WEIGHT' | translate }}</th>
-                        <th>{{ 'SEARCH.PREPARATIONS.TABLE.MORE_INFO' | translate }}</th>
+                      <!--  <th>{{ 'SEARCH.PREPARATIONS.TABLE.MORE_INFO' | translate }}</th>-->
                     </tr>
                     </thead>
                     <tbody>
@@ -150,8 +150,8 @@
                             <localize et="entity.sample__stratigraphy__stratigraphy" en="entity.sample__stratigraphy__stratigraphy_en"/>
                         </td>
                         <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.COLLECTOR' | translate }}">{{entity.sample__agent_collected__agent}}</td>
-                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.WEIGHT' | translate }}">???</td>
-                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.MORE_INFO' | translate }}">???</td>
+                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.WEIGHT' | translate }}">{{entity.sample__mass}}</td>
+                        <!--<td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.MORE_INFO' | translate }}">???</td>-->
                     </tr>
                     </tbody>
                 </table>

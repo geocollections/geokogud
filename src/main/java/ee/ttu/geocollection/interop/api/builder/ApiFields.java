@@ -52,7 +52,7 @@ public class ApiFields {
     public static final String YEAR = "year";
     public static final String DOI = "doi";
     public static final String BOOK = "book";
-    public static final String JOURNAL = "journal";
+    public static final String JOURNAL = "journal__journal_name";
     public static final String ABSTRACT = "abstract";
 
     // Photo archive search
@@ -162,6 +162,9 @@ public class ApiFields {
     public static final String SAMPLE = "sample";
     public static final String DATE = "date";
     public static final String DATE_FREE = "date_free";
+    public static final String SAMPLE_STRATIGRAPHY_BED = "sample__stratigraphy_bed";
+    public static final String SAMPLE_DEPTH = "sample__depth";
+    public static final String SAMPLE_DEPTH_INTERVAL = "sample__depth_interval";
 
     // webnews
     public static final String DATE_ADDED_LT = "date_added__lt";

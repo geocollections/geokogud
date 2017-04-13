@@ -29,7 +29,8 @@ public class DoiApiServiceImpl implements DoiApiService {
                 .queryIdentifier(searchCriteria.getDoi())
                 .queryTitle(searchCriteria.getTitle())
                 .queryPublishedBy(searchCriteria.getPublishedBy())
-                .queryYear(searchCriteria.getYear())
+                .queryYear(searchCriteria.getYearSince())
+                .queryYear(searchCriteria.getYearTo())
                 .queryAuthor(searchCriteria.getAuthor())
                 .queryAbstract(searchCriteria.getAbstractText())
                 .buildWithoutReturningCertainFields();

@@ -50,7 +50,7 @@
                                                    ng-model="searchParameters.site.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.site.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.site.name" table="soil" en="site_en" et="site"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -60,7 +60,7 @@
                                                    ng-model="searchParameters.areaOfStudy.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.areaOfStudy.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.areaOfStudy.name" table="soil" en="null" et="area_name"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -70,7 +70,7 @@
                                                    ng-model="searchParameters.transect.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.transect.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.transect.name" table="soil" en="null" et="transect"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -80,7 +80,7 @@
                                                    ng-model="searchParameters.soilName.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.soilName.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.soil.name" table="soil" en="null" et="soil"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -90,18 +90,21 @@
                                                    ng-model="searchParameters.landUse.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.landUse.name" class="form-control"/>
+                                    <autocomplete-field ng-model="searchParameters.landUse.name" table="soil" en="null" et="land_use"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
-                                <div class="col-md-12  medium-padding">
+                         <!--       <div class="col-md-12  medium-padding">
                                     <b>{{ 'SEARCH.SOIL_SITES.DEEP_MINING' | translate }}</b>
                                     <selectexact custom-css="searchCriterionType"
                                                  ng-model="searchParameters.deepMining.lookUpType"></selectexact>
                                 </div>
                                 <div class="col-md-12 medium-padding">
                                     <input type="text" ng-model="searchParameters.deepMining.name" class="form-control"/>
-                                </div>
+                                </div>-->
+                                <label><input type="checkbox" value="showMap">
+                                    {{ 'SEARCH.SOIL_SITES.DEEP_MINING' | translate }}
+                                </label>
                             </div>
                         </div>
                     </div>
