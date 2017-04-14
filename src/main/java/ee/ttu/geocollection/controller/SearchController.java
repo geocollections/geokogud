@@ -3,6 +3,7 @@ package ee.ttu.geocollection.controller;
 import ee.ttu.geocollection.core.utils.ControllerHelper;
 import ee.ttu.geocollection.domain.LookUpType;
 import ee.ttu.geocollection.domain.SearchField;
+import ee.ttu.geocollection.interop.api.AsynchService;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.analyses.pojo.AnalysesSearchCriteria;
 import ee.ttu.geocollection.interop.api.analyses.search.AnalysesApiService;
@@ -33,11 +34,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequestMapping("/search")
 public class SearchController extends ControllerHelper {
     private static final Logger logger = LoggerFactory.getLogger(SearchController.class);
+
+    @Autowired
+    private AsynchService asynchService;
 
     @Autowired
     private SamplesApiService samplesApiService;
@@ -73,16 +78,23 @@ public class SearchController extends ControllerHelper {
     }
 
     @RequestMapping(value = "/specimen", method = RequestMethod.POST)
-    public ApiResponse searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) throws Exception {
+    public ApiResponse searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) {
         ApiResponse specimens = specimenApiService.findSpecimen(specimenSearchCriteria);
-        if(specimens.getResult() != null) {
-            for (Map map : specimens.getResult()) {
-                Map<String, Object> castedMap = (Map<String, Object>) map;
-                map.put("specimen_image_thumbnail", specimenApiService.findSpecimenImage(new SearchField(castedMap.get("specimen_id").toString(), LookUpType.exact)));
-            }
+        long start = System.nanoTime();
+        if (specimens.getResult() != null) {
+            asynchService.doAsynchCallsForEachResult(
+                    specimens,
+                    specimen ->
+                            () -> specimenApiService.findSpecimenImage(new SearchField(
+                                    specimen.get("specimen_id").toString(),
+                                    LookUpType.exact)),
+                    specimen ->
+                            receivedImage -> specimen.put("specimen_image_thumbnail", receivedImage));
         }
+        logger.trace(Long.toString(TimeUnit.MILLISECONDS.convert(System.nanoTime() - start, TimeUnit.NANOSECONDS)));
         return specimens;
     }
+
 
     @RequestMapping(value = "/sample", method = RequestMethod.POST)
     public ApiResponse searchSample(@RequestBody SampleSearchCriteria sampleSearchCriteria) throws Exception {

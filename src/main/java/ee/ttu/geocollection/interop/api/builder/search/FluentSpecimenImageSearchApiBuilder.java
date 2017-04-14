@@ -24,8 +24,6 @@ public class FluentSpecimenImageSearchApiBuilder extends FluentSearchApiBuilder<
         return this;
     }
 
-
-
     public FluentSpecimenImageSearchApiBuilder returnImageUrl(){
         addReturningField(IMAGE_URL);
         return this;

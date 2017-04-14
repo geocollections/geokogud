@@ -27,4 +27,7 @@ public class AppConfig {
     @Value("${github.url}")
     public String githubUrl;
 
+    @Value("${asynchRequestTimeoutMillisecs}")
+    public Integer asynchRequestTimeoutMillisecs;
+
 }

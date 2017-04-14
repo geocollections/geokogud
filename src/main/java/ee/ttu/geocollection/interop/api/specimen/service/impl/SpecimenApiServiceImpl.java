@@ -47,9 +47,10 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
     }
 
     @Override
-    public ApiResponse findSpecimenImage(SearchField specimenId) throws AppException{
+    public ApiResponse findSpecimenImage(SearchField specimenId) {
         String requestParams = FluentSpecimenImageSearchApiBuilder.aRequest()
-                .querySpecimenIdForUrl(specimenId)
+                .querySpecimenIdForUrl(specimenId).andReturn()
+                .returnImageUrl()
                 .buildWithoutReturningCertainFields();
         return apiService.searchRawEntities("specimen_image", 2,1, new SortField(), requestParams);
     }

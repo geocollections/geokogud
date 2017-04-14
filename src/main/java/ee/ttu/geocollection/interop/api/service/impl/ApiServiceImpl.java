@@ -64,12 +64,12 @@ public class ApiServiceImpl implements ApiService {
     }
 
     @Override
-    public ApiResponse searchRawEntities(String tableName, int page, SortField sortField, String requestParams) throws AppException{
+    public ApiResponse searchRawEntities(String tableName, int page, SortField sortField, String requestParams) {
         return searchRawEntities(tableName, 30, page, sortField, requestParams);
     }
 
     @Override
-    public ApiResponse searchRawEntities(String tableName, int paginateBy, int page, SortField sortField, String requestParams) throws AppException{
+    public ApiResponse searchRawEntities(String tableName, int paginateBy, int page, SortField sortField, String requestParams) {
         String url = apiUrl + "/" + tableName + "/" + "?paginate_by=" + paginateBy + "&page=" + page
                 + "&order_by=" + getSortingDirection(sortField.getOrder()) + sortField.getSortBy()
                 + "&format=json" + requestParams;

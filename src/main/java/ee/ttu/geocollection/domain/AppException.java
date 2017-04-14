@@ -1,10 +1,8 @@
 package ee.ttu.geocollection.domain;
 
 import org.springframework.http.HttpStatus;
-/**
- * Created by Olesja Senkiv on 13.04.2017.
- */
-public class AppException extends Exception {
+
+public class AppException extends RuntimeException {
 
         private AppError error;
 
