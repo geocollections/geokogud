@@ -34,7 +34,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequestMapping("/search")
@@ -80,7 +79,6 @@ public class SearchController extends ControllerHelper {
     @RequestMapping(value = "/specimen", method = RequestMethod.POST)
     public ApiResponse searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) {
         ApiResponse specimens = specimenApiService.findSpecimen(specimenSearchCriteria);
-        long start = System.nanoTime();
         if (specimens.getResult() != null) {
             asynchService.doAsynchCallsForEachResult(
                     specimens,
@@ -91,7 +89,6 @@ public class SearchController extends ControllerHelper {
                     specimen ->
                             receivedImage -> specimen.put("specimen_image_thumbnail", receivedImage));
         }
-        logger.trace(Long.toString(TimeUnit.MILLISECONDS.convert(System.nanoTime() - start, TimeUnit.NANOSECONDS)));
         return specimens;
     }
 
