@@ -69,10 +69,10 @@ public class SearchController extends ControllerHelper {
     private ApiService apiService;
 
     @RequestMapping(value = "/autocomplete-field", method = RequestMethod.GET)
-    public Map findDoiById (
+    public Map findDoiById(
             @RequestParam("table") String table,
             @RequestParam("term") String term,
-            @RequestParam("searchField") String searchField) throws Exception{
+            @RequestParam("searchField") String searchField) {
         return apiService.searchByField(table, term, searchField);
     }
 
@@ -94,52 +94,52 @@ public class SearchController extends ControllerHelper {
 
 
     @RequestMapping(value = "/sample", method = RequestMethod.POST)
-    public ApiResponse searchSample(@RequestBody SampleSearchCriteria sampleSearchCriteria) throws Exception {
+    public ApiResponse searchSample(@RequestBody SampleSearchCriteria sampleSearchCriteria) {
         return samplesApiService.findSample(sampleSearchCriteria);
     }
 
     @RequestMapping(value = "/drillcore", method = RequestMethod.POST)
-    public ApiResponse searchDrillCores(@RequestBody DrillCoreSearchCriteria searchCriteria) throws Exception {
+    public ApiResponse searchDrillCores(@RequestBody DrillCoreSearchCriteria searchCriteria) {
         return drillCoreApiService.findDrillCore(searchCriteria);
     }
 
     @RequestMapping(value = "/locality", method = RequestMethod.POST)
-    public ApiResponse searchLocalities(@RequestBody LocalitySearchCriteria searchCriteria) throws Exception {
+    public ApiResponse searchLocalities(@RequestBody LocalitySearchCriteria searchCriteria) {
         return localitiesApiService.findLocality(searchCriteria);
     }
 
     @RequestMapping(value = "/photo-archive", method = RequestMethod.POST)
-    public ApiResponse searchPhotoArchive(@RequestBody PhotoArchiveSearchCriteria photoArchiveSearchCriteria) throws Exception {
+    public ApiResponse searchPhotoArchive(@RequestBody PhotoArchiveSearchCriteria photoArchiveSearchCriteria) {
         return photoArchiveApiService.findPhoto(photoArchiveSearchCriteria);
     }
 
     @RequestMapping(value = "/soil", method = RequestMethod.POST)
-    public ApiResponse searchSoil(@RequestBody SoilSearchCriteria searchCriteria) throws Exception {
+    public ApiResponse searchSoil(@RequestBody SoilSearchCriteria searchCriteria) {
         return soilApiService.findSoil(searchCriteria);
     }
 
     @RequestMapping(value = "/reference", method = RequestMethod.POST)
-    public ApiResponse searchDoi(@RequestBody ReferenceSearchCriteria searchCriteria) throws Exception{
+    public ApiResponse searchDoi(@RequestBody ReferenceSearchCriteria searchCriteria) {
         return referenceApiService.findReference(searchCriteria);
     }
 
     @RequestMapping(value = "/doi", method = RequestMethod.POST)
-    public ApiResponse searchReference(@RequestBody DoiSearchCriteria searchCriteria) throws Exception{
+    public ApiResponse searchReference(@RequestBody DoiSearchCriteria searchCriteria) {
         return doiApiService.findDoi(searchCriteria);
     }
 
     @RequestMapping(value = "/analyses", method = RequestMethod.POST)
-    public ApiResponse searchAnalyses(@RequestBody AnalysesSearchCriteria analysesSearchCriteria) throws Exception{
+    public ApiResponse searchAnalyses(@RequestBody AnalysesSearchCriteria analysesSearchCriteria) {
         return analysesApiService.findAnalyses(analysesSearchCriteria);
     }
 
     @RequestMapping(value = "/preparation", method = RequestMethod.POST)
-    public ApiResponse searchPreparations(@RequestBody PreparationsSearchCriteria preparationsSearchCriteria) throws Exception{
+    public ApiResponse searchPreparations(@RequestBody PreparationsSearchCriteria preparationsSearchCriteria) {
         return preparationsApiService.findPreparations(preparationsSearchCriteria);
     }
 
     @RequestMapping(value = "/stratigraphy", method = RequestMethod.POST)
-    public ApiResponse searchStratigraphy(@RequestBody StratigraphySearchCriteria stratigraphySearchCriteria) throws Exception{
+    public ApiResponse searchStratigraphy(@RequestBody StratigraphySearchCriteria stratigraphySearchCriteria) {
         return stratigraphyApiService.findStratigraphy(stratigraphySearchCriteria);
     }
 }

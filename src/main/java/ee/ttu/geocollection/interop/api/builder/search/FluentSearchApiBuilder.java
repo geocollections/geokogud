@@ -1,5 +1,6 @@
 package ee.ttu.geocollection.interop.api.builder.search;
 
+import ee.ttu.geocollection.domain.LookUpType;
 import ee.ttu.geocollection.domain.SearchField;
 import org.apache.commons.lang3.StringUtils;
 
@@ -7,8 +8,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static ee.ttu.geocollection.interop.api.builder.ApiFields.ID;
-import static ee.ttu.geocollection.interop.api.builder.ApiFields.REMARKS;
+import static ee.ttu.geocollection.interop.api.builder.ApiFields.*;
+import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
 public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>> {
@@ -39,12 +40,23 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
         return getThis();
     }
 
-
-    public B queryInstitution(List<String> dbs) {
-        if (dbs == null) return getThis();
-        query += dbs.size() > 0 ? "&database__acronym=" +
-                dbs.stream().collect(Collectors.joining("&database__acronym=")) : EMPTY;
+    public B queryInstitutions(List<String> institutions) {
+        if (institutions != null) {
+            buildOrSearch(
+                    institutions.stream()
+                            .map(inst -> new OrSearchPair(new SearchField(inst, LookUpType.exact), DATABASE_ACRONYM))
+                            .collect(toList()));
+        }
         return getThis();
+    }
+
+    void buildOrSearch(List<OrSearchPair> orSearchPairs) {
+        if (!orSearchPairs.isEmpty()) {
+            query += "&or_search=" +
+                    orSearchPairs.stream()
+                            .map(pair -> pair.getField() + "__" + pair.getSearchField().getLookUpType().value() + ":" + pair.getSearchField().getName())
+                            .collect(Collectors.joining(";"));
+        }
     }
 
     public B queryDepth(SearchField depth) {

@@ -48,12 +48,12 @@ public class SamplesApiServiceImpl implements SamplesApiService {
                 .queryMass(searchCriteria.getMassSince())
                 .queryMass(searchCriteria.getMassTo())
                 .queryLocation(searchCriteria.getLocation())
-                //.queryTaxon(searchCriteria.getTaxon()).andReturn()
-                /*.queryAnalysis(searchCriteria.getAnalysis()).andReturn()
-                .queryFrequency(searchCriteria.getFrequency()).andReturn()
-                .queryComponet(searchCriteria.getComponent()).andReturn()
-                .queryContent(searchCriteria.getContent()).andReturn()*/
-                .queryInstitution(searchCriteria.getDbs())
+                .queryTaxon(searchCriteria.getTaxon())
+                .queryFrequency(searchCriteria.getFrequency())
+                .queryAnalysisMethod(searchCriteria.getAnalysisMethod())
+                .queryComponet(searchCriteria.getComponent())
+                .queryContent(searchCriteria.getContent())
+                .queryInstitutions(searchCriteria.getDbs())
                 .buildWithoutReturningCertainFields();
         return apiService.searchRawEntities(
                 "sample",

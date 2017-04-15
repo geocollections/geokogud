@@ -50,10 +50,18 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
 
     $scope.searchDefault = function () {
         $scope.searchParameters = {sortField: {}, dbs: []};
-        $scope.searchParameters.sortField = {sortBy : "id", order : "DESCENDING"};
+        $scope.searchParameters.sortField = {sortBy: "id", order: "DESCENDING"};
         $scope.sortByAsc = true;
-        vm.service.toggle("GIT", $scope.searchParameters.dbs);
         $scope.search();
+    };
+
+    $scope.addRemoveInstitution = function (institution) {
+        var index = $scope.searchParameters.dbs.indexOf(institution);
+        if (index == -1) {
+            vm.service.toggle(institution, $scope.searchParameters.dbs);
+        } else {
+            $scope.searchParameters.dbs.splice(index, 1);
+        }
     };
 
     $scope.searchDefault();
@@ -113,6 +121,6 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
     loadHintText();
 };
 
-constructor.$inject = ["$scope", "$stateParams", "configuration", "$http", 'ApplicationService', '$window', '$translate', 'SearchFactory','ErrorService'];
+constructor.$inject = ["$scope", "$stateParams", "configuration", "$http", 'ApplicationService', '$window', '$translate', 'SearchFactory', 'ErrorService'];
 
 module.controller("SearchController", constructor);

@@ -21,7 +21,7 @@ public class SampleSearchCriteria {
     private SearchField location;
     private SearchField taxon;
     private SearchField frequency;
-    private SearchField analysis;
+    private SearchField analysisMethod;
     private SearchField component;
     private SearchField content;
     private SearchField locality;
@@ -156,12 +156,12 @@ public class SampleSearchCriteria {
         this.frequency = frequency;
     }
 
-    public SearchField getAnalysis() {
-        return analysis;
+    public SearchField getAnalysisMethod() {
+        return analysisMethod;
     }
 
-    public void setAnalysis(SearchField analysis) {
-        this.analysis = analysis;
+    public void setAnalysisMethod(SearchField analysisMethod) {
+        this.analysisMethod = analysisMethod;
     }
 
     public SearchField getComponent() {

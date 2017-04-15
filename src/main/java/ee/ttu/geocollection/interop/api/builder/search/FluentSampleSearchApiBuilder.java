@@ -41,7 +41,7 @@ public class FluentSampleSearchApiBuilder extends FluentSearchApiBuilder<FluentS
     }
 
     public FluentSampleSearchApiBuilder queryLocality(SearchField location) {
-        buildMultiSearch(location, LOCALITY, LOCALITY_LOCALITY_EN, LOCALITY_FREE);
+        buildMultiSearch(location, LOCALITY_LOCALITY, LOCALITY_LOCALITY_EN, LOCALITY_FREE);
         return this;
     }
 
@@ -81,26 +81,25 @@ public class FluentSampleSearchApiBuilder extends FluentSearchApiBuilder<FluentS
     }
 
     public FluentSampleSearchApiBuilder queryTaxon(SearchField agent) {
-        buildFieldParameters(TAXON, agent);
+        buildFieldParameters(TAXONLIST__TAXON__TAXON, agent);
         return this;
     }
 
-
-    public FluentSampleSearchApiBuilder queryAnalysis(SearchField agent) {
-        buildFieldParameters(ANALYSIS, agent);
+    public FluentSampleSearchApiBuilder queryAnalysisMethod(SearchField analysisMethod) {
+        buildMultiSearch(analysisMethod, ANALYSIS_METHOD, ANALYSIS_METHOD_EN);
         return this;
     }
 
     public FluentSampleSearchApiBuilder queryFrequency(SearchField agent) {
-        buildFieldParameters(FREQUENCY, agent);
+        buildFieldParameters(TAXONLIST__FREQUENCY, agent);
         return this;
     }
     public FluentSampleSearchApiBuilder queryComponet(SearchField agent) {
-        buildFieldParameters(COMPONENT, agent);
+        buildFieldParameters(ANALYSIS_RESULTS_NAME, agent);
         return this;
     }
     public FluentSampleSearchApiBuilder queryContent(SearchField agent) {
-        buildFieldParameters(CONTENT, agent);
+        buildFieldParameters(ANALYSIS_RESULTS_VALUE, agent);
         return this;
     }
 

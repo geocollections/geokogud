@@ -4,9 +4,7 @@ import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentDrillCoreSearchApiBuilder;
-import ee.ttu.geocollection.interop.api.drillCores.pojo.DrillCoreProto;
 import ee.ttu.geocollection.interop.api.drillCores.pojo.DrillCoreSearchCriteria;
-import ee.ttu.geocollection.interop.api.drillCores.pojo.DrillcoreBox;
 import ee.ttu.geocollection.interop.api.drillCores.service.DrillCoreApiService;
 import ee.ttu.geocollection.interop.api.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +37,7 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService {
                 .queryBoxes(searchCriteria.getBoxesSince())
                 .queryBoxes(searchCriteria.getBoxesTo())
                 .queryDepth(searchCriteria.getDepth())
-                .queryInstitution(searchCriteria.getDbs())
+                .queryInstitutions(searchCriteria.getDbs())
                 .buildWithoutReturningCertainFields();
         return apiService.searchRawEntities("drillcore", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }

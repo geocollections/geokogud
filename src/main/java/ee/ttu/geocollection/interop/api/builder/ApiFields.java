@@ -14,6 +14,7 @@ public class ApiFields {
     public static final String LATITUDE = "latitude";
     public static final String LONGITUDE = "longitude";
     public static final String DATABASE__NAME_EN = "database__name_en";
+    public static final String DATABASE_ACRONYM = "database__acronym";
 
     // Sample search
     public static final String NUMBER = "number";
@@ -34,11 +35,12 @@ public class ApiFields {
     public static final String AGENT_COLLECTED__SURENAME = "agent_collected__surename";
     public static final String TAGS = "tags";
 
-    public static final String TAXON = "taxon";
-    public static final String ANALYSIS = "analysis";
-    public static final String FREQUENCY = "frequency";
-    public static final String COMPONENT = "component";
-    public static final String CONTENT = "content";
+    public static final String TAXONLIST__TAXON__TAXON = "taxonlist__taxon__taxon";
+    public static final String ANALYSIS_METHOD = "analysis__analysis_method__analysis_method";
+    public static final String ANALYSIS_METHOD_EN = "analysis__analysis_method__method_en";
+    public static final String TAXONLIST__FREQUENCY = "taxonlist__frequency";
+    public static final String ANALYSIS_RESULTS_NAME = "analysis__analysisresults__name";
+    public static final String ANALYSIS_RESULTS_VALUE = "analysis__analysisresults__value";
 
     //DOI search
     public static final String IDENTIFIER = "identifier";
