@@ -1,6 +1,6 @@
 var module = angular.module("geoApp");
 
-var constructor = function (configuration,$translate,$http, applicationService,$state, $scope, $rootScope) {
+var constructor = function (configuration,$translate,$http, applicationService,$state, $scope, $rootScope, WebPagesFactory) {
 
     //$state.transitionTo('samples');
     var vm = this;
@@ -15,15 +15,12 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     vm.getText = getText;
     vm.getContent = getContent;
     vm.changeLanguage = changeLanguage;
-    vm.webpages;
-    var yearToShow;
+    vm.geocollection = getWebPageById(2, "geocollection");
+    vm.usingCollections = getWebPageById(32, "usingCollections");
+    vm.database = getWebPageById(21, "database");
+    //vm.about = getWebPageById(1, "about");
 
-    $rootScope.$on('$stateChangeStart',
-            function(event, toState, toParams, fromState, fromParams) {
-                if (toState.params != null) {
-                    getWebPageById(toState.params.contentId);
-                }
-        });
+    var yearToShow;
 
     asyncLoadData(); //fixme make async request
 
@@ -32,8 +29,14 @@ var constructor = function (configuration,$translate,$http, applicationService,$
         applicationService.loadMapData(onMapData);
     }
 
-    function getWebPageById(id) {
-        vm.webpages = applicationService.getWebPage(id, onWebPagesData);
+    function getWebPageById(id, page) {
+        var myDataPromise = WebPagesFactory.getData(id);
+        myDataPromise.then(function(result) {
+            if (page == "geocollection") { vm.geocollection = result; }
+            else if (page == "usingCollections") { vm.usingCollections = result; }
+            else if (page == "database") { vm.database = result; }
+            //else if (page == "about") { vm.about = result; }
+        });
     }
 
     function onMapData(response) {
@@ -74,12 +77,8 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     function changeLanguage(langKey) {
         $translate.use(langKey);
     }
-
-    function onWebPagesData(response) {
-        vm.webpages = response.data;
-    }
 };
 
-constructor.$inject = ["configuration",'$translate', '$http', 'ApplicationService','$state', '$scope', '$rootScope'];
+constructor.$inject = ["configuration",'$translate', '$http', 'ApplicationService','$state', '$scope', '$rootScope', 'WebPagesFactory'];
 
 module.controller("MainController", constructor);

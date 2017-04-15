@@ -20,9 +20,9 @@ var constructor = function (utils,configuration, errorService) {
         utils.httpGet(configuration.newsUrl, null, callback, error);
     };
 
-    service.getWebPage = function (id, callback, error) {
-        utils.httpGet(configuration.webPagesUrl + "/" + id, null, callback, error);
-    };
+//    service.getWebPage = function (id, callback, error) {
+//        return utils.httpGet(configuration.webPagesUrl + "/" + id, null, callback, error);
+//    };
 
     service.getList = function (searchType, data, success,error) {
         var url = getSearchUrl(searchType);
@@ -133,3 +133,14 @@ module.factory("SearchFactory", ['$http', 'configuration', function($http, confi
         }
     };
 }]);
+
+module.factory("WebPagesFactory", ['$http', 'configuration', function($http, configuration) {
+
+    var getData = function(id) {
+        return $http({method:"GET", url: configuration.webPagesUrl + "/" + id}).then(function(result){
+            return result.data.results[0];
+        });
+    };
+    return { getData: getData };
+}]);
+
