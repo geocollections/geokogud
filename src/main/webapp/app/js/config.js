@@ -162,7 +162,6 @@ module.config(function($stateProvider,$urlRouterProvider) {
         }
     }).state('usingcollection', {
         url: "/usingcollection",
-        params: { contentId: 32 },
         views: {
             "additional": {
                 templateUrl: "app/templates/main/using_collection.html"
@@ -177,7 +176,6 @@ module.config(function($stateProvider,$urlRouterProvider) {
         }
     }).state('geocollection', {
         url: "/geocollection",
-        params: { contentId: 2 },
         views: {
             "additional": {
                 templateUrl: "app/templates/main/geocollection.html"
@@ -185,7 +183,6 @@ module.config(function($stateProvider,$urlRouterProvider) {
         }
     }).state('database', {
         url: "/database",
-        params: { contentId: 21 },
         views: {
             "additional": {
                 templateUrl: "app/templates/main/database.html"
