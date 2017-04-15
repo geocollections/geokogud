@@ -5,10 +5,15 @@
 			<hr class="primary">
 		</div>
 		<div>
-			<nav>
+			<nav id="newsSelect">
+				<select class="form-control text-center">
+					<option ng-repeat="year in main.years" value="year" ng-click="main.showNews($event)">{{ year }}</option>
+				</select>
+			</nav>
+			<nav id="newsButtons">
 				<div class="text-center">
-					<button type="button" class="news-button" ng-repeat="year in main.years"
-						ng-click="main.showNews($event)">{{ year }}</button>
+					<button type="button" class="news-button" ng-repeat="year in main.years" ng-click="main.showNews($event)">{{
+						year }}</button>
 				</div>
 			</nav>
 			<div ng-repeat="id in main.news.result | filter: main.yearFilter" class="content">

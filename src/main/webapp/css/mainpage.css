@@ -365,3 +365,12 @@ table tr > td:first-child {
     right: 0px;
     padding: 5px;
 }
+
+@media only screen and (max-width: 1023px) {
+	#newsButtons { display: none; }
+}
+
+@media only screen and (min-width: 1024px) {
+	#newsSelect { display: none; }
+}
+
