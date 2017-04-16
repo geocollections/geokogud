@@ -1,9 +1,12 @@
 var module = angular.module("geoApp");
 
-var constructor = function ($scope, $stateParams, configuration, $http, applicationService, $window, $translate, SearchFactory, errorService) {
+var constructor = function ($scope, $stateParams, configuration, $http, applicationService, $window, $translate, SearchFactory, errorService, bsLoadingOverlayService) {
     var vm = this;
     vm.service = applicationService;
     vm.factory = SearchFactory;
+    vm.loadingHandler = bsLoadingOverlayService.createHandler({
+        referenceId: "searchView"
+    });
 
     var search = vm.service.getTranslationRoot($stateParams.type);
     $scope.searchParameters = {};
@@ -34,13 +37,15 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
             $scope.$apply();
         });
         $scope.response = result.data;
-        console.log($scope.response);
+
         if ($scope.isMapHidden) {
             $scope.getLocalities($scope.response);
         }
+        vm.loadingHandler.stop();
     }
 
     $scope.search = function () {
+        vm.loadingHandler.start();
         applicationService.getList($stateParams.type, $scope.searchParameters, onSearchData)
     };
 
@@ -121,6 +126,6 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
     loadHintText();
 };
 
-constructor.$inject = ["$scope", "$stateParams", "configuration", "$http", 'ApplicationService', '$window', '$translate', 'SearchFactory', 'ErrorService'];
+constructor.$inject = ["$scope", "$stateParams", "configuration", "$http", 'ApplicationService', '$window', '$translate', 'SearchFactory', 'ErrorService', 'bsLoadingOverlayService'];
 
 module.controller("SearchController", constructor);

@@ -48,7 +48,9 @@
     "scrollreveal": "^3.3.4",
     "angular-translate-loader-static-files": "^2.15.1",
     "ol3": "ol3-bower#3.9.0",
-    "angular-sanitize": "^1.6.3"
+    "angular-sanitize": "^1.6.3",
+    "ngstorage": "^0.3.11",
+    "angular-loading-overlay": "^1.1.1"
   },
   "resolutions": {
     "jquery": "3.1.0",
