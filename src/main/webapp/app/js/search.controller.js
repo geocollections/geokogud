@@ -42,6 +42,9 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
             $scope.getLocalities($scope.response);
         }
         vm.searchLoadingHandler.stop();
+        $('html, body').animate({
+            scrollTop: ($("#searches").offset().top - 50)
+        }, 'fast');
     }
 
     $scope.search = function () {

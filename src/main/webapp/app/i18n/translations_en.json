@@ -103,11 +103,12 @@
         "INSTITUTIONS": "Institutions",
         "NO_OF_RESULTS": "Number of results",
         "DOI": {
-            "SEARCH_TIPS": {
-                "ONE": "DOI identifiers are used to create permanent links to various digital objects, such as research datasets or publications. For more information about DOIs and research data see DataCite portal.",
-                "TWO": "As of 2014 the Estonian geocollections information system SARV is part of DataCite Estonia consortium (datacite.utlib.ee) and acts as data depository for Earth Science research data in Estonia.",
-                "THREE": "To find particular digital object registered in SARV, and download datasets, specify one or more criteria and then click on DOI number for full details. For global DOI resolving use doi.org.",
-                "FOUR": "Küsimuste korral võta ühendust: Olle Hints, TTÜ Geoloogia Instituut (olle.hints@ttu.ee)"
+            "HELP_POPUP": {
+                "HEADING": "SEARCH TIPS:",
+                "PARAGRAPH_ONE": "DOI identifiers are used to create permanent links to various digital objects, such as research datasets or publications. For more information about DOIs and research data see DataCite portal.",
+                "PARAGRAPH_TWO": "As of 2014 the Estonian geocollections information system SARV is part of DataCite Estonia consortium (datacite.utlib.ee) and acts as data depository for Earth Science research data in Estonia.",
+                "PARAGRAPH_THREE": "To find particular digital object registered in SARV, and download datasets, specify one or more criteria and then click on DOI number for full details. For global DOI resolving use doi.org.",
+                "PARAGRAPH_FOUR": "In case of DOI related questions contact Olle Hints, Institute of Geology at Tallinn University of Technology (olle.hints@ttu.ee)"
             },
             "HEADING": "Digital Object Identifiers (DOIs)",
             "FIELDS": "Fields",
@@ -128,6 +129,13 @@
             }
         },
         "DRILL_CORES": {
+            "HELP_POPUP": {
+              "HEADING": "SEARCH TIPS:",
+              "PARAGRAPH_ONE": "Drill cores constitute a very important source of geological information and they are used regularly in scientific as well as applied research in Estonia.",
+              "PARAGRAPH_TWO": "To search drill cores, specify the criteria and tick the map checkbox to show the locations. For detailed information click on the various links in the results table. A large number of cores are provided with images of core boxes.",
+              "PARAGRAPH_THREE": "If you did not find useful information then check Estonian Land Board drill core database.",
+              "PARAGRAPH_FOUR": ""
+            },
             "SEARCHING_DRILL_CORES_HEADING": "SEARCHING DRILL CORES",
             "SEARCHING_DRILL_CORES_TEXT": "Drill cores constitute a very important source of geological information and they are used regularly in scientific as well as applied research in Estonia. To search drill cores, specify the criteria and tick the map checkbox to show the locations. For detailed information click on the various links in the results table. A large number of cores are provided with images of core boxes. ",
             "HEADING": "Drill cores",
@@ -156,6 +164,13 @@
             "HEADING": "Localities"
         },
         "LOCALITIES": {
+          "HELP_POPUP": {
+            "HEADING": "SEARCH TIPS:",
+            "PARAGRAPH_ONE": "First select the base table (specimens, samples, localities, references etc);",
+            "PARAGRAPH_TWO": "Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search 'asap' in specimen name field will find 'Asaphus sp.' as well as 'Asaphus expansus'); for stratigraphy and classification the search is hierarchical by default, for number fields exact maches will be searched if user does not specify otherwise;",
+            "PARAGRAPH_THREE": "To show a map where available, tick the appropriate checkbox;",
+            "PARAGRAPH_FOUR": "To show detailed information follow the links in the results table."
+          },
             "IDENTIFIERS": {
                 "IDENTIFIERS": "Identifiers",
                 "ID": "ID",
@@ -189,6 +204,13 @@
             }
         },
         "PHOTO_ARCHIVE": {
+            "HELP_POPUP": {
+              "HEADING": "SEARCH TIPS:",
+              "PARAGRAPH_ONE": "Archive of geological photos dates back to early 1900s and is expanding by the ongoing digitization and new photos.",
+              "PARAGRAPH_TWO": "When using the photos please follow licence conditions and consult curators if necessary.",
+              "PARAGRAPH_THREE": "",
+              "PARAGRAPH_FOUR": ""
+            },
             "HEADING": "Photo archive",
             "LOCALITY": "Locality",
             "PEOPLE": "People",
@@ -213,6 +235,13 @@
             }
         },
         "PREPARATIONS": {
+            "HELP_POPUP": {
+              "HEADING": "SEARCH TIPS:",
+              "PARAGRAPH_ONE": "First select the base table (specimens, samples, localities, references etc);",
+              "PARAGRAPH_TWO": "Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search 'asap' in specimen name field will find 'Asaphus sp.' as well as 'Asaphus expansus'); for stratigraphy and classification the search is hierarchical by default, for number fields exact maches will be searched if user does not specify otherwise;",
+              "PARAGRAPH_THREE": "To show a map where available, tick the appropriate checkbox;",
+              "PARAGRAPH_FOUR": "To show detailed information follow the links in the results table."
+            },
             "HEADING": "Preparation",
             "NUMBER": "Number",
             "LOCALITY": "Locality",
@@ -239,6 +268,13 @@
         "SORT_BY": "Sort by",
         "CHOOSE": "-- Choose --",
         "REFERENCES": {
+          "HELP_POPUP": {
+            "HEADING": "SEARCH TIPS:",
+            "PARAGRAPH_ONE": "First select the base table (specimens, samples, localities, references etc);",
+            "PARAGRAPH_TWO": "Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search 'asap' in specimen name field will find 'Asaphus sp.' as well as 'Asaphus expansus'); for stratigraphy and classification the search is hierarchical by default, for number fields exact maches will be searched if user does not specify otherwise;",
+            "PARAGRAPH_THREE": "To show a map where available, tick the appropriate checkbox;",
+            "PARAGRAPH_FOUR": "To show detailed information follow the links in the results table."
+          },
             "HEADING": "References",
             "ID": "ID",
             "AUTHOR": "Author",
@@ -259,6 +295,13 @@
             }
         },
         "SAMPLES": {
+          "HELP_POPUP": {
+            "HEADING": "SEARCH TIPS:",
+            "PARAGRAPH_ONE": "Various rock, sediment and soil samples have been collected from drill cores, outcrops and soil sampling points. Such samples may have been analysed for physical and chemical properties, or fossil content, and the corresponding data may have been digitized or are available in old paper archives. The physical samples themselves may or may not have been stored and available for further analysis and research.",
+            "PARAGRAPH_TWO": "To search samples, specify the criteria of interest. The owner institution of individual samples should be contacted for getting access to the material. Note that some preserved samples may be available only under special conditions and under collaborative research.",
+            "PARAGRAPH_THREE": "",
+            "PARAGRAPH_FOUR": ""
+          },
             "HEADING": "Samples",
             "ID": "ID",
             "NUMBER": "Number",
@@ -280,6 +323,13 @@
             "ANAL": "Anal."
         },
         "SOIL_SITES": {
+            "HELP_POPUP": {
+              "HEADING": "SEARCH TIPS:",
+              "PARAGRAPH_ONE": "First select the base table (specimens, samples, localities, references etc);",
+              "PARAGRAPH_TWO": "Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search 'asap' in specimen name field will find 'Asaphus sp.' as well as 'Asaphus expansus'); for stratigraphy and classification the search is hierarchical by default, for number fields exact maches will be searched if user does not specify otherwise;",
+              "PARAGRAPH_THREE": "To show a map where available, tick the appropriate checkbox;",
+              "PARAGRAPH_FOUR": "To show detailed information follow the links in the results table."
+            },
             "HEADING": "Soil sites",
             "ID": "ID",
             "SOIL": "Soil",
@@ -303,6 +353,13 @@
             }
         },
         "SPECIMENS": {
+          "HELP_POPUP": {
+            "HEADING": "SEARCH TIPS:",
+            "PARAGRAPH_ONE": "First select the base table (specimens, samples, localities, references etc);",
+            "PARAGRAPH_TWO": "Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search 'asap' in specimen name field will find 'Asaphus sp.' as well as 'Asaphus expansus'); for stratigraphy and classification the search is hierarchical by default, for number fields exact maches will be searched if user does not specify otherwise;",
+            "PARAGRAPH_THREE": "To show a map where available, tick the appropriate checkbox;",
+            "PARAGRAPH_FOUR": "To show detailed information follow the links in the results table."
+          },
             "HEADING": "Specimens",
             "ID": "ID",
             "NUMBER": "Specimen number",
@@ -329,6 +386,13 @@
         },
         "SEARCH_IMAGES": "Search images",
         "STRATIGRAPHY": {
+            "HELP_POPUP": {
+              "HEADING": "SEARCH TIPS:",
+              "PARAGRAPH_ONE": "First select the base table (specimens, samples, localities, references etc);",
+              "PARAGRAPH_TWO": "Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search 'asap' in specimen name field will find 'Asaphus sp.' as well as 'Asaphus expansus'); for stratigraphy and classification the search is hierarchical by default, for number fields exact maches will be searched if user does not specify otherwise;",
+              "PARAGRAPH_THREE": "To show a map where available, tick the appropriate checkbox;",
+              "PARAGRAPH_FOUR": "To show detailed information follow the links in the results table."
+            },
             "HEADING": "Stratigraphic units",
             "ID": "ID",
             "STRATIGRAPHY": "Stratigraphy",
@@ -372,13 +436,29 @@
         "INVESTIGATORS_LINK": "For investigators",
         "GEOCOLLECTIONS_HEADER": "Geoscience collections of Estonia",
         "EXTENDED_SEARCH_LINK": "Extended Search",
-        "USEFUL_INFO": "USEFUL INFORMATION",
+        "USEFUL_INFO": "USEFUL INFO",
         "GIT_TUT": "Geological collections at the Institute of Geology at TUT",
+        "ERMAS_LINK": "ERMAS",
+        "ERMAS_TITLE": "Analytical database of rocks and sediments of Estonia",
+        "FOSSILS_LINK": "Fossils",
+        "FOSSILS_TITLE": "A web portal on Baltoscandian fossils",
         "FOOTER_TITLE": "Questions and comments about the database and website!",
         "WEBSITE_TITLE": "Geocollections of Estonia",
         "SEARCH2_LINK": "Search2",
         "READ_MORE": "Read more",
-        "PAGE_LOADING": "Please wait. The page is loading."
+        "PAGE_LOADING": "Please wait. The page is loading.",
+        "FOOTER": {
+          "SARV_ALT": "SARV",
+          "SARV_TITLE": "SARV: database for geocollections of Estonia",
+          "NATARC_ALT": "NATARC",
+          "NATARC_TITLE": "Natural History Archives and Information Network (NATARC)",
+          "EU_ALT": "EU",
+          "EU_TITLE": "European Union",
+          "EIC_ALT": "EIC",
+          "EIC_TITLE": "Environmental Investment Centre",
+          "DATACITE_ALT": "DataCite",
+          "DATACITE_TITLE": "DataCite: find, access and reuse data"
+        }
     },
     "PARTNERS": {
         "HEADING": "PARTNERS",
@@ -591,6 +671,13 @@
             "LOCALITY__LOCALITY_EN": ""
         },
         "LOCALITY" : {
+            "HELP_POPUP": {
+              "HEADING": "SEARCH TIPS:",
+              "PARAGRAPH_ONE": "First select the base table (specimens, samples, localities, references etc);",
+              "PARAGRAPH_TWO": "Specify one or more criteria; NB! search is case insensitive; for text fields partial matches are returned by default (for instance, search 'asap' in specimen name field will find 'Asaphus sp.' as well as 'Asaphus expansus'); for stratigraphy and classification the search is hierarchical by default, for number fields exact maches will be searched if user does not specify otherwise;",
+              "PARAGRAPH_THREE": "To show a map where available, tick the appropriate checkbox;",
+              "PARAGRAPH_FOUR": "To show detailed information follow the links in the results table."
+            },
             "ID": "ID",
             "ASUSTUSYKSUS__ASUSTUSYKSUS_EN": "",
             "ASUSTUSYKSUS__ASUSTUSYKSUS": "",

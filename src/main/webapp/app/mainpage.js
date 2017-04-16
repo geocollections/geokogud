@@ -3,15 +3,9 @@ jQuery(document).ready(function ($) {
 
    // jQuery for page scrolling feature - requires jQuery Easing plugin
     $(document).on('click', 'a.page-scroll', function(event) {
-        $('html, body').stop().animate({
+        $('html, body').animate({
             scrollTop: ($($(this).attr('href')).offset().top - 50)
-        }, 'slow');
-        event.preventDefault();
-    });
-     $(document).on('click', 'a.page-scroll-to-searches', function(event) {
-        $('html, body').stop().animate({
-            scrollTop: ($("#searches").offset().top - 50)
-        }, 'slow');
+        }, 'fast');
         event.preventDefault();
     });
      $(document).on('click', 'a.page-scroll-to-additional', function(event) {
@@ -22,8 +16,9 @@ jQuery(document).ready(function ($) {
                  }, 'slow');
                  event.preventDefault();
              },
-             50);
+             150);
     });
+     //Burger menu
      $(document).on('click','.navbar-collapse.in',function(e) {
         if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
             $(this).collapse('hide');
