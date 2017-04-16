@@ -17,10 +17,10 @@ public class ErrorController {
     @RequestMapping(method= RequestMethod.POST)
     @ResponseBody
     public void logError(@RequestBody ClientSideError error){
-        logger.info("Client side error: \n"
+  /*      logger.info("Client side error: \n"
                 + "Message: " + error.getMessage() + "\n"
                 + "Url: " + error.getUrl() + "\n"
-                + error.getStackTrace());
+                + error.getStackTrace());*/
     }
 
 }

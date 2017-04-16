@@ -1,6 +1,6 @@
 var module = angular.module("geoApp");
 
-var constructor = function (utils,configuration, errorService) {
+var constructor = function (utils,configuration, $window) {
 
     var service = {};
 
@@ -112,7 +112,7 @@ var constructor = function (utils,configuration, errorService) {
     }
 
     function openInNewWindow(params) {
-        window.open('/#/'+params.object+'/' + params.id, '', 'width=750,height=750,scrollbars, resizable');
+        $window.open('/'+params.object+'/' + params.id, '', 'width=750,height=750,scrollbars, resizable');
     }
 
     function openUrlInNewWindow(params) {
@@ -122,7 +122,7 @@ var constructor = function (utils,configuration, errorService) {
     return service;
 };
 
-constructor.$inject = ['utils','configuration','ErrorService'];
+constructor.$inject = ['utils','configuration','$window'];
 
 module.service("ApplicationService", constructor);
 
