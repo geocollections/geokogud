@@ -25,7 +25,6 @@ var constructor = function (configuration,$translate,$http, applicationService,$
 
     function asyncLoadData () {
         applicationService.getNews(onNewsData);
-        applicationService.loadMapData(onMapData);
     }
 
     function getWebPageById(id, page) {
@@ -37,11 +36,7 @@ var constructor = function (configuration,$translate,$http, applicationService,$
             //else if (page == "about") { vm.about = result; }
         });
     }
-
-    function onMapData(response) {
-        //console.log(response);
-    }
-
+    
     function onNewsData(response) {
         vm.news = response.data;
         angular.forEach(vm.news.result, function(currentNews) {

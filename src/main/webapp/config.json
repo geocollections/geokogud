@@ -7,8 +7,10 @@
 
   "newsUrl":"/news",
   "mapData": {
+    "specificLocalities":"/map/locality-summary-filter",
     "allLocalities":"/map/locality-summary"
   },
+
   "webPagesUrl":"/webpages",
 
   "specimenUrl":"/search/specimen",

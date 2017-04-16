@@ -43,57 +43,6 @@
         },
         "HEADING": "Kollektsioonid"
     },
-    "USING_COLLECTIONS": {
-        "HEADING_USING_COLLECTIONS": "Teaduskogude kasutamine",
-        "PARAGRAPH_ONE": "Kollektsioonide kasutamise eeskirjad asutustes:",
-        "TUT": "TTÜ Geoloogia Instituut",
-        "IN_ESTONIAN": "{{extension}}, eesti k",
-        "IN_ENGLISH": "{{extension}}, inglise k",
-        "UT_AND_MUSEUM_OF_GEO": "Tartu Ülikooli geoloogiamuuseum",
-        "INQUERIES": {
-            "HEADING": "Päringud, laenud ja visiidid",
-            "PARAGRAPH": "Suur osa Eesti geoloogilise rahvuskollektsiooni säilikutest on avatud nii Eesti kui välismaa teadlastele uurimistööks ning erandkorras ka muul otstarbel kasutamiseks (näitustel eksponeerimiseks, kasutamiseks õppematerjalina jne). Kogude kasutamine on eelneval kokkuleppel võimalik kohapeal ning sõltuvalt materjali ja töö iseloomust on võimalik eksemplare ka laenutada või hankida proove analüüsimiseks."
-        },
-        "DATABASE": {
-            "HEADING": "Andmebaas",
-            "PARAGRAPH_ONE": "Andmed suure osa Eesti geoloogiliste kollektsioonide kohta on talletatud andmebaasis SARV ning avalikult kättesaadavad Eesti Geokogude portaalis ning rahvusvahelistes andmevõrgustikes (GeoCASe, BioCASe, GBIF). Automatiseeritud päringud ning andmevahetus on võimalikud geokogude avaliku API kaudu. Andmete (piltide, jooniste, käsikirjade) autoriõigused kuuluvad konkreetsetele asutustele ja autoritele.",
-            "PARAGRAPH_TWO": "Andmete (piltide, jooniste, käsikirjade) autoriõigused kuuluvad konkreetsetele asutustele ja autoritele. Kui ei ole mainitud teisiti, siis toimub kõigi avalikult kättesaadavate andmete kasutamine ja levitamine vastavalt Creative Commons'i litsentsitingimustele.",
-            "CC_EXPLANATION": "Lühidalt tähendab see, et andmete kasutamine ja levitamine on mitteärilistel eesmärkidel kõigile vaba, eeldusel, et viidatakase autorile ja allikale.",
-            "LI_ONE": "Andmetele viitamisel palume kasutada järgmist vormi:",
-            "LI_ONE_ONE": "Eesti geokogude infosüsteem, [foto/joonis/andmed/..]: autor [author, nt Enn Pirrus], [asutus, nt TTÜ Geoloogia Instituut], [aasta].",
-            "LI_TWO": "Teaduslikule usaldusväärsusele pretendeerivates trükistes ja elektroonilistes publikatsioonides on nõutav kasutada objektide unikaalseid identifikaatoreid (nt eksemplari või proovi number) koos asutuse akronüümiga [GIT/TUG/ELM, nt eksemplar GIT 160-7].",
-            "LI_THREE": "Võimaluse korral lisage täislink konkreetsele andmebaasikirjele, näiteks ",
-            "LI_FOUR": "Oleme tänulikud, kui andmete kasutamisest publikatsioonides või veebilehtedel tagasisidet antakse.",
-            "LI_FIVE": "Kommertskasutuseks on vajalik eraldi luba, täpsustamiseks võtke ühendust konkreetse asutuse kuraatoriga."
-        },
-        "CONTACT": {
-            "HEADING": "Kontakt",
-            "TUT": {
-                "ORGANIZATION": "Tallinna Tehnikaülikooli Geoloogia Instituut, teaduskogude osakond",
-                "ADDRESS": "Ehitajate tee 5, 19086 Tallinn",
-                "CONTACT": {
-                    "PERSON": "Ursula Toom, peavarahoidja",
-                    "PHONE_EMAIL": "tel 620 3009, ursula.toom@ttu.ee"
-                }
-            },
-            "UT": {
-                "ORGANIZATION": "Tartu Ülikooli loodusmuuseum ja botaanikaaed, geoloogiamuuseum",
-                "ADDRESS": "Vanemuise 46, Tartu",
-                "CONTACT": {
-                    "PERSON": "Mare Isakar, geoloogiamuuseumi peavarahoidja",
-                    "PHONE_EMAIL": "tel 737 5839, mare.isakar@ut.ee"
-                }
-            },
-            "EMNH": {
-                "ORGANIZATION": "Eesti Loodusmuuseum, geoloogia osakond",
-                "ADDRESS": "Lai 29A, 10133 Tallinn",
-                "CONTACT": {
-                    "PERSON": "Sander Olo, osakonnajuhataja",
-                    "PHONE_EMAIL": "tel 641 1057, Sander.Olo@loodusmuuseum.ee"
-                }
-            }
-        }
-    },
     "SEARCH": {
         "SELECT": {
             "GREATERTHAN": "suurem kui",
@@ -448,30 +397,6 @@
         "GIT_TITLE": "TTÜ Geoloogia Instituudi geoloogilised kollektsioonid",
         "PARAGRAPH_ONE": "TTÜ Geoloogia Instituudi valduses on Eesti suurimad geolooglised kogud, kus fossiilide, mineraalide, kivimite ja meteoriitide koguarv ulatub poole miljonini. Kogud on igapäevaselt kasutuses instituudi töötajate poolt, leides ühtlasi rakendust ka mitmete rahvusvaheliste projektide raames. Väike osa kogudest on eksponeeritud ning leiab rakendust õppe- ja huvialatöös. Paleontoloogilised kogud on eriti esinduslikud alam- ja kesk-Paleosoikumi selgrootute ja varajaste selgroogsete osas. Enamus kogutud materjalist pärineb Baltikumist ning mujalt endise NL aladelt, kuid esindatud on ka palju teisi riike ja piirkondi.",
         "PARAGRAPH_TWO": ""
-    },
-    "GEOLOGICALCOLLECTIONS": {
-        "TITLE": "Üldinfo Eesti geoloogiliste kogude kohta",
-        "PARAGRAPH_ONE": "Sätendavaid mineraale ja kivistunud teokarpe on Eestis kogutud ilmselt ammustest aegadest peale. Esimesed teadaolevad süstemaatilised kogud, millest on tänaseks säilinud küll õige vähe, tekkisid baltisaksa aadlikel 18.-19. sajandil, Tartu Ülikooli vanimad geoloogilised kogud pärinevad 19. saj algusaastatest. Enam kui kahe sajandi vältel on kodu- ja välismaalt pärit geoloogilised objektid Eesti kogusid jõudsalt kasvatanud. Tänaseks moodustavad Eesti geoloogilise rahvuskollektsiooni tuumiku Tallinna Tehnikaülikooli Geoloogia Instituudi (endine Teaduste Akadeemia Geoloogia Instituut), Tartu Ülikooli geoloogiamuuseumi ja Eesti Loodusmuuseumi kogud, mida on üksikasjalikult käsitletud allpool (vt. tabel 1).",
-        "PARAGRAPH_TWO": "Eraldi esiletõstmist vajaks Eesti Geoloogiakeskus (EGK), kelle hallata on Eesti suurim ning teadustöös aktiivset kasutust leidev puursüdamike kollektsioon, kokku u 70 000 jooksvat meetrit südamikku (17 900 kasti). Puursüdamikele lisandub enam kui 30 000 kivimiproovi ja u 20 000 kivimiõhikut. Kuigi Geoloogiakeskus ei ole otseselt teaduskogude programmis osalenud, väärib see kogu suurt tähelepanu, püsivat säilitamist ja sidustamist teiste suuremate kogudega. Ka EGK võiks tulevikus kuuluda geoloogia rahvuskollektsiooni koosseisu.",
-        "PARAGRAPH_THREE": "Teaduskogude programmis leidsid äramärkimist Eesti Maaülikooli mullateaduslikud kogud, kus on arvel ligikaudu 5000 mullamonoliiti ja -proovi, ning TÜ Ajaloomuuseum, mille teadusajalooliste kogude hulgas leidub ka geoloogilisi museaale. Geoloogilisi objekte esineb ka paljudes maakonna- ja kohalikes muuseumides, neist väärivad eraldi äramärkimist Saaremaa Muuseum oma ligi 8000 säilikuga ning geoloogiale spetsialiseerunud Porkuni Paemuuseum. Geoloogiast huvituvaid erakollektsionääre on Eestis teadaolevalt vähe. Põhjalikumalt on väiksemaid geoloogiliste kogusid iseloomustanud Toivo Lodjak (1995). Kuigi era- ja väikekogudel on kanda oluline roll kohaliku looduse tutvustamisel, loodushariduse edendamisel ja loodusteaduste propageerimisel, jääb nende kogude teaduslik väärtus siiski tagasihoidlikuks.",
-        "PARAGRAPH_FOUR": "",
-        "PARAGRAPH_FIVE": "",
-        "PARAGRAPH_SIX": "",
-        "PARAGRAPH_SEVEN": "",
-        "TABLE": {
-            "HEADING1": "kollektsioon",
-            "HEADING2": "fossiilid, mineraalid, kivimid",
-            "HEADING3": "mikro-paleontoloogia",
-            "HEADING4": "kivimi- ja setteproovid",
-            "HEADING5": "puursüdamikud (kaste)",
-            "HEADING6": "KOKKU",
-            "ROW1": "TTÜ GI",
-            "ROW2": "TÜ GM",
-            "ROW3": "ELM",
-            "ROW4": "EGK",
-            "ROW5": "väiksemad kogud kokku",
-            "ROW6": "KOKKU"
-        }
     },
     "API_TRANSLATION": {
         "SPECIMEN" :   {

@@ -41,24 +41,24 @@
             <main-map></main-map>
         </div>
     <div class="bg-dark" id="map-footer-menu">
-    <form role="form" class="form-inline">
-        <label>Found <strong>9280</strong> georeferenced localities. Show only those or search by:</label>
+    <form role="form" class="form-inline" name="filter" ng-submit="submitFilterForm()">
+        <label>Found <strong>{{ countLocalities }}</strong> georeferenced localities. Show only those or search by:</label>
         <div class="input-group input-group-sm input-inline">
-            <input type="text" class="form-control input-sm" placeholder="Name">
+            <input type="text" class="form-control input-sm" name="localityName" placeholder="Name">
             <div class="input-group-btn">
                 <button type="submit" class="btn btn-primary btn-sm">
                     <i class="fa fa-refresh sr-icons" aria-hidden="true"></i>
                 </button>
             </div>
         </div><br/>
-        <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="specimens" value="1"/>collection specimens |</label>
-        <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="samples" value="1"/>samples |</label>
-        <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="drillcores" value="1"/>drillcores |</label>
-        <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="references" value="1"/>citing references |</label>
-        <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="analyses" value="1"/>analyses |</label>
-        <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="stratotypes" value="1"/>stratotypes |</label>
-        <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="images" value="1"/>photos |</label>
-        <label class="checkbox-inline"><input onchange="window.document.filter.submit();" type="checkbox" name="taxa" value="1"/>taxon occurrences</label>
+        <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="specimens"/>collection specimens |</label>
+        <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="samples"/>samples |</label>
+        <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="drillcores"/>drillcores |</label>
+        <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="citing_references"/>citing references |</label>
+        <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="analyses"/>analyses |</label>
+        <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="stratotypes"/>stratotypes |</label>
+        <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="images"/>photos |</label>
+        <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="taxon_occurrences"/>taxon occurrences</label>
     </form>
     </div>
 </div>
