@@ -9,7 +9,8 @@ public class PhotoArchiveSearchCriteria {
 
     private SearchField id;
     private SearchField fileName;
-    private SearchField dateTaken;
+    private SearchField dateTakenSince;
+    private SearchField dateTakenTo;
     private SearchField authorAgent;
     private SearchField locality;
     private SearchField keywords;
@@ -107,12 +108,20 @@ public class PhotoArchiveSearchCriteria {
         this.fileName = fileName;
     }
 
-    public SearchField getDateTaken() {
-        return dateTaken;
+    public SearchField getDateTakenSince() {
+        return dateTakenSince;
     }
 
-    public void setDateTaken(SearchField dateTaken) {
-        this.dateTaken = dateTaken;
+    public void setDateTakenSince(SearchField dateTakenSince) {
+        this.dateTakenSince = dateTakenSince;
+    }
+
+    public SearchField getDateTakenTo() {
+        return dateTakenTo;
+    }
+
+    public void setDateTakenTo(SearchField dateTakenTo) {
+        this.dateTakenTo = dateTakenTo;
     }
 
     public SearchField getAuthorAgent() {

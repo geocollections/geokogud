@@ -44,11 +44,13 @@
                             <div class="row searchCriterion">
                                 <div class="col-md-12  medium-padding">
                                     <b>{{ 'SEARCH.PHOTO_ARCHIVE.DATE' | translate }}</b>
-                                    <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.dateTaken.lookUpType"></selectexact>
+                                    <!--<selectexact custom-css="searchCriterionType"
+                                                 ng-model="searchParameters.dateTaken.lookUpType"></selectexact>-->
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.dateTaken.name" class="form-control" data-ng-disabled="true"/>
+                                    <common-datetimepicker ng-model="searchParameters.dateTakenSince" lookup="gte"></common-datetimepicker>
+                                    <common-datetimepicker ng-model="searchParameters.dateTakenEnd" lookup="lte"></common-datetimepicker>
+                                  <!--  <input type="text" ng-model="searchParameters.dateTaken.name" class="form-control" data-ng-disabled="true"/>-->
                                 </div>
                             </div>
                             <div class="row searchCriterion">

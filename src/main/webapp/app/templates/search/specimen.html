@@ -107,11 +107,10 @@
                             <div class="row searchCriterion">
                                 <div class="col-md-12  medium-padding">
                                     <b>{{ 'SEARCH.SPECIMENS.DEPHT_M' | translate }}</b>
-                                    <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.depth.lookUpType"></selectexact>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.depth.name" class="form-control"/>
+                                    <interval-field ng-model= "searchParameters.depthSince" lookup="gte"></interval-field >
+                                    <interval-field ng-model= "searchParameters.depthTo" lookup="lte"></interval-field >
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -177,13 +176,12 @@
                             <div class="row searchCriterion">
                                 <div class="col-md-12  medium-padding">
                                     <b>{{ 'SEARCH.SPECIMENS.REG_DATE' | translate }}</b>
-                                    <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.regDate.lookUpType"></selectexact>
+                                <!--    <selectexact custom-css="searchCriterionType"
+                                                 ng-model="searchParameters.regDate.lookUpType"></selectexact>-->
                                 </div>
                                 <div class="col-md-12 medium-padding">
                                     <common-datetimepicker ng-model="searchParameters.regDateStart" lookup="gte"></common-datetimepicker>
                                     <common-datetimepicker ng-model="searchParameters.regDateEnd" lookup="lte"></common-datetimepicker>
-                                <!--    <input type="text" ng-model="searchParameters.regDate.name" class="form-control"/>-->
                                 </div>
                             </div>
                         </div>
