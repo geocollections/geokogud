@@ -1,4 +1,4 @@
-package ee.ttu.geocollection.controller;
+package ee.ttu.geocollection.endpoint.web;
 
 
 import ee.ttu.geocollection.domain.AppException;

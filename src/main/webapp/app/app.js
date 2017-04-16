@@ -2,6 +2,10 @@ var module = angular.module("geoApp", ['ui.bootstrap','ui.bootstrap.datetimepick
 
 module.config(function ($translateProvider, $locationProvider, $urlRouterProvider) {
 
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });
     $locationProvider.hashPrefix('');
 
     $urlRouterProvider.otherwise("/");

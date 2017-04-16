@@ -1,4 +1,4 @@
-package ee.ttu.geocollection.controller;
+package ee.ttu.geocollection.endpoint.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
