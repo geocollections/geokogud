@@ -2,7 +2,7 @@
     <div class="header-content-inner">
         <h1 id="homeHeading">{{ 'INDEX.GEOCOLLECTIONS_HEADER' | translate }}</h1>
         <hr>
-        <form class="navbar-form" role="search">
+        <form class="navbar-form" role="search" ng-show="!main.isDetailForm()">
             <div class="input-group input-group-lg">
                 <input type="text" class="form-control input-lg"
                        placeholder="{{ 'INDEX.SEARCH_FIELD_TEXT' | translate }}">
@@ -13,6 +13,6 @@
                 </div>
             </div>
         </form>
-        <a href="#search" id="button-extended-search" class="page-scroll-to-searches">{{ 'INDEX.EXTENDED_SEARCH_LINK' | translate }}</a>
+        <a ng-show="!main.isDetailForm()" href data-ui-sref="search" id="button-extended-search" class="page-scroll-to-searches">{{ 'INDEX.EXTENDED_SEARCH_LINK' | translate }}</a>
     </div>
 </div>

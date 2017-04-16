@@ -14,11 +14,13 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     vm.getText = getText;
     vm.getContent = getContent;
     vm.changeLanguage = changeLanguage;
+    vm.isSearch = isSearch;
+    vm.isDetailForm = isDetailForm;
     vm.geocollection = getWebPageById(2, "geocollection");
     vm.usingCollections = getWebPageById(32, "usingCollections");
     vm.database = getWebPageById(21, "database");
-    //vm.about = getWebPageById(1, "about");
 
+    //vm.about = getWebPageById(1, "about");
     var yearToShow;
 
     asyncLoadData(); //fixme make async request
@@ -77,6 +79,15 @@ var constructor = function (configuration,$translate,$http, applicationService,$
         class: 'datepicker',
         startingDay: 1
     };
+
+    function isSearch() {
+        var searchStates = ['samples', 'specimens','drillcores', 'localities','references', 'stratigraphies','analyses',
+            'preparations', 'photoArchives', 'soils','dois'];
+        return searchStates.indexOf($state.current.name) > -1;
+    }
+    function isDetailForm () {
+        return $state.params && $state.params.id;
+    }
 };
 
 constructor.$inject = ["configuration",'$translate', '$http', 'ApplicationService','$state', '$scope', '$rootScope', 'WebPagesFactory'];

@@ -112,7 +112,7 @@ var constructor = function (utils,configuration, $window) {
     }
 
     function openInNewWindow(params) {
-        $window.open('/'+params.object+'/' + params.id, '', 'width=750,height=750,scrollbars, resizable');
+        $window.open('/'+params.object+'/' + params.id, '', 'width=570,height=750,scrollbars, resizable');
     }
 
     function openUrlInNewWindow(params) {

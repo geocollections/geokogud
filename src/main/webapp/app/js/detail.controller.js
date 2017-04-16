@@ -1,24 +1,33 @@
 var module = angular.module("geoApp");
-var constructor = function ($scope, $stateParams, applicationService, configuration) {
+var constructor = function ($scope, $stateParams, applicationService, configuration, bsLoadingOverlayService, errorService) {
     var vm = this;
 
     vm.service = applicationService;
     vm.fields = [];
     vm.urlsMap = [];
-    vm.isIncludedField = isIncludedField
+    vm.isIncludedField = isIncludedField;
+    vm.detailLoadingHandler = bsLoadingOverlayService.createHandler({referenceId: "detailView"});
 
     searchEntity();
 
     function searchEntity () {
-        applicationService.getEntity($stateParams.type,$stateParams.id,onEntityData)
+        vm.detailLoadingHandler.start();
+        applicationService.getEntity($stateParams.type,$stateParams.id,onEntityData, onDetailError)
     }
 
     function onEntityData(response) {
         vm.results = response.data.results[0];
         vm.relatedData = response.data.related_data;
         vm.fields = Object.keys(vm.results);
+        vm.detailLoadingHandler.stop();
         getLocality();
         getRelatedData();
+    }
+
+
+    function onDetailError(error) {
+        errorService.commonErrorHandler(error);
+        vm.detailLoadingHandler.stop();
     }
 
     function isIncludedField (field) {
@@ -61,6 +70,6 @@ var constructor = function ($scope, $stateParams, applicationService, configurat
     }
 };
 
-constructor.$inject = ["$scope", "$stateParams", 'ApplicationService', 'configuration'];
+constructor.$inject = ["$scope", "$stateParams", 'ApplicationService', 'configuration', 'bsLoadingOverlayService', 'ErrorService'];
 
 module.controller("DetailController", constructor);
