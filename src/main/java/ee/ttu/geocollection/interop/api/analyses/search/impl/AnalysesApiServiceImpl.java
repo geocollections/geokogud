@@ -23,24 +23,25 @@ public class AnalysesApiServiceImpl implements AnalysesApiService{
     @Override
     public ApiResponse findAnalyses(AnalysesSearchCriteria searchCriteria) throws AppException{
         String requestParams = FluentAnalysesApiBuilder.aRequest()
-                .queryId(searchCriteria.getId())
-                .querySample(searchCriteria.getSample())
-                .queryStratigraphyBed(searchCriteria.getStratigraphyBed())
-                .queryDepth(searchCriteria.getDepthSince())
+                .queryId(searchCriteria.getId()).andReturn()
+                .querySample(searchCriteria.getSample()).andReturn()
+                .queryStratigraphyBed(searchCriteria.getStratigraphyBed()).andReturn()
+                .queryDepth(searchCriteria.getDepthSince()).andReturn()
                 .queryDepth(searchCriteria.getDepthTo())
-                .queryLocality(searchCriteria.getLocality())
+                .queryLocality(searchCriteria.getLocality()).andReturn()
                 .queryAdminUnit(searchCriteria.getAdminUnit())
-                .queryStratigraphy(searchCriteria.getStratigraphy())
-
-                .queryAnalysisMethod(searchCriteria.getAnalysisMethod())
-                .queryAnalysisMethodEng(searchCriteria.getAnalysisMethodEng())
+                .queryStratigraphy(searchCriteria.getStratigraphy()).andReturn()
+                .queryAnalysisMethod(searchCriteria.getAnalysisMethod()).andReturn()
+                .queryAnalysisMethodEng(searchCriteria.getAnalysisMethodEng()).andReturn()
                 .queryMethodDetails(searchCriteria.getMethodDetails())
-                .queryLab(searchCriteria.getLab())
+                .queryLab(searchCriteria.getLab()).andReturn()
                 .queryInstrument(searchCriteria.getInstrument())
                 .queryInstrumentTxt(searchCriteria.getInstrumentTxt())
                 .queryDate(searchCriteria.getDate())
                 .queryDateFree(searchCriteria.getDateFree())
-                .buildWithoutReturningCertainFields();
+                .returnStratigraphyId()
+                .returnLithostratigraphyId()
+                .buildWithReturningCertainFields();
         System.err.println(requestParams);
         return apiService.searchRawEntities("analysis", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }

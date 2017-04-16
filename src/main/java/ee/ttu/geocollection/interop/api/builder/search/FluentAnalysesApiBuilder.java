@@ -18,7 +18,7 @@ public class FluentAnalysesApiBuilder  extends FluentSearchApiBuilder<FluentAnal
         return this;
     }
     public FluentAnalysesApiBuilder queryLocality(SearchField location) {
-        buildMultiSearch(location, "sample__locality__locality", "sample__locality__locality_en");
+        buildMultiSearch(location, SAMPLE_LOCALITY_LOCALITY, SAMPLE_LOCALITY_LOCALITY_EN, SAMPLE_LOCALITY_FREE);
         return this;
     }
 
@@ -82,6 +82,17 @@ public class FluentAnalysesApiBuilder  extends FluentSearchApiBuilder<FluentAnal
         buildFieldParameters(DATE_FREE, dateFree);
         return this;
     }
+
+    public FluentAnalysesApiBuilder returnStratigraphyId(){
+        addReturningField(SAMPLE_STRATIGRAPHY_ID);
+        return this;
+    }
+
+    public FluentAnalysesApiBuilder returnLithostratigraphyId(){
+        addReturningField(SAMPLE_LITHOSTRATIGRAPHY_ID);
+        return this;
+    }
+
     @Override
     FluentAnalysesApiBuilder getThis() { return this; }
 }
