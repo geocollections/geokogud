@@ -92,7 +92,7 @@
                 "DEPTH_M": "@:SEARCH.ANALYSES.LOCATION.DEPTH_M",
                 "STRATIGRAPHY": "@:SEARCH.ANALYSES.LOCATION.STRATIGRAPHY",
                 "LITHOSTRATIGRAPHY": "Lithostratigraphy",
-                "BED_ID": "bed ID",
+                "BED_ID": "Bed ID",
                 "METHOD": "Method",
                 "LAB": "Lab."
             }
@@ -146,7 +146,7 @@
                 "DEPTH_M": "Depth (m)",
                 "BOX_COUNT": "Box count",
                 "BOX_NUMBERS": "Box count",
-                "INSTITUTE": "insts.",
+                "INSTITUTE": "Insts.",
                 "STORAGE": "Storage",
                 "IMAGES": "Images"
             }
@@ -229,7 +229,7 @@
                 "DEPTH_M": "Depth (m)",
                 "STRATIGRAPHY": "Stratigraphy",
                 "LITHOSTRATIGRAPHY": "Lithostratigraphy",
-                "COLLECTOR": "coll.",
+                "COLLECTOR": "Coll.",
                 "WEIGHT": "Weight",
                 "MORE_INFO": ""
             }
@@ -253,9 +253,9 @@
                 "YEAR": "Year",
                 "TITLE": "Title",
                 "JOURNAL_BOOK": "Journal / Book",
-                "PP": "pp.",
+                "PP": "PP.",
                 "DOI": "DOI",
-                "REMARKS": "file(s)"
+                "REMARKS": "File(s)"
             }
         },
         "SAMPLES": {
@@ -264,7 +264,7 @@
             "NUMBER": "Number",
             "DEPTH_M": "Depth (m)",
             "STRATIGRAPHY": "Stratigraphy",
-            "BED_NAME_INDEX": "bed name / index",
+            "BED_NAME_INDEX": "Bed name / index",
             "COLLECTOR": "Collector",
             "WEIGHT": "Weight (remaining, g)",
             "STORAGE": "Storage",
