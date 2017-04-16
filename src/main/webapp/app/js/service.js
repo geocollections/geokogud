@@ -38,6 +38,9 @@ var constructor = function (utils,configuration, errorService) {
     service.loadMapData = function (callback, error) {
         utils.httpGet(configuration.mapData.allLocalities , null, callback, error);
     };
+    service.loadMapDataOnFilterChange = function (filters, callback, error) {
+        utils.httpPost(configuration.mapData.specificLocalities, filters, callback, error);
+    }
 
     service.autocompleteSearch = function (table, val, searchField) {
         utils.httpGet(configuration.autocompleteUrl, {table: table, term: val, searchField: searchField}, null, null);
