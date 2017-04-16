@@ -40,8 +40,15 @@
                 <li>
                     <a class="page-scroll" href="#about">{{ 'INDEX.ABOUT_LINK' | translate }}</a>
                 </li>
-                <li>
-                    <a class="page-scroll" href="#resources">{{ 'INDEX.RESOURCES_LINK' | translate }}</a>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'INDEX.USEFUL_INFO' | translate }}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li data-toggle="collapse" data-target=".in"><a class="page-scroll-to-additional" href data-ui-sref="usingcollection">{{ 'INDEX.USING_COLLECTIONS_LINK' | translate }}</a></li>
+                        <li data-toggle="collapse" data-target=".in"><a class="page-scroll-to-additional" href data-ui-sref="git" title="{{ 'INDEX.GIT_TUT' | translate }}">{{ 'GIT.GIT_HEADING' | translate }}</a></li>
+                        <li data-toggle="collapse" data-target=".in"><a class="page-scroll-to-additional" href data-ui-sref="news">{{'INDEX.NEWS_LINK' | translate }}</a></li>
+                        <li data-toggle="collapse" data-target=".in"><a href="http://fossiilid.info/" target="_blank" title="{{ 'INDEX.FOSSILS_TITLE' | translate }}">{{ 'INDEX.FOSSILS_LINK' | translate }}</a></li>
+                        <li data-toggle="collapse" data-target=".in"><a href="http://ermas.geokogud.info/" target="_blank" title="{{ 'INDEX.ERMAS_TITLE' | translate }}">{{ 'INDEX.ERMAS_LINK' | translate }}</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a class="page-scroll-to-additional" href data-ui-sref="map">{{ 'INDEX.MAP_LINK' | translate }}</a>
@@ -68,19 +75,18 @@
     </div>
 </nav>
 
-<header  ng-include="'app/templates/main/partial/header.html'"></header>
+<header ng-include="'app/templates/main/partial/header.html'"></header>
 
 <!--ui-view for searchers-->
 <!--<div ui-view="specific-search"  id="searches"></div>-->
-<div id="searches" ng-include="'app/templates/main/partial/search.html'"></div>
-
-<div ng-include="'app/templates/main/partial/about.html'"></div>
-<div ng-include="'app/templates/main/partial/resource.html'"></div>
+<div id="searches"  ng-include="'app/templates/main/partial/search.html'" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html"></div>
 
 <section id="additional">
-     <loading></loading>
+    <loading></loading>
     <div ui-view="additional"></div>
 </section>
+
+<div ng-include="'app/templates/main/partial/about.html'"></div>
 
 <div ng-include="'app/templates/main/partial/contact.html'"></div>
 <div ng-include="'app/templates/main/partial/footer.html'"></div>

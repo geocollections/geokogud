@@ -90,7 +90,9 @@
             </form>
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
-            <div ng-include="'app/templates/search/partial/hint.html'"></div>
+            <div class="row">
+                 <div ng-include="'app/templates/search/partial/hint.html'"></div>
+            </div>
             <div ng-include="'app/templates/search/partial/pagination.html'"></div>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="table-search">

@@ -295,9 +295,7 @@ angular.module('geoApp').directive('loading', function () {
             }
         }
     };
-})
-    .directive('localityMap',
-    function () {
+}).directive('localityMap', function () {
         return {
             scope: {
                 x: '=',
@@ -453,7 +451,7 @@ angular.module('geoApp').directive('loading', function () {
 
             }]
         }
-    }).directive('localitiesMap',
+}).directive('localitiesMap',
     function () {
         return {
             scope: {
@@ -638,7 +636,7 @@ angular.module('geoApp').directive('loading', function () {
             restrict: 'AE',
             replace: true,
             template: '<div id="map" class="map"></div>',
-            controller: ['$scope', 'ApplicationService', '$rootScope','$timeout', function ($scope, ApplicationService, $rootScope,$timeout) {
+            controller: ['$scope', 'ApplicationService', '$rootScope', '$timeout', function ($scope, ApplicationService, $rootScope, $timeout) {
                 ApplicationService.loadMapData(onMapData);
 
                 function onMapData(response) {
@@ -667,7 +665,7 @@ angular.module('geoApp').directive('loading', function () {
                             color: 'rgba(238,59,13,0.5)'
                         });
 
-                        function findSizeClass(arv){
+                        function findSizeClass(arv) {
                             var klass = 0;
                             if (arv < 10) {
                                 klass = 1;
@@ -688,7 +686,7 @@ angular.module('geoApp').directive('loading', function () {
                             var rec = feature.get('rec'); //magnitude = parseFloat(name.substr(2));
                             var klass = findSizeClass(rec);
                             //console.log(name, rec, klass);
-                            var radius = 1+ 3 * klass;// * (magnitude - 5);
+                            var radius = 1 + 3 * klass;// * (magnitude - 5);
 
                             return new ol.style.Style({
                                 geometry: feature.getGeometry(),
@@ -711,6 +709,7 @@ angular.module('geoApp').directive('loading', function () {
                         }
 
                         var maxFeatureCount;
+
                         function calculateClusterInfo(resolution) {
                             maxFeatureCount = 0;
                             var features = vector.getSource().getFeatures();
@@ -730,6 +729,7 @@ angular.module('geoApp').directive('loading', function () {
                         }
 
                         var currentResolution;
+
                         function styleFunction(feature, resolution) {
                             if (resolution != currentResolution) {
                                 calculateClusterInfo(resolution);
@@ -764,6 +764,7 @@ angular.module('geoApp').directive('loading', function () {
 
 
                         var currentResolution;
+
                         function styleFunction1(feature, resolution) {
                             if (resolution != currentResolution) {
                                 calculateClusterInfo(resolution);
@@ -795,9 +796,6 @@ angular.module('geoApp').directive('loading', function () {
                             return styles;
                         }
 
-
-
-
                         function createEarthquakeStyle1(feature, resolution) {
                             var name = feature.get('name');
                             var rec = feature.get('rec'); //magnitude = parseFloat(name.substr(2));
@@ -825,8 +823,6 @@ angular.module('geoApp').directive('loading', function () {
                             });
                         }
 
-
-
                         var vectorSource = new ol.source.Vector({
                             //attributions: [new ol.Attribution({
                             //	html: "Data from PA/Credit Suisse."})]
@@ -847,7 +843,7 @@ angular.module('geoApp').directive('loading', function () {
 
                         var vector = new ol.layer.Vector({
                             title: 'Clustered',
-                            visible: false,
+                            visible: (response.data.count > 999 ? true : false),
                             distance: 40,
                             source: new ol.source.Cluster({
                                 source: vectorSource
@@ -857,14 +853,10 @@ angular.module('geoApp').directive('loading', function () {
 
                         var vector1 = new ol.layer.Vector({
                             title: 'Unclustered',
-                            visible: true,
+                            visible: (response.data.count < 1000 ? true : false),
                             source: vectorSource,
                             style: styleFunction1
                         });
-
-
-
-
 
                         var vectors = new ol.layer.Group({
                             title: 'Localities',
@@ -912,13 +904,7 @@ angular.module('geoApp').directive('loading', function () {
                             ]
                         });
 
-
-
-
-
-
-
-                        var mapq =  new ol.layer.Group({
+                        var mapq = new ol.layer.Group({
                             style: 'AerialWithLabels',
 
                             layers: [
@@ -926,19 +912,16 @@ angular.module('geoApp').directive('loading', function () {
                                     source: new ol.source.MapQuest({layer: 'sat'}),
                                     visible: false,
                                     type: 'base',
-                                    title:'MapQuest satellite',
+                                    title: 'MapQuest satellite',
                                 }),
                                 new ol.layer.Tile({
                                     source: new ol.source.MapQuest({layer: 'hyb'}),
                                     visible: false,
                                     type: 'base',
-                                    title:'MapQuest satellite',
+                                    title: 'MapQuest satellite',
                                 })
                             ]
                         });
-
-
-
 
                         var map = new ol.Map({
                             layers: [basemaps, vectors],
@@ -967,13 +950,9 @@ angular.module('geoApp').directive('loading', function () {
                             ])
                         });
 
+                        var openLoc = function (pixel) {
 
-
-
-
-                        var openLoc = function(pixel) {
-
-                            var feature = map.forEachFeatureAtPixel(pixel, function(feature, layer) {
+                            var feature = map.forEachFeatureAtPixel(pixel, function (feature, layer) {
                                 return feature;
 
                             });
@@ -983,7 +962,7 @@ angular.module('geoApp').directive('loading', function () {
                                 if (fid = feature.get('fid')) {
                                     //document.getElementById('hoversystem').innerHTML = name;
                                     window.open('#/locality/' + fid, '', 'width=750,height=750,scrollbars, resizable');
-                                } else if (pikk = feature.get('features').length ) {
+                                } else if (pikk = feature.get('features').length) {
                                     if (pikk == 1) {
                                         fid = feature.get('features')[0].get('fid');
                                         //document.getElementById('hoversystem').innerHTML = name;
@@ -1008,10 +987,8 @@ angular.module('geoApp').directive('loading', function () {
 
                         };
 
-
-
-                        var displayFeatureInfo = function(pixel) {
-                            var feature = map.forEachFeatureAtPixel(pixel, function(feature, layer) {
+                        var displayFeatureInfo = function (pixel) {
+                            var feature = map.forEachFeatureAtPixel(pixel, function (feature, layer) {
                                 return feature;
                             });
 
@@ -1020,7 +997,7 @@ angular.module('geoApp').directive('loading', function () {
                                 document.getElementById('hoverbox').style.display = 'block';
                                 if (name = feature.get('name')) {
                                     document.getElementById('hoversystem').innerHTML = name + '<br />Click to see details';
-                                } else if (pikk = feature.get('features').length ) {
+                                } else if (pikk = feature.get('features').length) {
                                     if (pikk == 1) {
                                         name = feature.get('features')[0].get('name');
                                         document.getElementById('hoversystem').innerHTML = name + '<br />Click to see details';
@@ -1034,21 +1011,14 @@ angular.module('geoApp').directive('loading', function () {
                             }
                         };
 
+                        map.on('click', function (evt) {
+                            openLoc(evt.pixel);
+                        });
 
-
-                        map.on('click', function(evt) { openLoc(evt.pixel); });
-
-                        map.getViewport().addEventListener('mousemove', function(evt)
-                        {
+                        map.getViewport().addEventListener('mousemove', function (evt) {
                             var pixel = map.getEventPixel(evt);
                             displayFeatureInfo(pixel);
                         });
-
-
-
-
-
-
 
                         var layerSwitcher = new ol.control.LayerSwitcher({
                             //tipLabel: 'Légende' // Optional label for button
@@ -1065,6 +1035,7 @@ angular.module('geoApp').directive('loading', function () {
                         }
                     }
                 }
+
                 $rootScope.submitFilterForm = function () {
                     var allFilters = ["specimens", "samples", "drillcores", "citing_references", "analyses",
                         "stratotypes", "images", "taxon_occurrences"];
@@ -1074,12 +1045,12 @@ angular.module('geoApp').directive('loading', function () {
                         localityName: "",
                     };
 
-                    for(var index in allFilters) {
-                        if(angular.element("input[name="+allFilters[index]+"]").is(':checked')) {
+                    for (var index in allFilters) {
+                        if (angular.element("input[name=" + allFilters[index] + "]").is(':checked')) {
                             filterData.filters.push(allFilters[index]);
                         }
                     }
-                    if(angular.element("input[name=localityName]").val().length > 0) {
+                    if (angular.element("input[name=localityName]").val().length > 0) {
                         filterData.localityName = angular.element("input[name=localityName]").val();
                     } else {
                         filterData.localityName = "";

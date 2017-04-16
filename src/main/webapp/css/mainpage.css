@@ -11,7 +11,11 @@ footer {
     padding-top: 50px;
     padding-bottom: 50px;
 }
-#search, #additional {
+#sectionSearch {
+    padding-top: 10px;
+    padding-bottom: 50px;
+ }
+#additional {
     padding-top: 0px;
     padding-bottom: 0px;
 }

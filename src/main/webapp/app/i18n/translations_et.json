@@ -103,11 +103,12 @@
         "INSTITUTIONS": "Asutused",
         "NO_OF_RESULTS": "Kokku",
         "DOI": {
-            "SEARCH_TIPS": {
-                "ONE": "DOI identifikaatoreid kasutatakse püsivate linkide loomiseks erinevatele digitaalsetele objektidele, sh teadusandmetele ja publikatsioonidele. DOId võimaldavad andmetele viidata ning suurendavad nende kättesaadavust, vt ka DataCite portaal.",
-                "TWO": "Alates 2014 a on geokogude infosüsteem SARV osaks DataCite Eesti konsortsiumist (vt datacite.utlib.ee), registreerides DOI numbreid geoteaduslikele andmetele. ",
-                "THREE": "SARVes registreeritud DOI otsinguks ja andmete allalaadimiseks sisestage otsingukriteeriumid; detailinfo kuvamiseks klikkige huvipakkuva kirje DOI numbril. Universaalne DOI otsing vt doi.org.",
-                "FOUR": "In case of DOI related questions contact Olle Hints, Institute of Geology at Tallinn University of Technology (olle.hints@ttu.ee) "
+            "HELP_POPUP": {
+                "HEADING": "ABIKS PÄRINGU KOOSTAMISEL:",
+                "PARAGRAPH_ONE": "DOI identifikaatoreid kasutatakse püsivate linkide loomiseks erinevatele digitaalsetele objektidele, sh teadusandmetele ja publikatsioonidele. DOId võimaldavad andmetele viidata ning suurendavad nende kättesaadavust, vt ka DataCite portaal.",
+                "PARAGRAPH_TWO": "Alates 2014 a on geokogude infosüsteem SARV osaks DataCite Eesti konsortsiumist (vt datacite.utlib.ee), registreerides DOI numbreid geoteaduslikele andmetele. ",
+                "PARAGRAPH_THREE": "SARVes registreeritud DOI otsinguks ja andmete allalaadimiseks sisestage otsingukriteeriumid; detailinfo kuvamiseks klikkige huvipakkuva kirje DOI numbril. Universaalne DOI otsing vt doi.org.",
+                "PARAGRAPH_FOUR": "Küsimuste korral võta ühendust: Olle Hints, TTÜ Geoloogia Instituut (olle.hints@ttu.ee)"
             },
             "HEADING": "Digitaalsed identifikaatorid (DOI)",
             "FIELDS": "Väljad",
@@ -128,6 +129,13 @@
             }
         },
         "DRILL_CORES": {
+            "HELP_POPUP": {
+                "HEADING": "ABIKS PÄRINGU KOOSTAMISEL:",
+                "PARAGRAPH_ONE": "Puursüdamikud on olulised geoloogilise informatsiooni kandjad ning leiavad pidevat kasutamist nii teadustöös kui rakendusuuringutes.",
+                "PARAGRAPH_TWO": "Südamike otsimiseks sisesta sobivad kriteeriumid, puuraukude kuvamiseks kaardil tee vastav märge. Detailse info nägemiseks kasutage linke tulemuste tabelis. Suur osa südamikukaste on varustatud fotodega.",
+                "PARAGRAPH_THREE": "Kui otsitav jäi leidmata siis vt. puursüdamike andmebaasi Maa-ameti geoportaalis.",
+                "PARAGRAPH_FOUR": ""
+            },
             "SEARCHING_DRILL_CORES_HEADING": "PUURSÜDAMIKE OTSING",
             "SEARCHING_DRILL_CORES_TEXT": "Puursüdamikud on olulised geoloogilise informatsiooni kandjad ning leiavad pidevat kasutamist nii teadustöös kui rakendusuuringutes. Südamike otsimiseks sisesta sobivad kriteeriumid, puuraukude kuvamiseks kaardil tee vastav märge. Detailse info nägemiseks kasutage linke tulemuste tabelis. Suur osa südamikukaste on varustatud fotodega.  Kui otsitav jäi leidmata siis vt. puursüdamike andmebaasi Maa-ameti geoportaalis.",
             "HEADING": "Puursüdamikud",
@@ -156,6 +164,13 @@
             "HEADING": "Lokaliteedid"
         },
         "LOCALITIES": {
+            "HELP_POPUP": {
+                "HEADING": "ABIKS PÄRINGU KOOSTAMISEL:",
+                "PARAGRAPH_ONE": "Valige põhitabel (eksemplarid, proovid, lokaliteedid, kirjandus jne);",
+                "PARAGRAPH_TWO": "Sisestage üks või mitu otsingukriteeriumit; NB! suur- ja väiketähti ei eristata; tekstiväljade puhul otsitakse vaikimisi vasteid, kus sisaldub otsingusõna (st. otsing 'asap' leiab üles nii 'Asaphus sp.' kui ka 'Asaphus expansus'); klassifikatsiooni ja stratigraafia puhul toimib vaikimisi hierarhiline otsing, numbrite puhoul otsitakse täpset vastet, kui kasutaja ei määra teisiti;",
+                "PARAGRAPH_THREE": "Kaardi kuvamiseks märkige vastav linnuke;",
+                "PARAGRAPH_FOUR": "Detailsema infoni jõudmiseks kasutage otsingutulemuste tabelis esinevaid linke."
+            },
             "IDENTIFIERS": {
                 "IDENTIFIERS": "Identifikaator",
                 "ID": "ID",
@@ -189,6 +204,13 @@
             }
         },
         "PHOTO_ARCHIVE": {
+            "HELP_POPUP": {
+                "HEADING": "ABIKS PÄRINGU KOOSTAMISEL:",
+                "PARAGRAPH_ONE": "Geokogude fotoarhiivi vanimad kaadrid on pärit 20. saj. algusest. Arhiiv täieneb nii jätkuva digiteerimise kui uute piltide lisandumise teel. Otsinguks sisesta sobivad märksõnad.",
+                "PARAGRAPH_TWO": "Piltide kasutamisel palume jälgida litsentsitingimusi ja vajadusel konsulteerida asutuse kuraatoriga.",
+                "PARAGRAPH_THREE": "",
+                "PARAGRAPH_FOUR": ""
+            },
             "HEADING": "Fotoarhiiv",
             "LOCALITY": "Leiukoht",
             "PEOPLE": "Inimesed",
@@ -213,6 +235,13 @@
             }
         },
         "PREPARATIONS": {
+            "HELP_POPUP": {
+                "HEADING": "ABIKS PÄRINGU KOOSTAMISEL:",
+                "PARAGRAPH_ONE": "Valige põhitabel (eksemplarid, proovid, lokaliteedid, kirjandus jne);",
+                "PARAGRAPH_TWO": "Sisestage üks või mitu otsingukriteeriumit; NB! suur- ja väiketähti ei eristata; tekstiväljade puhul otsitakse vaikimisi vasteid, kus sisaldub otsingusõna (st. otsing 'asap' leiab üles nii 'Asaphus sp.' kui ka 'Asaphus expansus'); klassifikatsiooni ja stratigraafia puhul toimib vaikimisi hierarhiline otsing, numbrite puhoul otsitakse täpset vastet, kui kasutaja ei määra teisiti;",
+                "PARAGRAPH_THREE": "Kaardi kuvamiseks märkige vastav linnuke;",
+                "PARAGRAPH_FOUR": "Detailsema infoni jõudmiseks kasutage otsingutulemuste tabelis esinevaid linke."
+            },
             "HEADING": "Preparaadid",
             "NUMBER": "Number",
             "LOCALITY": "Leiukoht",
@@ -239,6 +268,13 @@
         "SORT_BY": "järjesta kirjed",
         "CHOOSE": "-- Vali --",
         "REFERENCES": {
+            "HELP_POPUP": {
+                "HEADING": "ABIKS PÄRINGU KOOSTAMISEL:",
+                "PARAGRAPH_ONE": "Valige põhitabel (eksemplarid, proovid, lokaliteedid, kirjandus jne);",
+                "PARAGRAPH_TWO": "Sisestage üks või mitu otsingukriteeriumit; NB! suur- ja väiketähti ei eristata; tekstiväljade puhul otsitakse vaikimisi vasteid, kus sisaldub otsingusõna (st. otsing 'asap' leiab üles nii 'Asaphus sp.' kui ka 'Asaphus expansus'); klassifikatsiooni ja stratigraafia puhul toimib vaikimisi hierarhiline otsing, numbrite puhoul otsitakse täpset vastet, kui kasutaja ei määra teisiti;",
+                "PARAGRAPH_THREE": "Kaardi kuvamiseks märkige vastav linnuke;",
+                "PARAGRAPH_FOUR": "Detailsema infoni jõudmiseks kasutage otsingutulemuste tabelis esinevaid linke."
+            },
             "HEADING": "Kirjandus",
             "ID": "ID",
             "AUTHOR": "Autor",
@@ -259,6 +295,13 @@
             }
         },
         "SAMPLES": {
+            "HELP_POPUP": {
+                "HEADING": "ABIKS PÄRINGU KOOSTAMISEL:",
+                "PARAGRAPH_ONE": "Valige põhitabel (eksemplarid, proovid, lokaliteedid, kirjandus jne);",
+                "PARAGRAPH_TWO": "Sisestage üks või mitu otsingukriteeriumit; NB! suur- ja väiketähti ei eristata; tekstiväljade puhul otsitakse vaikimisi vasteid, kus sisaldub otsingusõna (st. otsing 'asap' leiab üles nii 'Asaphus sp.' kui ka 'Asaphus expansus'); klassifikatsiooni ja stratigraafia puhul toimib vaikimisi hierarhiline otsing, numbrite puhoul otsitakse täpset vastet, kui kasutaja ei määra teisiti;",
+                "PARAGRAPH_THREE": "Kaardi kuvamiseks märkige vastav linnuke;",
+                "PARAGRAPH_FOUR": "Detailsema infoni jõudmiseks kasutage otsingutulemuste tabelis esinevaid linke."
+            },
             "HEADING": "Proovid",
             "ID": "ID",
             "NUMBER": "Number",
@@ -280,6 +323,13 @@
             "ANAL": "Anal."
         },
         "SOIL_SITES": {
+            "HELP_POPUP": {
+                "HEADING": "ABIKS PÄRINGU KOOSTAMISEL:",
+                "PARAGRAPH_ONE": "Valige põhitabel (eksemplarid, proovid, lokaliteedid, kirjandus jne);",
+                "PARAGRAPH_TWO": "Sisestage üks või mitu otsingukriteeriumit; NB! suur- ja väiketähti ei eristata; tekstiväljade puhul otsitakse vaikimisi vasteid, kus sisaldub otsingusõna (st. otsing 'asap' leiab üles nii 'Asaphus sp.' kui ka 'Asaphus expansus'); klassifikatsiooni ja stratigraafia puhul toimib vaikimisi hierarhiline otsing, numbrite puhoul otsitakse täpset vastet, kui kasutaja ei määra teisiti;",
+                "PARAGRAPH_THREE": "Kaardi kuvamiseks märkige vastav linnuke;",
+                "PARAGRAPH_FOUR": "Detailsema infoni jõudmiseks kasutage otsingutulemuste tabelis esinevaid linke."
+            },
             "HEADING": "Mullakaeved ja transektid",
             "ID": "ID",
             "SOIL": "Muld",
@@ -303,6 +353,13 @@
             }
         },
         "SPECIMENS": {
+            "HELP_POPUP": {
+                "HEADING": "ABIKS PÄRINGU KOOSTAMISEL:",
+                "PARAGRAPH_ONE": "Valige põhitabel (eksemplarid, proovid, lokaliteedid, kirjandus jne);",
+                "PARAGRAPH_TWO": "Sisestage üks või mitu otsingukriteeriumit; NB! suur- ja väiketähti ei eristata; tekstiväljade puhul otsitakse vaikimisi vasteid, kus sisaldub otsingusõna (st. otsing 'asap' leiab üles nii 'Asaphus sp.' kui ka 'Asaphus expansus'); klassifikatsiooni ja stratigraafia puhul toimib vaikimisi hierarhiline otsing, numbrite puhoul otsitakse täpset vastet, kui kasutaja ei määra teisiti;",
+                "PARAGRAPH_THREE": "Kaardi kuvamiseks märkige vastav linnuke;",
+                "PARAGRAPH_FOUR": "Detailsema infoni jõudmiseks kasutage otsingutulemuste tabelis esinevaid linke."
+            },
             "HEADING": "Eksemplarid",
             "ID": "ID",
             "NUMBER": "Eksemplari nr",
@@ -329,6 +386,13 @@
         },
         "SEARCH_IMAGES": "otsi pilte",
         "STRATIGRAPHY": {
+            "HELP_POPUP": {
+                "HEADING": "ABIKS PÄRINGU KOOSTAMISEL:",
+                "PARAGRAPH_ONE": "Valige põhitabel (eksemplarid, proovid, lokaliteedid, kirjandus jne);",
+                "PARAGRAPH_TWO": "Sisestage üks või mitu otsingukriteeriumit; NB! suur- ja väiketähti ei eristata; tekstiväljade puhul otsitakse vaikimisi vasteid, kus sisaldub otsingusõna (st. otsing 'asap' leiab üles nii 'Asaphus sp.' kui ka 'Asaphus expansus'); klassifikatsiooni ja stratigraafia puhul toimib vaikimisi hierarhiline otsing, numbrite puhoul otsitakse täpset vastet, kui kasutaja ei määra teisiti;",
+                "PARAGRAPH_THREE": "Kaardi kuvamiseks märkige vastav linnuke;",
+                "PARAGRAPH_FOUR": "Detailsema infoni jõudmiseks kasutage otsingutulemuste tabelis esinevaid linke."
+            },
             "HEADING": "Stratigraafilised üksused",
             "ID": "ID",
             "STRATIGRAPHY": "Stratigraafia",
@@ -372,13 +436,29 @@
         "INVESTIGATORS_LINK": "Uurijatele",
         "GEOCOLLECTIONS_HEADER": "Eesti geokogude infosüsteem",
         "EXTENDED_SEARCH_LINK": "Liitotsing",
-        "USEFUL_INFO": "KASULIK INFORMATSIOON",
+        "USEFUL_INFO": "KASULIK INFO",
         "GIT_TUT": "TTÜ Geoloogia Instituudi geoloogilised kollektsioonid",
+        "ERMAS_LINK": "ERMAS",
+        "ERMAS_TITLE": "Eesti mulla ja maapõue analüütilised andmed",
+        "FOSSILS_LINK": "Fossiilid",
+        "FOSSILS_TITLE": "Eesti ja Skandinaavia fossiilid",
         "FOOTER_TITLE": "Küsimused andmebaasi ja veebilehe kohta!",
         "WEBSITE_TITLE": "Eesti geokogud",
         "SEARCH2_LINK": "Otsing2",
         "READ_MORE": "Loe rohkem",
-        "PAGE_LOADING": "Palun oota. Rakendust laaditakse."
+        "PAGE_LOADING": "Palun oota. Rakendust laaditakse.",
+        "FOOTER": {
+            "SARV_ALT": "SARV",
+            "SARV_TITLE": "SARV: Eesti geokogude infosüsteem",
+            "NATARC_ALT": "NATARC",
+            "NATARC_TITLE": "Loodusteaduslikud arhiivid ja infovõrgustik (NATARC)",
+            "EU_ALT": "EL",
+            "EU_TITLE": "Euroopa Liit",
+            "EIC_ALT": "KIK",
+            "EIC_TITLE": "Keskkonnainvesteeringute Keskus",
+            "DATACITE_ALT": "DataCite",
+            "DATACITE_TITLE": "DataCite: leia üles, pöördu ja taaskasuta andmeid"
+        }
     },
     "PARTNERS": {
         "HEADING": "PARTNERID",
