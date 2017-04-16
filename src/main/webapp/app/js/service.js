@@ -26,7 +26,7 @@ var constructor = function (utils,configuration, errorService) {
 
     service.getList = function (searchType, data, success,error) {
         var url = getSearchUrl(searchType);
-        if(url != null) utils.httpPost(url, data, success, utils.isFunction(error) ? error : errorService.commonErrorHandler);
+        if(url != null) utils.httpPost(url, data, success, error);
     };
 
 

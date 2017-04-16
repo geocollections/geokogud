@@ -4,7 +4,7 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
     var vm = this;
     vm.service = applicationService;
     vm.factory = SearchFactory;
-    vm.loadingHandler = bsLoadingOverlayService.createHandler({
+    vm.searchLoadingHandler = bsLoadingOverlayService.createHandler({
         referenceId: "searchView"
     });
 
@@ -41,16 +41,17 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
         if ($scope.isMapHidden) {
             $scope.getLocalities($scope.response);
         }
-        vm.loadingHandler.stop();
+        vm.searchLoadingHandler.stop();
     }
 
     $scope.search = function () {
-        vm.loadingHandler.start();
-        applicationService.getList($stateParams.type, $scope.searchParameters, onSearchData)
+        vm.searchLoadingHandler.start();
+        applicationService.getList($stateParams.type, $scope.searchParameters, onSearchData, onSearchError)
     };
 
-    function onError(error, status, errorCallback) {
-        errorService.commonErrorHandler(error, status, errorCallback);
+    function onSearchError(error) {
+     errorService.commonErrorHandler(error);
+        vm.searchLoadingHandler.stop();
     }
 
     $scope.searchDefault = function () {
