@@ -92,7 +92,6 @@ public class SearchController extends ControllerHelper {
         return specimens;
     }
 
-
     @RequestMapping(value = "/sample", method = RequestMethod.POST)
     public ApiResponse searchSample(@RequestBody SampleSearchCriteria sampleSearchCriteria) {
         return samplesApiService.findSample(sampleSearchCriteria);

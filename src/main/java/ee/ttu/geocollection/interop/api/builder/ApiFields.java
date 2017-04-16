@@ -175,6 +175,11 @@ public class ApiFields {
     public static final String SAMPLE_STRATIGRAPHY_BED = "sample__stratigraphy_bed";
     public static final String SAMPLE_DEPTH = "sample__depth";
     public static final String SAMPLE_DEPTH_INTERVAL = "sample__depth_interval";
+    public static final String SAMPLE_LOCALITY_FREE = "sample__locality_free";
+    public static final String SAMPLE_LOCALITY_LOCALITY_EN = "sample__locality__locality_en";
+    public static final String SAMPLE_LOCALITY_LOCALITY = "sample__locality__locality";
+    public static final String SAMPLE_STRATIGRAPHY_ID = "sample__stratigraphy_id";
+    public static final String SAMPLE_LITHOSTRATIGRAPHY_ID = "sample__lithostratigraphy_id";
 
     // webnews
     public static final String DATE_ADDED_LT = "date_added__lt";

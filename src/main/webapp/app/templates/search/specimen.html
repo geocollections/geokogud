@@ -298,7 +298,9 @@
                             <first-not-null values="[entity.agent_collected__agent, [entity.agent_collected__forename, entity.agent_collected__surename]]"/>
                         </td>
                         <td data-title="{{ 'SEARCH.SPECIMENS.STATUS' | translate }}"><localize et="entity.original_status__value" en="entity.original_status__value_en"/></td>
-                        <td data-title="{{ 'SEARCH.SPECIMENS.IMAGES' | translate }}"><img style="width:100px" src="{{entity.specimen_image_thumbnail.results[0].image_url}}"/></td>
+                        <td data-title="{{ 'SEARCH.SPECIMENS.IMAGES' | translate }}">
+                            <show-preview img-url="entity.specimen_image_thumbnail.results[0].image_url"/>
+                        </td>
                     </tr>
                     </tbody>
                 </table>

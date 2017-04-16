@@ -108,8 +108,23 @@ angular.module('geoApp').directive('loading', function () {
             }
         });
     };
-})
-    .directive('selectexact', function ($translate) {
+}).directive('showPreview', function () {
+    return {
+        template: '<img style="width:120px" src="{{previewImageUrl}}"/>',
+        restrict: 'E',
+        scope: {
+            imgUrl: '='
+        },
+        link: function (scope) {
+            scope.$watch('imgUrl', function(newValue) {
+                if(newValue) {
+                    var lastSlashPosition = newValue.lastIndexOf('/');
+                    scope.previewImageUrl = newValue.substring(0, lastSlashPosition) + '/preview/' + newValue.substring(lastSlashPosition);
+                }
+            }, true);
+        }
+    };
+}).directive('selectexact', function ($translate) {
         return {
             template:
                 '<select class="{{selectCss}}" ng-model="field">' +
