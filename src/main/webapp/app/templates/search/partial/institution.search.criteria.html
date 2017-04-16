@@ -12,6 +12,7 @@
                 <label>
                     <input class="institution" type="checkbox"
                            value="{{state.code}}"
+                           ng-checked="searchParameters.dbs.indexOf(state.code) > -1"
                            data-ng-click="addRemoveInstitution(state.code)">
                     <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
                     {{state.label}}

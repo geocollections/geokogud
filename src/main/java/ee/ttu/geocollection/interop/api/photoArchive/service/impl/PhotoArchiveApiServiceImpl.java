@@ -2,10 +2,8 @@ package ee.ttu.geocollection.interop.api.photoArchive.service.impl;
 
 import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
-import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentPhotoArchiveSearchApiBuilder;
-import ee.ttu.geocollection.interop.api.photoArchive.pojo.PhotoArchiveEntity;
 import ee.ttu.geocollection.interop.api.photoArchive.pojo.PhotoArchiveSearchCriteria;
 import ee.ttu.geocollection.interop.api.photoArchive.service.PhotoArchiveApiService;
 import ee.ttu.geocollection.interop.api.service.ApiService;
@@ -35,6 +33,7 @@ public class PhotoArchiveApiServiceImpl implements PhotoArchiveApiService{
                 .queryCountry(searchCriteria.getAdminUnit())
                 .querySize(searchCriteria.getSizeXYSince())
                 .querySize(searchCriteria.getSizeXYTo())
+                .queryInstitutions(searchCriteria.getDbs())
                 .buildWithoutReturningCertainFields();
         return apiService.searchRawEntities("image", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
 

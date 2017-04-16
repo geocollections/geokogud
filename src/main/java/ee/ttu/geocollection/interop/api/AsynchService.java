@@ -23,19 +23,6 @@ public class AsynchService {
     @Autowired
     private AppConfig appConfig;
 
-    // same stuff:
-    //    List<Observable<ApiResponse>> observables = specimens.getResult().stream()
-//            .map(specimen ->
-//                    Observable.fromCallable(() ->
-//                            specimenApiService.findSpecimenImage(new SearchField(
-//                                    specimen.get("specimen_id").toString(),
-//                                    LookUpType.exact)))
-//                            .subscribeOn(Schedulers.io())
-//                            .doOnNext(image -> specimen.put("specimen_image_thumbnail", image)))
-//            .collect(toList());
-//            Observable.zip(observables, a -> a)
-//            .blockingSubscribe();
-
     /**
      * For each entry in target object executes call method. Once call method retrieves result, onCompleteAction is called.
      * First argument in both call and onCompleteAction is same entry in target object.

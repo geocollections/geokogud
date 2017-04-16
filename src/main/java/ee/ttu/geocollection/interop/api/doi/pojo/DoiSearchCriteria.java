@@ -3,6 +3,8 @@ package ee.ttu.geocollection.interop.api.doi.pojo;
 import ee.ttu.geocollection.domain.SearchField;
 import ee.ttu.geocollection.domain.SortField;
 
+import java.util.List;
+
 public class DoiSearchCriteria {
     private int page = 1;
     private SortField sortField;
@@ -15,6 +17,16 @@ public class DoiSearchCriteria {
     private SearchField doi;
     private SearchField publishedBy;
     private SearchField abstractText;
+
+    private List<String> dbs;
+
+    public List<String> getDbs() {
+        return dbs;
+    }
+
+    public void setDbs(List<String> dbs) {
+        this.dbs = dbs;
+    }
 
     public int getPage() {
         return page;
