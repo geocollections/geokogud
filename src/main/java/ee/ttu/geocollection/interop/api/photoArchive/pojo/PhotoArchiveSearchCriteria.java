@@ -3,6 +3,8 @@ package ee.ttu.geocollection.interop.api.photoArchive.pojo;
 import ee.ttu.geocollection.domain.SearchField;
 import ee.ttu.geocollection.domain.SortField;
 
+import java.util.List;
+
 public class PhotoArchiveSearchCriteria {
     private int page = 1;
     private SortField sortField;
@@ -19,6 +21,16 @@ public class PhotoArchiveSearchCriteria {
     private SearchField adminUnit;
     private SearchField sizeXYSince;
     private SearchField sizeXYTo;
+
+    private List<String> dbs;
+
+    public List<String> getDbs() {
+        return dbs;
+    }
+
+    public void setDbs(List<String> dbs) {
+        this.dbs = dbs;
+    }
 
     public SearchField getSizeXYSince() {
         return sizeXYSince;

@@ -3,6 +3,8 @@ package ee.ttu.geocollection.interop.api.analyses.pojo;
 import ee.ttu.geocollection.domain.SearchField;
 import ee.ttu.geocollection.domain.SortField;
 
+import java.util.List;
+
 public class AnalysesSearchCriteria {
     private int page = 1;
     private SortField sortField;
@@ -24,6 +26,16 @@ public class AnalysesSearchCriteria {
 
     private SearchField date;
     private SearchField dateFree;
+
+    private List<String> dbs;
+
+    public List<String> getDbs() {
+        return dbs;
+    }
+
+    public void setDbs(List<String> dbs) {
+        this.dbs = dbs;
+    }
 
     public SearchField getLocality() {
         return locality;

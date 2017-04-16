@@ -119,12 +119,12 @@ public class SearchController extends ControllerHelper {
     }
 
     @RequestMapping(value = "/reference", method = RequestMethod.POST)
-    public ApiResponse searchDoi(@RequestBody ReferenceSearchCriteria searchCriteria) {
+    public ApiResponse searchReferences(@RequestBody ReferenceSearchCriteria searchCriteria) {
         return referenceApiService.findReference(searchCriteria);
     }
 
     @RequestMapping(value = "/doi", method = RequestMethod.POST)
-    public ApiResponse searchReference(@RequestBody DoiSearchCriteria searchCriteria) {
+    public ApiResponse searchDoi(@RequestBody DoiSearchCriteria searchCriteria) {
         return doiApiService.findDoi(searchCriteria);
     }
 
