@@ -25,7 +25,8 @@ public class SpecimenSearchCriteria {
     private SearchField typeStatus;
     private SearchField partOfFossil;
     private SearchField keyWords;
-    private SearchField regDate;
+    private SearchField regDateStart;
+    private SearchField regDateEnd;
     private List<String> dbs;
 
     public List<String> getDbs() {
@@ -164,12 +165,20 @@ public class SpecimenSearchCriteria {
         this.keyWords = keyWords;
     }
 
-    public SearchField getRegDate() {
-        return regDate;
+    public SearchField getRegDateStart() {
+        return regDateStart;
     }
 
-    public void setRegDate(SearchField regDate) {
-        this.regDate = regDate;
+    public void setRegDateStart(SearchField regDateStart) {
+        this.regDateStart = regDateStart;
+    }
+
+    public SearchField getRegDateEnd() {
+        return regDateEnd;
+    }
+
+    public void setRegDateEnd(SearchField regDateEnd) {
+        this.regDateEnd = regDateEnd;
     }
 
     public int getPage() {

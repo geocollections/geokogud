@@ -2,7 +2,6 @@ var module = angular.module("geoApp");
 
 var constructor = function (configuration,$translate,$http, applicationService,$state, $scope, $rootScope, WebPagesFactory) {
 
-    //$state.transitionTo('samples');
     var vm = this;
     vm.service = applicationService;
     //config from config.json
@@ -77,6 +76,12 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     function changeLanguage(langKey) {
         $translate.use(langKey);
     }
+
+    //default ui-bootstrap datepicker options
+    $rootScope.datePickerOptions = {
+        class: 'datepicker',
+        startingDay: 1
+    };
 };
 
 constructor.$inject = ["configuration",'$translate', '$http', 'ApplicationService','$state', '$scope', '$rootScope', 'WebPagesFactory'];

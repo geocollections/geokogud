@@ -181,7 +181,9 @@
                                                  ng-model="searchParameters.regDate.lookUpType"></selectexact>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.regDate.name" class="form-control"/>
+                                    <common-datetimepicker ng-model="searchParameters.regDateStart" lookup="gte"></common-datetimepicker>
+                                    <common-datetimepicker ng-model="searchParameters.regDateEnd" lookup="lte"></common-datetimepicker>
+                                <!--    <input type="text" ng-model="searchParameters.regDate.name" class="form-control"/>-->
                                 </div>
                             </div>
                         </div>
