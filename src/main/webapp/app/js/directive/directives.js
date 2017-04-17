@@ -142,19 +142,13 @@ angular.module('geoApp').directive('loading', function () {
             },
             link: function (scope) {
                 scope.selectCss = angular.isUndefined(scope.customCss) ? 'col-md-4 form-control' : scope.customCss;
-                scope.idOptions = [{
-                    name: 'equals', value: 'exact'
-                }, {
-                    name: 'does not equal', value: 'iexact'
-                }, {
-                    name: 'greater than', value: 'gt'
-                }, {
-                    name: 'smaller than', value: 'lt'
-                }, {
-                    name: 'is in list', value: 'in'
-                }, {
-                    name: 'is between', value: 'range'
-                }
+                scope.idOptions = [
+                    {name: 'equals', value: 'exact'},
+                    {name: 'does not equal', value: 'iexact'},
+                    {name: 'greater than', value: 'gt'},
+                    {name: 'smaller than', value: 'lt'},
+                    {name: 'is in list', value: 'in'},
+                    {name: 'is between', value: 'range'}
                 ];
 
                 scope.$watch('field', function (data) {
@@ -181,19 +175,13 @@ angular.module('geoApp').directive('loading', function () {
         },
         link: function (scope, $watch) {
             scope.selectCss = angular.isUndefined(scope.customCss) ? 'col-md-4 form-control' : scope.customCss;
-            scope.defaultOptions = [{
-                name: 'contains', value: 'contains'
-            }, {
-                name: 'equals', value: 'exact'
-            }, {
-                name: 'start with', value: 'istartswith'
-            }, {
-                name: 'ends with', value: 'endswith'
-            }, {
-                name: 'does not contain', value: 'icontains'
-            }, {
-                name: 'is in list', value: 'in'
-            }
+            scope.defaultOptions = [
+                {name: 'contains', value: 'contains'},
+                {name: 'equals', value: 'exact'},
+                {name: 'start with', value: 'istartswith'},
+                {name: 'ends with', value: 'endswith'},
+                {name: 'does not contain', value: 'icontains'},
+                {name: 'is in list', value: 'in'}
             ];
 
             scope.$watch('field', function (data) {
@@ -206,13 +194,13 @@ angular.module('geoApp').directive('loading', function () {
     return {
         template:
             '<select class="{{selectCss}}" ng-model="field">' +
-                '<option value="hierarchy" selected="selected">{{ \'SEARCH.SELECT.HIERARCHY\' | translate }}</option>' +
-                '<option value="contains">{{ \'SEARCH.SELECT.CONTAINS\' | translate }}</option>' +
+                '<option value="contains" selected="selected">{{ \'SEARCH.SELECT.CONTAINS\' | translate }}</option>' +
                 '<option value="exact">{{ \'SEARCH.SELECT.EQUALS\' | translate }}</option>' +
                 '<option value="istartswith">{{ \'SEARCH.SELECT.STARTSWITH\' | translate }}</option>' +
                 '<option value="iendswith">{{ \'SEARCH.SELECT.ENDSWITH\' | translate }}</option>' +
                 '<option value="icontains">{{ \'SEARCH.SELECT.DOESNOTCONTAIN\' | translate }}</option>' +
                 '<option value="in">{{ \'SEARCH.SELECT.ISINLIST\' | translate }}</option>' +
+                '<option value="hierarchy">{{ \'SEARCH.SELECT.HIERARCHY\' | translate }}</option>' +
             '</select>',
         scope: {
             field: '=?ngModel',
@@ -220,21 +208,14 @@ angular.module('geoApp').directive('loading', function () {
         },
         link: function (scope) {
             scope.selectCss = angular.isUndefined(scope.customCss) ? 'col-md-4 form-control' : scope.customCss;
-            scope.defaultOptions = [{
-                name: 'hierarchy', value: 'hierarchy'
-            }, {
-                name: 'contains', value: 'contains'
-            }, {
-                name: 'equals', value: 'exact'
-            }, {
-                name: 'start with', value: 'startswith'
-            }, {
-                name: 'ends with', value: 'endsswith'
-            }, {
-                name: 'does not contain', value: 'icontains'
-            }, {
-                name: 'is in list', value: 'in'
-            }
+            scope.defaultOptions = [
+                {name: 'contains', value: 'contains'},
+                {name: 'equals', value: 'exact'},
+                {name: 'start with', value: 'startswith'},
+                {name: 'ends with', value: 'endsswith'},
+                {name: 'does not contain', value: 'icontains'},
+                {name: 'is in list', value: 'in'},
+                {name: 'hierarchy', value: 'hierarchy'}
             ];
 
             scope.$watch('field', function (data) {
