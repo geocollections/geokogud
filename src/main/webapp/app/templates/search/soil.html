@@ -104,8 +104,9 @@
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
             <div class="row">
-                <div ng-include="'app/templates/search/partial/hint.html'"></div>
-
+                <hint-text table="SOIL_SITES" data-ng-if="isHintHidden"/>
+            </div>
+            <div class="row">
                 <div data-ng-if="isMapHidden">
                     <div class="col-lg-12 search-map">
                         <localities-map localities="localities"></localities-map>

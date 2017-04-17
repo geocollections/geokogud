@@ -81,7 +81,7 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
 
     $scope.showHint = function () {
         $scope.isHintHidden = !$scope.isHintHidden;
-        $scope.getLocalities($scope.response.results);
+
     };
 
     $scope.showMap = function () {
@@ -119,19 +119,6 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
         });
     }
 
-
-    function loadHintText() {
-        var hintRoot = search + '.HELP_POPUP.';
-        $translate([hintRoot + 'HEADING', hintRoot + 'PARAGRAPH_ONE', hintRoot + 'PARAGRAPH_TWO', hintRoot + 'PARAGRAPH_THREE', hintRoot + 'PARAGRAPH_FOUR']).then(function (translations) {
-            $scope.popupHeading = translations[hintRoot + 'HEADING'];
-            $scope.paragraphOne = translations[hintRoot + 'PARAGRAPH_ONE'];
-            $scope.paragraphTwo = translations[hintRoot + 'PARAGRAPH_TWO'];
-            $scope.paragraphThree = translations[hintRoot + 'PARAGRAPH_THREE'];
-            $scope.paragraphFour = translations[hintRoot + 'PARAGRAPH_FOUR'];
-        });
-    }
-
-    loadHintText();
 };
 
 constructor.$inject = ["$scope", "$stateParams", "configuration", "$http", 'ApplicationService', '$window', '$translate', 'SearchFactory', 'ErrorService', 'bsLoadingOverlayService'];
