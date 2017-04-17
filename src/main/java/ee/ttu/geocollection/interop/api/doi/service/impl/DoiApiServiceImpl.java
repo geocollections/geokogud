@@ -2,20 +2,14 @@ package ee.ttu.geocollection.interop.api.doi.service.impl;
 
 import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
-import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
-import ee.ttu.geocollection.interop.api.builder.search.FluentCommonSearchApiBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentDoiSearchApiBuilder;
-import ee.ttu.geocollection.interop.api.doi.pojo.Doi;
 import ee.ttu.geocollection.interop.api.doi.pojo.DoiSearchCriteria;
 import ee.ttu.geocollection.interop.api.doi.service.DoiApiService;
 import ee.ttu.geocollection.interop.api.service.ApiService;
-import ee.ttu.geocollection.domain.LookUpType;
-import ee.ttu.geocollection.domain.SearchField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -34,7 +28,7 @@ public class DoiApiServiceImpl implements DoiApiService {
                 .queryYear(searchCriteria.getYearTo())
                 .queryAuthor(searchCriteria.getAuthor())
                 .queryAbstract(searchCriteria.getAbstractText())
-                .buildWithoutReturningCertainFields();
+                .buildDefaultFieldsQuery();
         return apiService.searchRawEntities("doi", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }
 

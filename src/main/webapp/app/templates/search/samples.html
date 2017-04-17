@@ -154,8 +154,7 @@
                                                    ng-model="searchParameters.component.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.component.name" class="form-control"
-                                           />
+                                    <input type="text" ng-model="searchParameters.component.name" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -270,7 +269,9 @@
                         <td data-title="{{ 'SEARCH.SAMPLES.COLLECTOR' | translate }}">
                             <first-not-null values="[entity.agent_collected__agent, agent_collected_free]"/>
                         </td>
-                        <td data-title="{{ 'SEARCH.SAMPLES.ANAL' | translate }}">???</td>
+                        <td data-title="{{ 'SEARCH.SAMPLES.ANAL' | translate }}">
+                            <make-boolean-readable boolean-value="entity.analyzed"/>
+                        </td>
                         <td data-title="{{ 'SEARCH.SAMPLES.WEIGHT' | translate }}">{{entity.mass}}</td>
                     </tr>
                     </tbody>

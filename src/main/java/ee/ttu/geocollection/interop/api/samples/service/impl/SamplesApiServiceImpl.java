@@ -36,16 +36,16 @@ public class SamplesApiServiceImpl implements SamplesApiService {
             throws AppException {
         System.err.println(searchCriteria.getId());
         String requestParams = FluentSampleSearchApiBuilder.aRequest()
-                .queryId(searchCriteria.getId())
-                .queryNumber(searchCriteria.getSampleNumber())
-                .queryLocality(searchCriteria.getLocality())
+                .queryId(searchCriteria.getId()).andReturn()
+                .queryNumber(searchCriteria.getSampleNumber()).andReturn()
+                .queryLocality(searchCriteria.getLocality()).andReturn()
                 .queryCountry(searchCriteria.getCountry())
-                .queryDepth(searchCriteria.getDepthSince())
+                .queryDepth(searchCriteria.getDepthSince()).andReturn()
                 .queryDepth(searchCriteria.getDepthTo())
-                .queryStratigraphy(searchCriteria.getStratigraphy())
+                .queryStratigraphy(searchCriteria.getStratigraphy()).andReturn()
                 .queryStratigraphyBed(searchCriteria.getStratigraphyBed())
-                .queryAgent(searchCriteria.getAgent())
-                .queryMass(searchCriteria.getMassSince())
+                .queryAgent(searchCriteria.getAgent()).andReturn()
+                .queryMass(searchCriteria.getMassSince()).andReturn()
                 .queryMass(searchCriteria.getMassTo())
                 .queryLocation(searchCriteria.getLocation())
                 .queryTaxon(searchCriteria.getTaxon())
@@ -53,8 +53,9 @@ public class SamplesApiServiceImpl implements SamplesApiService {
                 .queryAnalysisMethod(searchCriteria.getAnalysisMethod())
                 .queryComponet(searchCriteria.getComponent())
                 .queryContent(searchCriteria.getContent())
-                .queryInstitutions(searchCriteria.getDbs())
-                .buildWithoutReturningCertainFields();
+                .queryInstitutions(searchCriteria.getDbs()).andReturn()
+                .returnAnalyzed()
+                .buildFullQuery();
         return apiService.searchRawEntities(
                 "sample",
                 searchCriteria.getPage(),

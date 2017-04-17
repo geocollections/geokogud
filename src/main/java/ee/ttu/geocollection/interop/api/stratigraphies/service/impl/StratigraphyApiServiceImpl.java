@@ -2,11 +2,9 @@ package ee.ttu.geocollection.interop.api.stratigraphies.service.impl;
 
 import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
-import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentStratigraphySearchApiBuilder;
 import ee.ttu.geocollection.interop.api.service.ApiService;
-import ee.ttu.geocollection.interop.api.stratigraphies.pojo.StratigraphyEnitity;
 import ee.ttu.geocollection.interop.api.stratigraphies.pojo.StratigraphySearchCriteria;
 import ee.ttu.geocollection.interop.api.stratigraphies.service.StratigraphyApiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +26,7 @@ public class StratigraphyApiServiceImpl implements StratigraphyApiService {
                 .queryAgeBase(searchCriteria.getAgeMinY())
                 .queryLithology(searchCriteria.getMainLithology())
                 .queryAuthor(searchCriteria.getAuthor())
-                .buildWithoutReturningCertainFields();
+                .buildDefaultFieldsQuery();
         return apiService.searchRawEntities(
                     "stratigraphy",
                     searchCriteria.getPage(),

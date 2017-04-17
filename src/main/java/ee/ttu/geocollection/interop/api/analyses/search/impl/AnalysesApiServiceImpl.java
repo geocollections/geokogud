@@ -41,7 +41,7 @@ public class AnalysesApiServiceImpl implements AnalysesApiService{
                 .queryDateFree(searchCriteria.getDateFree())
                 .returnStratigraphyId()
                 .returnLithostratigraphyId()
-                .buildWithReturningCertainFields();
+                .buildFullQuery();
         System.err.println(requestParams);
         return apiService.searchRawEntities("analysis", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }

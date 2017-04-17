@@ -224,7 +224,29 @@ angular.module('geoApp').directive('loading', function () {
             });
         }
     };
-}).directive('sectionOpenedIcon', function () {
+}).directive('makeBooleanReadable', ['$translate', '$rootScope', function($translate, $rootScope){
+    return {
+        template: '{{readableBoolean}}',
+        restrict: 'E',
+        scope: {
+            booleanValue:'='
+        },
+        link: function(scope) {
+            scope.$watch('booleanValue', function(newValue) {
+                scope.readableBoolean = localizeBoolean(newValue);
+            }, true);
+            $rootScope.$on('$translateChangeSuccess', function() {
+                scope.readableBoolean = localizeBoolean(scope.booleanValue);
+            });
+            function localizeBoolean(bool) {
+                if($translate.use() == 'et') {
+                    return bool ? 'Jah' : 'Ei';
+                }
+                return bool ? 'Yes' : 'No';
+            }
+        }
+    };
+}]).directive('sectionOpenedIcon', function () {
     return {
         template: '<i class="pull-right glyphicon" ng-class="{\'glyphicon-chevron-down\': !isOpened, \'glyphicon-chevron-right\': isOpened}"></i>',
         restrict: 'E',

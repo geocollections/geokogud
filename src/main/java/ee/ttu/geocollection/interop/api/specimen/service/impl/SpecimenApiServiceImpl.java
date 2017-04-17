@@ -44,7 +44,7 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
                 //TODO [#5] should be added to API...
                 //.queryInstitution(searchCriteria.getDbs())
                 .returnDatabaseName()
-                .buildWithReturningCertainFields();
+                .buildFullQuery();
         return apiService.searchRawEntities("specimen", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }
 
@@ -53,7 +53,7 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
         String requestParams = FluentSpecimenImageSearchApiBuilder.aRequest()
                 .querySpecimenIdForUrl(specimenId).andReturn()
                 .returnImageUrl()
-                .buildWithoutReturningCertainFields();
+                .buildDefaultFieldsQuery();
         return apiService.searchRawEntities("specimen_image", 2,1, new SortField(), requestParams);
     }
 

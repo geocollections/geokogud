@@ -29,6 +29,7 @@ public class ApiFields {
     public static final String NUMBER_ADDITIONAL = "number_additional";
     public static final String DEPTH_INTERVAL = "depth_interval";
     public static final String REMARKS = "remarks";
+    public static final String ANALYZED = "analyzed";
 
     public static final String AGENT_COLLECTED = "agent_collected__agent";
     public static final String AGENT_COLLECTED__FORENAME = "agent_collected__forename";

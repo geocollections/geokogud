@@ -94,10 +94,12 @@ public class FluentSampleSearchApiBuilder extends FluentSearchApiBuilder<FluentS
         buildFieldParameters(TAXONLIST__FREQUENCY, agent);
         return this;
     }
+
     public FluentSampleSearchApiBuilder queryComponet(SearchField agent) {
         buildFieldParameters(ANALYSIS_RESULTS_NAME, agent);
         return this;
     }
+
     public FluentSampleSearchApiBuilder queryContent(SearchField agent) {
         buildFieldParameters(ANALYSIS_RESULTS_VALUE, agent);
         return this;
@@ -110,6 +112,11 @@ public class FluentSampleSearchApiBuilder extends FluentSearchApiBuilder<FluentS
 
     public FluentSampleSearchApiBuilder returnDepthInterval() {
         addReturningField(DEPTH_INTERVAL);
+        return this;
+    }
+
+    public FluentSampleSearchApiBuilder returnAnalyzed() {
+        addReturningField(ANALYZED);
         return this;
     }
 

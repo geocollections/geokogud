@@ -2,10 +2,8 @@ package ee.ttu.geocollection.interop.api.reference.service.impl;
 
 import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
-import ee.ttu.geocollection.interop.api.Response.Response;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentReferenceSearchApiBuilder;
-import ee.ttu.geocollection.interop.api.reference.pojo.Reference;
 import ee.ttu.geocollection.interop.api.reference.pojo.ReferenceSearchCriteria;
 import ee.ttu.geocollection.interop.api.reference.service.ReferenceApiService;
 import ee.ttu.geocollection.interop.api.service.ApiService;
@@ -30,7 +28,7 @@ public class ReferenceApiServiceImpl implements ReferenceApiService {
                 .queryDoi(searchCriteria.getDoi()).andReturn()
                 .queryBook(searchCriteria.getBook()).andReturn()
                 .queryJournal(searchCriteria.getJournal()).andReturn()
-                .buildWithoutReturningCertainFields();
+                .buildDefaultFieldsQuery();
         return apiService.searchRawEntities("reference", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }
 

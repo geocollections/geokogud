@@ -38,7 +38,7 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService {
                 .queryBoxes(searchCriteria.getBoxesTo())
                 .queryDepth(searchCriteria.getDepth())
                 .queryInstitutions(searchCriteria.getDbs())
-                .buildWithoutReturningCertainFields();
+                .buildDefaultFieldsQuery();
         return apiService.searchRawEntities("drillcore", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }
 

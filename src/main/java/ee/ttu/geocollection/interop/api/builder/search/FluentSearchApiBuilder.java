@@ -47,6 +47,7 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
                             .map(inst -> new OrSearchPair(new SearchField(inst, LookUpType.exact), DATABASE_ACRONYM))
                             .collect(toList()));
         }
+        this.lastQueryField = DATABASE_ACRONYM;
         return getThis();
     }
 
@@ -79,14 +80,14 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
     }
 
 
-    public String buildWithReturningCertainFields() {
+    public String buildFullQuery() {
         return query + "&fields=" + returnFields;
     }
 
     /*
         Accept search query but do not return certain fields but all by default
      */
-    public String buildWithoutReturningCertainFields() {
+    public String buildDefaultFieldsQuery() {
         return query;
     }
 

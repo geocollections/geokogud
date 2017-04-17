@@ -29,7 +29,7 @@ public class PreparationsApiServiceImpl implements PreparationsApiService{
                 .queryStratigraphyEn(searchCriteria.getStratigraphyEn())
                 .queryDepth(searchCriteria.getDepthSince())
                 .queryDepth(searchCriteria.getDepthTo())
-                .buildWithoutReturningCertainFields();
+                .buildDefaultFieldsQuery();
         return apiService.searchRawEntities("preparation", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }
     @Override
