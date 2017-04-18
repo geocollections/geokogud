@@ -8,21 +8,37 @@ import java.util.List;
 public class DrillCoreSearchCriteria {
     private int page = 1;
     private SortField sortField;
+
     private SearchField id;
     private SearchField drillcore;
     private SearchField storage;
     private SearchField boxNumber;
-    private SearchField localityCountry;
-    private SearchField localityCountryEng;
+    private SearchField country;
+    private SearchField adminUnit;
     private SearchField latitude;
     private SearchField longitude;
     private SearchField depth;
     private SearchField boxesSince;
     private SearchField boxesTo;
+    private SearchField stratigraphy;
+
     private List<String> dbs;
 
-    //    Country, Admin. unit, Stratigraphy
+    public SearchField getAdminUnit() {
+        return adminUnit;
+    }
 
+    public void setAdminUnit(SearchField adminUnit) {
+        this.adminUnit = adminUnit;
+    }
+
+    public SearchField getStratigraphy() {
+        return stratigraphy;
+    }
+
+    public void setStratigraphy(SearchField stratigraphy) {
+        this.stratigraphy = stratigraphy;
+    }
 
     public SearchField getId() {
         return id;
@@ -73,20 +89,12 @@ public class DrillCoreSearchCriteria {
         this.boxNumber = boxNumber;
     }
 
-    public SearchField getLocalityCountry() {
-        return localityCountry;
+    public SearchField getCountry() {
+        return country;
     }
 
-    public void setLocalityCountry(SearchField localityCountry) {
-        this.localityCountry = localityCountry;
-    }
-
-    public SearchField getLocalityCountryEng() {
-        return localityCountryEng;
-    }
-
-    public void setLocalityCountryEng(SearchField localityCountryEng) {
-        this.localityCountryEng = localityCountryEng;
+    public void setCountry(SearchField country) {
+        this.country = country;
     }
 
     public SearchField getLatitude() {

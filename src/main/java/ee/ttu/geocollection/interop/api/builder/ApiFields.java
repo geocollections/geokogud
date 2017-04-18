@@ -100,6 +100,7 @@ public class ApiFields {
 
     // Drill core search
     public static final String DRILL_CORE = "drillcore";
+    public static final String DRILL_CORE_EN = "drillcore_en";
     public static final String BOX_NUMBERS = "box_numbers";
     public static final String STORAGE_LOCATION = "storage__location";
     public static final String LOCALITY_COUNTRY = "locality__country__value";
