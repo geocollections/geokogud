@@ -53,8 +53,14 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
     };
 
     function onSearchError(error) {
-     errorService.commonErrorHandler(error);
+        if(configuration.pageSetUp.debugMode) errorService.commonErrorHandler(error);
+        setEmptyResponse();
         vm.searchLoadingHandler.stop();
+    }
+    function setEmptyResponse() {
+        $scope.response.count = 0;
+        $scope.response.results = null;
+        $scope.totalItems = 0;
     }
 
     $scope.searchDefault = function () {

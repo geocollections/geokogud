@@ -25,22 +25,12 @@
                     <div class="panel-heading searchGroupHeading"
                          ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
                         <h4 class="panel-title">
-                            {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
+                            {{ 'SEARCH.CRITERIA.HEADING.PRIMARY'| translate }}
                             <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
                         </h4>
                     </div>
                     <div uib-collapse="isIdentifierFieldsCollapsed">
                         <div class="well well-lg">
-                            <div class="row searchCriterion">
-                                <div class="col-md-12  medium-padding">
-                                    <b>{{ 'SEARCH.SAMPLES.ID' | translate }}</b>
-                                    <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.id.lookUpType"></selectexact>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
-                                </div>
-                            </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.SAMPLES.NUMBER' | translate }}</b>
@@ -53,9 +43,17 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.SAMPLES.LOCALITY' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.locality.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <autocomplete-field ng-model="searchParameters.locality.name" table="sample" en="locality__locality_en" et="locality__locality"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.SAMPLES.DEPTH_M' | translate }}</b>
-                                    <!--<selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.depth.lookUpType"></selectexact>-->
                                 </div>
                                 <div class="col-md-12 medium-padding">
                                     <interval-field ng-model= "searchParameters.depthSince" lookup="gte"></interval-field >
@@ -95,13 +93,44 @@
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.SAMPLES.WEIGHT' | translate }}</b>
-                                 <!--   <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.mass.lookUpType"></selectexact>-->
                                 </div>
                                 <div class="col-md-12 medium-padding">
                                     <interval-field ng-model= "searchParameters.massSince" lookup="gte"></interval-field >
                                     <interval-field ng-model= "searchParameters.massTo" lookup="lte"></interval-field >
-                                  <!--  <input type="text" ng-model="searchParameters.mass.name" class="form-control"/>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="panel-heading searchGroupHeading"
+                         ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
+                        <h4 class="panel-title">
+                            {{ 'SEARCH.CRITERIA.HEADING.ADDITIONAL'| translate }}
+                            <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
+                        </h4>
+                    </div>
+                    <div uib-collapse="isLocationFieldsCollapsed">
+                        <div class="well well-lg">
+                            <div class="row searchCriterion">
+                                <div class="col-md-12  medium-padding">
+                                    <b>{{ 'SEARCH.SAMPLES.ID' | translate }}</b>
+                                    <selectexact custom-css="searchCriterionType"
+                                                 ng-model="searchParameters.id.lookUpType"></selectexact>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.SAMPLES.ADMIN_UNIT' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.country.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.country.name" class="form-control"
+                                           />
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -122,7 +151,7 @@
                                 </div>
                                 <div class="col-md-12 medium-padding">
                                     <input type="text" ng-model="searchParameters.taxon.name" class="form-control"
-                                           />
+                                    />
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -132,8 +161,7 @@
                                                  ng-model="searchParameters.frequency.lookUpType"></selectexact>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.frequency.name" class="form-control"
-                                           >
+                                    <input type="text" ng-model="searchParameters.frequency.name" class="form-control">
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -143,8 +171,7 @@
                                                    ng-model="searchParameters.analysisMethod.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.analysisMethod.name" class="form-control"
-                                           />
+                                    <input type="text" ng-model="searchParameters.analysisMethod.name" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -162,45 +189,11 @@
                                     <b>{{ 'SEARCH.SAMPLES.CONTENT' | translate }}</b>
                                     <selectexact custom-css="searchCriterionType"
                                                  ng-model="searchParameters.content.lookUpType"
-                                                 ></selectexact>
+                                    ></selectexact>
                                 </div>
                                 <div class="col-md-12 medium-padding">
                                     <input type="text" ng-model="searchParameters.content.name" class="form-control"
-                                           />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="panel-heading searchGroupHeading"
-                         ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
-                        <h4 class="panel-title">
-                            {{ 'SEARCH.ANALYSES.LOCATION.LOCATION'| translate }}
-                            <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
-                        </h4>
-                    </div>
-                    <div uib-collapse="isLocationFieldsCollapsed">
-                        <div class="well well-lg">
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.SAMPLES.LOCALITY' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.locality.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.locality.name" table="sample" en="locality__locality_en" et="locality__locality"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.SAMPLES.ADMIN_UNIT' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.country.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.country.name" class="form-control"
-                                           />
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -228,7 +221,6 @@
                 <loading></loading>
             </div>
             <div ng-include="'app/templates/search/partial/pagination.html'"></div>
-
             <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="table-search">
                     <thead class="thead-default">
@@ -276,6 +268,7 @@
                     </tr>
                     </tbody>
                 </table>
+                <div class="col-lg-12 h4 panel-heading text-center" data-ng-if="response.results == null">Tulemust ei leita</div>
             </div>
 
             <div ng-include="'app/templates/search/partial/pagination.html'"></div>

@@ -1,6 +1,7 @@
 {
   "pageSetUp": {
-    "pageSize":100
+    "pageSize":100,
+    "debugMode": false
   },
 
   "autocompleteUrl" : "/search/autocomplete-field",

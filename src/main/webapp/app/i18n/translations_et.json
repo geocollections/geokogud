@@ -44,6 +44,12 @@
         "HEADING": "Kollektsioonid"
     },
     "SEARCH": {
+        "CRITERIA": {
+            "HEADING": {
+                "PRIMARY":"Otsinguväljad",
+                "ADDITIONAL":"Täiendavad otsinguväljad"
+            }
+        },
         "SELECT": {
             "GREATERTHAN": "suurem kui",
             "SMALLERTHAN": "väiksem kui",
