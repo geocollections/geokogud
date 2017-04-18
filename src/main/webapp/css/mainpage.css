@@ -378,3 +378,23 @@ table tr > td:first-child {
 	#newsSelect { display: none; }
 }
 
+.infoSection {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+.backgr{
+    background: #EDEDED;
+}
+.carousel-control {
+    width: 7%;
+}
+.carouselControlButton {
+ color: #F05F40;
+}
+.carousel-indicators .active{
+    background-color: #F05F40;
+}
+.carousel-indicators li {
+    border-color: #F05F40;
+}
