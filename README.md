@@ -4,11 +4,20 @@ http://geocollections.arendus.geokogud.info/
 
 ## Getting Started
 
-Prerequisites:
+### Prerequisites:
 
-installed Java JDK or JRE version 8.
+installed:
 
-installed Gradle build tool. You can download it from here https://gradle.org/releases
+* Java JDK version 8
+
+* git
+
+* Gradle build tool latest version (do not forget to add gradle in environment variable path). https://gradle.org/releases
+
+* Node.js latest version. https://nodejs.org/en/download/
+
+* bower: ```npm install -g bower ```
+
 
 ### Installing
 
