@@ -1,0 +1,40 @@
+ <div id="infoCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#infoCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#infoCarousel" data-slide-to="1"></li>
+            <li data-target="#infoCarousel" data-slide-to="2"></li>
+            <li data-target="#infoCarousel" data-slide-to="3"></li>
+            <li data-target="#infoCarousel" data-slide-to="4"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner backgr" role="listbox">
+            <div class="item active">
+                <div ng-include="'app/templates/main/git.html'"></div>
+            </div>
+
+            <div class="item">
+                <div ng-include="'app/templates/main/geocollection.html'"></div>
+            </div>
+
+            <div class="item">
+                <div ng-include="'app/templates/main/using_collection.html'"></div>
+            </div>
+
+            <div class="item">
+                <div ng-include="'app/templates/main/news.html'"></div>
+            </div>
+
+            <div class="item">
+                <div ng-include="'app/templates/main/database.html'"></div>
+            </div>
+        </div>
+        <!-- Left and right controls -->
+        <a class="left carousel-control page-scroll-to-additional" data-target="#infoCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left carouselControlButton" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control page-scroll-to-additional" data-target="#infoCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right carouselControlButton" aria-hidden="true"></span>
+        </a>
+ </div>

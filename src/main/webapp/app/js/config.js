@@ -2,6 +2,7 @@ var module = angular.module("geoApp");
 
 module.config(function($stateProvider,$urlRouterProvider) {
     $urlRouterProvider.when('/search', '/sample');
+
     $stateProvider.state('search', {
         url: "/search",
         views: {
@@ -9,7 +10,6 @@ module.config(function($stateProvider,$urlRouterProvider) {
                 templateUrl: "app/templates/main/partial/search.html"
             }
         }
-
     }).state('specimens', {
         url: "/specimen",
         templateUrl: "app/templates/search/specimen.html",
