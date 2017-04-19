@@ -97,5 +97,6 @@ public class FluentSearchApiBuilderTest {
         String query = builder.buildFullQuery();
 
         assertThat(query).isEqualTo("&id__gte=200&depth__exact=10&fields=id,depth");
+        throw new RuntimeException();
     }
 }
