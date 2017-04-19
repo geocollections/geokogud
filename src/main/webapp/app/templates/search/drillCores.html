@@ -56,12 +56,10 @@
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.DRILL_CORES.STRATIGRAPHY' | translate }}</b>
                                     <selecthierarchy custom-css="searchCriterionType"
-                                                     ng-model="searchParameters.xxx.lookUpType"
-                                                     ng-disabled="true"></selecthierarchy>
+                                                     ng-model="searchParameters.stratigraphy.lookUpType"></selecthierarchy>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.xxx.name" class="form-control"
-                                           ng-disabled="true"/>
+                                    <input type="text" ng-model="searchParameters.stratigraphy.name" class="form-control"/>
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -102,8 +100,7 @@
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.DRILL_CORES.COUNTRY' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.country.type"
-                                                   ng-disabled="true"></selectdefault>
+                                    <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.country.type"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
                                     <autocomplete-field ng-model="searchParameters.country.name" table="drillcore" en="locality__country__value_en" et="locality__country__value"/>
@@ -113,10 +110,10 @@
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.DRILL_CORES.ADMIN_UNIT' | translate }}</b>
                                     <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.adminunit.lookUpType"></selectdefault>
+                                                   ng-model="searchParameters.adminUnit.lookUpType"></selectdefault>
                                 </div>
                                 <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.adminunit.name" table="drillcore" en="locality__locality_en" et="locality__locality"/>
+                                    <autocomplete-field ng-model="searchParameters.adminUnit.name" table="drillcore" en="locality__locality_en" et="locality__locality"/>
                                 </div>
                             </div>
                         </div>

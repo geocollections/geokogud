@@ -15,8 +15,8 @@ public class FluentDrillCoreSearchApiBuilder extends FluentSearchApiBuilder<Flue
         return this;
     }
 
-    public FluentDrillCoreSearchApiBuilder queryDrillCore(SearchField id) {
-        buildFieldParameters(DRILL_CORE, id);
+    public FluentDrillCoreSearchApiBuilder queryDrillCore(SearchField drillCore) {
+        buildMultiSearch(drillCore, DRILL_CORE,DRILL_CORE_EN);
         return this;
     }
 
@@ -30,13 +30,8 @@ public class FluentDrillCoreSearchApiBuilder extends FluentSearchApiBuilder<Flue
         return this;
     }
 
-    public FluentDrillCoreSearchApiBuilder queryLocalityCountry(SearchField id) {
-        buildFieldParameters(LOCALITY_COUNTRY, id);
-        return this;
-    }
-
-    public FluentDrillCoreSearchApiBuilder queryLocalityCountryEng (SearchField id) {
-        buildFieldParameters(LOCALITY_COUNTRY_ENG, id);
+    public FluentDrillCoreSearchApiBuilder queryLocalityCountry(SearchField country) {
+        buildMultiSearch(country, LOCALITY_COUNTRY, LOCALITY_COUNTRY_ENG);
         return this;
     }
 
