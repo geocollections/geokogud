@@ -162,7 +162,3 @@ bootRun {
 task wrapper(type: Wrapper) {
     gradleVersion = '3.4.0'
 }
-
-test {
-    ignoreFailures true
-}
