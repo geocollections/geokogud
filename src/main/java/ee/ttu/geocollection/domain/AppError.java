@@ -2,9 +2,6 @@ package ee.ttu.geocollection.domain;
 
 import org.springframework.http.HttpStatus;
 
-/**
- * Created by Olesja Senkiv on 13.04.2017.
- */
 public enum AppError {
     BAD_REQUEST("error.request.failed", HttpStatus.BAD_REQUEST),
     ERROR_API_UNAVAILABLE("error.api.service.gone", HttpStatus.SERVICE_UNAVAILABLE);
