@@ -44,6 +44,12 @@
         "HEADING": "Collections"
     },
     "SEARCH": {
+        "CRITERIA": {
+          "HEADING": {
+            "PRIMARY":"Search criteria",
+            "ADDITIONAL":"Additional criteria"
+          }
+        },
         "SELECT": {
             "GREATERTHAN": "greater than",
             "SMALLERTHAN": "smaller than",

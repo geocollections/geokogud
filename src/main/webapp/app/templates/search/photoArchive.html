@@ -15,12 +15,22 @@
                     <div class="panel-heading searchGroupHeading"
                          ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
                         <h4 class="panel-title">
-                            {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
+                            {{ 'SEARCH.CRITERIA.HEADING.PRIMARY'| translate }}
                             <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
                         </h4>
                     </div>
                     <div uib-collapse="isIdentifierFieldsCollapsed">
                         <div class="well well-lg">
+                            <div class="row searchCriterion">
+                                <div class="col-md-12  medium-padding">
+                                    <b>{{ 'SEARCH.PHOTO_ARCHIVE.LOCALITY' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.locality.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <autocomplete-field ng-model="searchParameters.locality.name" table="image" en="locality__locality_en" et="locality__locality"/>
+                                </div>
+                            </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12  medium-padding">
                                     <b>{{ 'SEARCH.PHOTO_ARCHIVE.PEOPLE' | translate }}</b>
@@ -43,14 +53,21 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12  medium-padding">
+                                    <b>{{ 'SEARCH.PHOTO_ARCHIVE.ADMIN_UNIT' | translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.adminUnit.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.adminUnit.name" class="form-control" data-ng-disabled="true"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12  medium-padding">
                                     <b>{{ 'SEARCH.PHOTO_ARCHIVE.DATE' | translate }}</b>
-                                    <!--<selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.dateTaken.lookUpType"></selectexact>-->
                                 </div>
                                 <div class="col-md-12 medium-padding">
                                     <common-datetimepicker ng-model="searchParameters.dateTakenSince" lookup="gte"></common-datetimepicker>
                                     <common-datetimepicker ng-model="searchParameters.dateTakenEnd" lookup="lte"></common-datetimepicker>
-                                  <!--  <input type="text" ng-model="searchParameters.dateTaken.name" class="form-control" data-ng-disabled="true"/>-->
                                 </div>
                             </div>
                             <div class="row searchCriterion">
@@ -82,39 +99,6 @@
                                 <div class="col-md-12 medium-padding">
                                     <interval-field ng-model= "searchParameters.sizeXYSince" lookup="gte"></interval-field >
                                     <interval-field ng-model= "searchParameters.sizeXYTo" lookup="lte"></interval-field >
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="panel-heading searchGroupHeading"
-                         ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
-                        <h4 class="panel-title">
-                            {{ 'SEARCH.LOCALITIES.LOCATION.LOCATION'| translate }}
-                            <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
-                        </h4>
-                    </div>
-                    <div uib-collapse="isLocationFieldsCollapsed">
-                        <div class="well well-lg">
-                            <div class="row searchCriterion">
-                                <div class="col-md-12  medium-padding">
-                                    <b>{{ 'SEARCH.PHOTO_ARCHIVE.LOCALITY' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.locality.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.locality.name" table="image" en="locality__locality_en" et="locality__locality"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12  medium-padding">
-                                    <b>{{ 'SEARCH.PHOTO_ARCHIVE.ADMIN_UNIT' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.adminUnit.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.adminUnit.name" class="form-control" data-ng-disabled="true"/>
                                 </div>
                             </div>
                         </div>
@@ -161,7 +145,7 @@
                     </tr>
                     </tbody>
                 </table>
-                <div class="col-lg-12 h4 panel-heading text-center" data-ng-if="response.results.length == 0">Tulemust ei leita</div>
+                <div class="col-lg-12 h4 panel-heading text-center" data-ng-if="response.results == null">Tulemust ei leita</div>
             </div>
 
             <div ng-include="'app/templates/search/partial/pagination.html'"></div>

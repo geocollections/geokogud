@@ -14,7 +14,7 @@
                     <div class="panel-heading searchGroupHeading"
                          ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
                         <h4 class="panel-title">
-                            {{ 'SEARCH.ANALYSES.IDENTIFIERS'| translate }}
+                            {{ 'SEARCH.CRITERIA.HEADING.PRIMARY'| translate }}
                             <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
                         </h4>
                     </div>
@@ -31,39 +31,6 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.ANALYSES.IDENTIFIERS.SAMPLE_ID'| translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.sample.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.sample.name" class="form-control"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.ANALYSES.IDENTIFIERS.BED_NAME_INDEX'| translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.XXX.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.stratigraphyBed.name" table="analysis" en="null" et="sample__stratigraphy_bed"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="panel-heading searchGroupHeading"
-                         ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
-                        <h4 class="panel-title">
-                            {{ 'SEARCH.LOCALITIES.LOCATION.LOCATION'| translate }}
-                            <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
-                        </h4>
-                    </div>
-                    <div uib-collapse="isLocationFieldsCollapsed">
-                        <div class="well well-lg">
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.ANALYSES.LOCATION.LOCALITY'| translate }}</b>
                                     <selectdefault custom-css="searchCriterionType"
                                                    ng-model="searchParameters.locality.lookUpType"></selectdefault>
@@ -74,19 +41,7 @@
                             </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.ANALYSES.LOCATION.ADMIN_UNIT'| translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType" data-ng-disabled="true"
-                                                   ng-model="searchParameters.adminUnit.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding" data-ng-disabled="true">
-                                    <autocomplete-field ng-model="searchParameters.adminUnit.name" table="analysis" en="sample__stratigraphy__stratigraphy_en" et="sample__stratigraphy__stratigraphy"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.ANALYSES.LOCATION.DEPTH_M'| translate }}</b>
-                                    <!--<selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.XXX.lookUpType"></selectexact>-->
                                 </div>
                                 <div class="col-md-12 medium-padding">
                                     <interval-field ng-model= "searchParameters.depthSince" lookup="gte"></interval-field >
@@ -103,19 +58,16 @@
                                     <autocomplete-field ng-model="searchParameters.stratigraphy.name" table="analysis" en="sample__stratigraphy__stratigraphy_en" et="sample__stratigraphy__stratigraphy"/>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="panel-heading searchGroupHeading"
-                         ng-click="isAnalysesFieldsCollapsed = !isAnalysesFieldsCollapsed">
-                        <h4 class="panel-title">
-                            {{ 'SEARCH.ANALYSES.ANALYSIS.PANEL_TITLE'| translate }}
-                            <section-opened-icon is-opened="isAnalysesFieldsCollapsed"/>
-                        </h4>
-                    </div>
-                    <div uib-collapse="isAnalysesFieldsCollapsed">
-                        <div class="well well-lg">
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.ANALYSES.IDENTIFIERS.BED_NAME_INDEX'| translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.XXX.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <autocomplete-field ng-model="searchParameters.stratigraphyBed.name" table="analysis" en="null" et="sample__stratigraphy_bed"/>
+                                </div>
+                            </div>
                             <div class="row searchCriterion">
                                 <div class="col-md-12 medium-padding">
                                     <b>{{ 'SEARCH.ANALYSES.ANALYSIS.TYPE'| translate }}</b>
@@ -142,6 +94,39 @@
                                 </div>
                                 <div class="col-md-12 medium-padding">
                                     <input type="text" ng-model="searchParameters.methodDetails.name" class="form-control" data-ng-disabled="true"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="panel-heading searchGroupHeading"
+                         ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
+                        <h4 class="panel-title">
+                            {{ 'SEARCH.CRITERIA.HEADING.ADDITIONAL'| translate }}
+                            <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
+                        </h4>
+                    </div>
+                    <div uib-collapse="isLocationFieldsCollapsed">
+                        <div class="well well-lg">
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.ANALYSES.IDENTIFIERS.SAMPLE_ID'| translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType"
+                                                   ng-model="searchParameters.sample.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding">
+                                    <input type="text" ng-model="searchParameters.sample.name" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="row searchCriterion">
+                                <div class="col-md-12 medium-padding">
+                                    <b>{{ 'SEARCH.ANALYSES.LOCATION.ADMIN_UNIT'| translate }}</b>
+                                    <selectdefault custom-css="searchCriterionType" data-ng-disabled="true"
+                                                   ng-model="searchParameters.adminUnit.lookUpType"></selectdefault>
+                                </div>
+                                <div class="col-md-12 medium-padding" data-ng-disabled="true">
+                                    <autocomplete-field ng-model="searchParameters.adminUnit.name" table="analysis" en="sample__stratigraphy__stratigraphy_en" et="sample__stratigraphy__stratigraphy"/>
                                 </div>
                             </div>
                         </div>
