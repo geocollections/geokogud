@@ -97,7 +97,6 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
     $scope.getLocalities = function (list) {
         $scope.localities = [];
         if (list) {
-            console.log("here");
             angular.forEach(list, function (el) {
                 if (el.locality__latitude != null && el.locality__longitude != null && el.locality__locality_en != null && el.locality__locality != null && el.locality_id != null) {
                     console.log("in if");
@@ -105,6 +104,8 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
                 } else if (noneIsNull(el.latitude, el.longitude, el.locality_en, el.locality, el.id)) {
                     console.log("else if")
                     addToLocalities(el.latitude, el.longitude, el.locality_en, el.locality, el.id);
+                } else if(noneIsNull(el.latitude, el.longitude, '', '', '')) {
+                    addToLocalities(el.latitude, el.longitude, '', '', null);
                 }
             })
         }

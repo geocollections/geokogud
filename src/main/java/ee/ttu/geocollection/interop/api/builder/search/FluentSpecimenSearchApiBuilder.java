@@ -40,6 +40,19 @@ public class FluentSpecimenSearchApiBuilder extends FluentSearchApiBuilder<Fluen
         return this;
     }
 
+    public FluentSpecimenSearchApiBuilder queryAdminUnit(SearchField adminUnit) {
+        buildMultiSearch(
+                adminUnit,
+                LOCALITY_COUNTRY,
+                LOCALITY_COUNTRY_ENG,
+                LOCALITY__MAAKOND__MAAKOND,
+                LOCALITY__MAAKOND__MAAKOND_EN,
+                LOCALITY__VALD__VALD,
+                LOCALITY__VALD__VALD_ENG,
+                LOCALITY__ASUSTUSYKSUS__ASUSTUSYKSUS,
+                LOCALITY__ASUSTUSYKSUS__ASUSTUSYKSUS_EN);
+        return this;
+    }
     @Override
     public FluentSpecimenSearchApiBuilder queryDepth(SearchField depth) {
         buildMultiSearch(depth, DEPTH, DEPTH_INTERVAL);

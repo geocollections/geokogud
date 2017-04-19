@@ -126,24 +126,3 @@ constructor.$inject = ['utils','configuration','$window'];
 
 module.service("ApplicationService", constructor);
 
-module.factory("SearchFactory", ['$http', 'configuration', function($http, configuration) {
-    return {
-        autocompleteSearch: function (table, term, searchField) {
-            return $http.get(configuration.autocompleteUrl, {params:{table: table, term: term, searchField: searchField}})
-                .then(function (response) {
-                return response.data.results;
-            });
-        }
-    };
-}]);
-
-module.factory("WebPagesFactory", ['$http', 'configuration', function($http, configuration) {
-
-    var getData = function(id) {
-        return $http({method:"GET", url: configuration.webPagesUrl + "/" + id}).then(function(result){
-            return result.data.results[0];
-        });
-    };
-    return { getData: getData };
-}]);
-
