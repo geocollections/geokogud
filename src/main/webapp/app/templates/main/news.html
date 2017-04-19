@@ -10,11 +10,12 @@
 			</nav>
 			<nav id="newsButtons">
 				<div class="text-center">
-					<button type="button" class="news-button" ng-repeat="year in main.years" ng-click="main.showNews($event)">{{
-						year }}</button>
+					<button type="button" class="news-button" ng-class="{'news-active-button':year==yearToShow}" ng-repeat="year in main.years" ng-click="main.showNews($event)">
+						{{year}}
+					</button>
 				</div>
 			</nav>
-			<div ng-repeat="id in main.news.result | filter: main.yearFilter" class="content">
+			<div ng-repeat="id in main.news.results | filter: main.yearFilter" class="content">
 				<div ng-bind-html="id.date_added" class="dateAdded"></div>
 				<div ng-bind-html="main.getTitle(id)" class="heading"></div>
 				<div ng-bind-html="main.getText(id)" class="text"></div>

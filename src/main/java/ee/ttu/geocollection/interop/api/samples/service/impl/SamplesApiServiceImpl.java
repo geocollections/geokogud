@@ -2,7 +2,6 @@ package ee.ttu.geocollection.interop.api.samples.service.impl;
 
 import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
-import ee.ttu.geocollection.interop.api.Response.ResponseMapper;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentSampleSearchApiBuilder;
 import ee.ttu.geocollection.interop.api.samples.service.SamplesApiService;
@@ -21,8 +20,6 @@ public class SamplesApiServiceImpl implements SamplesApiService {
 
     @Value("${geo-api.url}")
     private String apiUrl;
-    @Autowired
-    private ResponseMapper responseMapper;
     @Autowired
     private ApiService apiService;
 
