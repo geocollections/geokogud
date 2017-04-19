@@ -61,12 +61,7 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
     }
 
     public B queryDepth(SearchField depth) {
-        buildFieldParameters("depth", depth);
-        return getThis();
-    }
-
-    public B returnRemarks() {
-        addReturningField(REMARKS);
+        buildFieldParameters(DEPTH, depth);
         return getThis();
     }
 

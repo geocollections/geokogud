@@ -101,8 +101,8 @@ dependencies {
     querydslapt 'com.mysema.querydsl:querydsl-apt:3.6.5'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.6.2'
     testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
     testCompile group: 'com.jayway.jsonpath', name: 'json-path', version: '2.0.0'
     testCompile 'org.springframework.ws:spring-ws-test'
