@@ -129,7 +129,7 @@ angular.module('geoApp').directive('loading', function () {
             template:
                 '<select class="{{selectCss}}" ng-model="field">' +
                     '<option value="iexact" selected="selected">{{ \'SEARCH.SELECT.EQUALS\' | translate }}</option>' +
-                    '<option value="doesnotexact">{{ \'SEARCH.SELECT.DOESNOTEQUAL\' | translate }}</option>' +
+           /*         '<option value="doesnotexact">{{ \'SEARCH.SELECT.DOESNOTEQUAL\' | translate }}</option>' +*/
                     '<option value="gt">{{ \'SEARCH.SELECT.GREATERTHAN\' | translate }}</option>' +
                     '<option value="lt">{{ \'SEARCH.SELECT.SMALLERTHAN\' | translate }}</option>' +
                     '<option value="in">{{ \'SEARCH.SELECT.ISINLIST\' | translate }}</option>' +
@@ -144,7 +144,7 @@ angular.module('geoApp').directive('loading', function () {
                 scope.selectCss = angular.isUndefined(scope.customCss) ? 'col-md-4 form-control' : scope.customCss;
                 scope.idOptions = [
                     {name: 'equals', value: 'iexact'},
-                    {name: 'does not equal', value: 'doesnotexact'},
+            /*        {name: 'does not equal', value: 'doesnotexact'},*/
                     {name: 'greater than', value: 'gt'},
                     {name: 'smaller than', value: 'lt'},
                     {name: 'is in list', value: 'in'},
@@ -165,7 +165,7 @@ angular.module('geoApp').directive('loading', function () {
                 '<option value="iexact">{{ \'SEARCH.SELECT.EQUALS\' | translate }}</option>' +
                 '<option value="istartswith">{{ \'SEARCH.SELECT.STARTSWITH\' | translate }}</option>' +
                 '<option value="iendswith">{{ \'SEARCH.SELECT.ENDSWITH\' | translate }}</option>' +
-                '<option value="doesnotcontain">{{ \'SEARCH.SELECT.DOESNOTCONTAIN\' | translate }}</option>' +
+             /*   '<option value="doesnotcontain">{{ \'SEARCH.SELECT.DOESNOTCONTAIN\' | translate }}</option>' +*/
                 '<option value="in">{{ \'SEARCH.SELECT.ISINLIST\' | translate }}</option>' +
             '</select>',
         restrict: 'E',
@@ -180,7 +180,7 @@ angular.module('geoApp').directive('loading', function () {
                 {name: 'equals', value: 'iexact'},
                 {name: 'start with', value: 'istartswith'},
                 {name: 'ends with', value: 'iendswith'},
-                {name: 'does not contain', value: 'doesnotcontain'},
+             /*   {name: 'does not contain', value: 'doesnotcontain'},*/
                 {name: 'is in list', value: 'in'}
             ];
 
@@ -198,7 +198,7 @@ angular.module('geoApp').directive('loading', function () {
                 '<option value="iexact">{{ \'SEARCH.SELECT.EQUALS\' | translate }}</option>' +
                 '<option value="istartswith">{{ \'SEARCH.SELECT.STARTSWITH\' | translate }}</option>' +
                 '<option value="iendswith">{{ \'SEARCH.SELECT.ENDSWITH\' | translate }}</option>' +
-                '<option value="doesnotcontain">{{ \'SEARCH.SELECT.DOESNOTCONTAIN\' | translate }}</option>' +
+                /*'<option value="doesnotcontain">{{ \'SEARCH.SELECT.DOESNOTCONTAIN\' | translate }}</option>' +*/
                 '<option value="in">{{ \'SEARCH.SELECT.ISINLIST\' | translate }}</option>' +
                 '<option value="hierarchy">{{ \'SEARCH.SELECT.HIERARCHY\' | translate }}</option>' +
             '</select>',
@@ -213,7 +213,7 @@ angular.module('geoApp').directive('loading', function () {
                 {name: 'equals', value: 'iexact'},
                 {name: 'start with', value: 'istartswith'},
                 {name: 'ends with', value: 'iendsswith'},
-                {name: 'does not contain', value: 'doesnotcontain'},
+         /*       {name: 'does not contain', value: 'doesnotcontain'},*/
                 {name: 'is in list', value: 'in'},
                 {name: 'hierarchy', value: 'hierarchy'}
             ];
