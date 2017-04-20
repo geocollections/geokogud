@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="panel-body">
-        <div class="row">
+        <div class="row" data-ng-if="detailCtrl.specimenIdentifications.length > 0">
             <label>Identifications (minerals and rocks)</label>
             <table class="table table-bordered table-hover">
                 <thead>
@@ -51,7 +51,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="row">
+        <div class="row" data-ng-if="detailCtrl.specimenReference.length > 0">
             <label>Reference</label>
             <table class="table table-bordered table-hover">
                 <thead>
@@ -74,19 +74,14 @@
                 </tbody>
             </table>
         </div>
-        <div class="row">
+        <div class="row" data-ng-if="detailCtrl.specimenImage.length > 0">
             <label>Images</label>
             <table class="table table-bordered table-hover">
                 <thead>
-                <tr>
-                    <th>???</th>
-                    <th>???</th>
-                </tr>
                 </thead>
                 <tbody>
-                <tr style="cursor: pointer; " data-ng-repeat="entity in detailCtrl.specimenImage">
-                    <td>???</td>
-                    <td>???</td>
+                <tr style="cursor: pointer; ">
+                    <td  data-ng-repeat="entity in detailCtrl.specimenImage"><show-preview img-url="entity.image_url"/></td>
                 </tr>
                 </tbody>
             </table>

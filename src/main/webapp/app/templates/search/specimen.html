@@ -288,7 +288,8 @@
                         <td data-title="{{ 'SEARCH.SPECIMENS.LOCALITY' | translate }}">
                             <a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.locality_id})">{{entity.locality__locality}}</a>
                         </td>
-                        <td data-title="{{ 'SEARCH.SPECIMENS.DEPTH_M' | translate }}">{{entity.depth}} {{entity.depth_interval}}</td>
+                        <td data-title="{{ 'SEARCH.SPECIMENS.DEPTH_M' | translate }}">{{entity.depth}}
+                            <span ng-if="entity.depth_interval != null && entity.depth_interval != ''">({{entity.depth_interval}})</span></td>
                         <td data-title="{{ 'SEARCH.SPECIMENS.STRATIGRAPHY' | translate }}">
                             <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.stratigraphy_id})">
                                 <first-not-null values="[entity.stratigraphy__stratigraphy, entity.stratigraphy__stratigraphy_en, lithostratigraphy__stratigraphy, lithostratigraphy__stratigraphy_en, stratigraphy_free]"/>

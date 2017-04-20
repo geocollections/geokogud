@@ -4,21 +4,18 @@ import org.springframework.http.HttpStatus;
 
 public class AppException extends RuntimeException {
 
-        private AppError error;
+    private AppError error;
 
-        private Throwable errorDetails;
+    private Throwable errorDetails;
 
-        public AppException(AppError error) {
+    public AppException(AppError error) {
+        this.error = error;
+    }
 
-            this.error = error;
-
-        }
-
-        public AppException(AppError error, Throwable errorDetails) {
-
-            this.error = error;
-            this.errorDetails = errorDetails;
-        }
+    public AppException(AppError error, Throwable errorDetails) {
+        this.error = error;
+        this.errorDetails = errorDetails;
+    }
 
     public String getErrorCode() {
         return error.getErrorCode();
@@ -36,7 +33,6 @@ public class AppException extends RuntimeException {
     }
 
     public HttpStatus getStatus() {
-
         return error.getStatus();
     }
 }

@@ -1,4 +1,4 @@
-var module = angular.module("geoApp", ['ui.bootstrap','ui.bootstrap.datetimepicker', 'ui.router', 'pascalprecht.translate', 'ngFileUpload', 'ngCookies', 'ngSanitize', 'ngAnimate', 'ui.select2', 'ngStorage', 'bsLoadingOverlay']);
+var module = angular.module("geoApp", ['ui.bootstrap','ui.bootstrap.datetimepicker', 'ui.router', 'pascalprecht.translate', 'ngFileUpload', 'ngCookies', 'ngSanitize', 'ngAnimate', 'ui.select2', 'ngStorage', 'bsLoadingOverlay', 'ngTouch']);
 
 module.config(function ($translateProvider, $locationProvider, $urlRouterProvider) {
 

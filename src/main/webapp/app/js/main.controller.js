@@ -21,7 +21,7 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     vm.database = getWebPageById(21, "database");
 
     //vm.about = getWebPageById(1, "about");
-    var yearToShow;
+    $scope.yearToShow = 0;
 
     asyncLoadData(); //fixme make async request
 
@@ -41,19 +41,19 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     
     function onNewsData(response) {
         vm.news = response.data;
-        angular.forEach(vm.news.result, function(currentNews) {
+        angular.forEach(vm.news.results, function(currentNews) {
             var year = currentNews.date_added.split("-")[0];
             if (vm.years.indexOf(year) == -1) { vm.years.push(year); }
         });
-        yearToShow = vm.years[0];
+        $scope.yearToShow = vm.years[0];
     }
 
     function showNews($event) {
-        yearToShow = $event.target.innerText;
+        $scope.yearToShow = $event.target.innerText;
     }
 
     function yearFilter(id) {
-        return id.date_added.startsWith(yearToShow);
+        return id.date_added.startsWith($scope.yearToShow);
     }
 
     function getTitle(id) {
@@ -67,7 +67,8 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     function getContent(webpage) {
         if (webpage != null) {
             return $translate.use() === "et" ? webpage.content_et : webpage.content_en;
-        } return null;
+        }
+        return null;
     }
 
     function changeLanguage(langKey) {

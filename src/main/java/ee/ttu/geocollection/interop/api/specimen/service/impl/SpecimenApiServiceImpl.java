@@ -42,9 +42,12 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
                 .queryNameOfFossil(searchCriteria.getFossilName())
                 .queryFossilMineralRock(searchCriteria.getFossilMineralRock())
                 .queryAdminUnit(searchCriteria.getAdminUnit())
-                //TODO [#5] should be added to API...
-                //.queryInstitution(searchCriteria.getDbs())
+                .queryInstitutions(searchCriteria.getDbs()).andReturn()
                 .returnDatabaseName()
+                .returnLocalityId()
+                .returnStratigraphyId()
+                .returnLatitutde()
+                .returnLongitude()
                 .buildFullQuery();
         return apiService.searchRawEntities("specimen", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }

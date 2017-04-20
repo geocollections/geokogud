@@ -3,10 +3,7 @@ package ee.ttu.geocollection.interop.api.service;
 import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.domain.SortField;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
-import ee.ttu.geocollection.interop.api.Response.Response;
-import ee.ttu.geocollection.interop.api.common.GeoEntity;
 
-import java.util.List;
 import java.util.Map;
 
 public interface ApiService {
@@ -15,17 +12,6 @@ public interface ApiService {
     ApiResponse searchRawEntities(String tableName, int page, SortField sortField, String requestParams) throws AppException;
 
     ApiResponse searchRawEntities(String tableName, int paginateBy, int page, SortField sortField, String requestParams) throws AppException;
-
-    List<?> findByParam(String tableName, String requestParams);
-
-    //search without returning exactly fields
-    <T> Response<T> searchEntities(String tableName, int page, SortField sortField, String requestParams, Class<T> responseClass);
-
-    <T> Response<T> findEntity(String tableName, String requestParams, Class<T> responseClass);
-
-    <T extends GeoEntity> T findEntityAndMagicallyDeserialize(String tableName, String requestParams, Class<T> responseClass);
-
-    <T> Response<T> searchEntitiesAngMagicallyDeserialize(String tableName, int page, SortField sortField, String requestParams, Class<T> responseClass);
 
     Map searchByField(String table, String term, String searchField);
 }

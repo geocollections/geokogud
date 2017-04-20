@@ -113,4 +113,25 @@ public class FluentSpecimenSearchApiBuilder extends FluentSearchApiBuilder<Fluen
         addReturningField(DATABASE__NAME_EN);
         return this;
     }
+
+    public FluentSpecimenSearchApiBuilder returnLocalityId() {
+        addReturningField("locality_id");
+        return this;
+    }
+    public FluentSpecimenSearchApiBuilder returnStratigraphyId() {
+        addReturningField("stratigraphy_id");
+        return this;
+    }
+
+    public FluentSpecimenSearchApiBuilder returnLatitutde() {
+        addReturningField("locality__latitude");
+        return this;
+    }
+
+    public FluentSpecimenSearchApiBuilder returnLongitude() {
+        addReturningField("locality__longitude");
+        return this;
+    }
+
+
 }
