@@ -246,7 +246,26 @@
             </div>
 
             <div ng-include="'app/templates/search/partial/pagination.html'"></div>
-            <div class="table-responsive">
+            <div class="table-responsive" data-ng-if="showImages">
+                <div class="col-md-12 medium-padding">
+                    <b data-ng-init="totalImages = 0">{{ 'SEARCH.FOUND_IMAGES' | translate }} {{totalImages}} </b>
+                </div>
+                <div class="row" data-ng-repeat="entity in response.results">
+                <span data-ng-if="entity.specimen_image_thumbnail.count > 0"
+                      data-ng-repeat="image in entity.specimen_image_thumbnail.results">
+                    <span>
+                        <a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen_image',id:image.id})">
+                            {{image.specimen__database__acronym}} {{image.specimen__specimen_id}}
+                        </a>
+                        <a href="http://fossiilid.info/{{entity.specimenidentification__taxon_id}}" target="_blank">
+                            {{entity.specimenidentification__taxon__taxon}}
+                        </a> {{entity.specimenidentification__name}}
+                        <show-preview img-url="ctrl.service.composeImageUrl(image, image.image_url)"/>
+                    </span>
+                </span>
+                </div>
+            </div>
+            <div class="table-responsive" data-ng-if="!showImages">
                 <table class="table table-bordered table-hover" id="table-search">
                     <thead class="thead-default">
                     <tr>
@@ -305,7 +324,7 @@
                         </td>
                         <td data-title="{{ 'SEARCH.SPECIMENS.STATUS' | translate }}"><localize et="entity.original_status__value" en="entity.original_status__value_en"/></td>
                         <td data-title="{{ 'SEARCH.SPECIMENS.IMAGES' | translate }}">
-                            <show-preview  img-url="entity.specimen_image_thumbnail.results[0].image_url"/>
+                            <show-preview data-ng-if="entity.specimen_image_thumbnail.count > 0" img-url="entity.specimen_image_thumbnail.results[0].image_url"/>
                         </td>
                     </tr>
                     </tbody>

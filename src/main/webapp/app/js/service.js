@@ -46,7 +46,8 @@ var constructor = function (utils,configuration, $window) {
         utils.httpGet(configuration.autocompleteUrl, {table: table, term: val, searchField: searchField}, null, null);
     };
 
-    service.composeImageUrl = function(imageData) {
+    service.composeImageUrl = function(imageData, readyUrl) {
+        if(readyUrl) return readyUrl;
         var imageUrl = "http://geokogud.info/"+imageData.database__acronym.toLowerCase()+"/image/";
         return imageUrl+ imageData.imageset__imageset_series + "/"+imageData.imageset__imageset_number+"/"+imageData.filename;
     };

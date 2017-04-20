@@ -129,9 +129,7 @@
                             <first-not-null values="[image.locality__locality, image.locality__locality_en]"/>
                         </a>
                         {{image.author__agent}} {{image.date_taken}}</span>
-                    <span>
-                        <show-preview  img-url="composeImageUrl(image)"/>
-                    </span>
+                    <span><show-preview  img-url="ctrl.service.composeImageUrl(image)"/></span>
                 </div>
             </div>
             <div class="table-responsive" data-ng-if="!showImages">

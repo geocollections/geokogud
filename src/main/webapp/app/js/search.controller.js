@@ -96,10 +96,6 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
         $scope.getLocalities($scope.response.results);
     };
 
-    $scope.composeImageUrl = function(imageData) {
-        var imageUrl = "http://geokogud.info/"+imageData.database__acronym.toLowerCase()+"/image/";
-        return imageUrl+ imageData.imageset__imageset_series + "/"+imageData.imageset__imageset_number+"/"+imageData.filename;
-    };
     $scope.getLocalities = function (list) {
         $scope.localities = [];
         if (list) {
