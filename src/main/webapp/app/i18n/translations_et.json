@@ -148,6 +148,31 @@
                 "LAB": ""
             }
         },
+        "SPECIMENS": {
+            "HEADING": "Eksemplarid",
+            "ID": "ID",
+            "NUMBER": "Eksemplari nr",
+            "COLLECTION_NUMBER": "Kollektsiooni nr",
+            "CLASSIFICATION_NUMBER": "Klassifikatsioon",
+            "FOSSIL_MINERAL_ROCK": "Fossiil/kivim/mineraal",
+            "NAME_OF_ROCK": "Fossiili nimi",
+            "MINERAL_ROCK": "Mineraal/kivim",
+            "DEPHT_M": "Sügavus (m)",
+            "STRATIGRAPHY": "Stratigraafia",
+            "COLLECTOR": "Koguja",
+            "REFERENCE": "Viide",
+            "TYPE_STATUS": "Originaali staatus ",
+            "PART_OF_FOSSIL": "Fossiili osis",
+            "KEYWORDS": "Märksõnad",
+            "REG_DATE": "Reg. date",
+            "ADMIN_UNIT": "Admin. üksus",
+            "LOCALITY": "Leiukoht",
+            "NAME_PART_ELEMENT": "Nimi osis/element",
+            "STATUS": "Staatus",
+            "IMAGES": "Pildid",
+            "OLD_SPECIMEN_NUMBER": "Vana nr.",
+            "DEPTH_M": ""
+        },
         "SAMPLES": {
             "HEADING": "Proovid",
             "ID": "ID",

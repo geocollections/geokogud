@@ -148,6 +148,31 @@
                 "LAB": "Lab."
             }
         },
+        "SPECIMENS": {
+            "HEADING": "Specimens",
+            "ID": "ID",
+            "NUMBER": "Specimen number",
+            "COLLECTION_NUMBER": "Collection number",
+            "CLASSIFICATION_NUMBER": "Classification",
+            "FOSSIL_MINERAL_ROCK": "Fossil/ Mineral/ Rock",
+            "NAME_OF_ROCK": "Name of fossil",
+            "MINERAL_ROCK": "Mineral/Rock",
+            "DEPHT_M": "Depth (m)",
+            "STRATIGRAPHY": "Stratigraphy",
+            "COLLECTOR": "Collector",
+            "REFERENCE": "Reference",
+            "TYPE_STATUS": "Type status",
+            "PART_OF_FOSSIL": "Part (of fossil)",
+            "KEYWORDS": "Key words",
+            "REG_DATE": "Reg. date",
+            "ADMIN_UNIT": "Admin.unit",
+            "LOCALITY": "Locality",
+            "NAME_PART_ELEMENT": "Name Part/element",
+            "STATUS": "Status",
+            "IMAGES": "Images",
+            "OLD_SPECIMEN_NUMBER": "Old specimen #",
+            "DEPTH_M": ""
+        },
         "SAMPLES": {
             "HEADING": "Samples",
             "ID": "ID",
