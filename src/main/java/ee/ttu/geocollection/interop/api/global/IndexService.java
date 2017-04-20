@@ -85,12 +85,14 @@ public class IndexService {
         Long idLong = Long.valueOf(entry.get("id").toString());
         LongPoint id = new LongPoint("id", idLong);
         StoredField idOriginal = new StoredField("idOriginal", idLong);
+        StoredField dateChanged = new StoredField("date_changed", entry.get("date_changed").toString());
         TextField number = new TextField("number", (String) entry.get("number"), Field.Store.NO);
         TextField numberAdditional = new TextField("number_additional", (String) entry.get("number"), Field.Store.NO);
         document.add(id);
-        document.add(idOriginal);
         document.add(number);
         document.add(numberAdditional);
+        document.add(idOriginal);
+        document.add(dateChanged);
         return document;
     }
 }
