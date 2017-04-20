@@ -22,6 +22,11 @@
             </div>
             <form ng-enter="search()">
                 <div class="row">
+                    <div class="checkbox">
+                        <checkbox-field name = 'SEARCH.SEARCH_IMAGES' ng-model="searchParameters.searchImages"></checkbox-field>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="panel-heading searchGroupHeading"
                          ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
                         <h4 class="panel-title">

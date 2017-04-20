@@ -22,6 +22,11 @@
             </div>
             <form ng-enter="search()">
                 <div class="row">
+                    <div class="checkbox">
+                        <checkbox-field name = 'SEARCH.SEARCH_IMAGES' ng-model="searchParameters.searchImages"></checkbox-field>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="panel-heading searchGroupHeading"
                          ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
                         <h4 class="panel-title">
@@ -182,7 +187,25 @@
 
             <div ng-include="'app/templates/search/partial/pagination.html'"></div>
 
-            <div class="table-responsive">
+            <div class="table-responsive" data-ng-if="showImages">
+                <div class="col-md-12 medium-padding">
+                    <b>{{ 'SEARCH.FOUND_IMAGES' | translate }} {{totalImages}} </b>
+                </div>
+                <div class="row" data-ng-repeat="entity in response.results">
+                    <span data-ng-if="entity.locality_image_thumbnail.count > 0" data-ng-repeat="image in entity.locality_image_thumbnail.results"
+                          data-ng-init="totalImages += entity.locality_image_thumbnail.count">
+                        <span>
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'image',id:image.id})">
+                                <first-not-null values="[image.locality__locality, image.locality__locality_en]"/>
+                            </a>
+                            {{image.author__agent}} {{image.date_taken}}</span>
+                        <span>
+                            <show-preview img-url="composeImageUrl(image)"/>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="table-responsive"  data-ng-if="!!showImages">
                 <table class="table table-bordered table-hover" id="table-search">
                     <thead class="thead-default">
                     <tr>
@@ -222,7 +245,9 @@
                             {{entity.stratigraphy_base__stratigraphy}}
                         </td>
                         <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.DRILLCORE' | translate }}">???</td>
-                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.IMAGES' | translate }}">???</td>
+                        <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.IMAGES' | translate }}">
+                            <span data-ng-if="entity.locality_image_thumbnail.count > 0">+</span>
+                        </td>
                         <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.MAP' | translate }}"><span
                                 data-ng-if="entity.latitude != null && entity.longitude != null">+</span></td>
                         <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.MA_ID' | translate }}">

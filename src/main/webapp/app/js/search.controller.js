@@ -48,6 +48,9 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
     }
 
     $scope.search = function () {
+        $scope.totalImages = 0;
+            $scope.showImages = $scope.searchParameters.searchImages && $scope.searchParameters.searchImages.name ? true : false;
+
         vm.searchLoadingHandler.start();
         applicationService.getList($stateParams.type, $scope.searchParameters, onSearchData, onSearchError)
     };
@@ -93,6 +96,12 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
     $scope.showMap = function () {
         $scope.isMapHidden = !$scope.isMapHidden;
         $scope.getLocalities($scope.response.results);
+    };
+
+    $scope.composeImageUrl = function(imageData) {
+        var imageUrl = "http://geokogud.info/git/image/";
+        return imageUrl+ imageData.imageset__imageset_series + "/"+imageData.imageset__imageset_number+"/"+imageData.filename;
+        //http://geokogud.info/git/image/OH/OH07-1/preview/OH07-1-2.jpg
     };
     $scope.getLocalities = function (list) {
         $scope.localities = [];

@@ -15,7 +15,7 @@ angular.module('geoApp').directive('intervalField', function () {
     };
 }).directive('checkboxField', function () {
     return {
-        template: "<label><input type='checkbox' data-ng-click='checked()' value='value' ng-model='field.name' data-ng-disabled='true'><span class=\"cr\"><i class=\"cr-icon glyphicon glyphicon-ok\"></i>" +
+        template: "<label><input type='checkbox' data-ng-click='checked()' value='value' ng-model='field.name'><span class=\"cr\"><i class=\"cr-icon glyphicon glyphicon-ok\"></i>" +
         "</span>{{ name | translate }}</label>",
         restrict: 'AE',
         scope: {

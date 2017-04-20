@@ -1,9 +1,13 @@
 package ee.ttu.geocollection.interop.api.localities.service.impl;
 
 import ee.ttu.geocollection.domain.AppException;
+import ee.ttu.geocollection.domain.SearchField;
+import ee.ttu.geocollection.domain.SortField;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
+import ee.ttu.geocollection.interop.api.builder.search.FluentLocalityImageSearchApiBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentLocalitySearchApiBuilder;
+import ee.ttu.geocollection.interop.api.builder.search.FluentSpecimenImageSearchApiBuilder;
 import ee.ttu.geocollection.interop.api.localities.pojo.LocalityMapFilter;
 import ee.ttu.geocollection.interop.api.localities.pojo.LocalitySearchCriteria;
 import ee.ttu.geocollection.interop.api.localities.service.LocalitiesApiService;
@@ -47,6 +51,16 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
                 searchCriteria.getSortField(),
                 requestParams);
     }
+
+    @Override
+    public ApiResponse findLocalityImage(SearchField localityId) {
+        String requestParams = FluentLocalityImageSearchApiBuilder.aRequest()
+                .queryLocalityIdForUrl(localityId).andReturn()
+                //.returnImageUrl()
+                .buildDefaultFieldsQuery();
+        return apiService.searchRawEntities("image", 2,1, new SortField(), requestParams);
+    }
+
 
     @Override
     public Map findRawById(Long id) {

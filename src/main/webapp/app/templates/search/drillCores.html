@@ -181,7 +181,7 @@
                             {{entity.storage__location}}
                         </td>
                         <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.IMAGES' | translate }}">
-                            <show-preview img-url="entity.drill_core_image_thumbnail.results[0].url"/>
+                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'drillcore',id:entity.id})">{{entity.drill_core_image_thumbnail.count}}</a>
                         </td>
                     </tr>
                     </tbody>

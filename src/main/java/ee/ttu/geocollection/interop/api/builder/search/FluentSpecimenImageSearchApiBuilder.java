@@ -14,11 +14,6 @@ public class FluentSpecimenImageSearchApiBuilder extends FluentSearchApiBuilder<
         return this;
     }
 
-    public FluentSpecimenImageSearchApiBuilder querySpecimenId(SearchField id) {
-        buildFieldParameters(SPECIMEN_ID, id);
-        return this;
-    }
-
     public FluentSpecimenImageSearchApiBuilder querySpecimenIdForUrl(SearchField id) {
         buildFieldParameters("specimen__specimen_id", id);
         return this;

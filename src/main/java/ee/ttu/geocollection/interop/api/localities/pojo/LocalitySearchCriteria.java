@@ -10,6 +10,7 @@ public class LocalitySearchCriteria {
     private int page = 1;
     private SortField sortField;
     private SearchField id;
+    private SearchField searchImages;
     private SearchField stratigraphy;
     private SearchField number;
     private SearchField reference;
@@ -21,6 +22,14 @@ public class LocalitySearchCriteria {
     private SearchField longitude;
     private SearchField verticalExtentSince;
     private SearchField verticalExtentTo;
+
+    public SearchField getSearchImages() {
+        return searchImages;
+    }
+
+    public void setSearchImages(SearchField searchImages) {
+        this.searchImages = searchImages;
+    }
 
     public SearchField getCountry() {
         return country;

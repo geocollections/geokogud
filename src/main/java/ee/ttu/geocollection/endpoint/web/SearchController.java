@@ -115,7 +115,22 @@ public class SearchController extends ControllerHelper {
 
     @RequestMapping(value = "/locality", method = RequestMethod.POST)
     public ApiResponse searchLocalities(@RequestBody LocalitySearchCriteria searchCriteria) {
-        return localitiesApiService.findLocality(searchCriteria);
+
+        ApiResponse localities =  localitiesApiService.findLocality(searchCriteria);
+        if (localities.getResult() != null
+                && searchCriteria.getSearchImages() != null
+                && searchCriteria.getSearchImages().getName() != null
+                && searchCriteria.getSearchImages().getName().equals("true")) {
+            asynchService.doAsynchCallsForEachResult(
+                    localities,
+                    locality ->
+                            () -> localitiesApiService.findLocalityImage(new SearchField(
+                                    locality.get("id").toString(),
+                                    LookUpType.exact)),
+                    locality ->
+                            receivedImage -> locality.put("locality_image_thumbnail", receivedImage));
+        }
+        return localities;
     }
 
     @RequestMapping(value = "/photo-archive", method = RequestMethod.POST)
