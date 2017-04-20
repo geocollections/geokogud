@@ -12,7 +12,21 @@ angular.module('geoApp').directive('loading', function () {
             });
         }
     }
-}).directive('ngClick', function ($timeout) {
+}).directive('spinnerLoad', [function spinnerLoad() {
+    return {
+        restrict: 'A',
+        link: function spinnerLoadLink(scope, elem, attrs) {
+            scope.$watch('ngSrc', function watchNgSrc() {
+                elem.hide();
+                elem.after('<i class="fa fa-spinner fa-lg fa-spin"></i>');  // add spinner
+            });
+            elem.on('load', function onLoad() {
+                elem.show();
+                elem.next('i.fa-spinner').remove(); // remove spinner
+            });
+        }
+    };
+}]).directive('ngClick', function ($timeout) {
 
     /**
      * Overriding angular ng-click due to double click issue:
@@ -110,7 +124,7 @@ angular.module('geoApp').directive('loading', function () {
     };
 }).directive('showPreview', function () {
     return {
-        template: '<img style="width:120px;" src="{{previewImageUrl}}"/>',
+        template: '<img style="width:120px;" ng-src="{{previewImageUrl}}" spinner-load />',
         restrict: 'E',
         scope: {
             imgUrl: '='

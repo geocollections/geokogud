@@ -51,6 +51,11 @@ public class DetailsController {
         return specimenApiService.findRawById(id);
     }
 
+    @RequestMapping(value = "/raw-specimen-image/{id}")
+    public Map findRawSpecimenImageById(@PathVariable Long id) {
+        return specimenApiService.findRawSpecimenImageById(id);
+    }
+
     @RequestMapping(value = "/raw-sample/{id}")
     public Map findRawSampleById(@PathVariable Long id) throws AppException{
         return samplesApiService.findRawById(id);

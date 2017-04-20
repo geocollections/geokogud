@@ -16,12 +16,19 @@ module.config(function($stateProvider,$urlRouterProvider) {
         controller: "SearchController as ctrl",
         params: {type: "specimens"}
     }).state('specimen', {
-        template: '<data-ui-view/>',
+        template: '<data-ui-view/>'
     }).state('specimen.view', {
         url: "/specimen/:id",
         templateUrl: "app/templates/search/detail/specimen.html",
         controller: "DetailController as detailCtrl",
         params: {type: "specimens"}
+    }).state('specimenImage', {
+        template: '<data-ui-view/>'
+    }).state('specimenImage.view', {
+        url: "/specimen_image/:id",
+        templateUrl: "app/templates/search/detail/photoArchive.html",
+        controller: "DetailController as detailCtrl",
+        params: {type: "specimenImage"}
     }).state('samples', {
         url: "/sample",
         templateUrl: "app/templates/search/samples.html",

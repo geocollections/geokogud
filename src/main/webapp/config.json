@@ -27,6 +27,7 @@
   "doiUrl":"/search/doi",
 
   "specimenDetailUrl":"/details/raw-specimen",
+  "specimenImageDetailUrl":"/details/raw-specimen-image",
   "sampleDetailUrl":"/details/raw-sample",
   "localityDetailUrl":"/details/raw-locality",
   "stratigraphyDetailUrl":"/details/raw-stratigraphy",
@@ -40,6 +41,12 @@
 
   "detailFieldsConfig" : {
     "specimens" : {
+      "urls" : [],
+      "localizedValues" : [],
+      "date" : ["date_added","date_changed"],
+      "ignoreFields" : []
+    },
+    "specimenImage" : {
       "urls" : [],
       "localizedValues" : [],
       "date" : ["date_added","date_changed"],

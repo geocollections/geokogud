@@ -254,13 +254,15 @@
                 <span data-ng-if="entity.specimen_image_thumbnail.count > 0"
                       data-ng-repeat="image in entity.specimen_image_thumbnail.results">
                     <span>
-                        <a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen_image',id:image.id})">
+                        <a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen',id:entity.id})">
                             {{image.specimen__database__acronym}} {{image.specimen__specimen_id}}
                         </a>
                         <a href="http://fossiilid.info/{{entity.specimenidentification__taxon_id}}" target="_blank">
                             {{entity.specimenidentification__taxon__taxon}}
                         </a> {{entity.specimenidentification__name}}
-                        <show-preview img-url="ctrl.service.composeImageUrl(image, image.image_url)"/>
+                        <a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen_image',id:image.id})">
+                            <show-preview img-url="ctrl.service.composeImageUrl(image, image.image_url)"/>
+                        </a>
                     </span>
                 </span>
                 </div>
