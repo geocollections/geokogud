@@ -91,7 +91,7 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
         }
         if(filters.getLocalityName() != "") {
             requestParams += "multi_search=value:" +  filters.getLocalityName() +
-                    ";fields:name,name_en;lookuptype:contains&";
+                    ";fields:name,name_en;lookuptype:icontains&";
         }
         requestParams += "format=json";
         return apiService.findRawEntity("locality_summary", requestParams);

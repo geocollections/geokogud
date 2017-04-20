@@ -186,14 +186,13 @@
             </div>
 
             <div ng-include="'app/templates/search/partial/pagination.html'"></div>
-
             <div class="table-responsive" data-ng-if="showImages">
                 <div class="col-md-12 medium-padding">
                     <b>{{ 'SEARCH.FOUND_IMAGES' | translate }} {{totalImages}} </b>
                 </div>
                 <div class="row" data-ng-repeat="entity in response.results">
                     <span data-ng-if="entity.locality_image_thumbnail.count > 0" data-ng-repeat="image in entity.locality_image_thumbnail.results"
-                          data-ng-init="totalImages += entity.locality_image_thumbnail.count">
+                          data-ng-init="totalImages = totalImages + entity.locality_image_thumbnail.count">
                         <span>
                             <a href data-ng-click="ctrl.service.openInNewWindow({object:'image',id:image.id})">
                                 <first-not-null values="[image.locality__locality, image.locality__locality_en]"/>
@@ -205,7 +204,7 @@
                     </span>
                 </div>
             </div>
-            <div class="table-responsive"  data-ng-if="!!showImages">
+            <div class="table-responsive"  data-ng-if="!showImages">
                 <table class="table table-bordered table-hover" id="table-search">
                     <thead class="thead-default">
                     <tr>

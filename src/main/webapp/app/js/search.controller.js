@@ -48,8 +48,7 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
     }
 
     $scope.search = function () {
-        $scope.totalImages = 0;
-            $scope.showImages = $scope.searchParameters.searchImages && $scope.searchParameters.searchImages.name ? true : false;
+        $scope.showImages = $scope.searchParameters.searchImages && $scope.searchParameters.searchImages.name ? true : false;
 
         vm.searchLoadingHandler.start();
         applicationService.getList($stateParams.type, $scope.searchParameters, onSearchData, onSearchError)
@@ -98,6 +97,9 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
         $scope.getLocalities($scope.response.results);
     };
 
+    $scope.countTotalImages = function() {
+
+    };
     $scope.composeImageUrl = function(imageData) {
         var imageUrl = "http://geokogud.info/git/image/";
         return imageUrl+ imageData.imageset__imageset_series + "/"+imageData.imageset__imageset_number+"/"+imageData.filename;
