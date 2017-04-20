@@ -64,6 +64,15 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
     }
 
     @Override
+    public Map findRawSpecimenImageById(Long id) {
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
+                .id(id)
+                .buildWithDefaultReturningFields();
+        return apiService.findRawEntity("specimen_image", requestParams);
+    }
+
+
+    @Override
     public Map findRawById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)

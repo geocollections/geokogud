@@ -12,6 +12,6 @@ public interface SpecimenApiService {
 
     ApiResponse findSpecimenImage(SearchField specimenId) throws AppException;
 
-
+    Map findRawSpecimenImageById(Long id);
     Map findRawById(Long id);
 }

@@ -18,8 +18,9 @@ var constructor = function ($scope, $stateParams, applicationService, configurat
         vm.results = response.data.results[0];
         vm.relatedData = response.data.related_data;
         vm.fields = Object.keys(vm.results);
-        vm.imageUrl = ($stateParams.type == 'photoArchive' ? vm.service.composeImageUrl(vm.results) : null);
-        vm.externalImagePath = ($stateParams.type == 'photoArchive' ? vm.service.composeExternalImagePath(vm.results) : null);
+        vm.imageUrl = (['specimenImage','photoArchive'].indexOf($stateParams.type) > -1 ? vm.service.composeImageUrl(vm.results) : null);
+        vm.externalImagePath = (['specimenImage','photoArchive'].indexOf($stateParams.type) > -1  ? vm.service.composeExternalImagePath(vm.results) : null);
+
         vm.detailLoadingHandler.stop();
         getLocality();
         getRelatedData();

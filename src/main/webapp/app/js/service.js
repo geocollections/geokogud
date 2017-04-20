@@ -48,20 +48,36 @@ var constructor = function (utils,configuration, $window) {
 
     service.composeImageUrl = function(imageData, readyUrl) {
         if(readyUrl) return readyUrl;
+        if(imageData.image_url) return imageData.image_url;
         var imageUrl = "http://geokogud.info/"+imageData.database__acronym.toLowerCase()+"/image/";
         return imageUrl+ imageData.imageset__imageset_series + "/"+imageData.imageset__imageset_number+"/"+imageData.filename;
     };
 
     service.composeExternalImagePath = function(imageData) {
-        //            http://geokogud.info/di.php?f=/var/www/git/image/OH/OH07-1/OH07-1-4.jpg
-        var imageUrl = "http://geokogud.info/di.php?f=/var/www/"+imageData.database__acronym.toLowerCase()+"/image/";
-        return imageUrl+ imageData.imageset__imageset_series + "/"+imageData.imageset__imageset_number+"/"+imageData.filename;
+        if(imageData.specimen__database__acronym) {
+            console.log(imageData)
+            return composeSpecimenExternalPath(imageData);
+        }
+        if(imageData.database__acronym) {
+            return composeImageExternalPath(imageData)
+        }
     };
 
+    function composeSpecimenExternalPath (imageData) {
+        //http://geokogud.info/di.php?f=/data/git/images/specimen/663/663-6.jpg&w=400
+        return "http://geokogud.info/di.php?f=/data/"+imageData.specimen__database__acronym.toLowerCase()+"/images/specimen/"
+            + imageData.image;
+    }
+    function composeImageExternalPath (imageData) {
+        //            http://geokogud.info/di.php?f=/var/www/git/image/OH/OH07-1/OH07-1-4.jpg
+        return "http://geokogud.info/di.php?f=/var/www/"+imageData.database__acronym.toLowerCase()+"/image/"
+            + imageData.imageset__imageset_series + "/"+imageData.imageset__imageset_number+"/"+imageData.filename;
+    }
     function getDetailUrl (searchType) {
         var url = null;
         switch (searchType) {
             case "specimens" : url = configuration.specimenDetailUrl; break;
+            case "specimenImage" : url = configuration.specimenImageDetailUrl; break;
             case "samples" : url = configuration.sampleDetailUrl; break;
             case "drillCores" : url = configuration.drillCoreDetailUrl; break;
             case "localities" : url = configuration.localityDetailUrl; break;
