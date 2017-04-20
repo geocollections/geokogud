@@ -1,8 +1,11 @@
 package ee.ttu.geocollection.interop.api.drillCores.service.impl;
 
 import ee.ttu.geocollection.domain.AppException;
+import ee.ttu.geocollection.domain.SearchField;
+import ee.ttu.geocollection.domain.SortField;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
+import ee.ttu.geocollection.interop.api.builder.search.FluentDrillCoreImageSearchApiBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentDrillCoreSearchApiBuilder;
 import ee.ttu.geocollection.interop.api.drillCores.pojo.DrillCoreSearchCriteria;
 import ee.ttu.geocollection.interop.api.drillCores.service.DrillCoreApiService;
@@ -38,6 +41,16 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService {
                 .queryInstitutions(searchCriteria.getDbs())
                 .buildDefaultFieldsQuery();
         return apiService.searchRawEntities("drillcore", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
+    }
+
+
+    @Override
+    public ApiResponse findDrillCoreImage(SearchField drillCoreId) {
+        String requestParams = FluentDrillCoreImageSearchApiBuilder.aRequest()
+                .querySpecimenIdForUrl(drillCoreId)
+                .returnImageUrl()
+                .buildDefaultFieldsQuery();
+        return apiService.searchRawEntities("drillcore_image", 2,1, new SortField(), requestParams);
     }
 
     @Override

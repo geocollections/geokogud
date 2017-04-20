@@ -110,7 +110,7 @@ angular.module('geoApp').directive('loading', function () {
     };
 }).directive('showPreview', function () {
     return {
-        template: '<img style="width:120px" src="{{previewImageUrl}}"/>',
+        template: '<img style="width:120px;" src="{{previewImageUrl}}"/>',
         restrict: 'E',
         scope: {
             imgUrl: '='
@@ -118,8 +118,10 @@ angular.module('geoApp').directive('loading', function () {
         link: function (scope) {
             scope.$watch('imgUrl', function(newValue) {
                 if(newValue) {
+                    var foundHttp = newValue.match(/http:/)
                     var lastSlashPosition = newValue.lastIndexOf('/');
-                    scope.previewImageUrl = newValue.substring(0, lastSlashPosition) + '/preview/' + newValue.substring(lastSlashPosition);
+                    console.log(foundHttp);
+                    scope.previewImageUrl = (foundHttp ? "" : "http://") + newValue.substring(0, lastSlashPosition) + '/preview' + newValue.substring(lastSlashPosition);
                 }
             }, true);
         }

@@ -180,7 +180,9 @@
                         <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.STORAGE' | translate }}">
                             {{entity.storage__location}}
                         </td>
-                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.IMAGES' | translate }}">???</td>
+                        <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.IMAGES' | translate }}">
+                            <show-preview img-url="entity.drill_core_image_thumbnail.results[0].url"/>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
