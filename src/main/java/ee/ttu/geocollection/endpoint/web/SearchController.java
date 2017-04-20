@@ -11,6 +11,8 @@ import ee.ttu.geocollection.interop.api.doi.pojo.DoiSearchCriteria;
 import ee.ttu.geocollection.interop.api.doi.service.DoiApiService;
 import ee.ttu.geocollection.interop.api.drillCores.pojo.DrillCoreSearchCriteria;
 import ee.ttu.geocollection.interop.api.drillCores.service.DrillCoreApiService;
+import ee.ttu.geocollection.interop.api.global.GlobalSearchApiService;
+import ee.ttu.geocollection.interop.api.global.IndexService;
 import ee.ttu.geocollection.interop.api.localities.pojo.LocalitySearchCriteria;
 import ee.ttu.geocollection.interop.api.localities.service.LocalitiesApiService;
 import ee.ttu.geocollection.interop.api.photoArchive.pojo.PhotoArchiveSearchCriteria;
@@ -67,6 +69,15 @@ public class SearchController extends ControllerHelper {
     private AnalysesApiService analysesApiService;
     @Autowired
     private ApiService apiService;
+    @Autowired
+    private GlobalSearchApiService globalSearchApiService;
+    @Autowired
+    private IndexService indexService;
+
+    @RequestMapping(value = "/global/{query}")
+    public Map<String, Object> searchGlobally(@PathVariable String query) {
+        return globalSearchApiService.searchGlobally(query);
+    }
 
     @RequestMapping(value = "/autocomplete-field", method = RequestMethod.GET)
     public Map findDoiById(
@@ -83,9 +94,8 @@ public class SearchController extends ControllerHelper {
             asynchService.doAsynchCallsForEachResult(
                     specimens,
                     specimen ->
-                            () -> specimenApiService.findSpecimenImage(new SearchField(
-                                    specimen.get("specimen_id").toString(),
-                                    LookUpType.exact)),
+                            () -> specimenApiService.findSpecimenImage(
+                                    new SearchField(specimen.get("specimen_id").toString(), LookUpType.exact)),
                     specimen ->
                             receivedImage -> specimen.put("specimen_image_thumbnail", receivedImage));
         }
@@ -104,9 +114,8 @@ public class SearchController extends ControllerHelper {
             asynchService.doAsynchCallsForEachResult(
                     drillCores,
                     drillCore ->
-                            () -> drillCoreApiService.findDrillCoreImage(new SearchField(
-                                    drillCore.get("id").toString(),
-                                    LookUpType.exact)),
+                            () -> drillCoreApiService.findDrillCoreImage(
+                                    new SearchField(drillCore.get("id").toString(), LookUpType.exact)),
                     drillCore ->
                             receivedImage -> drillCore.put("drill_core_image_thumbnail", receivedImage));
         }

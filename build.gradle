@@ -121,6 +121,7 @@ dependencies {
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
 
     compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.0.8'
+    compile group: 'org.apache.lucene', name: 'lucene-core', version: '6.5.0'
 }
 
 task generateQueryDSL(type: JavaCompile, group: 'build', description: 'Generates the QueryDSL query types') {

@@ -65,6 +65,11 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
         return getThis();
     }
 
+    public B returnDateChanged() {
+        addReturningField(DATE_CHANGED);
+        return getThis();
+    }
+
     public B fieldIsNotNull(String field) {
         query += "&" + field + "__isnull=false";
         return getThis();
@@ -73,7 +78,6 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
     void addReturningField(String field) {
         returnFields += returnFields.isEmpty() ? field : "," + field;
     }
-
 
     public String buildFullQuery() {
         return query + "&fields=" + returnFields;
