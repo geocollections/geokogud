@@ -11,8 +11,13 @@ module.config(function ($translateProvider, $locationProvider, $urlRouterProvide
     $urlRouterProvider.otherwise("/");
 
     $translateProvider.useStaticFilesLoader({
-        prefix: 'app/i18n/translations_',
-        suffix: '.json'
+        files: [{
+            prefix: 'app/i18n/translations_',
+            suffix: '.json'
+        }, {
+            prefix: 'app/i18n/translations_API_',
+            suffix: '.json'
+        }]
     });
 
     $translateProvider.preferredLanguage('et');
