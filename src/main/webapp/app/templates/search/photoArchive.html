@@ -119,7 +119,22 @@
                 <hint-text table="PHOTO_ARCHIVE" data-ng-if="isHintHidden"/>
             </div>
             <div ng-include="'app/templates/search/partial/pagination.html'"></div>
-            <div class="table-responsive">
+            <div class="table-responsive" data-ng-if="showImages">
+                <div class="col-md-12 medium-padding">
+                    <b data-ng-init="totalImages = 0">{{ 'SEARCH.FOUND_IMAGES' | translate }} {{totalImages}} </b>
+                </div>
+                <div class="row" data-ng-repeat="image in response.results">
+                    <span>
+                        <a href data-ng-click="ctrl.service.openInNewWindow({object:'image',id:image.id})">
+                            <first-not-null values="[image.locality__locality, image.locality__locality_en]"/>
+                        </a>
+                        {{image.author__agent}} {{image.date_taken}}</span>
+                    <span>
+                        <show-preview  img-url="composeImageUrl(image)"/>
+                    </span>
+                </div>
+            </div>
+            <div class="table-responsive" data-ng-if="!showImages">
                 <table class="table table-bordered table-hover" id="table-search">
                     <thead class="thead-default">
                     <tr>

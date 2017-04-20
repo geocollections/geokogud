@@ -53,12 +53,11 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
     }
 
     @Override
-    public ApiResponse findLocalityImage(SearchField localityId) {
+    public ApiResponse findLocalityImage(LocalitySearchCriteria searchCriteria) {
         String requestParams = FluentLocalityImageSearchApiBuilder.aRequest()
-                .queryLocalityIdForUrl(localityId).andReturn()
-                //.returnImageUrl()
+                .queryLocalityIdForUrl(searchCriteria.getId()).andReturn()
                 .buildDefaultFieldsQuery();
-        return apiService.searchRawEntities("image", 2,1, new SortField(), requestParams);
+        return apiService.searchRawEntities("image", searchCriteria.getPage(),new SortField(), requestParams);
     }
 
 

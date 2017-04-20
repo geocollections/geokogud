@@ -13,7 +13,7 @@ public interface LocalitiesApiService {
 
     ApiResponse findLocality(LocalitySearchCriteria searchCriteria) throws AppException;
 
-    ApiResponse findLocalityImage(SearchField specimenId) throws AppException;
+    ApiResponse findLocalityImage(LocalitySearchCriteria searchCriteria) throws AppException;
 
     Map findRawById(Long id);
 

@@ -121,7 +121,7 @@ angular.module('geoApp').directive('loading', function () {
                     var foundHttp = newValue.match(/http:/)
                     var lastSlashPosition = newValue.lastIndexOf('/');
                     console.log(foundHttp);
-                    scope.previewImageUrl = (foundHttp ? "" : "http://") + newValue.substring(0, lastSlashPosition) + '/preview' + newValue.substring(lastSlashPosition);
+                    scope.previewImageUrl = (foundHttp ? "" : "http://") + newValue.substring(0, lastSlashPosition) + '/preview' +newValue.substring(lastSlashPosition);
                 }
             }, true);
         }

@@ -60,8 +60,7 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
         vm.searchLoadingHandler.stop();
     }
     function setEmptyResponse() {
-        $scope.response.count = 0;
-        $scope.response.results = null;
+        $scope.response = {count : 0, results : null};
         $scope.totalItems = 0;
     }
 
@@ -97,13 +96,9 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
         $scope.getLocalities($scope.response.results);
     };
 
-    $scope.countTotalImages = function() {
-
-    };
     $scope.composeImageUrl = function(imageData) {
-        var imageUrl = "http://geokogud.info/git/image/";
+        var imageUrl = "http://geokogud.info/"+imageData.database__acronym.toLowerCase()+"/image/";
         return imageUrl+ imageData.imageset__imageset_series + "/"+imageData.imageset__imageset_number+"/"+imageData.filename;
-        //http://geokogud.info/git/image/OH/OH07-1/preview/OH07-1-2.jpg
     };
     $scope.getLocalities = function (list) {
         $scope.localities = [];

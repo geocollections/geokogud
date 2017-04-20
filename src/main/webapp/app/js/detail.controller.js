@@ -3,8 +3,7 @@ var constructor = function ($scope, $stateParams, applicationService, configurat
     var vm = this;
 
     vm.service = applicationService;
-    vm.fields = [];
-    vm.urlsMap = [];
+    vm.fields = [];  vm.urlsMap = [];
     vm.isIncludedField = isIncludedField;
     vm.detailLoadingHandler = bsLoadingOverlayService.createHandler({referenceId: "detailView"});
 
@@ -19,11 +18,12 @@ var constructor = function ($scope, $stateParams, applicationService, configurat
         vm.results = response.data.results[0];
         vm.relatedData = response.data.related_data;
         vm.fields = Object.keys(vm.results);
+        vm.imageUrl = ($stateParams.type == 'photoArchive' ? vm.service.composeImageUrl(vm.results) : null);
+        vm.externalImagePath = ($stateParams.type == 'photoArchive' ? vm.service.composeExternalImagePath(vm.results) : null);
         vm.detailLoadingHandler.stop();
         getLocality();
         getRelatedData();
     }
-
 
     function onDetailError(error) {
         errorService.commonErrorHandler(error);

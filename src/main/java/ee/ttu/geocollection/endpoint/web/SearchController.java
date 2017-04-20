@@ -124,9 +124,7 @@ public class SearchController extends ControllerHelper {
             asynchService.doAsynchCallsForEachResult(
                     localities,
                     locality ->
-                            () -> localitiesApiService.findLocalityImage(new SearchField(
-                                    locality.get("id").toString(),
-                                    LookUpType.exact)),
+                            () -> localitiesApiService.findLocalityImage(searchCriteria),
                     locality ->
                             receivedImage -> locality.put("locality_image_thumbnail", receivedImage));
         }

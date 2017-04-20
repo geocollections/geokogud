@@ -46,6 +46,17 @@ var constructor = function (utils,configuration, $window) {
         utils.httpGet(configuration.autocompleteUrl, {table: table, term: val, searchField: searchField}, null, null);
     };
 
+    service.composeImageUrl = function(imageData) {
+        var imageUrl = "http://geokogud.info/"+imageData.database__acronym.toLowerCase()+"/image/";
+        return imageUrl+ imageData.imageset__imageset_series + "/"+imageData.imageset__imageset_number+"/"+imageData.filename;
+    };
+
+    service.composeExternalImagePath = function(imageData) {
+        //            http://geokogud.info/di.php?f=/var/www/git/image/OH/OH07-1/OH07-1-4.jpg
+        var imageUrl = "http://geokogud.info/di.php?f=/var/www/"+imageData.database__acronym.toLowerCase()+"/image/";
+        return imageUrl+ imageData.imageset__imageset_series + "/"+imageData.imageset__imageset_number+"/"+imageData.filename;
+    };
+
     function getDetailUrl (searchType) {
         var url = null;
         switch (searchType) {
