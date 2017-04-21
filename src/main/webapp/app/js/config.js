@@ -3,7 +3,13 @@ var module = angular.module("geoApp");
 module.config(function($stateProvider,$urlRouterProvider) {
     $urlRouterProvider.when('/search', '/sample');
 
-    $stateProvider.state('search', {
+    $stateProvider.state('/',{
+        url: "/",
+        templateUrl: "app/templates/main/geokogud.html"
+    }).state('map',{
+        url: "/map",
+        templateUrl: "app/templates/main/map.html"
+    }).state('search', {
         url: "/search",
         views: {
             "specific-search": {
@@ -160,14 +166,14 @@ module.config(function($stateProvider,$urlRouterProvider) {
                 templateUrl: "app/templates/main/news.html"
             }
         }
-    }).state('map', {
+    })/*.state('map', {
         url: "/map",
         views: {
             "additional": {
                 templateUrl: "app/templates/main/map.html"
             }
         }
-    }).state('usingcollection', {
+    })*/.state('usingcollection', {
         url: "/usingcollection",
         views: {
             "additional": {
