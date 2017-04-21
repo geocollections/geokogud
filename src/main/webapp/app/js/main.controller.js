@@ -19,6 +19,7 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     vm.geocollection = getWebPageById(2, "geocollection");
     vm.usingCollections = getWebPageById(32, "usingCollections");
     vm.database = getWebPageById(21, "database");
+    vm.switchYear = switchYear;
 
     //vm.about = getWebPageById(1, "about");
     $scope.yearToShow = 0;
@@ -38,7 +39,7 @@ var constructor = function (configuration,$translate,$http, applicationService,$
             //else if (page == "about") { vm.about = result; }
         });
     }
-    
+
     function onNewsData(response) {
         vm.news = response.data;
         angular.forEach(vm.news.results, function(currentNews) {
@@ -50,6 +51,10 @@ var constructor = function (configuration,$translate,$http, applicationService,$
 
     function showNews($event) {
         $scope.yearToShow = $event.target.innerText;
+    }
+
+    function switchYear(selectedYear) {
+        if (selectedYear != null) { $scope.yearToShow = selectedYear; }
     }
 
     function yearFilter(id) {
