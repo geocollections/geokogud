@@ -4,7 +4,7 @@
 			<h2 class="section-heading text-center">{{ 'INDEX.NEWS_LINK' | translate }}</h2>
 			<hr class="primary">
 			<nav id="newsSelect">
-				<select ng-change="main.switchYear(selectedYear)" ng-model="selectedYear" class="form-control text-center">
+				<select ng-change="main.switchYear(selectedYear)" ng-model="selectedYear" ng-init="selectedYear=yearToShow" class="form-control text-center">
 					<option ng-repeat="year in main.years" value="{{ year }}">{{ year }}</option>
 				</select>
 			</nav>
