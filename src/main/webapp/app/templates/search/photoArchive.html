@@ -120,7 +120,28 @@
                 <div ng-bind-html="main.getContent(main.protoArchiveQuery)" data-ng-if="isHintHidden"></div>
             </div>
             <div ng-include="'app/templates/search/partial/pagination.html'"></div>
-            <div class="table-responsive" data-ng-if="showImages">
+            <div class="products-swiper-container" data-ng-if="showImages">
+                <div class="cards-container columns">
+                    <div class="cards-row five-columns">
+                        <div class="products-swiper owl-carousel owl-theme owl-loaded">
+                            <div class="owl-stage-outer">
+                                <div class="owl-stage pull-left" style="transform: translate3d(0px, 0px, 0px); transition: 0s; width: 6660px;" data-ng-repeat="row in images.rows">
+                                    <div class="owl-item active" style="width: 222px; margin-right: 0px;" data-ng-repeat="col in row">
+                                        <div data-attr-id="264" class="listing-card  price_50_100 new tag_toprestoran ">
+                                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'image',id:col.image.id})">
+                                                <div class="product-image-container">
+                                                    <show-preview img-url="ctrl.service.composeImageUrl(col.image)" class="product-image" alt=""/>
+                                                </div>
+                                                <div class="card-details">
+                                                    <div class="card-price">
+                                                        <a class="card-price" href data-ng-click="ctrl.service.openInNewWindow({object:'image',id:col.image.id})">
+                                                            <first-not-null values="[col.image.locality__locality, col.image.locality__locality_en]"/>
+                                                        </a>
+                                                        {{col.image.author__agent}} {{col.image.date_taken}}</div>
+                                                </div>
+                                            </a>
+                                        </div></div></div></div></div></div></div></div>
+          <!--  <div class="table-responsive" data-ng-if="showImages">
                 <div class="col-md-12 medium-padding">
                     <b data-ng-init="totalImages = 0">{{ 'SEARCH.FOUND_IMAGES' | translate }} {{totalImages}} </b>
                 </div>
@@ -134,7 +155,7 @@
                         <show-preview img-url="ctrl.service.composeImageUrl(image)"/>
                     </a>
                 </div>
-            </div>
+            </div>-->
             <div class="table-responsive" data-ng-if="!showImages">
                 <table class="table table-bordered table-hover" id="table-search">
                     <thead class="thead-default">
