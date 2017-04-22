@@ -12,14 +12,14 @@
             <div class="col-md-4">
                 <div class="service-box">
                     <i class="fa fa-4x fa-globe text-primary sr-icons"></i>
-                    <h3>{{ 'INFO.COLLECTIONS_IN_GEOLOGY.HEADING' | translate }}</h3>
+                    <h3 ng-bind-html="main.getTitle(main.aboutFirstColumn)"></h3>
 					<div ng-bind-html="main.getContent(main.aboutFirstColumn)"></div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="service-box">
                     <i class="fa fa-4x fa-map-marker text-primary sr-icons"></i>
-                    <h3>{{ 'INFO.COLLECTIONS_IN_ESTONIA.HEADING' | translate }}</h3>
+                    <h3 ng-bind-html="main.getTitle(main.aboutSecondColumn)"></h3>
 					<div ng-bind-html="main.getContent(main.aboutSecondColumn)"></div>
                     <p>
                         <a class="page-scroll-to-additional" data-target="#infoCarousel" data-slide-to="1" role="button">{{ 'INDEX.READ_MORE' | translate }} &raquo;</a>
@@ -29,7 +29,7 @@
             <div class="col-md-4">
                 <div class="service-box">
                     <i class="fa fa-4x fa-database text-primary sr-icons"></i>
-                    <h3>{{ 'INFO.COMMON_DATABASE.HEADING' | translate }}</h3>
+                    <h3 ng-bind-html="main.getTitle(main.aboutThirdColumn)"></h3>
 					<div ng-bind-html="main.getContent(main.aboutThirdColumn)"></div>
                     <p>
                         <a class="page-scroll-to-additional" data-target="#infoCarousel" data-slide-to="4" role="button">{{ 'INDEX.READ_MORE' | translate }} &raquo;</a>
