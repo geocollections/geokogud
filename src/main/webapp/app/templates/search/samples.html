@@ -1,279 +1,282 @@
-<div id="searches" ng-include="'app/templates/main/partial/search.html'" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html"></div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 col-md-3 col-lg-3">
-            <div class="row">
-                <h3 class="search-heading">{{ 'SEARCH.SAMPLES.HEADING' | translate }} <span class="badge badge-info">{{response.count}}</span>
-                    <button type="submit" value="showHint" class="btn btn-info btn-sm pull-right"
-                            data-ng-click="showHint()">
-                        <span class="glyphicon glyphicon-question-sign"></span> {{ 'SEARCH.FAQ' | translate }}
-                    </button>
-                </h3>
-            </div>
-            <div class="row">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox"
-                               value="showMap"
-                               data-ng-click="showMap()">
-                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                        {{ 'SEARCH.SHOW_MAP' | translate }}
-                    </label>
-                </div>
-            </div>
-            <form ng-enter="search()">
+<header ng-include="'app/templates/main/partial/search.header.html'"></header>
+<section id="sectionSearch">
+    <div id="searches" ng-include="'app/templates/main/partial/search.html'"></div>
+    <div class="container-fluid" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
+        <div class="row">
+            <div class="col-sm-3 col-md-3 col-lg-3">
                 <div class="row">
-                    <div class="panel-heading searchGroupHeading"
-                         ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
-                        <h4 class="panel-title">
-                            {{ 'SEARCH.CRITERIA.HEADING.PRIMARY'| translate }}
-                            <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
-                        </h4>
-                    </div>
-                    <div uib-collapse="isIdentifierFieldsCollapsed">
-                        <div class="well well-lg">
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.SAMPLES.NUMBER' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.sampleNumber.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.sampleNumber.name" class="form-control"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.SAMPLES.LOCALITY' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.locality.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.locality.name" table="sample" en="locality__locality_en" et="locality__locality"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.SAMPLES.DEPTH_M' | translate }}</b>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <interval-field ng-model= "searchParameters.depthSince" lookup="gte"></interval-field >
-                                    <interval-field ng-model= "searchParameters.depthTo" lookup="lte"></interval-field >
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.SAMPLES.STRATIGRAPHY' | translate }}</b>
-                                    <selecthierarchy custom-css="searchCriterionType"
-                                                     ng-model="searchParameters.stratigraphy.lookUpType"></selecthierarchy>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.stratigraphy.name" table="sample" en="stratigraphy__stratigraphy_en" et="stratigraphy__stratigraphy"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.SAMPLES.BED_NAME_INDEX' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.stratigraphyBed.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.stratigraphyBed.name" table="sample" en="null" et="stratigraphy_bed"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.SAMPLES.COLLECTOR' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.agent.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.agent.name" table="sample" en="null" et="agent_collected__agent"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.SAMPLES.WEIGHT' | translate }}</b>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <interval-field ng-model= "searchParameters.massSince" lookup="gte"></interval-field >
-                                    <interval-field ng-model= "searchParameters.massTo" lookup="lte"></interval-field >
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="search-heading">{{ 'SEARCH.SAMPLES.HEADING' | translate }} <span class="badge badge-info">{{response.count}}</span>
+                        <button type="submit" value="showHint" class="btn btn-info btn-sm pull-right"
+                                data-ng-click="showHint()">
+                            <span class="glyphicon glyphicon-question-sign"></span> {{ 'SEARCH.FAQ' | translate }}
+                        </button>
+                    </h3>
                 </div>
                 <div class="row">
-                    <div class="panel-heading searchGroupHeading"
-                         ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
-                        <h4 class="panel-title">
-                            {{ 'SEARCH.CRITERIA.HEADING.ADDITIONAL'| translate }}
-                            <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
-                        </h4>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"
+                                   value="showMap"
+                                   data-ng-click="showMap()">
+                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                            {{ 'SEARCH.SHOW_MAP' | translate }}
+                        </label>
                     </div>
-                    <div uib-collapse="isLocationFieldsCollapsed">
-                        <div class="well well-lg">
-                            <div class="row searchCriterion">
-                                <div class="col-md-12  medium-padding">
-                                    <b>{{ 'SEARCH.SAMPLES.ID' | translate }}</b>
-                                    <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.id.lookUpType"></selectexact>
+                </div>
+                <form ng-enter="search()">
+                    <div class="row">
+                        <div class="panel-heading searchGroupHeading"
+                             ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
+                            <h4 class="panel-title">
+                                {{ 'SEARCH.CRITERIA.HEADING.PRIMARY'| translate }}
+                                <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
+                            </h4>
+                        </div>
+                        <div uib-collapse="isIdentifierFieldsCollapsed">
+                            <div class="well well-lg">
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.SAMPLES.NUMBER' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.sampleNumber.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <input type="text" ng-model="searchParameters.sampleNumber.name" class="form-control"/>
+                                    </div>
                                 </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.SAMPLES.LOCALITY' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.locality.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <autocomplete-field ng-model="searchParameters.locality.name" table="sample" en="locality__locality_en" et="locality__locality"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.SAMPLES.ADMIN_UNIT' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.country.lookUpType"></selectdefault>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.SAMPLES.DEPTH_M' | translate }}</b>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <interval-field ng-model= "searchParameters.depthSince" lookup="gte"></interval-field >
+                                        <interval-field ng-model= "searchParameters.depthTo" lookup="lte"></interval-field >
+                                    </div>
                                 </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.country.name" class="form-control"
-                                           />
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.SAMPLES.STRATIGRAPHY' | translate }}</b>
+                                        <selecthierarchy custom-css="searchCriterionType"
+                                                         ng-model="searchParameters.stratigraphy.lookUpType"></selecthierarchy>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <autocomplete-field ng-model="searchParameters.stratigraphy.name" table="sample" en="stratigraphy__stratigraphy_en" et="stratigraphy__stratigraphy"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.SAMPLES.STORAGE' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.location.lookUpType"></selectdefault>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.SAMPLES.BED_NAME_INDEX' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.stratigraphyBed.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <autocomplete-field ng-model="searchParameters.stratigraphyBed.name" table="sample" en="null" et="stratigraphy_bed"/>
+                                    </div>
                                 </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.location.name" table="sample" en="null" et="location"/>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.SAMPLES.COLLECTOR' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.agent.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <autocomplete-field ng-model="searchParameters.agent.name" table="sample" en="null" et="agent_collected__agent"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.SAMPLES.SPECIES_RECOVERED' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.taxon.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.taxon.name" class="form-control"
-                                    />
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.SAMPLES.SPECIES_FREQUENCY' | translate }}</b>
-                                    <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.frequency.lookUpType"></selectexact>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.frequency.name" class="form-control">
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.SAMPLES.TYPE_OF_ANALYSIS' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.analysisMethod.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.analysisMethod.name" class="form-control"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.SAMPLES.COMPONENT_ANALYSED' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.component.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.component.name" class="form-control"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.SAMPLES.CONTENT' | translate }}</b>
-                                    <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.content.lookUpType"
-                                    ></selectexact>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.content.name" class="form-control"
-                                    />
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.SAMPLES.WEIGHT' | translate }}</b>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <interval-field ng-model= "searchParameters.massSince" lookup="gte"></interval-field >
+                                        <interval-field ng-model= "searchParameters.massTo" lookup="lte"></interval-field >
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div ng-include="'app/templates/search/partial/institution.search.criteria.html'"></div>
-                <div ng-include="'app/templates/search/partial/button.search.html'"></div>
-            </form>
-        </div>
-        <div class="col-sm-9 col-md-9 col-lg-9" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
-            <div class="row">
-                 <div ng-bind-html="main.getContent(main.searchTips)" data-ng-if="isHintHidden"></div>
-            </div>
-            <div class="row">
-                <div data-ng-if="isMapHidden">
-                    <div class="col-lg-12 search-map">
-                        <localities-map localities="localities"></localities-map>
-                        <div id='hoverbox'>
-                            <div id='hoversystem'></div>
-                            <div id='hoverstat'></div>
+                    <div class="row">
+                        <div class="panel-heading searchGroupHeading"
+                             ng-click="isLocationFieldsCollapsed = !isLocationFieldsCollapsed">
+                            <h4 class="panel-title">
+                                {{ 'SEARCH.CRITERIA.HEADING.ADDITIONAL'| translate }}
+                                <section-opened-icon is-opened="isLocationFieldsCollapsed"/>
+                            </h4>
+                        </div>
+                        <div uib-collapse="isLocationFieldsCollapsed">
+                            <div class="well well-lg">
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12  medium-padding">
+                                        <b>{{ 'SEARCH.SAMPLES.ID' | translate }}</b>
+                                        <selectexact custom-css="searchCriterionType"
+                                                     ng-model="searchParameters.id.lookUpType"></selectexact>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.SAMPLES.ADMIN_UNIT' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.country.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <input type="text" ng-model="searchParameters.country.name" class="form-control"
+                                               />
+                                    </div>
+                                </div>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.SAMPLES.STORAGE' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.location.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <autocomplete-field ng-model="searchParameters.location.name" table="sample" en="null" et="location"/>
+                                    </div>
+                                </div>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.SAMPLES.SPECIES_RECOVERED' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.taxon.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <input type="text" ng-model="searchParameters.taxon.name" class="form-control"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.SAMPLES.SPECIES_FREQUENCY' | translate }}</b>
+                                        <selectexact custom-css="searchCriterionType"
+                                                     ng-model="searchParameters.frequency.lookUpType"></selectexact>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <input type="text" ng-model="searchParameters.frequency.name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.SAMPLES.TYPE_OF_ANALYSIS' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.analysisMethod.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <input type="text" ng-model="searchParameters.analysisMethod.name" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.SAMPLES.COMPONENT_ANALYSED' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.component.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <input type="text" ng-model="searchParameters.component.name" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.SAMPLES.CONTENT' | translate }}</b>
+                                        <selectexact custom-css="searchCriterionType"
+                                                     ng-model="searchParameters.content.lookUpType"
+                                        ></selectexact>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <input type="text" ng-model="searchParameters.content.name" class="form-control"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <loading></loading>
-            </div>
-            <div ng-include="'app/templates/search/partial/pagination.html'"></div>
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover" id="table-search">
-                    <thead class="thead-default">
-                    <tr>
-                        <th><sort-field value = "id" name="SEARCH.SAMPLES.ID"></sort-field></th>
-                        <th>{{ 'SEARCH.SAMPLES.INSTITUTE' | translate }}</th>
-                        <th><sort-field value = "number" name="SEARCH.SAMPLES.NUMBER"></sort-field></th>
-                        <th></th>
-                        <th><sort-field value = "localityEng" name="SEARCH.SAMPLES.LOCALITY"></sort-field></th>
-                        <th><sort-field value = "depth" name="SEARCH.SAMPLES.DEPTH_M"></sort-field></th>
-                        <th></th>
-                        <th><sort-field value = "stratigraphyEng" name="SEARCH.SAMPLES.STRATIGRAPHY"></sort-field></th>
-                        <th>{{ 'SEARCH.SAMPLES.COLLECTOR' | translate }}</th>
-                        <th>{{ 'SEARCH.SAMPLES.ANAL' | translate }}</th>
-                        <th>{{ 'SEARCH.SAMPLES.WEIGHT' | translate }}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr data-ng-repeat="entity in response.results">
-                        <td data-title="{{ 'SEARCH.SAMPLES.ID' | translate }}">{{entity.id}}</td>
-                        <td data-title="{{ 'SEARCH.SAMPLES.INSTITUTE' | translate }}">{{entity.database__acronym}}</td>
-                        <td data-title="{{ 'SEARCH.SAMPLES.NUMBER' | translate }}">
-                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'sample',id:entity.id})">
-                                <first-not-null values="[entity.number, entity.id]"/>
-                            </a>
-                        </td>
-                        <td data-title="">{{entity.number_additional}}</td>
-                        <td data-title="{{ 'SEARCH.SAMPLES.LOCALITY' | translate }}">
-                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.locality_id})">
-                                <localize en="entity.locality__locality_en" et="entity.locality__locality"/></a>
-                        </td>
-                        <td data-title="{{ 'SEARCH.SAMPLES.DEPTH_M' | translate }}">{{entity.depth}}</td>
-                        <td data-title="">{{entity.depth_interval}}</td>
-                        <td data-title="{{ 'SEARCH.SAMPLES.STRATIGRAPHY' | translate }}">
-                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.stratigraphy_id})">
-                                <localize en="entity.stratigraphy__stratigraphy_en" et="entity.stratigraphy__stratigraphy"/></a>
-                        </td>
-                        <td data-title="{{ 'SEARCH.SAMPLES.COLLECTOR' | translate }}">
-                            <first-not-null values="[entity.agent_collected__agent, agent_collected_free]"/>
-                        </td>
-                        <td data-title="{{ 'SEARCH.SAMPLES.ANAL' | translate }}">
-                            <make-boolean-readable boolean-value="entity.analyzed"/>
-                        </td>
-                        <td data-title="{{ 'SEARCH.SAMPLES.WEIGHT' | translate }}">{{entity.mass}}</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div class="col-lg-12 h4 panel-heading text-center" data-ng-if="response.results == null">Tulemust ei leita</div>
-            </div>
 
-            <div ng-include="'app/templates/search/partial/pagination.html'"></div>
+                    <div ng-include="'app/templates/search/partial/institution.search.criteria.html'"></div>
+                    <div ng-include="'app/templates/search/partial/button.search.html'"></div>
+                </form>
+            </div>
+            <div class="col-sm-9 col-md-9 col-lg-9" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
+                <div class="row">
+                     <div ng-bind-html="main.getContent(main.searchTips)" data-ng-if="isHintHidden"></div>
+                </div>
+                <div class="row">
+                    <div data-ng-if="isMapHidden">
+                        <div class="col-lg-12 search-map">
+                            <localities-map localities="localities"></localities-map>
+                            <div id='hoverbox'>
+                                <div id='hoversystem'></div>
+                                <div id='hoverstat'></div>
+                            </div>
+                        </div>
+                    </div>
+                    <loading></loading>
+                </div>
+                <div ng-include="'app/templates/search/partial/pagination.html'"></div>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="table-search">
+                        <thead class="thead-default">
+                        <tr>
+                            <th><sort-field value = "id" name="SEARCH.SAMPLES.ID"></sort-field></th>
+                            <th>{{ 'SEARCH.SAMPLES.INSTITUTE' | translate }}</th>
+                            <th><sort-field value = "number" name="SEARCH.SAMPLES.NUMBER"></sort-field></th>
+                            <th></th>
+                            <th><sort-field value = "localityEng" name="SEARCH.SAMPLES.LOCALITY"></sort-field></th>
+                            <th><sort-field value = "depth" name="SEARCH.SAMPLES.DEPTH_M"></sort-field></th>
+                            <th></th>
+                            <th><sort-field value = "stratigraphyEng" name="SEARCH.SAMPLES.STRATIGRAPHY"></sort-field></th>
+                            <th>{{ 'SEARCH.SAMPLES.COLLECTOR' | translate }}</th>
+                            <th>{{ 'SEARCH.SAMPLES.ANAL' | translate }}</th>
+                            <th>{{ 'SEARCH.SAMPLES.WEIGHT' | translate }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="entity in response.results">
+                            <td data-title="{{ 'SEARCH.SAMPLES.ID' | translate }}">{{entity.id}}</td>
+                            <td data-title="{{ 'SEARCH.SAMPLES.INSTITUTE' | translate }}">{{entity.database__acronym}}</td>
+                            <td data-title="{{ 'SEARCH.SAMPLES.NUMBER' | translate }}">
+                                <a href data-ng-click="ctrl.service.openInNewWindow({object:'sample',id:entity.id})">
+                                    <first-not-null values="[entity.number, entity.id]"/>
+                                </a>
+                            </td>
+                            <td data-title="">{{entity.number_additional}}</td>
+                            <td data-title="{{ 'SEARCH.SAMPLES.LOCALITY' | translate }}">
+                                <a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.locality_id})">
+                                    <localize en="entity.locality__locality_en" et="entity.locality__locality"/></a>
+                            </td>
+                            <td data-title="{{ 'SEARCH.SAMPLES.DEPTH_M' | translate }}">{{entity.depth}}</td>
+                            <td data-title="">{{entity.depth_interval}}</td>
+                            <td data-title="{{ 'SEARCH.SAMPLES.STRATIGRAPHY' | translate }}">
+                                <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.stratigraphy_id})">
+                                    <localize en="entity.stratigraphy__stratigraphy_en" et="entity.stratigraphy__stratigraphy"/></a>
+                            </td>
+                            <td data-title="{{ 'SEARCH.SAMPLES.COLLECTOR' | translate }}">
+                                <first-not-null values="[entity.agent_collected__agent, agent_collected_free]"/>
+                            </td>
+                            <td data-title="{{ 'SEARCH.SAMPLES.ANAL' | translate }}">
+                                <make-boolean-readable boolean-value="entity.analyzed"/>
+                            </td>
+                            <td data-title="{{ 'SEARCH.SAMPLES.WEIGHT' | translate }}">{{entity.mass}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="col-lg-12 h4 panel-heading text-center" data-ng-if="response.results == null">Tulemust ei leita</div>
+                </div>
+
+                <div ng-include="'app/templates/search/partial/pagination.html'"></div>
+            </div>
         </div>
     </div>
-</div>
-</div>
+    </div>
+</section>

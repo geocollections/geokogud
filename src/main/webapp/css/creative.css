@@ -187,7 +187,7 @@ aside {
 header {
     position: relative;
     width: 100%;
-    min-height: auto;
+    min-height: 45%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -226,12 +226,12 @@ header .header-content .header-content-inner p {
 
 @media (min-width: 768px) {
     header {
-        min-height: 100%;
+        min-height: 45%;
     }
 
     header .header-content {
         position: absolute;
-        top: 50%;
+        top: 57%;
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);

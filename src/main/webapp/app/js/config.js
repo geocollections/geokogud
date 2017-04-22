@@ -1,7 +1,7 @@
 var module = angular.module("geoApp");
 
 module.config(function($stateProvider,$urlRouterProvider) {
-    $urlRouterProvider.when('/search', '/sample');
+ //  $urlRouterProvider.when('/search', '/sample');
 
     $stateProvider.state('/',{
         url: "/",
@@ -11,11 +11,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
         templateUrl: "app/templates/main/map.html"
     }).state('search', {
         url: "/search",
-        views: {
-            "specific-search": {
-                templateUrl: "app/templates/main/partial/search.html"
-            }
-        }
+        templateUrl: "app/templates/main/partial/search.html",
     }).state('specimens', {
         url: "/specimen",
         templateUrl: "app/templates/search/specimen.html",

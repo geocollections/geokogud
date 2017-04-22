@@ -46,9 +46,9 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
             $scope.getLocalities($scope.response);
         }
         vm.searchLoadingHandler.stop();
-        $('html, body').animate({
+       /* $('html, body').animate({
             scrollTop: ($("#searches").offset().top - 50)
-        }, 'fast');
+        }, 'fast');*/
     }
      function returnImageObject(entity) {
          switch ($stateParams.type) {
