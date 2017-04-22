@@ -25,19 +25,6 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    // Highlight the top nav as scrolling occurs
-    /* $('body').scrollspy({
-        target: '.navbar-fixed-top',
-        offset: 51
-    });
-     */
-    // Offset for Main Navigation
-    $('#mainNav').affix({
-        offset: {
-            top: 100
-        }
-    })
-
     // Initialize and Configure Scroll Reveal Animation
     window.sr = ScrollReveal();
     sr.reveal('.sr-icons', {

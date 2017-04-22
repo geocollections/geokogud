@@ -13,6 +13,16 @@
                 </div>
             </div>
         </form>
-        <a ng-show="!main.isDetailForm()" href data-ui-sref="search" id="button-extended-search" class="page-scroll-to-searches">{{ 'INDEX.EXTENDED_SEARCH_LINK' | translate }}</a>
+        <a ng-show="!main.isDetailForm()" href data-ui-sref="samples" id="button-extended-search">{{ 'INDEX.EXTENDED_SEARCH_LINK' | translate }}</a>
     </div>
 </div>
+<script>
+    jQuery(document).ready(function ($) {
+        // Offset for Main Navigation
+        $('#mainNav').affix({
+            offset: {
+                top: 100
+            }
+        })
+    });
+</script>

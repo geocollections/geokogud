@@ -1,170 +1,173 @@
-<div id="searches" ng-include="'app/templates/main/partial/search.html'" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html"></div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 col-md-3 col-lg-3">
-            <div class="row">
-                <h3 class="search-heading">
-                    <span data-toggle="tooltip" data-placement="bottom"
-                                                 title="{{ 'SEARCH.SOIL_SITES.HEADING' | translate }}">{{ 'SEARCH.SOIL_SITES.SOIL' | translate }}</span> <span class="badge badge-info">{{response.count}}</span>
-                    <button type="submit" value="showHint" class="btn btn-info btn-sm pull-right"
-                            data-ng-click="showHint()">
-                        <span class="glyphicon glyphicon-question-sign"></span> {{ 'SEARCH.FAQ' | translate }}
-                    </button>
-                </h3>
-            </div>
-            <form ng-enter="search()">
+<header ng-include="'app/templates/main/partial/search.header.html'"></header>
+<section id="sectionSearch">
+    <div id="searches" ng-include="'app/templates/main/partial/search.html'"></div>
+    <div class="container-fluid" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
+        <div class="row">
+            <div class="col-sm-3 col-md-3 col-lg-3">
                 <div class="row">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox"
-                                   value="showMap"
-                                   data-ng-click="showMap()">
-                            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                            {{ 'SEARCH.SHOW_MAP' | translate }}
-                        </label>
-                    </div>
+                    <h3 class="search-heading">
+                        <span data-toggle="tooltip" data-placement="bottom"
+                                                     title="{{ 'SEARCH.SOIL_SITES.HEADING' | translate }}">{{ 'SEARCH.SOIL_SITES.SOIL' | translate }}</span> <span class="badge badge-info">{{response.count}}</span>
+                        <button type="submit" value="showHint" class="btn btn-info btn-sm pull-right"
+                                data-ng-click="showHint()">
+                            <span class="glyphicon glyphicon-question-sign"></span> {{ 'SEARCH.FAQ' | translate }}
+                        </button>
+                    </h3>
                 </div>
-                <div class="row">
-                    <div class="panel-heading searchGroupHeading"
-                         ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
-                        <h4 class="panel-title">
-                            {{ 'SEARCH.CRITERIA.HEADING.PRIMARY'| translate }}
-                            <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
-                        </h4>
+                <form ng-enter="search()">
+                    <div class="row">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"
+                                       value="showMap"
+                                       data-ng-click="showMap()">
+                                <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                {{ 'SEARCH.SHOW_MAP' | translate }}
+                            </label>
+                        </div>
                     </div>
-                    <div uib-collapse="isIdentifierFieldsCollapsed">
-                        <div class="well well-lg">
-                            <div class="row searchCriterion">
-                                <div class="col-md-12  medium-padding">
-                                    <b>{{ 'SEARCH.SOIL_SITES.ID' | translate }}</b>
-                                    <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.id.lookUpType"></selectexact>
+                    <div class="row">
+                        <div class="panel-heading searchGroupHeading"
+                             ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
+                            <h4 class="panel-title">
+                                {{ 'SEARCH.CRITERIA.HEADING.PRIMARY'| translate }}
+                                <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
+                            </h4>
+                        </div>
+                        <div uib-collapse="isIdentifierFieldsCollapsed">
+                            <div class="well well-lg">
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12  medium-padding">
+                                        <b>{{ 'SEARCH.SOIL_SITES.ID' | translate }}</b>
+                                        <selectexact custom-css="searchCriterionType"
+                                                     ng-model="searchParameters.id.lookUpType"></selectexact>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
+                                    </div>
                                 </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12  medium-padding">
+                                        <b>{{ 'SEARCH.SOIL_SITES.SITE' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.site.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <autocomplete-field ng-model="searchParameters.site.name" table="soil" en="site_en" et="site"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12  medium-padding">
-                                    <b>{{ 'SEARCH.SOIL_SITES.SITE' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.site.lookUpType"></selectdefault>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12  medium-padding">
+                                        <b>{{ 'SEARCH.SOIL_SITES.AREA_OF_STUDY' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.areaOfStudy.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <autocomplete-field ng-model="searchParameters.areaOfStudy.name" table="soil" en="null" et="area_name"/>
+                                    </div>
                                 </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.site.name" table="soil" en="site_en" et="site"/>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12  medium-padding">
+                                        <b>{{ 'SEARCH.SOIL_SITES.TRANSECT' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.transect.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <autocomplete-field ng-model="searchParameters.transect.name" table="soil" en="null" et="transect"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12  medium-padding">
-                                    <b>{{ 'SEARCH.SOIL_SITES.AREA_OF_STUDY' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.areaOfStudy.lookUpType"></selectdefault>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12  medium-padding">
+                                        <b>{{ 'SEARCH.SOIL_SITES.SOIL_NAME' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.soilName.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <autocomplete-field ng-model="searchParameters.soil.name" table="soil" en="null" et="soil"/>
+                                    </div>
                                 </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.areaOfStudy.name" table="soil" en="null" et="area_name"/>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12  medium-padding">
+                                        <b>{{ 'SEARCH.SOIL_SITES.LAND_USE' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.landUse.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <autocomplete-field ng-model="searchParameters.landUse.name" table="soil" en="null" et="land_use"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12  medium-padding">
-                                    <b>{{ 'SEARCH.SOIL_SITES.TRANSECT' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.transect.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.transect.name" table="soil" en="null" et="transect"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12  medium-padding">
-                                    <b>{{ 'SEARCH.SOIL_SITES.SOIL_NAME' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.soilName.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.soil.name" table="soil" en="null" et="soil"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12  medium-padding">
-                                    <b>{{ 'SEARCH.SOIL_SITES.LAND_USE' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.landUse.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.landUse.name" table="soil" en="null" et="land_use"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="checkbox">
-                                    <checkbox-field name = 'SEARCH.SOIL_SITES.DEEP_MINING' ng-model="searchParameters.deepMining"></checkbox-field>
+                                <div class="row searchCriterion">
+                                    <div class="checkbox">
+                                        <checkbox-field name = 'SEARCH.SOIL_SITES.DEEP_MINING' ng-model="searchParameters.deepMining"></checkbox-field>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div ng-include="'app/templates/search/partial/button.search.html'"></div>
-            </form>
-        </div>
-        <div class="col-sm-9 col-md-9 col-lg-9" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
-            <div class="row">
-                 <div ng-bind-html="main.getContent(main.searchTips)" data-ng-if="isHintHidden"></div>
+                    <div ng-include="'app/templates/search/partial/button.search.html'"></div>
+                </form>
             </div>
-            <div class="row">
-                <div data-ng-if="isMapHidden">
-                    <div class="col-lg-12 search-map">
-                        <localities-map localities="localities"></localities-map>
-                        <div id='hoverbox'>
-                            <div id='hoversystem'></div>
-                            <div id='hoverstat'></div>
+            <div class="col-sm-9 col-md-9 col-lg-9" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
+                <div class="row">
+                     <div ng-bind-html="main.getContent(main.searchTips)" data-ng-if="isHintHidden"></div>
+                </div>
+                <div class="row">
+                    <div data-ng-if="isMapHidden">
+                        <div class="col-lg-12 search-map">
+                            <localities-map localities="localities"></localities-map>
+                            <div id='hoverbox'>
+                                <div id='hoversystem'></div>
+                                <div id='hoverstat'></div>
+                            </div>
                         </div>
                     </div>
+                    <loading></loading>
                 </div>
-                <loading></loading>
+
+                <div ng-include="'app/templates/search/partial/pagination.html'"></div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="table-search">
+                        <thead class="thead-default">
+                        <tr>
+                            <th><sort-field value = "ID" name="SEARCH.SOIL_SITES.TABLE.ID"></sort-field></th>
+                            <th>{{ 'SEARCH.SOIL_SITES.TABLE.SITE' | translate }}</th>
+                            <th>{{ 'SEARCH.SOIL_SITES.TABLE.AREA_OF_STUDY' | translate }}</th>
+                            <th>{{ 'SEARCH.SOIL_SITES.TABLE.TRANSECT' | translate }}</th>
+                            <th>{{ 'SEARCH.SOIL_SITES.TABLE.POINT_OF_THE_TRANSECT' | translate }}</th>
+                            <th>{{ 'SEARCH.SOIL_SITES.TABLE.SOIL_NAME' | translate }}</th>
+                            <th>{{ 'SEARCH.SOIL_SITES.TABLE.LAND_USE' | translate }}</th>
+                            <th>{{ 'SEARCH.SOIL_SITES.TABLE.LATITUDE' | translate }}</th>
+                            <th>{{ 'SEARCH.SOIL_SITES.TABLE.LONGITUDE' | translate }}</th>
+                            <th>{{ 'SEARCH.SOIL_SITES.TABLE.IS_DEEP_MINING' | translate }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="entity in response.results">
+                            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.ID' | translate }}">
+                                <a href data-ng-click="ctrl.service.openInNewWindow({object:'soil',id:entity.id})">{{entity.id}}</a>
+                            </td>
+                            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.SITE' | translate }}">{{entity.site}}</td>
+                            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.AREA_OF_STUDY' | translate }}">
+                                {{entity.area_name}}
+                            </td>
+                            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.TRANSECT' | translate }}">{{entity.transect}}</td>
+                            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.POINT_OF_THE_TRANSECT' | translate }}">
+                                {{entity.transect_point}}
+                            </td>
+                            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.SOIL_NAME' | translate }}">{{entity.soil}}</td>
+                            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.LAND_USE' | translate }}">{{entity.land_use}}</td>
+                            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.LATITUDE' | translate }}">{{entity.latitude}}</td>
+                            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.LONGITUDE' | translate }}">{{entity.longitude}}</td>
+                            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.IS_DEEP_MINING' | translate }}">
+                                <span class="cr" data-ng-if="entity.is_deep"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="col-lg-12 h4 panel-heading text-center" data-ng-if="response.results == null">Tulemust ei leita</div>
+                </div>
+
+                <div ng-include="'app/templates/search/partial/pagination.html'"></div>
             </div>
-
-            <div ng-include="'app/templates/search/partial/pagination.html'"></div>
-
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover" id="table-search">
-                    <thead class="thead-default">
-                    <tr>
-                        <th><sort-field value = "ID" name="SEARCH.SOIL_SITES.TABLE.ID"></sort-field></th>
-                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.SITE' | translate }}</th>
-                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.AREA_OF_STUDY' | translate }}</th>
-                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.TRANSECT' | translate }}</th>
-                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.POINT_OF_THE_TRANSECT' | translate }}</th>
-                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.SOIL_NAME' | translate }}</th>
-                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.LAND_USE' | translate }}</th>
-                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.LATITUDE' | translate }}</th>
-                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.LONGITUDE' | translate }}</th>
-                        <th>{{ 'SEARCH.SOIL_SITES.TABLE.IS_DEEP_MINING' | translate }}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr data-ng-repeat="entity in response.results">
-                        <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.ID' | translate }}">
-                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'soil',id:entity.id})">{{entity.id}}</a>
-                        </td>
-                        <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.SITE' | translate }}">{{entity.site}}</td>
-                        <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.AREA_OF_STUDY' | translate }}">
-                            {{entity.area_name}}
-                        </td>
-                        <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.TRANSECT' | translate }}">{{entity.transect}}</td>
-                        <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.POINT_OF_THE_TRANSECT' | translate }}">
-                            {{entity.transect_point}}
-                        </td>
-                        <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.SOIL_NAME' | translate }}">{{entity.soil}}</td>
-                        <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.LAND_USE' | translate }}">{{entity.land_use}}</td>
-                        <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.LATITUDE' | translate }}">{{entity.latitude}}</td>
-                        <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.LONGITUDE' | translate }}">{{entity.longitude}}</td>
-                        <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.IS_DEEP_MINING' | translate }}">
-                            <span class="cr" data-ng-if="entity.is_deep"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div class="col-lg-12 h4 panel-heading text-center" data-ng-if="response.results == null">Tulemust ei leita</div>
-            </div>
-
-            <div ng-include="'app/templates/search/partial/pagination.html'"></div>
         </div>
     </div>
-</div>
+</section>

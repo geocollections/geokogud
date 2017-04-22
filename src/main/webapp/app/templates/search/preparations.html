@@ -1,164 +1,166 @@
-<div id="searches" ng-include="'app/templates/main/partial/search.html'" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html"></div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 col-md-3 col-lg-3">
-            <div class="row">
-                <h3 class="search-heading">{{ 'SEARCH.PREPARATIONS.HEADING' | translate }} <span
-                        class="badge badge-info">{{response.count}}</span>
-                    <button type="submit" value="showHint" class="btn btn-info btn-sm pull-right"
-                            data-ng-click="showHint()">
-                        <span class="glyphicon glyphicon-question-sign"></span> {{ 'SEARCH.FAQ' | translate }}
-                    </button>
-                </h3>
-            </div>
-            <form ng-enter="search()">
+<header ng-include="'app/templates/main/partial/search.header.html'"></header>
+<section id="sectionSearch">
+    <div id="searches" ng-include="'app/templates/main/partial/search.html'"></div>
+    <div class="container-fluid" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
+        <div class="row">
+            <div class="col-sm-3 col-md-3 col-lg-3">
                 <div class="row">
-                    <div class="panel-heading searchGroupHeading"
-                         ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
-                        <h4 class="panel-title">
-                            {{ 'SEARCH.CRITERIA.HEADING.PRIMARY'| translate }}
-                            <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
-                        </h4>
-                    </div>
-                    <div uib-collapse="isIdentifierFieldsCollapsed">
-                        <div class="well well-lg">
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 searchCriterionTitle medium-padding">
-                                    <b>{{ 'SEARCH.PREPARATIONS.NUMBER' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.number.lookUpType"></selectdefault>
+                    <h3 class="search-heading">{{ 'SEARCH.PREPARATIONS.HEADING' | translate }} <span
+                            class="badge badge-info">{{response.count}}</span>
+                        <button type="submit" value="showHint" class="btn btn-info btn-sm pull-right"
+                                data-ng-click="showHint()">
+                            <span class="glyphicon glyphicon-question-sign"></span> {{ 'SEARCH.FAQ' | translate }}
+                        </button>
+                    </h3>
+                </div>
+                <form ng-enter="search()">
+                    <div class="row">
+                        <div class="panel-heading searchGroupHeading"
+                             ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
+                            <h4 class="panel-title">
+                                {{ 'SEARCH.CRITERIA.HEADING.PRIMARY'| translate }}
+                                <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
+                            </h4>
+                        </div>
+                        <div uib-collapse="isIdentifierFieldsCollapsed">
+                            <div class="well well-lg">
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 searchCriterionTitle medium-padding">
+                                        <b>{{ 'SEARCH.PREPARATIONS.NUMBER' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.number.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <input type="text" ng-model="searchParameters.number.name" class="form-control"/>
+                                    </div>
                                 </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.number.name" class="form-control"/>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.PREPARATIONS.LOCALITY' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.locality.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <autocomplete-field ng-model="searchParameters.locality.name" table="preparaton" en="sample__locality__locality_en" et="sample__locality__locality"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.PREPARATIONS.LOCALITY' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.locality.lookUpType"></selectdefault>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.PREPARATIONS.DEPTH_M' | translate }}</b>
+                                   <!--     <selectexact custom-css="searchCriterionType"
+                                                     ng-model="searchParameters.depth.type"></selectexact>-->
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <interval-field ng-model= "searchParameters.depthSince" lookup="gte"></interval-field >
+                                        <interval-field ng-model= "searchParameters.depthTo" lookup="lte"></interval-field >
+                                    </div>
                                 </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.locality.name" table="preparaton" en="sample__locality__locality_en" et="sample__locality__locality"/>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.PREPARATIONS.STRATIGRAPHY' | translate }}</b>
+                                        <selecthierarchy custom-css="searchCriterionType"
+                                                         ng-model="searchParameters.stratigraphy.lookUpType"></selecthierarchy>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <autocomplete-field ng-model="searchParameters.stratigraphy.name" table="preparaton" en="sample__stratigraphy__stratigraphy_en" et="sample__stratigraphy__stratigraphy"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.PREPARATIONS.DEPTH_M' | translate }}</b>
-                               <!--     <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.depth.type"></selectexact>-->
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.PREPARATIONS.COLLECTOR' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.collector.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <autocomplete-field ng-model="searchParameters.collector.name" table="preparaton" en="null" et="sample__agent_collected__agent"/>
+                                    </div>
                                 </div>
-                                <div class="col-md-12 medium-padding">
-                                    <interval-field ng-model= "searchParameters.depthSince" lookup="gte"></interval-field >
-                                    <interval-field ng-model= "searchParameters.depthTo" lookup="lte"></interval-field >
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.PREPARATIONS.DESCRIPTION' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.description.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <input type="text" ng-model="searchParameters.description.name" class="form-control" data-ng-disabled="true"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.PREPARATIONS.STRATIGRAPHY' | translate }}</b>
-                                    <selecthierarchy custom-css="searchCriterionType"
-                                                     ng-model="searchParameters.stratigraphy.lookUpType"></selecthierarchy>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.PREPARATIONS.SPECIES_RECOVERED' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.speciesRecovered.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <input type="text" ng-model="searchParameters.speciesRecovered.name"
+                                               class="form-control" data-ng-disabled="true"/>
+                                    </div>
                                 </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.stratigraphy.name" table="preparaton" en="sample__stratigraphy__stratigraphy_en" et="sample__stratigraphy__stratigraphy"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.PREPARATIONS.COLLECTOR' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.collector.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.collector.name" table="preparaton" en="null" et="sample__agent_collected__agent"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.PREPARATIONS.DESCRIPTION' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.description.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.description.name" class="form-control" data-ng-disabled="true"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.PREPARATIONS.SPECIES_RECOVERED' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.speciesRecovered.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.speciesRecovered.name"
-                                           class="form-control" data-ng-disabled="true"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.PREPARATIONS.SPECIES_FREQUENCY' | translate }}</b>
-                                    <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.speciesFrequency.lookUpType"></selectexact>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.speciesFrequency.name"
-                                           class="form-control" data-ng-disabled="true"/>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.PREPARATIONS.SPECIES_FREQUENCY' | translate }}</b>
+                                        <selectexact custom-css="searchCriterionType"
+                                                     ng-model="searchParameters.speciesFrequency.lookUpType"></selectexact>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <input type="text" ng-model="searchParameters.speciesFrequency.name"
+                                               class="form-control" data-ng-disabled="true"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div ng-include="'app/templates/search/partial/button.search.html'"></div>
+                </form>
+            </div>
+            <div class="col-sm-9 col-md-9 col-lg-9" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
+                <div class="row">
+                     <div ng-bind-html="main.getContent(main.searchTips)" data-ng-if="isHintHidden"></div>
                 </div>
 
-                <div ng-include="'app/templates/search/partial/button.search.html'"></div>
-            </form>
-        </div>
-        <div class="col-sm-9 col-md-9 col-lg-9" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
-            <div class="row">
-                 <div ng-bind-html="main.getContent(main.searchTips)" data-ng-if="isHintHidden"></div>
+                <div ng-include="'app/templates/search/partial/pagination.html'"></div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="table-search">
+                        <thead class="thead-default">
+                        <tr>
+                            <th><sort-field value = "id" name="SEARCH.PREPARATIONS.TABLE.ID"></sort-field></th>
+                            <th><sort-field value = "number" name="SEARCH.PREPARATIONS.TABLE.NUMBER"></sort-field></th>
+                            <th><sort-field value = "sampleLocality" name="SEARCH.PREPARATIONS.TABLE.LOCALITY"></sort-field></th>
+                            <th><sort-field value = "sampleDepth" name="SEARCH.PREPARATIONS.TABLE.DEPTH_M"></sort-field></th>
+                            <th><span>{{ 'SEARCH.PREPARATIONS.TABLE.STRATIGRAPHY' | translate }}</span> | <em>{{
+                                'SEARCH.PREPARATIONS.TABLE.LITHOSTRATIGRAPHY' | translate }}</em></th>
+                            <th><sort-field value = "sampleAgentCollected" name="SEARCH.PREPARATIONS.TABLE.COLLECTOR"></sort-field></th>
+                            <th>{{ 'SEARCH.PREPARATIONS.TABLE.WEIGHT' | translate }}</th>
+                          <!--  <th>{{ 'SEARCH.PREPARATIONS.TABLE.MORE_INFO' | translate }}</th>-->
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="entity in response.results">
+                            <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.ID' | translate }}">
+                                <a href data-ng-click="ctrl.service.openInNewWindow({object:'preparation',id:entity.id})">{{entity.id}}</a>
+                            </td>
+                            <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.NUMBER' | translate }}">{{entity.preparation_number}}</td>
+                            <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.LOCALITY' | translate }}">
+                                <localize et="entity.sample__locality__locality" en="entity.sample__locality__locality_en"/>
+                            </td>
+                            <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.DEPTH_M' | translate }}">{{entity.sample__depth}}</td>
+                            <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.STRATIGRAPHY' | translate }}">
+                                <localize et="entity.sample__stratigraphy__stratigraphy" en="entity.sample__stratigraphy__stratigraphy_en"/>
+                            </td>
+                            <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.COLLECTOR' | translate }}">{{entity.sample__agent_collected__agent}}</td>
+                            <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.WEIGHT' | translate }}">{{entity.sample__mass}}</td>
+                            <!--<td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.MORE_INFO' | translate }}">???</td>-->
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="col-lg-12 h4 panel-heading text-center" data-ng-if="response.results == null">Tulemust ei leita</div>
+                </div>
+
+                <div ng-include="'app/templates/search/partial/pagination.html'"></div>
             </div>
-
-            <div ng-include="'app/templates/search/partial/pagination.html'"></div>
-
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover" id="table-search">
-                    <thead class="thead-default">
-                    <tr>
-                        <th><sort-field value = "id" name="SEARCH.PREPARATIONS.TABLE.ID"></sort-field></th>
-                        <th><sort-field value = "number" name="SEARCH.PREPARATIONS.TABLE.NUMBER"></sort-field></th>
-                        <th><sort-field value = "sampleLocality" name="SEARCH.PREPARATIONS.TABLE.LOCALITY"></sort-field></th>
-                        <th><sort-field value = "sampleDepth" name="SEARCH.PREPARATIONS.TABLE.DEPTH_M"></sort-field></th>
-                        <th><span>{{ 'SEARCH.PREPARATIONS.TABLE.STRATIGRAPHY' | translate }}</span> | <em>{{
-                            'SEARCH.PREPARATIONS.TABLE.LITHOSTRATIGRAPHY' | translate }}</em></th>
-                        <th><sort-field value = "sampleAgentCollected" name="SEARCH.PREPARATIONS.TABLE.COLLECTOR"></sort-field></th>
-                        <th>{{ 'SEARCH.PREPARATIONS.TABLE.WEIGHT' | translate }}</th>
-                      <!--  <th>{{ 'SEARCH.PREPARATIONS.TABLE.MORE_INFO' | translate }}</th>-->
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr data-ng-repeat="entity in response.results">
-                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.ID' | translate }}">
-                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'preparation',id:entity.id})">{{entity.id}}</a>
-                        </td>
-                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.NUMBER' | translate }}">{{entity.preparation_number}}</td>
-                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.LOCALITY' | translate }}">
-                            <localize et="entity.sample__locality__locality" en="entity.sample__locality__locality_en"/>
-                        </td>
-                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.DEPTH_M' | translate }}">{{entity.sample__depth}}</td>
-                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.STRATIGRAPHY' | translate }}">
-                            <localize et="entity.sample__stratigraphy__stratigraphy" en="entity.sample__stratigraphy__stratigraphy_en"/>
-                        </td>
-                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.COLLECTOR' | translate }}">{{entity.sample__agent_collected__agent}}</td>
-                        <td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.WEIGHT' | translate }}">{{entity.sample__mass}}</td>
-                        <!--<td data-title="{{ 'SEARCH.PREPARATIONS.TABLE.MORE_INFO' | translate }}">???</td>-->
-                    </tr>
-                    </tbody>
-                </table>
-                <div class="col-lg-12 h4 panel-heading text-center" data-ng-if="response.results == null">Tulemust ei leita</div>
-            </div>
-
-            <div ng-include="'app/templates/search/partial/pagination.html'"></div>
         </div>
     </div>
-</div>
-
+</section>
 

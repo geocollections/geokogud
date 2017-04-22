@@ -1,137 +1,140 @@
-<div id="searches" ng-include="'app/templates/main/partial/search.html'" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html"></div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 col-md-3 col-lg-3">
-            <div class="row">
-                <h3 class="search-heading">{{ 'SEARCH.REFERENCES.HEADING' | translate }} <span class="badge badge-info">{{response.count}}</span>
-                    <button type="submit" value="showHint" class="btn btn-info btn-sm pull-right"
-                            data-ng-click="showHint()">
-                        <span class="glyphicon glyphicon-question-sign"></span> {{ 'SEARCH.FAQ' | translate }}
-                    </button>
-                </h3>
-            </div>
-            <form ng-enter="search()">
+<header ng-include="'app/templates/main/partial/search.header.html'"></header>
+<section id="sectionSearch">
+    <div id="searches" ng-include="'app/templates/main/partial/search.html'"></div>
+    <div class="container-fluid" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
+        <div class="row">
+            <div class="col-sm-3 col-md-3 col-lg-3">
                 <div class="row">
-                    <div class="panel-heading searchGroupHeading"
-                         ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
-                        <h4 class="panel-title">
-                            {{ 'SEARCH.CRITERIA.HEADING.PRIMARY'| translate }}
-                            <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
-                        </h4>
-                    </div>
-                    <div uib-collapse="isIdentifierFieldsCollapsed">
-                        <div class="well well-lg">
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 searchCriterionTitle medium-padding">
-                                    <b>{{ 'SEARCH.REFERENCES.ID' | translate }}</b>
-                                    <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.id.lookUpType"></selectexact>
+                    <h3 class="search-heading">{{ 'SEARCH.REFERENCES.HEADING' | translate }} <span class="badge badge-info">{{response.count}}</span>
+                        <button type="submit" value="showHint" class="btn btn-info btn-sm pull-right"
+                                data-ng-click="showHint()">
+                            <span class="glyphicon glyphicon-question-sign"></span> {{ 'SEARCH.FAQ' | translate }}
+                        </button>
+                    </h3>
+                </div>
+                <form ng-enter="search()">
+                    <div class="row">
+                        <div class="panel-heading searchGroupHeading"
+                             ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
+                            <h4 class="panel-title">
+                                {{ 'SEARCH.CRITERIA.HEADING.PRIMARY'| translate }}
+                                <section-opened-icon is-opened="isIdentifierFieldsCollapsed"/>
+                            </h4>
+                        </div>
+                        <div uib-collapse="isIdentifierFieldsCollapsed">
+                            <div class="well well-lg">
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 searchCriterionTitle medium-padding">
+                                        <b>{{ 'SEARCH.REFERENCES.ID' | translate }}</b>
+                                        <selectexact custom-css="searchCriterionType"
+                                                     ng-model="searchParameters.id.lookUpType"></selectexact>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
+                                    </div>
                                 </div>
-                                <div class="col-md-12 medium-padding">
-                                    <input type="text" ng-model="searchParameters.id.name" class="form-control"/>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.REFERENCES.AUTHOR' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.author.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <autocomplete-field ng-model="searchParameters.author.name" table="reference" en="null" et="author"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.REFERENCES.AUTHOR' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.author.lookUpType"></selectdefault>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.REFERENCES.YEAR' | translate }}</b>
+                                     <!--   <selectexact custom-css="searchCriterionType" ng-model="searchParameters.year.lookUpType"  ng-disabled="true"></selectexact>-->
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <interval-field ng-model= "searchParameters.yearSince" lookup="gte"></interval-field >
+                                        <interval-field ng-model= "searchParameters.yearTo" lookup="lte"></interval-field >
+                                    </div>
                                 </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.author.name" table="reference" en="null" et="author"/>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.REFERENCES.TITLE' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.title.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <autocomplete-field ng-model="searchParameters.title.name" table="reference" en="null" et="title"/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.REFERENCES.YEAR' | translate }}</b>
-                                 <!--   <selectexact custom-css="searchCriterionType" ng-model="searchParameters.year.lookUpType"  ng-disabled="true"></selectexact>-->
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.REFERENCES.JOURNAL' | translate }}</b>
+                                        <selectdefault custom-css="searchCriterionType"
+                                                       ng-model="searchParameters.journal.lookUpType"></selectdefault>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <autocomplete-field ng-model="searchParameters.journal.name" table="reference" en="null" et="journal__journal_name"/>
+                                    </div>
                                 </div>
-                                <div class="col-md-12 medium-padding">
-                                    <interval-field ng-model= "searchParameters.yearSince" lookup="gte"></interval-field >
-                                    <interval-field ng-model= "searchParameters.yearTo" lookup="lte"></interval-field >
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.REFERENCES.TITLE' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.title.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.title.name" table="reference" en="null" et="title"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.REFERENCES.JOURNAL' | translate }}</b>
-                                    <selectdefault custom-css="searchCriterionType"
-                                                   ng-model="searchParameters.journal.lookUpType"></selectdefault>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.journal.name" table="reference" en="null" et="journal__journal_name"/>
-                                </div>
-                            </div>
-                            <div class="row searchCriterion">
-                                <div class="col-md-12 medium-padding">
-                                    <b>{{ 'SEARCH.REFERENCES.BOOK' | translate }}</b>
-                                    <selectexact custom-css="searchCriterionType"
-                                                 ng-model="searchParameters.book.lookUpType"></selectexact>
-                                </div>
-                                <div class="col-md-12 medium-padding">
-                                    <autocomplete-field ng-model="searchParameters.book.name" table="reference" en="null" et="book"/>
+                                <div class="row searchCriterion">
+                                    <div class="col-md-12 medium-padding">
+                                        <b>{{ 'SEARCH.REFERENCES.BOOK' | translate }}</b>
+                                        <selectexact custom-css="searchCriterionType"
+                                                     ng-model="searchParameters.book.lookUpType"></selectexact>
+                                    </div>
+                                    <div class="col-md-12 medium-padding">
+                                        <autocomplete-field ng-model="searchParameters.book.name" table="reference" en="null" et="book"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div ng-include="'app/templates/search/partial/button.search.html'"></div>
+                </form>
+            </div>
+            <div class="col-sm-9 col-md-9 col-lg-9" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
+                <div class="row">
+                     <div ng-bind-html="main.getContent(main.searchTips)" data-ng-if="isHintHidden"></div>
                 </div>
 
-                <div ng-include="'app/templates/search/partial/button.search.html'"></div>
-            </form>
-        </div>
-        <div class="col-sm-9 col-md-9 col-lg-9" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
-            <div class="row">
-                 <div ng-bind-html="main.getContent(main.searchTips)" data-ng-if="isHintHidden"></div>
+                <div ng-include="'app/templates/search/partial/pagination.html'"></div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="table-search">
+                        <thead class="thead-default">
+                        <tr>
+                            <th><sort-field value = "id" name="SEARCH.REFERENCES.TABLE.ID"></sort-field></th>
+                            <th>{{ 'SEARCH.REFERENCES.TABLE.REFERENCE' | translate }}</th>
+                            <th><sort-field value = "author" name="SEARCH.REFERENCES.TABLE.AUTHOR"></sort-field></th>
+                            <th><sort-field value = "year" name="SEARCH.REFERENCES.TABLE.YEAR"></sort-field></th>
+                            <th><sort-field value = "title" name="SEARCH.REFERENCES.TABLE.TITLE"></sort-field></th>
+                            <th>{{ 'SEARCH.REFERENCES.TABLE.JOURNAL_BOOK' | translate }}</th>
+                            <th>{{ 'SEARCH.REFERENCES.TABLE.PP' | translate }}</th>
+                            <th>{{ 'SEARCH.REFERENCES.TABLE.DOI' | translate }}</th>
+                            <th>{{ 'SEARCH.REFERENCES.TABLE.REMARKS' | translate }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="entity in response.results">
+                            <td data-title="{{ 'SEARCH.REFERENCES.TABLE.ID' | translate }}">{{entity.id}}</td>
+                            <td data-title="{{ 'SEARCH.REFERENCES.TABLE.REFERENCE' | translate }}">
+                                <a href data-ng-click="ctrl.service.openInNewWindow({object:'reference',id:entity.id})">{{entity.reference}}</a>
+                            </td>
+                            <td data-title="{{ 'SEARCH.REFERENCES.TABLE.AUTHOR' | translate }}">{{entity.author}}</td>
+                            <td data-title="{{ 'SEARCH.REFERENCES.TABLE.YEAR' | translate }}">{{entity.year}}</td>
+                            <td data-title="{{ 'SEARCH.REFERENCES.TABLE.TITLE' | translate }}">{{entity.title}}</td>
+                            <td data-title="{{ 'SEARCH.REFERENCES.TABLE.JOURNAL_BOOK' | translate }}">
+                                {{entity.journal__journal_name}}
+                            </td>
+                            <td data-title="{{ 'SEARCH.REFERENCES.TABLE.PP' | translate }}">{{entity.pages}}</td>
+                            <td data-title="{{ 'SEARCH.REFERENCES.TABLE.DOI' | translate }}">{{entity.doi}}</td>
+                            <td data-title="{{ 'SEARCH.REFERENCES.TABLE.REMARKS' | translate }}">{{entity.remarks}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="col-lg-12 h4 panel-heading text-center" data-ng-if="response.results == null">Tulemust ei leita</div>
+                </div>
+
+                <div ng-include="'app/templates/search/partial/pagination.html'"></div>
             </div>
-
-            <div ng-include="'app/templates/search/partial/pagination.html'"></div>
-
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover" id="table-search">
-                    <thead class="thead-default">
-                    <tr>
-                        <th><sort-field value = "id" name="SEARCH.REFERENCES.TABLE.ID"></sort-field></th>
-                        <th>{{ 'SEARCH.REFERENCES.TABLE.REFERENCE' | translate }}</th>
-                        <th><sort-field value = "author" name="SEARCH.REFERENCES.TABLE.AUTHOR"></sort-field></th>
-                        <th><sort-field value = "year" name="SEARCH.REFERENCES.TABLE.YEAR"></sort-field></th>
-                        <th><sort-field value = "title" name="SEARCH.REFERENCES.TABLE.TITLE"></sort-field></th>
-                        <th>{{ 'SEARCH.REFERENCES.TABLE.JOURNAL_BOOK' | translate }}</th>
-                        <th>{{ 'SEARCH.REFERENCES.TABLE.PP' | translate }}</th>
-                        <th>{{ 'SEARCH.REFERENCES.TABLE.DOI' | translate }}</th>
-                        <th>{{ 'SEARCH.REFERENCES.TABLE.REMARKS' | translate }}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr data-ng-repeat="entity in response.results">
-                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.ID' | translate }}">{{entity.id}}</td>
-                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.REFERENCE' | translate }}">
-                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'reference',id:entity.id})">{{entity.reference}}</a>
-                        </td>
-                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.AUTHOR' | translate }}">{{entity.author}}</td>
-                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.YEAR' | translate }}">{{entity.year}}</td>
-                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.TITLE' | translate }}">{{entity.title}}</td>
-                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.JOURNAL_BOOK' | translate }}">
-                            {{entity.journal__journal_name}}
-                        </td>
-                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.PP' | translate }}">{{entity.pages}}</td>
-                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.DOI' | translate }}">{{entity.doi}}</td>
-                        <td data-title="{{ 'SEARCH.REFERENCES.TABLE.REMARKS' | translate }}">{{entity.remarks}}</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div class="col-lg-12 h4 panel-heading text-center" data-ng-if="response.results == null">Tulemust ei leita</div>
-            </div>
-
-            <div ng-include="'app/templates/search/partial/pagination.html'"></div>
         </div>
     </div>
-</div>
+</section>
