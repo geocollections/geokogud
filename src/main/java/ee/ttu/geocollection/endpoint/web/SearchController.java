@@ -33,7 +33,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/search")
@@ -78,7 +81,7 @@ public class SearchController extends ControllerHelper {
 
     @RequestMapping(value = "/specimen", method = RequestMethod.POST)
     public ApiResponse searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) {
-        ApiResponse specimens = specimenApiService.findSpecimen(specimenSearchCriteria);
+        ApiResponse specimens = specimens = specimenApiService.findSpecimen(specimenSearchCriteria);
         if (specimens.getResult() != null) {
             asynchService.doAsynchCallsForEachResult(
                     specimens,
@@ -88,8 +91,34 @@ public class SearchController extends ControllerHelper {
                                     LookUpType.exact)),
                     specimen ->
                             receivedImage -> specimen.put("specimen_image_thumbnail", receivedImage));
+
         }
+ /*       if(specimenSearchCriteria.getSearchImages() != null
+                && specimenSearchCriteria.getSearchImages().getName() != null
+                && specimenSearchCriteria.getSearchImages().getName().equals("true")) {
+            //specimens.getResult().stream().filter(sp -> xxx(sp));
+            specimens = specimenApiService.findSpecimenImage(specimenSearchCriteria);
+            if (specimens.getResult() != null) {
+                asynchService.doAsynchCallsForEachResult(
+                        specimens,
+                        specimen ->
+                                () -> iterateImages(specimen, specimenSearchCriteria),
+                        specimen ->
+                                receivedImage -> specimen.put("specimen_object", receivedImage));
+
+            }
+        } else {
+
+        }*/
+
         return specimens;
+    }
+    private ApiResponse iterateImages(Map<String, Object> specimen, SpecimenSearchCriteria specimenSearchCriteria) {
+        specimenSearchCriteria.setSpecimenNumber(new SearchField(
+                specimen.get("specimen__specimen_id").toString(),
+                LookUpType.exact));
+        return specimenApiService.findSpecimen(specimenSearchCriteria);
+
     }
 
     @RequestMapping(value = "/sample", method = RequestMethod.POST)

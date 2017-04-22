@@ -29,6 +29,15 @@ public class SpecimenSearchCriteria {
     private SearchField regDateStart;
     private SearchField regDateEnd;
     private List<String> dbs;
+    private SearchField searchImages;
+
+    public SearchField getSearchImages() {
+        return searchImages;
+    }
+
+    public void setSearchImages(SearchField searchImages) {
+        this.searchImages = searchImages;
+    }
 
     public List<String> getDbs() {
         return dbs;

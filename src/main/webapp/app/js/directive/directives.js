@@ -124,7 +124,7 @@ angular.module('geoApp').directive('loading', function () {
     };
 }).directive('showPreview', function () {
     return {
-        template: '<img style="width:120px;" ng-src="{{previewImageUrl}}" spinner-load />',
+        template: '<img style="width:100%;" ng-src="{{previewImageUrl}}" spinner-load />',
         restrict: 'E',
         scope: {
             imgUrl: '='
@@ -134,7 +134,6 @@ angular.module('geoApp').directive('loading', function () {
                 if(newValue) {
                     var foundHttp = newValue.match(/http:/)
                     var lastSlashPosition = newValue.lastIndexOf('/');
-                    console.log(foundHttp);
                     scope.previewImageUrl = (foundHttp ? "" : "http://") + newValue.substring(0, lastSlashPosition) + '/preview' +newValue.substring(lastSlashPosition);
                 }
             }, true);

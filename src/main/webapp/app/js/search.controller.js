@@ -19,6 +19,9 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
     function onSearchData(result) {
         $scope.pageSize = 100;
         $scope.totalItems = result.data.count;
+        console.log($stateParams.type)
+        if((['specimens', 'localities'].indexOf($stateParams.type) > -1)) $scope.images = composeImageStructure(result.data);
+
         $scope.windowWidth = "innerWidth" in window ? window.innerWidth : document.documentElement.offsetWidth;
         if ($scope.windowWidth > 400) {
             $scope.searchParameters.maxSize = 5;
@@ -45,6 +48,36 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
         $('html, body').animate({
             scrollTop: ($("#searches").offset().top - 50)
         }, 'fast');
+    }
+     function returnImageObject(entity) {
+         switch ($stateParams.type) {
+             case "specimens": return entity.specimen_image_thumbnail;
+             case "localities": return entity.locality_image_thumbnail;
+             default : break;
+         }
+     }
+
+    function composeImageStructure (response) {
+        var imageStructure  = {rows : [],total : 0}, countImage = 0, currentRow  = [];
+        angular.forEach(response.results, function (entity){
+            var imageObject = returnImageObject(entity);
+            if(imageObject && imageObject.count > 0) {
+                angular.forEach(imageObject.results, function (image){
+                    if(countImage < 30) {
+                        currentRow.push({image :image, object : entity});
+                        countImage ++;
+                        if(countImage % 5 === 0) {
+                            imageStructure.rows.push(currentRow);
+                            currentRow = [];
+                        }
+                    }
+                });
+            }
+        });
+        imageStructure.rows.push(currentRow);
+        imageStructure.total = countImage;
+        console.log(imageStructure)
+        return imageStructure;
     }
 
     $scope.search = function () {
