@@ -16,6 +16,8 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     vm.changeLanguage = changeLanguage;
     vm.isSearch = isSearch;
     vm.isDetailForm = isDetailForm;
+
+    // content of webpages
     vm.geocollection = getWebPageById(2, "geocollection");
     vm.usingCollections = getWebPageById(32, "usingCollections");
     vm.database = getWebPageById(21, "database");
@@ -25,12 +27,11 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     vm.git = getWebPageById(44, "git");
     vm.searchTips = getWebPageById(43, "searchTips");
     vm.drillCoreSearch = getWebPageById(53, "drillCoreSearch");
-    vm.protoArchiveQuery = getWebPageById(53, "protoArchiveQuery");
+    vm.protoArchiveQuery = getWebPageById(54, "protoArchiveQuery");
     vm.doiIdentifiers = getWebPageById(55, "doiIdentifiers");
 
     vm.switchYear = switchYear;
 
-    //vm.about = getWebPageById(1, "about");
     $scope.yearToShow = 0;
 
     asyncLoadData(); //fixme make async request
