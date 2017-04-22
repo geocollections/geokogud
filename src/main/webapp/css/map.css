@@ -42,3 +42,7 @@
     bottom: initial;
     max-width: calc(100% - 1.3em)
 }
+
+#map-return-back {
+    float: right;
+}

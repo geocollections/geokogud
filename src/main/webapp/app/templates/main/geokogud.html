@@ -45,14 +45,14 @@
                            aria-expanded="false">{{ 'INDEX.USEFUL_LINKS' | translate }}<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li data-toggle="collapse" data-target=".in"><a href="{{main.configuration.apiUrl}}"
-                                                                            target="_blank">{{ 'INDEX.PUBLIC_API_LINK' | translate }}</a></li>
+                                                                            target="_self">{{ 'INDEX.PUBLIC_API_LINK' | translate }}</a></li>
                             <li data-toggle="collapse" data-target=".in"><a href="{{main.configuration.githubUrl}}"
-                                                                            target="_blank">GitHub</a></li>
+                                                                            target="_self">GitHub</a></li>
                             <li data-toggle="collapse" data-target=".in"><a href="http://fossiilid.info/"
-                                                                            target="_blank"
+                                                                            target="_self"
                                                                             title="{{ 'INDEX.FOSSILS_TITLE' | translate }}">{{                                'INDEX.FOSSILS_LINK' | translate }}</a></li>
                             <li data-toggle="collapse" data-target=".in"><a href="http://ermas.geokogud.info/"
-                                                                            target="_blank"
+                                                                            target="_self"
                                                                             title="{{ 'INDEX.ERMAS_TITLE' | translate }}">{{                                'INDEX.ERMAS_LINK' | translate }}</a></li>
                         </ul>
                     </li>
@@ -74,10 +74,7 @@
 
 <header ng-include="'app/templates/main/partial/header.html'"></header>
 
-<div id="searches" ng-include="'app/templates/main/partial/search.html'" bs-loading-overlay
-     bs-loading-overlay-reference-id="searchView"
-     bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html"></div>
-<div ng-show="!main.isDetailForm()" ng-include="'app/templates/main/partial/about.html'"></div>
+<div ng-include="'app/templates/main/partial/about.html'"></div>
 
 <div id="additional" ng-include="'app/templates/main/slider.html'"></div>
 <div ng-include="'app/templates/main/partial/contact.html'"></div>
