@@ -2,6 +2,8 @@ package ee.ttu.geocollection;
 
 import com.google.common.eventbus.AsyncEventBus;
 import com.google.common.eventbus.EventBus;
+import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.RAMDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.Banner;
@@ -103,4 +105,8 @@ public class App extends SpringBootServletInitializer {
         return new AsyncEventBus("asyncDefault", Executors.newFixedThreadPool(2));
     }
 
+    @Bean
+    public Directory sampleDirectory() {
+        return new RAMDirectory();
+    }
 }

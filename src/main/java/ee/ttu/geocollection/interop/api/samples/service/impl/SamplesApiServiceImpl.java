@@ -52,6 +52,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
                 .queryContent(searchCriteria.getContent())
                 .queryInstitutions(searchCriteria.getDbs()).andReturn()
                 .returnAnalyzed()
+                .returnDateChanged()
                 .buildFullQuery();
         return apiService.searchRawEntities(
                 "sample",

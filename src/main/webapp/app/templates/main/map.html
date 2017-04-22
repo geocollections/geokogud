@@ -1,64 +1,34 @@
-<style>
-    @media screen and (min-width: 1024px){
-        .map-container{
-            height: 500px;
-            width:100%;
-        }
-    }
-    @media screen and (min-width : 768px) and (max-width : 1023px){
-        .map-container{
-            height: 400px;
-            width:100%;
-        }
-    }
-    /*### Smartphones (portrait and landscape)(small)### */
-    @media screen and (min-width : 500px) and (max-width : 767px){
-        .map-container{
-            height: 400px;
-            width:100%;
-        }
-    }
-    @media screen and (min-width : 0px) and (max-width : 499px){
-        .map-container{
-            height: 300px;
-            width:100%;
-        }
-    }
-    #map-footer-menu {
-        padding:5px;
-    }
-    .map {
-        height:100%;
-        width:100%;
-    }
-</style>
-<div class="container" style="padding: 0px">
-        <div id='hoverbox' class='coupontooltip'>
-            <div id='hoversystem'></div>
-            <div id='hoverstat'></div>
-        </div>
-        <div class="map-container">
-            <main-map></main-map>
-        </div>
+<link rel="stylesheet" href="css/map.css">
+
+<div id="mapcontainer">
+    <div id='hoverbox' class='coupontooltip'>
+        <div id='hoversystem'></div>
+        <div id='hoverstat'></div>
+    </div>
+    <main-map></main-map>
+</div>
+<div id="map-footer-container">
     <div class="bg-dark" id="map-footer-menu">
-    <form role="form" class="form-inline" name="filter" ng-submit="submitFilterForm()">
-        <label>Found <strong>{{ countLocalities }}</strong> georeferenced localities. Show only those or search by:</label>
-        <div class="input-group input-group-sm input-inline">
-            <input type="text" class="form-control input-sm" name="localityName" placeholder="Name">
-            <div class="input-group-btn">
-                <button type="submit" class="btn btn-primary btn-sm">
-                    <i class="fa fa-refresh sr-icons" aria-hidden="true"></i>
-                </button>
+        <form role="form" class="form-inline" name="filter" ng-submit="submitFilterForm()">
+            <label>Found <strong>{{ countLocalities }}</strong> georeferenced localities. Show only those or search by:</label>
+            <div class="input-group input-group-sm input-inline">
+                <input type="text" class="form-control input-sm" name="localityName" placeholder="Name">
+                <div class="input-group-btn">
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        <i class="fa fa-refresh sr-icons" aria-hidden="true"></i>
+                    </button>
+                </div>
             </div>
-        </div><br/>
-        <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="specimens"/>collection specimens |</label>
-        <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="samples"/>samples |</label>
-        <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="drillcores"/>drillcores |</label>
-        <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="citing_references"/>citing references |</label>
-        <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="analyses"/>analyses |</label>
-        <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="stratotypes"/>stratotypes |</label>
-        <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="images"/>photos |</label>
-        <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="taxon_occurrences"/>taxon occurrences</label>
-    </form>
+            <br/>
+            <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="specimens"/>collection specimens |</label>
+            <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="samples"/>samples|</label>
+            <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="drillcores"/>drillcores|</label>
+            <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="citing_references"/>citing references |</label>
+            <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="analyses"/>analyses|</label>
+            <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="stratotypes"/>stratotypes |</label>
+            <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="images"/>photos|</label>
+            <label class="checkbox-inline"><input type="checkbox" data-ng-click="submitFilterForm()" name="taxon_occurrences"/>taxon occurrences</label>
+            <a href="/" id="map-return-back">Back to SARV</a>
+        </form>
     </div>
 </div>

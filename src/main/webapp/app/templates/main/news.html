@@ -1,11 +1,11 @@
 <div class="container infoSection">
 	<div class="row">
 		<div class="col-lg-12">
-			<h2 class="section-heading text-center">{{'INDEX.NEWS_LINK' | translate }}</h2>
+			<h2 class="section-heading text-center">{{ 'INDEX.NEWS_LINK' | translate }}</h2>
 			<hr class="primary">
 			<nav id="newsSelect">
-				<select class="form-control text-center">
-					<option ng-repeat="year in main.years" value="year" ng-click="main.showNews($event)">{{ year }}</option>
+				<select ng-change="main.switchYear(selectedYear)" ng-model="selectedYear" ng-init="selectedYear=yearToShow" class="form-control text-center">
+					<option ng-repeat="year in main.years" value="{{ year }}">{{ year }}</option>
 				</select>
 			</nav>
 			<nav id="newsButtons">

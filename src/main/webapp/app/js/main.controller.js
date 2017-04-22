@@ -16,11 +16,22 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     vm.changeLanguage = changeLanguage;
     vm.isSearch = isSearch;
     vm.isDetailForm = isDetailForm;
+
+    // content of webpages
     vm.geocollection = getWebPageById(2, "geocollection");
     vm.usingCollections = getWebPageById(32, "usingCollections");
     vm.database = getWebPageById(21, "database");
+    vm.aboutFirstColumn = getWebPageById(56, "aboutFirstColumn");
+    vm.aboutSecondColumn = getWebPageById(57, "aboutSecondColumn");
+    vm.aboutThirdColumn = getWebPageById(58, "aboutThirdColumn");
+    vm.git = getWebPageById(44, "git");
+    vm.searchTips = getWebPageById(43, "searchTips");
+    vm.drillCoreSearch = getWebPageById(53, "drillCoreSearch");
+    vm.protoArchiveQuery = getWebPageById(54, "protoArchiveQuery");
+    vm.doiIdentifiers = getWebPageById(55, "doiIdentifiers");
 
-    //vm.about = getWebPageById(1, "about");
+    vm.switchYear = switchYear;
+
     $scope.yearToShow = 0;
 
     asyncLoadData(); //fixme make async request
@@ -35,10 +46,17 @@ var constructor = function (configuration,$translate,$http, applicationService,$
             if (page == "geocollection") { vm.geocollection = result; }
             else if (page == "usingCollections") { vm.usingCollections = result; }
             else if (page == "database") { vm.database = result; }
-            //else if (page == "about") { vm.about = result; }
+            else if (page == "aboutFirstColumn") { vm.aboutFirstColumn = result; }
+            else if (page == "aboutSecondColumn") { vm.aboutSecondColumn = result; }
+            else if (page == "aboutThirdColumn") { vm.aboutThirdColumn = result; }
+            else if (page == "git") { vm.git = result; }
+            else if (page == "searchTips") { vm.searchTips = result; }
+            else if (page == "drillCoreSearch") { vm.drillCoreSearch = result; }
+            else if (page == "protoArchiveQuery") { vm.protoArchiveQuery = result; }
+            else if (page == "doiIdentifiers") { vm.doiIdentifiers = result; }
         });
     }
-    
+
     function onNewsData(response) {
         vm.news = response.data;
         angular.forEach(vm.news.results, function(currentNews) {
@@ -52,22 +70,27 @@ var constructor = function (configuration,$translate,$http, applicationService,$
         $scope.yearToShow = $event.target.innerText;
     }
 
+    function switchYear(selectedYear) {
+        if (selectedYear != null) { $scope.yearToShow = selectedYear; }
+    }
+
     function yearFilter(id) {
-        return id.date_added.startsWith($scope.yearToShow);
+        if (id!= null) { return id.date_added.startsWith($scope.yearToShow); }
+        return null;
     }
 
     function getTitle(id) {
-        return $translate.use() === "et" ? id.title_et : id.title_en;
+        if (id != null) { return $translate.use() === "et" ? id.title_et : id.title_en; }
+        return null;
     }
 
     function getText(id) {
-        return $translate.use() === "et" ? id.text_et : id.text_en;
+        if (id != null) { return $translate.use() === "et" ? id.text_et : id.text_en; }
+        return null;
     }
 
     function getContent(webpage) {
-        if (webpage != null) {
-            return $translate.use() === "et" ? webpage.content_et : webpage.content_en;
-        }
+        if (webpage != null) { return $translate.use() === "et" ? webpage.content_et : webpage.content_en; }
         return null;
     }
 

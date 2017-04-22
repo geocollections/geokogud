@@ -1,0 +1,84 @@
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand page-scroll" href="#page-top">{{ 'INDEX.GEOCOLLECTIONS_TITLE' | translate }}</a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#navbar-collapse">
+                    <span class="sr-only">Menu</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll-to-searches" href data-ui-sref="search">{{ 'INDEX.SEARCH_LINK' | translate }}</a>
+                    </li>
+                    <li>
+                        <a href data-ui-sref="map">{{ 'INDEX.MAP_LINK' | translate }}</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">{{ 'INDEX.USEFUL_INFO' | translate }}<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li data-toggle="collapse" data-target=".in"><a class="page-scroll-to-additional" href=""
+                                                                            data-target="#infoCarousel"
+                                                                            data-slide-to="0"
+                                                                            title="{{ 'INDEX.GIT_TUT' | translate }}">{{ 'GIT.GIT_HEADING' | translate }}</a></li>
+                            <li data-toggle="collapse" data-target=".in"><a class="page-scroll-to-additional" href=""
+                                                                            data-target="#infoCarousel"
+                                                                            data-slide-to="1">{{ 'INDEX.ABOUT_COLLECTIONS_LINK' | translate }}</a></li>
+                            <li data-toggle="collapse" data-target=".in"><a class="page-scroll-to-additional" href=""
+                                                                            data-target="#infoCarousel"
+                                                                            data-slide-to="2">{{ 'INDEX.USING_COLLECTIONS_LINK' | translate }}</a></li>
+                            <li data-toggle="collapse" data-target=".in"><a class="page-scroll-to-additional" href=""
+                                                                            data-target="#infoCarousel"
+                                                                            data-slide-to="3">{{'INDEX.NEWS_LINK' | translate }}</a></li>
+                            <li data-toggle="collapse" data-target=".in"><a class="page-scroll-to-additional" href=""
+                                                                            data-target="#infoCarousel"
+                                                                            data-slide-to="4">{{ 'INDEX.DATABASE_LINK' | translate }}</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">{{ 'INDEX.USEFUL_LINKS' | translate }}<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li data-toggle="collapse" data-target=".in"><a href="{{main.configuration.apiUrl}}"
+                                                                            target="_self">{{ 'INDEX.PUBLIC_API_LINK' | translate }}</a></li>
+                            <li data-toggle="collapse" data-target=".in"><a href="{{main.configuration.githubUrl}}"
+                                                                            target="_self">GitHub</a></li>
+                            <li data-toggle="collapse" data-target=".in"><a href="http://fossiilid.info/"
+                                                                            target="_self"
+                                                                            title="{{ 'INDEX.FOSSILS_TITLE' | translate }}">{{                                'INDEX.FOSSILS_LINK' | translate }}</a></li>
+                            <li data-toggle="collapse" data-target=".in"><a href="http://ermas.geokogud.info/"
+                                                                            target="_self"
+                                                                            title="{{ 'INDEX.ERMAS_TITLE' | translate }}">{{                                'INDEX.ERMAS_LINK' | translate }}</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">{{ 'INDEX.CONTACT_LINK' | translate }}</a>
+                    </li>
+                    <li class="nav-divider"></li>
+                    <li>
+                        <a href="" ng-click="main.changeLanguage('et')">{{ 'INDEX.BUTTON_LANG_ET' | translate }}</a>
+                    </li>
+                    <li>
+                        <a href="" ng-click="main.changeLanguage('en')">{{ 'INDEX.BUTTON_LANG_EN' | translate }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</nav>
+
+
+<header ng-include="'app/templates/main/partial/header.html'"></header>
+
+<div ng-include="'app/templates/main/partial/about.html'"></div>
+
+<div id="additional" ng-include="'app/templates/main/slider.html'"></div>
+<div ng-include="'app/templates/main/partial/contact.html'"></div>
+<div ng-include="'app/templates/main/partial/footer.html'"></div>
+
+<!-- main page animation-->
+<script src="app/mainpage.js"></script>
