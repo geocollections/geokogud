@@ -19,6 +19,15 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     vm.geocollection = getWebPageById(2, "geocollection");
     vm.usingCollections = getWebPageById(32, "usingCollections");
     vm.database = getWebPageById(21, "database");
+    vm.aboutFirstColumn = getWebPageById(56, "aboutFirstColumn");
+    vm.aboutSecondColumn = getWebPageById(57, "aboutSecondColumn");
+    vm.aboutThirdColumn = getWebPageById(58, "aboutThirdColumn");
+    vm.git = getWebPageById(44, "git");
+    vm.searchTips = getWebPageById(43, "searchTips");
+    vm.drillCoreSearch = getWebPageById(53, "drillCoreSearch");
+    vm.protoArchiveQuery = getWebPageById(53, "protoArchiveQuery");
+    vm.doiIdentifiers = getWebPageById(55, "doiIdentifiers");
+
     vm.switchYear = switchYear;
 
     //vm.about = getWebPageById(1, "about");
@@ -36,7 +45,14 @@ var constructor = function (configuration,$translate,$http, applicationService,$
             if (page == "geocollection") { vm.geocollection = result; }
             else if (page == "usingCollections") { vm.usingCollections = result; }
             else if (page == "database") { vm.database = result; }
-            //else if (page == "about") { vm.about = result; }
+            else if (page == "aboutFirstColumn") { vm.aboutFirstColumn = result; }
+            else if (page == "aboutSecondColumn") { vm.aboutSecondColumn = result; }
+            else if (page == "aboutThirdColumn") { vm.aboutThirdColumn = result; }
+            else if (page == "git") { vm.git = result; }
+            else if (page == "searchTips") { vm.searchTips = result; }
+            else if (page == "drillCoreSearch") { vm.drillCoreSearch = result; }
+            else if (page == "protoArchiveQuery") { vm.protoArchiveQuery = result; }
+            else if (page == "doiIdentifiers") { vm.doiIdentifiers = result; }
         });
     }
 

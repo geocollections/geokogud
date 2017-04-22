@@ -3,9 +3,8 @@
 		<div class="col-lg-12">
 			<h2 class="section-heading text-center">GIT</h2>
 			<hr class="primary">
-			<h3 class="header-collection">{{ 'GIT.GIT_TITLE' | translate }}</h3>
-			<p>{{ 'GIT.PARAGRAPH_ONE' | translate }}</p>
-			<p>{{ 'GIT.PARAGRAPH_TWO' | translate }}</p>
+			<h3 class="header-collection" ng-bind-html="main.getTitle(main.git)"></h3>
+			<div ng-bind-html="main.getContent(main.git)"></div>
 		</div>
 	</div>
 </div>

@@ -117,7 +117,7 @@
         </div>
         <div class="col-sm-9 col-md-9 col-lg-9" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
             <div class="row">
-                <hint-text table="PHOTO_ARCHIVE" data-ng-if="isHintHidden"/>
+                <div ng-bind-html="main.getContent(main.protoArchiveQuery)" data-ng-if="isHintHidden"></div>
             </div>
             <div ng-include="'app/templates/search/partial/pagination.html'"></div>
             <div class="table-responsive" data-ng-if="showImages">
