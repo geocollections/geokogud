@@ -74,21 +74,22 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     }
 
     function yearFilter(id) {
-        return id.date_added.startsWith($scope.yearToShow);
+        if (id!= null) { return id.date_added.startsWith($scope.yearToShow); }
+        return null;
     }
 
     function getTitle(id) {
-        return $translate.use() === "et" ? id.title_et : id.title_en;
+        if (id != null) { return $translate.use() === "et" ? id.title_et : id.title_en; }
+        return null;
     }
 
     function getText(id) {
-        return $translate.use() === "et" ? id.text_et : id.text_en;
+        if (id != null) { return $translate.use() === "et" ? id.text_et : id.text_en; }
+        return null;
     }
 
     function getContent(webpage) {
-        if (webpage != null) {
-            return $translate.use() === "et" ? webpage.content_et : webpage.content_en;
-        }
+        if (webpage != null) { return $translate.use() === "et" ? webpage.content_et : webpage.content_en; }
         return null;
     }
 
