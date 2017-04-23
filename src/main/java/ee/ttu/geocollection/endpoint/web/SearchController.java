@@ -91,7 +91,6 @@ public class SearchController extends ControllerHelper {
 
     @RequestMapping(value = "/specimen", method = RequestMethod.POST)
     public ApiResponse searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) {
-        indexService.searchInIndex();
         ApiResponse specimens = specimenApiService.findSpecimen(specimenSearchCriteria);
         if (specimens.getResult() != null) {
             asynchService.doAsynchCallsForEachResult(

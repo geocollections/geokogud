@@ -51,7 +51,7 @@ public class SpecimenIndexServiceImpl implements IndexService<SpecimenSearchCrit
     }
 
     @Override
-    public Document buildDocument(Map entry) {
+    public Document buildDocument(Map<String, Object> entry) {
         Long idLong = Long.valueOf(entry.get(ID).toString());
 
         Document document = DocumentBuilder.aDocument()
