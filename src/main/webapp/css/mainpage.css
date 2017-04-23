@@ -9,11 +9,11 @@ footer {
 
 #contact, #about{
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 0px;
 }
 #sectionSearch {
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 0px;
  }
 #additional {
     padding-top: 0px;
@@ -40,6 +40,7 @@ footer {
 .news-button {
     color: #ee4b28;
     border: 1px solid #ed431f;
+    background-color: #FFFFFF;
     padding: 10px;
     border-radius: 9px;
     margin-right: 15px;
