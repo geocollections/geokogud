@@ -344,6 +344,7 @@
             "TRANSECT": "Transekt",
             "SOIL_NAME": "Mulla nimetus",
             "LAND_USE": "Maakasutus",
+            "DEEP_MINING": "Kas on sügavkaev?",
             "TABLE": {
                 "SITE": "Mullakoht",
                 "AREA_OF_STUDY": "Uuringuala",

@@ -344,6 +344,7 @@
             "TRANSECT": "Transect",
             "SOIL_NAME": "Soil name",
             "LAND_USE": "Land use",
+            "DEEP_MINING": "Is deep mining",
             "TABLE": {
                 "SITE": "Site",
                 "AREA_OF_STUDY": "Area of study",

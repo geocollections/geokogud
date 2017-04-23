@@ -53,7 +53,7 @@
                                                        ng-model="searchParameters.site.lookUpType"></selectdefault>
                                     </div>
                                     <div class="col-md-12 medium-padding">
-                                        <autocomplete-field ng-model="searchParameters.site.name" table="soil" en="site_en" et="site"/>
+                                        <autocomplete-field ng-model="searchParameters.site.name" table="soil_site" en="site_en" et="site"/>
                                     </div>
                                 </div>
                                 <div class="row searchCriterion">
@@ -63,7 +63,7 @@
                                                        ng-model="searchParameters.areaOfStudy.lookUpType"></selectdefault>
                                     </div>
                                     <div class="col-md-12 medium-padding">
-                                        <autocomplete-field ng-model="searchParameters.areaOfStudy.name" table="soil" en="null" et="area_name"/>
+                                        <autocomplete-field ng-model="searchParameters.areaOfStudy.name" table="soil_site" en="null" et="area_name"/>
                                     </div>
                                 </div>
                                 <div class="row searchCriterion">
@@ -72,7 +72,7 @@
                                         <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.transect.lookUpType"></selectdefault>
                                     </div>
                                     <div class="col-md-12 medium-padding">
-                                        <autocomplete-field ng-model="searchParameters.transect.name" table="soil" en="null" et="transect"/>
+                                        <input type="text" ng-model="searchParameters.transect.name" class="form-control"/>
                                     </div>
                                 </div>
                                 <div class="row searchCriterion">
@@ -81,7 +81,7 @@
                                         <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.soilName.lookUpType"></selectdefault>
                                     </div>
                                     <div class="col-md-12 medium-padding">
-                                        <autocomplete-field ng-model="searchParameters.soil.name" table="soil" en="null" et="soil"/>
+                                        <autocomplete-field ng-model="searchParameters.soilName.name" table="soil_site" en="null" et="soil"/>
                                     </div>
                                 </div>
                                 <div class="row searchCriterion">
@@ -90,7 +90,7 @@
                                         <selectdefault custom-css="searchCriterionType" ng-model="searchParameters.landUse.lookUpType"></selectdefault>
                                     </div>
                                     <div class="col-md-12 medium-padding">
-                                        <autocomplete-field ng-model="searchParameters.landUse.name" table="soil" en="null" et="land_use"/>
+                                        <autocomplete-field ng-model="searchParameters.landUse.name" table="soil_site" en="null" et="land_use"/>
                                     </div>
                                 </div>
                                 <div class="row searchCriterion">
