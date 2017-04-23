@@ -6,13 +6,16 @@ import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.RAMDirectory;
+import org.apache.lucene.store.NIOFSDirectory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.Profile;
 
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static ee.ttu.geocollection.EnvironmentConstants.PRODUCTION;
 
@@ -20,9 +23,12 @@ import static ee.ttu.geocollection.EnvironmentConstants.PRODUCTION;
 @Profile(PRODUCTION)
 public class IndexConfig {
 
+    @Value("${indexPath}")
+    private String indexPath;
+
     @Bean
     public Directory sampleDirectory() {
-        return new RAMDirectory();
+        return createDiskIndexDirectory("sample");
     }
 
     @Bean
@@ -38,7 +44,7 @@ public class IndexConfig {
 
     @Bean
     public Directory specimenDirectory() {
-        return new RAMDirectory();
+        return createDiskIndexDirectory("specimen");
     }
 
     @Bean
@@ -54,7 +60,7 @@ public class IndexConfig {
 
     @Bean
     public Directory localityDirectory() {
-        return new RAMDirectory();
+        return createDiskIndexDirectory("locality");
     }
 
     @Bean
@@ -70,7 +76,7 @@ public class IndexConfig {
 
     @Bean
     public Directory imageDirectory() {
-        return new RAMDirectory();
+        return createDiskIndexDirectory("image");
     }
 
     @Bean
@@ -86,7 +92,7 @@ public class IndexConfig {
 
     @Bean
     public Directory taxonDirectory() {
-        return new RAMDirectory();
+        return createDiskIndexDirectory("taxon");
     }
 
     @Bean
@@ -102,7 +108,7 @@ public class IndexConfig {
 
     @Bean
     public Directory referenceDirectory() {
-        return new RAMDirectory();
+        return createDiskIndexDirectory("reference");
     }
 
     @Bean
@@ -118,7 +124,7 @@ public class IndexConfig {
 
     @Bean
     public Directory stratigraphyDirectory() {
-        return new RAMDirectory();
+        return createDiskIndexDirectory("stratigraphy");
     }
 
     @Bean
@@ -130,6 +136,15 @@ public class IndexConfig {
     @DependsOn("stratigraphyDirectoryWriter")
     public DirectoryReader stratigraphyDirectoryReader(Directory stratigraphyDirectory) {
         return openReader(stratigraphyDirectory);
+    }
+
+    private Directory createDiskIndexDirectory(String indexFolder) {
+        try {
+            Path path = Paths.get(indexPath + "/" + indexFolder);
+            return new NIOFSDirectory(path);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private IndexWriter createWriter(Directory directory) {
