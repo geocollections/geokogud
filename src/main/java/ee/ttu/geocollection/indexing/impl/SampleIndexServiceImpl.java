@@ -13,15 +13,18 @@ import org.apache.lucene.document.*;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexWriter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Map;
 
+import static ee.ttu.geocollection.EnvironmentConstants.PRODUCTION;
 import static ee.ttu.geocollection.indexing.GlobalSearchConstants.ID_LONG;
 import static ee.ttu.geocollection.interop.api.builder.ApiFields.*;
 
 @Service
+@Profile(PRODUCTION)
 public class SampleIndexServiceImpl implements IndexService<SampleSearchCriteria> {
     @Autowired
     private DirectoryReader sampleDirectoryReader;

@@ -5,17 +5,14 @@ import ee.ttu.geocollection.interop.api.PageableSearchCriteria;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.IndexWriter;
-import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.Async;
 
 import java.util.Collection;
 import java.util.Map;
 import java.util.function.Function;
 
-import static ee.ttu.geocollection.EnvironmentConstants.PRODUCTION;
 import static java.util.stream.Collectors.toList;
 
-@Profile(PRODUCTION)
 public interface IndexService<T extends PageableSearchCriteria> {
     @Async(value = "asyncThreadPoolExecutor")
     void createIndex();
