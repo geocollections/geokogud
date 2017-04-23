@@ -7,13 +7,13 @@ footer {
     padding-bottom: 20px;
 }
 
-#contact, #about{
+#contact, #sectionSearch{
     padding-top: 50px;
     padding-bottom: 0px;
 }
-#sectionSearch {
+#about {
     padding-top: 50px;
-    padding-bottom: 0px;
+    padding-bottom: 50px;
  }
 #additional {
     padding-top: 0px;
