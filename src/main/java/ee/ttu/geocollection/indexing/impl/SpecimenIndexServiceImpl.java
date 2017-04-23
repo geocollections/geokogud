@@ -25,7 +25,6 @@ import static ee.ttu.geocollection.interop.api.builder.ApiFields.*;
 @Service
 @Profile(PRODUCTION)
 public class SpecimenIndexServiceImpl implements IndexService<SpecimenSearchCriteria> {
-
     @Autowired
     private DirectoryReader specimenDirectoryReader;
     @Autowired
