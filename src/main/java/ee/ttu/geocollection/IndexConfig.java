@@ -17,10 +17,10 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static ee.ttu.geocollection.EnvironmentConstants.PRODUCTION;
+import static ee.ttu.geocollection.ProfileConstants.INDEXING_ENABLED;
 
 @Configuration
-@Profile(PRODUCTION)
+@Profile(INDEXING_ENABLED)
 public class IndexConfig {
 
     @Value("${indexPath}")

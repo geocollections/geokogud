@@ -45,5 +45,5 @@ public interface IndexService<T extends PageableSearchCriteria> {
 
     Document buildDocument(Map<String, Object> entry);
 
-    Collection<Document> searchInIndex();
+    Collection<Document> searchInIndex(String value);
 }

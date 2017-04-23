@@ -41,7 +41,7 @@ public class ApiServiceImpl implements ApiService {
             headers.set("Trace-UUID", requestId);
         }
         HttpEntity<String> request = new HttpEntity<String>(headers);
-        System.err.println(url);
+        logger.trace(url);
         HttpEntity<Map> response = restTemplate.exchange(url, HttpMethod.GET, request, Map.class);
         return response.getBody();
     }
@@ -78,7 +78,7 @@ public class ApiServiceImpl implements ApiService {
                 + "&format=json&fields=" + searchField + "&multi_search=value:"+term+";fields:"+searchField+";lookuptype:icontains"
                 + "&group_by="+searchField;
 
-        System.err.println(url);
+        logger.trace(url);
         HttpHeaders headers = new HttpHeaders();
         String requestId = MDC.get("REQUEST_UUID");
         if (requestId != null) {

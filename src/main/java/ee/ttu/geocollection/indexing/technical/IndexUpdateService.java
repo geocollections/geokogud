@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static ee.ttu.geocollection.EnvironmentConstants.PRODUCTION;
+import static ee.ttu.geocollection.ProfileConstants.INDEXING_ENABLED;
 
 @Service
-@Profile(PRODUCTION)
+@Profile(INDEXING_ENABLED)
 public class IndexUpdateService {
     @Autowired
     private List<IndexService> indexServices;

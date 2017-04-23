@@ -19,12 +19,12 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 import java.util.Map;
 
-import static ee.ttu.geocollection.EnvironmentConstants.PRODUCTION;
+import static ee.ttu.geocollection.ProfileConstants.INDEXING_ENABLED;
 import static ee.ttu.geocollection.indexing.GlobalSearchConstants.ID_LONG;
 import static ee.ttu.geocollection.interop.api.builder.ApiFields.*;
 
 @Service
-@Profile(PRODUCTION)
+@Profile(INDEXING_ENABLED)
 public class SampleIndexServiceImpl implements IndexService<SampleSearchCriteria> {
     @Autowired
     private DirectoryReader sampleDirectoryReader;
@@ -47,7 +47,6 @@ public class SampleIndexServiceImpl implements IndexService<SampleSearchCriteria
                 (searchCriteria) -> samplesApiService.findSampleForIndex(searchCriteria));
     }
 
-
     @Override
     public Document buildDocument(Map<String, Object> entry) {
         Long idLong = Long.valueOf(entry.get(ID).toString());
@@ -58,6 +57,7 @@ public class SampleIndexServiceImpl implements IndexService<SampleSearchCriteria
                 .withField(NUMBER, StringField.TYPE_NOT_STORED)
                 .withField(NUMBER_ADDITIONAL, StringField.TYPE_NOT_STORED)
                 .withField(LOCALITY_LOCALITY, TextField.TYPE_NOT_STORED)
+                .withField(LOCALITY_LOCALITY_EN, TextField.TYPE_NOT_STORED)
                 .withField(DATE_CHANGED, StoredField.TYPE)
                 .build();
         document.add(new LongPoint(ID_LONG, idLong));
@@ -66,13 +66,13 @@ public class SampleIndexServiceImpl implements IndexService<SampleSearchCriteria
     }
 
     @Override
-    public Collection<Document> searchInIndex() {
+    public Collection<Document> searchInIndex(String value) {
         Collection<Document> documents = technicalIndexService.searchInIndex(
                 QueryParameters.params()
-                        .queryValue("puurauk".toLowerCase())
+                        .queryValue(value.toLowerCase())
                         .appendParameter(ID, DataType.NUMERIC)
                         .appendParameter(NUMBER, DataType.STRING)
-                        .appendParameter(NUMBER_FIELD, DataType.STRING)
+                        .appendParameter(NUMBER_ADDITIONAL, DataType.STRING)
                         .appendParameter(LOCALITY_LOCALITY, DataType.TEXT)
                         .appendParameter(LOCALITY_LOCALITY_EN, DataType.TEXT),
                 sampleDirectoryReader);
