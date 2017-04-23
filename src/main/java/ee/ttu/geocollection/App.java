@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -20,6 +19,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
@@ -28,6 +28,7 @@ import java.net.Socket;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.Locale;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Configuration
@@ -35,7 +36,7 @@ import java.util.concurrent.Executors;
         "ee.ttu.geocollection"
 })
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
-@EntityScan(basePackages = {"ee.ttu.geocollection"})
+@EnableScheduling
 public class App extends SpringBootServletInitializer {
     private static final Logger logger = LoggerFactory.getLogger(App.class);
 
@@ -102,11 +103,16 @@ public class App extends SpringBootServletInitializer {
 
     @Bean
     public AsyncEventBus asyncEventBus() {
-        return new AsyncEventBus("asyncDefault", Executors.newFixedThreadPool(2));
+        return new AsyncEventBus("asyncDefault", threadPoolExecutor());
     }
 
     @Bean
     public Directory sampleDirectory() {
         return new RAMDirectory();
+    }
+
+    @Bean
+    public ExecutorService threadPoolExecutor() {
+        return Executors.newFixedThreadPool(2);
     }
 }

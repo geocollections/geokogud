@@ -1,10 +1,13 @@
 package ee.ttu.geocollection.interop.api.global;
 
+import com.google.common.base.Preconditions;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class QueryParameters {
     private Collection<QueryParam> fieldValuePairs = new ArrayList<>();
+    private String queryValue;
 
     private QueryParameters() {
     }
@@ -13,8 +16,14 @@ public class QueryParameters {
         return new QueryParameters();
     }
 
-    public QueryParameters appendParameter(String field, String value, DataType dataType) {
-        fieldValuePairs.add(new QueryParam(field, value, dataType));
+    public QueryParameters queryValue(String queryValue) {
+        this.queryValue = queryValue;
+        return this;
+    }
+
+    public QueryParameters appendParameter(String field, DataType dataType) {
+        Preconditions.checkNotNull(queryValue);
+        fieldValuePairs.add(new QueryParam(field, queryValue, dataType));
         return this;
     }
 
