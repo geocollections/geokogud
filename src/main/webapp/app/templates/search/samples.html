@@ -1,4 +1,4 @@
-<header ng-include="'app/templates/main/partial/search.header.html'"></header>
+<header ng-include="'app/templates/main/partial/header.html'"></header>
 <section id="sectionSearch">
     <div id="searches" ng-include="'app/templates/main/partial/search.html'"></div>
     <div class="container-fluid" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
@@ -24,6 +24,7 @@
                     </div>
                 </div>
                 <form ng-enter="search()">
+                    <div class="visible-sm" ng-include="'app/templates/search/partial/button.search.html'"></div>
                     <div class="row">
                         <div class="panel-heading searchGroupHeading"
                              ng-click="isIdentifierFieldsCollapsed = !isIdentifierFieldsCollapsed">
@@ -202,7 +203,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div ng-include="'app/templates/search/partial/institution.search.criteria.html'"></div>
                     <div ng-include="'app/templates/search/partial/button.search.html'"></div>
                 </form>
