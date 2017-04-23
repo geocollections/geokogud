@@ -1,6 +1,6 @@
-package ee.ttu.geocollection.interop.api.global.impl;
+package ee.ttu.geocollection.indexing.impl;
 
-import ee.ttu.geocollection.interop.api.global.GlobalSearchApiService;
+import ee.ttu.geocollection.indexing.GlobalSearchApiService;
 import ee.ttu.geocollection.interop.api.specimen.service.SpecimenApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

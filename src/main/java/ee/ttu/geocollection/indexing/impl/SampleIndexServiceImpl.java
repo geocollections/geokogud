@@ -1,12 +1,12 @@
-package ee.ttu.geocollection.interop.api.global.impl;
+package ee.ttu.geocollection.indexing.impl;
 
 import ee.ttu.geocollection.domain.SortField;
 import ee.ttu.geocollection.domain.SortingOrder;
-import ee.ttu.geocollection.interop.api.global.IndexService;
-import ee.ttu.geocollection.interop.api.global.domain.DataType;
-import ee.ttu.geocollection.interop.api.global.domain.DocumentBuilder;
-import ee.ttu.geocollection.interop.api.global.domain.QueryParameters;
-import ee.ttu.geocollection.interop.api.global.technical.TechnicalIndexService;
+import ee.ttu.geocollection.indexing.IndexService;
+import ee.ttu.geocollection.indexing.domain.DataType;
+import ee.ttu.geocollection.indexing.domain.DocumentBuilder;
+import ee.ttu.geocollection.indexing.domain.QueryParameters;
+import ee.ttu.geocollection.indexing.technical.TechnicalIndexService;
 import ee.ttu.geocollection.interop.api.samples.pojo.SampleSearchCriteria;
 import ee.ttu.geocollection.interop.api.samples.service.SamplesApiService;
 import org.apache.lucene.document.*;
@@ -18,8 +18,8 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 import java.util.Map;
 
+import static ee.ttu.geocollection.indexing.GlobalSearchConstants.ID_LONG;
 import static ee.ttu.geocollection.interop.api.builder.ApiFields.*;
-import static ee.ttu.geocollection.interop.api.global.GlobalSearchConstants.ID_LONG;
 
 @Service
 public class SampleIndexServiceImpl implements IndexService<SampleSearchCriteria> {

@@ -3,6 +3,8 @@ package ee.ttu.geocollection.endpoint.web;
 import ee.ttu.geocollection.core.utils.ControllerHelper;
 import ee.ttu.geocollection.domain.LookUpType;
 import ee.ttu.geocollection.domain.SearchField;
+import ee.ttu.geocollection.indexing.GlobalSearchApiService;
+import ee.ttu.geocollection.indexing.IndexService;
 import ee.ttu.geocollection.interop.api.AsynchService;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.analyses.pojo.AnalysesSearchCriteria;
@@ -11,8 +13,6 @@ import ee.ttu.geocollection.interop.api.doi.pojo.DoiSearchCriteria;
 import ee.ttu.geocollection.interop.api.doi.service.DoiApiService;
 import ee.ttu.geocollection.interop.api.drillCores.pojo.DrillCoreSearchCriteria;
 import ee.ttu.geocollection.interop.api.drillCores.service.DrillCoreApiService;
-import ee.ttu.geocollection.interop.api.global.GlobalSearchApiService;
-import ee.ttu.geocollection.interop.api.global.IndexService;
 import ee.ttu.geocollection.interop.api.localities.pojo.LocalitySearchCriteria;
 import ee.ttu.geocollection.interop.api.localities.service.LocalitiesApiService;
 import ee.ttu.geocollection.interop.api.photoArchive.pojo.PhotoArchiveSearchCriteria;
@@ -91,6 +91,7 @@ public class SearchController extends ControllerHelper {
 
     @RequestMapping(value = "/specimen", method = RequestMethod.POST)
     public ApiResponse searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) {
+        indexService.searchInIndex();
         ApiResponse specimens = specimenApiService.findSpecimen(specimenSearchCriteria);
         if (specimens.getResult() != null) {
             asynchService.doAsynchCallsForEachResult(

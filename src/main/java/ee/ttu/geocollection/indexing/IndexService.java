@@ -1,8 +1,8 @@
-package ee.ttu.geocollection.interop.api.global;
+package ee.ttu.geocollection.indexing;
 
+import ee.ttu.geocollection.indexing.technical.TechnicalIndexService;
 import ee.ttu.geocollection.interop.api.PageableSearchCriteria;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
-import ee.ttu.geocollection.interop.api.global.technical.TechnicalIndexService;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.IndexWriter;
 import org.springframework.scheduling.annotation.Async;

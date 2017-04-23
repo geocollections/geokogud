@@ -1,4 +1,4 @@
-package ee.ttu.geocollection.interop.api.global.domain;
+package ee.ttu.geocollection.indexing.domain;
 
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.tuple.ImmutablePair;

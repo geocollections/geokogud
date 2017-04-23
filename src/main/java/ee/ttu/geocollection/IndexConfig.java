@@ -10,10 +10,14 @@ import org.apache.lucene.store.RAMDirectory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
+import org.springframework.context.annotation.Profile;
 
 import java.io.IOException;
 
+import static ee.ttu.geocollection.EnvironmentConstants.PRODUCTION;
+
 @Configuration
+@Profile(PRODUCTION)
 public class IndexConfig {
 
     @Bean

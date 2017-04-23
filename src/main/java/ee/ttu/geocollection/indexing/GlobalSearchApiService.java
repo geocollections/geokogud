@@ -1,4 +1,4 @@
-package ee.ttu.geocollection.interop.api.global;
+package ee.ttu.geocollection.indexing;
 
 import java.util.Map;
 
