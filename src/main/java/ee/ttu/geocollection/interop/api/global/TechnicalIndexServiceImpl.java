@@ -1,6 +1,8 @@
 package ee.ttu.geocollection.interop.api.global;
 
 import com.google.common.base.Preconditions;
+import ee.ttu.geocollection.interop.api.global.domain.QueryParam;
+import ee.ttu.geocollection.interop.api.global.domain.QueryParameters;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;

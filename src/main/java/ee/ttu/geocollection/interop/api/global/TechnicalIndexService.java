@@ -1,5 +1,6 @@
 package ee.ttu.geocollection.interop.api.global;
 
+import ee.ttu.geocollection.interop.api.global.domain.QueryParameters;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.store.Directory;

@@ -1,5 +1,6 @@
-package ee.ttu.geocollection.interop.api.global;
+package ee.ttu.geocollection.interop.api.global.domain;
 
+import ee.ttu.geocollection.interop.api.global.DataType;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
 

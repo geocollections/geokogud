@@ -6,8 +6,9 @@ import ee.ttu.geocollection.domain.SortField;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.global.DataType;
 import ee.ttu.geocollection.interop.api.global.IndexService;
-import ee.ttu.geocollection.interop.api.global.QueryParameters;
 import ee.ttu.geocollection.interop.api.global.TechnicalIndexService;
+import ee.ttu.geocollection.interop.api.global.domain.DocumentBuilder;
+import ee.ttu.geocollection.interop.api.global.domain.QueryParameters;
 import ee.ttu.geocollection.interop.api.samples.pojo.SampleSearchCriteria;
 import ee.ttu.geocollection.interop.api.samples.service.SamplesApiService;
 import org.apache.lucene.document.*;
@@ -23,7 +24,7 @@ import static java.util.stream.Collectors.toList;
 
 @Service
 public class SampleIndexServiceImpl implements IndexService {
-    public static final String ID_STRING = "idString";
+    private static final String ID_LONG = "idLong";
 
     @Autowired
     private Directory sampleDirectory;
@@ -40,42 +41,25 @@ public class SampleIndexServiceImpl implements IndexService {
 
         ApiResponse samples = samplesApiService.findSample(sampleSearchCriteria);
 
-        technicalIndexService.createIndex(samples.getResult().stream().map(this::buildDocument).collect(toList()), sampleDirectory);
+        technicalIndexService.createIndex(
+                samples.getResult().stream().map(this::buildDocument).collect(toList()),
+                sampleDirectory);
     }
-
 
     @Override
     public Document buildDocument(Map<String, Object> entry) {
-        Document document = new Document();
         Long idLong = Long.valueOf(entry.get(ID).toString());
 
-        LongPoint id = new LongPoint(ID, idLong);
-        document.add(id);
+        Document document = DocumentBuilder.aDocument()
+                .targetEntry(entry)
+                .withField(ID, StringField.TYPE_STORED)
+                .withField(NUMBER, StringField.TYPE_NOT_STORED)
+                .withField(NUMBER_ADDITIONAL, StringField.TYPE_NOT_STORED)
+                .withField(LOCALITY_LOCALITY, TextField.TYPE_NOT_STORED)
+                .withField(DATE_CHANGED, StoredField.TYPE)
+                .build();
+        document.add(new LongPoint(ID_LONG, idLong));
 
-        Object dateChanged = entry.get(DATE_CHANGED);
-        if (dateChanged != null) {
-            StoredField dateChangedStored = new StoredField(DATE_CHANGED, dateChanged.toString());
-            document.add(dateChangedStored);
-        }
-
-        //i am forced to use here stringfield because there might be special characters in the number: M-14 and textfield cannot handle them
-        StringField number = new StringField(NUMBER, ((String) entry.get(NUMBER)).toLowerCase(), Field.Store.NO);
-        document.add(number);
-
-        String numberAdditional = (String) entry.get(NUMBER_ADDITIONAL);
-        if (numberAdditional != null) {
-            StringField numberAdditionalField = new StringField(NUMBER_ADDITIONAL, numberAdditional.toLowerCase(), Field.Store.NO);
-            document.add(numberAdditionalField);
-        }
-
-        String locality = (String) entry.get(LOCALITY_LOCALITY);
-        if (locality != null) {
-            TextField localityField = new TextField(LOCALITY_LOCALITY, locality, Field.Store.NO);
-            document.add(localityField);
-        }
-
-        StringField idField = new StringField(ID_STRING, idLong.toString(), Field.Store.YES);
-        document.add(idField);
         return document;
     }
 
@@ -83,14 +67,13 @@ public class SampleIndexServiceImpl implements IndexService {
     public Collection<Document> searchInIndex() {
         Collection<Document> documents = technicalIndexService.searchInIndex(
                 QueryParameters.params()
-                        .queryValue("-14")
-                        .appendParameter(ID_STRING, DataType.NUMERIC)
+                        .queryValue("puurauk")
+                        .appendParameter(ID, DataType.NUMERIC)
                         .appendParameter(NUMBER, DataType.STRING)
                         .appendParameter(NUMBER_FIELD, DataType.STRING)
                         .appendParameter(LOCALITY_LOCALITY, DataType.TEXT)
                         .appendParameter(LOCALITY_LOCALITY_EN, DataType.TEXT),
                 sampleDirectory);
-
         return documents;
     }
 }
