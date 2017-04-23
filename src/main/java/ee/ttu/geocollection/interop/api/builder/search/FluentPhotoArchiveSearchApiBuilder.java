@@ -20,8 +20,8 @@ public class FluentPhotoArchiveSearchApiBuilder extends FluentSearchApiBuilder<F
         return this;
     }
 
-    public FluentPhotoArchiveSearchApiBuilder queryDateTaken(SearchField id) {
-        buildMultiSearch(id, DATE_TAKEN, DATE_TAKEN_FREE);
+    public FluentPhotoArchiveSearchApiBuilder queryDateTaken(SearchField dateTaken) {
+        buildFieldParameters(DATE_TAKEN, dateTaken);
         return this;
     }
 

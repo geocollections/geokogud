@@ -135,6 +135,7 @@
     },
     "soil" : {
       "locality" : {"id" : "", "country" : "locality__country__value_en", "lat" : "latitude", "lon" : "longitude", "value_et" : "area_name", "value_en" : ""},
+      "date" : [],
       "ignoreFields" : []
     },
     "doi" : {

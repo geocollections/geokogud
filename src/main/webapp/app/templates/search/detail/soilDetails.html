@@ -2,7 +2,7 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-3">
-                <label>PROOV #{{sample.number}}</label>
+                <label>Mullakaeve: <localize et="detailCtrl.results['site']" en="detailCtrl.results['site_en']"/> (ID: {{detailCtrl.results['id']}})</label>
             </div>
         </div>
         <div class="row">
@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="panel-body">
-        <div class="row">
+        <div class="row" data-ng-if="detailCtrl.soilHorizon.length > 0">
             <label>Horizons</label>
             <table class="table table-bordered table-hover">
                 <thead>
@@ -73,7 +73,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="row">
+        <div class="row" data-ng-if="detailCtrl.samples.length > 0">
             <label>Samples</label>
             <table class="table table-bordered table-hover">
                 <thead>
