@@ -23,11 +23,10 @@ angular.module('geoApp').directive('intervalField', function () {
             name:'@'
         },
         controller: ['$scope', function ($scope) {
-            $scope.field = {lookUpType : 'exact'};
-            $scope.checked = function() {
-                console.log($scope.field)
-            }
-
+            $scope.$watch('field.name', function(newValue){
+                if(!newValue) $scope.field = {lookUpType : 'exact', name:null};
+                else $scope.field = {lookUpType : 'exact', name:newValue};
+            });
         }]
     };
 });
