@@ -26,7 +26,14 @@ angular.module('geoApp').directive('loading', function () {
             });
         }
     };
-}]).directive('ngClick', function ($timeout) {
+}]).directive('myInclude', function() {
+    return {
+        restrict: 'AE',
+        templateUrl: function(ele, attrs) {
+            return attrs.templatePath;
+        }
+    };
+}).directive('ngClick', function ($timeout) {
 
     /**
      * Overriding angular ng-click due to double click issue:

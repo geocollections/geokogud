@@ -3,7 +3,7 @@ package ee.ttu.geocollection.endpoint.web;
 import ee.ttu.geocollection.core.utils.ControllerHelper;
 import ee.ttu.geocollection.domain.LookUpType;
 import ee.ttu.geocollection.domain.SearchField;
-import ee.ttu.geocollection.indexing.GlobalSearchApiService;
+import ee.ttu.geocollection.indexing.GlobalSearchService;
 import ee.ttu.geocollection.interop.api.AsynchService;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.analyses.pojo.AnalysesSearchCriteria;
@@ -34,6 +34,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -69,11 +70,11 @@ public class SearchController extends ControllerHelper {
     @Autowired
     private ApiService apiService;
     @Autowired
-    private GlobalSearchApiService globalSearchApiService;
+    private GlobalSearchService globalSearchService;
 
     @RequestMapping(value = "/global/{query}")
-    public Map<String, Object> searchGlobally(@PathVariable String query) {
-        return globalSearchApiService.searchGlobally(query);
+    public List searchGlobally(@PathVariable String query) {
+        return globalSearchService.searchGlobally(query);
     }
 
     @RequestMapping(value = "/autocomplete-field", method = RequestMethod.GET)

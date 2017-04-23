@@ -7,7 +7,7 @@ import org.apache.lucene.document.Document;
 import org.apache.lucene.index.IndexWriter;
 import org.springframework.scheduling.annotation.Async;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
@@ -33,7 +33,7 @@ public interface IndexService<T extends PageableSearchCriteria> {
                 lastPage = samplesForIndex.extractLastPageNumber();
             }
             try {
-                Thread.sleep(500L);
+                Thread.sleep(1000L);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -45,5 +45,5 @@ public interface IndexService<T extends PageableSearchCriteria> {
 
     Document buildDocument(Map<String, Object> entry);
 
-    Collection<Document> searchInIndex(String value);
+    List<Map> searchInIndex(String value);
 }

@@ -55,11 +55,16 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     public Map findRawById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
-                .relatedData("analysis")
-                .relatedData("analysis_results")
-                .relatedData("preparation")
-                .relatedData("taxon_list")
-                .buildWithDefaultReturningFields();
+                .returnId()
+                .returnLocality()
+                .returnLocalityEn()
+                .returnNumber()
+                .returnNumberAdditional()
+//                .relatedData("analysis")
+//                .relatedData("analysis_results")
+//                .relatedData("preparation")
+//                .relatedData("taxon_list")
+                .buildWithReturningFields();
         return apiService.findRawEntity("sample", requestParams);
     }
 

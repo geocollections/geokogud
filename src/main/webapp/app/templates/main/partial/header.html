@@ -77,9 +77,9 @@
         <form class="navbar-form" role="search" ng-show="!main.isDetailForm()">
             <div class="input-group input-group-lg">
                 <input type="text" class="form-control input-lg"
-                       placeholder="{{ 'INDEX.SEARCH_FIELD_TEXT' | translate }}">
+                       placeholder="{{ 'INDEX.SEARCH_FIELD_TEXT' | translate }}" ng-model="$parent.globalQuery">
                 <div class="input-group-btn">
-                    <button type="button" class="btn btn-primary btn-lg">
+                    <button class="btn btn-primary btn-lg" type="submit" data-ng-click="main.searchGlobally()">
                         <i class="fa fa-search sr-icons" aria-hidden="true"></i>
                     </button>
                 </div>

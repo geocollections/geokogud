@@ -13,19 +13,18 @@ import org.apache.lucene.document.*;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexWriter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
-import static ee.ttu.geocollection.ProfileConstants.INDEXING_ENABLED;
 import static ee.ttu.geocollection.indexing.GlobalSearchConstants.ID_LONG;
 import static ee.ttu.geocollection.interop.api.builder.ApiFields.*;
+import static java.util.stream.Collectors.toList;
 
 @Service
-@Profile(INDEXING_ENABLED)
 public class SpecimenIndexServiceImpl implements IndexService<SpecimenSearchCriteria> {
     @Autowired
     private DirectoryReader specimenDirectoryReader;
@@ -50,7 +49,7 @@ public class SpecimenIndexServiceImpl implements IndexService<SpecimenSearchCrit
     }
 
     @Override
-    public Collection<Document> searchInIndex(String value) {
+    public List<Map> searchInIndex(String value) {
         Collection<Document> documents = technicalIndexService.searchInIndex(
                 QueryParameters.params()
                         .queryValue(value.toLowerCase())
@@ -62,7 +61,10 @@ public class SpecimenIndexServiceImpl implements IndexService<SpecimenSearchCrit
                         .appendParameter(SPECIMENIDENTIFICATION__NAME, DataType.TEXT)
                         .appendParameter(SPECIMENIDENTIFICATION__TAXON__TAXON, DataType.TEXT),
                 specimenDirectoryReader);
-        return documents;
+        return documents.stream()
+                .map(document -> document.get(ID))
+                .map(id -> specimenApiService.findRawById(Long.valueOf(id)))
+                .collect(toList());
     }
 
     @Override

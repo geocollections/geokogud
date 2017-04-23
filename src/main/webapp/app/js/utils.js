@@ -96,4 +96,10 @@ module.factory("SearchFactory", ['$http', 'configuration', function($http, confi
         });
     };
     return { getData: getData };
+}]).factory("GlobalSearchFactory", ['$http',function($http){
+    return {
+        searchGlobally: function(query, successfulCallback) {
+            return $http.get('/search/global/'+query).then(successfulCallback);
+        }
+    };
 }]);
