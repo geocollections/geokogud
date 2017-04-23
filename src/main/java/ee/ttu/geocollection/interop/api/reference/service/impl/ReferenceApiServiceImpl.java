@@ -1,6 +1,5 @@
 package ee.ttu.geocollection.interop.api.reference.service.impl;
 
-import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentReferenceSearchApiBuilder;
@@ -18,7 +17,7 @@ public class ReferenceApiServiceImpl implements ReferenceApiService {
     private ApiService apiService;
 
     @Override
-    public ApiResponse findReference(ReferenceSearchCriteria searchCriteria) throws AppException {
+    public ApiResponse findReference(ReferenceSearchCriteria searchCriteria)  {
         String requestParams = FluentReferenceSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId()).andReturn()
                 .queryAuthor(searchCriteria.getAuthor()).andReturn()

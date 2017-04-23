@@ -2,8 +2,6 @@ package ee.ttu.geocollection;
 
 import com.google.common.eventbus.AsyncEventBus;
 import com.google.common.eventbus.EventBus;
-import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.RAMDirectory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.Banner;
@@ -18,7 +16,9 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
@@ -37,6 +37,8 @@ import java.util.concurrent.Executors;
 })
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 @EnableScheduling
+@EnableAsync
+@Import(value = IndexConfig.class)
 public class App extends SpringBootServletInitializer {
     private static final Logger logger = LoggerFactory.getLogger(App.class);
 
@@ -103,16 +105,11 @@ public class App extends SpringBootServletInitializer {
 
     @Bean
     public AsyncEventBus asyncEventBus() {
-        return new AsyncEventBus("asyncDefault", threadPoolExecutor());
+        return new AsyncEventBus("asyncDefault", asyncThreadPoolExecutor());
     }
 
     @Bean
-    public Directory sampleDirectory() {
-        return new RAMDirectory();
-    }
-
-    @Bean
-    public ExecutorService threadPoolExecutor() {
-        return Executors.newFixedThreadPool(2);
+    public ExecutorService asyncThreadPoolExecutor() {
+        return Executors.newFixedThreadPool(15);
     }
 }

@@ -1,7 +1,6 @@
 package ee.ttu.geocollection.endpoint.web;
 
 
-import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.analyses.search.AnalysesApiService;
 import ee.ttu.geocollection.interop.api.doi.service.DoiApiService;
 import ee.ttu.geocollection.interop.api.drillCores.service.DrillCoreApiService;
@@ -57,7 +56,7 @@ public class DetailsController {
     }
 
     @RequestMapping(value = "/raw-sample/{id}")
-    public Map findRawSampleById(@PathVariable Long id) throws AppException{
+    public Map findRawSampleById(@PathVariable Long id) {
         return samplesApiService.findRawById(id);
     }
 
@@ -95,7 +94,7 @@ public class DetailsController {
         return photoArchiveApiService.findRawById(id);
     }
     @RequestMapping(value = "/raw-soil/{id}")
-    public Map findRawSoilById(@PathVariable Long id) throws AppException {
+    public Map findRawSoilById(@PathVariable Long id)  {
         return soilApiService.findRawById(id);
     }
     @RequestMapping(value = "/raw-doi/{id}")

@@ -2,10 +2,11 @@ package ee.ttu.geocollection.interop.api.specimen.pojo;
 
 import ee.ttu.geocollection.domain.SearchField;
 import ee.ttu.geocollection.domain.SortField;
+import ee.ttu.geocollection.interop.api.PageableSearchCriteria;
 
 import java.util.List;
 
-public class SpecimenSearchCriteria {
+public class SpecimenSearchCriteria implements PageableSearchCriteria{
     private int page = 1;
     private SortField sortField;
 
@@ -199,10 +200,11 @@ public class SpecimenSearchCriteria {
         this.regDateEnd = regDateEnd;
     }
 
+    @Override
     public int getPage() {
         return page;
     }
-
+    @Override
     public void setPage(int page) {
         this.page = page;
     }

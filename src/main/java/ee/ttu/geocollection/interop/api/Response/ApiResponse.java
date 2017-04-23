@@ -38,4 +38,12 @@ public class ApiResponse {
     public void setResult(List<Map<String, Object>> result) {
         this.result = result;
     }
+
+    public int extractCurrentPageNumber() {
+        return Integer.parseInt(pageInfo.split(" ")[1]);
+    }
+
+    public int extractLastPageNumber() {
+        return Integer.parseInt(pageInfo.split(" ")[3]);
+    }
 }

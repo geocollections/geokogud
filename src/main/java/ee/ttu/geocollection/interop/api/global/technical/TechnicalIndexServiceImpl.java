@@ -1,17 +1,19 @@
-package ee.ttu.geocollection.interop.api.global;
+package ee.ttu.geocollection.interop.api.global.technical;
 
 import com.google.common.base.Preconditions;
+import ee.ttu.geocollection.interop.api.global.domain.DataType;
 import ee.ttu.geocollection.interop.api.global.domain.QueryParam;
 import ee.ttu.geocollection.interop.api.global.domain.QueryParameters;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
-import org.apache.lucene.index.*;
+import org.apache.lucene.index.DirectoryReader;
+import org.apache.lucene.index.IndexWriter;
+import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.Term;
 import org.apache.lucene.search.*;
-import org.apache.lucene.store.Directory;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Stream;
@@ -19,49 +21,39 @@ import java.util.stream.Stream;
 @Service
 public class TechnicalIndexServiceImpl implements TechnicalIndexService {
 
+    public static final int SEARCH_RESULT_AMOUNT = 10;
+
     @Override
-    public void createIndex(Collection<Document> documents, Directory directory) {
+    public void createIndex(Collection<Document> documents, IndexWriter directoryWriter) {
         Analyzer analyzer = new StandardAnalyzer();
         IndexWriterConfig config = new IndexWriterConfig(analyzer);
         config.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
-        IndexWriter indexWriter = null;
         try {
-            indexWriter = new IndexWriter(directory, config);
             for (Document document : documents) {
-                writeIndex(document, indexWriter);
+                writeIndex(document, directoryWriter);
             }
-            indexWriter.close();
+            directoryWriter.commit();
         } catch (Exception e) {
-            if (indexWriter != null) {
-                try {
-                    indexWriter.close();
-                } catch (IOException e1) {
-                    throw new RuntimeException(e);
-                }
-            }
             throw new RuntimeException(e);
         }
     }
 
     @Override
-    public Collection<Document> searchInIndex(QueryParameters queryParameters, Directory directory) {
+    public Collection<Document> searchInIndex(QueryParameters queryParameters, DirectoryReader indexReader) {
         Collection<Document> documents = new ArrayList<>();
         try {
-            IndexReader indexReader = DirectoryReader.open(directory);
+            indexReader = DirectoryReader.openIfChanged(indexReader);
             IndexSearcher indexSearcher = new IndexSearcher(indexReader);
+
             Query query = buildQuery(queryParameters);
 
-            TopDocs topDocs = indexSearcher.search(query, 10);
+            TopDocs topDocs = indexSearcher.search(query, SEARCH_RESULT_AMOUNT);
             ScoreDoc[] scoreDoc = topDocs.scoreDocs;
-            System.out.println(scoreDoc.length);
             for (ScoreDoc score : scoreDoc) {
                 Document document = indexReader.document(score.doc);
                 documents.add(document);
-                System.out.println("DOC " + document);
             }
-            //TODO SHOULD I CLOSE IT IN FINALLY BLOCK IN CASE OF EXCEPTION?
-            indexReader.close();
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
         return documents;

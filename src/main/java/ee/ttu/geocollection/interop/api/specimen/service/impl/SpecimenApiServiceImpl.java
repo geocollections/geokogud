@@ -1,6 +1,5 @@
 package ee.ttu.geocollection.interop.api.specimen.service.impl;
 
-import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.domain.SearchField;
 import ee.ttu.geocollection.domain.SortField;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
@@ -17,11 +16,12 @@ import java.util.Map;
 
 @Service
 public class SpecimenApiServiceImpl implements SpecimenApiService {
+    public static final String SPECIMEN_TABLE = "specimen";
     @Autowired
     private ApiService apiService;
 
     @Override
-    public ApiResponse findSpecimen(SpecimenSearchCriteria searchCriteria) throws AppException {
+    public ApiResponse findSpecimen(SpecimenSearchCriteria searchCriteria)  {
         String requestParams = FluentSpecimenSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId()).andReturn()
                 .querySpecimenNumber(searchCriteria.getSpecimenNumber()).andReturn()
@@ -39,14 +39,13 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
                 .queryCollector(searchCriteria.getCollector()).andReturn()
                 .queryKeywords(searchCriteria.getKeyWords())
                 .queryReference(searchCriteria.getReference())
-                .queryNameOfFossil(searchCriteria.getFossilName())
+                .queryNameOfFossil(searchCriteria.getFossilName()).andReturn()
                 .queryFossilMineralRock(searchCriteria.getFossilMineralRock())
                 .queryAdminUnit(searchCriteria.getAdminUnit())
                 .queryInstitutions(searchCriteria.getDbs()).andReturn()
                 .returnDatabaseName()
                 .returnLocalityId()
                 .returnTaxonId()
-                .returnTaxonName()
                 .returnStratigraphyId()
                 .returnLatitutde()
                 .returnLongitude()
@@ -88,5 +87,16 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
                 .relatedData("specimen_reference")
                 .buildWithDefaultReturningFields();
         return apiService.findRawEntity("specimen", requestParams);
+    }
+
+    @Override
+    public ApiResponse findSpecimensForIndex(SpecimenSearchCriteria searchCriteria) {
+        String requestParams = FluentSpecimenSearchApiBuilder.aRequest()
+                .queryId(searchCriteria.getId()).andReturn()
+                .querySpecimenNumber(searchCriteria.getSpecimenNumber()).andReturn()
+                .queryNameOfFossil(searchCriteria.getFossilName()).andReturn()
+                .queryClassification(searchCriteria.getClassification()).andReturn()
+                .buildFullQuery();
+        return apiService.searchRawEntities(SPECIMEN_TABLE, 200, searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }
 }

@@ -2,10 +2,11 @@ package ee.ttu.geocollection.interop.api.samples.pojo;
 
 import ee.ttu.geocollection.domain.SearchField;
 import ee.ttu.geocollection.domain.SortField;
+import ee.ttu.geocollection.interop.api.PageableSearchCriteria;
 
 import java.util.List;
 
-public class SampleSearchCriteria {
+public class SampleSearchCriteria implements PageableSearchCriteria {
     private int page = 1;
     private SortField sortField;
     private SearchField id;
@@ -44,10 +45,12 @@ public class SampleSearchCriteria {
         this.locality = locality;
     }
 
+    @Override
     public int getPage() {
         return page;
     }
 
+    @Override
     public void setPage(int page) {
         this.page = page;
     }

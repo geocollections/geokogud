@@ -1,6 +1,5 @@
 package ee.ttu.geocollection.interop.api.analyses.search.impl;
 
-import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.analyses.pojo.AnalysesSearchCriteria;
 import ee.ttu.geocollection.interop.api.analyses.search.AnalysesApiService;
@@ -18,7 +17,7 @@ public class AnalysesApiServiceImpl implements AnalysesApiService{
     private ApiService apiService;
 
     @Override
-    public ApiResponse findAnalyses(AnalysesSearchCriteria searchCriteria) throws AppException{
+    public ApiResponse findAnalyses(AnalysesSearchCriteria searchCriteria) {
         String requestParams = FluentAnalysesApiBuilder.aRequest()
                 .queryId(searchCriteria.getId()).andReturn()
                 .querySample(searchCriteria.getSample()).andReturn()

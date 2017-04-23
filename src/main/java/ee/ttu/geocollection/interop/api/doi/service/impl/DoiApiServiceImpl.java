@@ -1,6 +1,5 @@
 package ee.ttu.geocollection.interop.api.doi.service.impl;
 
-import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentDoiSearchApiBuilder;
@@ -18,7 +17,7 @@ public class DoiApiServiceImpl implements DoiApiService {
     private ApiService apiService;
 
     @Override
-    public ApiResponse findDoi(DoiSearchCriteria searchCriteria) throws AppException {
+    public ApiResponse findDoi(DoiSearchCriteria searchCriteria)  {
         String requestParams = FluentDoiSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId())
                 .queryIdentifier(searchCriteria.getDoi())

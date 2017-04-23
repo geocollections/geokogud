@@ -1,13 +1,15 @@
-package ee.ttu.geocollection.interop.api.global.update;
+package ee.ttu.geocollection.interop.api.global.technical;
 
 import ee.ttu.geocollection.interop.api.global.IndexService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Profile("prod")
 public class IndexUpdateService {
     @Autowired
     private List<IndexService> indexServices;

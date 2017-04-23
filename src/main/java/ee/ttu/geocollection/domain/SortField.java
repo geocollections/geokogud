@@ -4,6 +4,14 @@ public class SortField {
     private String sortBy = "id";
     private SortingOrder order = SortingOrder.ASCENDING;
 
+    public SortField() {
+    }
+
+    public SortField(String sortBy, SortingOrder order) {
+        this.sortBy = sortBy;
+        this.order = order;
+    }
+
     public String getSortBy() {
         return sortBy;
     }

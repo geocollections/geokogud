@@ -27,6 +27,8 @@ targetCompatibility = 1.8
 mainClassName = 'ee.ttu.geocollection.App'
 applicationDefaultJvmArgs = ['-Xms1G', '-Xmx1G', '-XX:+UseConcMarkSweepGC', '-Dfile.encoding=UTF-8']
 
+
+
 idea {
     module {
         inheritOutputDirs = false
@@ -158,6 +160,7 @@ flyway {
 
 bootRun {
     jvmArgs = ["-Duser.timezone=Europe/Tallinn"]
+    systemProperties = System.properties
 }
 
 task wrapper(type: Wrapper) {

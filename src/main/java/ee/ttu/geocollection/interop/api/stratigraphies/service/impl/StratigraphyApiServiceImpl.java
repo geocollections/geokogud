@@ -1,6 +1,5 @@
 package ee.ttu.geocollection.interop.api.stratigraphies.service.impl;
 
-import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentStratigraphySearchApiBuilder;
@@ -18,7 +17,7 @@ public class StratigraphyApiServiceImpl implements StratigraphyApiService {
     private ApiService apiService;
 
     @Override
-    public ApiResponse findStratigraphy(StratigraphySearchCriteria searchCriteria) throws AppException {
+    public ApiResponse findStratigraphy(StratigraphySearchCriteria searchCriteria)  {
         String requestParams = FluentStratigraphySearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId())
                 .queryStratigraphy(searchCriteria.getStratigraphy())

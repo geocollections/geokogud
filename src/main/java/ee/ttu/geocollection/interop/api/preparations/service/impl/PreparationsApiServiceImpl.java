@@ -1,6 +1,5 @@
 package ee.ttu.geocollection.interop.api.preparations.service.impl;
 
-import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentPreparationSearchApiBuilder;
@@ -18,7 +17,7 @@ public class PreparationsApiServiceImpl implements PreparationsApiService{
     private ApiService apiService;
 
     @Override
-    public ApiResponse findPreparations(PreparationsSearchCriteria searchCriteria) throws AppException {
+    public ApiResponse findPreparations(PreparationsSearchCriteria searchCriteria)  {
 
         String requestParams = FluentPreparationSearchApiBuilder.aRequest()
                 .queryNumber(searchCriteria.getNumber())

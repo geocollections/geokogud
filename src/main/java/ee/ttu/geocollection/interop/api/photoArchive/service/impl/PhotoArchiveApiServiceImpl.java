@@ -1,6 +1,5 @@
 package ee.ttu.geocollection.interop.api.photoArchive.service.impl;
 
-import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentPhotoArchiveSearchApiBuilder;
@@ -19,7 +18,7 @@ public class PhotoArchiveApiServiceImpl implements PhotoArchiveApiService{
 
     //https://api.arendus.geokogud.info/image/?paginate_by=30&order_by=id&page=1&format=json&filename__isnull=false
     @Override
-    public ApiResponse findPhoto(PhotoArchiveSearchCriteria searchCriteria) throws AppException {
+    public ApiResponse findPhoto(PhotoArchiveSearchCriteria searchCriteria)  {
         String requestParams = FluentPhotoArchiveSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId())
                 .queryFileName(searchCriteria.getFileName())

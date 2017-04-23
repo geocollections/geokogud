@@ -33,12 +33,10 @@ import ee.ttu.geocollection.interop.api.stratigraphies.service.StratigraphyApiSe
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 @RestController
 @RequestMapping("/search")
@@ -75,6 +73,7 @@ public class SearchController extends ControllerHelper {
     @Autowired
     private GlobalSearchApiService globalSearchApiService;
     @Autowired
+    @Qualifier("sampleIndexServiceImpl")
     private IndexService indexService;
 
     @RequestMapping(value = "/global/{query}")
@@ -92,7 +91,8 @@ public class SearchController extends ControllerHelper {
 
     @RequestMapping(value = "/specimen", method = RequestMethod.POST)
     public ApiResponse searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) {
-        ApiResponse specimens = specimens = specimenApiService.findSpecimen(specimenSearchCriteria);
+        indexService.searchInIndex();
+        ApiResponse specimens = specimenApiService.findSpecimen(specimenSearchCriteria);
         if (specimens.getResult() != null) {
             asynchService.doAsynchCallsForEachResult(
                     specimens,

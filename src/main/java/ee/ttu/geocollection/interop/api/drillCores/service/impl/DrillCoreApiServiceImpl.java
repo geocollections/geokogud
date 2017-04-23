@@ -1,6 +1,5 @@
 package ee.ttu.geocollection.interop.api.drillCores.service.impl;
 
-import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.domain.SearchField;
 import ee.ttu.geocollection.domain.SortField;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
@@ -22,7 +21,7 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService {
 
     //https://api.arendus.geokogud.info/drillcore/?paginate_by=30&order_by=id&page=1&format=json
     @Override
-    public ApiResponse findDrillCore(DrillCoreSearchCriteria searchCriteria) throws AppException {
+    public ApiResponse findDrillCore(DrillCoreSearchCriteria searchCriteria)  {
         String requestParams = FluentDrillCoreSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId())
                 .queryDrillCore(searchCriteria.getDrillcore())

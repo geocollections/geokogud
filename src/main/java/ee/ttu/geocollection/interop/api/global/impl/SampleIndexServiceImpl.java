@@ -1,18 +1,17 @@
 package ee.ttu.geocollection.interop.api.global.impl;
 
-import ee.ttu.geocollection.domain.LookUpType;
-import ee.ttu.geocollection.domain.SearchField;
 import ee.ttu.geocollection.domain.SortField;
-import ee.ttu.geocollection.interop.api.Response.ApiResponse;
-import ee.ttu.geocollection.interop.api.global.DataType;
+import ee.ttu.geocollection.domain.SortingOrder;
 import ee.ttu.geocollection.interop.api.global.IndexService;
-import ee.ttu.geocollection.interop.api.global.TechnicalIndexService;
+import ee.ttu.geocollection.interop.api.global.domain.DataType;
 import ee.ttu.geocollection.interop.api.global.domain.DocumentBuilder;
 import ee.ttu.geocollection.interop.api.global.domain.QueryParameters;
+import ee.ttu.geocollection.interop.api.global.technical.TechnicalIndexService;
 import ee.ttu.geocollection.interop.api.samples.pojo.SampleSearchCriteria;
 import ee.ttu.geocollection.interop.api.samples.service.SamplesApiService;
 import org.apache.lucene.document.*;
-import org.apache.lucene.store.Directory;
+import org.apache.lucene.index.DirectoryReader;
+import org.apache.lucene.index.IndexWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,14 +19,15 @@ import java.util.Collection;
 import java.util.Map;
 
 import static ee.ttu.geocollection.interop.api.builder.ApiFields.*;
-import static java.util.stream.Collectors.toList;
+import static ee.ttu.geocollection.interop.api.global.GlobalSearchConstants.ID_LONG;
 
 @Service
-public class SampleIndexServiceImpl implements IndexService {
-    private static final String ID_LONG = "idLong";
-
+public class SampleIndexServiceImpl implements IndexService<SampleSearchCriteria> {
     @Autowired
-    private Directory sampleDirectory;
+    private DirectoryReader sampleDirectoryReader;
+    @Autowired
+    private IndexWriter sampleDirectoryWriter;
+
     @Autowired
     private SamplesApiService samplesApiService;
     @Autowired
@@ -36,15 +36,14 @@ public class SampleIndexServiceImpl implements IndexService {
     @Override
     public void createIndex() {
         SampleSearchCriteria sampleSearchCriteria = new SampleSearchCriteria();
-        sampleSearchCriteria.setId(new SearchField("250", LookUpType.lt));
-        sampleSearchCriteria.setSortField(new SortField());
-
-        ApiResponse samples = samplesApiService.findSample(sampleSearchCriteria);
-
-        technicalIndexService.createIndex(
-                samples.getResult().stream().map(this::buildDocument).collect(toList()),
-                sampleDirectory);
+        sampleSearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
+        createIndexInternally(
+                technicalIndexService,
+                sampleDirectoryWriter,
+                sampleSearchCriteria,
+                (searchCriteria) -> samplesApiService.findSampleForIndex(searchCriteria));
     }
+
 
     @Override
     public Document buildDocument(Map<String, Object> entry) {
@@ -67,13 +66,13 @@ public class SampleIndexServiceImpl implements IndexService {
     public Collection<Document> searchInIndex() {
         Collection<Document> documents = technicalIndexService.searchInIndex(
                 QueryParameters.params()
-                        .queryValue("puurauk")
+                        .queryValue("puurauk".toLowerCase())
                         .appendParameter(ID, DataType.NUMERIC)
                         .appendParameter(NUMBER, DataType.STRING)
                         .appendParameter(NUMBER_FIELD, DataType.STRING)
                         .appendParameter(LOCALITY_LOCALITY, DataType.TEXT)
                         .appendParameter(LOCALITY_LOCALITY_EN, DataType.TEXT),
-                sampleDirectory);
+                sampleDirectoryReader);
         return documents;
     }
 }

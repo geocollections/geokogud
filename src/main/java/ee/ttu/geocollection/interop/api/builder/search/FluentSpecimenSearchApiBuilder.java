@@ -113,10 +113,6 @@ public class FluentSpecimenSearchApiBuilder extends FluentSearchApiBuilder<Fluen
         addReturningField(DATABASE__NAME_EN);
         return this;
     }
-    public FluentSpecimenSearchApiBuilder returnTaxonName() {
-        addReturningField("specimenidentification__taxon__taxon");
-        return this;
-    }
     public FluentSpecimenSearchApiBuilder returnTaxonId() {
         addReturningField("specimenidentification__taxon_id");
         return this;

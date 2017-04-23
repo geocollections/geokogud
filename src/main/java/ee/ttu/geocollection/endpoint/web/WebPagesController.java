@@ -1,6 +1,5 @@
 package ee.ttu.geocollection.endpoint.web;
 
-import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.webPages.service.WebPagesApiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ public class WebPagesController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	@ResponseBody
-	public ApiResponse getWebPages(@PathVariable int id) throws AppException {
+	public ApiResponse getWebPages(@PathVariable int id)  {
 		return webPagesApiService.getWebPages(id);
 	}
 }

@@ -1,7 +1,6 @@
 package ee.ttu.geocollection.interop.api.global.domain;
 
 import com.google.common.base.Preconditions;
-import ee.ttu.geocollection.interop.api.global.DataType;
 
 import java.util.ArrayList;
 import java.util.Collection;
