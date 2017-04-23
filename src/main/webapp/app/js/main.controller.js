@@ -34,7 +34,7 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     vm.switchYear = switchYear;
 
     $scope.yearToShow = 0;
-    $scope.globalQuery = "KEK";
+    $scope.globalQuery = "";
     $scope.globalSearchResult = "";
 
     asyncLoadData(); //fixme make async request
