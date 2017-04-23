@@ -34,7 +34,9 @@ footer {
 #footer-logos > a > img + .tooltip.bottom > .tooltip-arrow {
     border-bottom: 5px solid #222222;
 }
-
+.search-buttons {
+    text-align: right;
+}
 .news-button {
     color: #ee4b28;
     border: 1px solid #ed431f;
@@ -421,13 +423,17 @@ table tr > td:first-child {
     left: auto;
     right: 0;
 }
-@media screen and (min-width : 768px) {
-    .geo-carousel-control .glyphicon-chevron-left, .geo-carousel-control .glyphicon-chevron-right {
-        width: 30px;
-        height: 30px;
-        margin-top: -10px;
-        font-size: 30px;
+
+@media screen and (min-width : 0px) and (max-width: 580px) {
+    .geo-carousel-control {
+        margin: 10px 5px 0 5px;
     }
+}
+.geo-carousel-control .glyphicon-chevron-left, .geo-carousel-control .glyphicon-chevron-right {
+    width: 30px;
+    height: 30px;
+    margin-top: -10px;
+    font-size: 30px;
 }
 .dropdown-menu {
     min-width: 0;

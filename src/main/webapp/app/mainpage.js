@@ -9,12 +9,14 @@ jQuery(document).ready(function ($) {
         event.preventDefault();
     });
      $(document).on('click', 'a.page-scroll-to-additional', function(event) {
+         var slideTo = $(this).attr('data-slide-to');
          setTimeout(
              function() {
                  $('html, body').stop().animate({
                      scrollTop: ($("#additional").offset().top - 50)
                  }, 'slow');
                  event.preventDefault();
+                 $('#infoCarousel').carousel(parseInt(slideTo));
              },
              150);
     });
@@ -43,4 +45,5 @@ jQuery(document).ready(function ($) {
     }, 300);
     
     $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+
 });
