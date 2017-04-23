@@ -27,6 +27,8 @@ var constructor = function ($scope, $stateParams, applicationService, configurat
         vm.detailLoadingHandler.stop();
         getLocality();
         getRelatedData();
+        vm.localities = (['doi'].indexOf($stateParams.type) > -1 ? getLocalities(): []);
+
     }
 
     function onDetailError(error) {
@@ -38,6 +40,20 @@ var constructor = function ($scope, $stateParams, applicationService, configurat
         return configuration.detailFieldsConfig[$stateParams.type].ignoreFields.indexOf(field) == -1;
     }
 
+    function getLocalities() {
+        //vm.doiGeolocation
+        var localities = [];
+        angular.forEach(vm.doiGeolocation, function(location){
+            localities.push({
+                latitude: location.point.split(' ')[0],
+                longitude: location.point.split(' ')[1],
+                localityEng: location.locality__locality_en,
+                localityEt: location.locality__locality,
+                fid: ""
+            })
+        });
+        return localities;
+    }
     function getLocality() {
         var localityFields = configuration.detailFieldsConfig[$stateParams.type].locality;
         if(localityFields) {
