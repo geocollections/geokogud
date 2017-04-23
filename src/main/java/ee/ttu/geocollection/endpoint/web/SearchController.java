@@ -4,7 +4,6 @@ import ee.ttu.geocollection.core.utils.ControllerHelper;
 import ee.ttu.geocollection.domain.LookUpType;
 import ee.ttu.geocollection.domain.SearchField;
 import ee.ttu.geocollection.indexing.GlobalSearchApiService;
-import ee.ttu.geocollection.indexing.IndexService;
 import ee.ttu.geocollection.interop.api.AsynchService;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.analyses.pojo.AnalysesSearchCriteria;
@@ -33,7 +32,6 @@ import ee.ttu.geocollection.interop.api.stratigraphies.service.StratigraphyApiSe
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -72,9 +70,6 @@ public class SearchController extends ControllerHelper {
     private ApiService apiService;
     @Autowired
     private GlobalSearchApiService globalSearchApiService;
-    @Autowired
-    @Qualifier("sampleIndexServiceImpl")
-    private IndexService indexService;
 
     @RequestMapping(value = "/global/{query}")
     public Map<String, Object> searchGlobally(@PathVariable String query) {
@@ -91,7 +86,6 @@ public class SearchController extends ControllerHelper {
 
     @RequestMapping(value = "/specimen", method = RequestMethod.POST)
     public ApiResponse searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) {
-        indexService.searchInIndex();
         ApiResponse specimens = specimenApiService.findSpecimen(specimenSearchCriteria);
         if (specimens.getResult() != null) {
             asynchService.doAsynchCallsForEachResult(
