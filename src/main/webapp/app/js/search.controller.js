@@ -95,7 +95,6 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
         });
         imageStructure.rows.push(currentRow);
         imageStructure.total = countImage;
-        console.log(imageStructure)
         return imageStructure;
     }
 

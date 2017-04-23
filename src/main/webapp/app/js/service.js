@@ -63,6 +63,10 @@ var constructor = function (utils,configuration, $window) {
         }
     };
 
+    service.getDownloadLink = function (fileName) {
+        return "http://geokogud.info/files/"+fileName.substring(0,2)+"/"+fileName;
+    };
+
     function composeSpecimenExternalPath (imageData) {
         //http://geokogud.info/di.php?f=/data/git/images/specimen/663/663-6.jpg&w=400
         return "http://geokogud.info/di.php?f=/data/"+imageData.specimen__database__acronym.toLowerCase()+"/images/specimen/"
@@ -73,6 +77,7 @@ var constructor = function (utils,configuration, $window) {
         return "http://geokogud.info/di.php?f=/var/www/"+imageData.database__acronym.toLowerCase()+"/image/"
             + imageData.imageset__imageset_series + "/"+imageData.imageset__imageset_number+"/"+imageData.filename;
     }
+
     function getDetailUrl (searchType) {
         var url = null;
         switch (searchType) {

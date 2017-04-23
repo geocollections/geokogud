@@ -5,6 +5,7 @@ var constructor = function ($scope, $stateParams, applicationService, configurat
     vm.service = applicationService;
     vm.fields = [];  vm.urlsMap = [];
     vm.isIncludedField = isIncludedField;
+
     vm.detailLoadingHandler = bsLoadingOverlayService.createHandler({referenceId: "detailView"});
 
     searchEntity();
@@ -20,6 +21,8 @@ var constructor = function ($scope, $stateParams, applicationService, configurat
         vm.fields = Object.keys(vm.results);
         vm.imageUrl = (['specimenImage','photoArchive'].indexOf($stateParams.type) > -1 ? vm.service.composeImageUrl(vm.results) : null);
         vm.externalImagePath = (['specimenImage','photoArchive'].indexOf($stateParams.type) > -1  ? vm.service.composeExternalImagePath(vm.results) : null);
+        vm.files = (['doi'].indexOf($stateParams.type) > -1 ? composeFileInfo(response.data.results) : []);
+
 
         vm.detailLoadingHandler.stop();
         getLocality();
@@ -68,6 +71,16 @@ var constructor = function ($scope, $stateParams, applicationService, configurat
             vm.localityReferences = vm.relatedData["locality_reference"];
             vm.localitySynonyms = vm.relatedData["locality_synonym"];
         }
+    }
+
+    function composeFileInfo(results) {
+        var files = [];
+        angular.forEach(results, function(r) {
+            if(r.doiattachment__attachment__filename != null) {
+                files.push({fileName : r.doiattachment__attachment__filename});
+            }
+        });
+        return files;
     }
 };
 
