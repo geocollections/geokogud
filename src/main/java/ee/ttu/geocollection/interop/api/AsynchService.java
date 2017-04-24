@@ -36,6 +36,7 @@ public class AsynchService {
                 .map(resultObject ->
                         Observable.fromCallable(call.apply(resultObject))
                                 .timeout(appConfig.asynchRequestTimeoutMillisecs, TimeUnit.MILLISECONDS)
+                                .onErrorResumeNext(Observable.empty())
                                 .subscribeOn(Schedulers.io())
                                 .doOnNext(onCompleteAction.apply(resultObject)))
                 .collect(toList());

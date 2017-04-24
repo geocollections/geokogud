@@ -15,7 +15,7 @@ import static java.util.stream.Collectors.toList;
 
 public interface IndexService<T extends PageableSearchCriteria> {
     @Async(value = "asyncThreadPoolExecutor")
-    void createIndex();
+    void createUpdateIndex();
 
     default void createIndexInternally(
             TechnicalIndexService technicalIndexService,

@@ -17,7 +17,7 @@ public class QueryParameters {
     }
 
     public QueryParameters queryValue(String queryValue) {
-        this.queryValue = queryValue;
+        this.queryValue = queryValue.toLowerCase();
         return this;
     }
 

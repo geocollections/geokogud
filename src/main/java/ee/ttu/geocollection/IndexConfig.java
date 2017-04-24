@@ -19,8 +19,10 @@ import java.nio.file.Paths;
 @Configuration
 public class IndexConfig {
 
-    @Value("${indexPath}")
+    @Value("${globalSearch.indexPath}")
     private String indexPath;
+    @Value("${globalSearch.recreateIndices}")
+    private boolean recreateIndices;
 
     @Bean
     public Directory sampleDirectory() {
@@ -146,7 +148,7 @@ public class IndexConfig {
     private IndexWriter createWriter(Directory directory) {
         Analyzer analyzer = new StandardAnalyzer();
         IndexWriterConfig config = new IndexWriterConfig(analyzer);
-        config.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
+        config.setOpenMode(recreateIndices ? IndexWriterConfig.OpenMode.CREATE : IndexWriterConfig.OpenMode.CREATE_OR_APPEND);
         IndexWriter indexWriter = null;
         try {
             indexWriter = new IndexWriter(directory, config);
