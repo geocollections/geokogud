@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Stream;
 
+import static ee.ttu.geocollection.indexing.technical.utils.IndexUtils.createDirectoryReader;
 import static ee.ttu.geocollection.interop.api.builder.ApiFields.ID;
 
 @Service
@@ -57,11 +58,12 @@ public class TechnicalIndexServiceImpl implements TechnicalIndexService {
             // BTW, according to http://stackoverflow.com/questions/15197028/why-i-cant-get-the-doc-that-added-recently-by-indexwriter-in-the-search-result
             // openIfChanged may return NULL if index reader DID not change! so it proves that I keep using that old index reader with basically no data
             // and just keep recreating new instance of it...
-            DirectoryReader indexReaderUpdated = DirectoryReader.openIfChanged(indexReader);
-            if (indexReaderUpdated != null) {
-                indexReader = indexReaderUpdated;
-            }
-            IndexSearcher indexSearcher = new IndexSearcher(indexReader);
+//            DirectoryReader indexReaderUpdated = DirectoryReader.openIfChanged(indexReader);
+//            if (indexReaderUpdated != null) {
+//                indexReader = indexReaderUpdated;
+//            }
+           indexReader = createDirectoryReader(indexReader);
+           IndexSearcher indexSearcher = new IndexSearcher(indexReader);
 
             Query query = buildQuery(queryParameters);
 

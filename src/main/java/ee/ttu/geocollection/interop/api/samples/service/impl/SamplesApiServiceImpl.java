@@ -1,5 +1,6 @@
 package ee.ttu.geocollection.interop.api.samples.service.impl;
 
+import ee.ttu.geocollection.domain.SortField;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentSampleSearchApiBuilder;
@@ -9,6 +10,7 @@ import ee.ttu.geocollection.interop.api.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.Map;
 
 @Service
@@ -74,10 +76,20 @@ public class SamplesApiServiceImpl implements SamplesApiService {
                 .queryId(searchCriteria.getId()).andReturn()
                 .queryNumber(searchCriteria.getSampleNumber()).andReturn()
                 .queryLocality(searchCriteria.getLocality()).andReturn()
-                .returnNumberAdditional()
                 .returnDateChanged()
                 .buildFullQuery();
         return apiService.searchRawEntities(SAMPLE_TABLE, 200, searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
+    }
+
+    @Override
+    public ApiResponse findSamplesByIds(Collection<String> ids) {
+        String requestParams = FluentSampleSearchApiBuilder.aRequest()
+                .queryMultipleIds(ids).andReturn()
+                .queryNumber(null).andReturn()
+                .queryLocality(null).andReturn()
+                .returnDateChanged()
+                .buildFullQuery();
+        return apiService.searchRawEntities(SAMPLE_TABLE, ids.size() + 1, 1, new SortField(), requestParams);
     }
 
 }

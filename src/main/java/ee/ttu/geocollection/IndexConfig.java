@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * Indices will be removed and recreated if recreateIndices is set to true
+ */
 @Configuration
 public class IndexConfig {
 

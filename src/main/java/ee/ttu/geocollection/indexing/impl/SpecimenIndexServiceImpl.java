@@ -2,11 +2,12 @@ package ee.ttu.geocollection.indexing.impl;
 
 import ee.ttu.geocollection.domain.SortField;
 import ee.ttu.geocollection.domain.SortingOrder;
-import ee.ttu.geocollection.indexing.IndexService;
+import ee.ttu.geocollection.indexing.AbstractIndexingService;
 import ee.ttu.geocollection.indexing.domain.DataType;
 import ee.ttu.geocollection.indexing.domain.DocumentBuilder;
 import ee.ttu.geocollection.indexing.domain.QueryParameters;
 import ee.ttu.geocollection.indexing.technical.TechnicalIndexService;
+import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.specimen.pojo.SpecimenSearchCriteria;
 import ee.ttu.geocollection.interop.api.specimen.service.SpecimenApiService;
 import org.apache.lucene.document.Document;
@@ -17,11 +18,9 @@ import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 import static ee.ttu.geocollection.indexing.GlobalSearchConstants.ID_LONG;
@@ -29,7 +28,7 @@ import static ee.ttu.geocollection.interop.api.builder.ApiFields.*;
 import static java.util.stream.Collectors.toList;
 
 @Service
-public class SpecimenIndexServiceImpl implements IndexService<SpecimenSearchCriteria> {
+public class SpecimenIndexServiceImpl extends AbstractIndexingService<SpecimenSearchCriteria> {
     @Value("${globalSearch.recreateIndices}")
     private boolean recreateIndices;
 
@@ -44,21 +43,39 @@ public class SpecimenIndexServiceImpl implements IndexService<SpecimenSearchCrit
     private TechnicalIndexService technicalIndexService;
 
     @Override
-    @Async(value = "asyncThreadPoolExecutor")
-    public void createUpdateIndex() {
-        if(recreateIndices) {
-            SpecimenSearchCriteria sampleSearchCriteria = new SpecimenSearchCriteria();
-            sampleSearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
-            createIndexInternally(
-                    technicalIndexService,
-                    specimenDirectoryWriter,
-                    sampleSearchCriteria,
-                    (searchCriteria) -> specimenApiService.findSpecimensForIndex(searchCriteria));
-        }
+    protected void createIndices() {
+        SpecimenSearchCriteria sampleSearchCriteria = new SpecimenSearchCriteria();
+        sampleSearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
+        createIndicesFromScratch(
+                technicalIndexService,
+                specimenDirectoryWriter,
+                sampleSearchCriteria,
+                (searchCriteria) -> specimenApiService.findSpecimensForIndex(searchCriteria));
     }
 
     @Override
-    public List<Map> searchInIndex(String value) {
+    protected void updateIndices() {
+        SpecimenSearchCriteria updateSearchCriteria = new SpecimenSearchCriteria();
+        updateSearchCriteria.setSortField(new SortField(DATE_CHANGED, SortingOrder.DESCENDING));
+        updateOldIndices(
+                updateSearchCriteria,
+                (searchCriteria) -> specimenApiService.findSpecimensForIndex(searchCriteria),
+                specimenDirectoryWriter,
+                specimenDirectoryReader,
+                technicalIndexService);
+
+        SpecimenSearchCriteria createSearchCriteria = new SpecimenSearchCriteria();
+        createSearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
+        createMissingIndices(
+                createSearchCriteria,
+                (searchCriteria) -> specimenApiService.findSpecimensForIndex(searchCriteria),
+                specimenDirectoryWriter,
+                specimenDirectoryReader,
+                technicalIndexService);
+    }
+
+    @Override
+    public ApiResponse searchInIndex(String value) {
         Collection<Document> documents = technicalIndexService.searchInIndex(
                 QueryParameters.params()
                         .queryValue(value)
@@ -70,10 +87,12 @@ public class SpecimenIndexServiceImpl implements IndexService<SpecimenSearchCrit
                         .appendParameter(SPECIMENIDENTIFICATION__NAME, DataType.TEXT)
                         .appendParameter(SPECIMENIDENTIFICATION__TAXON__TAXON, DataType.TEXT),
                 specimenDirectoryReader);
-        return documents.stream()
-                .map(document -> document.get(ID))
-                .map(id -> specimenApiService.findRawById(Long.valueOf(id)))
-                .collect(toList());
+        return documents.isEmpty() ?
+                new ApiResponse() :
+                specimenApiService.findSpecimensByIds(
+                        documents.stream()
+                                .map(document -> document.get(ID))
+                                .collect(toList()));
     }
 
     @Override

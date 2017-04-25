@@ -4,6 +4,7 @@ import ee.ttu.geocollection.domain.LookUpType;
 import ee.ttu.geocollection.domain.SearchField;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -48,6 +49,15 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
                             .collect(toList()));
         }
         this.lastQueryField = DATABASE_ACRONYM;
+        return getThis();
+    }
+
+    public B queryMultipleIds(Collection<String> ids) {
+        buildOrSearch(
+                ids.stream()
+                        .map(id -> new OrSearchPair(new SearchField(id, LookUpType.exact), ID))
+                        .collect(toList()));
+        this.lastQueryField = ID;
         return getThis();
     }
 

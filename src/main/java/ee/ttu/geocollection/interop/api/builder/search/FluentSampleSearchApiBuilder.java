@@ -105,6 +105,11 @@ public class FluentSampleSearchApiBuilder extends FluentSearchApiBuilder<FluentS
         return this;
     }
 
+    public FluentSampleSearchApiBuilder returnNumber() {
+        addReturningField(NUMBER);
+        return this;
+    }
+
     public FluentSampleSearchApiBuilder returnNumberAdditional() {
         addReturningField(NUMBER_ADDITIONAL);
         return this;

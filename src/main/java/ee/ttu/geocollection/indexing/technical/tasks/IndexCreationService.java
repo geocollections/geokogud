@@ -1,6 +1,6 @@
 package ee.ttu.geocollection.indexing.technical.tasks;
 
-import ee.ttu.geocollection.indexing.IndexService;
+import ee.ttu.geocollection.indexing.AbstractIndexingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -14,7 +14,7 @@ public class IndexCreationService {
     private boolean indexing;
 
     @Autowired
-    private List<IndexService> indexServices;
+    private List<AbstractIndexingService> abstractIndexingServices;
 
     /**
      * Task is executed every 24H, indexing is performed only when appropriate flag is set to true
@@ -22,7 +22,7 @@ public class IndexCreationService {
     @Scheduled(initialDelay = 1500, fixedRate = 86400000)
     public void createIndices() {
         if(indexing) {
-            indexServices.forEach(IndexService::createUpdateIndex);
+            abstractIndexingServices.forEach(AbstractIndexingService::createUpdateIndex);
         }
     }
 }

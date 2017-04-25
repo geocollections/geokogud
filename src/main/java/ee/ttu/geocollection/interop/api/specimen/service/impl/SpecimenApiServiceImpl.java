@@ -12,6 +12,7 @@ import ee.ttu.geocollection.interop.api.specimen.service.SpecimenApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.Map;
 
 @Service
@@ -98,5 +99,18 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
                 .queryClassification(searchCriteria.getClassification()).andReturn()
                 .buildFullQuery();
         return apiService.searchRawEntities(SPECIMEN_TABLE, 200, searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
+    }
+
+    @Override
+    public ApiResponse findSpecimensByIds(Collection<String> ids) {
+        String requestParams = FluentSpecimenSearchApiBuilder.aRequest()
+                .queryMultipleIds(ids).andReturn()
+                .querySpecimenNumber(null).andReturn()
+                .queryNameOfFossil(null).andReturn()
+                .queryClassification(null).andReturn()
+                .returnDateChanged()
+                .buildFullQuery();
+        //This + 1 in paginateBy is very important! (API does not accept neither 0, nor 1 values there)
+        return apiService.searchRawEntities(SPECIMEN_TABLE, ids.size() + 1, 1, new SortField(), requestParams);
     }
 }

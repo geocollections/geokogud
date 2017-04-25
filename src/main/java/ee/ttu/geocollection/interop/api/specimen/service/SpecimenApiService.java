@@ -4,6 +4,7 @@ import ee.ttu.geocollection.domain.SearchField;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.specimen.pojo.SpecimenSearchCriteria;
 
+import java.util.Collection;
 import java.util.Map;
 
 public interface SpecimenApiService {
@@ -16,4 +17,6 @@ public interface SpecimenApiService {
     Map findRawById(Long id);
 
     ApiResponse findSpecimensForIndex(SpecimenSearchCriteria searchCriteria);
+
+    ApiResponse findSpecimensByIds(Collection<String> ids);
 }
