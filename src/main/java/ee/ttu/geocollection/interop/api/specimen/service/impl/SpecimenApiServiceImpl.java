@@ -2,6 +2,7 @@ package ee.ttu.geocollection.interop.api.specimen.service.impl;
 
 import ee.ttu.geocollection.domain.SearchField;
 import ee.ttu.geocollection.domain.SortField;
+import ee.ttu.geocollection.indexing.IndexingProperties;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentSpecimenImageSearchApiBuilder;
@@ -20,6 +21,8 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
     public static final String SPECIMEN_TABLE = "specimen";
     @Autowired
     private ApiService apiService;
+    @Autowired
+    private IndexingProperties indexingProperties;
 
     @Override
     public ApiResponse findSpecimen(SpecimenSearchCriteria searchCriteria)  {
@@ -51,7 +54,7 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
                 .returnLatitutde()
                 .returnLongitude()
                 .buildFullQuery();
-        return apiService.searchRawEntities("specimen", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
+        return apiService.searchRawEntities(SPECIMEN_TABLE, searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }
 
     @Override
@@ -87,7 +90,7 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
                 .relatedData("specimen_image")
                 .relatedData("specimen_reference")
                 .buildWithDefaultReturningFields();
-        return apiService.findRawEntity("specimen", requestParams);
+        return apiService.findRawEntity(SPECIMEN_TABLE, requestParams);
     }
 
     @Override
@@ -98,7 +101,8 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
                 .queryNameOfFossil(searchCriteria.getFossilName()).andReturn()
                 .queryClassification(searchCriteria.getClassification()).andReturn()
                 .buildFullQuery();
-        return apiService.searchRawEntities(SPECIMEN_TABLE, 200, searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
+        return apiService.searchRawEntities(
+                SPECIMEN_TABLE, indexingProperties.getIndexingBatchSize(), searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }
 
     @Override

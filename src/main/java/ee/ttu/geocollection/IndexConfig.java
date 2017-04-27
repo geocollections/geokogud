@@ -76,19 +76,19 @@ public class IndexConfig {
     }
 
     @Bean
-    public Directory imageDirectory() {
-        return createDiskIndexDirectory("image");
+    public Directory photoArchiveDirectory() {
+        return createDiskIndexDirectory("photoArchive");
     }
 
     @Bean
-    public IndexWriter imageDirectoryWriter(Directory imageDirectory) {
-        return createWriter(imageDirectory);
+    public IndexWriter photoArchiveDirectoryWriter(Directory photoArchiveDirectory) {
+        return createWriter(photoArchiveDirectory);
     }
 
     @Bean
-    @DependsOn("imageDirectoryWriter")
-    public DirectoryReader imageDirectoryReader(Directory imageDirectory) {
-        return openReader(imageDirectory);
+    @DependsOn("photoArchiveDirectoryWriter")
+    public DirectoryReader photoArchiveDirectoryReader(Directory photoArchiveDirectory) {
+        return openReader(photoArchiveDirectory);
     }
 
     @Bean
@@ -102,7 +102,7 @@ public class IndexConfig {
     }
 
     @Bean
-    @DependsOn("imageDirectoryWriter")
+    @DependsOn("taxonDirectoryWriter")
     public DirectoryReader taxonDirectoryReader(Directory taxonDirectory) {
         return openReader(taxonDirectory);
     }

@@ -2,10 +2,11 @@ package ee.ttu.geocollection.interop.api.photoArchive.pojo;
 
 import ee.ttu.geocollection.domain.SearchField;
 import ee.ttu.geocollection.domain.SortField;
+import ee.ttu.geocollection.interop.api.PageableSearchCriteria;
 
 import java.util.List;
 
-public class PhotoArchiveSearchCriteria {
+public class PhotoArchiveSearchCriteria implements PageableSearchCriteria{
     private int page = 1;
     private SortField sortField;
 
@@ -88,10 +89,12 @@ public class PhotoArchiveSearchCriteria {
         this.keywords = keywords;
     }
 
+    @Override
     public int getPage() {
         return page;
     }
 
+    @Override
     public void setPage(int page) {
         this.page = page;
     }

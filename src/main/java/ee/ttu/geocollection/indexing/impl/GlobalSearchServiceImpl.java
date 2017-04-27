@@ -2,9 +2,8 @@ package ee.ttu.geocollection.indexing.impl;
 
 import ee.ttu.geocollection.indexing.AbstractIndexingService;
 import ee.ttu.geocollection.indexing.GlobalSearchService;
+import ee.ttu.geocollection.indexing.IndexingProperties;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,17 +14,15 @@ import static java.util.stream.Collectors.toList;
 @Service
 public class GlobalSearchServiceImpl implements GlobalSearchService {
 
-    @Value("${globalSearch.indexing}")
-    private boolean indexingEnabled;
-
     @Autowired
-    private Environment environment;
+    private IndexingProperties indexingProperties;
+
     @Autowired
     private List<AbstractIndexingService> indexServices;
 
     @Override
     public List searchGlobally(String query) {
-        if(indexingEnabled) {
+        if(indexingProperties.isIndexingEnabled()) {
             return indexServices.stream()
                     .map(indexService -> indexService.searchInIndex(query))
                     .collect(toList());

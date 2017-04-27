@@ -2,11 +2,9 @@ package ee.ttu.geocollection.interop.api.localities.pojo;
 
 import ee.ttu.geocollection.domain.SearchField;
 import ee.ttu.geocollection.domain.SortField;
+import ee.ttu.geocollection.interop.api.PageableSearchCriteria;
 
-/**
- * Created by Olesja Senkiv on 17.03.2017.
- */
-public class LocalitySearchCriteria {
+public class LocalitySearchCriteria implements PageableSearchCriteria{
     private int page = 1;
     private SortField sortField;
     private SearchField id;
@@ -112,10 +110,12 @@ public class LocalitySearchCriteria {
     }
 
 
+    @Override
     public int getPage() {
         return page;
     }
 
+    @Override
     public void setPage(int page) {
         this.page = page;
     }

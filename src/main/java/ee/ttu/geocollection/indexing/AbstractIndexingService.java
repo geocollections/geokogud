@@ -106,7 +106,6 @@ public abstract class AbstractIndexingService<T extends PageableSearchCriteria> 
 
     private boolean documentNotPresentInIndex(Map<String, Object> entry, DirectoryReader directoryReader) {
         try {
-            //TODO fix these hacks
             Optional<ScoreDoc> documentId = lookupForDocumentById(entry, directoryReader);
             return !documentId.isPresent();
         } catch (Exception e) {

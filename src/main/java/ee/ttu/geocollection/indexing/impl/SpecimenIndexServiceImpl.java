@@ -36,11 +36,10 @@ public class SpecimenIndexServiceImpl extends AbstractIndexingService<SpecimenSe
     private DirectoryReader specimenDirectoryReader;
     @Autowired
     private IndexWriter specimenDirectoryWriter;
-
-    @Autowired
-    private SpecimenApiService specimenApiService;
     @Autowired
     private TechnicalIndexService technicalIndexService;
+    @Autowired
+    private SpecimenApiService specimenApiService;
 
     @Override
     protected void createIndices() {

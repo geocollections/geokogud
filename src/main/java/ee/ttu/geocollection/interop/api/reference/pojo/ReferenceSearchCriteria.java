@@ -2,8 +2,9 @@ package ee.ttu.geocollection.interop.api.reference.pojo;
 
 import ee.ttu.geocollection.domain.SearchField;
 import ee.ttu.geocollection.domain.SortField;
+import ee.ttu.geocollection.interop.api.PageableSearchCriteria;
 
-public class ReferenceSearchCriteria {
+public class ReferenceSearchCriteria implements PageableSearchCriteria {
     private int page = 1;
     private SortField sortField;
 
@@ -40,10 +41,12 @@ public class ReferenceSearchCriteria {
         this.id = id;
     }
 
+    @Override
     public int getPage() {
         return page;
     }
 
+    @Override
     public void setPage(int page) {
         this.page = page;
     }

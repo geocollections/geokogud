@@ -80,6 +80,11 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
         return getThis();
     }
 
+    public B returnId() {
+        addReturningField(ID);
+        return getThis();
+    }
+
     public B fieldIsNotNull(String field) {
         query += "&" + field + "__isnull=false";
         return getThis();

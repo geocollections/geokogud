@@ -47,4 +47,9 @@ public class FluentReferenceSearchApiBuilder extends FluentSearchApiBuilder<Flue
         buildFieldParameters(ABSTRACT, text);
         return this;
     }
+
+    public FluentReferenceSearchApiBuilder queryReference(SearchField id) {
+        buildFieldParameters(REFERENCE, id);
+        return this;
+    }
 }

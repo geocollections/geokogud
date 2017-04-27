@@ -42,6 +42,9 @@ public class ApiFields {
     public static final String TAXONLIST__FREQUENCY = "taxonlist__frequency";
     public static final String ANALYSIS_RESULTS_NAME = "analysis__analysisresults__name";
     public static final String ANALYSIS_RESULTS_VALUE = "analysis__analysisresults__value";
+    public static final String TAXON = "taxon";
+    public static final String PARENT_TAXON = "parent__taxon";
+    public static final String FOSSIL_GROUP_TAXON = "fossil_group__taxon";
 
     //DOI search
     public static final String IDENTIFIER = "identifier";
@@ -137,6 +140,7 @@ public class ApiFields {
     public static final String PARENT_LOCALITY = "parent__locality";
     public static final String EELIS = "eelis";
     public static final String MAAAMET_PA_ID = "maaamet_pa_id";
+    public static final String LOCALITYSYNONYM_SYNONYM = "localitysynonym__synonym";
 
     public static final String STRATIGRAPHY = "stratigraphy";
     public static final String STRATIGRAPHY_EN = "stratigraphy_en";
@@ -163,6 +167,10 @@ public class ApiFields {
     public static final String SPECIMENIDENTIFICATION__TAXON__TAXON = "specimenidentification__taxon__taxon";
     public static final String KIND__VALUE = "kind__value";
     public static final String KIND__VALUE_EN = "kind__value_en";
+    public static final String PARENT_STRATIGRAPHY = "parent__stratigraphy";
+    public static final String PARENT_STRATIGRAPHY_EN = "parent__stratigraphy_en";
+    public static final String AGE_CHRONOSTRATIGRAPHY_STRATIGRAPHY = "age_chronostratigraphy__stratigraphy";
+    public static final String AGE_CHRONOSTRATIGRAPHY_STRATIGRAPHY_EN = "age_chronostratigraphy__stratigraphy_en";
 
     //Analyses search
     public static final String ANALYSIS_METHOD__ANALYSIS_METHOD = "analysis_method__analysis_method";

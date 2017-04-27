@@ -4,6 +4,7 @@ import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.localities.pojo.LocalityMapFilter;
 import ee.ttu.geocollection.interop.api.localities.pojo.LocalitySearchCriteria;
 
+import java.util.Collection;
 import java.util.Map;
 
 public interface LocalitiesApiService {
@@ -17,4 +18,8 @@ public interface LocalitiesApiService {
     Map findLocalitiesSummary();
 
     Map findLocalitiesSummaryFilter(LocalityMapFilter filters);
+
+    ApiResponse findLocalitiesForIndex(LocalitySearchCriteria searchCriteria);
+
+    ApiResponse findLocalitiesByIds(Collection<String> ids);
 }

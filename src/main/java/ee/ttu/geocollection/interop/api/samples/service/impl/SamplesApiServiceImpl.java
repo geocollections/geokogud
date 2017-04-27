@@ -1,6 +1,7 @@
 package ee.ttu.geocollection.interop.api.samples.service.impl;
 
 import ee.ttu.geocollection.domain.SortField;
+import ee.ttu.geocollection.indexing.IndexingProperties;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.builder.details.FluentGeoApiDetailsBuilder;
 import ee.ttu.geocollection.interop.api.builder.search.FluentSampleSearchApiBuilder;
@@ -19,7 +20,8 @@ public class SamplesApiServiceImpl implements SamplesApiService {
 
     @Autowired
     private ApiService apiService;
-
+    @Autowired
+    private IndexingProperties indexingProperties;
 
     @Override
     public ApiResponse findSample(ee.ttu.geocollection.interop.api.samples.pojo.SampleSearchCriteria searchCriteria) {
@@ -47,7 +49,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
                 .returnDateChanged()
                 .buildFullQuery();
         return apiService.searchRawEntities(
-                "sample",
+                SAMPLE_TABLE,
                 searchCriteria.getPage(),
                 searchCriteria.getSortField(),
                 requestParams);
@@ -67,7 +69,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
 //                .relatedData("preparation")
 //                .relatedData("taxon_list")
                 .buildWithReturningFields();
-        return apiService.findRawEntity("sample", requestParams);
+        return apiService.findRawEntity(SAMPLE_TABLE, requestParams);
     }
 
     @Override
@@ -78,7 +80,8 @@ public class SamplesApiServiceImpl implements SamplesApiService {
                 .queryLocality(searchCriteria.getLocality()).andReturn()
                 .returnDateChanged()
                 .buildFullQuery();
-        return apiService.searchRawEntities(SAMPLE_TABLE, 200, searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
+        return apiService.searchRawEntities
+                (SAMPLE_TABLE, indexingProperties.getIndexingBatchSize(), searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }
 
     @Override

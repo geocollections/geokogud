@@ -2,9 +2,10 @@ package ee.ttu.geocollection.interop.api.stratigraphies.pojo;
 
 import ee.ttu.geocollection.domain.SearchField;
 import ee.ttu.geocollection.domain.SortField;
+import ee.ttu.geocollection.interop.api.PageableSearchCriteria;
 
 
-public class StratigraphySearchCriteria {
+public class StratigraphySearchCriteria implements PageableSearchCriteria {
     private int page = 1;
     private SortField sortField;
     private SearchField id;
@@ -22,10 +23,12 @@ public class StratigraphySearchCriteria {
         this.sortField = sortField;
     }
 
+    @Override
     public int getPage() {
         return page;
     }
 
+    @Override
     public void setPage(int page) {
         this.page = page;
     }

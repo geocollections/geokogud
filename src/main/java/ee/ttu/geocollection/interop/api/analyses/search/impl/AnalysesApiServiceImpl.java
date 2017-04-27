@@ -38,7 +38,6 @@ public class AnalysesApiServiceImpl implements AnalysesApiService{
                 .returnStratigraphyId()
                 .returnLithostratigraphyId()
                 .buildFullQuery();
-        System.err.println(requestParams);
         return apiService.searchRawEntities("analysis", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }
 

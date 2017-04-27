@@ -8,8 +8,8 @@ import ee.ttu.geocollection.indexing.domain.DocumentBuilder;
 import ee.ttu.geocollection.indexing.domain.QueryParameters;
 import ee.ttu.geocollection.indexing.technical.TechnicalIndexService;
 import ee.ttu.geocollection.interop.api.Response.ApiResponse;
-import ee.ttu.geocollection.interop.api.samples.pojo.SampleSearchCriteria;
-import ee.ttu.geocollection.interop.api.samples.service.SamplesApiService;
+import ee.ttu.geocollection.interop.api.localities.pojo.LocalitySearchCriteria;
+import ee.ttu.geocollection.interop.api.localities.service.LocalitiesApiService;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.LongPoint;
 import org.apache.lucene.document.StringField;
@@ -27,37 +27,47 @@ import static ee.ttu.geocollection.interop.api.builder.ApiFields.*;
 import static java.util.stream.Collectors.toList;
 
 @Service
-public class SampleIndexServiceImpl extends AbstractIndexingService<SampleSearchCriteria> {
+public class LocalityIndexServiceImpl extends AbstractIndexingService<LocalitySearchCriteria> {
 
     @Autowired
-    private DirectoryReader sampleDirectoryReader;
+    private DirectoryReader localityDirectoryReader;
     @Autowired
-    private IndexWriter sampleDirectoryWriter;
+    private IndexWriter localityDirectoryWriter;
     @Autowired
     private TechnicalIndexService technicalIndexService;
     @Autowired
-    private SamplesApiService samplesApiService;
+    private LocalitiesApiService localitiesApiService;
 
     @Override
     protected void createIndices() {
-        SampleSearchCriteria sampleSearchCriteria = new SampleSearchCriteria();
-        sampleSearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
+        LocalitySearchCriteria localitySearchCriteria = new LocalitySearchCriteria();
+        localitySearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
         createIndicesFromScratch(
                 technicalIndexService,
-                sampleDirectoryWriter,
-                sampleSearchCriteria,
-                (searchCriteria) -> samplesApiService.findSampleForIndex(searchCriteria));
+                localityDirectoryWriter,
+                localitySearchCriteria,
+                (searchCriteria) -> localitiesApiService.findLocalitiesForIndex(searchCriteria));
     }
 
     @Override
     protected void updateIndices() {
-        SampleSearchCriteria updateSearchCriteria = new SampleSearchCriteria();
+        LocalitySearchCriteria updateSearchCriteria = new LocalitySearchCriteria();
         updateSearchCriteria.setSortField(new SortField(DATE_CHANGED, SortingOrder.DESCENDING));
-        updateOldIndices(updateSearchCriteria, (searchCriteria) -> samplesApiService.findSampleForIndex(searchCriteria), sampleDirectoryWriter, sampleDirectoryReader, technicalIndexService);
+        updateOldIndices(
+                updateSearchCriteria,
+                (searchCriteria) -> localitiesApiService.findLocalitiesForIndex(searchCriteria),
+                localityDirectoryWriter,
+                localityDirectoryReader,
+                technicalIndexService);
 
-        SampleSearchCriteria createSearchCriteria = new SampleSearchCriteria();
+        LocalitySearchCriteria createSearchCriteria = new LocalitySearchCriteria();
         createSearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
-        createMissingIndices(createSearchCriteria, (searchCriteria) -> samplesApiService.findSampleForIndex(searchCriteria), sampleDirectoryWriter, sampleDirectoryReader, technicalIndexService);
+        createMissingIndices(
+                createSearchCriteria,
+                (searchCriteria) -> localitiesApiService.findLocalitiesForIndex(searchCriteria),
+                localityDirectoryWriter,
+                localityDirectoryReader,
+                technicalIndexService);
     }
 
     @Override
@@ -68,9 +78,9 @@ public class SampleIndexServiceImpl extends AbstractIndexingService<SampleSearch
                 .targetEntry(entry)
                 .withField(ID, StringField.TYPE_STORED)
                 .withField(NUMBER, StringField.TYPE_NOT_STORED)
-                .withField(NUMBER_ADDITIONAL, StringField.TYPE_NOT_STORED)
-                .withField(LOCALITY_LOCALITY, TextField.TYPE_NOT_STORED)
-                .withField(LOCALITY_LOCALITY_EN, TextField.TYPE_NOT_STORED)
+                .withField(LOCALITYSYNONYM_SYNONYM, TextField.TYPE_NOT_STORED)
+                .withField(LOCALITY, TextField.TYPE_NOT_STORED)
+                .withField(LOCALITY_ENG, TextField.TYPE_NOT_STORED)
                 .withField(DATE_CHANGED, StringField.TYPE_STORED)
                 .build();
         document.add(new LongPoint(ID_LONG, idLong));
@@ -85,13 +95,13 @@ public class SampleIndexServiceImpl extends AbstractIndexingService<SampleSearch
                         .queryValue(value)
                         .appendParameter(ID, DataType.NUMERIC)
                         .appendParameter(NUMBER, DataType.STRING)
-                        .appendParameter(NUMBER_ADDITIONAL, DataType.STRING)
-                        .appendParameter(LOCALITY_LOCALITY, DataType.TEXT)
-                        .appendParameter(LOCALITY_LOCALITY_EN, DataType.TEXT),
-                sampleDirectoryReader);
+                        .appendParameter(LOCALITYSYNONYM_SYNONYM, DataType.TEXT)
+                        .appendParameter(LOCALITY, DataType.TEXT)
+                        .appendParameter(LOCALITY_ENG, DataType.TEXT),
+                localityDirectoryReader);
         return documents.isEmpty() ?
                 new ApiResponse() :
-                samplesApiService.findSamplesByIds(
+                localitiesApiService.findLocalitiesByIds(
                         documents.stream()
                                 .map(document -> document.get(ID))
                                 .collect(toList()));

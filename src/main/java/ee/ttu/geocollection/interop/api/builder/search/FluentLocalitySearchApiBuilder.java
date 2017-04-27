@@ -25,17 +25,13 @@ public class FluentLocalitySearchApiBuilder extends FluentSearchApiBuilder<Fluen
         return this;
     }
 
-    public FluentLocalitySearchApiBuilder queryReference(SearchField id) {
-        buildFieldParameters(REFERENCE, id);
-        return this;
-    }
     public FluentLocalitySearchApiBuilder queryMaId(SearchField id) {
         buildFieldParameters(MA_ID, id);
         return this;
     }
 
-    public FluentLocalitySearchApiBuilder queryLocality(SearchField id) {
-        buildFieldParameters(LOCALITY, id);
+    public FluentLocalitySearchApiBuilder queryLocality(SearchField locality) {
+        buildMultiSearch(locality, LOCALITY_ENG, LOCALITY);
         return this;
     }
 
@@ -59,6 +55,11 @@ public class FluentLocalitySearchApiBuilder extends FluentSearchApiBuilder<Fluen
 
     public FluentLocalitySearchApiBuilder queryVerticalExtend(SearchField id) {
         buildFieldParameters(LONGITUDE, id);
+        return this;
+    }
+
+    public FluentLocalitySearchApiBuilder returnLocalitySynonym() {
+        addReturningField(LOCALITYSYNONYM_SYNONYM);
         return this;
     }
 }
