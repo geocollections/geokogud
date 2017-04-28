@@ -85,6 +85,7 @@ var constructor = function (utils,configuration, $window) {
             case "specimenImage" : url = configuration.specimenImageDetailUrl; break;
             case "samples" : url = configuration.sampleDetailUrl; break;
             case "drillCores" : url = configuration.drillCoreDetailUrl; break;
+            case "corebox" : url = configuration.coreBoxDetailUrl; break;
             case "localities" : url = configuration.localityDetailUrl; break;
             case "references" : url = configuration.referenceDetailUrl; break;
             case "stratigraphy" : url = configuration.stratigraphyDetailUrl; break;

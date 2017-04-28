@@ -12,4 +12,5 @@ public interface DrillCoreApiService {
     ApiResponse findDrillCoreImage(SearchField drillCoreId) ;
 
     Map findRawById(Long id);
+    Map findRawCoreBoxById(Long id);
 }

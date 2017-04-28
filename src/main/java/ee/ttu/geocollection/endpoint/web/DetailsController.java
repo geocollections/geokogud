@@ -65,6 +65,11 @@ public class DetailsController {
         return drillCoreApiService.findRawById(id);
     }
 
+    @RequestMapping(value = "/raw-corebox/{id}")
+    public Map findRawCoreBoxById(@PathVariable Long id) {
+        return drillCoreApiService.findRawCoreBoxById(id);
+    }
+
     @RequestMapping(value = "/raw-locality/{id}")
     public Map findRawLocalityById(@PathVariable Long id) {
         return localitiesApiService.findRawById(id);

@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-3">
+                <label>{{entity.drillcore}} puursüdamik, kast nr. {{}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6" bs-loading-overlay bs-loading-overlay-reference-id="detailView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    </thead>
+                    <tbody>
+                        <tr><td>{{ 'DETAIL.CORE_BOX.ID'| translate }}</td><td>{{detailCtrl.results}}</td></tr>
+                        <tr><td>{{ 'DETAIL.CORE_BOX.LOCALITY'| translate }}</td><td>{{detailCtrl.results.id}}</td></tr>
+                        <tr><td>{{ 'DETAIL.CORE_BOX.NUMBER'| translate }}</td><td>{{detailCtrl.results.number}}</td></tr>
+                        <tr><td>{{ 'DETAIL.CORE_BOX.INBOX'| translate }}</td><td>{{detailCtrl.results.number_meters}}</td></tr>
+                        <tr><td>{{ 'DETAIL.CORE_BOX.SINCE'| translate }}</td><td>{{detailCtrl.results.depth_end}}</td></tr>
+                        <tr><td>{{ 'DETAIL.CORE_BOX.TO'| translate }}</td><td>{{detailCtrl.results.depth_end}}</td></tr>
+                        <tr><td>{{ 'DETAIL.CORE_BOX.DEPTH'| translate }}</td><td>{{detailCtrl.results.depth_other}}</td></tr>
+                        <tr><td>{{ 'DETAIL.CORE_BOX.STRATIGRAPHY_TOP'| translate }}</td><td>???</td></tr>
+                        <tr><td>{{ 'DETAIL.CORE_BOX.STRATIGRAPHY_BOTTOM'| translate }}</td><td>???</td></tr>
+                        <tr><td>{{ 'DETAIL.CORE_BOX.ADDITIONAL'| translate }}</td><td>???</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <img spinner-load ng-src="{{detailCtrl.results.drillcoreimage__url}}" class="window-size"/>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <h2>Proovid sellest kastist</h2>
+            </div>
+        </div>
+    </div>
+</div>

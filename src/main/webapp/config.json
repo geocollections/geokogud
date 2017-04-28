@@ -32,6 +32,7 @@
   "localityDetailUrl":"/details/raw-locality",
   "stratigraphyDetailUrl":"/details/raw-stratigraphy",
   "drillCoreDetailUrl":"/details/raw-drillcore",
+  "coreBoxDetailUrl":"/details/raw-corebox",
   "referenceDetailUrl":"/details/raw-reference",
   "analysisDetailUrl":"/details/raw-analysis",
   "preparationDetailUrl":"/details/raw-preparation",

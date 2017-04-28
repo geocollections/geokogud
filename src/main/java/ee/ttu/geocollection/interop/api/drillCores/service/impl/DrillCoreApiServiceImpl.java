@@ -27,9 +27,6 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService {
                 .queryDrillCore(searchCriteria.getDrillcore())
                 .queryBoxNumber(searchCriteria.getBoxNumber())
                 .queryStorageLocation(searchCriteria.getStorage())
-                //following fields is not possible to set via search but we can ask from API
-                //locality__country__value,locality__country__value_en,locality__latitude,
-                //locality__longitude,depth,boxes
                 .queryLocalityAdminUnit(searchCriteria.getAdminUnit())
                 .queryLocalityCountry(searchCriteria.getCountry())
                 .queryStratigraphy(searchCriteria.getStratigraphy())
@@ -60,5 +57,12 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService {
                 .relatedData("drillcore_box")
                 .buildWithDefaultReturningFields();
         return apiService.findRawEntity("drillcore", requestParams);
+    }
+    @Override
+    public Map findRawCoreBoxById(Long id) {
+        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
+                .id(id)
+                .buildWithDefaultReturningFields();
+        return apiService.findRawEntity("drillcore_box", requestParams);
     }
 }

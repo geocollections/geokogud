@@ -23,10 +23,9 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <label>Horizons ???</label>
+            <h2 class="pull-left">Drill core boxes</h2>
         </div>
         <div class="row">
-            <label>Drill core boxes</label>
             <table data-ng-repeat="box in detailCtrl.drillcoreBoxes" style="float:left">
                 <tr><td><h3>Box no. {{box.number}}</h3></td></tr>
                 <tr>
@@ -51,8 +50,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href data-ng-click="detailCtrl.service.openInNewWindow({object:'drillcorebox',id:box.id})">
-                            <img style="max-width:200px" src="http://{{box.drillcoreimage__url}}"/>
+                        <a href data-ng-click="detailCtrl.service.openInNewWindow({object:'corebox',id:box.id})">
+                            <img style="max-width:200px;max-height: 250px" src="http://{{box.drillcoreimage__url}}"/>
                         </a>
                     </td>
                 </tr>

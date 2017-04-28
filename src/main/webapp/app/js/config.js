@@ -55,6 +55,13 @@ module.config(function($stateProvider,$urlRouterProvider) {
         templateUrl: "app/templates/search/detail/drillCoreDetails.html",
         controller: "DetailController as detailCtrl",
         params: {type: "drillCores"}
+    }).state('coreBox', {
+        template: '<data-ui-view/>'
+    }).state('coreBox.view', {
+        url: "/corebox/:id",
+        templateUrl: "app/templates/search/detail/coreBox.html",
+        controller: "DetailController as detailCtrl",
+        params: {type: "corebox"}
     }).state('localities', {
         url: "/localities",
         templateUrl: "app/templates/search/localities.html",

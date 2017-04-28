@@ -131,7 +131,7 @@ angular.module('geoApp').directive('loading', function () {
     };
 }).directive('showPreview', function () {
     return {
-        template: '<img style="width:100%;" ng-src="{{previewImageUrl}}" spinner-load />',
+        template: '<img style="width:100%" ng-src="{{previewImageUrl}}" spinner-load />',
         restrict: 'E',
         scope: {
             imgUrl: '='

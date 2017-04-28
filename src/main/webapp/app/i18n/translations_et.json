@@ -415,5 +415,19 @@
         "RESET_FORM": "Тühista",
         "SEND_QUERY": "Saada päring",
         "INSTITUTIONS": "Asutused"
+    },
+    "DETAIL": {
+        "CORE_BOX": {
+            "LOCALITY": "Leiukoht",
+            "ID": "Südamikukasti ID",
+            "NUMBER": "Number",
+            "INBOX": "m kastis",
+            "SINCE": "Algus(m)",
+            "TO": "Lõpp(m)",
+            "DEPTH": "Sügavused",
+            "STRATIGRAPHY_TOP": "Stratigraafia ülem.",
+            "STRATIGRAPHY_BOTTOM": "stratigraphy alum.",
+            "ADDITIONAL": "Lisainfo"
+        }
     }
 }
