@@ -31,7 +31,14 @@ public class FluentDrillCoreSearchApiBuilder extends FluentSearchApiBuilder<Flue
     }
 
     public FluentDrillCoreSearchApiBuilder queryLocalityCountry(SearchField country) {
-        buildMultiSearch(country, LOCALITY_COUNTRY, LOCALITY_COUNTRY_ENG);
+        buildMultiSearch(country, LOCALITY_COUNTRY, LOCALITY_COUNTRY_ENG,
+                LOCALITY__COUNTRY__ISO_CODE,
+                LOCALITY__MAAKOND__MAAKOND,
+                LOCALITY__MAAKOND__MAAKOND_EN,
+                LOCALITY__VALD__VALD,
+                LOCALITY__VALD__VALD_ENG,
+                LOCALITY__ASUSTUSYKSUS__ASUSTUSYKSUS,
+                LOCALITY__ASUSTUSYKSUS__ASUSTUSYKSUS_EN);
         return this;
     }
 
@@ -47,6 +54,11 @@ public class FluentDrillCoreSearchApiBuilder extends FluentSearchApiBuilder<Flue
 
     public FluentDrillCoreSearchApiBuilder queryDepth (SearchField id) {
         buildFieldParameters(DEPTH, id);
+        return this;
+    }
+
+    public FluentDrillCoreSearchApiBuilder queryStratigraphy(SearchField stratigraphy) {
+        buildMultiSearch(stratigraphy,"locality__localitystratigraphy__stratigraphy__stratigraphy", "locality__localitystratigraphy__stratigraphy__stratigraphy_en");
         return this;
     }
 
