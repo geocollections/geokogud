@@ -32,7 +32,12 @@ public class FluentDrillCoreSearchApiBuilder extends FluentSearchApiBuilder<Flue
 
     public FluentDrillCoreSearchApiBuilder queryLocalityCountry(SearchField country) {
         buildMultiSearch(country, LOCALITY_COUNTRY, LOCALITY_COUNTRY_ENG,
-                LOCALITY__COUNTRY__ISO_CODE,
+                LOCALITY__COUNTRY__ISO_CODE);
+        return this;
+    }
+
+    public FluentDrillCoreSearchApiBuilder queryLocalityAdminUnit(SearchField adminUnit) {
+        buildMultiSearch(adminUnit,
                 LOCALITY__MAAKOND__MAAKOND,
                 LOCALITY__MAAKOND__MAAKOND_EN,
                 LOCALITY__VALD__VALD,

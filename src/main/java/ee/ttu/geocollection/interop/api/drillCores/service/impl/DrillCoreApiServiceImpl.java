@@ -30,6 +30,7 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService {
                 //following fields is not possible to set via search but we can ask from API
                 //locality__country__value,locality__country__value_en,locality__latitude,
                 //locality__longitude,depth,boxes
+                .queryLocalityAdminUnit(searchCriteria.getAdminUnit())
                 .queryLocalityCountry(searchCriteria.getCountry())
                 .queryStratigraphy(searchCriteria.getStratigraphy())
                 .queryLocalityLatitude(searchCriteria.getLatitude())
