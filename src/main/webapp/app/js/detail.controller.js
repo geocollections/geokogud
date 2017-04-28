@@ -1,8 +1,9 @@
 var module = angular.module("geoApp");
-var constructor = function ($scope, $stateParams, applicationService, configuration, bsLoadingOverlayService, errorService) {
+var constructor = function ($scope, $state,$stateParams, applicationService, configuration, bsLoadingOverlayService, errorService) {
     var vm = this;
 
     vm.service = applicationService;
+    vm.reload = reload;
     vm.fields = [];  vm.urlsMap = [];
     vm.isIncludedField = isIncludedField;
 
@@ -98,8 +99,12 @@ var constructor = function ($scope, $stateParams, applicationService, configurat
         });
         return files;
     }
+
+    function reload(id) {
+        $state.go('coreBox.view', {id:id})
+    }
 };
 
-constructor.$inject = ["$scope", "$stateParams", 'ApplicationService', 'configuration', 'bsLoadingOverlayService', 'ErrorService'];
+constructor.$inject = ["$scope", "$state", "$stateParams", 'ApplicationService', 'configuration', 'bsLoadingOverlayService', 'ErrorService'];
 
 module.controller("DetailController", constructor);

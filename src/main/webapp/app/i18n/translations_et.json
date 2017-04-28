@@ -427,6 +427,7 @@
             "DEPTH": "Sügavused",
             "STRATIGRAPHY_TOP": "Stratigraafia ülem.",
             "STRATIGRAPHY_BOTTOM": "stratigraphy alum.",
+            "STRATIGRAPHY": "Stratigraphy",
             "ADDITIONAL": "Lisainfo"
         }
     }

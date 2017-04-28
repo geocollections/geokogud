@@ -11,26 +11,43 @@
                     <thead>
                     </thead>
                     <tbody>
-                        <tr><td>{{ 'DETAIL.CORE_BOX.ID'| translate }}</td><td>{{detailCtrl.results}}</td></tr>
-                        <tr><td>{{ 'DETAIL.CORE_BOX.LOCALITY'| translate }}</td><td>{{detailCtrl.results.id}}</td></tr>
+                        <tr><td>{{ 'DETAIL.CORE_BOX.ID'| translate }}</td><td>{{detailCtrl.results.id}}</td></tr>
+                        <tr><td>{{ 'DETAIL.CORE_BOX.LOCALITY'| translate }}</td><td>
+                            <localize et="detailCtrl.results.drillcore__drillcore_en" en="detailCtrl.results.drillcore__drillcore"/>
+                        </td></tr>
                         <tr><td>{{ 'DETAIL.CORE_BOX.NUMBER'| translate }}</td><td>{{detailCtrl.results.number}}</td></tr>
                         <tr><td>{{ 'DETAIL.CORE_BOX.INBOX'| translate }}</td><td>{{detailCtrl.results.number_meters}}</td></tr>
-                        <tr><td>{{ 'DETAIL.CORE_BOX.SINCE'| translate }}</td><td>{{detailCtrl.results.depth_end}}</td></tr>
+                        <tr><td>{{ 'DETAIL.CORE_BOX.SINCE'| translate }}</td><td>{{detailCtrl.results.depth_start}}</td></tr>
                         <tr><td>{{ 'DETAIL.CORE_BOX.TO'| translate }}</td><td>{{detailCtrl.results.depth_end}}</td></tr>
                         <tr><td>{{ 'DETAIL.CORE_BOX.DEPTH'| translate }}</td><td>{{detailCtrl.results.depth_other}}</td></tr>
-                        <tr><td>{{ 'DETAIL.CORE_BOX.STRATIGRAPHY_TOP'| translate }}</td><td>???</td></tr>
-                        <tr><td>{{ 'DETAIL.CORE_BOX.STRATIGRAPHY_BOTTOM'| translate }}</td><td>???</td></tr>
-                        <tr><td>{{ 'DETAIL.CORE_BOX.ADDITIONAL'| translate }}</td><td>???</td></tr>
+                        <tr><td>{{ 'DETAIL.CORE_BOX.STRATIGRAPHY_TOP'| translate }}</td><td>
+                            <localize et="detailCtrl.results.stratigraphy_top__stratigraphy_en" en="detailCtrl.results.stratigraphy_top__stratigraphy_en"/>
+                        </td></tr>
+                        <tr><td>{{ 'DETAIL.CORE_BOX.STRATIGRAPHY_BASE'| translate }}</td><td>
+                            <localize et="detailCtrl.results.stratigraphy_base__stratigraphy" en="detailCtrl.results.stratigraphy_base__stratigraphy_en"/>
+                        </td></tr>
+                        <!--<tr><td>{{ 'DETAIL.CORE_BOX.ADDITIONAL'| translate }}</td><td>???</td></tr>
+-->
                     </tbody>
                 </table>
             </div>
+            <div  class="row" ng-if="detailCtrl.results.id">
+                <a class="pull-left" href data-ng-click="detailCtrl.reload(detailCtrl.results.id -1)">
+                    PREVIOUS
+                </a>
+                <a class="pull-right" href data-ng-click="detailCtrl.reload(detailCtrl.results.id + 1)">
+                    NEXT
+                </a>
+            </div>
         </div>
+
         <div class="row">
-            <img spinner-load ng-src="{{detailCtrl.results.drillcoreimage__url}}" class="window-size"/>
+            <img style="max-width:300px;max-height: 350px" src="{{'http://' + detailCtrl.results.drillcoreimage__url}}">
+            <div class="label">Foto: {{detailCtrl.results.drillcoreimage__agent__agent}} {{detailCtrl.results.drillcoreimage__image_date}}</div>
         </div>
         <div class="panel-body">
             <div class="row">
-                <h2>Proovid sellest kastist</h2>
+       <!--         <h2>Proovid sellest kastist</h2>-->
             </div>
         </div>
     </div>
