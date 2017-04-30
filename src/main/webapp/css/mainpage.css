@@ -256,10 +256,11 @@ footer {
 table tr > td:first-child {
     font-weight: 700;
 }
-
+#table-search {
+    empty-cells: show;
+}
 
 @media only screen and (max-width: 800px) {
-
     /* Force table to not be like tables anymore */
     #table-search table,
     #table-search thead,
@@ -289,6 +290,9 @@ table tr > td:first-child {
         text-align:left;
     }
 
+    #table-search td:empty {
+        padding-top: 20px;
+    }
     #table-search td:before {
         /* Now like a table header */
         position: absolute;

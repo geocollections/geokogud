@@ -166,13 +166,13 @@
                         <tr>
                             <th><sort-field value = "id" name="SEARCH.ANALYSES.TABLE.ID"></sort-field></th>
                             <th><sort-field value = "sample" name="SEARCH.ANALYSES.TABLE.SAMPLE_ID"></sort-field></th>
-                            <th>{{ 'SEARCH.ANALYSES.TABLE.LOCALITY'| translate }}</th>
-                            <th>{{ 'SEARCH.ANALYSES.TABLE.DEPTH_M'| translate }}</th>
+                            <th><sort-field value = "sample__locality__locality_en" name="SEARCH.ANALYSES.TABLE.LOCALITY"></sort-field></th>
+                            <th><sort-field value = "sample__depth" name="SEARCH.ANALYSES.TABLE.DEPTH_M"></sort-field></th>
                             <th><span>{{ 'SEARCH.ANALYSES.TABLE.STRATIGRAPHY' | translate }}</span> | <span>{{ 'SEARCH.ANALYSES.TABLE.LITHOSTRATIGRAPHY' | translate }}</span>
                             </th>
-                            <th>{{ 'SEARCH.ANALYSES.TABLE.BED_ID'| translate }}</th>
-                            <th>{{ 'SEARCH.ANALYSES.TABLE.METHOD'| translate }}</th>
-                            <th>{{ 'SEARCH.ANALYSES.TABLE.LAB'| translate }}</th>
+                            <th><sort-field value = "sample__stratigraphy_bed" name="SEARCH.ANALYSES.TABLE.BED_ID"></sort-field></th>
+                            <th><sort-field value = "analysis_method__method_en" name="SEARCH.ANALYSES.TABLE.METHOD"></sort-field></th>
+                            <th><sort-field value = "lab" name="SEARCH.ANALYSES.TABLE.LAB"></sort-field></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -181,23 +181,19 @@
                                 <a href data-ng-click="ctrl.service.openInNewWindow({object:'analysis',id:entity.id})">{{entity.id}}</a>
                             </td>
                             <td data-title="{{ 'SEARCH.ANALYSES.TABLE.SAMPLE_ID'| translate }}">{{entity.sample}}</td>
-                            <td data-title="{{ 'SEARCH.ANALYSES.TABLE.LOCALITY'| translate }}">
-                                <localize et="entity.sample__locality__locality" en="entity.sample__locality__locality_en"/>
-                            </td>
+                            <td data-title="{{ 'SEARCH.ANALYSES.TABLE.LOCALITY'| translate }}"><localize data-ng-if="entity.sample__locality__locality != null && entity.sample__locality__locality_en != null" et="entity.sample__locality__locality" en="entity.sample__locality__locality_en"/></td>
                             <td data-title="{{ 'SEARCH.ANALYSES.TABLE.DEPTH_M'| translate }}">{{entity.sample__depth}} {{entity.sample__depth_interval}}</td>
                             <td data-title="{{ 'SEARCH.ANALYSES.TABLE.STRATIGRAPHY' | translate }}">
                                 <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.sample__stratigraphy_id})">
-                                    <localize et="sample__stratigraphy__stratigraphy" en="sample__stratigraphy__stratigraphy_en"/>
+                                    <localize data-ng-if="entity.sample__stratigraphy__stratigraphy != null && entity.sample__stratigraphy__stratigraphy_en != null" et="entity.sample__stratigraphy__stratigraphy" en="entity.sample__stratigraphy__stratigraphy_en"/>
                                 </a>
                                 <span ng-show="sample__stratigraphy__stratigraphy != null && sample__lithostratigraphy__stratigraphy != null">|</span>
                                 <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.sample__lithostratigraphy_id})">
-                                    <localize et="sample__lithostratigraphy__stratigraphy" en="entity.sample__lithostratigraphy__stratigraphy_en"/>
+                                    <localize data-ng-if="entity.sample__lithostratigraphy__stratigraphy != null && sample__lithostratigraphy__stratigraphy_en != null " et="entity.sample__lithostratigraphy__stratigraphy" en="entity.entity.sample__lithostratigraphy__stratigraphy_en"/>
                                 </a>
                             </td>
                             <td data-title="{{ 'SEARCH.ANALYSES.TABLE.BED_ID'| translate }}">{{entity.sample__stratigraphy_bed}}</td>
-                            <td data-title="{{ 'SEARCH.ANALYSES.TABLE.METHOD'| translate }}">
-                                <localize et="entity.analysis_method__analysis_method" en="entity.analysis_method__method_en"/>
-                            </td>
+                            <td data-title="{{ 'SEARCH.ANALYSES.TABLE.METHOD'| translate }}"><localize data-ng-if="entity.analysis_method__analysis_method != null && entity.analysis_method__method_en != null" et="entity.analysis_method__analysis_method" en="entity.analysis_method__method_en"/></td>
                             <td data-title="{{ 'SEARCH.ANALYSES.TABLE.LAB'| translate }}">{{entity.lab}}</td>
                         </tr>
                         </tbody>

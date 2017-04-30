@@ -302,69 +302,35 @@
                     <table class="table table-bordered table-hover" id="table-search">
                         <thead class="thead-default">
                         <tr>
-                            <th>
-                                <sort-field value = "id" name="SEARCH.SPECIMENS.ID"></sort-field>
-                            </th>
-                            <th>{{ 'SEARCH.SPECIMENS.NUMBER' | translate }}</th>
-                            <th>
-                                <sort-field value = "number" name="SEARCH.SPECIMENS.OLD_SPECIMEN_NUMBER"></sort-field>
-                            </th>
-                            <th>{{ 'SEARCH.SPECIMENS.NAME_PART_ELEMENT' | translate }}</th>
-                            <th>
-                                <sort-field value = "localityEng" name="SEARCH.SPECIMENS.LOCALITY"></sort-field>
-                            </th>
-                            <th>
-                                <sort-field value = "depth" name="SEARCH.SPECIMENS.DEPHT_M"></sort-field>
-                            </th>
-                            <th>
-                                <sort-field value = "stratigraphyEng" name="SEARCH.SPECIMENS.STRATIGRAPHY"></sort-field>
-                            </th>
-                            <th>{{ 'SEARCH.SPECIMENS.COLLECTOR' | translate }}</th>
-                            <th>{{ 'SEARCH.SPECIMENS.STATUS' | translate }}</th>
+                            <th><sort-field value = "id" name="SEARCH.SPECIMENS.ID"></sort-field></th>
+                            <th><sort-field value = "specimen_id" name="SEARCH.SPECIMENS.NUMBER"></sort-field></th>
+                            <th><sort-field value = "number" name="SEARCH.SPECIMENS.OLD_SPECIMEN_NUMBER"></sort-field></th>
+                            <th><sort-field value = "specimenidentification__name" name="SEARCH.SPECIMENS.NAME_PART_ELEMENT"></sort-field></th>
+                            <th><sort-field value = "localityEng" name="SEARCH.SPECIMENS.LOCALITY"></sort-field></th>
+                            <th><sort-field value = "depth" name="SEARCH.SPECIMENS.DEPHT_M"></sort-field></th>
+                            <th><sort-field value = "stratigraphyEng" name="SEARCH.SPECIMENS.STRATIGRAPHY"></sort-field></th>
+                            <th><sort-field value = "agent_collected__agent" name="SEARCH.SPECIMENS.COLLECTOR"></sort-field></th>
+                            <th><sort-field value = "original_status__value_en" name="SEARCH.SPECIMENS.STATUS"></sort-field></th>
                             <th>{{ 'SEARCH.SPECIMENS.IMAGES' | translate }}</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr data-ng-repeat="entity in response.results">
-                            <td data-title="{{ 'SEARCH.SPECIMENS.ID' | translate }}">
-                                <a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen',id:entity.id})">{{entity.id}}</a>
-                            </td>
-                            <td data-title="{{ 'SEARCH.SPECIMENS.NUMBER' | translate }}">
-                                <a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen',id:entity.id})">
-                                    {{entity.coll__number | split:' ':0}} {{entity.specimen_id}}
-                                </a>
-                            </td>
-                            <td data-title="{{ 'SEARCH.SPECIMENS.OLD_SPECIMEN_NUMBER' | translate }}">
-                             <!--   <first-not-null values="[entity.coll__number, entity.coll_id]"/>-->
-                                {{entity.specimen_nr}}
-                            <td data-title="{{ 'SEARCH.SPECIMENS.NAME_PART_ELEMENT' | translate }}">
-                                <a href="http://fossiilid.info/{{entity.specimenidentification__taxon_id}}" target="_blank">
-                                    {{entity.specimenidentification__taxon__taxon}}
-                                </a> {{entity.specimenidentification__name}}
-                            </td>
-                            <td data-title="{{ 'SEARCH.SPECIMENS.LOCALITY' | translate }}">
-                                <a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.locality_id})">{{entity.locality__locality}}</a>
-                            </td>
-                            <td data-title="{{ 'SEARCH.SPECIMENS.DEPTH_M' | translate }}">{{entity.depth}}
-                                <span ng-if="entity.depth_interval != null && entity.depth_interval != ''">({{entity.depth_interval}})</span></td>
-                            <td data-title="{{ 'SEARCH.SPECIMENS.STRATIGRAPHY' | translate }}">
-                                <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.stratigraphy_id})">
-                                    <first-not-null values="[entity.stratigraphy__stratigraphy, entity.stratigraphy__stratigraphy_en, lithostratigraphy__stratigraphy, lithostratigraphy__stratigraphy_en, stratigraphy_free]"/>
-                                </a>
-                            </td>
-                            <td data-title="{{ 'SEARCH.SPECIMENS.COLLECTOR' | translate }}">
-                                <first-not-null values="[entity.agent_collected__agent, [entity.agent_collected__forename, entity.agent_collected__surename]]"/>
-                            </td>
-                            <td data-title="{{ 'SEARCH.SPECIMENS.STATUS' | translate }}"><localize et="entity.original_status__value" en="entity.original_status__value_en"/></td>
-                            <td data-title="{{ 'SEARCH.SPECIMENS.IMAGES' | translate }}">
-                                <show-preview data-ng-if="entity.specimen_image_thumbnail.count > 0" img-url="entity.specimen_image_thumbnail.results[0].image_url"/>
-                            </td>
+                            <td data-title="{{ 'SEARCH.SPECIMENS.ID' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen',id:entity.id})">{{entity.id}}</a></td>
+                            <td data-title="{{ 'SEARCH.SPECIMENS.NUMBER' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen',id:entity.id})">{{entity.coll__number | split:' ':0}} {{entity.specimen_id}}</a></td>
+                            <td data-title="{{ 'SEARCH.SPECIMENS.OLD_SPECIMEN_NUMBER' | translate }}"><!--<first-not-null values="[entity.coll__number, entity.coll_id]"/>-->{{entity.specimen_nr}}</td>
+                            <td data-title="{{ 'SEARCH.SPECIMENS.NAME_PART_ELEMENT' | translate }}"><div data-ng-if="entity.specimenidentification__taxon_id != null && entity.specimenidentification__taxon__taxon != null && entity.specimenidentification__name != null"><a href="http://fossiilid.info/{{entity.specimenidentification__taxon_id}}" target="_blank">{{entity.specimenidentification__taxon__taxon}}</a> {{entity.specimenidentification__name}}</div></td>
+                            <td data-title="{{ 'SEARCH.SPECIMENS.LOCALITY' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.locality_id})">{{entity.locality__locality}}</a></td>
+                            <td data-title="{{ 'SEARCH.SPECIMENS.DEPTH_M' | translate }}">{{entity.depth}}<span ng-if="entity.depth_interval != null && entity.depth_interval != ''">({{entity.depth_interval}})</span></td>
+                            <td data-title="{{ 'SEARCH.SPECIMENS.STRATIGRAPHY' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.stratigraphy_id})"><first-not-null values="[entity.stratigraphy__stratigraphy, entity.stratigraphy__stratigraphy_en, lithostratigraphy__stratigraphy, lithostratigraphy__stratigraphy_en, stratigraphy_free]"/></a></td>
+                            <td data-title="{{ 'SEARCH.SPECIMENS.COLLECTOR' | translate }}"><first-not-null values="[entity.agent_collected__agent, [entity.agent_collected__forename, entity.agent_collected__surename]]"/></td>
+                            <td data-title="{{ 'SEARCH.SPECIMENS.STATUS' | translate }}"><localize data-ng-if="entity.original_status__value != null && entity.original_status__value_en != null" et="entity.original_status__value" en="entity.original_status__value_en"/></td>
+                            <td data-title="{{ 'SEARCH.SPECIMENS.IMAGES' | translate }}"><show-preview data-ng-if="entity.specimen_image_thumbnail.count > 0" img-url="entity.specimen_image_thumbnail.results[0].image_url"/></td>
                         </tr>
                         </tbody>
                     </table>
                     <div class="col-lg-12 h4 panel-heading text-center" data-ng-if="response.results == null">Tulemust ei leita</div>
                 </div>
-
                 <div ng-include="'app/templates/search/partial/pagination.html'"></div>
             </div>
         </div>

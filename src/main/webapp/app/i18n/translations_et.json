@@ -145,9 +145,9 @@
                 "DEPTH_M": "@:SEARCH.ANALYSES.LOCATION.DEPTH_M",
                 "STRATIGRAPHY": "@:SEARCH.ANALYSES.LOCATION.STRATIGRAPHY",
                 "LITHOSTRATIGRAPHY": "Litostratigraafia",
-                "BED_ID": "",
+                "BED_ID": "Ase ID",
                 "METHOD": "Metoodika",
-                "LAB": ""
+                "LAB": "Lab."
             }
         },
         "SPECIMENS": {
@@ -286,9 +286,9 @@
                 "DEPTH_M": "@:SEARCH.ANALYSES.LOCATION.DEPTH_M",
                 "STRATIGRAPHY": "@:SEARCH.ANALYSES.LOCATION.STRATIGRAPHY",
                 "LITHOSTRATIGRAPHY": "Litostratigraafia",
-                "BED_ID": "",
+                "BED_ID": "Ase ID",
                 "METHOD": "Metoodika",
-                "LAB": "",
+                "LAB": "Lab.",
                 "ID": "ID",
                 "SAMPLE_ID": "@:SEARCH.ANALYSES.IDENTIFIERS.SAMPLE_ID"
             }

@@ -106,24 +106,20 @@
                             <th><sort-field value = "author" name="SEARCH.REFERENCES.TABLE.AUTHOR"></sort-field></th>
                             <th><sort-field value = "year" name="SEARCH.REFERENCES.TABLE.YEAR"></sort-field></th>
                             <th><sort-field value = "title" name="SEARCH.REFERENCES.TABLE.TITLE"></sort-field></th>
-                            <th>{{ 'SEARCH.REFERENCES.TABLE.JOURNAL_BOOK' | translate }}</th>
-                            <th>{{ 'SEARCH.REFERENCES.TABLE.PP' | translate }}</th>
-                            <th>{{ 'SEARCH.REFERENCES.TABLE.DOI' | translate }}</th>
-                            <th>{{ 'SEARCH.REFERENCES.TABLE.REMARKS' | translate }}</th>
+                            <th><sort-field value = "journal__journal_name" name="SEARCH.REFERENCES.TABLE.JOURNAL_BOOK"></sort-field></th>
+                            <th><sort-field value = "pages" name="SEARCH.REFERENCES.TABLE.PP"></sort-field></th>
+                            <th><sort-field value = "doi" name="SEARCH.REFERENCES.TABLE.DOI"></sort-field></th>
+                            <th><sort-field value = "remarks" name="SEARCH.REFERENCES.TABLE.REMARKS"></sort-field></th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr data-ng-repeat="entity in response.results">
                             <td data-title="{{ 'SEARCH.REFERENCES.TABLE.ID' | translate }}">{{entity.id}}</td>
-                            <td data-title="{{ 'SEARCH.REFERENCES.TABLE.REFERENCE' | translate }}">
-                                <a href data-ng-click="ctrl.service.openInNewWindow({object:'reference',id:entity.id})">{{entity.reference}}</a>
-                            </td>
+                            <td data-title="{{ 'SEARCH.REFERENCES.TABLE.REFERENCE' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'reference',id:entity.id})">{{entity.reference}}</a></td>
                             <td data-title="{{ 'SEARCH.REFERENCES.TABLE.AUTHOR' | translate }}">{{entity.author}}</td>
                             <td data-title="{{ 'SEARCH.REFERENCES.TABLE.YEAR' | translate }}">{{entity.year}}</td>
                             <td data-title="{{ 'SEARCH.REFERENCES.TABLE.TITLE' | translate }}">{{entity.title}}</td>
-                            <td data-title="{{ 'SEARCH.REFERENCES.TABLE.JOURNAL_BOOK' | translate }}">
-                                {{entity.journal__journal_name}}
-                            </td>
+                            <td data-title="{{ 'SEARCH.REFERENCES.TABLE.JOURNAL_BOOK' | translate }}">{{entity.journal__journal_name}}</td>
                             <td data-title="{{ 'SEARCH.REFERENCES.TABLE.PP' | translate }}">{{entity.pages}}</td>
                             <td data-title="{{ 'SEARCH.REFERENCES.TABLE.DOI' | translate }}">{{entity.doi}}</td>
                             <td data-title="{{ 'SEARCH.REFERENCES.TABLE.REMARKS' | translate }}">{{entity.remarks}}</td>
