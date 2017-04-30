@@ -148,17 +148,6 @@
                     <div class="hidden-xs">
                         <div class="row search-hint" ng-bind-html="main.getContent(main.doiIdentifiers)" data-ng-if="isHintHidden"></div>
                     </div>
-
-                    <div data-ng-if="isMapHidden">
-                        <div class="col-lg-12 search-map">
-                            <localities-map localities="localities"></localities-map>
-                            <div id='hoverbox'>
-                                <div id='hoversystem'></div>
-                                <div id='hoverstat'></div>
-                            </div>
-                        </div>
-                    </div>
-                    <loading></loading>
                 </div>
 
                 <div ng-include="'app/templates/search/partial/pagination.html'"></div>

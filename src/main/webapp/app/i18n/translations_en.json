@@ -38,7 +38,8 @@
         "ERMAS_LINK": "ERMAS",
         "CONTACT_LINK": "Contact",
         "BUTTON_LANG_ET": "EST",
-        "BUTTON_LANG_EN": "ENG"
+        "BUTTON_LANG_EN": "ENG",
+        "TYPES_OF_SEARCHES": "Types of searches"
     },
     "GIT": {
         "GIT_TITLE": "Geological collections at the Institute of Geology at TUT",

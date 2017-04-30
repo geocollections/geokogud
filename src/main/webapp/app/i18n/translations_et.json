@@ -38,7 +38,8 @@
         "ERMAS_LINK": "ERMAS",
         "CONTACT_LINK": "Kontakt",
         "BUTTON_LANG_ET": "EST",
-        "BUTTON_LANG_EN": "ENG"
+        "BUTTON_LANG_EN": "ENG",
+        "TYPES_OF_SEARCHES": "Otsingute tüübid"
     },
     "GIT": {
         "GIT_TITLE": "TTÜ Geoloogia Instituudi geoloogilised kollektsioonid",

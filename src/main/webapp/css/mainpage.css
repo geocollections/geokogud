@@ -447,3 +447,19 @@ table tr > td:first-child {
 .search-hint {
     padding:15px;
 }
+.search-header-list {
+    list-style-type: none;
+    text-align: center;
+}
+.search-header-list .dropdown-menu {
+    text-align: center;
+    margin-left:calc(50% - 80px);
+    margin-right:calc(50% - 80px);
+}
+.search-header-list .dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {
+    background-color: #ee4b28;
+}
+.search-header-list .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+    background-color: #eb3812;
+    color: #fff;
+}
