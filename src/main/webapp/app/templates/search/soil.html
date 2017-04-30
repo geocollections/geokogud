@@ -14,6 +14,9 @@
                         </button>
                     </h3>
                 </div>
+                <div class="visible-xs">
+                    <div class="row search-hint" ng-bind-html="main.getContent(main.doiIdentifiers)" data-ng-if="isHintHidden"></div>
+                </div>
                 <form ng-enter="search()">
                     <div class="row">
                         <div class="checkbox">
@@ -106,8 +109,8 @@
                 </form>
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
-                <div class="row">
-                     <div ng-bind-html="main.getContent(main.searchTips)" data-ng-if="isHintHidden"></div>
+                <div class="hidden-xs">
+                    <div class="row search-hint" ng-bind-html="main.getContent(main.doiIdentifiers)" data-ng-if="isHintHidden"></div>
                 </div>
                 <div class="row">
                     <div data-ng-if="isMapHidden">

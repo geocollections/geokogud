@@ -443,3 +443,7 @@ table tr > td:first-child {
 .dropdown-menu {
     min-width: 0;
 }
+
+.search-hint {
+    padding:15px;
+}

@@ -139,7 +139,6 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
 
     $scope.showHint = function () {
         $scope.isHintHidden = !$scope.isHintHidden;
-
     };
 
     $scope.showMap = function () {
