@@ -29,6 +29,9 @@ var constructor = function (utils,configuration, $window) {
         if(url != null) utils.httpPost(url, data, success, error, headers, true);
     };
 
+    service.getSearchParamsFromUrl = function () {
+        return utils.decodeUrl();
+    };
 
     service.getEntity = function (searchType, id, callback, error) {
         var url = getDetailUrl(searchType);

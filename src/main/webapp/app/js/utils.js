@@ -21,6 +21,7 @@ var constructor = function ($http,$location, configuration) {
 
     service.httpPost = function (url, data, successCb, errorCb, headers, composeSearchUrl) {
         if(composeSearchUrl) service.composeUrl(data);
+        //service.decodeUrl();
         var config = {
             "data": data,
             "headers": headers ? headers : {},
@@ -35,24 +36,48 @@ var constructor = function ($http,$location, configuration) {
     service.composeUrl = function(data) {
         var url = "", currentTable = $location.$$path.split('/')[1];
         angular.forEach(Object.keys(data), function(attr){
-            if(attr != 'sortField' && attr != 'dbs') {
-
-               if(configuration.urlHelper[currentTable]) {
-                   var fieldName = configuration.urlHelper[$location.$$path.split('/')[1]].fields[attr];
-
-                   if(fieldName)
-                       url += fieldName + "_1=" + configuration.urlHelper['lookUpType'][data[attr].lookUpType] +"&"+fieldName+"="+(data[attr].name ? data[attr].name : "") +"&";
-               }
+            if(attr != 'sortField' && attr != 'dbs' && configuration.urlHelper[currentTable]) {
+               var fieldName = configuration.urlHelper[currentTable].fields[attr];
+               if(fieldName) url += fieldName + "_1=" + configuration.urlHelper['lookUpType'][data[attr].lookUpType] +"&"+fieldName+"="+(data[attr].name ? data[attr].name : "") +"&";
             }
         });
         if(url != "") {
             url +="&currentTable="+currentTable.trim();
             //todo: add dbs and sortFields
+            //todo: specialFields: mass and depth
         }
         url == "" ? $location.path($location.$$path).search() : $location.path($location.$$path).search(url);
         $location.replace();
-
     };
+
+    service.decodeUrl = function(){
+       if( Object.keys($location.$$search).length === 0) return null;
+        var urlParams = $location.$$search, currentTable = $location.$$path.split('/')[1], searchParams = {};
+        angular.forEach(Object.keys(urlParams), function(attr){
+            if(attr != 'currentTable' && configuration.urlHelper[currentTable]) {
+                angular.forEach(Object.keys(configuration.urlHelper[currentTable].fields), function(a) {
+                    if(configuration.urlHelper[currentTable].fields[a] == attr) {
+                        console.log(a);
+                        var lookUpType = getLookUpType(urlParams[attr+'_1']);
+                        urlParams[attr] ? searchParams[a] = {"lookUpType":lookUpType, "name":urlParams[attr]}
+                                        : searchParams[a] = {"lookUpType":lookUpType};
+                    }
+                })
+            }
+        });
+        return searchParams;
+    };
+
+    function getLookUpType(attr){
+        var found = false, lookUpType = "";
+        angular.forEach(Object.keys(configuration.urlHelper['lookUpType']), function(a) {
+            if(!found && configuration.urlHelper['lookUpType'][a] == attr) {
+                lookUpType = a;
+                found = true;
+            }
+        });
+        return lookUpType;
+    }
 
     service.preRequestCallbacks = [];
 
