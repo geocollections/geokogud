@@ -45,6 +45,7 @@ public class ApiFields {
     public static final String TAXON = "taxon";
     public static final String PARENT_TAXON = "parent__taxon";
     public static final String FOSSIL_GROUP_TAXON = "fossil_group__taxon";
+    public static final String AUTHOR_YEAR = "author_year";
 
     //DOI search
     public static final String IDENTIFIER = "identifier";

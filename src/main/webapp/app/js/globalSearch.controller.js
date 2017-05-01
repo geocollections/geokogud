@@ -5,36 +5,46 @@ var constructor = function (configuration, $translate, $http, applicationService
     $scope.searchResults = {
         "specimen": [],
         "sample": [],
-        "drillcore": [],
         "locality": [],
         "reference": [],
         "stratigraphy": [],
-        "analysis": [],
-        "preparation": [],
         "image": [],
-        "soil_site": [],
-        "doi": []
+        "taxon": []
     };
+
+    $scope.response = {
+        results:[]
+    };
+
+    $scope.selectedTab = $stateParams.tab;
 
     $scope.searchGlobally = function () {
         console.log($stateParams.query);
         GlobalSearchFactory.searchGlobally(
             $stateParams.query,
             function (result) {
-                alert(JSON.stringify(result.data, null, "    "));
+                result.data.forEach(function(response) {
+                    $scope.searchResults[response.table] = response.results;
+                    if(response.table == $scope.selectedTab) {
+                        $scope.response.results = response.results;
+                    }
+                });
             }
         );
     };
 
-    $scope.selectTab = function(tabTitle) {
+    $scope.selectTab = function (tabTitle) {
+        if(!tabTitle) {
+            tabTitle = "specimen";
+        }
+        $state.go("global", {query: $stateParams.query, tab: tabTitle}, {location: "replace", inherit: false, notify: false});
         $stateParams.tab = tabTitle;
-    };
-
-    $scope.getSelectedTabPartial = function() {
-        return "app/templates/search/"+$stateParams.tab+"/"+$stateParams.tab+"_results.html";
+        $scope.selectedTab = tabTitle;
+        $scope.response.results = $scope.searchResults[tabTitle];
     };
 
     $scope.searchGlobally();
+    $scope.selectTab($stateParams.tab);
 };
 
 constructor.$inject = ["configuration", '$translate', '$http', 'ApplicationService', '$state', '$stateParams', '$scope', '$rootScope', 'WebPagesFactory', 'GlobalSearchFactory'];

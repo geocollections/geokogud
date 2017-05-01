@@ -8,8 +8,13 @@
                     <loading></loading>
                 </div>
 
-                <div ng-include="'app/templates/search/partial/pagination.html'"></div>
-                <div ng-include="getSelectedTabPartial()"></div>
+                <div ng-if="selectedTab == 'specimen'" non-isolated-include template-path="app/templates/search/specimen/specimen_results.html"></div>
+                <div ng-if="selectedTab == 'sample'" non-isolated-include template-path="app/templates/search/sample/sample_results.html"></div>
+                <div ng-if="selectedTab == 'locality'" non-isolated-include template-path="app/templates/search/locality/locality_results.html"></div>
+                <div ng-if="selectedTab == 'reference'" non-isolated-include template-path="app/templates/search/reference/reference_results.html"></div>
+                <div ng-if="selectedTab == 'stratigraphy'" non-isolated-include template-path="app/templates/search/stratigraphy/stratigraphy_results.html"></div>
+                <div ng-if="selectedTab == 'image'" non-isolated-include template-path="app/templates/search/image/image_results.html"></div>
+                <div ng-if="selectedTab == 'taxon'" non-isolated-include template-path="app/templates/search/taxon/taxon_results.html"></div>
 
             </div>
         </div>

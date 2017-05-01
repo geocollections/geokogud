@@ -376,6 +376,16 @@
                 "DOI": "DOI"
             }
         },
+        "TAXON": {
+            "HEADING": "Taxa",
+            "TABLE": {
+                "ID": "ID",
+                "FOSSIL_GROUP": "Fossiili grupp",
+                "TAXON": "Taxa",
+                "AUTHOR": "Autor",
+                "PARENT_TAXON": "Vanem taxa"
+            }
+        },
         "FAQ": "KKK",
         "LOCALITIES": {
             "LOCATION": {

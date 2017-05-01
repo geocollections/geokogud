@@ -40,6 +40,7 @@ public class TaxonApiServiceImpl implements TaxonApiService {
                 .returnTaxon()
                 .returnParentTaxon()
                 .returnFossilGroupTaxon()
+                .returnAuthorYear()
                 .buildFullQuery();
         return apiService.searchRawEntities(TAXON_TABLE, ids.size() + 1, 1, new SortField(), requestParams);
     }

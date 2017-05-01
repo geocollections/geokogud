@@ -1,0 +1,44 @@
+
+<div ng-include="'app/templates/search/partial/pagination.html'"></div>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover" id="table-search">
+        <thead class="thead-default">
+        <tr>
+            <th><sort-field value = "id" name="SEARCH.TAXON.TABLE.ID"></sort-field></th>
+            <th><sort-field value = "fossil-group" name="SEARCH.TAXON.TABLE.FOSSIL_GROUP"></sort-field></th>
+            <th><sort-field value = "taxon" name="SEARCH.TAXON.TABLE.TAXON"></sort-field></th>
+            <th><sort-field value = "author" name="SEARCH.TAXON.TABLE.AUTHOR"></sort-field></th>
+            <th><sort-field value = "parent-taxon" name="SEARCH.TAXON.TABLE.PARENT_TAXON"></sort-field></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="entity in response.results">
+            <td data-title="{{ 'SEARCH.TAXON.TABLE.ID' | translate }}">
+                <a href data-ng-click="ctrl.service.openInNewWindow({object:'soil',id:entity.id})">{{entity.id}}</a>
+            </td>
+            <td data-title="{{ 'SEARCH.TAXON.TABLE.FOSSIL_GROUP' | translate }}">
+                <a href="http://fossiilid.info/{{entity.id}}" target="_blank">
+                    {{entity.fossil_group__taxon}}
+                </a>
+            </td>
+            <td data-title="{{ 'SEARCH.TAXON.TABLE.TAXON' | translate }}">
+                <a href="http://fossiilid.info/{{entity.id}}" target="_blank">
+                    {{entity.taxon}}
+                </a>
+            </td>
+            <td data-title="{{ 'SEARCH.TAXON.TABLE.AUTHOR' | translate }}">
+                {{entity.author_year}}
+            </td>
+            <td data-title="{{ 'SEARCH.TAXON.TABLE.PARENT_TAXON' | translate }}">
+                <a href="http://fossiilid.info/{{entity.parent_id}}" target="_blank">
+                    {{entity.parent__taxon}}
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="col-lg-12 h4 panel-heading text-center" data-ng-if="response.results == null">Tulemust ei leita</div>
+</div>
+
+<div ng-include="'app/templates/search/partial/pagination.html'"></div>

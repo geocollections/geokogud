@@ -376,6 +376,16 @@
                 "DOI": "DOI"
             }
         },
+        "TAXON": {
+            "HEADING": "Taxa",
+            "TABLE": {
+                "ID": "ID",
+                "FOSSIL_GROUP": "Fossil group",
+                "TAXON": "Taxon",
+                "AUTHOR": "Author",
+                "PARENT_TAXON": "Parent taxon"
+            }
+        },
         "FAQ": "FAQ",
         "LOCALITIES": {
             "LOCATION": {
