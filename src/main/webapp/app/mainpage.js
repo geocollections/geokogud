@@ -45,5 +45,4 @@ jQuery(document).ready(function ($) {
     }, 300);
     
     $("body").tooltip({ selector: '[data-toggle=tooltip]' });
-
 });

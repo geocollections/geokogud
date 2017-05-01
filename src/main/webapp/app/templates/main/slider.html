@@ -1,4 +1,38 @@
- <div id="infoCarousel" class="carousel" data-ride="carousel" data-interval="false">
+<div class="infoCarousel-nav">
+<ul class="nav nav-pills hidden-xs" role="tablist">
+   <li class="active" role="presentation">
+        <a data-toggle="tab" href="/" data-target="#infoCarousel" data-slide-to="0">
+            <i class="fa fa-circle fa-lg"></i><br/>
+            {{ 'GIT.GIT_HEADING' | translate }}
+        </a>
+    </li>
+    <li role="presentation">
+        <a data-toggle="tab" href="/" data-target="#infoCarousel" data-slide-to="1">
+            <i class="fa fa-info fa-lg"></i><br/>
+            {{ 'INDEX.ABOUT_COLLECTIONS_LINK' | translate }}
+        </a>
+    </li>
+    <li role="presentation">
+        <a data-toggle="tab" href="/" data-target="#infoCarousel" data-slide-to="2">
+            <i class="fa fa-creative-commons fa-lg"></i><br/>
+            {{ 'INDEX.USING_COLLECTIONS_LINK' | translate }}
+        </a>
+    </li>
+    <li role="presentation">
+        <a data-toggle="tab" href="/" data-target="#infoCarousel" data-slide-to="3">
+            <i class="fa fa-calendar-check-o fa-lg"></i><br/>
+            {{ 'INDEX.NEWS_LINK' | translate }}
+        </a>
+    </li>
+    <li role="presentation">
+        <a data-toggle="tab" href="/" data-target="#infoCarousel" data-slide-to="4">
+            <i class="fa fa-database fa-lg"></i><br/>
+            {{ 'INDEX.DATABASE_LINK' | translate }}
+        </a>
+    </li>
+</ul>
+</div>
+<div id="infoCarousel" class="carousel" data-ride="carousel" data-interval="false">
         <div class="carousel-inner backgr" role="listbox">
             <div class="item active">
                 <div ng-include="'app/templates/main/git.html'"></div>
@@ -27,3 +61,11 @@
          <span class="glyphicon glyphicon-chevron-right carouselControlButton" aria-hidden="true"></span>
      </a>
  </div>
+
+<script>
+    $('#infoCarousel').bind('slide.bs.carousel', function (e) {
+        var next = $(e.relatedTarget);
+        var to =  next.index();
+        $('.infoCarousel-nav .nav li').removeClass('active').eq(to).addClass('active');
+    });
+</script>
