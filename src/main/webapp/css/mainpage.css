@@ -110,19 +110,26 @@ footer {
     font-weight: 500;
     outline:none;
 }
-.nav-tabs> li.active> a,
-.nav-tabs> li> a:focus,
-.nav-tabs> li> a:hover {
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
     color: #eb3812;
 }
-.nav-tabs> li {
+.nav-tabs> li, .nav-pills>li {
     display:inline-block;
     float:none;
     *display:inline;
     zoom:1;
 }
-.nav-tabs {
+.nav-tabs, .nav-pills {
     text-align:center;
+}
+.infoCarousel-nav > .nav-pills> li> a {
+    color: #333333;
+}
+.infoCarousel-nav > .nav-pills > li.active > a,
+.infoCarousel-nav > .nav-pills > li.active > a:focus,
+.infoCarousel-nav > .nav-pills > li.active > a:hover {
+    background-color: #EDEDED;
+    color: #F05F40;
 }
 /* badge */
 .badge-info {
