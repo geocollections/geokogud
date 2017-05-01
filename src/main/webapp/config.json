@@ -19,23 +19,148 @@
       "sortField" : {"order":"sortDir","sortBy" : "sort"},
       "currentTable" : "currentTable"
     },
-    "sample" : {
-      "fields" : {
-        "agent" : "agent",
-        "analysisMethod" : "analysis",
-        "component" : "component",
-        "content" : "content",
-        "country" : "country",
-        "frequency" : "frequency",
-        "id" : "id",
-        "locality" : "locality",
-        "location" : "location",
-        "sampleNumber" : "sample_number",
-        "stratigraphy" : "stratigraphy",
-        "stratigraphyBed" : "stratigraphy_bed",
-        "taxon" : "taxon"
+      "doi" : {
+        "fields" : {
+          "identifier": "identifier",
+          "title": "title",
+          "publisher": "publisher",
+          "publicationYear": "publication_year",
+          "authors": "authors",
+          "abstract": "abstract"
+        }
       },
-
+      "soilsite" : {
+        "fields" : {
+          "id":"id",
+          "site": "site",
+          "area": "area",
+          "transect": "transect",
+          "soil": "soil",
+          "land_use": "land_use",
+          "deep": "deep"
+        }
+      },
+      "image": {
+        "fields": {
+          "locality": "locality",
+          "people": "people",
+          "keywords": "keywords",
+          "county": "county",
+          "date_start": "date_start",
+          "number": "number",
+          "author": "author",
+          "size": "size"
+        }
+      },
+      "preparation": {
+        "fields": {
+          "sampleNumber": "sample_number"
+          "locality": "locality",
+          "depth": "depth",
+          "stratigraphy": "stratigraphy",
+          "agent": "agent",
+          "prepDescription": "prep_description",
+          "taxon": "taxon",
+          "frequency": "frequency"
+        }
+      },
+      "analysis": {
+        "fields": {
+          "sampleNumber": "sample_number",
+          "sampleId": "sample_id",
+          "locality": "locality",
+          "country": "country",
+          "depth": "depth",
+          "stratigraphy": "stratigraphy",
+          "stratigraphyBed": "stratigraphy_bed",
+          "analysis": "analysis",
+          "component": "component",
+          "content": "content"
+        }
+      },
+      "stratigraphy": {
+        "fields": {
+          "stratigraphyId": "stratigraphy_id",
+          "stratUnit": "strat_unit",
+          "index": "index",
+          "age_base": "age_base",
+          "lithology": "lithology",
+          "author": "author"
+        }
+      },
+      "reference": {
+        "fields": {
+          "author": "author",
+          "year": "year",
+          "title": "title",
+          "journal": "journal",
+          "book": "book",
+          "referenceId": "reference___id"
+        }
+      },
+      "locality": {
+        "fields": {
+          "id": "ID",
+          "locality": "locality",
+          "number": "number",
+          "country": "country",
+          "county": "county",
+          "latitude": "latitude",
+          "longitude": "longitude",
+          "verticalExtent": "vertical_extent",
+          "stratigraphy": "stratigraphy",
+          "reference": "reference",
+          "maaametPaId": "maaamet_pa_id"
+        }
+      },
+      "drillcore": {
+        "fields": {
+          "id": "id",
+          "drillcore": "drillcore",
+          "country": "country",
+          "county": "county",
+          "stratigraphy": "stratigraphy",
+          "location": "location",
+          "boxes": "boxes"
+        }
+        },
+      "sample" : {
+        "fields" : {
+          "agent" : "agent",
+          "analysisMethod" : "analysis",
+          "component" : "component",
+          "content" : "content",
+          "country" : "country",
+          "frequency" : "frequency",
+          "id" : "id",
+          "locality" : "locality",
+          "location" : "location",
+          "sampleNumber" : "sample_number",
+          "stratigraphy" : "stratigraphy",
+          "stratigraphyBed" : "stratigraphy_bed",
+          "taxon" : "taxon"
+        },
+      "specimen": {
+          "fields": {
+            "id": "id",
+            "specimenNumber": "specimen_number",
+            "collectionId": "collection_id",
+            "classification": "classification",
+            "fossil": "fossil",
+            "taxon": "taxon",
+            "nameGeology": "name_geology",
+            "country": "country",
+            "locality": "locality",
+            "depth": "depth",
+            "stratigraphy": "stratigraphy",
+            "agent": "agent",
+            "reference": "reference",
+            "originalType": "original_type",
+            "part": "part",
+            "tags": "tags",
+            "dateAdded": "date_added"
+          }
+      },
       "specialFields" : [
         {
           "depthSince" : "",
