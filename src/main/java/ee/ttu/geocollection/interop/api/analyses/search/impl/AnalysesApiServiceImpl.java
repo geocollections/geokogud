@@ -35,6 +35,7 @@ public class AnalysesApiServiceImpl implements AnalysesApiService{
                 .queryInstrumentTxt(searchCriteria.getInstrumentTxt())
                 .queryDate(searchCriteria.getDate())
                 .queryDateFree(searchCriteria.getDateFree())
+                .queryInstitutions(searchCriteria.getDbs())
                 .returnStratigraphyId()
                 .returnLithostratigraphyId()
                 .buildFullQuery();
