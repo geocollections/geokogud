@@ -1,0 +1,39 @@
+
+<div ng-include="'app/templates/search/partial/pagination.html'"></div>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover" id="table-search">
+        <thead class="thead-default">
+        <tr>
+            <th><sort-field value = "id" name="SEARCH.SAMPLES.ID"></sort-field></th>
+            <th><sort-field value = "database__acronym" name="SEARCH.SAMPLES.INSTITUTE"></sort-field></th>
+            <th><sort-field value = "number" name="SEARCH.SAMPLES.NUMBER"></sort-field></th>
+            <th></th>
+            <th><sort-field value = "localityEng" name="SEARCH.SAMPLES.LOCALITY"></sort-field></th>
+            <th><sort-field value = "depth" name="SEARCH.SAMPLES.DEPTH_M"></sort-field></th>
+            <th></th>
+            <th><sort-field value = "stratigraphyEng" name="SEARCH.SAMPLES.STRATIGRAPHY"></sort-field></th>
+            <th><sort-field value = "agent_collected__agent" name="SEARCH.SAMPLES.COLLECTOR"></sort-field></th>
+            <th><sort-field value = "analyzed" name="SEARCH.SAMPLES.ANAL"></sort-field></th>
+            <th><sort-field value = "mass" name="SEARCH.SAMPLES.WEIGHT"></sort-field></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="entity in response.results">
+            <td data-title="{{ 'SEARCH.SAMPLES.ID' | translate }}">{{entity.id}}</td>
+            <td data-title="{{ 'SEARCH.SAMPLES.INSTITUTE' | translate }}">{{entity.database__acronym}}</td>
+            <td data-title="{{ 'SEARCH.SAMPLES.NUMBER' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'sample',id:entity.id})"><first-not-null values="[entity.number, entity.id]"/></a></td>
+            <td data-title="">{{entity.number_additional}}</td>
+            <td data-title="{{ 'SEARCH.SAMPLES.LOCALITY' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.locality_id})"><localize en="entity.locality__locality_en" et="entity.locality__locality"/></a></td>
+            <td data-title="{{ 'SEARCH.SAMPLES.DEPTH_M' | translate }}">{{entity.depth}}</td>
+            <td data-title="">{{entity.depth_interval}}</td>
+            <td data-title="{{ 'SEARCH.SAMPLES.STRATIGRAPHY' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.stratigraphy_id})"><localize en="entity.stratigraphy__stratigraphy_en" et="entity.stratigraphy__stratigraphy"/></a></td>
+            <td data-title="{{ 'SEARCH.SAMPLES.COLLECTOR' | translate }}"><first-not-null values="[entity.agent_collected__agent, agent_collected_free]"/></td>
+            <td data-title="{{ 'SEARCH.SAMPLES.ANAL' | translate }}"><make-boolean-readable boolean-value="entity.analyzed"/></td>
+            <td data-title="{{ 'SEARCH.SAMPLES.WEIGHT' | translate }}">{{entity.mass}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="col-lg-12 h4 panel-heading text-center" data-ng-if="response.results == null">Tulemust ei leita</div>
+</div>
+
+<div ng-include="'app/templates/search/partial/pagination.html'"></div>

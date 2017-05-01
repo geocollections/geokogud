@@ -1,0 +1,30 @@
+<div ng-include="'app/templates/search/partial/pagination.html'"></div>
+<div class="table-responsive" data-ng-if="!showImages">
+    <table class="table table-bordered table-hover" id="table-search">
+        <thead class="thead-default">
+        <tr>
+            <th><sort-field value = "id" name="SEARCH.PHOTO_ARCHIVE.TABLE.ID"></sort-field></th>
+            <th><sort-field value = "image_number" name="SEARCH.PHOTO_ARCHIVE.TABLE.NUMBER"></sort-field></th>
+            <th><sort-field value = "author__agent" name="SEARCH.PHOTO_ARCHIVE.TABLE.AUTHOR"></sort-field></th>
+            <th><sort-field value = "date_taken" name="SEARCH.PHOTO_ARCHIVE.TABLE.DATE"></sort-field></th>
+            <th><sort-field value = "locality__locality,locality__locality_en" name="SEARCH.PHOTO_ARCHIVE.TABLE.LOCALITY"></sort-field></th>
+            <th><sort-field value = "object" name="SEARCH.PHOTO_ARCHIVE.TABLE.CATEGORY"></sort-field></th>
+            <th><sort-field value = "keywords" name="SEARCH.PHOTO_ARCHIVE.TABLE.KEY_WORDS"></sort-field></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="entity in response.results">
+            <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.ID' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'image',id:entity.id})">{{entity.id}}</a></td>
+            <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.NUMBER' | translate }}">{{entity.image_number}}</td>
+            <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.AUTHOR' | translate }}"><first-not-null values="[entity.author__agent, entity.author_free]"></first-not-null></td>
+            <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.DATE' | translate }}">{{entity.date_taken}}</td>
+            <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.LOCALITY' | translate }}"><localize  data-ng-if="entity.locality__locality != null || entity.locality__locality_en != null" et="entity.locality__locality" en="entity.locality__locality_en"/></td>
+            <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.CATEGORY' | translate }}">{{entity.object}}</td>
+            <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.KEY_WORDS' | translate }}">{{entity.keywords}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="col-lg-12 h4 panel-heading text-center" data-ng-if="response.results == null">Tulemust ei leita</div>
+</div>
+
+<div ng-include="'app/templates/search/partial/pagination.html'"></div>

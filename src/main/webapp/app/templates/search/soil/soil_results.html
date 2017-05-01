@@ -1,0 +1,39 @@
+
+<div ng-include="'app/templates/search/partial/pagination.html'"></div>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover" id="table-search">
+        <thead class="thead-default">
+        <tr>
+            <th><sort-field value = "id" name="SEARCH.SOIL_SITES.TABLE.ID"></sort-field></th>
+            <th><sort-field value = "site" name="SEARCH.SOIL_SITES.TABLE.SITE"></sort-field></th>
+            <th><sort-field value = "area_name" name="SEARCH.SOIL_SITES.TABLE.AREA_OF_STUDY"></sort-field></th>
+            <th><sort-field value = "transect" name="SEARCH.SOIL_SITES.TABLE.TRANSECT"></sort-field></th>
+            <th><sort-field value = "transect_point" name="SEARCH.SOIL_SITES.TABLE.POINT_OF_THE_TRANSECT"></sort-field></th>
+            <th><sort-field value = "soil" name="SEARCH.SOIL_SITES.TABLE.SOIL_NAME"></sort-field></th>
+            <th><sort-field value = "land_use" name="SEARCH.SOIL_SITES.TABLE.LAND_USE"></sort-field></th>
+            <th><sort-field value = "latitude" name="SEARCH.SOIL_SITES.TABLE.LATITUDE"></sort-field></th>
+            <th><sort-field value = "longitude" name="SEARCH.SOIL_SITES.TABLE.LONGITUDE"></sort-field></th>
+            <th><sort-field value = "is_deep" name="SEARCH.SOIL_SITES.TABLE.IS_DEEP_MINING"></sort-field></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="entity in response.results">
+            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.ID' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'soil',id:entity.id})">{{entity.id}}</a></td>
+            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.SITE' | translate }}">
+                <localize data-ng-if="entity.site != null || entity.site_en != null" et="entity.site" en="entity.site_en"/></td>
+            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.AREA_OF_STUDY' | translate }}">{{entity.area_name}}</td>
+            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.TRANSECT' | translate }}">{{entity.transect}}</td>
+            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.POINT_OF_THE_TRANSECT' | translate }}">{{entity.transect_point}}</td>
+            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.SOIL_NAME' | translate }}">{{entity.soil}}</td>
+            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.LAND_USE' | translate }}">{{entity.land_use}}</td>
+            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.LATITUDE' | translate }}">{{entity.latitude}}</td>
+            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.LONGITUDE' | translate }}">{{entity.longitude}}</td>
+            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.IS_DEEP_MINING' | translate }}"><span class="cr" data-ng-if="entity.is_deep"><i class="cr-icon glyphicon glyphicon-ok"></i></span></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="col-lg-12 h4 panel-heading text-center" data-ng-if="response.results == null">Tulemust ei leita</div>
+</div>
+
+<div ng-include="'app/templates/search/partial/pagination.html'"></div>
