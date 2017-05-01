@@ -27,6 +27,7 @@ public class DoiApiServiceImpl implements DoiApiService {
                 .queryYear(searchCriteria.getYearTo())
                 .queryAuthor(searchCriteria.getAuthor())
                 .queryAbstract(searchCriteria.getAbstractText())
+                .queryInstitutions(searchCriteria.getDbs())
                 .buildDefaultFieldsQuery();
         return apiService.searchRawEntities("doi", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }

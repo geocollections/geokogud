@@ -1,10 +1,13 @@
 <div class="panel panel-default">
     <div class="panel-body">
         <div class="row">
-            <div class="col-lg-3">
-                <label>Mullakaeve: <localize et="detailCtrl.results['site']" en="detailCtrl.results['site_en']"/> (ID: {{detailCtrl.results['id']}})</label>
+            <div class="col-lg-3 text-center" style="background-color: #d9e2ee;  padding-bottom: 10px; padding-top: 10px;">
+                <h3>Mullakaeve: <localize et="detailCtrl.results['site']" en="detailCtrl.results['site_en']"/></h3>
+                <h4><em>(ID: {{detailCtrl.results['id']}})</em></h4>
             </div>
         </div>
+        </br>
+
         <div class="row">
             <div class="col-lg-6" bs-loading-overlay bs-loading-overlay-reference-id="detailView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
                 <table class="table table-bordered table-hover">

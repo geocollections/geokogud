@@ -116,6 +116,7 @@
     },
     "analysis" : {
       "urls" : [{"object" : "sample", "id": "sample", "value_et" : "sample",  "value_en" : "sample"}],
+      "date" : [],
       "ignoreFields" : []
     },
     "preparations" : {

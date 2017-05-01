@@ -123,7 +123,7 @@
             "IDENTIFIERS": {
                 "SAMPLE_ID": "Number",
                 "NUMBER": "Proov #",
-                "BED_NAME_INDEX": "",
+                "BED_NAME_INDEX": "Ase ID",
                 "IDENTIFIERS": "Identifikaator"
             },
             "LOCATION": {

@@ -297,10 +297,14 @@ angular.module('geoApp').directive('loading', function () {
         },
         link: function (scope) {
             scope.$watch('[et, en]', function(newValue) {
-                scope.localizedValue = $translate.use() == 'et' ? newValue[0] : newValue[1];
+                scope.localizedValue = $translate.use() == 'et'
+                    ? (newValue[0] == null ? newValue[1] : newValue[0])
+                    : (newValue[1] == null ? newValue[0] : newValue[1]);
             }, true);
             $rootScope.$on('$translateChangeSuccess', function() {
-                scope.localizedValue = $translate.use() == 'et' ? scope.et : scope.en;
+                scope.localizedValue = $translate.use() == 'et'
+                    ? (scope.et == null ? scope.en : scope.et)
+                    : (scope.en == null ? scope.et : scope.en);
             });
         }
     };
