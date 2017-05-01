@@ -1,6 +1,6 @@
 var module = angular.module("geoApp");
 
-var constructor = function (configuration,$translate,$http, applicationService,$state, $scope, $rootScope, WebPagesFactory, GlobalSearchFactory) {
+var constructor = function (configuration,$translate,$http, applicationService,$state, $scope, $rootScope, WebPagesFactory) {
 
     var vm = this;
     vm.service = applicationService;
@@ -16,7 +16,6 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     vm.changeLanguage = changeLanguage;
     vm.isSearch = isSearch;
     vm.isDetailForm = isDetailForm;
-    vm.searchGlobally = searchGlobally;
 
     // content of webpages
     vm.geocollection = getWebPageById(2, "geocollection");
@@ -34,23 +33,11 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     vm.switchYear = switchYear;
 
     $scope.yearToShow = 0;
-    $scope.globalQuery = "";
-    $scope.globalSearchResult = "";
 
     asyncLoadData(); //fixme make async request
 
     function asyncLoadData () {
         applicationService.getNews(onNewsData);
-    }
-
-    function searchGlobally() {
-        console.log($scope.globalQuery);
-        GlobalSearchFactory.searchGlobally(
-            $scope.globalQuery,
-            function (result) {
-                alert(JSON.stringify(result.data, null, "    "));
-            }
-        );
     }
 
     function getWebPageById(id, page) {
@@ -127,6 +114,6 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     }
 };
 
-constructor.$inject = ["configuration",'$translate', '$http', 'ApplicationService','$state', '$scope', '$rootScope', 'WebPagesFactory', 'GlobalSearchFactory'];
+constructor.$inject = ["configuration",'$translate', '$http', 'ApplicationService','$state', '$scope', '$rootScope', 'WebPagesFactory'];
 
 module.controller("MainController", constructor);

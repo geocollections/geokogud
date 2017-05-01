@@ -26,7 +26,7 @@ angular.module('geoApp').directive('loading', function () {
             });
         }
     };
-}]).directive('myInclude', function() {
+}]).directive('nonIsolatedInclude', function() {
     return {
         restrict: 'AE',
         templateUrl: function(ele, attrs) {

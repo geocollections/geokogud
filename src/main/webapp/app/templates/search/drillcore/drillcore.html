@@ -148,42 +148,7 @@
                     <loading></loading>
                 </div>
 
-                <div ng-include="'app/templates/search/partial/pagination.html'"></div>
-
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover" id="table-search">
-                        <thead class="thead-default">
-                        <tr>
-                            <th><sort-field value = "id" name="SEARCH.DRILL_CORES.TABLE.ID"></sort-field></th>
-                            <th><sort-field value = "drillcore_en" name="SEARCH.DRILL_CORES.TABLE.DRILLCORE"></sort-field></th>
-                            <th><sort-field value = "locality__latitude" name="SEARCH.DRILL_CORES.TABLE.LATITUDE"></sort-field></th>
-                            <th><sort-field value = "locality__longitude" name="SEARCH.DRILL_CORES.TABLE.LONGITUDE"></sort-field></th>
-                            <th><sort-field value = "depth" name="SEARCH.DRILL_CORES.TABLE.DEPTH_M"></sort-field></th>
-                            <th><sort-field value = "boxes" name="SEARCH.DRILL_CORES.TABLE.BOX_COUNT"></sort-field></th>
-                            <th><sort-field value = "box_numbers" name="SEARCH.DRILL_CORES.TABLE.BOX_NUMBERS"></sort-field></th>
-                            <th><sort-field value = "database__acronym" name="SEARCH.DRILL_CORES.TABLE.INSTITUTE"></sort-field></th>
-                            <th><sort-field value = "storage__location" name="SEARCH.DRILL_CORES.TABLE.STORAGE"></sort-field></th>
-                            <th>{{ 'SEARCH.DRILL_CORES.TABLE.IMAGES' | translate }}</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr data-ng-repeat="entity in response.results">
-                            <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.ID' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'drillcore',id:entity.id})">{{entity.id}}</a></td>
-                            <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.DRILLCORE' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'drillcore',id:entity.id})"><localize et="entity.drillcore" en="entity.drillcore_en"/></a></td>
-                            <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.LATITUDE' | translate }}">{{entity.locality__latitude}}</td>
-                            <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.LONGITUDE' | translate }}">{{entity.locality__longitude}}</td>
-                            <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.DEPTH_M' | translate }}">{{entity.depth}}</td>
-                            <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.BOX_COUNT' | translate }}">{{entity.boxes}}</td>
-                            <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.BOX_NUMBERS' | translate }}">{{entity.box_numbers}}</td>
-                            <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.INSTITUTE' | translate }}">{{entity.database__acronym}}</td>
-                            <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.STORAGE' | translate }}">{{entity.storage__location}}</td>
-                            <td data-title="{{ 'SEARCH.DRILL_CORES.TABLE.IMAGES' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'drillcore',id:entity.id})">{{entity.drill_core_image_thumbnail.count}}</a></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div class="col-lg-12 h4 panel-heading text-center" data-ng-if="response.results == null">Tulemust ei leita</div>
-                </div>
-                <div ng-include="'app/templates/search/partial/pagination.html'"></div>
+                <div non-isolated-include template-path="app/templates/search/drillcore/drillcore_results.html"/>
             </div>
         </div>
     </div>

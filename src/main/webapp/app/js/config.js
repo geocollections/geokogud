@@ -9,6 +9,10 @@ module.config(function($stateProvider,$urlRouterProvider) {
     }).state('map',{
         url: "/map",
         templateUrl: "app/templates/main/map.html"
+    }).state('global',{
+        url: "/global/:query/:section",
+        templateUrl: "app/templates/main/global_search.html",
+        controller: "GlobalSearchController as ctrl"
     }).state('search', {
         url: "/search",
         templateUrl: "app/templates/main/partial/search.html",
@@ -45,7 +49,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
         params: {type: "samples"}
     }).state('drillcores', {
         url: "/drillcore",
-        templateUrl: "app/templates/search/drillCores.html",
+        templateUrl: "app/templates/search/drillcore/drillcore.html",
         controller: "SearchController as ctrl",
         params: {type: "drillCores"}
     }).state('drillcore', {
@@ -100,7 +104,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
         params: {type: "stratigraphy"}
     }).state('analyses', {
         url: "/analysis",
-        templateUrl: "app/templates/search/analyses.html",
+        templateUrl: "app/templates/search/analyses/analyses.html",
         controller: "SearchController as ctrl",
         params: {type: "analyses"}
     }).state('analysis', {
@@ -149,7 +153,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
 
     }).state('dois', {
         url: "/doi",
-        templateUrl: "app/templates/search/doi.html",
+        templateUrl: "app/templates/search/doi/doi.html",
         controller: "SearchController as ctrl",
         params: {type: "doi"}
     }).state('doi', {
