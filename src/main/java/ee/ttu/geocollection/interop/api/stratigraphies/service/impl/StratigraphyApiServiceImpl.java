@@ -24,19 +24,23 @@ public class StratigraphyApiServiceImpl implements StratigraphyApiService {
 
     @Override
     public ApiResponse findStratigraphy(StratigraphySearchCriteria searchCriteria)  {
-        String requestParams = FluentStratigraphySearchApiBuilder.aRequest()
+        String requestParams = prepareCommonFields(searchCriteria)
                 .queryId(searchCriteria.getId())
-                .queryStratigraphy(searchCriteria.getStratigraphy())
-                .queryIndex(searchCriteria.getIndex())
-                .queryAgeBase(searchCriteria.getAgeMinY())
-                .queryLithology(searchCriteria.getMainLithology())
-                .queryAuthor(searchCriteria.getAuthor())
                 .buildDefaultFieldsQuery();
         return apiService.searchRawEntities(
                 STRATIGRAPHY_TABLE,
                     searchCriteria.getPage(),
                     searchCriteria.getSortField(),
                     requestParams);
+    }
+
+    private FluentStratigraphySearchApiBuilder prepareCommonFields(StratigraphySearchCriteria searchCriteria) {
+        return FluentStratigraphySearchApiBuilder.aRequest()
+                .queryStratigraphy(searchCriteria.getStratigraphy())
+                .queryIndex(searchCriteria.getIndex())
+                .queryAgeBase(searchCriteria.getAgeMinY())
+                .queryLithology(searchCriteria.getMainLithology())
+                .queryAuthor(searchCriteria.getAuthor());
     }
 
     @Override
@@ -65,7 +69,7 @@ public class StratigraphyApiServiceImpl implements StratigraphyApiService {
 
     @Override
     public ApiResponse findStratigraphyByIds(List<String> ids) {
-        String requestParams = FluentStratigraphySearchApiBuilder.aRequest()
+        String requestParams = prepareCommonFields(new StratigraphySearchCriteria())
                 .queryMultipleIds(ids)
                 .buildDefaultFieldsQuery();
         return apiService.searchRawEntities(STRATIGRAPHY_TABLE, ids.size() + 1, 1, new SortField(), requestParams);

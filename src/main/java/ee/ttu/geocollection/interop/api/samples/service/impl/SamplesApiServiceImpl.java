@@ -24,10 +24,20 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     private IndexingProperties indexingProperties;
 
     @Override
-    public ApiResponse findSample(ee.ttu.geocollection.interop.api.samples.pojo.SampleSearchCriteria searchCriteria) {
+    public ApiResponse findSample(SampleSearchCriteria searchCriteria) {
         System.err.println(searchCriteria.getId());
-        String requestParams = FluentSampleSearchApiBuilder.aRequest()
+        String requestParams = prepareCommonFields(searchCriteria)
                 .queryId(searchCriteria.getId()).andReturn()
+                .buildFullQuery();
+        return apiService.searchRawEntities(
+                SAMPLE_TABLE,
+                searchCriteria.getPage(),
+                searchCriteria.getSortField(),
+                requestParams);
+    }
+
+    private FluentSampleSearchApiBuilder prepareCommonFields(SampleSearchCriteria searchCriteria) {
+        return FluentSampleSearchApiBuilder.aRequest()
                 .queryNumber(searchCriteria.getSampleNumber()).andReturn()
                 .queryLocality(searchCriteria.getLocality()).andReturn()
                 .queryCountry(searchCriteria.getCountry())
@@ -46,13 +56,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
                 .queryContent(searchCriteria.getContent())
                 .queryInstitutions(searchCriteria.getDbs()).andReturn()
                 .returnAnalyzed()
-                .returnDateChanged()
-                .buildFullQuery();
-        return apiService.searchRawEntities(
-                SAMPLE_TABLE,
-                searchCriteria.getPage(),
-                searchCriteria.getSortField(),
-                requestParams);
+                .returnDateChanged();
     }
 
     @Override
@@ -86,11 +90,8 @@ public class SamplesApiServiceImpl implements SamplesApiService {
 
     @Override
     public ApiResponse findSamplesByIds(Collection<String> ids) {
-        String requestParams = FluentSampleSearchApiBuilder.aRequest()
+        String requestParams = prepareCommonFields(new SampleSearchCriteria())
                 .queryMultipleIds(ids).andReturn()
-                .queryNumber(null).andReturn()
-                .queryLocality(null).andReturn()
-                .returnDateChanged()
                 .buildFullQuery();
         return apiService.searchRawEntities(SAMPLE_TABLE, ids.size() + 1, 1, new SortField(), requestParams);
     }

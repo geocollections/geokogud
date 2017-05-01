@@ -24,17 +24,21 @@ public class ReferenceApiServiceImpl implements ReferenceApiService {
 
     @Override
     public ApiResponse findReference(ReferenceSearchCriteria searchCriteria)  {
-        String requestParams = FluentReferenceSearchApiBuilder.aRequest()
+        String requestParams = prepareCommonFields(searchCriteria)
                 .queryId(searchCriteria.getId()).andReturn()
+                .buildDefaultFieldsQuery();
+        return apiService.searchRawEntities(REFERENCE_TABLE, searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
+    }
+
+    private FluentReferenceSearchApiBuilder prepareCommonFields(ReferenceSearchCriteria searchCriteria) {
+        return FluentReferenceSearchApiBuilder.aRequest()
                 .queryAuthor(searchCriteria.getAuthor()).andReturn()
                 .queryTitle(searchCriteria.getTitle()).andReturn()
                 .queryYear(searchCriteria.getYearSince()).andReturn()
                 .queryYear(searchCriteria.getYearTo()).andReturn()
                 .queryDoi(searchCriteria.getDoi()).andReturn()
                 .queryBook(searchCriteria.getBook()).andReturn()
-                .queryJournal(searchCriteria.getJournal()).andReturn()
-                .buildDefaultFieldsQuery();
-        return apiService.searchRawEntities(REFERENCE_TABLE, searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
+                .queryJournal(searchCriteria.getJournal()).andReturn();
     }
 
     @Override
@@ -61,7 +65,7 @@ public class ReferenceApiServiceImpl implements ReferenceApiService {
 
     @Override
     public ApiResponse findImagesByIds(List<String> ids) {
-        String requestParams = FluentReferenceSearchApiBuilder.aRequest()
+        String requestParams = prepareCommonFields(new ReferenceSearchCriteria())
                 .queryMultipleIds(ids)
                 .buildDefaultFieldsQuery();
         return apiService.searchRawEntities(REFERENCE_TABLE, ids.size() + 1, 1, new SortField(), requestParams);

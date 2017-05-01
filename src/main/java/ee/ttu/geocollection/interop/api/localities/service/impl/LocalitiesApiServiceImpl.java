@@ -32,8 +32,18 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
 
     @Override
     public ApiResponse findLocality(LocalitySearchCriteria searchCriteria)  {
-        String requestParams = FluentLocalitySearchApiBuilder.aRequest()
+        String requestParams = prepareCommonFields(searchCriteria)
                 .queryId(searchCriteria.getId())
+                .buildDefaultFieldsQuery();
+        return apiService.searchRawEntities(
+                LOCALITY_TABLE,
+                searchCriteria.getPage(),
+                searchCriteria.getSortField(),
+                requestParams);
+    }
+
+    private FluentLocalitySearchApiBuilder prepareCommonFields(LocalitySearchCriteria searchCriteria) {
+        return FluentLocalitySearchApiBuilder.aRequest()
                 .queryNumber(searchCriteria.getNumber())
                 .queryStratigraphy(searchCriteria.getStratigraphy())
 //                .queryReference(searchCriteria.getReference()).andReturn()
@@ -44,13 +54,7 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
                 .queryLongitude(searchCriteria.getLatitude())
                 .queryLongitude(searchCriteria.getLongitude())
                 .queryDepth(searchCriteria.getVerticalExtentSince())
-                .queryDepth(searchCriteria.getVerticalExtentTo())
-                .buildDefaultFieldsQuery();
-        return apiService.searchRawEntities(
-                LOCALITY_TABLE,
-                searchCriteria.getPage(),
-                searchCriteria.getSortField(),
-                requestParams);
+                .queryDepth(searchCriteria.getVerticalExtentTo());
     }
 
     @Override
@@ -112,7 +116,7 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
 
     @Override
     public ApiResponse findLocalitiesByIds(Collection<String> ids) {
-        String requestParams = FluentLocalitySearchApiBuilder.aRequest()
+        String requestParams = prepareCommonFields(new LocalitySearchCriteria())
                 .queryMultipleIds(ids)
                 .buildDefaultFieldsQuery();
         return apiService.searchRawEntities(LOCALITY_TABLE, ids.size() + 1, 1, new SortField(), requestParams);

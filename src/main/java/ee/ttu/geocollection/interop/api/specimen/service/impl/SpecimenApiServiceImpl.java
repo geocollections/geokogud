@@ -26,8 +26,14 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
 
     @Override
     public ApiResponse findSpecimen(SpecimenSearchCriteria searchCriteria)  {
-        String requestParams = FluentSpecimenSearchApiBuilder.aRequest()
+        String requestParams = prepareCommonFields(searchCriteria)
                 .queryId(searchCriteria.getId()).andReturn()
+                .buildFullQuery();
+        return apiService.searchRawEntities(SPECIMEN_TABLE, searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
+    }
+
+    private FluentSpecimenSearchApiBuilder prepareCommonFields(SpecimenSearchCriteria searchCriteria) {
+        return FluentSpecimenSearchApiBuilder.aRequest()
                 .querySpecimenNumber(searchCriteria.getSpecimenNumber()).andReturn()
                 .queryCollectionNumber(searchCriteria.getCollectionNumber()).andReturn()
                 .queryClassification(searchCriteria.getClassification())
@@ -52,9 +58,7 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
                 .returnTaxonId()
                 .returnStratigraphyId()
                 .returnLatitutde()
-                .returnLongitude()
-                .buildFullQuery();
-        return apiService.searchRawEntities(SPECIMEN_TABLE, searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
+                .returnLongitude();
     }
 
     @Override
@@ -107,12 +111,8 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
 
     @Override
     public ApiResponse findSpecimensByIds(Collection<String> ids) {
-        String requestParams = FluentSpecimenSearchApiBuilder.aRequest()
-                .queryMultipleIds(ids).andReturn()
-                .querySpecimenNumber(null).andReturn()
-                .queryNameOfFossil(null).andReturn()
-                .queryClassification(null).andReturn()
-                .returnDateChanged()
+        String requestParams = prepareCommonFields(new SpecimenSearchCriteria())
+                .queryMultipleIds(ids)
                 .buildFullQuery();
         //This + 1 in paginateBy is very important! (API does not accept neither 0, nor 1 values there)
         return apiService.searchRawEntities(SPECIMEN_TABLE, ids.size() + 1, 1, new SortField(), requestParams);
