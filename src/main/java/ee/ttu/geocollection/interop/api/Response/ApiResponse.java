@@ -8,12 +8,21 @@ import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiResponse {
+    private String table;
     @JsonProperty("count")
     private int count;
     @JsonProperty("page")
     private String pageInfo;
     @JsonProperty("results")
     private List<Map<String, Object>> result;
+
+    public String getTable() {
+        return table;
+    }
+
+    public void setTable(String table) {
+        this.table = table;
+    }
 
     public int getCount() {
         return count;

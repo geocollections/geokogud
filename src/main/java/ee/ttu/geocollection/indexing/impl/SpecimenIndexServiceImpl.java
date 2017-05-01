@@ -95,7 +95,7 @@ public class SpecimenIndexServiceImpl extends AbstractIndexingService<SpecimenSe
     }
 
     @Override
-    public Document buildDocument(Map<String, Object> entry) {
+    protected Document buildDocument(Map<String, Object> entry) {
         Long idLong = Long.valueOf(entry.get(ID).toString());
 
         Document document = DocumentBuilder.aDocument()

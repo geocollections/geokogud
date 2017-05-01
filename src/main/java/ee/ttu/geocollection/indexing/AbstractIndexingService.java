@@ -42,7 +42,7 @@ public abstract class AbstractIndexingService<T extends PageableSearchCriteria> 
 
     protected abstract void updateIndices();
 
-    public abstract Document buildDocument(Map<String, Object> entry);
+    protected abstract Document buildDocument(Map<String, Object> entry);
 
     public abstract ApiResponse searchInIndex(String value);
 

@@ -59,7 +59,11 @@ public class ApiServiceImpl implements ApiService {
         logger.trace("Searching: " + url);
         try {
             ResponseEntity<ApiResponse> rawResponse = restTemplate.getForEntity(url, ApiResponse.class);
-            return rawResponse.getBody();
+            ApiResponse response = rawResponse.getBody();
+            if (response != null){
+                response.setTable(tableName);
+            }
+            return response;
         } catch (HttpMessageNotReadableException e) {
             throw new AppException(AppError.BAD_REQUEST);
         } catch (HttpServerErrorException e) {
