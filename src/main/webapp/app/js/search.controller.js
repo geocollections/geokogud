@@ -32,6 +32,7 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
         // Window resize event
         var w = angular.element($window);
         w.bind('resize', function () {
+
             $scope.windowWidth = "innerWidth" in window ? window.innerWidth : document.documentElement.offsetWidth;
             if ($scope.windowWidth > 400) {
                 $scope.searchParameters.maxSize = 5;
@@ -180,6 +181,6 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
 
 };
 
-constructor.$inject = ["$scope", "$stateParams", "configuration", "$http", 'ApplicationService', '$window', '$translate', 'SearchFactory', 'ErrorService', 'bsLoadingOverlayService'];
+constructor.$inject = ["$scope","$stateParams", "configuration", "$http", 'ApplicationService', '$window', '$translate', 'SearchFactory', 'ErrorService', 'bsLoadingOverlayService'];
 
 module.controller("SearchController", constructor);

@@ -1,6 +1,6 @@
 var module = angular.module('geoApp');
 
-var constructor = function ($http) {
+var constructor = function ($http,$location, configuration) {
 
     var service = {};
 
@@ -19,15 +19,39 @@ var constructor = function ($http) {
         service.httpRequest(url, config, successCb, errorCb)
     };
 
-    service.httpPost = function (url, data, successCb, errorCb, headers) {
+    service.httpPost = function (url, data, successCb, errorCb, headers, composeSearchUrl) {
+        if(composeSearchUrl) service.composeUrl(data);
         var config = {
             "data": data,
             "headers": headers ? headers : {},
             "method": "POST",
             "url": url
+            //"params": params ? params : ""
         };
 
         service.httpRequest(url, config, successCb, errorCb)
+    };
+
+    service.composeUrl = function(data) {
+        var url = "", currentTable = $location.$$path.split('/')[1];
+        angular.forEach(Object.keys(data), function(attr){
+            if(attr != 'sortField' && attr != 'dbs') {
+
+               if(configuration.urlHelper[currentTable]) {
+                   var fieldName = configuration.urlHelper[$location.$$path.split('/')[1]].fields[attr];
+
+                   if(fieldName)
+                       url += fieldName + "_1=" + configuration.urlHelper['lookUpType'][data[attr].lookUpType] +"&"+fieldName+"="+(data[attr].name ? data[attr].name : "") +"&";
+               }
+            }
+        });
+        if(url != "") {
+            url +="&currentTable="+currentTable.trim();
+            //todo: add dbs and sortFields
+        }
+        url == "" ? $location.path($location.$$path).search() : $location.path($location.$$path).search(url);
+        $location.replace();
+
     };
 
     service.preRequestCallbacks = [];
@@ -69,7 +93,7 @@ var constructor = function ($http) {
     return service;
 };
 
-constructor.$inject = ['$http'];
+constructor.$inject = ['$http', '$location', 'configuration'];
 
 module.service('utils', constructor);
 

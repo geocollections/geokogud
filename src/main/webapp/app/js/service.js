@@ -24,9 +24,9 @@ var constructor = function (utils,configuration, $window) {
 //        return utils.httpGet(configuration.webPagesUrl + "/" + id, null, callback, error);
 //    };
 
-    service.getList = function (searchType, data, success,error) {
+    service.getList = function (searchType, data, success,error,headers) {
         var url = getSearchUrl(searchType);
-        if(url != null) utils.httpPost(url, data, success, error);
+        if(url != null) utils.httpPost(url, data, success, error, headers, true);
     };
 
 

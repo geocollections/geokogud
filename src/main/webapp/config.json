@@ -4,6 +4,51 @@
     "debugMode": false
   },
 
+  "urlHelper" : {
+    "lookUpType" : {
+      "icontains" : 1,
+      "iexact" :5,
+      "istartswith" : 2,
+      "iendswith" : 3,
+      "doesnotcontain" : 4,
+      "in" : 9,
+      "hierarchy" : 11
+    },
+    "common" : {
+      "dbs" : "",
+      "sortField" : {"order":"sortDir","sortBy" : "sort"},
+      "currentTable" : "currentTable"
+    },
+    "sample" : {
+      "fields" : {
+        "agent" : "agent",
+        "analysisMethod" : "analysis",
+        "component" : "component",
+        "content" : "content",
+        "country" : "country",
+        "frequency" : "frequency",
+        "id" : "id",
+        "locality" : "locality",
+        "location" : "location",
+        "sampleNumber" : "sample_number",
+        "stratigraphy" : "stratigraphy",
+        "stratigraphyBed" : "stratigraphy_bed",
+        "taxon" : "taxon"
+      },
+
+      "specialFields" : [
+        {
+          "depthSince" : "",
+          "depthTo" : ""
+        },
+        {
+          "massSince" : "",
+          "massTo" : ""
+        }
+      ]
+    }
+  },
+
   "autocompleteUrl" : "/search/autocomplete-field",
 
   "newsUrl":"/news",
