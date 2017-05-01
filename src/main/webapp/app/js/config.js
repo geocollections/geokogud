@@ -10,7 +10,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
         url: "/map",
         templateUrl: "app/templates/main/map.html"
     }).state('global',{
-        url: "/global/:query/:section",
+        url: "/global/:query/:tab",
         templateUrl: "app/templates/main/global_search.html",
         controller: "GlobalSearchController as ctrl"
     }).state('search', {
@@ -37,7 +37,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
         params: {type: "specimenImage"}
     }).state('samples', {
         url: "/sample",
-        templateUrl: "app/templates/search/samples/samples.html",
+        templateUrl: "app/templates/search/sample/sample.html",
         controller: "SearchController as ctrl",
         params: {type: "samples"}
     }).state('sample', {
@@ -68,7 +68,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
         params: {type: "corebox"}
     }).state('localities', {
         url: "/localities",
-        templateUrl: "app/templates/search/localities/localities.html",
+        templateUrl: "app/templates/search/locality/locality.html",
         controller: "SearchController as ctrl",
         params: {type: "localities"}
     }).state('locality', {
@@ -80,7 +80,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
         params: {type: "localities"}
     }).state('references', {
         url: "/reference",
-        templateUrl: "app/templates/search/references/references.html",
+        templateUrl: "app/templates/search/reference/reference.html",
         controller: "SearchController as ctrl",
         params: {type: "references",doi: false}
     }).state('reference', {
@@ -104,7 +104,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
         params: {type: "stratigraphy"}
     }).state('analyses', {
         url: "/analysis",
-        templateUrl: "app/templates/search/analyses/analyses.html",
+        templateUrl: "app/templates/search/analysis/analysis.html",
         controller: "SearchController as ctrl",
         params: {type: "analyses"}
     }).state('analysis', {
@@ -116,7 +116,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
         params: {type: "analysis"}
     }).state('preparations', {
         url: "/preparation",
-        templateUrl: "app/templates/search/preparations/preparations.html",
+        templateUrl: "app/templates/search/preparation/preparation.html",
         controller: "SearchController as ctrl",
         params: {type: "preparations"}
     }).state('preparation', {
@@ -128,7 +128,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
         params: {type: "preparations"}
     }).state('photoArchives', {
         url: "/image",
-        templateUrl: "app/templates/search/photo_archive/photo_archive.html",
+        templateUrl: "app/templates/search/image/image.html",
         controller: "SearchController as ctrl",
         params: {type: "photoArchive"}
     }).state('photoArchive', {
@@ -140,7 +140,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
         params: {type: "photoArchive"}
     }).state('soils', {
         url: "/soil",
-        templateUrl: "app/templates/search/soil/soil.html",
+        templateUrl: "app/templates/search/soil_site/soil_site.html",
         controller: "SearchController as ctrl",
         params: {type: "soil"}
     }).state('soil', {

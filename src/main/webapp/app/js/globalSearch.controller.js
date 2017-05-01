@@ -2,7 +2,7 @@ var module = angular.module("geoApp");
 
 var constructor = function (configuration, $translate, $http, applicationService, $state, $stateParams, $scope, $rootScope, WebPagesFactory, GlobalSearchFactory) {
 
-    $scope.amountOfResults = {
+    $scope.searchResults = {
         "specimen": [],
         "sample": [],
         "drillcore": [],
@@ -15,7 +15,6 @@ var constructor = function (configuration, $translate, $http, applicationService
         "soil_site": [],
         "doi": []
     };
-    $scope.currentTab = "";
 
     $scope.searchGlobally = function () {
         console.log($stateParams.query);
@@ -28,11 +27,11 @@ var constructor = function (configuration, $translate, $http, applicationService
     };
 
     $scope.selectTab = function(tabTitle) {
-        $scope.currentTab = tabTitle;
+        $stateParams.tab = tabTitle;
     };
 
     $scope.getSelectedTabPartial = function() {
-
+        return "app/templates/search/"+$stateParams.tab+"/"+$stateParams.tab+"_results.html";
     };
 
     $scope.searchGlobally();
