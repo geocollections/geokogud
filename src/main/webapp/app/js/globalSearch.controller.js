@@ -20,6 +20,7 @@ var constructor = function (configuration, $translate, $http, applicationService
 
     $scope.searchGlobally = function () {
         console.log($stateParams.query);
+        $scope.$parent.globalQuery = $stateParams.query;
         GlobalSearchFactory.searchGlobally(
             $stateParams.query,
             function (result) {
@@ -41,6 +42,14 @@ var constructor = function (configuration, $translate, $http, applicationService
         $stateParams.tab = tabTitle;
         $scope.selectedTab = tabTitle;
         $scope.response.results = $scope.searchResults[tabTitle];
+    };
+
+    $scope.getResultsLength = function(tab) {
+        return $scope.searchResults[tab].length;
+    };
+
+    $scope.isTabActive = function(tab) {
+        return tab == $scope.selectedTab;
     };
 
     $scope.searchGlobally();
