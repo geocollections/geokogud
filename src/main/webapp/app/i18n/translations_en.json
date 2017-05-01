@@ -250,8 +250,7 @@
             "MAIN_LITHOLOGY": "Main lithology",
             "AUTHOR": "Author",
             "TABLE": {
-                "STRATIGRAPHY_ET": "Stratigraphy (et)",
-                "STRATIGRAPHY_EN": "Stratigraphy (en)",
+                "STRATIGRAPHY": "Stratigraphy",
                 "INDEX": "Index",
                 "TYPE": "Type",
                 "RANK": "Rank",

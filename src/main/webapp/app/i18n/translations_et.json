@@ -250,8 +250,7 @@
             "MAIN_LITHOLOGY": "Litoloogia",
             "AUTHOR": "Autor",
             "TABLE": {
-                "STRATIGRAPHY_ET": "Stratigraafia (et)",
-                "STRATIGRAPHY_EN": "Stratigraafia (en)",
+                "STRATIGRAPHY": "Stratigraafia",
                 "INDEX": "Indeks",
                 "TYPE": "Tüüp",
                 "RANK": "Tase",

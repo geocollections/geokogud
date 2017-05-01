@@ -169,7 +169,7 @@
                             <th><sort-field value = "image_number" name="SEARCH.PHOTO_ARCHIVE.TABLE.NUMBER"></sort-field></th>
                             <th><sort-field value = "author__agent" name="SEARCH.PHOTO_ARCHIVE.TABLE.AUTHOR"></sort-field></th>
                             <th><sort-field value = "date_taken" name="SEARCH.PHOTO_ARCHIVE.TABLE.DATE"></sort-field></th>
-                            <th><sort-field value = "locality__locality" name="SEARCH.PHOTO_ARCHIVE.TABLE.LOCALITY"></sort-field></th>
+                            <th><sort-field value = "locality__locality,locality__locality_en" name="SEARCH.PHOTO_ARCHIVE.TABLE.LOCALITY"></sort-field></th>
                             <th><sort-field value = "object" name="SEARCH.PHOTO_ARCHIVE.TABLE.CATEGORY"></sort-field></th>
                             <th><sort-field value = "keywords" name="SEARCH.PHOTO_ARCHIVE.TABLE.KEY_WORDS"></sort-field></th>
                         </tr>
@@ -180,7 +180,7 @@
                             <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.NUMBER' | translate }}">{{entity.image_number}}</td>
                             <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.AUTHOR' | translate }}"><first-not-null values="[entity.author__agent, entity.author_free]"></first-not-null></td>
                             <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.DATE' | translate }}">{{entity.date_taken}}</td>
-                            <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.LOCALITY' | translate }}"><localize  data-ng-if="entity.locality__locality != null && entity.locality__locality_en != null" et="entity.locality__locality" en="entity.locality__locality_en"/></td>
+                            <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.LOCALITY' | translate }}"><localize  data-ng-if="entity.locality__locality != null || entity.locality__locality_en != null" et="entity.locality__locality" en="entity.locality__locality_en"/></td>
                             <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.CATEGORY' | translate }}">{{entity.object}}</td>
                             <td data-title="{{ 'SEARCH.PHOTO_ARCHIVE.TABLE.KEY_WORDS' | translate }}">{{entity.keywords}}</td>
                         </tr>

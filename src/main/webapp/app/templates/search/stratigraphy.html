@@ -105,8 +105,7 @@
                         <thead class="thead-default">
                         <tr>
                             <th><sort-field value = "id" name="SEARCH.STRATIGRAPHY.TABLE.ID"></sort-field></th>
-                            <th><sort-field value = "stratigraphy" name="SEARCH.STRATIGRAPHY.TABLE.STRATIGRAPHY_ET"></sort-field></th>
-                            <th><sort-field value = "stratigraphy_en" name="SEARCH.STRATIGRAPHY.TABLE.STRATIGRAPHY_EN"></sort-field></th>
+                            <th><sort-field value = "stratigraphy,stratigraphy_en" name="SEARCH.STRATIGRAPHY.TABLE.STRATIGRAPHY"></sort-field></th>
                             <th><sort-field value = "index_main" name="SEARCH.STRATIGRAPHY.TABLE.INDEX"></sort-field></th>
                             <th></th>
                             <th><sort-field value = "type__value_en" name="SEARCH.STRATIGRAPHY.TABLE.TYPE"></sort-field></th>
@@ -120,14 +119,14 @@
                         <tbody>
                         <tr data-ng-repeat="entity in response.results">
                             <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.ID' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.id})">{{entity.id}}</a></td>
-                            <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.STRATIGRAPHY_ET' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.id})">{{entity.stratigraphy}}</a></td>
-                            <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.STRATIGRAPHY_EN' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.id})">{{entity.stratigraphy_en}}</a></td>
-                            <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.INDEX' | translate }}">{{entity.index_main}}</td>
+                            <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.STRATIGRAPHY' | translate }}">
+                                <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.id})"><localize data-ng-if="entity.stratigraphy != null || entity.stratigraphy_en != null" et="entity.stratigraphy" en="entity.stratigraphy_en"/></a></td>
+                             <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.INDEX' | translate }}">{{entity.index_main}}</td>
                             <td data-title=""><div ng-bind-html="entity.index_additional_html"></div></td>
-                            <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.TYPE' | translate }}"><localize data-ng-if="entity.type__value_en != null && entity.type__value != null" en="entity.type__value_en" et="entity.type__value" /></td>
-                            <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.RANK' | translate }}"><localize data-ng-if="entity.rank__value != null && entity.rank__value_en != null" et="entity.rank__value" en="entity.rank__value_en"/></td>
-                            <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.SCOPE' | translate }}"><localize data-ng-if="entity.scope__value != null && entity.scope__value_en != null" et="entity.scope__value" en="entity.scope__value_en"/></td>
-                            <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.AGE' | translate }}"><localize data-ng-if="entity.age_chronostratigraphy__stratigraphy != null && entity.age_chronostratigraphy__stratigraphy != null" et="entity.age_chronostratigraphy__stratigraphy" en="entity.age_chronostratigraphy__stratigraphy_en"/></td>
+                            <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.TYPE' | translate }}"><localize data-ng-if="entity.type__value_en != null || entity.type__value != null" en="entity.type__value_en" et="entity.type__value" /></td>
+                            <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.RANK' | translate }}"><localize data-ng-if="entity.rank__value != null || entity.rank__value_en != null" et="entity.rank__value" en="entity.rank__value_en"/></td>
+                            <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.SCOPE' | translate }}"><localize data-ng-if="entity.scope__value != null || entity.scope__value_en != null" et="entity.scope__value" en="entity.scope__value_en"/></td>
+                            <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.AGE' | translate }}"><localize data-ng-if="entity.age_chronostratigraphy__stratigraphy != null || entity.age_chronostratigraphy__stratigraphy != null" et="entity.age_chronostratigraphy__stratigraphy" en="entity.age_chronostratigraphy__stratigraphy_en"/></td>
                             <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.AGE_MA' | translate }}">{{entity.age_base}}<br>{{entity.age_top}}</td>
                             <td data-title="{{ 'SEARCH.STRATIGRAPHY.TABLE.BELONGS_TO' | translate }}">
                                 <a data-ng-if="entity.parent__stratigraphy != null && entity.parent__stratigraphy_en != null" href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.id})">
