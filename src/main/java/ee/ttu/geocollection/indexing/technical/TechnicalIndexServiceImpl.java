@@ -21,7 +21,7 @@ import static ee.ttu.geocollection.interop.api.builder.ApiFields.ID;
 @Service
 public class TechnicalIndexServiceImpl implements TechnicalIndexService {
 
-    public static final int SEARCH_RESULT_AMOUNT = 50;
+    public static final int SEARCH_RESULT_AMOUNT = 100;
 
     @Override
     public void updateIndex(Collection<Document> documents, IndexWriter directoryWriter) {
