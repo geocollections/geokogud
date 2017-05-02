@@ -2,6 +2,8 @@ var module = angular.module("geoApp");
 
 var constructor = function (configuration, $translate, $http, applicationService, $state, $stateParams, $scope, $rootScope, WebPagesFactory, GlobalSearchFactory) {
 
+    this.service = applicationService;
+
     $scope.searchResults = {
         "specimen": [],
         "sample": [],
