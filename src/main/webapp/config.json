@@ -54,7 +54,7 @@
       },
       "preparation": {
         "fields": {
-          "sampleNumber": "sample_number"
+          "sampleNumber": "sample_number",
           "locality": "locality",
           "depth": "depth",
           "stratigraphy": "stratigraphy",
