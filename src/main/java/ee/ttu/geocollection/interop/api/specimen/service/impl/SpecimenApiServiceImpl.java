@@ -112,7 +112,7 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
     @Override
     public ApiResponse findSpecimensByIds(Collection<String> ids) {
         String requestParams = prepareCommonFields(new SpecimenSearchCriteria())
-                .queryMultipleIds(ids)
+                .queryMultipleIds(ids).andReturn()
                 .buildFullQuery();
         //This + 1 in paginateBy is very important! (API does not accept neither 0, nor 1 values there)
         return apiService.searchRawEntities(SPECIMEN_TABLE, ids.size() + 1, 1, new SortField(), requestParams);

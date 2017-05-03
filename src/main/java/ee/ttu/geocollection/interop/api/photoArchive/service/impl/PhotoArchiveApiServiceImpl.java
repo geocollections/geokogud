@@ -69,7 +69,7 @@ public class PhotoArchiveApiServiceImpl implements PhotoArchiveApiService{
     @Override
     public ApiResponse findImagesByIds(List<String> ids) {
         String requestParams = prepareCommonFields(new PhotoArchiveSearchCriteria())
-                .queryMultipleIds(ids)
+                .queryMultipleIds(ids).andReturn()
                 .buildDefaultFieldsQuery();
         return apiService.searchRawEntities(IMAGE_TABLE, ids.size() + 1, 1, new SortField(), requestParams);
     }

@@ -66,7 +66,7 @@ public class ReferenceApiServiceImpl implements ReferenceApiService {
     @Override
     public ApiResponse findImagesByIds(List<String> ids) {
         String requestParams = prepareCommonFields(new ReferenceSearchCriteria())
-                .queryMultipleIds(ids)
+                .queryMultipleIds(ids).andReturn()
                 .buildDefaultFieldsQuery();
         return apiService.searchRawEntities(REFERENCE_TABLE, ids.size() + 1, 1, new SortField(), requestParams);
     }

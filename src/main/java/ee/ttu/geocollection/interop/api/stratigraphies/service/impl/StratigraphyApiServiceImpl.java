@@ -70,7 +70,7 @@ public class StratigraphyApiServiceImpl implements StratigraphyApiService {
     @Override
     public ApiResponse findStratigraphyByIds(List<String> ids) {
         String requestParams = prepareCommonFields(new StratigraphySearchCriteria())
-                .queryMultipleIds(ids)
+                .queryMultipleIds(ids).andReturn()
                 .buildDefaultFieldsQuery();
         return apiService.searchRawEntities(STRATIGRAPHY_TABLE, ids.size() + 1, 1, new SortField(), requestParams);
     }

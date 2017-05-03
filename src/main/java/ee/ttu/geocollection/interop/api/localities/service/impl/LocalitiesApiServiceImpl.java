@@ -117,7 +117,7 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
     @Override
     public ApiResponse findLocalitiesByIds(Collection<String> ids) {
         String requestParams = prepareCommonFields(new LocalitySearchCriteria())
-                .queryMultipleIds(ids)
+                .queryMultipleIds(ids).andReturn()
                 .buildDefaultFieldsQuery();
         return apiService.searchRawEntities(LOCALITY_TABLE, ids.size() + 1, 1, new SortField(), requestParams);
     }
