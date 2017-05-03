@@ -17,9 +17,9 @@ public class IndexCreationService {
     private List<AbstractIndexingService> abstractIndexingServices;
 
     /**
-     * Task is executed every 24H, indexing is performed only when appropriate flag is set to true
+     * Task is executed every 1H, indexing is performed only when globalSearch.indexing flag in properties file is set to true
      */
-    @Scheduled(initialDelay = 1500, fixedRate = 86400000)
+    @Scheduled(initialDelay = 1500, fixedRate = 3600000)
     public void createIndices() {
         if(indexing) {
             abstractIndexingServices.forEach(AbstractIndexingService::createUpdateIndex);
