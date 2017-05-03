@@ -39,17 +39,6 @@ public class PhotoArchiveServiceImpl extends AbstractIndexingService<PhotoArchiv
     private PhotoArchiveApiService photoArchiveApiService;
 
     @Override
-    protected void createIndices() {
-        PhotoArchiveSearchCriteria photoArchiveSearchCriteria = new PhotoArchiveSearchCriteria();
-        photoArchiveSearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
-        createIndicesFromScratch(
-                technicalIndexService,
-                photoArchiveDirectoryWriter,
-                photoArchiveSearchCriteria,
-                (searchCriteria) -> photoArchiveApiService.findImagesForIndex(searchCriteria));
-    }
-
-    @Override
     protected void updateIndices() {
         PhotoArchiveSearchCriteria updateSearchCriteria = new PhotoArchiveSearchCriteria();
         updateSearchCriteria.setSortField(new SortField(DATE_CHANGED, SortingOrder.DESCENDING));

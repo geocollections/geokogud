@@ -17,7 +17,6 @@ import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexWriter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -29,9 +28,6 @@ import static java.util.stream.Collectors.toList;
 
 @Service
 public class SpecimenIndexServiceImpl extends AbstractIndexingService<SpecimenSearchCriteria> {
-    @Value("${globalSearch.recreateIndices}")
-    private boolean recreateIndices;
-
     @Autowired
     private DirectoryReader specimenDirectoryReader;
     @Autowired
@@ -40,17 +36,6 @@ public class SpecimenIndexServiceImpl extends AbstractIndexingService<SpecimenSe
     private TechnicalIndexService technicalIndexService;
     @Autowired
     private SpecimenApiService specimenApiService;
-
-    @Override
-    protected void createIndices() {
-        SpecimenSearchCriteria sampleSearchCriteria = new SpecimenSearchCriteria();
-        sampleSearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
-        createIndicesFromScratch(
-                technicalIndexService,
-                specimenDirectoryWriter,
-                sampleSearchCriteria,
-                (searchCriteria) -> specimenApiService.findSpecimensForIndex(searchCriteria));
-    }
 
     @Override
     protected void updateIndices() {

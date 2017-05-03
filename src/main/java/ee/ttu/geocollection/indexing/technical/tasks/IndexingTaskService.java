@@ -1,18 +1,17 @@
 package ee.ttu.geocollection.indexing.technical.tasks;
 
 import ee.ttu.geocollection.indexing.AbstractIndexingService;
+import ee.ttu.geocollection.indexing.IndexingProperties;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class IndexCreationService {
-    @Value("${globalSearch.indexing}")
-    private boolean indexing;
-
+public class IndexingTaskService {
+    @Autowired
+    private IndexingProperties indexingProperties;
     @Autowired
     private List<AbstractIndexingService> abstractIndexingServices;
 
@@ -21,7 +20,7 @@ public class IndexCreationService {
      */
     @Scheduled(initialDelay = 1500, fixedRate = 3600000)
     public void createIndices() {
-        if(indexing) {
+        if(indexingProperties.isIndexingEnabled()) {
             abstractIndexingServices.forEach(AbstractIndexingService::createUpdateIndex);
         }
     }

@@ -31,14 +31,8 @@ public abstract class AbstractIndexingService<T extends PageableSearchCriteria> 
 
     @Async(value = "asyncThreadPoolExecutor")
     public void createUpdateIndex() {
-        if (recreateIndices) {
-            createIndices();
-        } else {
-            updateIndices();
-        }
+        updateIndices();
     }
-
-    protected abstract void createIndices();
 
     protected abstract void updateIndices();
 

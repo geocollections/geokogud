@@ -39,17 +39,6 @@ public class LocalityIndexServiceImpl extends AbstractIndexingService<LocalitySe
     private LocalitiesApiService localitiesApiService;
 
     @Override
-    protected void createIndices() {
-        LocalitySearchCriteria localitySearchCriteria = new LocalitySearchCriteria();
-        localitySearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
-        createIndicesFromScratch(
-                technicalIndexService,
-                localityDirectoryWriter,
-                localitySearchCriteria,
-                (searchCriteria) -> localitiesApiService.findLocalitiesForIndex(searchCriteria));
-    }
-
-    @Override
     protected void updateIndices() {
         LocalitySearchCriteria updateSearchCriteria = new LocalitySearchCriteria();
         updateSearchCriteria.setSortField(new SortField(DATE_CHANGED, SortingOrder.DESCENDING));

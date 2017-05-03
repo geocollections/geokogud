@@ -38,17 +38,6 @@ public class StratigraphyIndexServiceImpl extends AbstractIndexingService<Strati
     private StratigraphyApiService stratigraphyApiService;
 
     @Override
-    protected void createIndices() {
-        StratigraphySearchCriteria stratigraphySearchCriteria = new StratigraphySearchCriteria();
-        stratigraphySearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
-        createIndicesFromScratch(
-                technicalIndexService,
-                stratigraphyDirectoryWriter,
-                stratigraphySearchCriteria,
-                (searchCriteria) -> stratigraphyApiService.findStratigraphyForIndex(searchCriteria));
-    }
-
-    @Override
     protected void updateIndices() {
         StratigraphySearchCriteria updateSearchCriteria = new StratigraphySearchCriteria();
         updateSearchCriteria.setSortField(new SortField(DATE_CHANGED, SortingOrder.DESCENDING));

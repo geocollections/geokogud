@@ -38,17 +38,6 @@ public class TaxonIndexServiceImpl extends AbstractIndexingService<TaxonSearchCr
     private TaxonApiService taxonApiService;
 
     @Override
-    protected void createIndices() {
-        TaxonSearchCriteria taxonSearchCriteria = new TaxonSearchCriteria();
-        taxonSearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
-        createIndicesFromScratch(
-                technicalIndexService,
-                taxonDirectoryWriter,
-                taxonSearchCriteria,
-                (searchCriteria) -> taxonApiService.findTaxonForIndex(searchCriteria));
-    }
-
-    @Override
     protected void updateIndices() {
         TaxonSearchCriteria updateSearchCriteria = new TaxonSearchCriteria();
         updateSearchCriteria.setSortField(new SortField(DATE_CHANGED, SortingOrder.DESCENDING));

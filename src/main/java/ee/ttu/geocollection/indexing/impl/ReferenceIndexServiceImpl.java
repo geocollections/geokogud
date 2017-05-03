@@ -38,17 +38,6 @@ public class ReferenceIndexServiceImpl extends AbstractIndexingService<Reference
     private ReferenceApiService referenceApiService;
 
     @Override
-    protected void createIndices() {
-        ReferenceSearchCriteria referenceSearchCriteria = new ReferenceSearchCriteria();
-        referenceSearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
-        createIndicesFromScratch(
-                technicalIndexService,
-                referenceDirectoryWriter,
-                referenceSearchCriteria,
-                (searchCriteria) -> referenceApiService.findReferencesForIndex(searchCriteria));
-    }
-
-    @Override
     protected void updateIndices() {
         ReferenceSearchCriteria updateSearchCriteria = new ReferenceSearchCriteria();
         updateSearchCriteria.setSortField(new SortField(DATE_CHANGED, SortingOrder.DESCENDING));
