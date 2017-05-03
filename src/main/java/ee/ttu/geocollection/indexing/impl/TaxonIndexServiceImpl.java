@@ -38,7 +38,7 @@ public class TaxonIndexServiceImpl extends AbstractIndexingService<TaxonSearchCr
     private TaxonApiService taxonApiService;
 
     @Override
-    protected void updateIndices() {
+    protected void updateIndex() {
         TaxonSearchCriteria updateSearchCriteria = new TaxonSearchCriteria();
         updateSearchCriteria.setSortField(new SortField(DATE_CHANGED, SortingOrder.DESCENDING));
         updateOldIndices(
@@ -47,7 +47,10 @@ public class TaxonIndexServiceImpl extends AbstractIndexingService<TaxonSearchCr
                 taxonDirectoryWriter,
                 taxonDirectoryReader,
                 technicalIndexService);
+    }
 
+    @Override
+    protected void createIndex() {
         TaxonSearchCriteria createSearchCriteria = new TaxonSearchCriteria();
         createSearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
         createMissingIndices(

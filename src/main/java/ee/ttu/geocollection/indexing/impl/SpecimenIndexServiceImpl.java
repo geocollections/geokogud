@@ -38,7 +38,7 @@ public class SpecimenIndexServiceImpl extends AbstractIndexingService<SpecimenSe
     private SpecimenApiService specimenApiService;
 
     @Override
-    protected void updateIndices() {
+    protected void updateIndex() {
         SpecimenSearchCriteria updateSearchCriteria = new SpecimenSearchCriteria();
         updateSearchCriteria.setSortField(new SortField(DATE_CHANGED, SortingOrder.DESCENDING));
         updateOldIndices(
@@ -47,7 +47,10 @@ public class SpecimenIndexServiceImpl extends AbstractIndexingService<SpecimenSe
                 specimenDirectoryWriter,
                 specimenDirectoryReader,
                 technicalIndexService);
+    }
 
+    @Override
+    protected void createIndex() {
         SpecimenSearchCriteria createSearchCriteria = new SpecimenSearchCriteria();
         createSearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
         createMissingIndices(

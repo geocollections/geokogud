@@ -31,10 +31,13 @@ public abstract class AbstractIndexingService<T extends PageableSearchCriteria> 
 
     @Async(value = "asyncThreadPoolExecutor")
     public void createUpdateIndex() {
-        updateIndices();
+        updateIndex();
+        createIndex();
     }
 
-    protected abstract void updateIndices();
+    protected abstract void updateIndex();
+
+    protected abstract void createIndex();
 
     protected abstract Document buildDocument(Map<String, Object> entry);
 

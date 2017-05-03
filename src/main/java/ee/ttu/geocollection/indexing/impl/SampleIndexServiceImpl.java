@@ -39,14 +39,27 @@ public class SampleIndexServiceImpl extends AbstractIndexingService<SampleSearch
     private SamplesApiService samplesApiService;
 
     @Override
-    protected void updateIndices() {
+    protected void updateIndex() {
         SampleSearchCriteria updateSearchCriteria = new SampleSearchCriteria();
         updateSearchCriteria.setSortField(new SortField(DATE_CHANGED, SortingOrder.DESCENDING));
-        updateOldIndices(updateSearchCriteria, (searchCriteria) -> samplesApiService.findSampleForIndex(searchCriteria), sampleDirectoryWriter, sampleDirectoryReader, technicalIndexService);
+        updateOldIndices(
+                updateSearchCriteria,
+                (searchCriteria) -> samplesApiService.findSampleForIndex(searchCriteria),
+                sampleDirectoryWriter,
+                sampleDirectoryReader,
+                technicalIndexService);
+        }
 
+    @Override
+    protected void createIndex() {
         SampleSearchCriteria createSearchCriteria = new SampleSearchCriteria();
         createSearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
-        createMissingIndices(createSearchCriteria, (searchCriteria) -> samplesApiService.findSampleForIndex(searchCriteria), sampleDirectoryWriter, sampleDirectoryReader, technicalIndexService);
+        createMissingIndices(
+                createSearchCriteria,
+                (searchCriteria) -> samplesApiService.findSampleForIndex(searchCriteria),
+                sampleDirectoryWriter,
+                sampleDirectoryReader,
+                technicalIndexService);
     }
 
     @Override

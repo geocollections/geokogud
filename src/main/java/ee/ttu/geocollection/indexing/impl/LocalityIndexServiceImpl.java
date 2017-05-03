@@ -39,7 +39,7 @@ public class LocalityIndexServiceImpl extends AbstractIndexingService<LocalitySe
     private LocalitiesApiService localitiesApiService;
 
     @Override
-    protected void updateIndices() {
+    protected void updateIndex() {
         LocalitySearchCriteria updateSearchCriteria = new LocalitySearchCriteria();
         updateSearchCriteria.setSortField(new SortField(DATE_CHANGED, SortingOrder.DESCENDING));
         updateOldIndices(
@@ -48,7 +48,10 @@ public class LocalityIndexServiceImpl extends AbstractIndexingService<LocalitySe
                 localityDirectoryWriter,
                 localityDirectoryReader,
                 technicalIndexService);
+    }
 
+    @Override
+    protected void createIndex() {
         LocalitySearchCriteria createSearchCriteria = new LocalitySearchCriteria();
         createSearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
         createMissingIndices(

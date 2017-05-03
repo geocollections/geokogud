@@ -38,7 +38,7 @@ public class ReferenceIndexServiceImpl extends AbstractIndexingService<Reference
     private ReferenceApiService referenceApiService;
 
     @Override
-    protected void updateIndices() {
+    protected void updateIndex() {
         ReferenceSearchCriteria updateSearchCriteria = new ReferenceSearchCriteria();
         updateSearchCriteria.setSortField(new SortField(DATE_CHANGED, SortingOrder.DESCENDING));
         updateOldIndices(
@@ -47,7 +47,10 @@ public class ReferenceIndexServiceImpl extends AbstractIndexingService<Reference
                 referenceDirectoryWriter,
                 referenceDirectoryReader,
                 technicalIndexService);
+    }
 
+    @Override
+    protected void createIndex() {
         ReferenceSearchCriteria createSearchCriteria = new ReferenceSearchCriteria();
         createSearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
         createMissingIndices(

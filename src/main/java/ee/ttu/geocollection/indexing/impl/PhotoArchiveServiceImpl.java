@@ -39,7 +39,7 @@ public class PhotoArchiveServiceImpl extends AbstractIndexingService<PhotoArchiv
     private PhotoArchiveApiService photoArchiveApiService;
 
     @Override
-    protected void updateIndices() {
+    protected void updateIndex() {
         PhotoArchiveSearchCriteria updateSearchCriteria = new PhotoArchiveSearchCriteria();
         updateSearchCriteria.setSortField(new SortField(DATE_CHANGED, SortingOrder.DESCENDING));
         updateOldIndices(
@@ -48,7 +48,10 @@ public class PhotoArchiveServiceImpl extends AbstractIndexingService<PhotoArchiv
                 photoArchiveDirectoryWriter,
                 photoArchiveDirectoryReader,
                 technicalIndexService);
+    }
 
+    @Override
+    protected void createIndex() {
         PhotoArchiveSearchCriteria createSearchCriteria = new PhotoArchiveSearchCriteria();
         createSearchCriteria.setSortField(new SortField(ID, SortingOrder.DESCENDING));
         createMissingIndices(
