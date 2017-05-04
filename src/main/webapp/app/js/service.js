@@ -32,14 +32,16 @@ var constructor = function (utils,configuration, $window) {
     service.getSearchParamsFromUrl = function () {
         return utils.decodeUrl();
     };
-
+    service.getMapParamsFromUrl = function () {
+        return utils.decodeMapUrl();
+    };
     service.getEntity = function (searchType, id, callback, error) {
         var url = getDetailUrl(searchType);
         utils.httpGet(url + "/"+id, null, callback, error);
     };
 
     service.loadMapData = function (callback, error) {
-        utils.httpGet(configuration.mapData.allLocalities , null, callback, error);
+        utils.httpGet(configuration.mapData.allLocalities, null, callback, error);
     };
     service.loadMapDataOnFilterChange = function (filters, callback, error, headers) {
         utils.httpPost(configuration.mapData.specificLocalities, filters, callback, error, headers, true);
