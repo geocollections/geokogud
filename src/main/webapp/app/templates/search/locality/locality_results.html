@@ -28,7 +28,7 @@
             <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.VERTICAL_EXTENT' | translate }}">{{entity.depth}}</td>
             <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.STRATIGRAPHY_BASE' | translate }}">{{entity.stratigraphy_base__stratigraphy_en}}</td>
             <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.STRATIGRAPHY_TOP' | translate }}">{{entity.stratigraphy_base__stratigraphy}}</td>
-            <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.DRILLCORE' | translate }}">???</td>
+            <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.DRILLCORE' | translate }}"></td>
             <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.IMAGES' | translate }}"><span data-ng-if="entity.locality_image_thumbnail.count > 0">+</span></td>
             <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.MAP' | translate }}"><span data-ng-if="entity.latitude != null && entity.longitude != null">+</span></td>
             <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.MA_ID' | translate }}"><a data-ng-if="entity.maaamet_pa_id != null" href="http://geoportaal.maaamet.ee/index.php?&action=viewPA&page_id=382&pa_id={{entity.maaamet_pa_id}}">{{entity.maaamet_pa_id}}</a></td>
