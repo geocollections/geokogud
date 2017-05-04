@@ -107,6 +107,7 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
 
     void buildFieldParameters(String fieldName, SearchField searchField) {
         this.lastQueryField = fieldName;
+        this.lastQueryFields = new String[] {};
         query += isNotNullAndEmpty(searchField) ? "&" + fieldName + "__" + extractFieldParameters(searchField) : EMPTY;
     }
 
@@ -116,6 +117,7 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
                         + ";fields:" + StringUtils.join(fieldName, ",")
                         + ";lookuptype:" + searchField.getLookUpType()
                 : EMPTY;
+        this.lastQueryField = EMPTY;
         this.lastQueryFields = fieldName;
     }
 
