@@ -35,19 +35,35 @@ var constructor = function ($http,$location, configuration) {
 
     service.composeUrl = function(data) {
         var url = "", currentTable = $location.$$path.split('/')[1];
-        angular.forEach(Object.keys(data), function(attr){
-            if(attr != 'sortField' && attr != 'dbs' && configuration.urlHelper[currentTable]) {
-               var fieldName = configuration.urlHelper[currentTable].fields[attr];
-               if(fieldName) url += fieldName + "_1=" + configuration.urlHelper['lookUpType'][data[attr].lookUpType] +"&"+fieldName+"="+(data[attr].name ? data[attr].name : "") +"&";
+
+        if(currentTable == "map") {
+            angular.forEach(Object.values(data.filters), function (attr) {
+                if (configuration.urlHelper[currentTable]) {
+                    var fieldName = configuration.urlHelper[currentTable].fields[attr];
+                    if (fieldName) {
+                        url += fieldName + "=1&";
+                    }
+                }
+            });
+            var fieldName = configuration.urlHelper[currentTable].fields["localityName"];
+            if (fieldName) {
+                url += fieldName + "=" + data.localityName;
             }
-        });
-        if(url != "") {
-            url +="&currentTable="+currentTable.trim();
-            //todo: add dbs and sortFields
-            //todo: specialFields: mass and depth
+        } else {
+            angular.forEach(Object.keys(data), function (attr) {
+                if (attr != 'sortField' && attr != 'dbs' && configuration.urlHelper[currentTable]) {
+                    var fieldName = configuration.urlHelper[currentTable].fields[attr];
+                    if (fieldName) url += fieldName + "_1=" + configuration.urlHelper['lookUpType'][data[attr].lookUpType] + "&" + fieldName + "=" + (data[attr].name ? data[attr].name : "") + "&";
+                }
+            });
+            if (url != "") {
+                url += "&currentTable=" + currentTable.trim();
+                //todo: add dbs and sortFields
+                //todo: specialFields: mass and depth
+            }
         }
-        url == "" ? $location.path($location.$$path).search() : $location.path($location.$$path).search(url);
-        $location.replace();
+            url == "" ? $location.path($location.$$path).search() : $location.path($location.$$path).search(url);
+            $location.replace();
     };
 
     service.decodeUrl = function(){
