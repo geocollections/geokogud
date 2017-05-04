@@ -1,5 +1,7 @@
 package ee.ttu.geocollection.interop.api.builder.details;
 
+import java.util.List;
+
 import static ee.ttu.geocollection.interop.api.builder.ApiFields.*;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
@@ -18,7 +20,17 @@ public class FluentGeoApiDetailsBuilder {
     }
 
     public FluentGeoApiDetailsBuilder relatedData(String relatedData) {
-        query += query.contains("?") ? "&related_data=" + relatedData : "?related_data=" + relatedData;
+        this.relatedData += "&related_data=" + relatedData;
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnAllFields(List<String> fields) {
+        fields.forEach(this::returnField);
+        return this;
+    }
+
+    public FluentGeoApiDetailsBuilder returnField(String field) {
+        addReturningField(field);
         return this;
     }
 
@@ -52,10 +64,14 @@ public class FluentGeoApiDetailsBuilder {
     }
 
     public String buildWithDefaultReturningFields() {
-        return query;
+        return query + replaceFirstAndWIthQuestionMark(this.relatedData);
     }
 
-    public String buildWithReturningFields() {
-        return query + (query.contains("?") ? "&fields=" : "?fields=")  + returningFields;
+    private String replaceFirstAndWIthQuestionMark(String relatedData) {
+        return "?" + relatedData.substring(1);
+    }
+
+    public String buildWithReturningFieldsAndRelatedData() {
+        return query + (returningFields.isEmpty() ? replaceFirstAndWIthQuestionMark(this.relatedData) : "?fields=" + returningFields + relatedData) ;
     }
 }

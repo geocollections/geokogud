@@ -72,7 +72,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
 //                .relatedData("analysis_results")
 //                .relatedData("preparation")
 //                .relatedData("taxon_list")
-                .buildWithReturningFields();
+                .buildWithReturningFieldsAndRelatedData();
         return apiService.findRawEntity(SAMPLE_TABLE, requestParams);
     }
 
