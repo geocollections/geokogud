@@ -14,13 +14,60 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 @Service
 public class LocalitiesApiServiceImpl implements LocalitiesApiService {
 
     public static final String LOCALITY_TABLE = "locality";
+
+    private List<String> fields = Arrays.asList(
+            "id",
+            "asustusyksus__asustusyksus_en",
+            "asustusyksus__asustusyksus",
+            "country__value_en",
+            "country__value",
+            "depth",
+            "eelis",
+            "elevation",
+            "latitude",
+            "locality_en",
+            "locality",
+            "longitude",
+            "maaamet_pa_id",
+            "maakond__maakond_en",
+            "maakond__maakond",
+            "number",
+            "parent__locality",
+            "remarks_location",
+            "stratigraphy_base__stratigraphy_en",
+            "stratigraphy_base__stratigraphy",
+            "stratigraphy_base_id",
+            "stratigraphy_top__stratigraphy_en",
+            "stratigraphy_top__stratigraphy",
+            "stratigraphy_top_id",
+            "localitystratigraphy__stratigraphy__stratigraphy_en",
+            "type__value_en",
+            "type__value",
+            "vald__vald_en",
+            "vald__vald",
+            "coord_system",
+            "coordx",
+            "coordy",
+            "coord_det_precision__value",
+            "coord_det_method__value",
+            "coord_det_method__value_en",
+            "coord_det_agent__agent",
+            "stratigraphy_top_free",
+            "stratigraphy_base_free",
+            "remarks",
+            "user_added",
+            "date_added",
+            "date_changed"
+    );
 
     @Value("${geo-api.url}")
     private String apiUrl;
@@ -74,7 +121,8 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
                 .relatedData("drillcore")
                 .relatedData("locality_reference")
                 .relatedData("locality_synonym")
-                .buildWithDefaultReturningFields();
+                .returnAllFields(fields)
+                .buildWithReturningFieldsAndRelatedData();
         return apiService.findRawEntity(LOCALITY_TABLE, requestParams);
     }
 

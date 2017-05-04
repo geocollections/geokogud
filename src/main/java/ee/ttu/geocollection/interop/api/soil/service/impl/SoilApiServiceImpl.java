@@ -9,13 +9,34 @@ import ee.ttu.geocollection.interop.api.soil.service.SoilApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 @Service
 public class SoilApiServiceImpl implements SoilApiService {
     @Autowired
     private ApiService apiService;
-
+    private List<String> fields = Arrays.asList(
+        "id",
+        "area_name",
+        "land_use",
+        "latitude",
+        "longitude",
+        "coordx",
+        "coordy",
+        "coord_system",
+        "k_size_a",
+        "k_aste_a",
+        "date",
+        "date_free",
+        "site",
+        "site_en",
+        "soil",
+        "is_deep",
+        "transect",
+        "transect_point"
+    );
     @Override
     public ApiResponse findSoil(SoilSearchCriteria searchCriteria)  {
         String requestParams = FluentSoilSearchApiApiBuilder.aRequest()
@@ -39,7 +60,8 @@ public class SoilApiServiceImpl implements SoilApiService {
                 .id(id)
                 .relatedData("sample")
                 .relatedData("soil_horizon")
-                .buildWithDefaultReturningFields();
+                .returnAllFields(fields)
+                .buildWithReturningFieldsAndRelatedData();
         return apiService.findRawEntity("soil_site", requestParams);
     }
 }

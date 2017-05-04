@@ -11,12 +11,55 @@ import ee.ttu.geocollection.interop.api.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 @Service
 public class SamplesApiServiceImpl implements SamplesApiService {
     private static final String SAMPLE_TABLE = "sample";
+    private List<String> fields = Arrays.asList(
+            "id",
+            "number",
+            "number_additional",
+            "locality_id",
+            "locality__locality",
+            "locality__locality_en",
+            "locality_free",
+            "locality__latitude",
+            "locality__longitude",
+            "locality__country__value",
+            "locality__country__value_en",
+            "soil_horizon",
+            "soil_site__site",
+            "soil_site__site_en",
+            "soil_site__latitude",
+            "soil_site__longitude",
+            "stratigraphy_id",
+            "stratigraphy__stratigraphy",
+            "stratigraphy__stratigraphy_en",
+            "lithostratigraphy__stratigraphy",
+            "lithostratigraphy__stratigraphy_en",
+            "stratigraphy_bed",
+            "agent_collected__agent",
+            "agent_collected_free",
+            "date_collected",
+            "date_collected_free",
+            "depth",
+            "depth_interval",
+            "classification_rock__name",
+            "classification_rock__name_en",
+            "rock",
+            "rock_en",
+            "location",
+            "mass",
+            "remarks",
+            "series_id",
+            "database__acronym",
+            "date_added",
+            "date_changed"
+    );
 
     @Autowired
     private ApiService apiService;
@@ -64,15 +107,16 @@ public class SamplesApiServiceImpl implements SamplesApiService {
     public Map findRawById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
-                .returnId()
+          /*      .returnId()
                 .returnLocality()
                 .returnLocalityEn()
                 .returnNumber()
-                .returnNumberAdditional()
+                .returnNumberAdditional()*/
 //                .relatedData("analysis")
 //                .relatedData("analysis_results")
 //                .relatedData("preparation")
 //                .relatedData("taxon_list")
+                .returnAllFields(fields)
                 .buildWithReturningFieldsAndRelatedData();
         return apiService.findRawEntity(SAMPLE_TABLE, requestParams);
     }

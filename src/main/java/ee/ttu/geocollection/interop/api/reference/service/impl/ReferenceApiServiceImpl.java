@@ -11,12 +11,34 @@ import ee.ttu.geocollection.interop.api.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class ReferenceApiServiceImpl implements ReferenceApiService {
     public static final String REFERENCE_TABLE = "reference";
+    private List<String> fields = Arrays.asList(
+        "id",
+        "reference",
+        "author",
+        "year",
+        "title",
+        "title_original",
+        "language__value",
+        "language__value_en",
+        "journal",
+        "journal__journal_name",
+        "journal_additional",
+        "volume",
+        "book",
+        "pages",
+        "doi",
+        "remarks",
+        "type__value",
+        "type__value_en"
+    );
+
     @Autowired
     private ApiService apiService;
     @Autowired
@@ -45,7 +67,8 @@ public class ReferenceApiServiceImpl implements ReferenceApiService {
     public Map findRawById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
-                .buildWithDefaultReturningFields();
+                .returnAllFields(fields)
+                .buildWithReturningFieldsAndRelatedData();
         return apiService.findRawEntity(REFERENCE_TABLE, requestParams);
     }
 

@@ -11,12 +11,50 @@ import ee.ttu.geocollection.interop.api.stratigraphies.service.StratigraphyApiSe
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class StratigraphyApiServiceImpl implements StratigraphyApiService {
     public static final String STRATIGRAPHY_TABLE = "stratigraphy";
+    private List<String> fields = Arrays.asList(
+        "id",
+        "stratigraphy",
+        "stratigraphy_en",
+        "type__value",
+        "type__value_en",
+        "rank__value",
+        "rank__value_en",
+        "scope__value",
+        "scope__value_en",
+        "status__value",
+        "status__value_en",
+        "index_main",
+        "index_additional",
+        "index_main_html",
+        "index_additional_html",
+        "parent__stratigraphy",
+        "parent__stratigraphy_en",
+        "age_base",
+        "age_top",
+        "age_chronostratigraphy__stratigraphy",
+        "age_chronostratigraphy__stratigraphy_en",
+        "age_reference__reference",
+        "etymon",
+        "etymon_en",
+        "region",
+        "region_en",
+        "original_locality",
+        "max_thickness",
+        "remarks",
+        "year",
+        "color_code_cgmw",
+        "lithology",
+        "lithology_en",
+        "author_free"
+    );
+
     @Autowired
     private IndexingProperties indexingProperties;
     @Autowired
@@ -50,7 +88,8 @@ public class StratigraphyApiServiceImpl implements StratigraphyApiService {
                 .relatedData("stratigraphy_reference")
                 .relatedData("stratigraphy_stratotype")
                 .relatedData("stratigraphy_synonym")
-                .buildWithDefaultReturningFields();
+                .returnAllFields(fields)
+                .buildWithReturningFieldsAndRelatedData();
         return apiService.findRawEntity(STRATIGRAPHY_TABLE, requestParams);
     }
 

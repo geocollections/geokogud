@@ -9,12 +9,26 @@ import ee.ttu.geocollection.interop.api.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 @Service
 public class AnalysesApiServiceImpl implements AnalysesApiService{
     @Autowired
     private ApiService apiService;
+    private List<String> fields = Arrays.asList(
+        "id",
+        "analysis_method__analysis_method",
+        "analysis_method__method_en",
+        "method_details",
+        "lab",
+        "instrument",
+        "instrument_txt",
+        "sample",
+        "date",
+        "date_free"
+    );
 
     @Override
     public ApiResponse findAnalyses(AnalysesSearchCriteria searchCriteria) {
@@ -46,7 +60,8 @@ public class AnalysesApiServiceImpl implements AnalysesApiService{
     public Map findRawById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
-                .buildWithDefaultReturningFields();
+                .returnAllFields(fields)
+                .buildWithReturningFieldsAndRelatedData();
         return apiService.findRawEntity("analysis", requestParams);
     }
 }

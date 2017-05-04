@@ -9,13 +9,41 @@ import ee.ttu.geocollection.interop.api.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 @Service
 public class PreparationsApiServiceImpl implements PreparationsApiService{
     @Autowired
     private ApiService apiService;
-
+    private List<String> fields = Arrays.asList(
+            "id",
+            "sample_id",
+            "preparation_number",
+            "sample__locality__locality",
+            "sample__locality__locality_en",
+            "sample__depth",
+            "sample__depth_interval",
+            "sample__agent_collected__agent",
+            "sample__agent_collected__forename",
+            "sample__agent_collected__surename",
+            "sample__agent_collected_free",
+            "sample__stratigraphy__stratigraphy",
+            "sample__stratigraphy__stratigraphy_en",
+            "sample__stratigraphy_free",
+            "sample__lithostratigraphy__stratigraphy",
+            "sample__lithostratigraphy__stratigraphy_en",
+            "classification__class_field",
+            "classification__class_en",
+            "location",
+            "storage__location",
+            "storage__location_location",
+            "date_added",
+            "date_changed",
+            "user_added",
+            "user_changed"
+    );
     @Override
     public ApiResponse findPreparations(PreparationsSearchCriteria searchCriteria)  {
 
@@ -35,7 +63,8 @@ public class PreparationsApiServiceImpl implements PreparationsApiService{
     public Map findRawById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
-                .buildWithDefaultReturningFields();
+                .returnAllFields(fields)
+                .buildWithReturningFieldsAndRelatedData();
         return apiService.findRawEntity("preparation", requestParams);
     }
 }

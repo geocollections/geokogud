@@ -12,12 +12,38 @@ import ee.ttu.geocollection.interop.api.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 @Service
 public class DrillCoreApiServiceImpl implements DrillCoreApiService {
     @Autowired
     private ApiService apiService;
+    private List<String> fields = Arrays.asList(
+        "id",
+        "drillcore",
+        "locality__country__value",
+        "locality__country__value_en",
+        "locality__latitude",
+        "locality__longitude",
+        "depth",
+        "boxes",
+        "box_numbers",
+        "storage__location",
+        "locality_id",
+        "drillcore_en",
+        "depository__value",
+        "depository__value_en",
+        "number_meters",
+        "year",
+        "remarks",
+        "agent__agent",
+        "database__acronym",
+        "locality__maaamet_pa_id",
+        "locality__locality",
+        "locality__locality_en"
+    );
 
     //https://api.arendus.geokogud.info/drillcore/?paginate_by=30&order_by=id&page=1&format=json
     @Override
@@ -55,7 +81,8 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
                 .relatedData("drillcore_box")
-                .buildWithDefaultReturningFields();
+                .returnAllFields(fields)
+                .buildWithReturningFieldsAndRelatedData();
         return apiService.findRawEntity("drillcore", requestParams);
     }
     @Override

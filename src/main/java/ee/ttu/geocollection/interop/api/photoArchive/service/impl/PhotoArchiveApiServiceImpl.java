@@ -11,12 +11,58 @@ import ee.ttu.geocollection.interop.api.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class PhotoArchiveApiServiceImpl implements PhotoArchiveApiService{
     public static final String IMAGE_TABLE = "image";
+    private List<String> fields = Arrays.asList(
+            "id",
+            "filename",
+            "date_taken",
+            "author__agent",
+            "locality_id",
+            "author__forename",
+            "author__surename",
+            "author_free",
+            "locality__locality",
+            "locality__locality_en",
+            "locality__country__value",
+            "locality__country__value_en",
+            "locality__maakond__maakond",
+            "locality__vald__vald",
+            "locality__asustusyksus__asustusyksus",
+            "locality__maakond__maakond_en",
+            "locality__vald__vald_en",
+            "locality__asustusyksus__asustusyksus_en",
+            "people",
+            "keywords",
+            "description",
+            "object",
+            "place",
+            "image_number",
+            "imageset__imageset_number",
+            "imageset__imageset_series",
+            "size_x",
+            "size_y",
+            "date_taken_free",
+            "category__value",
+            "category__value_en",
+            "type__value",
+            "type__value_en",
+            "device__name",
+            "copyright_agent__agent",
+            "licence__licence_en",
+            "licence__licence_url_en",
+            "date_added",
+            "date_changed",
+            "user_added",
+            "user_changed",
+            "database__acronym"
+    );
+
     @Autowired
     private IndexingProperties indexingProperties;
     @Autowired
@@ -51,7 +97,8 @@ public class PhotoArchiveApiServiceImpl implements PhotoArchiveApiService{
     public Map findRawById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
-                .buildWithDefaultReturningFields();
+                .returnAllFields(fields)
+                .buildWithReturningFieldsAndRelatedData();
         return apiService.findRawEntity(IMAGE_TABLE, requestParams);
     }
 
