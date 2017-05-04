@@ -171,6 +171,19 @@
           "massTo" : ""
         }
       ]
+    },
+    "map" : {
+      "fields": {
+        "specimens": "specimens",
+        "samples": "samples",
+        "drillcores": "drillcores",
+        "citing_references": "references",
+        "analyses": "analyses",
+        "stratotypes": "stratotypes",
+        "images": "images",
+        "taxon_occurrences": "taxa",
+        "localityName": "loc"
+      }
     }
   },
 
