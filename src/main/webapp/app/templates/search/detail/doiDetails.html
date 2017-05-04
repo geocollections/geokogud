@@ -1,31 +1,50 @@
 <div class="panel panel-default">
     <div class="panel-body">
         <div class="row">
-            <div class="col-lg-3">
-                <label>{{detailCtrl.results['identifier']}} {{detailCtrl.results['title']}}</label>
+            <div class="col-lg-3 text-center" style="background-color: #d9e2ee;  padding-bottom: 10px; padding-top: 10px;">
+                <h3>{{detailCtrl.results.identifier}} {{detailCtrl.results.title}}</h3>
+                <h4><em>(ID: {{detailCtrl.results.id}})</em></h4>
             </div>
         </div>
+        </br>
         <div class="row">
             <div class="col-lg-6" bs-loading-overlay bs-loading-overlay-reference-id="detailView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
                 <table class="table table-bordered table-hover">
-                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != '' && detailCtrl.isIncludedField(field)">
+                  <!--  <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != '' && detailCtrl.isIncludedField(field)">
                         <td entity-field-name name="'API_TRANSLATION.DOI.'+field | uppercase"></td>
                         <td entity-field-value name = "field" value="detailCtrl.results[field]" values = "detailCtrl.results"></td>
-                    </tr>
-                <!--    <tr><td>Citation</td><td>{{doi.abstract}}</td></tr>
-                    <tr><td>DOI</td><td>{{doi.identifier}}</td></tr>
-                    <tr><td>Resource type general</td><td>{{doi.resourceType}}</td></tr>
-                    <tr><td>Resource type</td><td>{{doi.resource}}</td></tr>
-                    <tr><td>Creators</td><td>{{doi.creators}}</td></tr>
-                    <tr><td>Publisher</td><td>{{doi.publisher}}</td></tr>
-                    <tr><td>Key words</td><td>{{doi.subjects}}</td></tr>
-                    <tr><td>Language</td><td>{{doi.languageEn}}</td></tr>
-                    <tr><td>Version</td><td>{{doi.version}}</td></tr>
-                    <tr><td>Formats</td><td>{{doi.formats}}</td></tr>
-                    <tr><td>Copyright</td><td>{{doi.copyrightAgent}}</td></tr>
-                    <tr><td>Licence</td><td><a href data-ng-click="openUrlInNewWindow({url:doi.licenceUrlEn})">{{doi.licenceEn}}</a></td></tr>
-                    <tr><td>SARV created</td><td>{{doi.dateAdded | date:dateFormat}}</td></tr>
-                    <tr><td>SARV updated</td><td>{{doi.dateChanged | date:dateFormat}}</td></tr>-->
+                    </tr>-->
+                    <tr data-ng-if="detailCtrl.results.id && detailCtrl.results.id != null " ><td> {{ 'API_TRANSLATION.DOI.ID ' | translate }} </td><td>{{detailCtrl.results.id}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.identifier && detailCtrl.results.identifier != null " ><td> {{ 'API_TRANSLATION.DOI.IDENTIFIER ' | translate }} </td><td>{{detailCtrl.results.identifier}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.creators && detailCtrl.results.creators != null " ><td> {{ 'API_TRANSLATION.DOI.CREATORS ' | translate }} </td><td>{{detailCtrl.results.creators}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.publisher && detailCtrl.results.publisher != null " ><td> {{ 'API_TRANSLATION.DOI.PUBLISHER ' | translate }} </td><td>{{detailCtrl.results.publisher}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.publication_year && detailCtrl.results.publication_year != null " ><td> {{ 'API_TRANSLATION.DOI.PUBLICATION_YEAR ' | translate }} </td><td>{{detailCtrl.results.publication_year}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.abstract && detailCtrl.results.abstract != null " ><td> {{ 'API_TRANSLATION.DOI.ABSTRACT ' | translate }} </td><td>{{detailCtrl.results.abstract}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.reference__author && detailCtrl.results.reference__author != null " ><td> {{ 'API_TRANSLATION.DOI.REFERENCE__AUTHOR ' | translate }} </td><td>{{detailCtrl.results.reference__author}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.reference__year && detailCtrl.results.reference__year != null " ><td> {{ 'API_TRANSLATION.DOI.REFERENCE__YEAR ' | translate }} </td><td>{{detailCtrl.results.reference__year}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.reference__title && detailCtrl.results.reference__title != null " ><td> {{ 'API_TRANSLATION.DOI.REFERENCE__TITLE ' | translate }} </td><td>{{detailCtrl.results.reference__title}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.reference__journal__journal_short && detailCtrl.results.reference__journal__journal_short != null " ><td> {{ 'API_TRANSLATION.DOI.REFERENCE__JOURNAL__JOURNAL_SHORT ' | translate }} </td><td>{{detailCtrl.results.reference__journal__journal_short}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.reference__volume && detailCtrl.results.reference__volume != null " ><td> {{ 'API_TRANSLATION.DOI.REFERENCE__VOLUME ' | translate }} </td><td>{{detailCtrl.results.reference__volume}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.reference__pages && detailCtrl.results.reference__pages != null " ><td> {{ 'API_TRANSLATION.DOI.REFERENCE__PAGES ' | translate }} </td><td>{{detailCtrl.results.reference__pages}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.resource_type__value && detailCtrl.results.resource_type__value != null " ><td> {{ 'API_TRANSLATION.DOI.RESOURCE_TYPE__VALUE ' | translate }} </td><td>{{detailCtrl.results.resource_type__value}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.resource && detailCtrl.results.resource != null " ><td> {{ 'API_TRANSLATION.DOI.RESOURCE ' | translate }} </td><td>{{detailCtrl.results.resource}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.methods && detailCtrl.results.methods != null " ><td> {{ 'API_TRANSLATION.DOI.METHODS ' | translate }} </td><td>{{detailCtrl.results.methods}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.version && detailCtrl.results.version != null " ><td> {{ 'API_TRANSLATION.DOI.VERSION ' | translate }} </td><td>{{detailCtrl.results.version}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.sizes && detailCtrl.results.sizes != null " ><td> {{ 'API_TRANSLATION.DOI.SIZES ' | translate }} </td><td>{{detailCtrl.results.sizes}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.formats && detailCtrl.results.formats != null " ><td> {{ 'API_TRANSLATION.DOI.FORMATS ' | translate }} </td><td>{{detailCtrl.results.formats}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.language__value && detailCtrl.results.language__value != null " ><td> {{ 'API_TRANSLATION.DOI.LANGUAGE__VALUE ' | translate }} </td><td>{{detailCtrl.results.language__value}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.language__value_en && detailCtrl.results.language__value_en != null " ><td> {{ 'API_TRANSLATION.DOI.LANGUAGE__VALUE_EN ' | translate }} </td><td>{{detailCtrl.results.language__value_en}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.subjects && detailCtrl.results.subjects != null " ><td> {{ 'API_TRANSLATION.DOI.SUBJECTS ' | translate }} </td><td>{{detailCtrl.results.subjects}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.copyright_agent__agent && detailCtrl.results.copyright_agent__agent != null " ><td> {{ 'API_TRANSLATION.DOI.COPYRIGHT_AGENT__AGENT ' | translate }} </td><td>{{detailCtrl.results.copyright_agent__agent}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.licence__licence_en && detailCtrl.results.licence__licence_en != null " ><td> {{ 'API_TRANSLATION.DOI.LICENCE__LICENCE_EN ' | translate }} </td><td>{{detailCtrl.results.licence__licence_en}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.licence__licence_url_en && detailCtrl.results.licence__licence_url_en != null " ><td> {{ 'API_TRANSLATION.DOI.LICENCE__LICENCE_URL_EN ' | translate }} </td><td>{{detailCtrl.results.licence__licence_url_en}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.dataset__name && detailCtrl.results.dataset__name != null " ><td> {{ 'API_TRANSLATION.DOI.DATASET__NAME ' | translate }} </td><td>{{detailCtrl.results.dataset__name}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.dataset__name_en && detailCtrl.results.dataset__name_en != null " ><td> {{ 'API_TRANSLATION.DOI.DATASET__NAME_EN ' | translate }} </td><td>{{detailCtrl.results.dataset__name_en}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.date_added && detailCtrl.results.date_added != null " ><td> {{ 'API_TRANSLATION.DOI.DATE_ADDED ' | translate }} </td><td>{{detailCtrl.results.date_added}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.date_changed && detailCtrl.results.date_changed != null " ><td> {{ 'API_TRANSLATION.DOI.DATE_CHANGED ' | translate }} </td><td>{{detailCtrl.results.date_changed}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.datacite_created && detailCtrl.results.datacite_created != null " ><td> {{ 'API_TRANSLATION.DOI.DATACITE_CREATED ' | translate }} </td><td>{{detailCtrl.results.datacite_created}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.datacite_updated && detailCtrl.results.datacite_updated != null " ><td> {{ 'API_TRANSLATION.DOI.DATACITE_UPDATED ' | translate }} </td><td>{{detailCtrl.results.datacite_updated}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.doiattachment__attachment__filename && detailCtrl.results.doiattachment__attachment__filename != null " ><td> {{ 'API_TRANSLATION.DOI.DOIATTACHMENT__ATTACHMENT__FILENAME ' | translate }} </td><td>{{detailCtrl.results.doiattachment__attachment__filename}}</td></tr>
                 </table>
             </div>
         </div>

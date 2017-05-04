@@ -2,10 +2,12 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-3 text-center" style="background-color: #d9e2ee;  padding-bottom: 10px; padding-top: 10px;">
-                <h3>Mikrofauna preparaat nr. {{detailCtrl.results['preparation_number']}}</h3>
-                <h4><em>id: {{detailCtrl.results['id']}}</em></h4>
+                <h3>
+                    <localize et="detailCtrl.results.reference" en="null"/></h3>
+                <h4><em>(ID: {{detailCtrl.results.id}})</em></h4>
             </div>
         </div>
+        </br>
         </br>
         <div class="row">
             <div class="col-lg-6" bs-loading-overlay bs-loading-overlay-reference-id="detailView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
@@ -13,11 +15,35 @@
                     <thead>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''&& detailCtrl.isIncludedField(field)">
+             <!--       <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''&& detailCtrl.isIncludedField(field)">
                         <td entity-field-name name="'API_TRANSLATION.PREPARATION.'+field | uppercase"></td>
                         <td entity-field-value name = "field" value="detailCtrl.results[field]" values = "detailCtrl.results"></td>
-                    </tr>
-
+                    </tr>-->
+             <tr data-ng-if="detailCtrl.results.id && detailCtrl.results.id != null" ><td>{{ 'API_TRANSLATION.PREPARATION.ID ' | translate }}</td><td> {{detailCtrl.results.id}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.sample_id && detailCtrl.results.sample_id != null" ><td>{{ 'API_TRANSLATION.PREPARATION.SAMPLE_ID ' | translate }}</td><td> {{detailCtrl.results.sample_id}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.preparation_number && detailCtrl.results.preparation_number != null" ><td>{{ 'API_TRANSLATION.PREPARATION.PREPARATION_NUMBER ' | translate }}</td><td> {{detailCtrl.results.preparation_number}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.sample__locality__locality && detailCtrl.results.sample__locality__locality != null" ><td>{{ 'API_TRANSLATION.PREPARATION.SAMPLE__LOCALITY__LOCALITY ' | translate }}</td><td> {{detailCtrl.results.sample__locality__locality}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.sample__locality__locality_en && detailCtrl.results.sample__locality__locality_en != null" ><td>{{ 'API_TRANSLATION.PREPARATION.SAMPLE__LOCALITY__LOCALITY_EN ' | translate }}</td><td> {{detailCtrl.results.sample__locality__locality_en}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.sample__depth && detailCtrl.results.sample__depth != null" ><td>{{ 'API_TRANSLATION.PREPARATION.SAMPLE__DEPTH ' | translate }}</td><td> {{detailCtrl.results.sample__depth}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.sample__depth_interval && detailCtrl.results.sample__depth_interval != null" ><td>{{ 'API_TRANSLATION.PREPARATION.SAMPLE__DEPTH_INTERVAL ' | translate }}</td><td> {{detailCtrl.results.sample__depth_interval}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.sample__agent_collected__agent && detailCtrl.results.sample__agent_collected__agent != null" ><td>{{ 'API_TRANSLATION.PREPARATION.SAMPLE__AGENT_COLLECTED__AGENT ' | translate }}</td><td> {{detailCtrl.results.sample__agent_collected__agent}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.sample__agent_collected__forename && detailCtrl.results.sample__agent_collected__forename != null" ><td>{{ 'API_TRANSLATION.PREPARATION.SAMPLE__AGENT_COLLECTED__FORENAME ' | translate }}</td><td> {{detailCtrl.results.sample__agent_collected__forename}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.sample__agent_collected__surename && detailCtrl.results.sample__agent_collected__surename != null" ><td>{{ 'API_TRANSLATION.PREPARATION.SAMPLE__AGENT_COLLECTED__SURENAME ' | translate }}</td><td> {{detailCtrl.results.sample__agent_collected__surename}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.sample__agent_collected_free && detailCtrl.results.sample__agent_collected_free != null" ><td>{{ 'API_TRANSLATION.PREPARATION.SAMPLE__AGENT_COLLECTED_FREE ' | translate }}</td><td> {{detailCtrl.results.sample__agent_collected_free}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.sample__stratigraphy__stratigraphy && detailCtrl.results.sample__stratigraphy__stratigraphy != null" ><td>{{ 'API_TRANSLATION.PREPARATION.SAMPLE__STRATIGRAPHY__STRATIGRAPHY ' | translate }}</td><td> {{detailCtrl.results.sample__stratigraphy__stratigraphy}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.sample__stratigraphy__stratigraphy_en && detailCtrl.results.sample__stratigraphy__stratigraphy_en != null" ><td>{{ 'API_TRANSLATION.PREPARATION.SAMPLE__STRATIGRAPHY__STRATIGRAPHY_EN ' | translate }}</td><td> {{detailCtrl.results.sample__stratigraphy__stratigraphy_en}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.sample__stratigraphy_free && detailCtrl.results.sample__stratigraphy_free != null" ><td>{{ 'API_TRANSLATION.PREPARATION.SAMPLE__STRATIGRAPHY_FREE ' | translate }}</td><td> {{detailCtrl.results.sample__stratigraphy_free}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.sample__lithostratigraphy__stratigraphy && detailCtrl.results.sample__lithostratigraphy__stratigraphy != null" ><td>{{ 'API_TRANSLATION.PREPARATION.SAMPLE__LITHOSTRATIGRAPHY__STRATIGRAPHY ' | translate }}</td><td> {{detailCtrl.results.sample__lithostratigraphy__stratigraphy}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.sample__lithostratigraphy__stratigraphy_en && detailCtrl.results.sample__lithostratigraphy__stratigraphy_en != null" ><td>{{ 'API_TRANSLATION.PREPARATION.SAMPLE__LITHOSTRATIGRAPHY__STRATIGRAPHY_EN ' | translate }}</td><td> {{detailCtrl.results.sample__lithostratigraphy__stratigraphy_en}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.classification__class_field && detailCtrl.results.classification__class_field != null" ><td>{{ 'API_TRANSLATION.PREPARATION.CLASSIFICATION__CLASS_FIELD ' | translate }}</td><td> {{detailCtrl.results.classification__class_field}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.classification__class_en && detailCtrl.results.classification__class_en != null" ><td>{{ 'API_TRANSLATION.PREPARATION.CLASSIFICATION__CLASS_EN ' | translate }}</td><td> {{detailCtrl.results.classification__class_en}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.location && detailCtrl.results.location != null" ><td>{{ 'API_TRANSLATION.PREPARATION.LOCATION ' | translate }}</td><td> {{detailCtrl.results.location}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.storage__location && detailCtrl.results.storage__location != null" ><td>{{ 'API_TRANSLATION.PREPARATION.STORAGE__LOCATION ' | translate }}</td><td> {{detailCtrl.results.storage__location}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.storage__location_location && detailCtrl.results.storage__location_location != null" ><td>{{ 'API_TRANSLATION.PREPARATION.STORAGE__LOCATION_LOCATION ' | translate }}</td><td> {{detailCtrl.results.storage__location_location}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.date_added && detailCtrl.results.date_added != null" ><td>{{ 'API_TRANSLATION.PREPARATION.DATE_ADDED ' | translate }}</td><td> {{detailCtrl.results.date_added}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.date_changed && detailCtrl.results.date_changed != null" ><td>{{ 'API_TRANSLATION.PREPARATION.DATE_CHANGED ' | translate }}</td><td> {{detailCtrl.results.date_changed}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.user_added && detailCtrl.results.user_added != null" ><td>{{ 'API_TRANSLATION.PREPARATION.USER_ADDED ' | translate }}</td><td> {{detailCtrl.results.user_added}}</td></tr>
+             <tr data-ng-if="detailCtrl.results.user_changed && detailCtrl.results.user_changed != null" ><td>{{ 'API_TRANSLATION.PREPARATION.USER_CHANGED ' | translate }}</td><td> {{detailCtrl.results.user_changed}}</td></tr>
                     </tbody>
                 </table>
             </div>

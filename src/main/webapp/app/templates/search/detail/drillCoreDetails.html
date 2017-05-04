@@ -1,17 +1,41 @@
 <div class="panel panel-default">
     <div class="panel-body">
         <div class="row">
-            <div class="col-lg-3">
-                <label>{{entity.drillcore}}</label>
+            <div class="col-lg-3 text-center" style="background-color: #d9e2ee;  padding-bottom: 10px; padding-top: 10px;">
+                <h3><localize et="detailCtrl.results.drillcore" en="detailCtrl.results.drillcore_en"/></h3>
+                <h4><em>(ID: {{detailCtrl.results.id}})</em></h4>
             </div>
         </div>
+        </br>
         <div class="row">
             <div class="col-lg-6" bs-loading-overlay bs-loading-overlay-reference-id="detailView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
                 <table class="table table-bordered table-hover">
-                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''&& detailCtrl.isIncludedField(field)">
+               <!--     <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''&& detailCtrl.isIncludedField(field)">
                         <td entity-field-name name="'API_TRANSLATION.DRILL_CORE.'+field | uppercase"></td>
                         <td entity-field-value name = "field" value="detailCtrl.results[field]" values = "detailCtrl.results"></td>
-                    </tr>
+                    </tr>-->
+                    <tr data-ng-if="detailCtrl.results.id && detailCtrl.results.id != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.ID ' | translate }} </td><td> {{detailCtrl.results.id}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.drillcore && detailCtrl.results.drillcore != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.DRILLCORE ' | translate }} </td><td> {{detailCtrl.results.drillcore}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.locality__country__value && detailCtrl.results.LOCALITY__COUNTRY__VALUE != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.locality__country__value ' | translate }} </td><td> {{detailCtrl.results.locality__country__value}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.locality__country__value_en && detailCtrl.results.LOCALITY__COUNTRY__VALUE_EN != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.locality__country__value_en ' | translate }} </td><td> {{detailCtrl.results.locality__country__value_en}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.locality__latitude && detailCtrl.results.LOCALITY__LATITUDE != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.locality__latitude ' | translate }} </td><td> {{detailCtrl.results.locality__latitude}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.locality__longitude && detailCtrl.results.LOCALITY__LONGITUDE != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.locality__longitude ' | translate }} </td><td> {{detailCtrl.results.locality__longitude}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.depth && detailCtrl.results.depth != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.DEPTH ' | translate }} </td><td> {{detailCtrl.results.depth}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.boxes && detailCtrl.results.boxes != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.BOXES ' | translate }} </td><td> {{detailCtrl.results.boxes}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.box_numbers && detailCtrl.results.box_numbers != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.BOX_NUMBERS ' | translate }} </td><td> {{detailCtrl.results.box_numbers}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.storage__location && detailCtrl.results.storage__location != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.STORAGE__LOCATION ' | translate }} </td><td> {{detailCtrl.results.storage__location}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.locality_id && detailCtrl.results.locality_id != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.LOCALITY_ID ' | translate }} </td><td> {{detailCtrl.results.locality_id}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.drillcore_en && detailCtrl.results.drillcore_en != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.DRILLCORE_EN ' | translate }} </td><td> {{detailCtrl.results.drillcore_en}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.depository__value && detailCtrl.results.depository__value != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.DEPOSITORY__VALUE ' | translate }} </td><td> {{detailCtrl.results.depository__value}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.depository__value_en && detailCtrl.results.depository__value_en != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.DEPOSITORY__VALUE_EN ' | translate }} </td><td> {{detailCtrl.results.depository__value_en}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.number_meters && detailCtrl.results.number_meters != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.NUMBER_METERS ' | translate }} </td><td> {{detailCtrl.results.number_meters}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.year && detailCtrl.results.year != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.YEAR ' | translate }} </td><td> {{detailCtrl.results.year}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.remarks && detailCtrl.results.remarks != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.REMARKS ' | translate }} </td><td> {{detailCtrl.results.remarks}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.agent__agent && detailCtrl.results.agent__agent != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.AGENT__AGENT ' | translate }} </td><td> {{detailCtrl.results.agent__agent}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.database__acronym && detailCtrl.results.database__acronym != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.DATABASE__ACRONYM ' | translate }} </td><td> {{detailCtrl.results.database__acronym}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.locality__maaamet_pa_id && detailCtrl.results.locality__maaamet_pa_id != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.LOCALITY__MAAAMET_PA_ID ' | translate }} </td><td> {{detailCtrl.results.locality__maaamet_pa_id}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.locality__locality && detailCtrl.results.locality__locality != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.LOCALITY__LOCALITY ' | translate }} </td><td> {{detailCtrl.results.locality__locality}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.locality__locality_en && detailCtrl.results.locality__locality_en != null" > <td> {{ 'API_TRANSLATION.DRILL_CORE.LOCALITY__LOCALITY_EN ' | translate }} </td><td> {{detailCtrl.results.locality__locality_en}}</td></tr>
                 </table>
             </div>
             <div class="col-lg-6" data-ng-if="detailCtrl.locality.latitude && detailCtrl.locality.longitude">

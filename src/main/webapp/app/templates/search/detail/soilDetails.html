@@ -2,7 +2,7 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-3 text-center" style="background-color: #d9e2ee;  padding-bottom: 10px; padding-top: 10px;">
-                <h3>Mullakaeve: <localize et="detailCtrl.results['site']" en="detailCtrl.results['site_en']"/></h3>
+                <h3>{{'API_TRANSLATION.SOIL.DETAIL_FORM_NAME' | translate }}: <localize et="detailCtrl.results['site']" en="detailCtrl.results['site_en']"/></h3>
                 <h4><em>(ID: {{detailCtrl.results['id']}})</em></h4>
             </div>
         </div>
@@ -11,22 +11,30 @@
         <div class="row">
             <div class="col-lg-6" bs-loading-overlay bs-loading-overlay-reference-id="detailView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
                 <table class="table table-bordered table-hover">
+<!--
                     <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''&& detailCtrl.isIncludedField(field)">
                         <td entity-field-name name="'API_TRANSLATION.SOIL.'+field | uppercase"></td>
                         <td entity-field-value name = "field" value="detailCtrl.results[field]" values = "detailCtrl.results"></td>
                     </tr>
-        <!--            <tr><td>Name</td><td>{{soil.site}}</td></tr>
-                    <tr><td>Latitude (dec. deg.)</td><td>{{soil.latitude}}</td></tr>
-                    <tr><td>Longitude (dec. deg.)</td><td>{{soil.longitude}}</td></tr>
-                    <tr><td>EPSG</td><td>{{soil.coordSystem}}</td></tr>
-                    <tr><td>X (m)</td><td>{{soil.coordx}}</td></tr>
-                    <tr><td>Y (m)</td><td>{{soil.coordy}}</td></tr>
-                    <tr><td>Aeg</td><td>{{soil.date}}</td></tr>
-                    <tr><td>Aasta</td><td>{{soil.dateFree}}</td></tr>
-                    <tr><td>Land use</td><td>{{soil.agent}}</td></tr>
-                    <tr><td>Soil name</td><td>{{soil.soil}}</td></tr>
-                    <tr><td>K aste A</td><td>{{soil.kAsteA}}</td></tr>
-                    <tr><td>K suurus A</td><td>{{soil.kSizeA}}</td></tr>-->
+-->
+                    <tr data-ng-if="detailCtrl.results.id && detailCtrl.results.id != null"><td>{{ 'API_TRANSLATION.SOIL.ID ' | translate }} </td><td> {{deatilCtrl.results.id}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.area_name && detailCtrl.results.area_name != null"><td>{{ 'API_TRANSLATION.SOIL.AREA_NAME ' | translate }} </td><td> {{deatilCtrl.results.area_name}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.land_use && detailCtrl.results.land_use != null"><td>{{ 'API_TRANSLATION.SOIL.LAND_USE ' | translate }} </td><td> {{deatilCtrl.results.land_use}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.latitude && detailCtrl.results.latitude != null"><td>{{ 'API_TRANSLATION.SOIL.LATITUDE ' | translate }} </td><td> {{deatilCtrl.results.latitude}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.longitude && detailCtrl.results.longitude != null"><td>{{ 'API_TRANSLATION.SOIL.LONGITUDE ' | translate }} </td><td> {{deatilCtrl.results.longitude}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.coordx && detailCtrl.results.coordx != null"><td>{{ 'API_TRANSLATION.SOIL.COORDX ' | translate }} </td><td> {{deatilCtrl.results.coordx}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.coordy && detailCtrl.results.coordy != null"><td>{{ 'API_TRANSLATION.SOIL.COORDY ' | translate }} </td><td> {{deatilCtrl.results.coordy}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.coord_system && detailCtrl.results.coord_system != null"><td>{{ 'API_TRANSLATION.SOIL.COORD_SYSTEM ' | translate }} </td><td> {{deatilCtrl.results.coord_system}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.k_size_a && detailCtrl.results.k_size_a != null"><td>{{ 'API_TRANSLATION.SOIL.K_SIZE_A ' | translate }} </td><td> {{deatilCtrl.results.k_size_a}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.k_aste_a && detailCtrl.results.k_aste_a != null"><td>{{ 'API_TRANSLATION.SOIL.K_ASTE_A ' | translate }} </td><td> {{deatilCtrl.results.k_aste_a}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.date && detailCtrl.results.date != null"><td>{{ 'API_TRANSLATION.SOIL.DATE ' | translate }} </td><td> {{deatilCtrl.results.date}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.date_free && detailCtrl.results.date_free != null"><td>{{ 'API_TRANSLATION.SOIL.DATE_FREE ' | translate }} </td><td> {{deatilCtrl.results.date_free}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.site && detailCtrl.results.site != null"><td>{{ 'API_TRANSLATION.SOIL.SITE ' | translate }} </td><td> {{deatilCtrl.results.site}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.site_en && detailCtrl.results.site_en != null"><td>{{ 'API_TRANSLATION.SOIL.SITE_EN ' | translate }} </td><td> {{deatilCtrl.results.site_en}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.soil && detailCtrl.results.soil != null"><td>{{ 'API_TRANSLATION.SOIL.SOIL ' | translate }} </td><td> {{deatilCtrl.results.soil}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.is_deep && detailCtrl.results.is_deep != null"><td>{{ 'API_TRANSLATION.SOIL.IS_DEEP ' | translate }} </td><td> {{deatilCtrl.results.is_deep}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.transect && detailCtrl.results.transect != null"><td>{{ 'API_TRANSLATION.SOIL.TRANSECT ' | translate }} </td><td> {{deatilCtrl.results.transect}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.transect_point && detailCtrl.results.transect_point != null"><td>{{ 'API_TRANSLATION.SOIL.TRANSECT_POINT ' | translate }} </td><td> {{deatilCtrl.results.transect_point}}</td></tr>
                 </table>
             </div>
             <div class="col-lg-6" data-ng-if="detailCtrl.locality.latitude && detailCtrl.locality.longitude">

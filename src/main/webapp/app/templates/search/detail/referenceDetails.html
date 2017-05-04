@@ -1,30 +1,38 @@
 <div class="panel panel-default">
     <div class="panel-body">
         <div class="row">
-            <div class="col-lg-3">
-                <label>{{reference.drillcore}}</label>
+            <div class="col-lg-3 text-center" style="background-color: #d9e2ee;  padding-bottom: 10px; padding-top: 10px;">
+                <h3>
+                    <localize et="detailCtrl.results.reference" en="null"/></h3>
+                <h4><em>(ID: {{detailCtrl.results.id}})</em></h4>
             </div>
         </div>
+        </br>
         <div class="row">
             <div class="col-lg-6" bs-loading-overlay bs-loading-overlay-reference-id="detailView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
                 <table class="table table-bordered table-hover">
-             <!--       <tr><td>ID</td><td>{{reference.id}}</td></tr>
-                    <tr><td>Reference</td><td>{{reference.reference}}</td></tr>
-                    <tr><td>Author</td><td>{{reference.author}}</td></tr>
-                    <tr><td>Year</td><td>{{reference.year}}</td></tr>
-                    <tr><td>Title</td><td>{{reference.title}}</td></tr>
-                    <tr><td>Title original</td><td>{{reference.titleOriginal}}</td></tr>
-                    <tr><td>Journal</td><td>{{reference.journalName}}</td></tr>
-                    <tr><td>Volume</td><td>{{reference.volume}}</td></tr>
-                    <tr><td>Number</td><td>???</td></tr>
-                    <tr><td>Pages</td><td>{{reference.pages}}</td></tr>
-                    <tr><td>Source type</td><td>???</td></tr>
-                    <tr><td>Language</td><td>{{reference.languageEng}}</td></tr>
-                    <tr><td>DOI</td><td>{{reference.doi}}</td></tr>-->
-                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''&& detailCtrl.isIncludedField(field)">
+<!--                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''&& detailCtrl.isIncludedField(field)">
                         <td entity-field-name name="'API_TRANSLATION.REFERENCE.'+field | uppercase"></td>
                         <td entity-field-value name = "field" value="detailCtrl.results[field]" values = "detailCtrl.results"></td>
-                    </tr>
+                    </tr>-->
+                    <tr data-ng-if="detailCtrl.results.id && detailCtrl.results.id != null"><td>{{'API_TRANSLATION.REFERENCE.ID ' | translate }} </td><td>{{detailCtrl.results.id}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.reference && detailCtrl.results.reference != null"><td>{{'API_TRANSLATION.REFERENCE.REFERENCE ' | translate }} </td><td>{{detailCtrl.results.reference}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.author && detailCtrl.results.author != null"><td>{{'API_TRANSLATION.REFERENCE.AUTHOR ' | translate }} </td><td>{{detailCtrl.results.author}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.year && detailCtrl.results.year != null"><td>{{'API_TRANSLATION.REFERENCE.YEAR ' | translate }} </td><td>{{detailCtrl.results.year}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.title && detailCtrl.results.title != null"><td>{{'API_TRANSLATION.REFERENCE.TITLE ' | translate }} </td><td>{{detailCtrl.results.title}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.title_original && detailCtrl.results.title_original != null"><td>{{'API_TRANSLATION.REFERENCE.TITLE_ORIGINAL ' | translate }} </td><td>{{detailCtrl.results.title_original}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.language__value && detailCtrl.results.language__value != null"><td>{{'API_TRANSLATION.REFERENCE.LANGUAGE__VALUE ' | translate }} </td><td>{{detailCtrl.results.language__value}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.language__value_en && detailCtrl.results.language__value_en != null"><td>{{'API_TRANSLATION.REFERENCE.LANGUAGE__VALUE_EN ' | translate }} </td><td>{{detailCtrl.results.language__value_en}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.journal && detailCtrl.results.journal != null"><td>{{'API_TRANSLATION.REFERENCE.JOURNAL ' | translate }} </td><td>{{detailCtrl.results.journal}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.journal__journal_name && detailCtrl.results.journal__journal_name != null"><td>{{'API_TRANSLATION.REFERENCE.JOURNAL__JOURNAL_NAME ' | translate }} </td><td>{{detailCtrl.results.journal__journal_name}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.journal_additional && detailCtrl.results.journal_additional != null"><td>{{'API_TRANSLATION.REFERENCE.JOURNAL_ADDITIONAL ' | translate }} </td><td>{{detailCtrl.results.journal_additional}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.volume && detailCtrl.results.volume != null"><td>{{'API_TRANSLATION.REFERENCE.VOLUME ' | translate }} </td><td>{{detailCtrl.results.volume}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.book && detailCtrl.results.book != null"><td>{{'API_TRANSLATION.REFERENCE.BOOK ' | translate }} </td><td>{{detailCtrl.results.book}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.pages && detailCtrl.results.pages != null"><td>{{'API_TRANSLATION.REFERENCE.PAGES ' | translate }} </td><td>{{detailCtrl.results.pages}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.doi && detailCtrl.results.doi != null"><td>{{'API_TRANSLATION.REFERENCE.DOI ' | translate }} </td><td>{{detailCtrl.results.doi}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.remarks && detailCtrl.results.remarks != null"><td>{{'API_TRANSLATION.REFERENCE.REMARKS ' | translate }} </td><td>{{detailCtrl.results.remarks}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.type__value && detailCtrl.results.type__value != null"><td>{{'API_TRANSLATION.REFERENCE.TYPE__VALUE ' | translate }} </td><td>{{detailCtrl.results.type__value}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.type__value_en && detailCtrl.results.type__value_en != null"><td>{{'API_TRANSLATION.REFERENCE.TYPE__VALUE_EN ' | translate }} </td><td>{{detailCtrl.results.TYPE__VALUE_EN}}</td></tr>
                 </table>
             </div>
         </div>

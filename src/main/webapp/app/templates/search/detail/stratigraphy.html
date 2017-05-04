@@ -1,42 +1,56 @@
 <div class="panel panel-default">
     <div class="panel-body">
         <div class="row">
-            <div class="col-lg-3">
-                <label> #{{stratigraphy.number}}</label>
+            <div class="col-lg-3 text-center" style="background-color: #d9e2ee;  padding-bottom: 10px; padding-top: 10px;">
+                <h3>
+                    <localize et="detailCtrl.results.stratigraphy" en="detailCtrl.results.stratigraphy_en"/></h3>
+                <h4><em>(ID: {{detailCtrl.results.id}})</em></h4>
             </div>
         </div>
+        </br>
         <div class="row" bs-loading-overlay bs-loading-overlay-reference-id="detailView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
             <table class="table table-bordered table-hover">
                 <thead>
                 </thead>
                 <tbody>
-                <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''&& detailCtrl.isIncludedField(field)">
+                <!--<tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''&& detailCtrl.isIncludedField(field)">
                     <td entity-field-name name="'API_TRANSLATION.STRATIGRAPHY.'+field | uppercase"></td>
                     <td entity-field-value name = "field" value="detailCtrl.results[field]" values = "detailCtrl.results"></td>
-                </tr>
-              <!--  <tr><td>Unit name</td><td>{{stratigraphy.stratigraphy}}</td></tr>
-                <tr><td>Unit name</td><td>{{stratigraphy.stratigraphyEn}}</td></tr>
-                <tr><td>Belongs to</td><td>{{stratigraphy.parentStratigraphy}}</td></tr>
-                <tr><td>Overlies</td><td>weird query here...</td></tr>
-                <tr><td>Type</td><td>?? stratigraphy->list_stratigraphy_type->value</td></tr>
-                <tr><td>Rank</td><td>{{stratigraphy.rankValue}}</td></tr>
-                <tr><td>Scope</td><td>{{stratigraphy.scopeValue}}</td></tr>
-                <tr><td>Status</td><td>{{stratigraphy.statusValue}}</td></tr>
-                <tr><td>Author</td><td>???</td></tr>
-                <tr><td>Year</td><td>{{stratigraphy.number}}</td></tr>
-                <tr><td>Etymon</td><td>{{stratigraphy.number}}</td></tr>
-                <tr><td>Original locality</td><td>???</td></tr>
-                <tr><td>Age top (Ma)</td><td>{{stratigraphy.number}}</td></tr>
-                <tr><td>Age base (Ma)</td><td>{{stratigraphy.number}}</td></tr>
-                <tr><td>Stratigraphy age</td><td>???</td></tr>
-                <tr><td>Age reference</td><td>???</td></tr>
-                <tr><td>Index</td><td>{{stratigraphy.indexMainHtml}}</td></tr>
-                <tr><td>Stratigraphy</td><td>{{stratigraphy.indexAdditionalHtml}}</td></tr>
-                <tr><td>CGMW color code</td><td>???</td></tr>
-                <tr><td>USGS color code</td><td>???</td></tr>
-                <tr><td>Max thickness</td><td>???</td></tr>
-                <tr><td>Lithology</td><td>???</td></tr>
-                <tr><td>Remarks</td><td>???</td></tr>-->
+                </tr>-->
+                <tr data-ng-if="detailCtrl.results.id && detailCtrl.results.id != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.ID ' | translate }} </td><td> {{detailCtrl.results.id}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.stratigraphy && detailCtrl.results.stratigraphy != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.STRATIGRAPHY ' | translate }} </td><td> {{detailCtrl.results.stratigraphy}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.stratigraphy_en && detailCtrl.results.stratigraphy_en != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.STRATIGRAPHY_EN ' | translate }} </td><td> {{detailCtrl.results.stratigraphy_en}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.type__value && detailCtrl.results.type__value != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.TYPE__VALUE ' | translate }} </td><td> {{detailCtrl.results.type__value}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.type__value_en && detailCtrl.results.type__value_en != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.TYPE__VALUE_EN ' | translate }} </td><td> {{detailCtrl.results.type__value_en}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.rank__value && detailCtrl.results.rank__value != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.RANK__VALUE ' | translate }} </td><td> {{detailCtrl.results.rank__value}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.rank__value_en && detailCtrl.results.rank__value_en != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.RANK__VALUE_EN ' | translate }} </td><td> {{detailCtrl.results.rank__value_en}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.scope__value && detailCtrl.results.scope__value != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.SCOPE__VALUE ' | translate }} </td><td> {{detailCtrl.results.scope__value}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.scope__value_en && detailCtrl.results.scope__value_en != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.SCOPE__VALUE_EN ' | translate }} </td><td> {{detailCtrl.results.scope__value_en}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.status__value && detailCtrl.results.status__value != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.STATUS__VALUE ' | translate }} </td><td> {{detailCtrl.results.status__value}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.status__value_en && detailCtrl.results.status__value_en != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.STATUS__VALUE_EN ' | translate }} </td><td> {{detailCtrl.results.status__value_en}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.index_main && detailCtrl.results.index_main != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.INDEX_MAIN ' | translate }} </td><td> {{detailCtrl.results.index_main}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.index_additional && detailCtrl.results.index_additional != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.INDEX_ADDITIONAL ' | translate }} </td><td> {{detailCtrl.results.index_additional}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.index_main_html && detailCtrl.results.index_main_html != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.INDEX_MAIN_HTML ' | translate }} </td><td> {{detailCtrl.results.index_main_html}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.index_additional_html && detailCtrl.results.index_additional_html != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.INDEX_ADDITIONAL_HTML ' | translate }} </td><td> {{detailCtrl.results.index_additional_html}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.parent__stratigraphy && detailCtrl.results.parent__stratigraphy != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.PARENT__STRATIGRAPHY ' | translate }} </td><td> {{detailCtrl.results.parent__stratigraphy}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.parent__stratigraphy_en && detailCtrl.results.parent__stratigraphy_en != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.PARENT__STRATIGRAPHY_EN ' | translate }} </td><td> {{detailCtrl.results.parent__stratigraphy_en}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.age_base && detailCtrl.results.age_base != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.AGE_BASE ' | translate }} </td><td> {{detailCtrl.results.age_base}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.age_top && detailCtrl.results.age_top != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.AGE_TOP ' | translate }} </td><td> {{detailCtrl.results.age_top}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.age_chronostratigraphy__stratigraphy && detailCtrl.results.age_chronostratigraphy__stratigraphy != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.AGE_CHRONOSTRATIGRAPHY__STRATIGRAPHY ' | translate }} </td><td> {{detailCtrl.results.age_chronostratigraphy__stratigraphy}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.age_chronostratigraphy__stratigraphy_en && detailCtrl.results.age_chronostratigraphy__stratigraphy_en != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.AGE_CHRONOSTRATIGRAPHY__STRATIGRAPHY_EN ' | translate }} </td><td> {{detailCtrl.results.age_chronostratigraphy__stratigraphy_en}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.age_reference__reference && detailCtrl.results.age_reference__reference != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.AGE_REFERENCE__REFERENCE ' | translate }} </td><td> {{detailCtrl.results.age_reference__reference}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.etymon && detailCtrl.results.etymon != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.ETYMON ' | translate }} </td><td> {{detailCtrl.results.etymon}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.etymon_en && detailCtrl.results.etymon_en != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.ETYMON_EN ' | translate }} </td><td> {{detailCtrl.results.etymon_en}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.region && detailCtrl.results.region != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.REGION ' | translate }} </td><td> {{detailCtrl.results.region}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.region_en && detailCtrl.results.region_en != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.REGION_EN ' | translate }} </td><td> {{detailCtrl.results.region_en}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.original_locality && detailCtrl.results.original_locality != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.ORIGINAL_LOCALITY ' | translate }} </td><td> {{detailCtrl.results.original_locality}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.max_thickness && detailCtrl.results.max_thickness != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.MAX_THICKNESS ' | translate }} </td><td> {{detailCtrl.results.max_thickness}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.remarks && detailCtrl.results.remarks != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.REMARKS ' | translate }} </td><td> {{detailCtrl.results.remarks}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.year && detailCtrl.results.year != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.YEAR ' | translate }} </td><td> {{detailCtrl.results.year}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.color_code_cgmw && detailCtrl.results.color_code_cgmw != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.COLOR_CODE_CGMW ' | translate }} </td><td> {{detailCtrl.results.color_code_cgmw}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.lithology && detailCtrl.results.lithology != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.LITHOLOGY ' | translate }} </td><td> {{detailCtrl.results.lithology}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.lithology_en && detailCtrl.results.lithology_en != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.LITHOLOGY_EN ' | translate }} </td><td> {{detailCtrl.results.lithology_en}}</td></tr>
+                <tr data-ng-if="detailCtrl.results.author_free && detailCtrl.results.author_free != null"><td>{{'API_TRANSLATION.STRATIGRAPHY.AUTHOR_FREE ' | translate }} </td><td> {{detailCtrl.results.author_free}}</td></tr>
                 </tbody>
             </table>
 

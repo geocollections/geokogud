@@ -1,39 +1,63 @@
 <div class="panel panel-default">
     <div class="panel-body">
         <div class="row">
-            <div class="col-lg-3">
-                <label></label>
+            <div class="col-lg-3 text-center" style="background-color: #d9e2ee;  padding-bottom: 10px; padding-top: 10px;">
+                <h3>{{'API_TRANSLATION.SAMPLE.DETAIL_FORM_NAME' | translate }} {{detailCtrl.results.number}}</h3>
+                <h4><em>(ID: {{detailCtrl.results.id}})</em></h4>
             </div>
         </div>
+        </br>
         <div class="row">
             <div class="col-lg-6" bs-loading-overlay bs-loading-overlay-reference-id="detailView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
                 <table class="table table-bordered table-hover">
                     <thead>
                     </thead>
                     <tbody>
-                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''
+<!--                    <tr data-ng-repeat="field in detailCtrl.fields" data-ng-if="detailCtrl.results[field] != null  && detailCtrl.results[field] != ''
                                                                                     && detailCtrl.isIncludedField(field)">
                         <td entity-field-name name="'API_TRANSLATION.SAMPLE.'+field | uppercase"></td>
                         <td entity-field-value name = "field" value="detailCtrl.results[field]" values = "detailCtrl.results"></td>
-                    </tr>
-<!--                    <tr><td>number</td><td>{{detailCtrl.sample.number}}</td></tr>
-                    <tr><td>lisanumber</td><td>{{detailCtrl.sample.numberAdditional}}</td></tr>
-                    <tr><td>leiukoht</td><td><a href data-ng-click="openInNewWindow({object:'locality',id:detailCtrl.sample.localityId})" >{{detailCtrl.sample.localityEng}}</a></td></tr>
-                    <tr><td>Depth (m)</td><td>{{detailCtrl.sample.depth}}</td></tr>
-                    <tr><td>Depth (m, interval)</td><td>{{detailCtrl.sample.depthInterval}}</td></tr>
-                    <tr><td>Stratigraphy</td><td><a href data-ng-click="openInNewWindow({object:'stratigraphy',id:sample.stratigraphyId})" >{{detailCtrl.sample.stratigraphyEng}}</a></td></tr>
-                    <tr><td>Stratigraphy remarks</td><td>???</td></tr>
-                    <tr><td>Date (string)</td><td>{{detailCtrl.sample.dateCollectedFree}}</td></tr>
-                    <tr><td>Collector</td><td>{{detailCtrl.sample.agent}}</td></tr>
-                    <tr><td>Weight (remaining, g)</td><td>{{detailCtrl.sample.weight}}</td></tr>
-                    <tr><td>Rock characterisation</td><td>{{detailCtrl.sample.rock}}</td></tr>
-                    <tr><td>Rock/sediment type</td><td>{{detailCtrl.sample.classificationRockNameEn}}</td></tr>
-                    <tr><td>laiuskraad</td><td>{{detailCtrl.sample.latitude}}</td></tr>
-                    <tr><td>pikkuskraad</td><td>{{detailCtrl.sample.longitude}}</td></tr>
-                    <tr><td>Parent specimen</td><td>{{detailCtrl.sample.agent}}</td></tr>
-                    <tr><td>Owner (institution)</td><td>{{detailCtrl.sample.git}}</td></tr>
-                    <tr><td>Palaeontology</td><td>???</td></tr>
-                    <tr><td>Record changed</td><td>{{detailCtrl.sample.depth}}</td></tr>-->
+                    </tr>-->
+                    <tr data-ng-if="detailCtrl.results.id && detailCtrl.results.id != null "><td> {{'API_TRANSLATION.SAMPLE.ID ' | translate }}</td><td> {{detailCtrl.results.id}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.number && detailCtrl.results.number != null "><td> {{'API_TRANSLATION.SAMPLE.NUMBER ' | translate }}</td><td> {{detailCtrl.results.number}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.number_additional && detailCtrl.results.number_additional != null "><td> {{'API_TRANSLATION.SAMPLE.NUMBER_ADDITIONAL ' | translate }}</td><td> {{detailCtrl.results.number_additional}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.locality_id && detailCtrl.results.locality_id != null "><td> {{'API_TRANSLATION.SAMPLE.LOCALITY_ID ' | translate }}</td><td> {{detailCtrl.results.locality_id}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.locality__locality && detailCtrl.results.locality__locality != null "><td> {{'API_TRANSLATION.SAMPLE.LOCALITY__LOCALITY ' | translate }}</td><td> {{detailCtrl.results.locality__locality}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.locality__locality_en && detailCtrl.results.locality__locality_en != null "><td> {{'API_TRANSLATION.SAMPLE.LOCALITY__LOCALITY_EN ' | translate }}</td><td> {{detailCtrl.results.locality__locality_en}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.locality_free && detailCtrl.results.locality_free != null "><td> {{'API_TRANSLATION.SAMPLE.LOCALITY_FREE ' | translate }}</td><td> {{detailCtrl.results.locality_free}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.locality__latitude && detailCtrl.results.locality__latitude != null "><td> {{'API_TRANSLATION.SAMPLE.LOCALITY__LATITUDE ' | translate }}</td><td> {{detailCtrl.results.locality__latitude}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.locality__longitude && detailCtrl.results.locality__longitude != null "><td> {{'API_TRANSLATION.SAMPLE.LOCALITY__LONGITUDE ' | translate }}</td><td> {{detailCtrl.results.locality__longitude}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.locality__country__value && detailCtrl.results.locality__country__value != null "><td> {{'API_TRANSLATION.SAMPLE.LOCALITY__COUNTRY__VALUE ' | translate }}</td><td> {{detailCtrl.results.locality__country__value}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.locality__country__value_en && detailCtrl.results.locality__country__value_en != null "><td> {{'API_TRANSLATION.SAMPLE.LOCALITY__COUNTRY__VALUE_EN ' | translate }}</td><td> {{detailCtrl.results.locality__country__value_en}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.soil_horizon && detailCtrl.results.soil_horizon != null "><td> {{'API_TRANSLATION.SAMPLE.SOIL_HORIZON ' | translate }}</td><td> {{detailCtrl.results.soil_horizon}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.soil_site__site && detailCtrl.results.soil_site__site != null "><td> {{'API_TRANSLATION.SAMPLE.SOIL_SITE__SITE ' | translate }}</td><td> {{detailCtrl.results.soil_site__site}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.soil_site__site_en && detailCtrl.results.soil_site__site_en != null "><td> {{'API_TRANSLATION.SAMPLE.SOIL_SITE__SITE_EN ' | translate }}</td><td> {{detailCtrl.results.soil_site__site_en}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.soil_site__latitude && detailCtrl.results.soil_site__latitude != null "><td> {{'API_TRANSLATION.SAMPLE.SOIL_SITE__LATITUDE ' | translate }}</td><td> {{detailCtrl.results.soil_site__latitude}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.soil_site__longitude && detailCtrl.results.soil_site__longitude != null "><td> {{'API_TRANSLATION.SAMPLE.SOIL_SITE__LONGITUDE ' | translate }}</td><td> {{detailCtrl.results.soil_site__longitude}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.stratigraphy_id && detailCtrl.results.stratigraphy_id != null "><td> {{'API_TRANSLATION.SAMPLE.STRATIGRAPHY_ID ' | translate }}</td><td> {{detailCtrl.results.stratigraphy_id}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.stratigraphy__stratigraphy && detailCtrl.results.stratigraphy__stratigraphy != null "><td> {{'API_TRANSLATION.SAMPLE.STRATIGRAPHY__STRATIGRAPHY ' | translate }}</td><td> {{detailCtrl.results.stratigraphy__stratigraphy}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.stratigraphy__stratigraphy_en && detailCtrl.results.stratigraphy__stratigraphy_en != null "><td> {{'API_TRANSLATION.SAMPLE.STRATIGRAPHY__STRATIGRAPHY_EN ' | translate }}</td><td> {{detailCtrl.results.stratigraphy__stratigraphy_en}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.lithostratigraphy__stratigraphy && detailCtrl.results.lithostratigraphy__stratigraphy != null "><td> {{'API_TRANSLATION.SAMPLE.LITHOSTRATIGRAPHY__STRATIGRAPHY ' | translate }}</td><td> {{detailCtrl.results.lithostratigraphy__stratigraphy}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.lithostratigraphy__stratigraphy_en && detailCtrl.results.lithostratigraphy__stratigraphy_en != null "><td> {{'API_TRANSLATION.SAMPLE.LITHOSTRATIGRAPHY__STRATIGRAPHY_EN ' | translate }}</td><td> {{detailCtrl.results.lithostratigraphy__stratigraphy_en}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.stratigraphy_bed && detailCtrl.results.stratigraphy_bed != null "><td> {{'API_TRANSLATION.SAMPLE.STRATIGRAPHY_BED ' | translate }}</td><td> {{detailCtrl.results.stratigraphy_bed}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.agent_collected__agent && detailCtrl.results.agent_collected__agent != null "><td> {{'API_TRANSLATION.SAMPLE.AGENT_COLLECTED__AGENT ' | translate }}</td><td> {{detailCtrl.results.agent_collected__agent}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.agent_collected_free && detailCtrl.results.agent_collected_free != null "><td> {{'API_TRANSLATION.SAMPLE.AGENT_COLLECTED_FREE ' | translate }}</td><td> {{detailCtrl.results.agent_collected_free}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.date_collected && detailCtrl.results.date_collected != null "><td> {{'API_TRANSLATION.SAMPLE.DATE_COLLECTED ' | translate }}</td><td> {{detailCtrl.results.date_collected}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.date_collected_free && detailCtrl.results.date_collected_free != null "><td> {{'API_TRANSLATION.SAMPLE.DATE_COLLECTED_FREE ' | translate }}</td><td> {{detailCtrl.results.date_collected_free}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.depth && detailCtrl.results.depth != null "><td> {{'API_TRANSLATION.SAMPLE.DEPTH ' | translate }}</td><td> {{detailCtrl.results.depth}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.depth_interval && detailCtrl.results.depth_interval != null "><td> {{'API_TRANSLATION.SAMPLE.DEPTH_INTERVAL ' | translate }}</td><td> {{detailCtrl.results.depth_interval}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.classification_rock__name && detailCtrl.results.classification_rock__name != null "><td> {{'API_TRANSLATION.SAMPLE.CLASSIFICATION_ROCK__NAME ' | translate }}</td><td> {{detailCtrl.results.classification_rock__name}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.classification_rock__name_en && detailCtrl.results.classification_rock__name_en != null "><td> {{'API_TRANSLATION.SAMPLE.CLASSIFICATION_ROCK__NAME_EN ' | translate }}</td><td> {{detailCtrl.results.classification_rock__name_en}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.rock && detailCtrl.results.rock != null "><td> {{'API_TRANSLATION.SAMPLE.ROCK ' | translate }}</td><td> {{detailCtrl.results.rock}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.rock_en && detailCtrl.results.rock_en != null "><td> {{'API_TRANSLATION.SAMPLE.ROCK_EN ' | translate }}</td><td> {{detailCtrl.results.rock_en}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.location && detailCtrl.results.location != null "><td> {{'API_TRANSLATION.SAMPLE.LOCATION ' | translate }}</td><td> {{detailCtrl.results.location}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.mass && detailCtrl.results.mass != null "><td> {{'API_TRANSLATION.SAMPLE.MASS ' | translate }}</td><td> {{detailCtrl.results.mass}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.remarks && detailCtrl.results.remarks != null "><td> {{'API_TRANSLATION.SAMPLE.REMARKS ' | translate }}</td><td> {{detailCtrl.results.remarks}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.series_id && detailCtrl.results.series_id != null "><td> {{'API_TRANSLATION.SAMPLE.SERIES_ID ' | translate }}</td><td> {{detailCtrl.results.series_id}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.database__acronym && detailCtrl.results.database__acronym != null "><td> {{'API_TRANSLATION.SAMPLE.DATABASE__ACRONYM ' | translate }}</td><td> {{detailCtrl.results.database__acronym}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.date_added && detailCtrl.results.date_added != null "><td> {{'API_TRANSLATION.SAMPLE.DATE_ADDED ' | translate }}</td><td> {{detailCtrl.results.date_added}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.date_changed && detailCtrl.results.date_changed != null "><td> {{'API_TRANSLATION.SAMPLE.DATE_CHANGED ' | translate }}</td><td> {{detailCtrl.results.date_changed}}</td></tr>
+
                     </tbody>
                 </table>
             </div>
@@ -44,7 +68,7 @@
             </div>
         </div>
     </div>
-    <div class="panel-body">
+<!--    <div class="panel-body">
         <div class="row">
             <label>Analyses and procedures</label>
         </div>
@@ -54,5 +78,5 @@
         <div class="row">
 
         </div>
-    </div>
+    </div>-->
 </div>
