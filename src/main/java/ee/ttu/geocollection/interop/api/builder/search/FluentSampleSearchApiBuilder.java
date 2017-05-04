@@ -129,4 +129,9 @@ public class FluentSampleSearchApiBuilder extends FluentSearchApiBuilder<FluentS
         buildFieldParameters(LOCATION, location);
         return this;
     }
+
+    public FluentSampleSearchApiBuilder returnLocalityId() {
+        addReturningField(LOCALITY_ID);
+        return this;
+    }
 }

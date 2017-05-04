@@ -56,6 +56,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
                 .queryContent(searchCriteria.getContent())
                 .queryInstitutions(searchCriteria.getDbs()).andReturn()
                 .returnAnalyzed()
+                .returnLocalityId()
                 .returnDateChanged();
     }
 
