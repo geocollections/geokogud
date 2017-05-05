@@ -17,10 +17,15 @@
                         <td entity-field-value name = "field" value="detailCtrl.results[field]" values = "detailCtrl.results"></td>
                     </tr>-->
                     <tr data-ng-if="detailCtrl.results.id && detailCtrl.results.id != null"><td>{{'API_TRANSLATION.LOCALITY.ID ' |translate }}</td><td>{{detailCtrl.results.id}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.asustusyksus__asustusyksus_en && detailCtrl.results.ASUSTUSYKSUS__ASUSTUSYKSUS_EN != null"><td>{{'API_TRANSLATION.LOCALITY.asustusyksus__asustusyksus_en ' |translate }}</td><td>{{detailCtrl.results.asustusyksus__asustusyksus_en}}</td></tr>
+                    <tr data-ng-if="(detailCtrl.results.asustusyksus__asustusyksus && detailCtrl.results.asustusyksus__asustusyksus != null) || (detailCtrl.results.asustusyksus__asustusyksus_en && detailCtrl.results.asustusyksus__asustusyksus_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.PHOTO_ARCHIVE.ASUSTUSYKSUS__ASUSTUSYKSUS'" en="'API_TRANSLATION.PHOTO_ARCHIVE.ASUSTUSYKSUS__ASUSTUSYKSUS_EN'"/></td><td><localize et="detailCtrl.results.asustusyksus__asustusyksus" en="detailCtrl.results.asustusyksus__asustusyksus_en"/></td>
+                    </tr>
+                    <!--<tr data-ng-if="detailCtrl.results.asustusyksus__asustusyksus_en && detailCtrl.results.ASUSTUSYKSUS__ASUSTUSYKSUS_EN != null"><td>{{'API_TRANSLATION.LOCALITY.asustusyksus__asustusyksus_en ' |translate }}</td><td>{{detailCtrl.results.asustusyksus__asustusyksus_en}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.asustusyksus__asustusyksus && detailCtrl.results.ASUSTUSYKSUS__ASUSTUSYKSUS != null"><td>{{'API_TRANSLATION.LOCALITY.asustusyksus__asustusyksus ' |translate }}</td><td>{{detailCtrl.results.asustusyksus__asustusyksus}}</td></tr>
+                    -->
                     <tr data-ng-if="detailCtrl.results.country__value_en && detailCtrl.results.COUNTRY__VALUE_EN != null"><td>{{'API_TRANSLATION.LOCALITY.country__value_en ' |translate }}</td><td>{{detailCtrl.results.country__value_en}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.country__value && detailCtrl.results.COUNTRY__VALUE != null"><td>{{'API_TRANSLATION.LOCALITY.country__value ' |translate }}</td><td>{{detailCtrl.results.country__value}}</td></tr>
+
                     <tr data-ng-if="detailCtrl.results.depth && detailCtrl.results.depth != null"><td>{{'API_TRANSLATION.LOCALITY.DEPTH ' |translate }}</td><td>{{detailCtrl.results.depth}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.eelis && detailCtrl.results.eelis != null"><td>{{'API_TRANSLATION.LOCALITY.EELIS ' |translate }}</td><td>{{detailCtrl.results.eelis}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.elevation && detailCtrl.results.elevation != null"><td>{{'API_TRANSLATION.LOCALITY.ELEVATION ' |translate }}</td><td>{{detailCtrl.results.elevation}}</td></tr>

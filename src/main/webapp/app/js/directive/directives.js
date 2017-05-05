@@ -308,6 +308,28 @@ angular.module('geoApp').directive('loading', function () {
             });
         }
     };
+}]).directive('localizeLabel', ['$translate', '$rootScope', function ($translate, $rootScope) {
+    return {
+        template: '{{localizedValue | translate}}',
+        restrict: 'E',
+        scope: {
+            et: '=',
+            en: '='
+        },
+        link: function (scope) {
+            console.log(scope.et)
+            scope.$watch('[et, en]', function(newValue) {
+                scope.localizedValue = $translate.use() == 'et'
+                    ? (newValue[0] == null ? newValue[1] : newValue[0])
+                    : (newValue[1] == null ? newValue[0] : newValue[1]);
+            }, true);
+            $rootScope.$on('$translateChangeSuccess', function() {
+                scope.localizedValue = $translate.use() == 'et'
+                    ? (scope.et == null ? scope.en : scope.et)
+                    : (scope.en == null ? scope.et : scope.en);
+            });
+        }
+    };
 }]).directive('firstNotNull',function(){
     return {
         template: '{{value}}',

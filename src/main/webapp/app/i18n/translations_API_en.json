@@ -388,7 +388,7 @@
             "DATABASE__ACRONYM":"Institution"
         },
         "SOIL" :  {
-            "DETAIL_FORM_NAME" : "",
+            "DETAIL_FORM_NAME" : "Microfossil preparation No. ",
             "ID":"ID",
             "AREA_NAME":"Area",
             "LAND_USE":"Land use",

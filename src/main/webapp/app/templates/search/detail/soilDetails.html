@@ -2,7 +2,7 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-lg-3 text-center" style="background-color: #d9e2ee;  padding-bottom: 10px; padding-top: 10px;">
-                <h3>{{'API_TRANSLATION.SOIL.DETAIL_FORM_NAME' | translate }}: <localize et="detailCtrl.results['site']" en="detailCtrl.results['site_en']"/></h3>
+                <h3>{{'API_TRANSLATION.SOIL.DETAIL_FORM_NAME' | translate }} <localize et="detailCtrl.results['site']" en="detailCtrl.results['site_en']"/></h3>
                 <h4><em>(ID: {{detailCtrl.results['id']}})</em></h4>
             </div>
         </div>
@@ -29,8 +29,12 @@
                     <tr data-ng-if="detailCtrl.results.k_aste_a && detailCtrl.results.k_aste_a != null"><td>{{ 'API_TRANSLATION.SOIL.K_ASTE_A ' | translate }} </td><td> {{detailCtrl.results.k_aste_a}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.date && detailCtrl.results.date != null"><td>{{ 'API_TRANSLATION.SOIL.DATE ' | translate }} </td><td> {{detailCtrl.results.date}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.date_free && detailCtrl.results.date_free != null"><td>{{ 'API_TRANSLATION.SOIL.DATE_FREE ' | translate }} </td><td> {{detailCtrl.results.date_free}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.site && detailCtrl.results.site != null"><td>{{ 'API_TRANSLATION.SOIL.SITE ' | translate }} </td><td> {{detailCtrl.results.site}}</td></tr>
+                    <tr data-ng-if="(detailCtrl.results.site && detailCtrl.results.site != null) || (detailCtrl.results.site_en && detailCtrl.results.site_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.SOIL.SITE'" en="'API_TRANSLATION.SOIL.SITE_EN'"/></td><td><localize et="detailCtrl.results.site" en="detailCtrl.results.site_en"/></td>
+                    </tr>
+                    <!--<tr data-ng-if="detailCtrl.results.site && detailCtrl.results.site != null"><td>{{ 'API_TRANSLATION.SOIL.SITE ' | translate }} </td><td> {{detailCtrl.results.site}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.site_en && detailCtrl.results.site_en != null"><td>{{ 'API_TRANSLATION.SOIL.SITE_EN ' | translate }} </td><td> {{detailCtrl.results.site_en}}</td></tr>
+                    -->
                     <tr data-ng-if="detailCtrl.results.soil && detailCtrl.results.soil != null"><td>{{ 'API_TRANSLATION.SOIL.SOIL ' | translate }} </td><td> {{detailCtrl.results.soil}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.is_deep && detailCtrl.results.is_deep != null"><td>{{ 'API_TRANSLATION.SOIL.IS_DEEP ' | translate }} </td><td> {{detailCtrl.results.is_deep}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.transect && detailCtrl.results.transect != null"><td>{{ 'API_TRANSLATION.SOIL.TRANSECT ' | translate }} </td><td> {{detailCtrl.results.transect}}</td></tr>

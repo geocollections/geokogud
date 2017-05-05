@@ -21,13 +21,18 @@
                     </tr>
 -->
                  <tr data-ng-if="detailCtrl.results.id && detailCtrl.results.id != null" ><td> {{ 'API_TRANSLATION.ANALYSIS.ID ' | translate }} </td><td> {{detailCtrl.results.id}}</td></tr>
-                 <tr data-ng-if="detailCtrl.results.analysis_method__analysis_method && detailCtrl.results.analysis_method__analysis_method != null" ><td> {{ 'API_TRANSLATION.ANALYSIS.ANALYSIS_METHOD__ANALYSIS_METHOD ' | translate }} </td><td> {{detailCtrl.results.analysis_method__analysis_method}}</td></tr>
+                 <tr data-ng-if="(detailCtrl.results.analysis_method__analysis_method && detailCtrl.results.analysis_method__analysis_method != null) || (detailCtrl.results.analysis_method__method_en && detailCtrl.results.analysis_method__method_en != null) ">
+                     <td><localize-label et="'API_TRANSLATION.ANALYSIS.ANALYSIS_METHOD__ANALYSIS_METHOD'" en="'API_TRANSLATION.ANALYSIS.ANALYSIS_METHOD__METHOD_EN'"/></td><td><localize et="detailCtrl.results.analysis_method__analysis_method" en="detailCtrl.results.analysis_method__method_en"/></td>
+                 </tr>
+                 <!--<tr data-ng-if="detailCtrl.results.analysis_method__analysis_method && detailCtrl.results.analysis_method__analysis_method != null" ><td> {{ 'API_TRANSLATION.ANALYSIS.ANALYSIS_METHOD__ANALYSIS_METHOD ' | translate }} </td><td> {{detailCtrl.results.analysis_method__analysis_method}}</td></tr>
                  <tr data-ng-if="detailCtrl.results.analysis_method__method_en && detailCtrl.results.analysis_method__method_en != null" ><td> {{ 'API_TRANSLATION.ANALYSIS.ANALYSIS_METHOD__METHOD_EN ' | translate }} </td><td> {{detailCtrl.results.analysis_method__method_en}}</td></tr>
+                 -->
                  <tr data-ng-if="detailCtrl.results.method_details && detailCtrl.results.method_details != null" ><td> {{ 'API_TRANSLATION.ANALYSIS.METHOD_DETAILS ' | translate }} </td><td> {{detailCtrl.results.method_details}}</td></tr>
                  <tr data-ng-if="detailCtrl.results.lab && detailCtrl.results.lab != null" ><td> {{ 'API_TRANSLATION.ANALYSIS.LAB ' | translate }} </td><td> {{detailCtrl.results.lab}}</td></tr>
                  <tr data-ng-if="detailCtrl.results.instrument && detailCtrl.results.instrument != null" ><td> {{ 'API_TRANSLATION.ANALYSIS.INSTRUMENT ' | translate }} </td><td> {{detailCtrl.results.instrument}}</td></tr>
                  <tr data-ng-if="detailCtrl.results.instrument_txt && detailCtrl.results.instrument_txt != null" ><td> {{ 'API_TRANSLATION.ANALYSIS.INSTRUMENT_TXT ' | translate }} </td><td> {{detailCtrl.results.instrument_txt}}</td></tr>
-                 <tr data-ng-if="detailCtrl.results.sample && detailCtrl.results.sample != null" ><td> {{ 'API_TRANSLATION.ANALYSIS.SAMPLE ' | translate }} </td><td> {{detailCtrl.results.sample}}</td></tr>
+                 <tr data-ng-if="detailCtrl.results.sample && detailCtrl.results.sample != null" ><td> {{ 'API_TRANSLATION.ANALYSIS.SAMPLE ' | translate }} </td>
+                     <td> <a href data-ng-click="detailCtrl.service.openInNewWindow({object:'sample',id:detailCtrl.results.sample})">{{detailCtrl.results.sample}}</a></td></tr>
                  <tr data-ng-if="detailCtrl.results.date && detailCtrl.results.date != null" ><td> {{ 'API_TRANSLATION.ANALYSIS.DATE ' | translate }} </td><td> {{detailCtrl.results.date}}</td></tr>
                  <tr data-ng-if="detailCtrl.results.date_free && detailCtrl.results.date_free != null" ><td> {{ 'API_TRANSLATION.ANALYSIS.DATE_FREE ' | translate }} </td><td> {{detailCtrl.results.date_free}}</td></tr>
                     </tbody>

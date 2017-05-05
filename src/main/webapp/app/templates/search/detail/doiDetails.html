@@ -32,18 +32,30 @@
                     <tr data-ng-if="detailCtrl.results.version && detailCtrl.results.version != null " ><td> {{ 'API_TRANSLATION.DOI.VERSION ' | translate }} </td><td>{{detailCtrl.results.version}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.sizes && detailCtrl.results.sizes != null " ><td> {{ 'API_TRANSLATION.DOI.SIZES ' | translate }} </td><td>{{detailCtrl.results.sizes}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.formats && detailCtrl.results.formats != null " ><td> {{ 'API_TRANSLATION.DOI.FORMATS ' | translate }} </td><td>{{detailCtrl.results.formats}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.language__value && detailCtrl.results.language__value != null " ><td> {{ 'API_TRANSLATION.DOI.LANGUAGE__VALUE ' | translate }} </td><td>{{detailCtrl.results.language__value}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.language__value_en && detailCtrl.results.language__value_en != null " ><td> {{ 'API_TRANSLATION.DOI.LANGUAGE__VALUE_EN ' | translate }} </td><td>{{detailCtrl.results.language__value_en}}</td></tr>
+                    <tr data-ng-if="(detailCtrl.results.language__value && detailCtrl.results.language__value != null) || (detailCtrl.results.language__value_en && detailCtrl.results.language__value_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.DOI.LANGUAGE__VALUE'" en="'API_TRANSLATION.DOI.LANGUAGE__VALUE_EN'"/></td><td><localize et="detailCtrl.results.language__value" en="detailCtrl.results.language__value_en"/></td>
+                    </tr>
+                    <!--<tr data-ng-if="detailCtrl.results.language__value && detailCtrl.results.language__value != null " ><td> {{ 'API_TRANSLATION.DOI.LANGUAGE__VALUE ' | translate }} </td><td>{{detailCtrl.results.language__value}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.language__value_en && detailCtrl.results.language__value_en != null " ><td> {{ 'API_TRANSLATION.DOI.LANGUAGE__VALUE_EN ' | translate }} </td><td>{{detailCtrl.results.language__value_en}}</td></tr>-->
                     <tr data-ng-if="detailCtrl.results.subjects && detailCtrl.results.subjects != null " ><td> {{ 'API_TRANSLATION.DOI.SUBJECTS ' | translate }} </td><td>{{detailCtrl.results.subjects}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.copyright_agent__agent && detailCtrl.results.copyright_agent__agent != null " ><td> {{ 'API_TRANSLATION.DOI.COPYRIGHT_AGENT__AGENT ' | translate }} </td><td>{{detailCtrl.results.copyright_agent__agent}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.licence__licence_en && detailCtrl.results.licence__licence_en != null " ><td> {{ 'API_TRANSLATION.DOI.LICENCE__LICENCE_EN ' | translate }} </td><td>{{detailCtrl.results.licence__licence_en}}</td></tr>
+                    <tr>
+                        <td><localize-label et="'API_TRANSLATION.DOI.LICENCE__LICENCE_EN'" en="'API_TRANSLATION.DOI.LICENCE__LICENCE_EN'"/></td>
+                        <td><a href="detailCtrl.results.licence__licence_url_en"><localize et="detailCtrl.results.licence__licence_en" en="detailCtrl.results.licence__licence_en"/></a></td></tr>
+
+                   <!-- <tr data-ng-if="detailCtrl.results.licence__licence_en && detailCtrl.results.licence__licence_en != null " ><td> {{ 'API_TRANSLATION.DOI.LICENCE__LICENCE_EN ' | translate }} </td><td>{{detailCtrl.results.licence__licence_en}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.licence__licence_url_en && detailCtrl.results.licence__licence_url_en != null " ><td> {{ 'API_TRANSLATION.DOI.LICENCE__LICENCE_URL_EN ' | translate }} </td><td>{{detailCtrl.results.licence__licence_url_en}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.dataset__name && detailCtrl.results.dataset__name != null " ><td> {{ 'API_TRANSLATION.DOI.DATASET__NAME ' | translate }} </td><td>{{detailCtrl.results.dataset__name}}</td></tr>
+-->
+                    <tr data-ng-if="(detailCtrl.results.dataset__name && detailCtrl.results.dataset__name != null) || (detailCtrl.results.dataset__name_en && detailCtrl.results.dataset__name_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.DOI.DATASET__NAME'" en="'API_TRANSLATION.DOI.DATASET__NAME_EN'"/></td><td><localize et="detailCtrl.results.dataset__name" en="detailCtrl.results.dataset__name_en"/></td>
+                    </tr>
+                    <!--<tr data-ng-if="detailCtrl.results.dataset__name && detailCtrl.results.dataset__name != null " ><td> {{ 'API_TRANSLATION.DOI.DATASET__NAME ' | translate }} </td><td>{{detailCtrl.results.dataset__name}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.dataset__name_en && detailCtrl.results.dataset__name_en != null " ><td> {{ 'API_TRANSLATION.DOI.DATASET__NAME_EN ' | translate }} </td><td>{{detailCtrl.results.dataset__name_en}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.date_added && detailCtrl.results.date_added != null " ><td> {{ 'API_TRANSLATION.DOI.DATE_ADDED ' | translate }} </td><td>{{detailCtrl.results.date_added}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.date_changed && detailCtrl.results.date_changed != null " ><td> {{ 'API_TRANSLATION.DOI.DATE_CHANGED ' | translate }} </td><td>{{detailCtrl.results.date_changed}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.datacite_created && detailCtrl.results.datacite_created != null " ><td> {{ 'API_TRANSLATION.DOI.DATACITE_CREATED ' | translate }} </td><td>{{detailCtrl.results.datacite_created}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.datacite_updated && detailCtrl.results.datacite_updated != null " ><td> {{ 'API_TRANSLATION.DOI.DATACITE_UPDATED ' | translate }} </td><td>{{detailCtrl.results.datacite_updated}}</td></tr>
+                    -->
+                    <tr data-ng-if="detailCtrl.results.date_added && detailCtrl.results.date_added != null " ><td> {{ 'API_TRANSLATION.DOI.DATE_ADDED ' | translate }} </td><td>{{detailCtrl.results.date_added | date:dateFormat}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.date_changed && detailCtrl.results.date_changed != null " ><td> {{ 'API_TRANSLATION.DOI.DATE_CHANGED ' | translate }} </td><td>{{detailCtrl.results.date_changed | date:dateFormat}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.datacite_created && detailCtrl.results.datacite_created != null " ><td> {{ 'API_TRANSLATION.DOI.DATACITE_CREATED ' | translate }} </td><td>{{detailCtrl.results.datacite_created | date:dateFormat}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.datacite_updated && detailCtrl.results.datacite_updated != null " ><td> {{ 'API_TRANSLATION.DOI.DATACITE_UPDATED ' | translate }} </td><td>{{detailCtrl.results.datacite_updated | date:dateFormat}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.doiattachment__attachment__filename && detailCtrl.results.doiattachment__attachment__filename != null " ><td> {{ 'API_TRANSLATION.DOI.DOIATTACHMENT__ATTACHMENT__FILENAME ' | translate }} </td><td>{{detailCtrl.results.doiattachment__attachment__filename}}</td></tr>
                 </table>
             </div>
