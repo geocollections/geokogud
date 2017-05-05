@@ -18,51 +18,85 @@
                     </tr>-->
                     <tr data-ng-if="detailCtrl.results.id && detailCtrl.results.id != null"><td>{{'API_TRANSLATION.LOCALITY.ID ' |translate }}</td><td>{{detailCtrl.results.id}}</td></tr>
                     <tr data-ng-if="(detailCtrl.results.asustusyksus__asustusyksus && detailCtrl.results.asustusyksus__asustusyksus != null) || (detailCtrl.results.asustusyksus__asustusyksus_en && detailCtrl.results.asustusyksus__asustusyksus_en != null) ">
-                        <td><localize-label et="'API_TRANSLATION.PHOTO_ARCHIVE.ASUSTUSYKSUS__ASUSTUSYKSUS'" en="'API_TRANSLATION.PHOTO_ARCHIVE.ASUSTUSYKSUS__ASUSTUSYKSUS_EN'"/></td><td><localize et="detailCtrl.results.asustusyksus__asustusyksus" en="detailCtrl.results.asustusyksus__asustusyksus_en"/></td>
+                        <td><localize-label et="'API_TRANSLATION.LOCALITY.ASUSTUSYKSUS__ASUSTUSYKSUS'" en="'API_TRANSLATION.LOCALITY.ASUSTUSYKSUS__ASUSTUSYKSUS_EN'"/></td><td><localize et="detailCtrl.results.asustusyksus__asustusyksus" en="detailCtrl.results.asustusyksus__asustusyksus_en"/></td>
                     </tr>
                     <!--<tr data-ng-if="detailCtrl.results.asustusyksus__asustusyksus_en && detailCtrl.results.ASUSTUSYKSUS__ASUSTUSYKSUS_EN != null"><td>{{'API_TRANSLATION.LOCALITY.asustusyksus__asustusyksus_en ' |translate }}</td><td>{{detailCtrl.results.asustusyksus__asustusyksus_en}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.asustusyksus__asustusyksus && detailCtrl.results.ASUSTUSYKSUS__ASUSTUSYKSUS != null"><td>{{'API_TRANSLATION.LOCALITY.asustusyksus__asustusyksus ' |translate }}</td><td>{{detailCtrl.results.asustusyksus__asustusyksus}}</td></tr>
                     -->
-                    <tr data-ng-if="detailCtrl.results.country__value_en && detailCtrl.results.COUNTRY__VALUE_EN != null"><td>{{'API_TRANSLATION.LOCALITY.country__value_en ' |translate }}</td><td>{{detailCtrl.results.country__value_en}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.country__value && detailCtrl.results.COUNTRY__VALUE != null"><td>{{'API_TRANSLATION.LOCALITY.country__value ' |translate }}</td><td>{{detailCtrl.results.country__value}}</td></tr>
+                    <tr data-ng-if="(detailCtrl.results.country__value && detailCtrl.results.country__value != null) || (detailCtrl.results.country__value_en && detailCtrl.results.country__value_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.LOCALITY.COUNTRY__VALUE'" en="'API_TRANSLATION.LOCALITY.COUNTRY__VALUE_EN'"/></td><td><localize et="detailCtrl.results.country__value" en="detailCtrl.results.country__value_en"/></td>
+                    </tr>
 
                     <tr data-ng-if="detailCtrl.results.depth && detailCtrl.results.depth != null"><td>{{'API_TRANSLATION.LOCALITY.DEPTH ' |translate }}</td><td>{{detailCtrl.results.depth}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.eelis && detailCtrl.results.eelis != null"><td>{{'API_TRANSLATION.LOCALITY.EELIS ' |translate }}</td><td>{{detailCtrl.results.eelis}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.elevation && detailCtrl.results.elevation != null"><td>{{'API_TRANSLATION.LOCALITY.ELEVATION ' |translate }}</td><td>{{detailCtrl.results.elevation}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.latitude && detailCtrl.results.latitude != null"><td>{{'API_TRANSLATION.LOCALITY.LATITUDE ' |translate }}</td><td>{{detailCtrl.results.latitude}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.locality_en && detailCtrl.results.locality_en != null"><td>{{'API_TRANSLATION.LOCALITY.LOCALITY_EN ' |translate }}</td><td>{{detailCtrl.results.locality_en}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.locality && detailCtrl.results.locality != null"><td>{{'API_TRANSLATION.LOCALITY.LOCALITY ' |translate }}</td><td>{{detailCtrl.results.locality}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.longitude && detailCtrl.results.longitude != null"><td>{{'API_TRANSLATION.LOCALITY.LONGITUDE ' |translate }}</td><td>{{detailCtrl.results.longitude}}</td></tr>
+
+                    <tr data-ng-if="(detailCtrl.results.locality && detailCtrl.results.locality != null) || (detailCtrl.results.locality_en && detailCtrl.results.locality_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.LOCALITY.LOCALITY'" en="'API_TRANSLATION.LOCALITY.LOCALITY_EN'"/></td><td><localize et="detailCtrl.results.locality" en="detailCtrl.results.locality_en"/></td>
+                    </tr>
+                    <!--<tr data-ng-if="detailCtrl.results.locality_en && detailCtrl.results.locality_en != null"><td>{{'API_TRANSLATION.LOCALITY.LOCALITY_EN ' |translate }}</td><td>{{detailCtrl.results.locality_en}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.locality && detailCtrl.results.locality != null"><td>{{'API_TRANSLATION.LOCALITY.LOCALITY ' |translate }}</td><td>{{detailCtrl.results.locality}}</td></tr>
+                    -->
                     <tr data-ng-if="detailCtrl.results.maaamet_pa_id && detailCtrl.results.maaamet_pa_id != null"><td>{{'API_TRANSLATION.LOCALITY.MAAAMET_PA_ID ' |translate }}</td><td>{{detailCtrl.results.maaamet_pa_id}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.maakond__maakond_en && detailCtrl.results.maakond__maakond_en != null"><td>{{'API_TRANSLATION.LOCALITY.MAAKOND__MAAKOND_EN ' |translate }}</td><td>{{detailCtrl.results.maakond__maakond_en}}</td></tr>
+                    <tr data-ng-if="(detailCtrl.results.maakond__maakond && detailCtrl.results.maakond__maakond != null) || (detailCtrl.results.maakond__maakond_en && detailCtrl.results.maakond__maakond_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.LOCALITY.MAAKOND__MAAKOND'" en="'API_TRANSLATION.LOCALITY.MAAKOND__MAAKOND_EN'"/></td><td><localize et="detailCtrl.results.maakond__maakond" en="detailCtrl.results.maakond__maakond_en"/></td>
+                    </tr>
+                    <!--<tr data-ng-if="detailCtrl.results.maakond__maakond_en && detailCtrl.results.maakond__maakond_en != null"><td>{{'API_TRANSLATION.LOCALITY.MAAKOND__MAAKOND_EN ' |translate }}</td><td>{{detailCtrl.results.maakond__maakond_en}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.maakond__maakond && detailCtrl.results.maakond__maakond != null"><td>{{'API_TRANSLATION.LOCALITY.MAAKOND__MAAKOND ' |translate }}</td><td>{{detailCtrl.results.maakond__maakond}}</td></tr>
+-->
                     <tr data-ng-if="detailCtrl.results.number && detailCtrl.results.number != null"><td>{{'API_TRANSLATION.LOCALITY.NUMBER ' |translate }}</td><td>{{detailCtrl.results.number}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.parent__locality && detailCtrl.results.parent__locality != null"><td>{{'API_TRANSLATION.LOCALITY.PARENT__LOCALITY ' |translate }}</td><td>{{detailCtrl.results.parent__locality}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.remarks_location && detailCtrl.results.remarks_location != null"><td>{{'API_TRANSLATION.LOCALITY.REMARKS_LOCATION ' |translate }}</td><td>{{detailCtrl.results.remarks_location}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.stratigraphy_base__stratigraphy_en && detailCtrl.results.stratigraphy_base__stratigraphy_en != null"><td>{{'API_TRANSLATION.LOCALITY.STRATIGRAPHY_BASE__STRATIGRAPHY_EN ' |translate }}</td><td>{{detailCtrl.results.stratigraphy_base__stratigraphy_en}}</td></tr>
+
+                    <tr data-ng-if="(detailCtrl.results.stratigraphy_base__stratigraphy && detailCtrl.results.stratigraphy_base__stratigraphy != null) || (detailCtrl.results.stratigraphy_base__stratigraphy_en && detailCtrl.results.stratigraphy_base__stratigraphy_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.LOCALITY.STRATIGRAPHY_BASE__STRATIGRAPHY'" en="'API_TRANSLATION.LOCALITY.STRATIGRAPHY_BASE__STRATIGRAPHY_EN'"/></td><td><localize et="detailCtrl.results.stratigraphy_base__stratigraphy" en="detailCtrl.results.stratigraphy_base__stratigraphy_en"/></td>
+                    </tr>
+                    <!--<tr data-ng-if="detailCtrl.results.stratigraphy_base__stratigraphy_en && detailCtrl.results.stratigraphy_base__stratigraphy_en != null"><td>{{'API_TRANSLATION.LOCALITY.STRATIGRAPHY_BASE__STRATIGRAPHY_EN ' |translate }}</td><td>{{detailCtrl.results.stratigraphy_base__stratigraphy_en}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.stratigraphy_base__stratigraphy && detailCtrl.results.stratigraphy_base__stratigraphy != null"><td>{{'API_TRANSLATION.LOCALITY.STRATIGRAPHY_BASE__STRATIGRAPHY ' |translate }}</td><td>{{detailCtrl.results.stratigraphy_base__stratigraphy}}</td></tr>
+                    -->
                     <tr data-ng-if="detailCtrl.results.stratigraphy_base_id && detailCtrl.results.stratigraphy_base_id != null"><td>{{'API_TRANSLATION.LOCALITY.STRATIGRAPHY_BASE_ID ' |translate }}</td><td>{{detailCtrl.results.stratigraphy_base_id}}</td></tr>
+
+                    <tr data-ng-if="(detailCtrl.results.stratigraphy_top__stratigraphy && detailCtrl.results.stratigraphy_top__stratigraphy != null) || (detailCtrl.results.stratigraphy_top__stratigraphy_en && detailCtrl.results.stratigraphy_top__stratigraphy_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.LOCALITY.STRATIGRAPHY_TOP__STRATIGRAPHY'" en="'API_TRANSLATION.LOCALITY.STRATIGRAPHY_TOP__STRATIGRAPHY_EN'"/></td><td><localize et="detailCtrl.results.stratigraphy_top__stratigraphy" en="detailCtrl.results.stratigraphy_top__stratigraphy_en"/></td>
+                    </tr>
+                    <!--<tr data-ng-if="detailCtrl.results.stratigraphy_top__stratigraphy && detailCtrl.results.stratigraphy_top__stratigraphy != null"><td>{{'API_TRANSLATION.LOCALITY.STRATIGRAPHY_TOP__STRATIGRAPHY ' |translate }}</td><td>{{detailCtrl.results.stratigraphy_top__stratigraphy}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.stratigraphy_top__stratigraphy_en && detailCtrl.results.stratigraphy_top__stratigraphy_en != null"><td>{{'API_TRANSLATION.LOCALITY.STRATIGRAPHY_TOP__STRATIGRAPHY_EN ' |translate }}</td><td>{{detailCtrl.results.stratigraphy_top__stratigraphy_en}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.stratigraphy_top__stratigraphy && detailCtrl.results.stratigraphy_top__stratigraphy != null"><td>{{'API_TRANSLATION.LOCALITY.STRATIGRAPHY_TOP__STRATIGRAPHY ' |translate }}</td><td>{{detailCtrl.results.stratigraphy_top__stratigraphy}}</td></tr>
+                    -->
                     <tr data-ng-if="detailCtrl.results.stratigraphy_top_id && detailCtrl.results.stratigraphy_top_id != null"><td>{{'API_TRANSLATION.LOCALITY.STRATIGRAPHY_TOP_ID ' |translate }}</td><td>{{detailCtrl.results.stratigraphy_top_id}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.localitystratigraphy__stratigraphy__stratigraphy_en && detailCtrl.results.localitystratigraphy__stratigraphy__stratigraphy_en != null"><td>{{'API_TRANSLATION.LOCALITY.LOCALITYSTRATIGRAPHY__STRATIGRAPHY__STRATIGRAPHY_EN ' |translate }}</td><td>{{detailCtrl.results.localitystratigraphy__stratigraphy__stratigraphy_en}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.type__value_en && detailCtrl.results.type__value_en != null"><td>{{'API_TRANSLATION.LOCALITY.TYPE__VALUE_EN ' |translate }}</td><td>{{detailCtrl.results.type__value_en}}</td></tr>
+                    <tr data-ng-if="(detailCtrl.results.type__value && detailCtrl.results.type__value != null) || (detailCtrl.results.type__value_en && detailCtrl.results.type__value_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.LOCALITY.TYPE__VALUE'" en="'API_TRANSLATION.LOCALITY.TYPE__VALUE_EN'"/></td><td><localize et="detailCtrl.results.type__value" en="detailCtrl.results.type__value_en"/></td>
+                    </tr>
+
+                    <!--<tr data-ng-if="detailCtrl.results.type__value_en && detailCtrl.results.type__value_en != null"><td>{{'API_TRANSLATION.LOCALITY.TYPE__VALUE_EN ' |translate }}</td><td>{{detailCtrl.results.type__value_en}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.type__value && detailCtrl.results.type__value != null"><td>{{'API_TRANSLATION.LOCALITY.TYPE__VALUE ' |translate }}</td><td>{{detailCtrl.results.type__value}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.vald__vald_en && detailCtrl.results.vald__vald_en != null"><td>{{'API_TRANSLATION.LOCALITY.VALD__VALD_EN ' |translate }}</td><td>{{detailCtrl.results.vald__vald_en}}</td></tr>
+                    -->
+                    <tr data-ng-if="(detailCtrl.results.vald__vald && detailCtrl.results.vald__vald != null) || (detailCtrl.results.vald__vald_en && detailCtrl.results.vald__vald_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.LOCALITY.VALD__VALD'" en="'API_TRANSLATION.LOCALITY.VALD__VALD_EN'"/></td><td><localize et="detailCtrl.results.vald__vald" en="detailCtrl.results.vald__vald_en"/></td>
+                    </tr>
+
+                    <!--<tr data-ng-if="detailCtrl.results.vald__vald_en && detailCtrl.results.vald__vald_en != null"><td>{{'API_TRANSLATION.LOCALITY.VALD__VALD_EN ' |translate }}</td><td>{{detailCtrl.results.vald__vald_en}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.vald__vald && detailCtrl.results.vald__vald != null"><td>{{'API_TRANSLATION.LOCALITY.VALD__VALD ' |translate }}</td><td>{{detailCtrl.results.vald__vald}}</td></tr>
+                    -->
                     <tr data-ng-if="detailCtrl.results.coord_system && detailCtrl.results.coord_system != null"><td>{{'API_TRANSLATION.LOCALITY.COORD_SYSTEM ' |translate }}</td><td>{{detailCtrl.results.coord_system}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.coordx && detailCtrl.results.coordx != null"><td>{{'API_TRANSLATION.LOCALITY.COORDX ' |translate }}</td><td>{{detailCtrl.results.coordx}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.coordy && detailCtrl.results.coordy != null"><td>{{'API_TRANSLATION.LOCALITY.COORDY ' |translate }}</td><td>{{detailCtrl.results.coordy}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.coord_det_precision__value && detailCtrl.results.coord_det_precision__value != null"><td>{{'API_TRANSLATION.LOCALITY.COORD_DET_PRECISION__VALUE ' |translate }}</td><td>{{detailCtrl.results.coord_det_precision__value}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.coord_det_method__value && detailCtrl.results.coord_det_method__value != null"><td>{{'API_TRANSLATION.LOCALITY.COORD_DET_METHOD__VALUE ' |translate }}</td><td>{{detailCtrl.results.coord_det_method__value}}</td></tr>
+                    <tr data-ng-if="(detailCtrl.results.coord_det_method__value && detailCtrl.results.coord_det_method__value != null) || (detailCtrl.results.coord_det_method__value_en && detailCtrl.results.coord_det_method__value_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.LOCALITY.COORD_DET_METHOD__VALUE'" en="'API_TRANSLATION.LOCALITY.COORD_DET_METHOD__VALUE_EN'"/></td><td><localize et="detailCtrl.results.coord_det_method__value" en="detailCtrl.results.coord_det_method__value_en"/></td>
+                    </tr>
+                   <!-- <tr data-ng-if="detailCtrl.results.coord_det_method__value && detailCtrl.results.coord_det_method__value != null"><td>{{'API_TRANSLATION.LOCALITY.COORD_DET_METHOD__VALUE ' |translate }}</td><td>{{detailCtrl.results.coord_det_method__value}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.coord_det_method__value_en && detailCtrl.results.coord_det_method__value_en != null"><td>{{'API_TRANSLATION.LOCALITY.COORD_DET_METHOD__VALUE_EN ' |translate }}</td><td>{{detailCtrl.results.coord_det_method__value_en}}</td></tr>
+                    -->
                     <tr data-ng-if="detailCtrl.results.coord_det_agent__agent && detailCtrl.results.coord_det_agent__agent != null"><td>{{'API_TRANSLATION.LOCALITY.COORD_DET_AGENT__AGENT ' |translate }}</td><td>{{detailCtrl.results.coord_det_agent__agent}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.stratigraphy_top_free && detailCtrl.results.stratigraphy_top_free != null"><td>{{'API_TRANSLATION.LOCALITY.STRATIGRAPHY_TOP_FREE ' |translate }}</td><td>{{detailCtrl.results.stratigraphy_top_free}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.stratigraphy_base_free && detailCtrl.results.stratigraphy_base_free != null"><td>{{'API_TRANSLATION.LOCALITY.STRATIGRAPHY_BASE_FREE ' |translate }}</td><td>{{detailCtrl.results.stratigraphy_base_free}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.remarks && detailCtrl.results.remarks != null"><td>{{'API_TRANSLATION.LOCALITY.REMARKS ' |translate }}</td><td>{{detailCtrl.results.remarks}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.user_added && detailCtrl.results.user_added != null"><td>{{'API_TRANSLATION.LOCALITY.USER_ADDED ' |translate }}</td><td>{{detailCtrl.results.user_added}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.date_added && detailCtrl.results.date_added != null"><td>{{'API_TRANSLATION.LOCALITY.DATE_ADDED ' |translate }}</td><td>{{detailCtrl.results.date_added}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.date_changed && detailCtrl.results.date_changed != null"><td>{{'API_TRANSLATION.LOCALITY.DATE_CHANGED ' |translate }}</td><td>{{detailCtrl.results.date_changed}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.date_added && detailCtrl.results.date_added != null"><td>{{'API_TRANSLATION.LOCALITY.DATE_ADDED ' |translate }}</td><td>{{detailCtrl.results.date_added | date:dateFormat}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.date_changed && detailCtrl.results.date_changed != null"><td>{{'API_TRANSLATION.LOCALITY.DATE_CHANGED ' |translate }}</td><td>{{detailCtrl.results.date_changed | date:dateFormat}}</td></tr>
                 </table>
             </div>
         </div>

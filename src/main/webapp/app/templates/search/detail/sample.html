@@ -21,24 +21,53 @@
                     <tr data-ng-if="detailCtrl.results.id && detailCtrl.results.id != null "><td> {{'API_TRANSLATION.SAMPLE.ID ' | translate }}</td><td> {{detailCtrl.results.id}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.number && detailCtrl.results.number != null "><td> {{'API_TRANSLATION.SAMPLE.NUMBER ' | translate }}</td><td> {{detailCtrl.results.number}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.number_additional && detailCtrl.results.number_additional != null "><td> {{'API_TRANSLATION.SAMPLE.NUMBER_ADDITIONAL ' | translate }}</td><td> {{detailCtrl.results.number_additional}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.locality_id && detailCtrl.results.locality_id != null "><td> {{'API_TRANSLATION.SAMPLE.LOCALITY_ID ' | translate }}</td><td> {{detailCtrl.results.locality_id}}</td></tr>
+
+                    <!--<tr data-ng-if="detailCtrl.results.locality_id && detailCtrl.results.locality_id != null "><td> {{'API_TRANSLATION.SAMPLE.LOCALITY_ID ' | translate }}</td><td> {{detailCtrl.results.locality_id}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.locality__locality && detailCtrl.results.locality__locality != null "><td> {{'API_TRANSLATION.SAMPLE.LOCALITY__LOCALITY ' | translate }}</td><td> {{detailCtrl.results.locality__locality}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.locality__locality_en && detailCtrl.results.locality__locality_en != null "><td> {{'API_TRANSLATION.SAMPLE.LOCALITY__LOCALITY_EN ' | translate }}</td><td> {{detailCtrl.results.locality__locality_en}}</td></tr>
+                    -->
+                    <tr data-ng-if="(detailCtrl.results.locality__locality && detailCtrl.results.locality__locality != null) || (detailCtrl.results.locality__locality_en && detailCtrl.results.locality__locality_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.SAMPLE.LOCALITY__LOCALITY'" en="'API_TRANSLATION.SAMPLE.LOCALITY__LOCALITY_EN'"/></td>
+                        <td><a href data-ng-click="detailCtrl.service.openInNewWindow({object:'locality',id:detailCtrl.results.locality_id})"><localize et="detailCtrl.results.locality__locality" en="detailCtrl.results.locality__locality_en"/></a></td>
+                    </tr>
                     <tr data-ng-if="detailCtrl.results.locality_free && detailCtrl.results.locality_free != null "><td> {{'API_TRANSLATION.SAMPLE.LOCALITY_FREE ' | translate }}</td><td> {{detailCtrl.results.locality_free}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.locality__latitude && detailCtrl.results.locality__latitude != null "><td> {{'API_TRANSLATION.SAMPLE.LOCALITY__LATITUDE ' | translate }}</td><td> {{detailCtrl.results.locality__latitude}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.locality__longitude && detailCtrl.results.locality__longitude != null "><td> {{'API_TRANSLATION.SAMPLE.LOCALITY__LONGITUDE ' | translate }}</td><td> {{detailCtrl.results.locality__longitude}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.locality__country__value && detailCtrl.results.locality__country__value != null "><td> {{'API_TRANSLATION.SAMPLE.LOCALITY__COUNTRY__VALUE ' | translate }}</td><td> {{detailCtrl.results.locality__country__value}}</td></tr>
+
+                    <!--<tr data-ng-if="detailCtrl.results.locality__country__value && detailCtrl.results.locality__country__value != null "><td> {{'API_TRANSLATION.SAMPLE.LOCALITY__COUNTRY__VALUE ' | translate }}</td><td> {{detailCtrl.results.locality__country__value}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.locality__country__value_en && detailCtrl.results.locality__country__value_en != null "><td> {{'API_TRANSLATION.SAMPLE.LOCALITY__COUNTRY__VALUE_EN ' | translate }}</td><td> {{detailCtrl.results.locality__country__value_en}}</td></tr>
+                    -->
+
+                    <tr data-ng-if="(detailCtrl.results.locality__country__value && detailCtrl.results.locality__country__value != null) || (detailCtrl.results.locality__country__value_en && detailCtrl.results.locality__country__value_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.SAMPLE.LOCALITY__COUNTRY__VALUE'" en="'API_TRANSLATION.SAMPLE.LOCALITY__COUNTRY__VALUE_EN'"/></td><td><localize et="detailCtrl.results.locality__country__value" en="detailCtrl.results.locality__country__value_en"/></td>
+                    </tr>
                     <tr data-ng-if="detailCtrl.results.soil_horizon && detailCtrl.results.soil_horizon != null "><td> {{'API_TRANSLATION.SAMPLE.SOIL_HORIZON ' | translate }}</td><td> {{detailCtrl.results.soil_horizon}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.soil_site__site && detailCtrl.results.soil_site__site != null "><td> {{'API_TRANSLATION.SAMPLE.SOIL_SITE__SITE ' | translate }}</td><td> {{detailCtrl.results.soil_site__site}}</td></tr>
+
+                    <tr data-ng-if="(detailCtrl.results.soil_site__site && detailCtrl.results.soil_site__site != null) || (detailCtrl.results.soil_site__site_en && detailCtrl.results.soil_site__site_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.SAMPLE.SOIL_SITE__SITE'" en="'API_TRANSLATION.SAMPLE.SOIL_SITE__SITE_EN'"/></td><td><localize et="detailCtrl.results.soil_site__site" en="detailCtrl.results.soil_site__site_en"/></td>
+                    </tr>
+
+                    <!--<tr data-ng-if="detailCtrl.results.soil_site__site && detailCtrl.results.soil_site__site != null "><td> {{'API_TRANSLATION.SAMPLE.SOIL_SITE__SITE ' | translate }}</td><td> {{detailCtrl.results.soil_site__site}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.soil_site__site_en && detailCtrl.results.soil_site__site_en != null "><td> {{'API_TRANSLATION.SAMPLE.SOIL_SITE__SITE_EN ' | translate }}</td><td> {{detailCtrl.results.soil_site__site_en}}</td></tr>
+                    -->
+
                     <tr data-ng-if="detailCtrl.results.soil_site__latitude && detailCtrl.results.soil_site__latitude != null "><td> {{'API_TRANSLATION.SAMPLE.SOIL_SITE__LATITUDE ' | translate }}</td><td> {{detailCtrl.results.soil_site__latitude}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.soil_site__longitude && detailCtrl.results.soil_site__longitude != null "><td> {{'API_TRANSLATION.SAMPLE.SOIL_SITE__LONGITUDE ' | translate }}</td><td> {{detailCtrl.results.soil_site__longitude}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.stratigraphy_id && detailCtrl.results.stratigraphy_id != null "><td> {{'API_TRANSLATION.SAMPLE.STRATIGRAPHY_ID ' | translate }}</td><td> {{detailCtrl.results.stratigraphy_id}}</td></tr>
+
+                    <tr data-ng-if="(detailCtrl.results.stratigraphy__stratigraphy && detailCtrl.results.stratigraphy__stratigraphy != null) || (detailCtrl.results.stratigraphy__stratigraphy_en && detailCtrl.results.stratigraphy__stratigraphy_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.SAMPLE.STRATIGRAPHY__STRATIGRAPHY'" en="'API_TRANSLATION.SAMPLE.STRATIGRAPHY__STRATIGRAPHY_EN'"/></td>
+                        <td><a href data-ng-click="detailCtrl.service.openInNewWindow({object:'stratigraphy',id:detailCtrl.results.stratigraphy_id})"><localize et="detailCtrl.results.stratigraphy__stratigraphy" en="detailCtrl.results.stratigraphy__stratigraphy_en"/></a></td>
+                    </tr>
+                    <!--<tr data-ng-if="detailCtrl.results.stratigraphy_id && detailCtrl.results.stratigraphy_id != null "><td> {{'API_TRANSLATION.SAMPLE.STRATIGRAPHY_ID ' | translate }}</td><td> {{detailCtrl.results.stratigraphy_id}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.stratigraphy__stratigraphy && detailCtrl.results.stratigraphy__stratigraphy != null "><td> {{'API_TRANSLATION.SAMPLE.STRATIGRAPHY__STRATIGRAPHY ' | translate }}</td><td> {{detailCtrl.results.stratigraphy__stratigraphy}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.stratigraphy__stratigraphy_en && detailCtrl.results.stratigraphy__stratigraphy_en != null "><td> {{'API_TRANSLATION.SAMPLE.STRATIGRAPHY__STRATIGRAPHY_EN ' | translate }}</td><td> {{detailCtrl.results.stratigraphy__stratigraphy_en}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.lithostratigraphy__stratigraphy && detailCtrl.results.lithostratigraphy__stratigraphy != null "><td> {{'API_TRANSLATION.SAMPLE.LITHOSTRATIGRAPHY__STRATIGRAPHY ' | translate }}</td><td> {{detailCtrl.results.lithostratigraphy__stratigraphy}}</td></tr>
+                    -->
+                    <tr data-ng-if="(detailCtrl.results.lithostratigraphy__stratigraphy && detailCtrl.results.lithostratigraphy__stratigraphy != null) || (detailCtrl.results.lithostratigraphy__stratigraphy_en && detailCtrl.results.lithostratigraphy__stratigraphy_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.SAMPLE.LITHOSTRATIGRAPHY__STRATIGRAPHY'" en="'API_TRANSLATION.SAMPLE.LITHOSTRATIGRAPHY__STRATIGRAPHY_EN'"/></td><td><localize et="detailCtrl.results.lithostratigraphy__stratigraphy" en="detailCtrl.results.lithostratigraphy__stratigraphy_en"/></td>
+                    </tr>
+                    <!--<tr data-ng-if="detailCtrl.results.lithostratigraphy__stratigraphy && detailCtrl.results.lithostratigraphy__stratigraphy != null "><td> {{'API_TRANSLATION.SAMPLE.LITHOSTRATIGRAPHY__STRATIGRAPHY ' | translate }}</td><td> {{detailCtrl.results.lithostratigraphy__stratigraphy}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.lithostratigraphy__stratigraphy_en && detailCtrl.results.lithostratigraphy__stratigraphy_en != null "><td> {{'API_TRANSLATION.SAMPLE.LITHOSTRATIGRAPHY__STRATIGRAPHY_EN ' | translate }}</td><td> {{detailCtrl.results.lithostratigraphy__stratigraphy_en}}</td></tr>
+                    -->
                     <tr data-ng-if="detailCtrl.results.stratigraphy_bed && detailCtrl.results.stratigraphy_bed != null "><td> {{'API_TRANSLATION.SAMPLE.STRATIGRAPHY_BED ' | translate }}</td><td> {{detailCtrl.results.stratigraphy_bed}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.agent_collected__agent && detailCtrl.results.agent_collected__agent != null "><td> {{'API_TRANSLATION.SAMPLE.AGENT_COLLECTED__AGENT ' | translate }}</td><td> {{detailCtrl.results.agent_collected__agent}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.agent_collected_free && detailCtrl.results.agent_collected_free != null "><td> {{'API_TRANSLATION.SAMPLE.AGENT_COLLECTED_FREE ' | translate }}</td><td> {{detailCtrl.results.agent_collected_free}}</td></tr>
@@ -46,17 +75,25 @@
                     <tr data-ng-if="detailCtrl.results.date_collected_free && detailCtrl.results.date_collected_free != null "><td> {{'API_TRANSLATION.SAMPLE.DATE_COLLECTED_FREE ' | translate }}</td><td> {{detailCtrl.results.date_collected_free}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.depth && detailCtrl.results.depth != null "><td> {{'API_TRANSLATION.SAMPLE.DEPTH ' | translate }}</td><td> {{detailCtrl.results.depth}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.depth_interval && detailCtrl.results.depth_interval != null "><td> {{'API_TRANSLATION.SAMPLE.DEPTH_INTERVAL ' | translate }}</td><td> {{detailCtrl.results.depth_interval}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.classification_rock__name && detailCtrl.results.classification_rock__name != null "><td> {{'API_TRANSLATION.SAMPLE.CLASSIFICATION_ROCK__NAME ' | translate }}</td><td> {{detailCtrl.results.classification_rock__name}}</td></tr>
+                    <tr data-ng-if="(detailCtrl.results.classification_rock__name && detailCtrl.results.classification_rock__name != null) || (detailCtrl.results.classification_rock__name_en && detailCtrl.results.classification_rock__name_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.SAMPLE.CLASSIFICATION_ROCK__NAME'" en="'API_TRANSLATION.SAMPLE.CLASSIFICATION_ROCK__NAME_EN'"/></td><td><localize et="detailCtrl.results.classification_rock__name" en="detailCtrl.results.classification_rock__name_en"/></td>
+                    </tr>
+                    <!--<tr data-ng-if="detailCtrl.results.classification_rock__name && detailCtrl.results.classification_rock__name != null "><td> {{'API_TRANSLATION.SAMPLE.CLASSIFICATION_ROCK__NAME ' | translate }}</td><td> {{detailCtrl.results.classification_rock__name}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.classification_rock__name_en && detailCtrl.results.classification_rock__name_en != null "><td> {{'API_TRANSLATION.SAMPLE.CLASSIFICATION_ROCK__NAME_EN ' | translate }}</td><td> {{detailCtrl.results.classification_rock__name_en}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.rock && detailCtrl.results.rock != null "><td> {{'API_TRANSLATION.SAMPLE.ROCK ' | translate }}</td><td> {{detailCtrl.results.rock}}</td></tr>
+                    -->
+                    <tr data-ng-if="(detailCtrl.results.rock && detailCtrl.results.rock != null) || (detailCtrl.results.rock_en && detailCtrl.results.rock_en != null) ">
+                        <td><localize-label et="'API_TRANSLATION.SAMPLE.ROCK'" en="'API_TRANSLATION.SAMPLE.ROCK_EN'"/></td><td><localize et="detailCtrl.results.rock" en="detailCtrl.results.rock_en"/></td>
+                    </tr>
+                    <!--<tr data-ng-if="detailCtrl.results.rock && detailCtrl.results.rock != null "><td> {{'API_TRANSLATION.SAMPLE.ROCK ' | translate }}</td><td> {{detailCtrl.results.rock}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.rock_en && detailCtrl.results.rock_en != null "><td> {{'API_TRANSLATION.SAMPLE.ROCK_EN ' | translate }}</td><td> {{detailCtrl.results.rock_en}}</td></tr>
+                    -->
                     <tr data-ng-if="detailCtrl.results.location && detailCtrl.results.location != null "><td> {{'API_TRANSLATION.SAMPLE.LOCATION ' | translate }}</td><td> {{detailCtrl.results.location}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.mass && detailCtrl.results.mass != null "><td> {{'API_TRANSLATION.SAMPLE.MASS ' | translate }}</td><td> {{detailCtrl.results.mass}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.remarks && detailCtrl.results.remarks != null "><td> {{'API_TRANSLATION.SAMPLE.REMARKS ' | translate }}</td><td> {{detailCtrl.results.remarks}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.series_id && detailCtrl.results.series_id != null "><td> {{'API_TRANSLATION.SAMPLE.SERIES_ID ' | translate }}</td><td> {{detailCtrl.results.series_id}}</td></tr>
                     <tr data-ng-if="detailCtrl.results.database__acronym && detailCtrl.results.database__acronym != null "><td> {{'API_TRANSLATION.SAMPLE.DATABASE__ACRONYM ' | translate }}</td><td> {{detailCtrl.results.database__acronym}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.date_added && detailCtrl.results.date_added != null "><td> {{'API_TRANSLATION.SAMPLE.DATE_ADDED ' | translate }}</td><td> {{detailCtrl.results.date_added}}</td></tr>
-                    <tr data-ng-if="detailCtrl.results.date_changed && detailCtrl.results.date_changed != null "><td> {{'API_TRANSLATION.SAMPLE.DATE_CHANGED ' | translate }}</td><td> {{detailCtrl.results.date_changed}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.date_added && detailCtrl.results.date_added != null "><td> {{'API_TRANSLATION.SAMPLE.DATE_ADDED ' | translate }}</td><td> {{detailCtrl.results.date_added | date:dateFormat}}</td></tr>
+                    <tr data-ng-if="detailCtrl.results.date_changed && detailCtrl.results.date_changed != null "><td> {{'API_TRANSLATION.SAMPLE.DATE_CHANGED ' | translate }}</td><td> {{detailCtrl.results.date_changed | date:dateFormat}}</td></tr>
 
                     </tbody>
                 </table>
