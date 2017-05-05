@@ -15,7 +15,6 @@ var constructor = function ($http,$location, configuration) {
             "method": "GET",
             "url": url
         };
-
         service.httpRequest(url, config, successCb, errorCb)
     };
 
@@ -64,6 +63,29 @@ var constructor = function ($http,$location, configuration) {
         }
             url == "" ? $location.path($location.$$path).search() : $location.path($location.$$path).search(url);
             $location.replace();
+    };
+
+    service.decodeMapUrl = function(){
+        if( Object.keys($location.$$search).length === 0) return null;
+        var urlParams = $location.$$search, currentTable = $location.$$path.split('/')[1];
+        var filterData = {
+            filters: [],
+            localityName: "",
+        };
+        angular.forEach(Object.keys(urlParams), function(attr){
+            if(attr != 'currentTable' && configuration.urlHelper[currentTable]) {
+                angular.forEach(Object.keys(configuration.urlHelper[currentTable].fields), function(currentField) {
+                    if(configuration.urlHelper[currentTable].fields[currentField] == attr) {
+                        if(attr != "loc") {
+                            filterData.filters.push(currentField);
+                        } else if (attr == "loc") {
+                            filterData.localityName = urlParams[attr];
+                        }
+                    }
+                })
+            }
+        });
+        return filterData;
     };
 
     service.decodeUrl = function(){

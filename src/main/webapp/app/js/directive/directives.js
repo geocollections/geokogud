@@ -704,7 +704,12 @@ angular.module('geoApp').directive('loading', function () {
             template: '<div id="map" class="map"></div>',
             controller: ['$scope', 'ApplicationService', '$rootScope', '$timeout', function ($scope, ApplicationService, $rootScope, $timeout) {
                 ApplicationService.loadMapData(onMapData);
-
+                var filterData = ApplicationService.getMapParamsFromUrl();
+                if(filterData == null){
+                    ApplicationService.loadMapData(onMapData);
+                } else {
+                    ApplicationService.loadMapDataOnFilterChange(filterData, onMapDataFilter);
+                }
                 function onMapData(response) {
                     var locs = response.data;
                     if (locs != undefined) {
@@ -1123,12 +1128,11 @@ angular.module('geoApp').directive('loading', function () {
                     }
 
                     ApplicationService.loadMapDataOnFilterChange(filterData, onMapDataFilter);
-                    function onMapDataFilter(response) {
-                        $("#map").empty();
-                        onMapData(response);
-                    }
                 };
-
+                function onMapDataFilter(response) {
+                    $("#map").empty();
+                    onMapData(response);
+                }
             }]
         }
     });

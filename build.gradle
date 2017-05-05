@@ -36,16 +36,13 @@ idea {
     }
 }
 
-jar {
-    exclude 'application.properties'
-    exclude 'sql/**'
+bootRepackage {
+    mainClass = "ee.ttu.geocollection.App"
 }
 
 war {
-    baseName = 'ROOT'
+    baseName = 'geocollections'
     version =  ''
-    war.rootSpec.exclude '**/application.properties'
-    war.rootSpec.exclude '**/logback.xml'
 }
 
 repositories {
@@ -152,7 +149,7 @@ compileGeneratedJava {
 clean {
     //delete sourceSets.generated.java.srcDirs
 }
- 
+
 flyway {
     url = 'jdbc:postgresql://localhost:5432/geodeesia'
     user = 'geodeesia'

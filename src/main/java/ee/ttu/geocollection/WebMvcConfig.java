@@ -11,7 +11,7 @@ import org.springframework.web.servlet.resource.PathResourceResolver;
 import java.io.IOException;
 
 @Configuration
-@EnableConfigurationProperties({ ResourceProperties.class })
+@EnableConfigurationProperties({ResourceProperties.class})
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Autowired
@@ -30,6 +30,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         registry.addRedirectViewController("/", "/index.html");
 //        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(auditInterceptor);
@@ -40,7 +41,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         Integer cachePeriod = (3600 * 24);
 
         final String[] staticLocations = resourceProperties.getStaticLocations();
-        final String[] indexLocations  = new String[staticLocations.length];
+        final String[] indexLocations = new String[staticLocations.length];
         for (int i = 0; i < staticLocations.length; i++) {
             indexLocations[i] = staticLocations[i] + "index.html";
         }
