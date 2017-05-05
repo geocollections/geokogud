@@ -3,7 +3,7 @@ angular.module('geoApp').directive('sortField', function () {
         restrict: 'AE',
         replace: true,
         template: '<a href data-ng-click="order(value)">' +
-                    '<span>{{ name | translate}}</span>{{predicate}}' +
+                    '<span>{{ name | translate}}</span>' +
                     '<span data-ng-show="$parent.searchParameters.sortField.sortBy == predicate && $parent.sortByAsc" class="glyphicon glyphicon-triangle-bottom"></span>' +
                     '<span data-ng-show="$parent.searchParameters.sortField.sortBy == predicate && !$parent.sortByAsc" class="glyphicon glyphicon-triangle-top"></span>' +
                   '</a>' ,
