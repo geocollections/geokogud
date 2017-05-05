@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="visible-xs">
-                    <div class="row search-hint" ng-bind-html="main.getContent(main.doiIdentifiers)" data-ng-if="isHintHidden"></div>
+                    <div class="row search-hint" ng-bind-html="main.getContent(main.searchTips)" data-ng-if="isHintHidden"></div>
                 </div>
                 <form ng-enter="search()">
                     <div class="row">
@@ -236,7 +236,7 @@
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
                 <div class="hidden-xs">
-                    <div class="row search-hint" ng-bind-html="main.getContent(main.doiIdentifiers)" data-ng-if="isHintHidden"></div>
+                    <div class="row search-hint" ng-bind-html="main.getContent(main.searchTips)" data-ng-if="isHintHidden"></div>
                 </div>
                 <div class="row">
                     <div data-ng-if="isMapHidden">
@@ -250,14 +250,14 @@
                     </div>
                     <loading></loading>
                 </div>
-
+                <div data-ng-if="showImages" ng-include="'app/templates/search/partial/pagination.html'"></div>
                 <div class="products-swiper-container" data-ng-if="showImages">
                     <div class="cards-container columns">
                         <div class="cards-row five-columns">
                             <div class="products-swiper owl-carousel owl-theme owl-loaded">
                                 <div class="owl-stage-outer">
                                     <div class="col-md-12 medium-padding">
-                                        <b data-ng-init="images.total = 0">{{ 'SEARCH.FOUND_IMAGES' | translate }} {{images.total}} </b>
+                                        <b data-ng-init="images.total = 0">{{ 'SEARCH.FOUND_IMAGES' | translate }}: {{images.total}} </b>
                                     </div>
                                     <div class="owl-stage pull-left" style="transform: translate3d(0px, 0px, 0px); transition: 0s; width: 6660px;" data-ng-repeat="row in images.rows">
                                         <div class="owl-item active" style="width: 222px; margin-right: 0px;" data-ng-repeat="col in row">
@@ -278,7 +278,15 @@
                                                         </div>
                                                     </div>
                                                 </a>
-                                            </div></div></div></div></div></div></div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-ng-if="showImages" ng-include="'app/templates/search/partial/pagination.html'"></div>
               <!--  <div class="table-responsive" data-ng-if="showImages">
                     <div class="col-md-12 medium-padding">
                         <b data-ng-init="totalImages = 0">{{ 'SEARCH.FOUND_IMAGES' | translate }} {{totalImages}} </b>
@@ -301,7 +309,7 @@
                     </div>
                 </div>-->
 
-                <div non-isolated-include template-path="app/templates/search/specimen/specimen_results.html"/>
+                <div data-ng-if="!showImages" non-isolated-include template-path="app/templates/search/specimen/specimen_results.html"/>
 
             </div>
         </div>

@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="visible-xs">
-                    <div class="row search-hint" ng-bind-html="main.getContent(main.doiIdentifiers)" data-ng-if="isHintHidden"></div>
+                    <div class="row search-hint" ng-bind-html="main.getContent(main.drillCoreSearch)" data-ng-if="isHintHidden"></div>
                 </div>
                 <form ng-enter="search()">
                     <div class="row">
@@ -132,7 +132,7 @@
             </div>
             <div class="col-sm-9 col-md-9 col-lg-9" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
                 <div class="hidden-xs">
-                    <div class="row search-hint" ng-bind-html="main.getContent(main.doiIdentifiers)" data-ng-if="isHintHidden"></div>
+                    <div class="row search-hint" ng-bind-html="main.getContent(main.drillCoreSearch)" data-ng-if="isHintHidden"></div>
                 </div>
 
                 <div class="row">
