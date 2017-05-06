@@ -189,6 +189,7 @@ public class ApiFields {
     public static final String SAMPLE_LOCALITY_FREE = "sample__locality_free";
     public static final String SAMPLE_LOCALITY_LOCALITY_EN = "sample__locality__locality_en";
     public static final String SAMPLE_LOCALITY_LOCALITY = "sample__locality__locality";
+    public static final String SAMPLE_LOCALITY_ID = "sample__locality_id";
     public static final String SAMPLE_STRATIGRAPHY_ID = "sample__stratigraphy_id";
     public static final String SAMPLE_LITHOSTRATIGRAPHY_ID = "sample__lithostratigraphy_id";
 

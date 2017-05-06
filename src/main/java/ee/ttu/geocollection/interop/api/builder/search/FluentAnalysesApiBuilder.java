@@ -93,6 +93,11 @@ public class FluentAnalysesApiBuilder  extends FluentSearchApiBuilder<FluentAnal
         return this;
     }
 
+    public FluentAnalysesApiBuilder returnLocalityId(){
+        addReturningField(SAMPLE_LOCALITY_ID);
+        return this;
+    }
+
     @Override
     FluentAnalysesApiBuilder getThis() { return this; }
 }

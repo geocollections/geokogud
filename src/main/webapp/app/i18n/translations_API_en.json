@@ -313,7 +313,12 @@
             "INSTRUMENT_TXT":"Instrument",
             "SAMPLE":"Sample ID",
             "DATE":"Date",
-            "DATE_FREE":"Date"
+            "DATE_FREE":"Date",
+            "SAMPLE__LOCALITY__LOCALITY":"Locality (ET)",
+            "SAMPLE__LOCALITY__LOCALITY_EN":"Locality",
+            "SAMPLE__LOCALITY__DEPTH":"Depth m",
+            "SAMPLE__STRATIGRAPHY__STRATIGRAPHY":"Stratigraphy (ET)",
+            "SAMPLE__STRATIGRAPHY__STRATIGRAPHY_EN":"Stratigraphy"
         },
         "PREPARATION" :     {
             "DETAIL_FORM_NAME" : "Microfossil preparation No.",

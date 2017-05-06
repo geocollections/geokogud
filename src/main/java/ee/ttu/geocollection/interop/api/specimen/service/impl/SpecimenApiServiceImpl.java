@@ -21,6 +21,10 @@ import java.util.Map;
 @Service
 public class SpecimenApiServiceImpl implements SpecimenApiService {
     public static final String SPECIMEN_TABLE = "specimen";
+    public static final String SPECIMEN_IMAGE_TABLE = "specimen_image";
+    public static final String SPECIMEN_IDENTIFICATION_TABLE = "specimen_identification";
+    public static final String SPECIMEN_REFERENCE_TABLE = "specimen_reference";
+
     private List<String> fields = Arrays.asList(
             "id",
             "classification__class_field",
@@ -148,8 +152,7 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
             "date_added",
             "specimen_id",
             "type__value_en",
-            "kind__value_en"
-    );
+            "kind__value_en");
 
     @Autowired
     private ApiService apiService;
@@ -199,14 +202,14 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
                 .querySpecimenIdForUrl(specimenId).andReturn()
                 .returnImageUrl()
                 .buildDefaultFieldsQuery();
-        return apiService.searchRawEntities("specimen_image", 2,1, new SortField(), requestParams);
+        return apiService.searchRawEntities(SPECIMEN_IMAGE_TABLE, 2,1, new SortField(), requestParams);
     }
 
     @Override
     public ApiResponse findSpecimenImage(SpecimenSearchCriteria searchCriteria) {
         String requestParams = FluentSpecimenImageSearchApiBuilder.aRequest()
                 .buildDefaultFieldsQuery();
-        return apiService.searchRawEntities("specimen_image", 10, searchCriteria.getPage(), new SortField(), requestParams);
+        return apiService.searchRawEntities(SPECIMEN_IMAGE_TABLE, 10, searchCriteria.getPage(), new SortField(), requestParams);
     }
 
     @Override
@@ -214,17 +217,16 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
                 .buildWithDefaultReturningFields();
-        return apiService.findRawEntity("specimen_image", requestParams);
+        return apiService.findRawEntity(SPECIMEN_IMAGE_TABLE, requestParams);
     }
-
 
     @Override
     public Map findRawById(Long id) {
         String requestParams = FluentGeoApiDetailsBuilder.aRequest()
                 .id(id)
-                .relatedData("specimen_identification")
-                .relatedData("specimen_image")
-                .relatedData("specimen_reference")
+                .relatedData(SPECIMEN_IDENTIFICATION_TABLE)
+                .relatedData(SPECIMEN_IMAGE_TABLE)
+                .relatedData(SPECIMEN_REFERENCE_TABLE)
                 .returnAllFields(fields)
                 .buildWithReturningFieldsAndRelatedData();
         return apiService.findRawEntity(SPECIMEN_TABLE, requestParams);

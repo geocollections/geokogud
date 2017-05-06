@@ -35,6 +35,31 @@
                      <td> <a href data-ng-click="detailCtrl.service.openInNewWindow({object:'sample',id:detailCtrl.results.sample})">{{detailCtrl.results.sample}}</a></td></tr>
                  <tr data-ng-if="detailCtrl.results.date && detailCtrl.results.date != null" ><td> {{ 'API_TRANSLATION.ANALYSIS.DATE ' | translate }} </td><td> {{detailCtrl.results.date}}</td></tr>
                  <tr data-ng-if="detailCtrl.results.date_free && detailCtrl.results.date_free != null" ><td> {{ 'API_TRANSLATION.ANALYSIS.DATE_FREE ' | translate }} </td><td> {{detailCtrl.results.date_free}}</td></tr>
+                 <tr data-ng-if="detailCtrl.results.sample__locality_id != null">
+                     <td>
+                         <localize-label
+                                 et="'API_TRANSLATION.ANALYSIS.SAMPLE__LOCALITY__LOCALITY'"
+                                 en="'API_TRANSLATION.ANALYSIS.SAMPLE__LOCALITY__LOCALITY'"/>
+                     </td>
+                     <td>
+                         <a href data-ng-click="detailCtrl.service.openInNewWindow({object:'locality',id:detailCtrl.results.sample__locality_id})">
+                            <localize et="detailCtrl.results.sample__locality__locality" en="detailCtrl.results.sample__locality__locality_en"/>
+                         </a>
+                     </td>
+                 </tr>
+                 <tr data-ng-if="detailCtrl.results.sample__locality__depth != null" ><td> {{ 'API_TRANSLATION.ANALYSIS.SAMPLE__LOCALITY__DEPTH ' | translate }} </td><td> {{detailCtrl.results.sample__locality__depth}}</td></tr>
+                 <tr data-ng-if="detailCtrl.results.sample__stratigraphy_id != null">
+                     <td>
+                         <localize-label
+                                 et="'API_TRANSLATION.ANALYSIS.SAMPLE__STRATIGRAPHY__STRATIGRAPHY'"
+                                 en="'API_TRANSLATION.ANALYSIS.SAMPLE__STRATIGRAPHY__STRATIGRAPHY_EN'"/>
+                     </td>
+                     <td>
+                         <a href data-ng-click="detailCtrl.service.openInNewWindow({object:'stratigraphy',id:detailCtrl.results.sample__stratigraphy_id})">
+                             <localize et="detailCtrl.results.sample__stratigraphy__stratigraphy" en="detailCtrl.results.sample__stratigraphy__stratigraphy_en"/>
+                         </a>
+                     </td>
+                 </tr>
                     </tbody>
                 </table>
             </div>

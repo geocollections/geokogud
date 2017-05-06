@@ -306,7 +306,12 @@
             "INSTRUMENT_TXT":"Riist (EN)",
             "SAMPLE":"Proovi ID",
             "DATE":"Kuupäev",
-            "DATE_FREE":"Kuupäev"
+            "DATE_FREE":"Kuupäev",
+            "SAMPLE__LOCALITY__LOCALITY":"Leiukoht",
+            "SAMPLE__LOCALITY__LOCALITY_EN":"Leiukoht (EN)",
+            "SAMPLE__LOCALITY__DEPTH":"Sügavus m",
+            "SAMPLE__STRATIGRAPHY__STRATIGRAPHY":"Stratigraafia",
+            "SAMPLE__STRATIGRAPHY__STRATIGRAPHY_EN":"Stratigraafia (EN)"
         },
         "PREPARATION" :     {
             "DETAIL_FORM_NAME" : "Mikrofauna preparaat nr.",

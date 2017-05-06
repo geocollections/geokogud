@@ -14,21 +14,27 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class AnalysesApiServiceImpl implements AnalysesApiService{
+public class AnalysesApiServiceImpl implements AnalysesApiService {
     @Autowired
     private ApiService apiService;
     private List<String> fields = Arrays.asList(
-        "id",
-        "analysis_method__analysis_method",
-        "analysis_method__method_en",
-        "method_details",
-        "lab",
-        "instrument",
-        "instrument_txt",
-        "sample",
-        "date",
-        "date_free"
-    );
+            "id",
+            "analysis_method__analysis_method",
+            "analysis_method__method_en",
+            "method_details",
+            "lab",
+            "instrument",
+            "instrument_txt",
+            "sample",
+            "date",
+            "date_free",
+            "sample__locality__locality",
+            "sample__locality__locality_en",
+            "sample__locality_id",
+            "sample__locality__depth",
+            "sample__stratigraphy__stratigraphy",
+            "sample__stratigraphy__stratigraphy_en",
+            "sample__stratigraphy_id");
 
     @Override
     public ApiResponse findAnalyses(AnalysesSearchCriteria searchCriteria) {
@@ -52,6 +58,7 @@ public class AnalysesApiServiceImpl implements AnalysesApiService{
                 .queryInstitutions(searchCriteria.getDbs())
                 .returnStratigraphyId()
                 .returnLithostratigraphyId()
+                .returnLocalityId()
                 .buildFullQuery();
         return apiService.searchRawEntities("analysis", searchCriteria.getPage(), searchCriteria.getSortField(), requestParams);
     }

@@ -25,12 +25,7 @@ public class FluentGeoApiDetailsBuilder {
     }
 
     public FluentGeoApiDetailsBuilder returnAllFields(List<String> fields) {
-        fields.forEach(this::returnField);
-        return this;
-    }
-
-    public FluentGeoApiDetailsBuilder returnField(String field) {
-        addReturningField(field);
+        fields.forEach(this::addReturningField);
         return this;
     }
 

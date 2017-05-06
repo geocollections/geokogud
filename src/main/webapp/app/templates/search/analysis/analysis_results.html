@@ -20,8 +20,16 @@
             <td data-title="{{ 'SEARCH.ANALYSES.TABLE.ID'| translate }}">
                 <a href data-ng-click="ctrl.service.openInNewWindow({object:'analysis',id:entity.id})">{{entity.id}}</a>
             </td>
-            <td data-title="{{ 'SEARCH.ANALYSES.TABLE.SAMPLE_ID'| translate }}">{{entity.sample}}</td>
-            <td data-title="{{ 'SEARCH.ANALYSES.TABLE.LOCALITY'| translate }}"><localize data-ng-if="entity.sample__locality__locality != null || entity.sample__locality__locality_en != null" et="entity.sample__locality__locality" en="entity.sample__locality__locality_en"/></td>
+            <td data-title="{{ 'SEARCH.ANALYSES.TABLE.SAMPLE_ID'| translate }}">
+                <a href data-ng-click="ctrl.service.openInNewWindow({object:'sample',id:entity.sample})">
+                    {{entity.sample}}
+                </a>
+            </td>
+            <td data-title="{{ 'SEARCH.ANALYSES.TABLE.LOCALITY'| translate }}">
+                <a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.sample__locality_id})">
+                    <localize data-ng-if="entity.sample__locality__locality != null || entity.sample__locality__locality_en != null" et="entity.sample__locality__locality" en="entity.sample__locality__locality_en"/>
+                </a>
+            </td>
             <td data-title="{{ 'SEARCH.ANALYSES.TABLE.DEPTH_M'| translate }}">{{entity.sample__depth}} {{entity.sample__depth_interval}}</td>
             <td data-title="{{ 'SEARCH.ANALYSES.TABLE.STRATIGRAPHY' | translate }}">
                 <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.sample__stratigraphy_id})">
