@@ -128,14 +128,13 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
 
     @Override
     public Map findLocalitiesSummary() {
-        String requestParams = FluentGeoApiDetailsBuilder.aRequest()
-                .buildWithDefaultReturningFields() + "?format=json";
+        String requestParams = "?format=json";
         return apiService.findRawEntity("locality_summary", requestParams);
     }
 
     @Override
     public Map findLocalitiesSummaryFilter(LocalityMapFilter filters) {
-        String requestParams =  FluentGeoApiDetailsBuilder.aRequest().buildWithDefaultReturningFields()+"?";
+        String requestParams = "?";
         if(filters.getFilters().size() > 0) {
             for(String filter: filters.getFilters()) {
                     requestParams += filter + "__gt=0&";
