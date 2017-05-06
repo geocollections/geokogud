@@ -61,7 +61,7 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
         return getThis();
     }
 
-    void buildOrSearch(List<OrSearchPair> orSearchPairs) {
+    public void buildOrSearch(List<OrSearchPair> orSearchPairs) {
         if (!orSearchPairs.isEmpty()) {
             query += "&or_search=" +
                     orSearchPairs.stream()
