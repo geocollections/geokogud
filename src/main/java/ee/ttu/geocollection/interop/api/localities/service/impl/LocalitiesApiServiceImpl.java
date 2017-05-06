@@ -11,7 +11,6 @@ import ee.ttu.geocollection.interop.api.localities.pojo.LocalitySearchCriteria;
 import ee.ttu.geocollection.interop.api.localities.service.LocalitiesApiService;
 import ee.ttu.geocollection.interop.api.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -68,9 +67,6 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
             "date_added",
             "date_changed"
     );
-
-    @Value("${geo-api.url}")
-    private String apiUrl;
 
     @Autowired
     private ApiService apiService;

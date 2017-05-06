@@ -72,12 +72,12 @@ public class SearchController extends ControllerHelper {
     @Autowired
     private GlobalSearchService globalSearchService;
 
-    @RequestMapping(value = "/global/{query}")
+    @GetMapping(value = "/global/{query}")
     public List searchGlobally(@PathVariable String query) {
         return globalSearchService.searchGlobally(query);
     }
 
-    @RequestMapping(value = "/autocomplete-field", method = RequestMethod.GET)
+    @GetMapping(value = "/autocomplete-field")
     public Map findDoiById(
             @RequestParam("table") String table,
             @RequestParam("term") String term,
@@ -85,7 +85,7 @@ public class SearchController extends ControllerHelper {
         return apiService.searchByField(table, term, searchField);
     }
 
-    @RequestMapping(value = "/specimen", method = RequestMethod.POST)
+    @PostMapping(value = "/specimen")
     public ApiResponse searchSpecimen(@RequestBody SpecimenSearchCriteria specimenSearchCriteria) {
         ApiResponse specimens = specimenApiService.findSpecimen(specimenSearchCriteria);
         if (specimens.getResult() != null) {
@@ -126,12 +126,12 @@ public class SearchController extends ControllerHelper {
 
     }
 
-    @RequestMapping(value = "/sample", method = RequestMethod.POST)
+    @PostMapping(value = "/sample")
     public ApiResponse searchSample(@RequestBody SampleSearchCriteria sampleSearchCriteria) {
         return samplesApiService.findSample(sampleSearchCriteria);
     }
 
-    @RequestMapping(value = "/drillcore", method = RequestMethod.POST)
+    @PostMapping(value = "/drillcore")
     public ApiResponse searchDrillCores(@RequestBody DrillCoreSearchCriteria searchCriteria) {
         ApiResponse drillCores =  drillCoreApiService.findDrillCore(searchCriteria);
         if (drillCores.getResult() != null) {
@@ -146,7 +146,7 @@ public class SearchController extends ControllerHelper {
         return drillCores;
     }
 
-    @RequestMapping(value = "/locality", method = RequestMethod.POST)
+    @PostMapping(value = "/locality")
     public ApiResponse searchLocalities(@RequestBody LocalitySearchCriteria searchCriteria) {
 
         ApiResponse localities =  localitiesApiService.findLocality(searchCriteria);
@@ -164,37 +164,37 @@ public class SearchController extends ControllerHelper {
         return localities;
     }
 
-    @RequestMapping(value = "/photo-archive", method = RequestMethod.POST)
+    @PostMapping(value = "/photo-archive")
     public ApiResponse searchPhotoArchive(@RequestBody PhotoArchiveSearchCriteria photoArchiveSearchCriteria) {
         return photoArchiveApiService.findPhoto(photoArchiveSearchCriteria);
     }
 
-    @RequestMapping(value = "/soil", method = RequestMethod.POST)
+    @PostMapping(value = "/soil")
     public ApiResponse searchSoil(@RequestBody SoilSearchCriteria searchCriteria) {
         return soilApiService.findSoil(searchCriteria);
     }
 
-    @RequestMapping(value = "/reference", method = RequestMethod.POST)
+    @PostMapping(value = "/reference")
     public ApiResponse searchReferences(@RequestBody ReferenceSearchCriteria searchCriteria) {
         return referenceApiService.findReference(searchCriteria);
     }
 
-    @RequestMapping(value = "/doi", method = RequestMethod.POST)
+    @PostMapping(value = "/doi")
     public ApiResponse searchDoi(@RequestBody DoiSearchCriteria searchCriteria) {
         return doiApiService.findDoi(searchCriteria);
     }
 
-    @RequestMapping(value = "/analyses", method = RequestMethod.POST)
+    @PostMapping(value = "/analyses")
     public ApiResponse searchAnalyses(@RequestBody AnalysesSearchCriteria analysesSearchCriteria) {
         return analysesApiService.findAnalyses(analysesSearchCriteria);
     }
 
-    @RequestMapping(value = "/preparation", method = RequestMethod.POST)
+    @PostMapping(value = "/preparation")
     public ApiResponse searchPreparations(@RequestBody PreparationsSearchCriteria preparationsSearchCriteria) {
         return preparationsApiService.findPreparations(preparationsSearchCriteria);
     }
 
-    @RequestMapping(value = "/stratigraphy", method = RequestMethod.POST)
+    @PostMapping(value = "/stratigraphy")
     public ApiResponse searchStratigraphy(@RequestBody StratigraphySearchCriteria stratigraphySearchCriteria) {
         return stratigraphyApiService.findStratigraphy(stratigraphySearchCriteria);
     }

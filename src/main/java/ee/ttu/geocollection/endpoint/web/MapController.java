@@ -5,12 +5,11 @@ import ee.ttu.geocollection.interop.api.localities.service.LocalitiesApiService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-@Controller
+@RestController
 @RequestMapping("/map")
 public class MapController {
 
@@ -19,13 +18,12 @@ public class MapController {
     @Autowired
     private LocalitiesApiService localitiesApiService;
 
-    @RequestMapping(value = "/locality-summary")
-    @ResponseBody
+    @GetMapping(value = "/locality-summary")
     public Map findLocalitySummary() {
         return localitiesApiService.findLocalitiesSummary();
     }
-    @RequestMapping(value = "/locality-summary-filter")
-    @ResponseBody
+
+    @PostMapping(value = "/locality-summary-filter")
     public Map findLocalitySummaryFilter(@RequestBody LocalityMapFilter filters) {
         return localitiesApiService.findLocalitiesSummaryFilter(filters);
     }
