@@ -34,7 +34,6 @@ var constructor = function ($http,$location, configuration) {
 
     service.composeUrl = function(data) {
         var url = "", currentTable = $location.$$path.split('/')[1];
-
         if(currentTable == "map") {
             angular.forEach(Object.values(data.filters), function (attr) {
                 if (configuration.urlHelper[currentTable]) {
@@ -56,9 +55,40 @@ var constructor = function ($http,$location, configuration) {
                 }
             });
             if (url != "") {
+                if(configuration.urlHelper.searchWithOutDBS.indexOf(currentTable) == -1) {
+                    if (data.dbs != null) {
+                        angular.forEach(data.dbs, function (institution) {
+                            if (institution == "GIT") {
+                                url += "&dbs[]=1";
+                            }
+                            if (institution == "TUG") {
+                                url += "&dbs[]=2";
+                            }
+                            if (institution == "ELM") {
+                                url += "&dbs[]=3";
+                            }
+                            if (institution == "TUGO") {
+                                url += "&dbs[]=4";
+                            }
+                            if (institution == "MUMU") {
+                                url += "&dbs[]=5";
+                            }
+                            if (institution == "EGK") {
+                                url += "&dbs[]=6";
+                            }
+                        });
+                    }
+                }
                 url += "&currentTable=" + currentTable.trim();
-                //todo: add dbs and sortFields
-                //todo: specialFields: mass and depth
+                url += "&sortdir=DESC"
+                angular.forEach(configuration.urlHelper.specialFields, function(specialField) {
+                    if(specialField == "year" && currentTable == "doi") {
+                        specialField = "publication_year";
+                    }
+                     if(data[specialField+"Since"] != null || data[specialField+"To"] != null) {
+                         url += "&"+specialField+"_1=" + data[specialField+'Since'].lookUpType + "+" + data[specialField+'To'].lookUpType + "&"+specialField+"=" + data[specialField+"Since"].name + '+' + data[specialField+'To'].name;
+                    }
+                });
             }
         }
             url == "" ? $location.path($location.$$path).search() : $location.path($location.$$path).search(url);
@@ -92,15 +122,66 @@ var constructor = function ($http,$location, configuration) {
        if( Object.keys($location.$$search).length === 0) return null;
         var urlParams = $location.$$search, currentTable = $location.$$path.split('/')[1], searchParams = {};
         angular.forEach(Object.keys(urlParams), function(attr){
-            if(attr != 'currentTable' && configuration.urlHelper[currentTable]) {
+            if(attr != 'currentTable' && attr != 'sortdir' && attr != 'dbs[]' && configuration.urlHelper[currentTable]) {
                 angular.forEach(Object.keys(configuration.urlHelper[currentTable].fields), function(a) {
                     if(configuration.urlHelper[currentTable].fields[a] == attr) {
-                        console.log(a);
                         var lookUpType = getLookUpType(urlParams[attr+'_1']);
                         urlParams[attr] ? searchParams[a] = {"lookUpType":lookUpType, "name":urlParams[attr]}
                                         : searchParams[a] = {"lookUpType":lookUpType};
                     }
                 })
+            }
+        });
+        if(urlParams["dbs[]"] != null) {
+            searchParams["dbs"] = [];
+            angular.forEach(urlParams["dbs[]"], function(institution) {
+                if(institution == 1) {
+                    searchParams.dbs.push("GIT");
+                }
+                if(institution == 2) {
+                    searchParams.dbs.push("TUG");
+                }
+                if(institution == 3) {
+                    searchParams.dbs.push("ELM");
+                }
+                if(institution == 4) {
+                    searchParams.dbs.push("TUGO");
+                }
+                if(institution == 5) {
+                    searchParams.dbs.push("MUMU");
+                }
+                if(institution == 6) {
+                    searchParams.dbs.push("EGK");
+                }
+            });
+        }
+        if(urlParams["sortdir"] != null) {
+            if(urlParams["sortdir"] == "DESC") {
+                searchParams["sortField"] = {sortBy: "id", order: "DESCENDING"};
+            } else if(urlParams["sortdir"] == "ASC") {
+                searchParams["sortField"] = {sortBy: "id", order: "ASCENDING"};
+            }
+        }
+
+        angular.forEach(configuration.urlHelper.specialFields, function(specialField) {
+            if(urlParams[specialField + "_1"] != null && urlParams[specialField] != null) {
+                var specialFieldLookUpType = urlParams[specialField + "_1"].split(" ");
+                var specialFieldName = urlParams[specialField].split(" ");
+                if(specialField == "publication_year") {
+                    specialField = "year";
+                }
+                if(specialFieldName[0] != null) {
+                    searchParams[specialField + "Since"] = {
+                        lookUpType: specialFieldLookUpType[0],
+                        name: parseFloat(specialFieldName[0])
+                    }
+                }
+                if(specialFieldName[1] != null) {
+                    searchParams[specialField + "To"] = {
+                        lookUpType: specialFieldLookUpType[1],
+                        name: parseFloat(specialFieldName[1])
+                    }
+                }
             }
         });
         return searchParams;

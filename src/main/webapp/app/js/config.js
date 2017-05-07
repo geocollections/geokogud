@@ -67,7 +67,7 @@ module.config(function($stateProvider,$urlRouterProvider) {
         controller: "DetailController as detailCtrl",
         params: {type: "corebox"}
     }).state('localities', {
-        url: "/localities",
+        url: "/locality",
         templateUrl: "app/templates/search/locality/locality.html",
         controller: "SearchController as ctrl",
         params: {type: "localities"}
@@ -139,14 +139,14 @@ module.config(function($stateProvider,$urlRouterProvider) {
         controller: "DetailController as detailCtrl",
         params: {type: "photoArchive"}
     }).state('soils', {
-        url: "/soil",
+        url: "/soilsite",
         templateUrl: "app/templates/search/soil_site/soil_site.html",
         controller: "SearchController as ctrl",
         params: {type: "soil"}
     }).state('soil', {
         template: '<data-ui-view/>'
     }).state('soil.view', {
-        url: "/soil/:id",
+        url: "/soilsite/:id",
         templateUrl: "app/templates/search/detail/soilDetails.html",
         controller: "DetailController as detailCtrl",
         params: {type: "soil"}

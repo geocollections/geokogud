@@ -46,7 +46,7 @@
                                     <div class="col-md-12 medium-padding">
                                         <b>{{ 'SEARCH.LOCALITIES.LOCATION.LOCALITY' | translate }}</b>
                                         <selectdefault custom-css="searchCriterionType"
-                                                       ng-model="searchParameters.locality.type"></selectdefault>
+                                                       ng-model="searchParameters.locality.lookUpType"></selectdefault>
                                     </div>
                                     <div class="col-md-12 medium-padding">
                                         <autocomplete-field ng-model="searchParameters.locality.name" table="locality" en="locality_en" et="locality"/>
@@ -66,7 +66,7 @@
                                     <div class="col-md-12 medium-padding">
                                         <b>{{ 'SEARCH.LOCALITIES.LOCATION.COUNTRY' | translate }}</b>
                                         <selectdefault custom-css="searchCriterionType"
-                                                       ng-model="searchParameters.country.type"></selectdefault>
+                                                       ng-model="searchParameters.country.lookUpType"></selectdefault>
                                     </div>
                                     <div class="col-md-12 medium-padding">
                                         <autocomplete-field ng-model="searchParameters.country.name" table="locality" en="country__value_en" et="country__value"/>
@@ -141,7 +141,7 @@
                                     <div class="col-md-12 medium-padding">
                                         <b>{{ 'SEARCH.LOCALITIES.LOCATION.LATITUDE' | translate }}</b>
                                         <selectexact custom-css="searchCriterionType"
-                                                     ng-model="searchParameters.latitude.type"></selectexact>
+                                                     ng-model="searchParameters.latitude.lookUpType"></selectexact>
                                     </div>
                                     <div class="col-md-12 medium-padding">
                                         <input type="text" ng-model="searchParameters.latitude.value" class="form-control"/>
@@ -151,7 +151,7 @@
                                     <div class="col-md-12 medium-padding">
                                         <b>{{ 'SEARCH.LOCALITIES.LOCATION.LONGITUDE' | translate }}</b>
                                         <selectexact custom-css="searchCriterionType"
-                                                     ng-model="searchParameters.longitude.type"></selectexact>
+                                                     ng-model="searchParameters.longitude.lookUpType"></selectexact>
                                     </div>
                                     <div class="col-md-12 medium-padding">
                                         <input type="text" ng-model="searchParameters.longitude.value" class="form-control"/>

@@ -19,7 +19,7 @@
         </thead>
         <tbody>
         <tr data-ng-repeat="entity in response.results">
-            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.ID' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'soil',id:entity.id})">{{entity.id}}</a></td>
+            <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.ID' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'soilsite',id:entity.id})">{{entity.id}}</a></td>
             <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.SITE' | translate }}">
                 <localize data-ng-if="entity.site != null || entity.site_en != null" et="entity.site" en="entity.site_en"/></td>
             <td data-title="{{ 'SEARCH.SOIL_SITES.TABLE.AREA_OF_STUDY' | translate }}">{{entity.area_name}}</td>

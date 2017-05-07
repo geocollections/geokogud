@@ -709,6 +709,9 @@ angular.module('geoApp').directive('loading', function () {
                     ApplicationService.loadMapData(onMapData);
                 } else {
                     ApplicationService.loadMapDataOnFilterChange(filterData, onMapDataFilter);
+                    angular.forEach(filterData.filters, function(filter){
+                        angular.element("input[name=" + filter + "]").prop('checked', true);
+                    });
                 }
                 function onMapData(response) {
                     var locs = response.data;

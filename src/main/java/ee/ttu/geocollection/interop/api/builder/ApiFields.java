@@ -6,7 +6,7 @@ public class ApiFields {
     // SOIL search
     public static final String SITE = "site";
     public static final String AREA_NAME = "area_name";
-    public static final String SOIL = "soil";
+    public static final String SOIL = "soilsite";
     public static final String LAND_USE = "land_use";
     public static final String IS_DEEP = "is_deep";
     public static final String TRANSECT = "transect";

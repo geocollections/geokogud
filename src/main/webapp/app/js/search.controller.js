@@ -103,7 +103,7 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
         $scope.showImages = $scope.searchParameters.searchImages && $scope.searchParameters.searchImages.name ? true : false;
 
         vm.searchLoadingHandler.start();
-/*        var searchCriteria = applicationService.getSearchParamsFromUrl();
+       /* var searchCriteria = applicationService.getSearchParamsFromUrl();
         if(searchCriteria != null){
             $scope.searchParameters = searchCriteria;
         }*/
