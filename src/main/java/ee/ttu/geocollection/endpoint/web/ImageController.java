@@ -24,17 +24,15 @@ public class ImageController {
     private static final String IMAGE_PREFIX = "/var/www";
     private static final String SPECIMEN_IMAGE_PREFIX = "/data";
     private static final String IMAGES = "images";
+    private static final String IMAGE = "image";
+    private static final String SPECIMEN = "specimen";
 
     private static final String LEGACY_WIDTH = "&w=";
+
     private static final String LEGACY_APP_URL = "http://geokogud.info/di.php?f=";
 
     private static final String JPG = "jpg";
-
     private static final String DELIMITER = "/";
-    private static final String VAR = "var";
-    private static final String WWW = "www";
-    private static final String IMAGE = "image";
-    private static final String SPECIMEN = "specimen";
 
     @GetMapping(value = "/img/{dbAcronym}/{series}/{number}/{fileName}/{width}", produces = MediaType.IMAGE_JPEG_VALUE)
     public byte[] retrieveImage(

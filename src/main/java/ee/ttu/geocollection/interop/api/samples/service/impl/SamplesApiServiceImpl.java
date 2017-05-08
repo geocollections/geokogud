@@ -100,6 +100,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
                 .queryInstitutions(searchCriteria.getDbs()).andReturn()
                 .returnAnalyzed()
                 .returnLocalityId()
+                .returnStratigraphyId()
                 .returnDateChanged();
     }
 

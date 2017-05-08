@@ -101,6 +101,7 @@ public class ApiFields {
     public static final String LICENCE = "licence__licence_en";
     public static final String LICENCE_URL = "licence__licence_url_en";
     public static final String LOCALITY_ID = "locality_id";
+    public static final String STRATIGRAPHY_ID = "stratigraphy_id";
 
     // Drill core search
     public static final String DRILL_CORE = "drillcore";
