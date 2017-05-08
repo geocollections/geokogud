@@ -22,8 +22,8 @@ angular.module('geoApp').directive('sortField', function () {
             }
 
             $scope.order = function (predicate) {
-                $scope.predicate = predicate;
-                predicate = localizePredicate(predicate);
+              /*  $scope.predicate = predicate;
+                predicate = localizePredicate(predicate);*/
                 $scope.$parent.sortByAsc = ($scope.$parent.searchParameters.sortField.sortBy === predicate ? !$scope.$parent.sortByAsc : true);
                 $scope.$parent.searchParameters.sortField.sortBy = predicate;
                 !$scope.$parent.sortByAsc ? $scope.$parent.searchParameters.sortField.order = "ASCENDING" : $scope.$parent.searchParameters.sortField.order = "DESCENDING";

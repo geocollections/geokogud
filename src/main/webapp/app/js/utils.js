@@ -19,7 +19,7 @@ var constructor = function ($http,$location, configuration) {
     };
 
     service.httpPost = function (url, data, successCb, errorCb, headers, composeSearchUrl) {
-        if(composeSearchUrl) service.composeUrl(data);
+        //if(composeSearchUrl) service.composeUrl(data);
         //service.decodeUrl();
         var config = {
             "data": data,
