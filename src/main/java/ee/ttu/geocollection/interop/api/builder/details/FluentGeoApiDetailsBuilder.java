@@ -59,7 +59,7 @@ public class FluentGeoApiDetailsBuilder {
     }
 
     public String buildWithDefaultReturningFields() {
-        return query + replaceFirstAndWIthQuestionMark(this.relatedData);
+        return this.relatedData.equals(EMPTY)? query : query + replaceFirstAndWIthQuestionMark(this.relatedData);
     }
 
     private String replaceFirstAndWIthQuestionMark(String relatedData) {
