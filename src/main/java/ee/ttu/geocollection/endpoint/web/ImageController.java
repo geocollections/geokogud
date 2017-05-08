@@ -44,11 +44,11 @@ public class ImageController {
     }
 
     private byte[] fetchImageFromLocalStorage(
-            @PathVariable String dbAcronym,
-            @PathVariable String series,
-            @PathVariable String number,
-            @PathVariable String fileName,
-            @PathVariable Integer width) throws IOException {
+            String dbAcronym,
+            String series,
+            String number,
+            String fileName,
+            Integer width) throws IOException {
         File imageFile = new File(
                 DELIMITER + VAR + DELIMITER + WWW + DELIMITER
                         + dbAcronym + DELIMITER
@@ -64,11 +64,11 @@ public class ImageController {
     }
 
     private byte[] fetchImageFromLegacyApp(
-            @PathVariable String dbAcronym,
-            @PathVariable String series,
-            @PathVariable String number,
-            @PathVariable String fileName,
-            @PathVariable Integer width) throws IOException {
+            String dbAcronym,
+            String series,
+            String number,
+            String fileName,
+            Integer width) throws IOException {
         URL url = new URL(
                 "http://geokogud.info/di.php?f=/var/www/" + dbAcronym
                         + DELIMITER + IMAGE
