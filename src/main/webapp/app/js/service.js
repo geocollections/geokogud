@@ -73,24 +73,26 @@ var constructor = function (utils,configuration, $window, $location) {
         return "http://geokogud.info/files/"+fileName.substring(0,2)+"/"+fileName;
     };
 
-    function composeSpecimenExternalPath (imageData) {
+    function composeSpecimenExternalPath(imageData) {
         //http://geokogud.info/di.php?f=/data/git/images/specimen/663/663-6.jpg&w=400
-        return "http://geokogud.info/di.php?f=/data/"+imageData.specimen__database__acronym.toLowerCase()+"/images/specimen/"
+        var applicationUrl = buildApplicationUrl();
+        var imageUrl = applicationUrl
+            + "specimenImg/"
+            + imageData.specimen__database__acronym.toLowerCase() + "/"
             + imageData.image;
+        return imageUrl;
     }
-    function composeImageExternalPath (imageData) {
-        //            http://geokogud.info/di.php?f=/var/www/git/image/OH/OH07-1/OH07-1-4.jpg
+
+    function composeImageExternalPath(imageData) {
+        //http://geokogud.info/di.php?f=/var/www/git/image/OH/OH07-1/OH07-1-4.jpg
         var applicationUrl = buildApplicationUrl();
         var imageUrl = applicationUrl
             + "img/"
-            +imageData.database__acronym.toLowerCase() +"/"
-            +imageData.imageset__imageset_series +"/"
-            +imageData.imageset__imageset_number+"/"
-            +imageData.filename;
+            + imageData.database__acronym.toLowerCase() + "/"
+            + imageData.imageset__imageset_series + "/"
+            + imageData.imageset__imageset_number + "/"
+            + imageData.filename;
         return imageUrl;
-        // service.location.protocol() + "://" + service.location.host() + ":" + service.location.port()
-        // return "http://geokogud.info/di.php?f=/var/www/"+imageData.database__acronym.toLowerCase()+"/image/"
-        //     + imageData.imageset__imageset_series + "/"+imageData.imageset__imageset_number+"/"+imageData.filename;
     }
 
     function buildApplicationUrl() {
