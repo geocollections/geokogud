@@ -60,7 +60,7 @@ public class ImageController {
     }
 
     private BufferedImage resizeImage(Image originalImage, Dimension dimension) {
-        int type = BufferedImage.TYPE_INT_ARGB;
+        int type = BufferedImage.TYPE_INT_RGB;
         int height = (int) dimension.getHeight();
         int width = (int) dimension.getWidth();
 
