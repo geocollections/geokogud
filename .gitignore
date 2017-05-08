@@ -16,3 +16,4 @@ gradlew.bat
 node_modules/
 out/
 build/
+*.log
