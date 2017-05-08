@@ -26,8 +26,6 @@ targetCompatibility = 1.8
 mainClassName = 'ee.ttu.geocollection.App'
 applicationDefaultJvmArgs = ['-Xms1G', '-Xmx1G', '-XX:+UseConcMarkSweepGC', '-Dfile.encoding=UTF-8']
 
-
-
 idea {
     module {
         inheritOutputDirs = false
@@ -47,6 +45,12 @@ war {
 
 repositories {
     mavenCentral()
+}
+
+allprojects {
+  repositories {
+    maven { url 'https://jitpack.io' }
+  }
 }
 
 configurations {
@@ -122,7 +126,7 @@ dependencies {
     compile group: 'org.apache.lucene', name: 'lucene-core', version: '6.5.0'
 
     testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version:'3.4.0'
-    testCompile "org.testng:testng:6.3.1"
+    testCompile 'com.github.detro:ghostdriver:2.0.0'
 }
 
 task generateQueryDSL(type: JavaCompile, group: 'build', description: 'Generates the QueryDSL query types') {
@@ -164,4 +168,31 @@ bootRun {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '3.4.0'
+}
+
+test {
+     exclude "**/ee/ttu/geocollection/uiTests/*.class"
+}
+
+task testUI(type: Test) {
+     description "Runs UI tests"
+     doFirst{
+       println("Running UI tests")
+     }
+     scanForTestClasses = false
+     include "**/ee/ttu/geocollection/uiTests/*.class"
+ }
+
+tasks.withType(Test) {
+    testLogging {
+        events "passed", "skipped", "failed"
+        afterSuite { desc, result ->
+            if (!desc.parent) { // will match the outermost suite
+                def output = "Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)"
+                def startItem = '|  ', endItem = '  |'
+                def repeatLength = startItem.length() + output.length() + endItem.length()
+                println('\n' + ('-' * repeatLength) + '\n' + startItem + output + endItem + '\n' + ('-' * repeatLength))
+            }
+        }
+    }
 }
