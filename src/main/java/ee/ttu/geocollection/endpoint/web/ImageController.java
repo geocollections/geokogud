@@ -64,15 +64,16 @@ public class ImageController {
             @PathVariable String imageName,
             @PathVariable Integer width) throws IOException {
         String imagePath =
-                DELIMITER + dbAcronym
+                SPECIMEN_IMAGE_PREFIX
+                        + DELIMITER + dbAcronym
                         + DELIMITER + IMAGES
                         + DELIMITER + SPECIMEN
                         + DELIMITER + collectionNumber
                         + DELIMITER + imageName;
         if (appConfig.useLegacyImageResolver) {
-            return fetchImageFromLegacyApp(SPECIMEN_IMAGE_PREFIX + imagePath, width);
+            return fetchImageFromLegacyApp(imagePath, width);
         } else {
-            return fetchImageFromLocalStorage(IMAGE_PREFIX + imagePath, width);
+            return fetchImageFromLocalStorage(imagePath, width);
         }
     }
 
