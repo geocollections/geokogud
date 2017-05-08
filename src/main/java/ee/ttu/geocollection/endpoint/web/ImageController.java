@@ -1,5 +1,7 @@
 package ee.ttu.geocollection.endpoint.web;
 
+import ee.ttu.geocollection.core.domain.AppConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,9 +13,15 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 @RestController
 public class ImageController {
+
+    @Autowired
+    private AppConfig appConfig;
+
+    private static final String JPG = "jpg";
 
     private static final String DELIMITER = "/";
     private static final String VAR = "var";
@@ -23,6 +31,19 @@ public class ImageController {
 
     @GetMapping(value = "/img/{dbAcronym}/{series}/{number}/{fileName}/{width}", produces = MediaType.IMAGE_JPEG_VALUE)
     public byte[] retrieveImage(
+            @PathVariable String dbAcronym,
+            @PathVariable String series,
+            @PathVariable String number,
+            @PathVariable String fileName,
+            @PathVariable Integer width) throws IOException {
+        if (appConfig.useLegacyImageResolver) {
+            return fetchImageFromLegacyApp(dbAcronym, series, number, fileName, width);
+        } else {
+            return fetchImageFromLocalStorage(dbAcronym, series, number, fileName, width);
+        }
+    }
+
+    private byte[] fetchImageFromLocalStorage(
             @PathVariable String dbAcronym,
             @PathVariable String series,
             @PathVariable String number,
@@ -39,8 +60,29 @@ public class ImageController {
         Dimension resizedDimension = calculateNewDimension(new Dimension(image.getWidth(), image.getHeight()), width);
         BufferedImage resizedImage = resizeImage(image, resizedDimension);
 
+        return convertToByArray(resizedImage);
+    }
+
+    private byte[] fetchImageFromLegacyApp(
+            @PathVariable String dbAcronym,
+            @PathVariable String series,
+            @PathVariable String number,
+            @PathVariable String fileName,
+            @PathVariable Integer width) throws IOException {
+        URL url = new URL(
+                "http://geokogud.info/di.php?f=/var/www/" + dbAcronym
+                        + DELIMITER + IMAGE
+                        + DELIMITER + series
+                        + DELIMITER + number
+                        + DELIMITER + fileName
+                        + "&w=" + width);
+        BufferedImage image = ImageIO.read(url);
+        return convertToByArray(image);
+    }
+
+    private byte[] convertToByArray(BufferedImage image) throws IOException {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        ImageIO.write(resizedImage, "jpg", outputStream);
+        ImageIO.write(image, JPG, outputStream);
         return outputStream.toByteArray();
     }
 
