@@ -393,7 +393,7 @@ table tr > td:first-child {
     max-height: 150px;
     max-width: 200px;
     position: absolute;
-
+    margin-right: 15px;
     top: 0px;
     right: 0px;
     padding: 5px;

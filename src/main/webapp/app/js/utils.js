@@ -1,6 +1,6 @@
 var module = angular.module('geoApp');
 
-var constructor = function ($http,$location, configuration) {
+var constructor = function ($http,$location, configuration, $route, $rootScope) {
 
     var service = {};
 
@@ -19,8 +19,13 @@ var constructor = function ($http,$location, configuration) {
     };
 
     service.httpPost = function (url, data, successCb, errorCb, headers, composeSearchUrl) {
-        //if(composeSearchUrl) service.composeUrl(data);
-        //service.decodeUrl();
+        if(composeSearchUrl) {
+            service.composeUrl(data);
+            var searchCriteria = service.decodeUrl();
+            if(searchCriteria != null) {
+                data = searchCriteria;
+            }
+        }
         var config = {
             "data": data,
             "headers": headers ? headers : {},
@@ -80,7 +85,13 @@ var constructor = function ($http,$location, configuration) {
                     }
                 }
                 url += "&currentTable=" + currentTable.trim();
-                url += "&sortdir=DESC"
+                if(data.sortField.order == "DESCENDING") {
+                    url += "&sort="+ data.sortField.sortBy +"&sortdir=DESC";
+                }
+                if(data.sortField.order == "ASCENDING") {
+                    url += "&sort="+ data.sortField.sortBy +"&sortdir=ASC";
+                }
+
                 angular.forEach(configuration.urlHelper.specialFields, function(specialField) {
                     if(specialField == "year" && currentTable == "doi") {
                         specialField = "publication_year";
@@ -92,7 +103,7 @@ var constructor = function ($http,$location, configuration) {
             }
         }
             url == "" ? $location.path($location.$$path).search() : $location.path($location.$$path).search(url);
-            $location.replace();
+           $location.replace();
     };
 
     service.decodeMapUrl = function(){
@@ -155,11 +166,11 @@ var constructor = function ($http,$location, configuration) {
                 }
             });
         }
-        if(urlParams["sortdir"] != null) {
+        if(urlParams["sortdir"] != null && urlParams["sort"] != null) {
             if(urlParams["sortdir"] == "DESC") {
-                searchParams["sortField"] = {sortBy: "id", order: "DESCENDING"};
+                searchParams["sortField"] = {sortBy: urlParams["sort"], order: "DESCENDING"};
             } else if(urlParams["sortdir"] == "ASC") {
-                searchParams["sortField"] = {sortBy: "id", order: "ASCENDING"};
+                searchParams["sortField"] = {sortBy: urlParams["sort"], order: "ASCENDING"};
             }
         }
 

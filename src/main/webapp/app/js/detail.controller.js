@@ -45,6 +45,8 @@ var constructor = function ($scope, $state,$stateParams, applicationService, con
         //vm.doiGeolocation
         var localities = [];
         angular.forEach(vm.doiGeolocation, function(location){
+            console.log(location.point.split(' ')[0]);
+            console.log(location.point.split(' ')[1]);
             localities.push({
                 latitude: location.point.split(' ')[0],
                 longitude: location.point.split(' ')[1],
