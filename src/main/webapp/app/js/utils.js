@@ -19,6 +19,7 @@ var constructor = function ($http,$location, configuration, $route, $rootScope) 
     };
 
     service.httpPost = function (url, data, successCb, errorCb, headers, composeSearchUrl) {
+        console.log(data);
         if(composeSearchUrl) {
             service.composeUrl(data);
             var searchCriteria = service.decodeUrl();
@@ -33,7 +34,7 @@ var constructor = function ($http,$location, configuration, $route, $rootScope) 
             "url": url
             //"params": params ? params : ""
         };
-console.log(data);
+        console.log(data);
         service.httpRequest(url, config, successCb, errorCb)
     };
 
@@ -85,6 +86,12 @@ console.log(data);
                     }
                 }
                 url += "&currentTable=" + currentTable.trim();
+                if(data.maxSize != null) {
+                    url += "&maxSize=" + data.maxSize;
+                }
+                if(data.page != null) {
+                    url += "&page=" + data.page;
+                }
                 if(data.sortField.order == "DESCENDING") {
                     url += "&sort="+ data.sortField.sortBy +"&sortdir=DESC";
                 } else if(data.sortField.order == "ASCENDING") {
@@ -185,7 +192,12 @@ console.log(data);
                 searchParams["sortField"] = {sortBy: urlParams["sort"], order: "ASCENDING"};
             }
         }
-
+        if(urlParams["maxSize"] != null) {
+            searchParams["maxSize"] = Number(urlParams["maxSize"]);
+        }
+        if(urlParams["page"] != null) {
+            searchParams["page"] = Number(urlParams["page"]);
+        }
         angular.forEach(configuration.urlHelper.specialFields, function(specialField) {
             if(urlParams[specialField + "_1"] != null && urlParams[specialField] != null) {
                 var specialFieldLookUpType = urlParams[specialField + "_1"].split(" ");
@@ -196,13 +208,13 @@ console.log(data);
                 if(specialFieldName[0] != null) {
                         searchParams[specialField + "Since"] = {
                             lookUpType: specialFieldLookUpType[0],
-                            name: parseFloat(specialFieldName[0])
+                            name: Number(specialFieldName[0])
                         }
                 }
                 if(specialFieldName[1] != null) {
                         searchParams[specialField + "To"] = {
                             lookUpType: specialFieldLookUpType[1],
-                            name: parseFloat(specialFieldName[1])
+                            name: Number(specialFieldName[1])
                         }
                 }
             }
