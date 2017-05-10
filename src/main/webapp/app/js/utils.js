@@ -33,7 +33,7 @@ var constructor = function ($http,$location, configuration, $route, $rootScope) 
             "url": url
             //"params": params ? params : ""
         };
-
+console.log(data);
         service.httpRequest(url, config, successCb, errorCb)
     };
 
@@ -87,17 +87,29 @@ var constructor = function ($http,$location, configuration, $route, $rootScope) 
                 url += "&currentTable=" + currentTable.trim();
                 if(data.sortField.order == "DESCENDING") {
                     url += "&sort="+ data.sortField.sortBy +"&sortdir=DESC";
-                }
-                if(data.sortField.order == "ASCENDING") {
+                } else if(data.sortField.order == "ASCENDING") {
                     url += "&sort="+ data.sortField.sortBy +"&sortdir=ASC";
                 }
-
                 angular.forEach(configuration.urlHelper.specialFields, function(specialField) {
                     if(specialField == "year" && currentTable == "doi") {
                         specialField = "publication_year";
                     }
-                     if(data[specialField+"Since"] != null || data[specialField+"To"] != null) {
-                         url += "&"+specialField+"_1=" + data[specialField+'Since'].lookUpType + "+" + data[specialField+'To'].lookUpType + "&"+specialField+"=" + data[specialField+"Since"].name + '+' + data[specialField+'To'].name;
+                    if(data[specialField + "Since"] != null && data[specialField + "To"] != null) {
+                        if (data[specialField + "Since"].name != null && data[specialField + "Since"].lookUpType != null && data[specialField + "To"].name != null && data[specialField + "To"].lookUpType != null) {
+                            url += "&" + specialField + "_1=" + data[specialField + 'Since'].lookUpType + "+" + data[specialField + 'To'].lookUpType + "&" + specialField + "=" + data[specialField + "Since"].name + '+' + data[specialField + 'To'].name;
+                        } else if (data[specialField + "Since"].name != null && data[specialField + "Since"].lookUpType != null) {
+                            url += "&" + specialField + "_1=" + data[specialField + 'Since'].lookUpType + "&" + specialField + "=" + data[specialField + "Since"].name;
+                        } else if (data[specialField + "To"].name != null && data[specialField + "To"].lookUpType != null) {
+                            url += "&" + specialField + "_1=" + data[specialField + 'To'].lookUpType + "&" + specialField + "=" + data[specialField + "To"].name;
+                        }
+                    } else if (data[specialField + "Since"] != null) {
+                        if (data[specialField + "Since"].name != null && data[specialField + "Since"].lookUpType != null) {
+                            url += "&" + specialField + "_1=" + data[specialField + 'Since'].lookUpType + "&" + specialField + "=" + data[specialField + "Since"].name;
+                        }
+                    } else if (data[specialField + "To"] != null) {
+                        if (data[specialField + "To"].name != null && data[specialField + "To"].lookUpType != null) {
+                            url += "&" + specialField + "_1=" + data[specialField + 'To'].lookUpType + "&" + specialField + "=" + data[specialField + "To"].name;
+                        }
                     }
                 });
             }
@@ -182,16 +194,16 @@ var constructor = function ($http,$location, configuration, $route, $rootScope) 
                     specialField = "year";
                 }
                 if(specialFieldName[0] != null) {
-                    searchParams[specialField + "Since"] = {
-                        lookUpType: specialFieldLookUpType[0],
-                        name: parseFloat(specialFieldName[0])
-                    }
+                        searchParams[specialField + "Since"] = {
+                            lookUpType: specialFieldLookUpType[0],
+                            name: parseFloat(specialFieldName[0])
+                        }
                 }
                 if(specialFieldName[1] != null) {
-                    searchParams[specialField + "To"] = {
-                        lookUpType: specialFieldLookUpType[1],
-                        name: parseFloat(specialFieldName[1])
-                    }
+                        searchParams[specialField + "To"] = {
+                            lookUpType: specialFieldLookUpType[1],
+                            name: parseFloat(specialFieldName[1])
+                        }
                 }
             }
         });
