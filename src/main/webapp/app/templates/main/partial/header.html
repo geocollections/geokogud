@@ -76,7 +76,7 @@
         <hr>
         <form class="navbar-form" role="search" ng-show="!main.isDetailForm()">
             <div class="input-group input-group-lg">
-                <input type="text" class="form-control input-lg"
+                <input id="globalQuery" type="text" class="form-control input-lg"
                        placeholder="{{ 'INDEX.SEARCH_FIELD_TEXT' | translate }}" ng-model="$parent.globalQuery">
                 <div class="input-group-btn">
                     <button class="btn btn-primary btn-lg" type="submit" ui-sref="global({query: globalQuery})">
@@ -95,6 +95,7 @@
             offset: {
                 top: 100
             }
-        })
+        });
+        $("#globalQuery").focus();
     });
 </script>

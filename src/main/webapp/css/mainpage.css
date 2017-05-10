@@ -272,6 +272,9 @@ table tr > td:first-child {
 }
 
 @media only screen and (max-width: 800px) {
+    .table-responsive {
+        border: 0px;
+    }
     /* Force table to not be like tables anymore */
     #table-search table,
     #table-search thead,
@@ -280,6 +283,7 @@ table tr > td:first-child {
     #table-search td,
     #table-search tr {
         display: block;
+        margin-bottom: 8px;
     }
 
     /* Hide table headers (but not display: none;, for accessibility) */
@@ -298,7 +302,7 @@ table tr > td:first-child {
         position: relative;
         padding-left: 50%;
         white-space: normal;
-        text-align:left;
+        text-align: left;
     }
 
     #table-search td:empty {
@@ -480,4 +484,9 @@ table tr > td:first-child {
 .search-header-list .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
     background-color: #eb3812;
     color: #fff;
+}
+.well {
+    padding: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
