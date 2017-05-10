@@ -1,20 +1,18 @@
 package ee.ttu.geocollection.uiTests;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.*;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class UITests {
     private WebDriver driver;
@@ -24,8 +22,10 @@ public class UITests {
     @Before
     public void setUp() throws Exception {
         // TODO pass as params
-        System.setProperty("phantomjs.binary.path", "phantomjs/phantomjs-2.1.1-linux-x86_64/bin/phantomjs");
-        driver = new PhantomJSDriver();
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
+                "phantomjs/phantomjs-2.1.1-linux-x86_64/bin/phantomjs");
+        driver = new PhantomJSDriver(caps);
         driver.manage().window().setSize(new Dimension(1920, 1080));
         baseUrl = "http://geocollections.arendus.geokogud.info";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
