@@ -62,8 +62,8 @@ public class TechnicalIndexServiceImpl implements TechnicalIndexService {
 //            if (indexReaderUpdated != null) {
 //                indexReader = indexReaderUpdated;
 //            }
-           indexReader = createDirectoryReader(indexReader);
-           IndexSearcher indexSearcher = new IndexSearcher(indexReader);
+            indexReader = createDirectoryReader(indexReader);
+            IndexSearcher indexSearcher = new IndexSearcher(indexReader);
 
             Query query = buildQuery(queryParameters);
 

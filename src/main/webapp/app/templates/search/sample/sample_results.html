@@ -26,7 +26,11 @@
             <td data-title="{{ 'SEARCH.SAMPLES.LOCALITY' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.locality_id})"><localize en="entity.locality__locality_en" et="entity.locality__locality"/></a></td>
             <td data-title="{{ 'SEARCH.SAMPLES.DEPTH_M' | translate }}">{{entity.depth}}</td>
             <td data-title="">{{entity.depth_interval}}</td>
-            <td data-title="{{ 'SEARCH.SAMPLES.STRATIGRAPHY' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.stratigraphy_id})"><localize en="entity.stratigraphy__stratigraphy_en" et="entity.stratigraphy__stratigraphy"/></a></td>
+            <td data-title="{{ 'SEARCH.SAMPLES.STRATIGRAPHY' | translate }}">
+                <a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.stratigraphy_id})">
+                    <localize en="entity.stratigraphy__stratigraphy_en" et="entity.stratigraphy__stratigraphy"/>
+                </a>
+            </td>
             <td data-title="{{ 'SEARCH.SAMPLES.COLLECTOR' | translate }}"><first-not-null values="[entity.agent_collected__agent, agent_collected_free]"/></td>
             <td data-title="{{ 'SEARCH.SAMPLES.ANAL' | translate }}"><make-boolean-readable boolean-value="entity.analyzed"/></td>
             <td data-title="{{ 'SEARCH.SAMPLES.WEIGHT' | translate }}">{{entity.mass}}</td>

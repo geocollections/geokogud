@@ -451,7 +451,6 @@ angular.module('geoApp').directive('loading', function () {
                     var centroidLL = ol.proj.transform([$scope.y, $scope.x], 'EPSG:4326', 'EPSG:3857');
                     var centroidPoint = new ol.geom.Point(centroidLL);
                     var feature = new ol.Feature({geometry: centroidPoint});
-
                     feature.name = $scope.name;
                     feature.fid = $scope.fid;
                     feature.numsamples = '0';
@@ -514,7 +513,22 @@ angular.module('geoApp').directive('loading', function () {
                         document.getElementById('hoverbox').style.display = 'none';
                     }
                 };
+                var displayFeatureInfo = function (pixel) {
 
+                    var feature = olMap.forEachFeatureAtPixel(pixel, function (feature, layer) {
+                        return feature;
+                    });
+                    console.log(feature);
+                    if (feature) {
+                        //
+                        document.getElementById('hoverbox').style.display = 'block';
+                        //console.log(feature.name);
+                        document.getElementById('hoversystem').innerHTML = feature.name;
+                        document.getElementById('hoverstat').innerHTML = "";
+                    } else {
+                        document.getElementById('hoverbox').style.display = 'none';
+                    }
+                };
             }]
         }
 }).directive('localitiesMap',
@@ -609,14 +623,13 @@ angular.module('geoApp').directive('loading', function () {
                     }
 
                     angular.forEach($scope.localities, function (locality) {
-                        var centroidLL = ol.proj.transform([locality.longitude, locality.latitude], 'EPSG:4326', 'EPSG:3857');
+                        var centroidLL = ol.proj.transform([Number(locality.longitude), Number(locality.latitude)], 'EPSG:4326', 'EPSG:3857');
                         var centroidPoint = new ol.geom.Point(centroidLL);
                         var feature = new ol.Feature({geometry: centroidPoint});
                         feature.name = locality.localityEng;
                         feature.fid = locality.fid;
                         $scope.vectorSource.addFeature(feature);
                     });
-                    console.log($scope.localities);
                     $scope.layerData = new ol.layer.Vector({
                         title: "Localities",
                         source: $scope.vectorSource,
@@ -630,9 +643,6 @@ angular.module('geoApp').directive('loading', function () {
                         var pixel = $scope.olMap.getEventPixel(evt);
                         displayFeatureInfo(pixel); //OLESJA
                     });
-
-
-                    /*         commented by Olesja use fitExtend function */
 
                     var extent = $scope.layerData.getSource().getExtent();
                     $scope.olMap.getView().fit(extent, $scope.olMap.getSize());
@@ -672,8 +682,6 @@ angular.module('geoApp').directive('loading', function () {
                     }
                 };
 
-                //var highlight;
-                //COMMENTED by OLESJA IT is not working right now
                 var displayFeatureInfo = function (pixel) {
 
                     var feature = $scope.olMap.forEachFeatureAtPixel(pixel, function (feature, layer) {

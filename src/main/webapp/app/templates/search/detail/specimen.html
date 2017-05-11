@@ -234,6 +234,10 @@
                 </table>
             </div>
             <div class="col-lg-6" data-ng-if="detailCtrl.locality.latitude && detailCtrl.locality.longitude">
+                <div id='hoverbox' class='coupontooltip'>
+                    <div id='hoversystem'></div>
+                    <div id='hoverstat'></div>
+                </div>
                 <locality-map x = "detailCtrl.locality.latitude" y = "detailCtrl.locality.longitude" name = "detailCtrl.locality.localityEn" fid = "detailCtrl.locality.localityId"></locality-map>
                 <a href data-ng-click="detailCtrl.service.showGoogleMap(detailCtrl.locality.latitude, detailCtrl.locality.longitude, detailCtrl.locality.localityEn)">Google Maps</a></span>
                 &ensp;&ensp;|&ensp;&ensp; <a href data-ng-click="detailCtrl.service.showEstonianLandBoardMap(detailCtrl.locality.latitude, detailCtrl.locality.longitude)" data-ng-if="detailCtrl.locality.countryEn == 'Estonia'">Maa-amet / Estonian Land Board</a>

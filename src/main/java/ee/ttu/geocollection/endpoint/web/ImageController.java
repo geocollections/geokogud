@@ -21,13 +21,18 @@ public class ImageController {
     @Autowired
     private AppConfig appConfig;
 
-    private static final String JPG = "jpg";
-
-    private static final String DELIMITER = "/";
-    private static final String VAR = "var";
-    private static final String WWW = "www";
+    private static final String IMAGE_PREFIX = "/var/www";
+    private static final String SPECIMEN_IMAGE_PREFIX = "/data";
+    private static final String IMAGES = "images";
     private static final String IMAGE = "image";
-    public static final String SPECIMEN = "specimen";
+    private static final String SPECIMEN = "specimen";
+
+    private static final String LEGACY_WIDTH = "&w=";
+
+    private static final String LEGACY_APP_URL = "http://geokogud.info/di.php?f=";
+
+    private static final String JPG = "jpg";
+    private static final String DELIMITER = "/";
 
     @GetMapping(value = "/img/{dbAcronym}/{series}/{number}/{fileName}/{width}", produces = MediaType.IMAGE_JPEG_VALUE)
     public byte[] retrieveImage(
@@ -36,26 +41,42 @@ public class ImageController {
             @PathVariable String number,
             @PathVariable String fileName,
             @PathVariable Integer width) throws IOException {
+        String imagePath =
+                IMAGE_PREFIX
+                        + DELIMITER + dbAcronym
+                        + DELIMITER + IMAGE
+                        + DELIMITER + series
+                        + DELIMITER + number
+                        + DELIMITER + fileName;
         if (appConfig.useLegacyImageResolver) {
-            return fetchImageFromLegacyApp(dbAcronym, series, number, fileName, width);
+            return fetchImageFromLegacyApp(imagePath, width);
         } else {
-            return fetchImageFromLocalStorage(dbAcronym, series, number, fileName, width);
+            return fetchImageFromLocalStorage(imagePath, width);
         }
     }
 
-    private byte[] fetchImageFromLocalStorage(
-            String dbAcronym,
-            String series,
-            String number,
-            String fileName,
-            Integer width) throws IOException {
-        File imageFile = new File(
-                DELIMITER + VAR + DELIMITER + WWW + DELIMITER
-                        + dbAcronym + DELIMITER
-                        + IMAGE + DELIMITER
-                        + series + DELIMITER
-                        + number + DELIMITER
-                        + fileName);
+    @GetMapping(value = "/specimenImg/{dbAcronym}/{collectionNumber}/{imageName}/{width}", produces = MediaType.IMAGE_JPEG_VALUE)
+    public byte[] retrieveSpecimenImage(
+            @PathVariable String dbAcronym,
+            @PathVariable String collectionNumber,
+            @PathVariable String imageName,
+            @PathVariable Integer width) throws IOException {
+        String imagePath =
+                SPECIMEN_IMAGE_PREFIX
+                        + DELIMITER + dbAcronym
+                        + DELIMITER + IMAGES
+                        + DELIMITER + SPECIMEN
+                        + DELIMITER + collectionNumber
+                        + DELIMITER + imageName;
+        if (appConfig.useLegacyImageResolver) {
+            return fetchImageFromLegacyApp(imagePath, width);
+        } else {
+            return fetchImageFromLocalStorage(imagePath, width);
+        }
+    }
+
+    private byte[] fetchImageFromLocalStorage(String imagePath, Integer width) throws IOException {
+        File imageFile = new File(imagePath);
         BufferedImage image = ImageIO.read(imageFile);
         Dimension resizedDimension = calculateNewDimension(new Dimension(image.getWidth(), image.getHeight()), width);
         BufferedImage resizedImage = resizeImage(image, resizedDimension);
@@ -63,19 +84,11 @@ public class ImageController {
         return convertToByArray(resizedImage);
     }
 
-    private byte[] fetchImageFromLegacyApp(
-            String dbAcronym,
-            String series,
-            String number,
-            String fileName,
-            Integer width) throws IOException {
+    private byte[] fetchImageFromLegacyApp(String imagePath, Integer width) throws IOException {
         URL url = new URL(
-                "http://geokogud.info/di.php?f=/var/www/" + dbAcronym
-                        + DELIMITER + IMAGE
-                        + DELIMITER + series
-                        + DELIMITER + number
-                        + DELIMITER + fileName
-                        + "&w=" + width);
+                LEGACY_APP_URL
+                        + imagePath
+                        + LEGACY_WIDTH + width);
         BufferedImage image = ImageIO.read(url);
         return convertToByArray(image);
     }
@@ -119,15 +132,4 @@ public class ImageController {
 
         return resizedImage;
     }
-
-//    @GetMapping(value = "/specimenImg/{dbAcronym}/{imagePath}", produces = MediaType.IMAGE_JPEG_VALUE)
-//    public byte[] retrieveSpecimenImage(@PathVariable String dbAcronym, @PathVariable String imagePath) {
-//        File imageFile = new File(
-//                DELIMITER + VAR + DELIMITER + WWW + DELIMITER
-//                        + dbAcronym + DELIMITER
-//                        + IMAGE + DELIMITER
-//                        + SPECIMEN + DELIMITER
-//                        + imagePath);
-//
-//    }
 }

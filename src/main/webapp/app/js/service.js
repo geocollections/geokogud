@@ -1,6 +1,6 @@
 var module = angular.module("geoApp");
 
-var constructor = function (utils,configuration, $window) {
+var constructor = function (utils,configuration, $window, $location) {
 
     var service = {};
 
@@ -11,6 +11,7 @@ var constructor = function (utils,configuration, $window) {
     service.showGoogleMap = showGoogleMap;
     service.showEstonianLandBoardMap = showEstonianLandBoardMap;
     service.getTranslationRoot = getTranslationRoot;
+    service.location = $location;
 
     service.toggle = function (el,array) {
         utils.toggleInArray(el,array)
@@ -72,15 +73,34 @@ var constructor = function (utils,configuration, $window) {
         return "http://geokogud.info/files/"+fileName.substring(0,2)+"/"+fileName;
     };
 
-    function composeSpecimenExternalPath (imageData) {
+    function composeSpecimenExternalPath(imageData) {
         //http://geokogud.info/di.php?f=/data/git/images/specimen/663/663-6.jpg&w=400
-        return "http://geokogud.info/di.php?f=/data/"+imageData.specimen__database__acronym.toLowerCase()+"/images/specimen/"
+        var applicationUrl = buildApplicationUrl();
+        var imageUrl = applicationUrl
+            + "specimenImg/"
+            + imageData.specimen__database__acronym.toLowerCase() + "/"
             + imageData.image;
+        return imageUrl;
     }
-    function composeImageExternalPath (imageData) {
-        //            http://geokogud.info/di.php?f=/var/www/git/image/OH/OH07-1/OH07-1-4.jpg
-        return "http://geokogud.info/di.php?f=/var/www/"+imageData.database__acronym.toLowerCase()+"/image/"
-            + imageData.imageset__imageset_series + "/"+imageData.imageset__imageset_number+"/"+imageData.filename;
+
+    function composeImageExternalPath(imageData) {
+        //http://geokogud.info/di.php?f=/var/www/git/image/OH/OH07-1/OH07-1-4.jpg
+        var applicationUrl = buildApplicationUrl();
+        var imageUrl = applicationUrl
+            + "img/"
+            + imageData.database__acronym.toLowerCase() + "/"
+            + imageData.imageset__imageset_series + "/"
+            + imageData.imageset__imageset_number + "/"
+            + imageData.filename;
+        return imageUrl;
+    }
+
+    function buildApplicationUrl() {
+        if(service.location.host().indexOf('localhost') != -1){
+            return service.location.protocol() + "://" + service.location.host() + ":" + service.location.port() + "/";
+        }else{
+            return service.location.protocol() + "://" + service.location.host() + "/";
+        }
     }
 
     function getDetailUrl (searchType) {
@@ -161,7 +181,7 @@ var constructor = function (utils,configuration, $window) {
     return service;
 };
 
-constructor.$inject = ['utils','configuration','$window'];
+constructor.$inject = ['utils','configuration','$window', '$location'];
 
 module.service("ApplicationService", constructor);
 
