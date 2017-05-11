@@ -17,7 +17,7 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
     $scope.isInstitutionsCollapsed = true;
 
     function onSearchData(result) {
-        $scope.pageSize = 100;
+        $scope.pageSize = 30;
         $scope.totalItems = result.data.count;
 
         if((['specimens', 'localities'].indexOf($stateParams.type) > -1)) $scope.images = composeImageStructure(result.data);

@@ -62,4 +62,20 @@ public class FluentLocalitySearchApiBuilder extends FluentSearchApiBuilder<Fluen
         addReturningField(LOCALITYSYNONYM_SYNONYM);
         return this;
     }
+    public FluentLocalitySearchApiBuilder returnLocalityTopEn() {
+        addReturningField(LOCALITY_STRATIGRAPHY_TOP_EN);
+        return this;
+    }
+    public FluentLocalitySearchApiBuilder returnLocalityTop() {
+        addReturningField(LOCALITY_STRATIGRAPHY_TOP);
+        return this;
+    }
+    public FluentLocalitySearchApiBuilder returnLocalityBaseEn() {
+        addReturningField(LOCALITY_STRATIGRAPHY_BASE_EN);
+        return this;
+    }
+    public FluentLocalitySearchApiBuilder returnLocalityBase() {
+        addReturningField(LOCALITY_STRATIGRAPHY_BASE);
+        return this;
+    }
 }
