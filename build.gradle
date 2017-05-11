@@ -185,6 +185,7 @@ task testUI(type: Test) {
 
 tasks.withType(Test) {
     testLogging {
+    	showStandardStreams = true
         events "passed", "skipped", "failed"
         afterSuite { desc, result ->
             if (!desc.parent) { // will match the outermost suite
