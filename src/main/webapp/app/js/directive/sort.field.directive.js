@@ -15,15 +15,16 @@ angular.module('geoApp').directive('sortField', function () {
         controller: ['$scope','$translate', function ($scope,$translate) {
             function localizePredicate(predicate) {
                 var tokens = predicate.split(",");
-                if(tokens.length == 0) return predicate;
+                console.log(predicate);
+                if(tokens.length == 1) return predicate;
                 var value_et = tokens[0], value_en = tokens[1];
 
                 return $translate.use() == 'et' ? value_et : value_en;
             }
 
             $scope.order = function (predicate) {
-              /*  $scope.predicate = predicate;
-                predicate = localizePredicate(predicate);*/
+                $scope.predicate = predicate;
+                predicate = localizePredicate(predicate);
                 $scope.$parent.sortByAsc = ($scope.$parent.searchParameters.sortField.sortBy === predicate ? !$scope.$parent.sortByAsc : true);
                 $scope.$parent.searchParameters.sortField.sortBy = predicate;
                 !$scope.$parent.sortByAsc ? $scope.$parent.searchParameters.sortField.order = "ASCENDING" : $scope.$parent.searchParameters.sortField.order = "DESCENDING";

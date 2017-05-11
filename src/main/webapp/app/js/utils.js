@@ -243,7 +243,7 @@ module.service('utils', constructor);
 
 module.filter('split', function() {
     return function(input, splitChar, splitIndex) {
-        return input.split(splitChar)[splitIndex];
+        return !input ? input : input.split(splitChar)[splitIndex];
     }
 });
 
