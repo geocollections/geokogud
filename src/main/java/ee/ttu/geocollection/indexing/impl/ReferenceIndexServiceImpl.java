@@ -11,17 +11,18 @@ import ee.ttu.geocollection.interop.api.Response.ApiResponse;
 import ee.ttu.geocollection.interop.api.reference.pojo.ReferenceSearchCriteria;
 import ee.ttu.geocollection.interop.api.reference.service.ReferenceApiService;
 import org.apache.lucene.document.Document;
-import org.apache.lucene.document.LongPoint;
+import org.apache.lucene.document.SortedDocValuesField;
 import org.apache.lucene.document.StringField;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexWriter;
+import org.apache.lucene.util.BytesRef;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Map;
 
-import static ee.ttu.geocollection.indexing.GlobalSearchConstants.ID_LONG;
+import static ee.ttu.geocollection.indexing.GlobalSearchConstants.ID_GROUPING;
 import static ee.ttu.geocollection.interop.api.builder.ApiFields.*;
 import static java.util.stream.Collectors.toList;
 
@@ -63,8 +64,6 @@ public class ReferenceIndexServiceImpl extends AbstractIndexingService<Reference
 
     @Override
     protected Document buildDocument(Map<String, Object> entry) {
-        Long idLong = Long.valueOf(entry.get(ID).toString());
-
         Document document = DocumentBuilder.aDocument()
                 .targetEntry(entry)
                 .withField(ID, StringField.TYPE_STORED)
@@ -74,7 +73,7 @@ public class ReferenceIndexServiceImpl extends AbstractIndexingService<Reference
                 .withField(REFERENCE, StringField.TYPE_NOT_STORED)
                 .withField(DATE_CHANGED, StringField.TYPE_STORED)
                 .build();
-        document.add(new LongPoint(ID_LONG, idLong));
+        document.add(new SortedDocValuesField(ID_GROUPING, new BytesRef(entry.get(ID).toString().getBytes())));
 
         return document;
     }

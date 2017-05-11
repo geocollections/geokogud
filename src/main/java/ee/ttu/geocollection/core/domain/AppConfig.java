@@ -30,6 +30,9 @@ public class AppConfig {
     @Value("${asynchRequestTimeoutMillisecs}")
     public Integer asynchRequestTimeoutMillisecs;
 
+    @Value("${asynchGlobalSearchTimeoutMillisecs}")
+    public Integer asynchGlobalSearchTimeoutMillisecs;
+
     @Value("${useLegacyImageResolver}")
     public boolean useLegacyImageResolver;
 

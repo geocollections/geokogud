@@ -25,6 +25,7 @@ public class TaxonApiServiceImpl implements TaxonApiService {
     public ApiResponse findTaxonForIndex(TaxonSearchCriteria searchCriteria) {
         String requestParams = FluentTaxonSearchApiBuilder.aRequest()
                 .returnId()
+                .groupById()
                 .returnTaxon()
                 .returnParentTaxon()
                 .returnFossilGroupTaxon()
@@ -37,6 +38,7 @@ public class TaxonApiServiceImpl implements TaxonApiService {
     public ApiResponse findTaxonsByIds(List<String> ids) {
         String requestParams = FluentTaxonSearchApiBuilder.aRequest()
                 .queryMultipleIds(ids).andReturn()
+                .groupById()
                 .returnTaxon()
                 .returnParentTaxon()
                 .returnFossilGroupTaxon()

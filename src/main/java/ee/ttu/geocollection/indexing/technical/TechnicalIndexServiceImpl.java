@@ -9,12 +9,16 @@ import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.*;
+import org.apache.lucene.search.grouping.GroupDocs;
+import org.apache.lucene.search.grouping.GroupingSearch;
+import org.apache.lucene.search.grouping.TopGroups;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Stream;
 
+import static ee.ttu.geocollection.indexing.GlobalSearchConstants.ID_GROUPING;
 import static ee.ttu.geocollection.indexing.technical.utils.IndexUtils.createDirectoryReader;
 import static ee.ttu.geocollection.interop.api.builder.ApiFields.ID;
 
@@ -67,11 +71,11 @@ public class TechnicalIndexServiceImpl implements TechnicalIndexService {
 
             Query query = buildQuery(queryParameters);
 
-            TopDocs topDocs = indexSearcher.search(query, SEARCH_RESULT_AMOUNT);
-            ScoreDoc[] scoreDoc = topDocs.scoreDocs;
-            for (ScoreDoc score : scoreDoc) {
-                Document document = indexReader.document(score.doc);
-                documents.add(document);
+            GroupingSearch groupingSearch = new GroupingSearch(ID_GROUPING);
+            TopGroups<Object> groups = groupingSearch.search(indexSearcher, query, 0, SEARCH_RESULT_AMOUNT);
+            for(GroupDocs groupDoc : groups.groups){
+                ScoreDoc scoreDoc = groupDoc.scoreDocs[0];
+                documents.add(indexReader.document(scoreDoc.doc));
             }
         } catch (Exception e) {
             throw new RuntimeException(e);

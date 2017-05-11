@@ -55,6 +55,7 @@ public class DoiApiServiceImpl implements DoiApiService {
     public ApiResponse findDoi(DoiSearchCriteria searchCriteria)  {
         String requestParams = FluentDoiSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId())
+                .groupById()
                 .queryIdentifier(searchCriteria.getDoi())
                 .queryTitle(searchCriteria.getTitle())
                 .queryPublishedBy(searchCriteria.getPublishedBy())

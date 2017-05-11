@@ -30,7 +30,7 @@ public class GlobalSearchServiceImpl implements GlobalSearchService {
             return Observable.fromIterable(indexServices)
                     .flatMap(abstractIndexingService ->
                             Observable.fromCallable(() -> abstractIndexingService.searchInIndex(query)))
-                    .timeout(appConfig.asynchRequestTimeoutMillisecs, TimeUnit.MILLISECONDS)
+                    .timeout(appConfig.asynchGlobalSearchTimeoutMillisecs, TimeUnit.MILLISECONDS)
                     .onErrorResumeNext(Observable.empty())
                     .subscribeOn(Schedulers.io())
                     .blockingIterable();

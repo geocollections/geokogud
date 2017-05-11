@@ -124,6 +124,7 @@ dependencies {
 
     compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.0.8'
     compile group: 'org.apache.lucene', name: 'lucene-core', version: '6.5.0'
+    compile group: 'org.apache.lucene', name: 'lucene-grouping', version: '6.5.0'
 
     testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version:'3.4.0'
     testCompile 'com.github.detro:ghostdriver:2.0.0'

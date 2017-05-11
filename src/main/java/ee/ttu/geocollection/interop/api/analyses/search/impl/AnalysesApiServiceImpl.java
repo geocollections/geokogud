@@ -40,6 +40,7 @@ public class AnalysesApiServiceImpl implements AnalysesApiService {
     public ApiResponse findAnalyses(AnalysesSearchCriteria searchCriteria) {
         String requestParams = FluentAnalysesApiBuilder.aRequest()
                 .queryId(searchCriteria.getId()).andReturn()
+                .groupById()
                 .querySample(searchCriteria.getSample()).andReturn()
                 .queryStratigraphyBed(searchCriteria.getStratigraphyBed()).andReturn()
                 .queryDepth(searchCriteria.getDepthSince()).andReturn()

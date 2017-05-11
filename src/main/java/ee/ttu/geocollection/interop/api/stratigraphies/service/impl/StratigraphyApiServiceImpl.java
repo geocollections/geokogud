@@ -74,6 +74,7 @@ public class StratigraphyApiServiceImpl implements StratigraphyApiService {
 
     private FluentStratigraphySearchApiBuilder prepareCommonFields(StratigraphySearchCriteria searchCriteria) {
         return FluentStratigraphySearchApiBuilder.aRequest()
+                .groupById()
                 .queryStratigraphy(searchCriteria.getStratigraphy())
                 .queryIndex(searchCriteria.getIndex())
                 .queryAgeBase(searchCriteria.getAgeMinY())

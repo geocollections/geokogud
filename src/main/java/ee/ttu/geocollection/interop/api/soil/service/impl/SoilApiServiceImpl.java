@@ -41,6 +41,7 @@ public class SoilApiServiceImpl implements SoilApiService {
     public ApiResponse findSoil(SoilSearchCriteria searchCriteria)  {
         String requestParams = FluentSoilSearchApiApiBuilder.aRequest()
                 .queryId(searchCriteria.getId())
+                .groupById()
                 .querySite(searchCriteria.getSite())
                 .queryAreaName(searchCriteria.getAreaOfStudy())
                 .queryLandUse(searchCriteria.getLandUse())

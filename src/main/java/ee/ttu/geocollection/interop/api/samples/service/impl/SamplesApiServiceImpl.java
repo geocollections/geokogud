@@ -81,6 +81,7 @@ public class SamplesApiServiceImpl implements SamplesApiService {
 
     private FluentSampleSearchApiBuilder prepareCommonFields(SampleSearchCriteria searchCriteria) {
         return FluentSampleSearchApiBuilder.aRequest()
+                .groupById()
                 .queryNumber(searchCriteria.getSampleNumber()).andReturn()
                 .queryLocality(searchCriteria.getLocality()).andReturn()
                 .queryCountry(searchCriteria.getCountry())
