@@ -440,5 +440,6 @@
             "STRATIGRAPHY": "Stratigraphy",
             "ADDITIONAL": "Lisainfo"
         }
-    }
+    },
+    "GLOBAL_SEARCH_INFO" : "Globaalne otsing kuvab maksimaalselt 100 tulemust. Rohkem andmete kuvamiseks palun kasuta liitostingut."
 }

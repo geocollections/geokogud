@@ -1,4 +1,4 @@
-<div ng-include="'app/templates/search/partial/pagination.html'" data-ng-if="!main.isGlobalSearch"></div>
+<div ng-include="'app/templates/search/partial/pagination.html'" data-ng-if="!main.isGlobalSearch()"></div>
 <div class="table-responsive" data-ng-if="!showImages">
     <table class="table table-bordered table-hover" id="table-search">
         <thead class="thead-default">
@@ -26,4 +26,4 @@
     </table>
     <div class="col-lg-12 h4 panel-heading text-center" data-ng-if="response.results == null">Tulemust ei leita</div>
 </div>
-<div ng-include="'app/templates/search/partial/pagination.html'" data-ng-if="!main.isGlobalSearch"></div>
+<div ng-include="'app/templates/search/partial/pagination.html'" data-ng-if="!main.isGlobalSearch()"></div>

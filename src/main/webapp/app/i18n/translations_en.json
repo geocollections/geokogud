@@ -440,5 +440,6 @@
             "STRATIGRAPHY": "Stratigraphy",
             "ADDITIONAL": "Remarks"
         }
-    }
+    },
+    "GLOBAL_SEARCH_INFO" : "Global search shows max 100 results. To get more information please use extended search."
 }
