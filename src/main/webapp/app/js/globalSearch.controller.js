@@ -1,8 +1,13 @@
 var module = angular.module("geoApp");
 
-var constructor = function (configuration, $translate, $http, applicationService, $state, $stateParams, $scope, $rootScope, WebPagesFactory, GlobalSearchFactory) {
+var constructor = function (configuration, $translate, $http, applicationService, $state, $stateParams, $scope,
+                            $rootScope, WebPagesFactory, GlobalSearchFactory, bsLoadingOverlayService) {
+    var vm = this;
+    vm.service = applicationService;
+    vm.searchLoadingHandler = bsLoadingOverlayService.createHandler({
+        referenceId: "globalView"
+    });
 
-    this.service = applicationService;
 
     $scope.searchResults = {
         "specimen": [],
@@ -13,7 +18,7 @@ var constructor = function (configuration, $translate, $http, applicationService
         "image": [],
         "taxon": []
     };
-
+    addClientSorting();
     $scope.response = {
         results:[]
     };
@@ -21,20 +26,28 @@ var constructor = function (configuration, $translate, $http, applicationService
     $scope.selectedTab = $stateParams.tab;
 
     $scope.searchGlobally = function () {
-        console.log($stateParams.query);
+        vm.searchLoadingHandler.start();
         $scope.$parent.globalQuery = $stateParams.query;
         GlobalSearchFactory.searchGlobally(
             $stateParams.query,
-            function (result) {
-                result.data.forEach(function(response) {
-                    $scope.searchResults[response.table] = response.results;
-                    if(response.table == $scope.selectedTab) {
-                        $scope.response.results = response.results;
-                    }
-                });
-            }
+            onGlobalDataLoaded
         );
     };
+    function onGlobalDataLoaded(result) {
+        result.data.forEach(function(response) {
+            $scope.searchResults[response.table] = response.results;
+            if(response.table == $scope.selectedTab) {
+                $scope.response.results = response.results;
+            }
+        });
+        vm.searchLoadingHandler.stop();
+    }
+    function addClientSorting() {
+        $scope.searchParameters = {
+            sortField: {sortBy: "id", order: "DESCENDING"}
+        };
+        $scope.sortByAsc = true;
+    }
 
     $scope.selectTab = function (tabTitle) {
         if(!tabTitle) {
@@ -46,6 +59,9 @@ var constructor = function (configuration, $translate, $http, applicationService
         $scope.response.results = $scope.searchResults[tabTitle];
     };
 
+    $scope.search = function() {
+        console.log($scope.response.results)
+    };
     $scope.getResultsLength = function(tab) {
         return $scope.searchResults[tab].length;
     };
@@ -58,6 +74,7 @@ var constructor = function (configuration, $translate, $http, applicationService
     $scope.selectTab($stateParams.tab);
 };
 
-constructor.$inject = ["configuration", '$translate', '$http', 'ApplicationService', '$state', '$stateParams', '$scope', '$rootScope', 'WebPagesFactory', 'GlobalSearchFactory'];
+constructor.$inject = ["configuration", '$translate', '$http', 'ApplicationService', '$state', '$stateParams', '$scope',
+    '$rootScope', 'WebPagesFactory', 'GlobalSearchFactory','bsLoadingOverlayService'];
 
 module.controller("GlobalSearchController", constructor);

@@ -16,6 +16,7 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     vm.changeLanguage = changeLanguage;
     vm.isSearch = isSearch;
     vm.isDetailForm = isDetailForm;
+    vm.isGlobalSearch = isGlobalSearch;
 
     vm.switchYear = switchYear;
 
@@ -27,7 +28,7 @@ var constructor = function (configuration,$translate,$http, applicationService,$
 
     function asyncLoadData () {
         //if it is not modal form then load news and other page stuff
-        if(!isDetailForm()) {
+        if(!isDetailForm() && !isGlobalSearch()) {
             applicationService.getNews(onNewsData);
             // content of webpages
             vm.geocollection = getWebPageById(2, "geocollection");
@@ -115,6 +116,9 @@ var constructor = function (configuration,$translate,$http, applicationService,$
     }
     function isDetailForm () {
         return $state.params && $state.params.id;
+    }
+    function isGlobalSearch () {
+        return $state.params && $state.params.query;
     }
 };
 

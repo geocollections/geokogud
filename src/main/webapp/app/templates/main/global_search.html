@@ -1,12 +1,9 @@
 <header ng-include="'app/templates/main/partial/header.html'"></header>
 <section id="sectionSearch">
     <div id="searches" ng-include="'app/templates/main/partial/global_search_tabs.html'"></div>
-    <div class="container-fluid" bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
-        <div class="row">
-            <div bs-loading-overlay bs-loading-overlay-reference-id="searchView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
-                <div class="row">
-                    <loading></loading>
-                </div>
+    <div class="container-fluid" bs-loading-overlay bs-loading-overlay-reference-id="globalView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
+        <div class="row" style="margin-top: 5%">
+            <div bs-loading-overlay bs-loading-overlay-reference-id="globalView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
                     <div ng-if="selectedTab == 'specimen'" non-isolated-include template-path="app/templates/search/specimen/specimen_results.html"></div>

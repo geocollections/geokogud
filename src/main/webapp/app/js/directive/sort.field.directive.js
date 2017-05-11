@@ -15,7 +15,7 @@ angular.module('geoApp').directive('sortField', function () {
         controller: ['$scope','$translate', function ($scope,$translate) {
             function localizePredicate(predicate) {
                 var tokens = predicate.split(",");
-                console.log(predicate);
+                //console.log(predicate);
                 if(tokens.length == 1) return predicate;
                 var value_et = tokens[0], value_en = tokens[1];
 
