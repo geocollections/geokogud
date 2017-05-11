@@ -169,6 +169,7 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
 
     private FluentSpecimenSearchApiBuilder prepareCommonFields(SpecimenSearchCriteria searchCriteria) {
         return FluentSpecimenSearchApiBuilder.aRequest()
+                .groupById()
                 .querySpecimenNumber(searchCriteria.getSpecimenNumber()).andReturn()
                 .queryCollectionNumber(searchCriteria.getCollectionNumber()).andReturn()
                 .queryClassification(searchCriteria.getClassification())
@@ -203,13 +204,6 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
                 .returnImageUrl()
                 .buildDefaultFieldsQuery();
         return apiService.searchRawEntities(SPECIMEN_IMAGE_TABLE, 2,1, new SortField(), requestParams);
-    }
-
-    @Override
-    public ApiResponse findSpecimenImage(SpecimenSearchCriteria searchCriteria) {
-        String requestParams = FluentSpecimenImageSearchApiBuilder.aRequest()
-                .buildDefaultFieldsQuery();
-        return apiService.searchRawEntities(SPECIMEN_IMAGE_TABLE, 10, searchCriteria.getPage(), new SortField(), requestParams);
     }
 
     @Override

@@ -20,7 +20,14 @@
             <td data-title="{{ 'SEARCH.SPECIMENS.ID' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen',id:entity.id})">{{entity.id}}</a></td>
             <td data-title="{{ 'SEARCH.SPECIMENS.NUMBER' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen',id:entity.id})">{{entity.coll__number | split:' ':0}} {{entity.specimen_id}}</a></td>
             <td data-title="{{ 'SEARCH.SPECIMENS.OLD_SPECIMEN_NUMBER' | translate }}"><!--<first-not-null values="[entity.coll__number, entity.coll_id]"/>-->{{entity.specimen_nr}}</td>
-            <td data-title="{{ 'SEARCH.SPECIMENS.NAME_PART_ELEMENT' | translate }}"><div data-ng-if="entity.specimenidentification__taxon_id != null && entity.specimenidentification__taxon__taxon != null && entity.specimenidentification__name != null"><a href="http://fossiilid.info/{{entity.specimenidentification__taxon_id}}" target="_blank">{{entity.specimenidentification__taxon__taxon}}</a> {{entity.specimenidentification__name}}</div></td>
+            <td data-title="{{ 'SEARCH.SPECIMENS.NAME_PART_ELEMENT' | translate }}">
+                <div data-ng-if="entity.specimenidentification__taxon_id != null && entity.specimenidentification__taxon__taxon != null">
+                    <a href="http://fossiilid.info/{{entity.specimenidentification__taxon_id}}" target="_blank">
+                        {{entity.specimenidentification__taxon__taxon}}
+                    </a>
+                </div>
+                {{entity.specimenidentification__name}}
+            </td>
             <td data-title="{{ 'SEARCH.SPECIMENS.LOCALITY' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.locality_id})">
                 <localize data-ng-if="entity.locality__locality != null && entity.locality__locality_en != null"  et="entity.locality__locality" en="entity.locality__locality_en"/></a></td>
             <td data-title="{{ 'SEARCH.SPECIMENS.DEPTH_M' | translate }}">{{entity.depth}}<span ng-if="entity.depth_interval != null && entity.depth_interval != ''">({{entity.depth_interval}})</span></td>

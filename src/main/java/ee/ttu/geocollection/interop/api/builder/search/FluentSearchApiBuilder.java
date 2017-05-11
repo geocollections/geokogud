@@ -36,6 +36,15 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
         return getThis();
     }
 
+    public B groupById() {
+        groupBy(ID);
+        return getThis();
+    }
+
+    protected void groupBy(String field) {
+        query += "&group_by=" + field;
+    }
+
     public B queryId(SearchField id) {
         buildFieldParameters(ID, id);
         return getThis();
@@ -107,7 +116,7 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
 
     void buildFieldParameters(String fieldName, SearchField searchField) {
         this.lastQueryField = fieldName;
-        this.lastQueryFields = new String[] {};
+        this.lastQueryFields = new String[]{};
         query += isNotNullAndEmpty(searchField) ? "&" + fieldName + "__" + extractFieldParameters(searchField) : EMPTY;
     }
 

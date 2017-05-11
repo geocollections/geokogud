@@ -11,7 +11,6 @@ public interface SpecimenApiService {
     ApiResponse findSpecimen(SpecimenSearchCriteria searchCriteria) ;
 
     ApiResponse findSpecimenImage(SearchField specimenId) ;
-    ApiResponse findSpecimenImage(SpecimenSearchCriteria searchCriteria) ;
 
     Map findRawSpecimenImageById(Long id);
     Map findRawById(Long id);
