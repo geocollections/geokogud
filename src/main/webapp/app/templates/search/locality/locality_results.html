@@ -4,14 +4,14 @@
     <table class="table table-bordered table-hover" id="table-search">
         <thead class="thead-default">
         <tr>
-            <th><sort-field value = "id" name="SEARCH.LOCALITIES.TABLE.ID"></sort-field></th>
-            <th><sort-field value = "locality" name="SEARCH.LOCALITIES.TABLE.LOCALITY"></sort-field></th>
-            <th><sort-field value = "country__value_en" name="SEARCH.LOCALITIES.TABLE.COUNTRY"></sort-field></th>
-            <th><sort-field value = "latitude" name="SEARCH.LOCALITIES.TABLE.LATITUDE"></sort-field></th>
-            <th><sort-field value = "longitude" name="SEARCH.LOCALITIES.TABLE.LONGITUDE"></sort-field></th>
-            <th>{{ 'SEARCH.LOCALITIES.TABLE.VERTICAL_EXTENT' | translate }}</th>
-            <th>{{ 'SEARCH.LOCALITIES.TABLE.STRATIGRAPHY_BASE' | translate }}</th>
-            <th>{{ 'SEARCH.LOCALITIES.TABLE.STRATIGRAPHY_TOP' | translate }}</th>
+            <th><sort-field value = "id" name="SEARCH.LOCALITIES.TABLE.ID"/></th>
+            <th><sort-field value = "locality,locality_en" name="SEARCH.LOCALITIES.TABLE.LOCALITY"/></th>
+            <th><sort-field value = "country__value,country__value_en" name="SEARCH.LOCALITIES.TABLE.COUNTRY"/></th>
+            <th><sort-field value = "latitude" name="SEARCH.LOCALITIES.TABLE.LATITUDE"/></th>
+            <th><sort-field value = "longitude" name="SEARCH.LOCALITIES.TABLE.LONGITUDE"/></th>
+            <th><sort-field value = "depth" name="SEARCH.LOCALITIES.TABLE.VERTICAL_EXTENT"/></th>
+            <th><sort-field value = "stratigraphy_base__stratigraphy,stratigraphy_base__stratigraphy_en" name="SEARCH.LOCALITIES.TABLE.STRATIGRAPHY_BASE"/></th>
+            <th><sort-field value = "stratigraphy_top__stratigraphy,stratigraphy_top__stratigraphy_en" name="SEARCH.LOCALITIES.TABLE.STRATIGRAPHY_TOP"/></th>
             <th>{{ 'SEARCH.LOCALITIES.TABLE.DRILLCORE' | translate }}</th>
             <th>{{ 'SEARCH.LOCALITIES.TABLE.IMAGES' | translate }}</th>
             <th>{{ 'SEARCH.LOCALITIES.TABLE.MAP' | translate }}</th>
@@ -21,13 +21,13 @@
         <tbody>
         <tr data-ng-repeat="entity in response.results">
             <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.ID' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.id})">{{entity.id}}</a></td>
-            <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.LOCALITY' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.id})">{{entity.locality}}</a></td>
+            <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.LOCALITY' | translate }}"><localize en="entity.locality_en" et="entity.locality"><a href data-ng-click="ctrl.service.openInNewWindow({object:'locality',id:entity.id})">{{entity.locality}}</a></localize></td>
             <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.COUNTRY' | translate }}"><localize en="entity.country__value_en" et="entity.country__value"/></td>
             <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.LATITUDE' | translate }}">{{entity.latitude}}</td>
             <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.LONGITUDE' | translate }}">{{entity.longitude}}</td>
             <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.VERTICAL_EXTENT' | translate }}">{{entity.depth}}</td>
-            <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.STRATIGRAPHY_BASE' | translate }}">{{entity.stratigraphy_base__stratigraphy_en}}</td>
-            <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.STRATIGRAPHY_TOP' | translate }}">{{entity.stratigraphy_base__stratigraphy}}</td>
+            <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.STRATIGRAPHY_BASE' | translate }}"><localize en="entity.stratigraphy_base__stratigraphy_en" et="entity.stratigraphy_base__stratigraphy"/></td>
+            <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.STRATIGRAPHY_TOP' | translate }}"><localize en="entity.stratigraphy_top__stratigraphy_en" et="entity.stratigraphy_top__stratigraphy"/></td>
             <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.DRILLCORE' | translate }}"></td>
             <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.IMAGES' | translate }}"><span data-ng-if="entity.locality_image_thumbnail.count > 0">+</span></td>
             <td data-title="{{ 'SEARCH.LOCALITIES.TABLE.MAP' | translate }}"><span data-ng-if="entity.latitude != null && entity.longitude != null">+</span></td>

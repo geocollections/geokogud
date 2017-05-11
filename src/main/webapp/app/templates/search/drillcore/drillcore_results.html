@@ -5,14 +5,14 @@
         <thead class="thead-default">
         <tr>
             <th><sort-field value = "id" name="SEARCH.DRILL_CORES.TABLE.ID"></sort-field></th>
-            <th>{{ 'SEARCH.DRILL_CORES.TABLE.DRILLCORE' | translate }}</th>
-            <th>{{ 'SEARCH.DRILL_CORES.TABLE.LATITUDE' | translate }}</th>
-            <th>{{ 'SEARCH.DRILL_CORES.TABLE.LONGITUDE' | translate }}</th>
-            <th>{{ 'SEARCH.DRILL_CORES.TABLE.DEPTH_M' | translate }}</th>
-            <th>{{ 'SEARCH.DRILL_CORES.TABLE.BOX_COUNT' | translate }}</th>
-            <th>{{ 'SEARCH.DRILL_CORES.TABLE.BOX_NUMBERS' | translate }}</th>
-            <th>{{ 'SEARCH.DRILL_CORES.TABLE.INSTITUTE' | translate }}</th>
-            <th>{{ 'SEARCH.DRILL_CORES.TABLE.STORAGE' | translate }}</th>
+            <th><sort-field value = "drillcore,drillcore_en" name="SEARCH.DRILL_CORES.TABLE.DRILLCORE"></sort-field></th>
+            <th><sort-field value = "locality__latitude" name="SEARCH.DRILL_CORES.TABLE.LATITUDE"></sort-field></th>
+            <th><sort-field value = "locality__longitude" name="SEARCH.DRILL_CORES.TABLE.LONGITUDE"/></th>
+            <th><sort-field value = "depth" name="SEARCH.DRILL_CORES.TABLE.DEPTH_M"/></th>
+            <th><sort-field value = "boxes" name="SEARCH.DRILL_CORES.TABLE.BOX_COUNT"/></th>
+            <th>{{'SEARCH.DRILL_CORES.TABLE.BOX_NUMBERS' | translate}}</th>
+            <th><sort-field value = "database__acronym" name="SEARCH.DRILL_CORES.TABLE.INSTITUTE"/></th>
+            <th><sort-field value = "storage__location" name="SEARCH.DRILL_CORES.TABLE.STORAGE"/></th>
             <th>{{ 'SEARCH.DRILL_CORES.TABLE.IMAGES' | translate }}</th>
         </tr>
         </thead>
