@@ -34,6 +34,7 @@ var constructor = function (configuration,$filter, $translate, $http, applicatio
         );
     };
     function onGlobalDataLoaded(result) {
+        if(!result.data) return;
         result.data.forEach(function(response) {
             $scope.searchResults[response.table] = response.results;
             if(response.table == $scope.selectedTab) {
