@@ -211,7 +211,7 @@
                 "LONGITUDE": "Longitude (deg. deg.)",
                 "DEPTH_M": "Depth (m)",
                 "BOX_COUNT": "Box count",
-                "BOX_NUMBERS": "Box count",
+                "BOX_NUMBERS": "Box numbers",
                 "INSTITUTE": "Insts.",
                 "STORAGE": "Storage",
                 "IMAGES": "Images",
@@ -427,6 +427,14 @@
         "INSTITUTIONS": "Institutions"
     },
     "DETAIL": {
+        "DRILLCORE": {
+            "DRILLCORE_BOXES": "Drill core boxes",
+            "BOX_NUMBER": "box no.",
+            "SINCE": "Start (m)",
+            "TO": "End (m)",
+            "STRATIGRAPHY_TOP": "Stratigraphy top",
+            "STRATIGRAPHY_BASE": "Stratigraphy base"
+        },
         "CORE_BOX": {
             "LOCALITY": "Locality",
             "ID": "Corebox ID",

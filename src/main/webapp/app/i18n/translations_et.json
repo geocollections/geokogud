@@ -427,6 +427,14 @@
         "INSTITUTIONS": "Asutused"
     },
     "DETAIL": {
+        "DRILLCORE": {
+            "DRILLCORE_BOXES": "Puursüdamiku kastid",
+            "BOX_NUMBER": "kast nr.",
+            "SINCE": "Algus(m)",
+            "TO": "Lõpp(m)",
+            "STRATIGRAPHY_TOP": "Stratigraafia ülem.",
+            "STRATIGRAPHY_BASE": "Stratigraphy alum."
+        },
         "CORE_BOX": {
             "LOCALITY": "Leiukoht",
             "ID": "Südamikukasti ID",
@@ -436,10 +444,12 @@
             "TO": "Lõpp(m)",
             "DEPTH": "Sügavused",
             "STRATIGRAPHY_TOP": "Stratigraafia ülem.",
-            "STRATIGRAPHY_BOTTOM": "stratigraphy alum.",
+            "STRATIGRAPHY_BASE": "Stratigraphy alum.",
             "STRATIGRAPHY": "Stratigraphy",
             "ADDITIONAL": "Lisainfo"
-        }
+        },
+        "NEXT": "JÄRGMINE",
+        "PREVIOUS": "EELMINE"
     },
     "GLOBAL_SEARCH_INFO" : "Globaalne otsing kuvab maksimaalselt 100 tulemust. Rohkem andmete kuvamiseks palun kasuta liitostingut."
 }

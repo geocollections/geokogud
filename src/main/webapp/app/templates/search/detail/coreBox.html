@@ -1,10 +1,12 @@
 <div class="panel panel-default">
     <div class="panel-body">
         <div class="row">
-            <div class="col-lg-3">
-                <label>{{entity.drillcore}} puursüdamik, kast nr. {{}}</label>
+            <div class="col-lg-3 text-center" style="background-color: #d9e2ee;  padding-bottom: 10px; padding-top: 10px;">
+                <h3><label><localize en="detailCtrl.results.drillcore__drillcore_en" et="detailCtrl.results.drillcore__drillcore"/></label></h3>
+                <h4>{{ 'DETAIL.DRILLCORE.BOX_NUMBER'| translate }} {{detailCtrl.results.number}}</h4>
             </div>
         </div>
+        </br>
         <div class="row">
             <div class="col-lg-6" bs-loading-overlay bs-loading-overlay-reference-id="detailView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
                 <table class="table table-bordered table-hover">
@@ -13,7 +15,7 @@
                     <tbody>
                         <tr><td>{{ 'DETAIL.CORE_BOX.ID'| translate }}</td><td>{{detailCtrl.results.id}}</td></tr>
                         <tr><td>{{ 'DETAIL.CORE_BOX.LOCALITY'| translate }}</td><td>
-                            <localize et="detailCtrl.results.drillcore__drillcore_en" en="detailCtrl.results.drillcore__drillcore"/>
+                            <localize en="detailCtrl.results.drillcore__drillcore_en" et="detailCtrl.results.drillcore__drillcore"/>
                         </td></tr>
                         <tr><td>{{ 'DETAIL.CORE_BOX.NUMBER'| translate }}</td><td>{{detailCtrl.results.number}}</td></tr>
                         <tr><td>{{ 'DETAIL.CORE_BOX.INBOX'| translate }}</td><td>{{detailCtrl.results.number_meters}}</td></tr>
@@ -30,24 +32,24 @@
 -->
                     </tbody>
                 </table>
-            </div>
-            <div  class="row" ng-if="detailCtrl.results.id">
-                <a class="pull-left" href data-ng-click="detailCtrl.reload(detailCtrl.results.id -1)">
-                    PREVIOUS
-                </a>
-                <a class="pull-right" href data-ng-click="detailCtrl.reload(detailCtrl.results.id + 1)">
-                    NEXT
-                </a>
-            </div>
-        </div>
 
-        <div class="row">
-            <img style="max-width:300px;max-height: 350px" src="{{'http://' + detailCtrl.results.drillcoreimage__url}}">
-            <div class="label">Foto: {{detailCtrl.results.drillcoreimage__agent__agent}} {{detailCtrl.results.drillcoreimage__image_date}}</div>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-       <!--         <h2>Proovid sellest kastist</h2>-->
+                <div class="row" ng-if="detailCtrl.results.id" style="padding: 15px;">
+                    <a class="pull-left" href data-ng-click="detailCtrl.reload(detailCtrl.results.id -1)">
+                        {{ 'DETAIL.PREVIOUS'| translate }}
+                    </a>
+                    <a class="pull-right" href data-ng-click="detailCtrl.reload(detailCtrl.results.id + 1)">
+                        {{ 'DETAIL.NEXT'| translate }}
+                    </a>
+                </div>
+                <div class="row" style="text-align: center">
+                    <a href="{{'http://' + detailCtrl.results.drillcoreimage__url}}"><img style="max-width:300px;max-height: 350px" src="{{'http://' + detailCtrl.results.drillcoreimage__url}}"></a>
+                    <div>Foto: {{detailCtrl.results.drillcoreimage__agent__agent}} {{detailCtrl.results.drillcoreimage__image_date}}</div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+               <!--         <h2>Proovid sellest kastist</h2>-->
+                    </div>
+                </div>
             </div>
         </div>
     </div>

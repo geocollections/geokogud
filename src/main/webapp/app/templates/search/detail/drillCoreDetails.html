@@ -69,28 +69,28 @@
         </div>
     </div>
     <div class="panel-body">
-        <div class="row">
-            <h2 class="pull-left">Drill core boxes</h2>
+        <div class="row" style="margin-left: 0px;">
+            <h2 class="pull-left">{{ 'DETAIL.DRILLCORE.DRILLCORE_BOXES'| translate }}</h2>
         </div>
         <div class="row">
-            <table data-ng-repeat="box in detailCtrl.drillcoreBoxes" style="float:left">
-                <tr><td><h3>Box no. {{box.number}}</h3></td></tr>
+            <table data-ng-repeat="box in detailCtrl.drillcoreBoxes" style="float:left; margin-left: 20px">
+                <tr><td><h3>{{ 'DETAIL.DRILLCORE.BOX_NUMBER'| translate }} {{box.number}}</h3></td></tr>
                 <tr>
-                    <td>Start (m):</td>
+                    <td>{{ 'DETAIL.DRILLCORE.SINCE'| translate }}:</td>
                     <td>{{box.depth_start}}</td>
                 </tr>
                 <tr>
-                    <td>End (m):</td>
+                    <td>{{ 'DETAIL.DRILLCORE.TO'| translate }}:</td>
                     <td>{{box.depth_end}}</td>
                 </tr>
                 <tr>
-                    <td>Stratigraphy top:</td>
+                    <td>{{ 'DETAIL.DRILLCORE.STRATIGRAPHY_TOP'| translate }}:</td>
                     <td>
                         <localize et="box.stratigraphy_top__stratigraphy" en="box.stratigraphy_top__stratigraphy_en"></localize>
                     </td>
                 </tr>
                 <tr>
-                    <td>Stratigraphy base:</td>
+                    <td>{{ 'DETAIL.DRILLCORE.STRATIGRAPHY_BASE'| translate }}:</td>
                     <td>
                         <localize et="box.stratigraphy_base__stratigraphy" en="box.stratigraphy_base__stratigraphy_en"></localize>
                     </td>
