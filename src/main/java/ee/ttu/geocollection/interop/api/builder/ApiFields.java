@@ -117,6 +117,10 @@ public class ApiFields {
 
     // Locality search
     public static final String LOCALITY_STRATIGRAPHY = "localitystratigraphy__stratigraphy__stratigraphy_en";
+    public static final String LOCALITY_STRATIGRAPHY_TOP_EN = "stratigraphy_top__stratigraphy_en";
+    public static final String LOCALITY_STRATIGRAPHY_TOP = "stratigraphy_top__stratigraphy";
+    public static final String LOCALITY_STRATIGRAPHY_BASE_EN = "stratigraphy_base__stratigraphy_en";
+    public static final String LOCALITY_STRATIGRAPHY_BASE = "stratigraphy_base__stratigraphy";
     public static final String MA_ID = "maaamet_pa_id";
     public static final String LOCALITY = "locality";
     public static final String LOCALITY_ENG = "locality_en";

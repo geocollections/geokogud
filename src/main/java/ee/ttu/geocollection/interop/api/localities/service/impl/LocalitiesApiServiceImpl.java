@@ -77,7 +77,7 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
     public ApiResponse findLocality(LocalitySearchCriteria searchCriteria)  {
         String requestParams = prepareCommonFields(searchCriteria)
                 .queryId(searchCriteria.getId())
-                .buildDefaultFieldsQuery();
+                .buildFullQuery();
         return apiService.searchRawEntities(
                 LOCALITY_TABLE,
                 searchCriteria.getPage(),
@@ -90,14 +90,19 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
                 .queryNumber(searchCriteria.getNumber())
                 .queryStratigraphy(searchCriteria.getStratigraphy())
 //                .queryReference(searchCriteria.getReference()).andReturn()
-                .queryMaId(searchCriteria.getMaId())
-                .queryLocality(searchCriteria.getLocality())
-                .queryCountry(searchCriteria.getCountry())
-                .queryAdminUnit(searchCriteria.getAdminUnit())
-                .queryLongitude(searchCriteria.getLatitude())
-                .queryLongitude(searchCriteria.getLongitude())
-                .queryDepth(searchCriteria.getVerticalExtentSince())
-                .queryDepth(searchCriteria.getVerticalExtentTo());
+                .queryMaId(searchCriteria.getMaId()).andReturn()
+                .queryLocality(searchCriteria.getLocality()).andReturn()
+                .queryCountry(searchCriteria.getCountry()).andReturn()
+                .queryAdminUnit(searchCriteria.getAdminUnit()).andReturn()
+                .queryLatitude(searchCriteria.getLatitude()).andReturn()
+                .queryLongitude(searchCriteria.getLongitude()).andReturn()
+                .queryDepth(searchCriteria.getVerticalExtentSince()).andReturn()
+                .queryDepth(searchCriteria.getVerticalExtentTo()).andReturn()
+                .returnId()
+                .returnLocalityBase()
+                .returnLocalityBaseEn()
+                .returnLocalityTop()
+                .returnLocalityTopEn();
     }
 
     @Override
