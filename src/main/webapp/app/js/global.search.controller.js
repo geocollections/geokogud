@@ -1,6 +1,6 @@
 var module = angular.module("geoApp");
 
-var constructor = function (configuration, $translate, $http, applicationService, $state, $stateParams, $scope,
+var constructor = function (configuration,$filter, $translate, $http, applicationService, $state, $stateParams, $scope,
                             $rootScope, WebPagesFactory, GlobalSearchFactory, bsLoadingOverlayService) {
     var vm = this;
     vm.service = applicationService;
@@ -60,7 +60,9 @@ var constructor = function (configuration, $translate, $http, applicationService
     };
 
     $scope.search = function() {
-        console.log($scope.response.results)
+        console.log($scope.searchParameters.sortField.sortBy)
+        $scope.response.results = $filter('orderBy')($scope.response.results,
+            ($scope.searchParameters.sortField.order == 'DESCENDING' ? '-' : '')  + $scope.searchParameters.sortField.sortBy);
     };
     $scope.getResultsLength = function(tab) {
         return $scope.searchResults[tab].length;
@@ -74,7 +76,7 @@ var constructor = function (configuration, $translate, $http, applicationService
     $scope.selectTab($stateParams.tab);
 };
 
-constructor.$inject = ["configuration", '$translate', '$http', 'ApplicationService', '$state', '$stateParams', '$scope',
+constructor.$inject = ['configuration', '$filter','$translate', '$http', 'ApplicationService', '$state', '$stateParams', '$scope',
     '$rootScope', 'WebPagesFactory', 'GlobalSearchFactory','bsLoadingOverlayService'];
 
 module.controller("GlobalSearchController", constructor);
