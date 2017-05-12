@@ -92,6 +92,7 @@
         "TITLE": ""
     },
     "SEARCH": {
+        "NO_RESULTS": "Tulemust ei leita",
         "CRITERIA": {
             "HEADING": {
                 "PRIMARY":"Otsinguväljad",

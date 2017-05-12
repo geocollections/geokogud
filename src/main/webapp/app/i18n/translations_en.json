@@ -92,6 +92,7 @@
         "TITLE": ""
     },
     "SEARCH": {
+        "NO_RESULTS": "No results found",
         "CRITERIA": {
           "HEADING": {
             "PRIMARY":"Search criteria",
