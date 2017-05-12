@@ -19,7 +19,6 @@ var constructor = function ($http,$location, configuration, $route, $rootScope) 
     };
 
     service.httpPost = function (url, data, successCb, errorCb, headers, composeSearchUrl) {
-        console.log(data);
         if(composeSearchUrl) {
             service.composeUrl(data);
             var searchCriteria = service.decodeUrl();
@@ -34,7 +33,6 @@ var constructor = function ($http,$location, configuration, $route, $rootScope) 
             "url": url
             //"params": params ? params : ""
         };
-        console.log(data);
         service.httpRequest(url, config, successCb, errorCb)
     };
 

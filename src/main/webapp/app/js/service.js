@@ -45,7 +45,7 @@ var constructor = function (utils,configuration, $window, $location) {
         utils.httpGet(configuration.mapData.allLocalities, null, callback, error);
     };
     service.loadMapDataOnFilterChange = function (filters, callback, error, headers) {
-        utils.httpPost(configuration.mapData.specificLocalities, filters, callback, error, headers, true);
+        utils.httpPost(configuration.mapData.specificLocalities, filters, callback, error, headers, false);
     }
 
     service.autocompleteSearch = function (table, val, searchField) {
