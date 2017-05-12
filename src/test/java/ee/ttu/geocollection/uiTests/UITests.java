@@ -28,6 +28,8 @@ public class UITests {
 		System.err.println("Phantomjs path variable: " + phantomJsPath);
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, phantomJsPath);
+		caps.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS, new String[] { "--debug=true" } );
+		//caps.setCapability(PhantomJSDriverService.PHANTOMJS_GHOSTDRIVER_CLI_ARGS, );
 		System.err.println("Current directory: " + Paths.get(".").toAbsolutePath().normalize().toString());
 		try {
 			driver = new PhantomJSDriver(caps);
