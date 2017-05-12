@@ -9,7 +9,7 @@
         </div>
         </br>
 
-        <div class="row">
+        <div class="row" style="margin-left: 0px;margin-right: 0px;">
             <div bs-loading-overlay bs-loading-overlay-reference-id="detailView" bs-loading-overlay-template-url="app/templates/main/partial/loading.overlay.html">
                 <table class="table table-bordered table-hover">
                     <thead>
@@ -244,7 +244,7 @@
             </div>
         </div>
     </div>
-    <div class="panel-body">
+    <div class="panel-body" style="margin-left: 15px; margin-right: 15px;">
         <div class="row" data-ng-if="detailCtrl.specimenIdentifications.length > 0">
             <label>Identifications (minerals and rocks)</label>
             <table class="table table-bordered table-hover">
@@ -262,7 +262,7 @@
                 <tr style="cursor: pointer; " data-ng-repeat="entity in detailCtrl.specimenIdentifications">
                     <td><a href="http://fossiilid.info/{{entity.id}}">{{entity.taxon__taxon}}</a></td>
                     <td>{{entity.soil_horizon}}</td>
-                    <td>???</td>
+                    <td></td>
                     <td>{{entity.date_added  | date:dateFormat}}</td>
                     <td>{{entity.reference__reference}}</td>
                     <td>{{entity.remarks}}</td>
