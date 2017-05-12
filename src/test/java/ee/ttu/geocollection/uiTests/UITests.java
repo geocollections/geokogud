@@ -23,8 +23,8 @@ public class UITests {
 
 	@Before
 	public void setUp() throws Exception {
-		String phantomJsPath = "phantomjs/phantomjs-2.1.1-linux-x86_64/bin/phantomjs";
-		// String phantomJsPath = System.getenv().get("PHANTOMJS-PATH");
+		//String phantomJsPath = "phantomjs/phantomjs-2.1.1-linux-x86_64/bin/phantomjs";
+		String phantomJsPath = System.getenv().get("PHANTOMJS-PATH");
 		System.err.println("Phantomjs path variable: " + phantomJsPath);
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, phantomJsPath);
