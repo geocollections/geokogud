@@ -50,7 +50,6 @@ public class DrillCoreApiServiceImpl implements DrillCoreApiService {
     public ApiResponse findDrillCore(DrillCoreSearchCriteria searchCriteria)  {
         String requestParams = FluentDrillCoreSearchApiBuilder.aRequest()
                 .queryId(searchCriteria.getId())
-                .groupById()
                 .queryDrillCore(searchCriteria.getDrillcore())
                 .queryBoxNumber(searchCriteria.getBoxNumber())
                 .queryStorageLocation(searchCriteria.getStorage())

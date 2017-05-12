@@ -54,7 +54,6 @@ public class ReferenceApiServiceImpl implements ReferenceApiService {
 
     private FluentReferenceSearchApiBuilder prepareCommonFields(ReferenceSearchCriteria searchCriteria) {
         return FluentReferenceSearchApiBuilder.aRequest()
-                .groupById()
                 .queryAuthor(searchCriteria.getAuthor()).andReturn()
                 .queryTitle(searchCriteria.getTitle()).andReturn()
                 .queryYear(searchCriteria.getYearSince()).andReturn()

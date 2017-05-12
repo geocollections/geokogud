@@ -169,7 +169,6 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
 
     private FluentSpecimenSearchApiBuilder prepareCommonFields(SpecimenSearchCriteria searchCriteria) {
         return FluentSpecimenSearchApiBuilder.aRequest()
-                .groupById()
                 .querySpecimenNumber(searchCriteria.getSpecimenNumber()).andReturn()
                 .queryCollectionNumber(searchCriteria.getCollectionNumber()).andReturn()
                 .queryClassification(searchCriteria.getClassification())
@@ -185,13 +184,13 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
                 .queryCollector(searchCriteria.getCollector()).andReturn()
                 .queryKeywords(searchCriteria.getKeyWords())
                 .queryReference(searchCriteria.getReference())
-                .queryNameOfFossil(searchCriteria.getFossilName()).andReturn()
+                .queryNameOfFossil(searchCriteria.getFossilName())
                 .queryFossilMineralRock(searchCriteria.getFossilMineralRock())
                 .queryAdminUnit(searchCriteria.getAdminUnit())
                 .queryInstitutions(searchCriteria.getDbs()).andReturn()
+                .returnTaxonFields()
                 .returnDatabaseName()
                 .returnLocalityId()
-                .returnTaxonId()
                 .returnStratigraphyId()
                 .returnLatitutde()
                 .returnLongitude();

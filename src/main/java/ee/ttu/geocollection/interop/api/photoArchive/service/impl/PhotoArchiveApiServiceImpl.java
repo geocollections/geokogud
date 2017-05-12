@@ -79,7 +79,6 @@ public class PhotoArchiveApiServiceImpl implements PhotoArchiveApiService{
 
     private FluentPhotoArchiveSearchApiBuilder prepareCommonFields(PhotoArchiveSearchCriteria searchCriteria) {
         return FluentPhotoArchiveSearchApiBuilder.aRequest()
-                .groupById()
                 .queryFileName(searchCriteria.getFileName())
                 .queryAuthorAgent(searchCriteria.getAuthorAgent())
                 .queryDateTaken(searchCriteria.getDateTakenSince())

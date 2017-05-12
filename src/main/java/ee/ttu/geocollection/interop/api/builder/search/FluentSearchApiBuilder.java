@@ -14,10 +14,11 @@ import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 
 public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>> {
-    String query = EMPTY;
+    private String query = EMPTY;
     private String returnFields = EMPTY;
-    String lastQueryField = EMPTY;
-    String[] lastQueryFields = new String[]{};
+    private String relatedDataFields = EMPTY;
+    private String lastQueryField = EMPTY;
+    private String[] lastQueryFields = new String[]{};
 
     FluentSearchApiBuilder() {
     }
@@ -36,13 +37,10 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
         return getThis();
     }
 
-    public B groupById() {
-        groupBy(ID);
+    public B returnRelatedData(String table, String... fields) {
+        relatedDataFields += "&related_data=" + table + "&current=true" +
+                "&fields=" + Stream.of(fields).collect(Collectors.joining(","));
         return getThis();
-    }
-
-    protected void groupBy(String field) {
-        query += "&group_by=" + field;
     }
 
     public B queryId(SearchField id) {
@@ -104,7 +102,7 @@ public abstract class FluentSearchApiBuilder<B extends FluentSearchApiBuilder<B>
     }
 
     public String buildFullQuery() {
-        return query + "&fields=" + returnFields;
+        return query + "&fields=" + returnFields + relatedDataFields;
     }
 
     /*

@@ -87,7 +87,6 @@ public class LocalitiesApiServiceImpl implements LocalitiesApiService {
 
     private FluentLocalitySearchApiBuilder prepareCommonFields(LocalitySearchCriteria searchCriteria) {
         return FluentLocalitySearchApiBuilder.aRequest()
-                .groupById()
                 .queryNumber(searchCriteria.getNumber())
                 .queryStratigraphy(searchCriteria.getStratigraphy())
 //                .queryReference(searchCriteria.getReference()).andReturn()

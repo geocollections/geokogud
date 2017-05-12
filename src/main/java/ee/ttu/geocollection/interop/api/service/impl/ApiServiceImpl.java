@@ -13,12 +13,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Map;
 
 @Service
@@ -58,16 +59,17 @@ public class ApiServiceImpl implements ApiService {
                 + "&format=json" + requestParams;
         logger.trace("Searching: " + url);
         try {
-            ResponseEntity<ApiResponse> rawResponse = restTemplate.getForEntity(url, ApiResponse.class);
-            ApiResponse response = rawResponse.getBody();
+            ApiResponse response = restTemplate.getForObject(new URI(url), ApiResponse.class);
             if (response != null){
                 response.setTable(tableName);
             }
             return response;
         } catch (HttpMessageNotReadableException e) {
-            throw new AppException(AppError.BAD_REQUEST);
+            throw new AppException(AppError.BAD_REQUEST, e);
         } catch (HttpServerErrorException e) {
-            throw new AppException(AppError.ERROR_API_UNAVAILABLE);
+            throw new AppException(AppError.ERROR_API_UNAVAILABLE, e);
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
         }
     }
 

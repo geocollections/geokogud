@@ -49,7 +49,6 @@ public class PreparationsApiServiceImpl implements PreparationsApiService{
 
         String requestParams = FluentPreparationSearchApiBuilder.aRequest()
                 .queryNumber(searchCriteria.getNumber())
-                .groupById()
                 .queryLocality(searchCriteria.getLocality())
                 .queryLocalityEn(searchCriteria.getLocalityEn())
                 .queryCollector(searchCriteria.getCollector())

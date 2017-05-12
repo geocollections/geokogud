@@ -17,6 +17,7 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
     $scope.isInstitutionsCollapsed = true;
 
     function onSearchData(result) {
+        console.log(result);
         $scope.pageSize = 30;
         $scope.totalItems = result.data.count;
 

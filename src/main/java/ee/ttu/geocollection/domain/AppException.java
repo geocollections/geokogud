@@ -13,6 +13,7 @@ public class AppException extends RuntimeException {
     }
 
     public AppException(AppError error, Throwable errorDetails) {
+        super(errorDetails);
         this.error = error;
         this.errorDetails = errorDetails;
     }

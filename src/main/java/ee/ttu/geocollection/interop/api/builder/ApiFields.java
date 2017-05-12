@@ -159,6 +159,9 @@ public class ApiFields {
     public static final String LITHOSTRATIGRAPHY__STRATIGRAPHY_ENG = "lithostratigraphy__stratigraphy_en";
     public static final String SPECIMEN_ID = "specimen_id";
     public static final String SPECIMEN_NR = "specimen_nr";
+    public static final String TAXON_ID = "taxon_id";
+    public static final String TAXON_TAXON = "taxon__taxon";
+    public static final String NAME = "name";
     public static final String IMAGE_URL = "image_url";
     public static final String COLL__NUMBER = "coll__number";
     public static final String COLL_ID = "coll_id";

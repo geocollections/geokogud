@@ -16,14 +16,14 @@
         </tr>
         </thead>
         <tbody>
-        <tr data-ng-repeat="entity in response.results">
+        <tr data-ng-repeat="entity in response.results track by $index">
             <td data-title="{{ 'SEARCH.SPECIMENS.ID' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen',id:entity.id})">{{entity.id}}</a></td>
             <td data-title="{{ 'SEARCH.SPECIMENS.NUMBER' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen',id:entity.id})">{{entity.coll__number | split:' ':0}} {{entity.specimen_id}}</a></td>
             <td data-title="{{ 'SEARCH.SPECIMENS.OLD_SPECIMEN_NUMBER' | translate }}"><!--<first-not-null values="[entity.coll__number, entity.coll_id]"/>-->{{entity.specimen_nr}}</td>
             <td data-title="{{ 'SEARCH.SPECIMENS.NAME_PART_ELEMENT' | translate }}">
-                <div data-ng-if="entity.specimenidentification__taxon_id != null && entity.specimenidentification__taxon__taxon != null">
-                    <a href="http://fossiilid.info/{{entity.specimenidentification__taxon_id}}" target="_blank">
-                        {{entity.specimenidentification__taxon__taxon}}
+                <div data-ng-if="response.related_data.specimen_identification[$index].taxon_id != null && response.related_data.specimen_identification[$index].taxon__taxon != null">
+                    <a href="http://fossiilid.info/{{response.related_data.specimen_identification[$index].taxon_id}}" target="_blank">
+                        {{response.related_data.specimen_identification[$index].taxon__taxon}}
                     </a>
                 </div>
                 {{entity.specimenidentification__name}}

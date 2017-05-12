@@ -15,6 +15,16 @@ public class ApiResponse {
     private String pageInfo;
     @JsonProperty("results")
     private List<Map<String, Object>> result;
+    @JsonProperty("related_data")
+    private Map<String, List> relatedData;
+
+    public Map<String, List> getRelatedData() {
+        return relatedData;
+    }
+
+    public void setRelatedData(Map<String, List> relatedData) {
+        this.relatedData = relatedData;
+    }
 
     public String getTable() {
         return table;

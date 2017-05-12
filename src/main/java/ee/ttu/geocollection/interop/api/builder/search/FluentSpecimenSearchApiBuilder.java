@@ -1,6 +1,7 @@
 package ee.ttu.geocollection.interop.api.builder.search;
 
 import ee.ttu.geocollection.domain.SearchField;
+import ee.ttu.geocollection.interop.api.specimen.service.impl.SpecimenApiServiceImpl;
 
 import static ee.ttu.geocollection.interop.api.builder.ApiFields.*;
 
@@ -53,6 +54,7 @@ public class FluentSpecimenSearchApiBuilder extends FluentSearchApiBuilder<Fluen
                 LOCALITY__ASUSTUSYKSUS__ASUSTUSYKSUS_EN);
         return this;
     }
+
     @Override
     public FluentSpecimenSearchApiBuilder queryDepth(SearchField depth) {
         buildMultiSearch(depth, DEPTH, DEPTH_INTERVAL);
@@ -113,14 +115,16 @@ public class FluentSpecimenSearchApiBuilder extends FluentSearchApiBuilder<Fluen
         addReturningField(DATABASE__NAME_EN);
         return this;
     }
-    public FluentSpecimenSearchApiBuilder returnTaxonId() {
-        addReturningField("specimenidentification__taxon_id");
-        return this;
+
+    public FluentSpecimenSearchApiBuilder returnTaxonFields() {
+        return returnRelatedData(SpecimenApiServiceImpl.SPECIMEN_IDENTIFICATION_TABLE, TAXON_ID, TAXON_TAXON, NAME);
     }
+
     public FluentSpecimenSearchApiBuilder returnLocalityId() {
         addReturningField("locality_id");
         return this;
     }
+
     public FluentSpecimenSearchApiBuilder returnStratigraphyId() {
         addReturningField("stratigraphy_id");
         return this;
