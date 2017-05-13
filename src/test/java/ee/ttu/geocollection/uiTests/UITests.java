@@ -5,8 +5,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriverService;
-import org.openqa.selenium.remote.DesiredCapabilities;
+
+import com.codeborne.selenide.WebDriverRunner;
+
+import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -21,121 +26,52 @@ public class UITests {
 
     @Before
     public void setUp() throws Exception {
-        // TODO pass as params
-        DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-                "phantomjs/phantomjs-2.1.1-linux-x86_64/bin/phantomjs");
-        driver = new PhantomJSDriver(caps);
+        driver = new PhantomJSDriver();
         driver.manage().window().setSize(new Dimension(1920, 1080));
         baseUrl = "http://geocollections.arendus.geokogud.info";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        WebDriverRunner.setWebDriver(driver);
     }
 
     @Test
     public void testAboutCollectionsContentLoaded() throws Exception {
-        driver.get(baseUrl + "/");
-        for (int second = 0;; second++) {
-            if (second >= 60)
-                fail("timeout");
-            try {
-                if (isElementPresent(By.id("langEn")))
-                    break;
-            } catch (Exception e) {
-            }
-            Thread.sleep(1000);
-        }
-
-        driver.findElement(By.id("langEn")).click();
-        driver.findElement(By.linkText("USEFUL INFO")).click();
-        driver.findElement(By.linkText("About collections")).click();
-        try {
-            assertTrue(driver.findElement(By.id("geocollections")).getText()
-                    .matches("^[\\s\\S]*About geological[\\s\\S]*$"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
+        open(baseUrl);
+        $("#langEn").should(exist);
+        $("#langEn").click();
+        $(By.linkText("USEFUL INFO")).click();
+        $(By.linkText("About collections")).click();
+        $("#geocollections").shouldHave(text("About geological"));
     }
 
     @Test
     public void testAboutDatabaseContentLoaded() throws Exception {
-        driver.get(baseUrl + "/");
-        for (int second = 0;; second++) {
-            if (second >= 60)
-                fail("timeout");
-            try {
-                if (isElementPresent(By.id("langEn")))
-                    break;
-            } catch (Exception e) {
-            }
-            Thread.sleep(1000);
-        }
-
-        driver.findElement(By.id("langEn")).click();
-        driver.findElement(By.linkText("USEFUL INFO")).click();
-        driver.findElement(By.linkText("Database")).click();
-        try {
-            assertTrue(driver.findElement(By.id("database")).getText()
-                    .matches("(?i:[\\s\\S]*database for geocollections[\\s\\S]*)"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
+        open(baseUrl);
+        $("#langEn").should(exist);
+        $("#langEn").click();
+        $(By.linkText("USEFUL INFO")).click();
+        $(By.linkText("Database")).click();
+        $("#database").shouldHave(text("database for geocollections"));
     }
 
     @Test
     public void testChangeLanguage() throws Exception {
-        driver.get(baseUrl + "/");
-        for (int second = 0;; second++) {
-            if (second >= 60)
-                fail("timeout");
-            try {
-                if (isElementPresent(By.id("langEt")))
-                    break;
-            } catch (Exception e) {
-            }
-            Thread.sleep(1000);
-        }
-
-        driver.findElement(By.id("langEt")).click();
-        try {
-            assertTrue(driver.findElement(By.className("navbar-brand")).getText().matches("(?i:.*eesti.*)"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
-        driver.findElement(By.id("langEn")).click();
-        try {
-            assertTrue(driver.findElement(By.className("navbar-brand")).getText().matches("(?i:.*estonia.*)"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
+        open(baseUrl);
+        $("#langEt").should(exist);
+        $("#langEt").click();
+        $(".navbar-brand").shouldHave(text("eesti"));
+        $("#langEn").click();
+        $(".navbar-brand").shouldHave(text("estonia"));
     }
 
     @Test
     public void testChooseSearchType() throws Exception {
-        driver.get(baseUrl + "/");
-        for (int second = 0;; second++) {
-            if (second >= 60)
-                fail("timeout");
-            try {
-                if (isElementPresent(By.id("langEn")))
-                    break;
-            } catch (Exception e) {
-            }
-            Thread.sleep(1000);
-        }
+        open(baseUrl);
+        $("#langEn").should(exist);
+        $("#langEn").click();
+        $(By.linkText("SEARCH")).click();
+        $(".nav-tabs").should(exist);
 
-        driver.findElement(By.id("langEn")).click();
-        driver.findElement(By.linkText("SEARCH")).click();
-        for (int second = 0;; second++) {
-            if (second >= 60)
-                fail("timeout");
-            try {
-                if (isElementPresent(By.cssSelector(".nav-tabs")))
-                    break;
-            } catch (Exception e) {
-            }
-            Thread.sleep(1000);
-        }
-
+        // TODO use Selenide
         ArrayList<WebElement> tabElements = (ArrayList<WebElement>) driver
                 .findElements(By.cssSelector(".nav-tabs li a"));
 
@@ -149,7 +85,7 @@ public class UITests {
             driver.findElement(By.linkText(curTabName)).click();
 
             for (int second = 0;; second++) {
-                if (second >= 60)
+                if (second >= 5)
                     fail("timeout");
                 try {
                     if (driver.findElement(By.className("search-heading")).getText()
@@ -165,143 +101,49 @@ public class UITests {
 
     @Test
     public void testFooterLoadedOnExtendedSearchPage() throws Exception {
-        driver.get(baseUrl + "/");
-        for (int second = 0;; second++) {
-            if (second >= 60)
-                fail("timeout");
-            try {
-                if (isElementPresent(By.id("langEn")))
-                    break;
-            } catch (Exception e) {
-            }
-            Thread.sleep(1000);
-        }
-
-        driver.findElement(By.id("langEn")).click();
-        driver.findElement(By.linkText("SEARCH")).click();
-        for (int second = 0;; second++) {
-            if (second >= 60)
-                fail("timeout");
-            try {
-                if (isElementPresent(By.cssSelector("footer")))
-                    break;
-            } catch (Exception e) {
-            }
-            Thread.sleep(1000);
-        }
-
+        open(baseUrl);
+        $("#langEn").should(exist);
+        $("#langEn").click();
+        $(By.linkText("SEARCH")).click();
+        $("footer").should(exist);
     }
 
     @Test
     public void testFooterLoadedOnMainPage() throws Exception {
-        driver.get(baseUrl + "/sample");
-        for (int second = 0;; second++) {
-            if (second >= 60)
-                fail("timeout");
-            try {
-                if (isElementPresent(By.cssSelector("footer")))
-                    break;
-            } catch (Exception e) {
-            }
-            Thread.sleep(1000);
-        }
+        open(baseUrl);
+        $("footer").should(exist);
     }
 
     @Test
     public void testGeneralInfoLoaded() throws Exception {
-        driver.get(baseUrl + "/");
-        for (int second = 0;; second++) {
-            if (second >= 60)
-                fail("timeout");
-            try {
-                if (isElementPresent(By.id("langEn")))
-                    break;
-            } catch (Exception e) {
-            }
-            Thread.sleep(1000);
-        }
-
-        driver.findElement(By.id("langEn")).click();
-        for (int second = 0;; second++) {
-            if (second >= 60)
-                fail("timeout");
-            try {
-                if (isElementPresent(By.id("about")))
-                    break;
-            } catch (Exception e) {
-            }
-            Thread.sleep(1000);
-        }
-
-        try {
-            assertTrue(
-                    driver.findElement(By.id("about")).getText().matches("^[\\s\\S]*Collections in geology[\\s\\S]*$"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
-        try {
-            assertTrue(driver.findElement(By.id("about")).getText()
-                    .matches("^[\\s\\S]*Geocollections in Estonia[\\s\\S]*$"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
-        try {
-            assertTrue(driver.findElement(By.id("about")).getText().matches("^[\\s\\S]*Common database[\\s\\S]*$"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
+        open(baseUrl);
+        $("#langEn").should(exist);
+        $("#langEn").click();
+        $("#about").should(exist);
+        $("#about").shouldHave(text("Collections in geology"));
+        $("#about").shouldHave(text("Geocollections in Estonia"));
+        $("#about").shouldHave(text("Common database"));
     }
 
     @Test
     public void testGitContentLoaded() throws Exception {
-        driver.get(baseUrl + "/");
-        for (int second = 0;; second++) {
-            if (second >= 60)
-                fail("timeout");
-            try {
-                if (isElementPresent(By.linkText("ENG")))
-                    break;
-            } catch (Exception e) {
-            }
-            Thread.sleep(1000);
-        }
-
-        driver.findElement(By.id("langEn")).click();
-        driver.findElement(By.linkText("USEFUL INFO")).click();
-        driver.findElement(By.linkText("GIT")).click();
-        try {
-            assertTrue(driver.findElement(By.id("git")).getText()
-                    .matches("^[\\s\\S]*GIT: Geological collections[\\s\\S]*$"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
+        open(baseUrl);
+        $("#langEn").should(exist);
+        $("#langEn").click();
+        $(By.linkText("USEFUL INFO")).click();
+        $(By.linkText("GIT")).click();
+        $("#git").shouldHave(text("GIT: Geological collections"));
     }
 
     @Test
     public void testModalWindowIsOpenOnSearchPage() throws Exception {
-        driver.get(baseUrl + "/sample");
-        for (int second = 0;; second++) {
-            if (second >= 60)
-                fail("timeout");
-            try {
-                if (isElementPresent(By.id("langEn")))
-                    break;
-            } catch (Exception e) {
-            }
-            Thread.sleep(1000);
-        }
+        open(baseUrl + "/sample");
+        $("#langEn").should(exist);
+        $("#langEn").click();
+        $(By.cssSelector("tr.ng-scope:nth-child(1) > td:nth-child(3) > a:nth-child(1)")).should(exist);
+        $(By.cssSelector("tr.ng-scope:nth-child(1) > td:nth-child(3) > a:nth-child(1)")).click();
 
-        driver.findElement(By.id("langEn")).click();
-        for (int second = 0;; second++) {
-            if (second >= 60)
-                fail("timeout");
-            try {
-                if (isElementPresent(By.cssSelector("tr.ng-scope:nth-child(1) > td:nth-child(3) > a:nth-child(1)")))
-                    break;
-            } catch (Exception e) {
-            }
-            Thread.sleep(1000);
-        }
+        // TODO use Selenide
         driver.findElement(By.cssSelector("tr.ng-scope:nth-child(1) > td:nth-child(3) > a:nth-child(1)")).click();
         ArrayList<String> browserTabs = new ArrayList<String>(driver.getWindowHandles());
         // switch to a new tab
@@ -317,54 +159,21 @@ public class UITests {
 
     @Test
     public void testShowMap() throws Exception {
-        driver.get(baseUrl + "/");
-        for (int second = 0;; second++) {
-            if (second >= 60)
-                fail("timeout");
-            try {
-                if (isElementPresent(By.id("langEn")))
-                    break;
-            } catch (Exception e) {
-            }
-            Thread.sleep(1000);
-        }
-
-        driver.findElement(By.id("langEn")).click();
-        driver.findElement(By.linkText("MAP")).click();
-        for (int second = 0;; second++) {
-            if (second >= 60)
-                fail("timeout");
-            try {
-                if (isElementPresent(By.id("map")))
-                    break;
-            } catch (Exception e) {
-            }
-            Thread.sleep(1000);
-        }
+        open(baseUrl);
+        $("#langEn").should(exist);
+        $("#langEn").click();
+        $(By.linkText("MAP")).click();
+        $("#map").should(exist);
     }
 
     @Test
     public void testUsingCollectionsContentLoaded() throws Exception {
-        driver.get(baseUrl + "/");
-        for (int second = 0;; second++) {
-            if (second >= 60)
-                fail("timeout");
-            try {
-                if (isElementPresent(By.id("langEn")))
-                    break;
-            } catch (Exception e) {
-            }
-            Thread.sleep(1000);
-        }
-
-        driver.findElement(By.id("langEn")).click();
-        driver.findElement(By.linkText("USEFUL INFO")).click();
-        driver.findElement(By.linkText("Using collections")).click();
-        try {
-            assertTrue(driver.findElement(By.id("usingCollections")).getText().matches("^[\\s\\S]*Using[\\s\\S]*$"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
+        open(baseUrl);
+        $("#langEn").should(exist);
+        $("#langEn").click();
+        $(By.linkText("USEFUL INFO")).click();
+        $(By.linkText("Using collections")).click();
+        $("#usingCollections").shouldHave(text("Using"));
     }
 
     @After
@@ -373,15 +182,6 @@ public class UITests {
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
             fail(verificationErrorString);
-        }
-    }
-
-    private boolean isElementPresent(By by) {
-        try {
-            driver.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
         }
     }
 }
