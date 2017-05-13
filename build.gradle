@@ -1,3 +1,5 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
 buildscript {
     ext {
         springBootVersion = '1.5.1.RELEASE'
@@ -128,6 +130,7 @@ dependencies {
 
     testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version:'3.4.0'
     testCompile 'com.github.detro:ghostdriver:2.0.0'
+    testCompile 'com.codeborne:selenide:4.4.1'
 }
 
 task generateQueryDSL(type: JavaCompile, group: 'build', description: 'Generates the QueryDSL query types') {
@@ -182,10 +185,13 @@ task testUI(type: Test) {
      }
      scanForTestClasses = false
      include "**/ee/ttu/geocollection/uiTests/*.class"
- }
+     def phantomJsFilename = Os.isFamily(Os.FAMILY_WINDOWS) ? "phantomjs/phantomjs-2.1.1-windows/bin/phantomjs.exe" : "phantomjs/phantomjs-2.1.1-linux-x86_64/bin/phantomjs"
+     systemProperty "phantomjs.binary.path", phantomJsFilename
+}
 
 tasks.withType(Test) {
     testLogging {
+        //showStandardStreams = true
         events "passed", "skipped", "failed"
         afterSuite { desc, result ->
             if (!desc.parent) { // will match the outermost suite
