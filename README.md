@@ -30,5 +30,15 @@ Run:
 ```
 gradle bootRun
 ```
-
 Go to http://localhost:8081 to see the result.
+
+Run tests:
+```
+gradle test
+```
+
+Run UI tests (application should be running locally):
+```
+gradle testUI 
+```
+

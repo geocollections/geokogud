@@ -20,6 +20,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class UITests {
+    private static final String BASE_URL = "http://localhost:8081";
     private WebDriver driver;
     private String baseUrl;
     private StringBuffer verificationErrors = new StringBuffer();
@@ -28,7 +29,7 @@ public class UITests {
     public void setUp() throws Exception {
         driver = new PhantomJSDriver();
         driver.manage().window().setSize(new Dimension(1920, 1080));
-        baseUrl = "http://geocollections.arendus.geokogud.info";
+        baseUrl = BASE_URL;
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         WebDriverRunner.setWebDriver(driver);
     }
