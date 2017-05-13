@@ -449,6 +449,14 @@
             "STRATIGRAPHY": "Stratigraphy",
             "ADDITIONAL": "Lisainfo"
         },
+        "LOCALITY": {
+            "TYPE": "Tüüp",
+            "FILENAME": "Falinimi",
+            "LOCALITY": "Leiukoht",
+            "AUTHOR": "Autor",
+            "DATE": "Aeg",
+            "LINK": "Link"
+        },
         "NEXT": "JÄRGMINE",
         "PREVIOUS": "EELMINE"
     },

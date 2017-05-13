@@ -448,7 +448,17 @@
             "STRATIGRAPHY_BASE": "Stratigraphy base",
             "STRATIGRAPHY": "Stratigraphy",
             "ADDITIONAL": "Remarks"
-        }
+        },
+        "LOCALITY": {
+            "TYPE": "Type",
+            "FILENAME": "Filename",
+            "LOCALITY": "Locality",
+            "AUTHOR": "Author",
+            "DATE": "Date",
+            "LINK": "Link"
+        },
+        "NEXT": "NEXT",
+        "PREVIOUS": "PREVIOUS"
     },
     "GLOBAL_SEARCH_INFO" : "Global search shows max 100 results. To get more information please use extended search."
 }

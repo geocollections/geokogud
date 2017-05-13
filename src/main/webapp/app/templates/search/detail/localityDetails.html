@@ -142,22 +142,22 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th>Tüüp/type</th>
-                        <th>Format</th>
-                        <th>Description</th>
-                        <th>Author</th>
-                        <th>Date</th>
-                        <th>Link</th>
+                        <th>{{'DETAIL.LOCALITY.TYPE ' |translate }}</th>
+                        <th>{{'DETAIL.LOCALITY.FILENAME ' |translate }}</th>
+                        <th>{{'DETAIL.LOCALITY.LOCALITY ' |translate }}</th>
+                        <th>{{'DETAIL.LOCALITY.AUTHOR ' |translate }}</th>
+                        <th>{{'DETAIL.LOCALITY.DATE ' |translate }}</th>
+                        <th>{{'DETAIL.LOCALITY.LINK ' |translate }}</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr style="cursor: pointer; " data-ng-repeat="entity in detailCtrl.images">
-                        <td>???</td>
-                        <td>???</td>
-                        <td>???</td>
-                        <td>???</td>
-                        <td>???</td>
-                        <td>???</td>
+                        <td><localize et="entity.type__value" en="entity.type__value_en"/></td>
+                        <td>{{entity.filename}}</td>
+                        <td><a href data-ng-click="detailCtrl.service.openInNewWindow({object:'locality',id:entity.locality_id})"><localize et="entity.locality__locality" en="entity.locality__locality_en"/></a></td>
+                        <td>{{entity.author__forename}} {{entity.author__surename}}</td>
+                        <td>{{entity.date_added | date:dateFormat}}</td>
+                        <td><a href data-ng-click="detailCtrl.service.openInNewWindow({object:'image',id:entity.id})"><img src="http://geokogud.info/git/image/{{entity.imageset__imageset_series}}/{{entity.imageset__imageset_number}}/preview/{{entity.filename}}"></a></td>
                     </tr>
                     </tbody>
                 </table>
