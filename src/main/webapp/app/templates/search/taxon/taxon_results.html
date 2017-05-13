@@ -15,10 +15,12 @@
         <tbody>
         <tr data-ng-repeat="entity in response.results">
             <td data-title="{{ 'SEARCH.TAXON.TABLE.ID' | translate }}">
-                <a href data-ng-click="ctrl.service.openInNewWindow({object:'soil',id:entity.id})">{{entity.id}}</a>
+                <a href="http://fossiilid.info/{{entity.id}}" target="_blank">
+                    {{entity.id}}
+                </a>
             </td>
             <td data-title="{{ 'SEARCH.TAXON.TABLE.FOSSIL_GROUP' | translate }}">
-                <a href="http://fossiilid.info/{{entity.id}}" target="_blank">
+                <a href="http://fossiilid.info/?id={{entity.fossil_group__id}}" target="_blank">
                     {{entity.fossil_group__taxon}}
                 </a>
             </td>

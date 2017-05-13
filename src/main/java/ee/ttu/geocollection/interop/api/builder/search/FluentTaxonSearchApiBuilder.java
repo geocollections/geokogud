@@ -28,6 +28,11 @@ public class FluentTaxonSearchApiBuilder extends FluentSearchApiBuilder<FluentTa
         return this;
     }
 
+    public FluentTaxonSearchApiBuilder returnFossilGroupId() {
+        addReturningField(FOSSIL_GROUP_ID);
+        return this;
+    }
+
     public FluentTaxonSearchApiBuilder returnAuthorYear() {
         addReturningField(AUTHOR_YEAR);
         return this;
