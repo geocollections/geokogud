@@ -43,32 +43,6 @@ public abstract class AbstractIndexingService<T extends PageableSearchCriteria> 
 
     public abstract ApiResponse searchInIndex(String value);
 
-    protected void createIndicesFromScratch(
-            TechnicalIndexService technicalIndexService,
-            IndexWriter indexWriter,
-            T searchCriteria,
-            Function<T, ApiResponse> apiCall) {
-
-        int currentPage = 1;
-        int lastPage = 1;
-        while (currentPage <= lastPage) {
-            searchCriteria.setPage(currentPage);
-            ApiResponse samplesForIndex = apiCall.apply(searchCriteria);
-            currentPage++;
-            if (lastPage == 1) {
-                lastPage = samplesForIndex.extractLastPageNumber();
-            }
-            try {
-                Thread.sleep(1000L);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            technicalIndexService.createIndex(
-                    samplesForIndex.getResult().stream().map(this::buildDocument).collect(toList()),
-                    indexWriter);
-        }
-    }
-
     protected void createMissingIndices(
             T searchCriteria,
             Function<T, ApiResponse> apiCall,
@@ -98,6 +72,7 @@ public abstract class AbstractIndexingService<T extends PageableSearchCriteria> 
                 break;
             }
             technicalIndexService.createIndex(documentsToCreate, indexWriter);
+            throw new RuntimeException();
         }
     }
 
