@@ -1,5 +1,6 @@
 package ee.ttu.geocollection.interop.api.service.impl;
 
+import com.google.common.net.UrlEscapers;
 import ee.ttu.geocollection.domain.AppError;
 import ee.ttu.geocollection.domain.AppException;
 import ee.ttu.geocollection.domain.SortField;
@@ -56,7 +57,7 @@ public class ApiServiceImpl implements ApiService {
     public ApiResponse searchRawEntities(String tableName, int paginateBy, int page, SortField sortField, String requestParams) {
         String url = apiUrl + "/" + tableName + "/" + "?paginate_by=" + paginateBy + "&page=" + page
                 + "&order_by=" + getSortingDirection(sortField.getOrder()) + sortField.getSortBy()
-                + "&format=json" + requestParams;
+                + "&format=json" + UrlEscapers.urlPathSegmentEscaper().escape(requestParams);
         logger.trace("Searching: " + url);
         try {
             ApiResponse response = restTemplate.getForObject(new URI(url), ApiResponse.class);
