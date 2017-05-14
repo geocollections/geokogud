@@ -35,7 +35,6 @@ var constructor = function ($http,$location, configuration, $route, $rootScope) 
         };
         service.httpRequest(url, config, successCb, errorCb)
     };
-
     service.composeUrl = function(data) {
         var url = "", currentTable = $location.$$path.split('/')[1];
         if(currentTable == "map") {
@@ -86,6 +85,11 @@ var constructor = function ($http,$location, configuration, $route, $rootScope) 
                 url += "&currentTable=" + currentTable.trim();
                 if(data.maxSize != null) {
                     url += "&maxSize=" + data.maxSize;
+                }
+                if(data.searchImages != null) {
+                    if(data.searchImages.name) {
+                        url += "&search_images=1";
+                    }
                 }
                 if(data.page != null) {
                     url += "&page=" + data.page;
@@ -193,6 +197,11 @@ var constructor = function ($http,$location, configuration, $route, $rootScope) 
         if(urlParams["maxSize"] != null) {
             searchParams["maxSize"] = Number(urlParams["maxSize"]);
         }
+        if(urlParams["search_images"] != null) {
+            if(Number(urlParams["search_images"]) == 1) {
+                searchParams["searchImages"] = {lookUpType: "exact", name: true};
+            }
+        }
         if(urlParams["page"] != null) {
             searchParams["page"] = Number(urlParams["page"]);
         }
@@ -219,7 +228,6 @@ var constructor = function ($http,$location, configuration, $route, $rootScope) 
         });
         return searchParams;
     };
-
     function getLookUpType(attr){
         var found = false, lookUpType = "";
         angular.forEach(Object.keys(configuration.urlHelper['lookUpType']), function(a) {

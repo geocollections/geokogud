@@ -131,7 +131,7 @@ angular.module('geoApp').directive('loading', function () {
     };
 }).directive('showPreview', function () {
     return {
-        template: '<img ng-src="{{previewImageUrl}}" spinner-load />',
+        template: '<img class="previewImage" ng-src="{{previewImageUrl}}" spinner-load />',
         restrict: 'E',
         scope: {
             imgUrl: '='
@@ -317,7 +317,7 @@ angular.module('geoApp').directive('loading', function () {
             en: '='
         },
         link: function (scope) {
-            console.log(scope.et)
+            //console.log(scope.et)
             scope.$watch('[et, en]', function(newValue) {
                 scope.localizedValue = $translate.use() == 'et'
                     ? (newValue[0] == null ? newValue[1] : newValue[0])
@@ -518,7 +518,7 @@ angular.module('geoApp').directive('loading', function () {
                     var feature = olMap.forEachFeatureAtPixel(pixel, function (feature, layer) {
                         return feature;
                     });
-                    console.log(feature);
+                    //console.log(feature);
                     if (feature) {
                         //
                         document.getElementById('hoverbox').style.display = 'block';

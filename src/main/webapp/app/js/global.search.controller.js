@@ -65,7 +65,7 @@ var constructor = function (configuration, $filter, $translate, $http, applicati
     };
 
     $scope.search = function () {
-        console.log($scope.searchParameters.sortField.sortBy)
+        //console.log($scope.searchParameters.sortField.sortBy)
         $scope.response.results = $filter('orderBy')($scope.response.results,
             ($scope.searchParameters.sortField.order == 'DESCENDING' ? '-' : '') + $scope.searchParameters.sortField.sortBy);
     };

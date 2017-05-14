@@ -61,14 +61,13 @@ var constructor = function (utils,configuration, $window, $location) {
 
     service.composeExternalImagePath = function(imageData) {
         if(imageData.specimen__database__acronym) {
-            console.log(imageData)
+            //console.log(imageData)
             return composeSpecimenExternalPath(imageData);
         }
         if(imageData.database__acronym) {
             return composeImageExternalPath(imageData)
         }
     };
-
     service.getDownloadLink = function (fileName) {
         return "http://geokogud.info/files/"+fileName.substring(0,2)+"/"+fileName;
     };

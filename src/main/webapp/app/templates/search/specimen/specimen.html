@@ -251,64 +251,28 @@
                     <loading></loading>
                 </div>
                 <div data-ng-if="showImages" ng-include="'app/templates/search/partial/pagination.html'"></div>
-                <div class="products-swiper-container" data-ng-if="showImages">
-                    <div class="cards-container columns">
-                        <div class="cards-row five-columns">
-                            <div class="products-swiper owl-carousel owl-theme owl-loaded">
-                                <div class="owl-stage-outer">
-                                    <div class="col-md-12 medium-padding">
-                                        <b data-ng-init="images.total = 0">{{ 'SEARCH.FOUND_IMAGES' | translate }}: {{images.total}} </b>
+                <div class="row" data-ng-if="showImages">
+                    <div class="col-lg-12">
+                        <h3 class="page-header"><b data-ng-init="images.total = 0">{{ 'SEARCH.FOUND_IMAGES' | translate }}: {{images.total}} </b></h3>
+                    </div>
+                    <div data-ng-repeat="row in images.rows">
+                        <div class="col-lg-3 col-md-4 col-xs-6" data-ng-repeat="col in row">
+                            <figure style="border:1px solid #ddd; margin-bottom: 20px;">
+                                <a class="thumbnail" href data-ng-click="ctrl.service.openInNewWindow({object:'specimen_image',id:col.image.id})">
+                                    <show-preview img-url="ctrl.service.composeImageUrl(image, col.image.image_url)" class="img-responsive"/>
+                                    <a class="imagePlace" href data-ng-click="ctrl.service.openInNewWindow({object:'specimen',id:col.object.id})">
+                                       {{col.object.database__acronym}} {{col.object.specimen_id}}
+                                    </a>
+                                    <div data-ng-if="col.object.specimenidentification__taxon__taxon == null ||col.object.specimenidentification__taxon__taxon == ''">
+                                        <a href="http://fossiilid.info/{{col.object.specimenidentification__taxon_id}}" target="_blank">{{col.object.specimenidentification__taxon__taxon}}</a>
+                                        <span data-ng-if="col.object.specimenidentification__taxon__taxon == null ||col.object.specimenidentification__taxon__taxon == ''">{{col.object.specimenidentification__name}}</span>
                                     </div>
-                                    <div class="owl-stage pull-left" style="transform: translate3d(0px, 0px, 0px); transition: 0s; width: 6660px;" data-ng-repeat="row in images.rows">
-                                        <div class="owl-item active" style="width: 222px; margin-right: 0px;" data-ng-repeat="col in row">
-                                            <div data-attr-id="264" class="listing-card  price_50_100 new tag_toprestoran ">
-                                                <a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen_image',id:col.image.id})">
-                                                    <div class="product-image-container">
-                                                        <show-preview img-url="ctrl.service.composeImageUrl(image, col.image.image_url)" class="product-image" alt=""/>
-                                                    </div>
-                                                    <div class="card-details">
-                                                        <h2><a href="http://fossiilid.info/{{col.object.specimenidentification__taxon_id}}" target="_blank">
-                                                            {{col.object.specimenidentification__taxon__taxon}}
-                                                        </a> <span data-ng-if="col.object.specimenidentification__taxon__taxon == null ||
-                                                    col.object.specimenidentification__taxon__taxon == ''">{{col.object.specimenidentification__name}} </span></h2>
-                                                        <div>
-                                                            <a class="card-price" href data-ng-click="ctrl.service.openInNewWindow({object:'specimen',id:col.object.id})">
-                                                                {{col.image.specimen__database__acronym}} {{col.image.specimen__specimen_id}}
-                                                            </a><span></span>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                </a>
+                            </figure>
                         </div>
                     </div>
                 </div>
                 <div data-ng-if="showImages" ng-include="'app/templates/search/partial/pagination.html'"></div>
-              <!--  <div class="table-responsive" data-ng-if="showImages">
-                    <div class="col-md-12 medium-padding">
-                        <b data-ng-init="totalImages = 0">{{ 'SEARCH.FOUND_IMAGES' | translate }} {{totalImages}} </b>
-                    </div>
-                    <div class="row" data-ng-repeat="entity in response.results">
-                    <span data-ng-if="entity.specimen_image_thumbnail.count > 0"
-                          data-ng-repeat="image in entity.specimen_image_thumbnail.results">
-                        <span>
-                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen',id:entity.id})">
-                                {{image.specimen__database__acronym}} {{image.specimen__specimen_id}}
-                            </a>
-                            <a href="http://fossiilid.info/{{entity.specimenidentification__taxon_id}}" target="_blank">
-                                {{entity.specimenidentification__taxon__taxon}}
-                            </a> {{entity.specimenidentification__name}}
-                            <a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen_image',id:image.id})">
-                                <show-preview img-url="ctrl.service.composeImageUrl(image, image.image_url)"/>
-                            </a>
-                        </span>
-                    </span>
-                    </div>
-                </div>-->
-
                 <div data-ng-if="!showImages" non-isolated-include template-path="app/templates/search/specimen/specimen_results.html"/>
 
             </div>

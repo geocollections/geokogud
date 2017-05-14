@@ -17,7 +17,6 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
     $scope.isInstitutionsCollapsed = true;
 
     function onSearchData(result) {
-        console.log(result);
         $scope.pageSize = 30;
         $scope.totalItems = result.data.count;
 
@@ -152,10 +151,10 @@ var constructor = function ($scope, $stateParams, configuration, $http, applicat
         if (list) {
             angular.forEach(list, function (el) {
                 if (el.locality__latitude != null && el.locality__longitude != null && el.locality__locality_en != null && el.locality__locality != null && el.locality_id != null) {
-                    console.log("in if");
+                    //console.log("in if");
                     addToLocalities(el.locality__latitude, el.locality__longitude, el.locality__locality_en, el.locality__locality, el.locality_id);
                 } else if (noneIsNull(el.latitude, el.longitude, el.locality_en, el.locality, el.id)) {
-                    console.log("else if")
+                  //  console.log("else if")
                     addToLocalities(el.latitude, el.longitude, el.locality_en, el.locality, el.id);
                 } else if(noneIsNull(el.latitude, el.longitude, '', '', '')) {
                     addToLocalities(el.latitude, el.longitude, '', '', null);
