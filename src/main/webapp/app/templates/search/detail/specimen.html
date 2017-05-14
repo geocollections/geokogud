@@ -300,7 +300,11 @@
                 </thead>
                 <tbody>
                 <tr style="cursor: pointer; ">
-                    <td  data-ng-repeat="entity in detailCtrl.specimenImage"><a href={{entity.image_url}}><show-preview img-url="entity.image_url"/></a></td>
+                    <td  data-ng-repeat="entity in detailCtrl.specimenImage">
+                        <a href="{{entity.image_url}}" target="_blank">
+                            <show-preview img-url="entity.image_url"/>
+                        </a>
+                    </td>
                 </tr>
                 </tbody>
             </table>
