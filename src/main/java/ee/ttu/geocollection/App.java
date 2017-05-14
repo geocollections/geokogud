@@ -1,7 +1,6 @@
 package ee.ttu.geocollection;
 
 import com.google.common.eventbus.AsyncEventBus;
-import com.google.common.eventbus.EventBus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.Banner;
@@ -25,6 +24,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import javax.net.ssl.*;
 import java.net.Socket;
+import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.Locale;
@@ -82,7 +82,7 @@ public class App extends SpringBootServletInitializer {
         };
 
         SSLContext sslContext = SSLContext.getInstance("SSL");
-        sslContext.init(null, trustAllCerts, new java.security.SecureRandom());
+        sslContext.init(null, trustAllCerts, new SecureRandom());
         HttpsURLConnection.setDefaultSSLSocketFactory(sslContext.getSocketFactory());
     }
 
@@ -96,11 +96,6 @@ public class App extends SpringBootServletInitializer {
         SessionLocaleResolver slr = new SessionLocaleResolver();
         slr.setDefaultLocale(new Locale("et"));
         return slr;
-    }
-
-    @Bean
-    public EventBus eventBus() {
-        return new EventBus();
     }
 
     @Bean

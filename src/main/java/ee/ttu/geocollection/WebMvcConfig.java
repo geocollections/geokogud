@@ -15,9 +15,9 @@ import java.io.IOException;
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Autowired
-    AuditInterceptor auditInterceptor;
+    private AuditInterceptor auditInterceptor;
     @Autowired
-    ResourceProperties resourceProperties = new ResourceProperties();
+    private ResourceProperties resourceProperties = new ResourceProperties();
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
