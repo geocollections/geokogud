@@ -1,6 +1,5 @@
 package ee.ttu.geocollection;
 
-import com.google.common.eventbus.AsyncEventBus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.Banner;
@@ -96,11 +95,6 @@ public class App extends SpringBootServletInitializer {
         SessionLocaleResolver slr = new SessionLocaleResolver();
         slr.setDefaultLocale(new Locale("et"));
         return slr;
-    }
-
-    @Bean
-    public AsyncEventBus asyncEventBus() {
-        return new AsyncEventBus("asyncDefault", asyncThreadPoolExecutor());
     }
 
     @Bean
