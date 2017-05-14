@@ -25,6 +25,8 @@ var constructor = function ($http,$location, configuration, $route, $rootScope) 
             if(searchCriteria != null) {
                 data = searchCriteria;
             }
+        } else {
+            service.composeUrl(data);
         }
         var config = {
             "data": data,
