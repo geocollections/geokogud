@@ -34,7 +34,7 @@
             <td data-title="{{ 'SEARCH.SPECIMENS.STRATIGRAPHY' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'stratigraphy',id:entity.stratigraphy_id})"><first-not-null values="[entity.stratigraphy__stratigraphy, entity.stratigraphy__stratigraphy_en, lithostratigraphy__stratigraphy, lithostratigraphy__stratigraphy_en, stratigraphy_free]"/></a></td>
             <td data-title="{{ 'SEARCH.SPECIMENS.COLLECTOR' | translate }}"><first-not-null values="[entity.agent_collected__agent, [entity.agent_collected__forename, entity.agent_collected__surename]]"/></td>
             <td data-title="{{ 'SEARCH.SPECIMENS.STATUS' | translate }}"><localize data-ng-if="entity.original_status__value != null && entity.original_status__value_en != null" et="entity.original_status__value" en="entity.original_status__value_en"/></td>
-            <td data-title="{{ 'SEARCH.SPECIMENS.IMAGES' | translate }}"><show-preview data-ng-if="entity.specimen_image_thumbnail.count > 0" img-url="entity.specimen_image_thumbnail.results[0].image_url"/></td>
+            <td data-title="{{ 'SEARCH.SPECIMENS.IMAGES' | translate }}"><a href data-ng-click="ctrl.service.openInNewWindow({object:'specimen_image',id:entity.specimen_image_thumbnail.results[0].id})"><show-preview data-ng-if="entity.specimen_image_thumbnail.count > 0" img-url="entity.specimen_image_thumbnail.results[0].image_url"/></a></td>
         </tr>
         </tbody>
     </table>
