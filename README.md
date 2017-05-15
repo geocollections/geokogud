@@ -12,7 +12,7 @@ installed:
 
 * git
 
-* Gradle build tool latest version (do not forget to add gradle in environment variable path). https://gradle.org/releases
+* Gradle build tool 3.5 (do not forget to add gradle in environment variable path). https://gradle.org/releases
 
 * Node.js latest version. https://nodejs.org/en/download/
 
