@@ -201,6 +201,7 @@ public class SpecimenApiServiceImpl implements SpecimenApiService {
         String requestParams = FluentSpecimenImageSearchApiBuilder.aRequest()
                 .querySpecimenIdForUrl(specimenId).andReturn()
                 .returnImageUrl()
+                .returnId()
                 .buildFullQuery();
         return apiService.searchRawEntities(SPECIMEN_IMAGE_TABLE, 2,1, new SortField(), requestParams);
     }
