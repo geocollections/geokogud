@@ -301,7 +301,7 @@
                 <tbody>
                 <tr style="cursor: pointer; ">
                     <td  data-ng-repeat="entity in detailCtrl.specimenImage">
-                        <a href="{{entity.image_url}}" target="_blank">
+                        <a href data-ng-click="detailCtrl.service.openInNewWindow({object:'specimen_image', id:entity.id})">
                             <show-preview img-url="entity.image_url"/>
                         </a>
                     </td>
